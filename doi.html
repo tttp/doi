@@ -1,0 +1,426 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Declaration of interest</title>
+<link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+<script type="text/javascript" src="js/underscore-min.js"></script>
+
+<script src="jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+
+var tpl = _.template("<h2 title='MEP from <%= country %> in <%= party %>'> <%= first_name %> <%= last_name %></h2><img class='lazy-load' dsrc='blank.gif' data-original='<%= image_URL %>' alt='<%= last_name %>, <%= first_name %> member of <%= party %>' title='MEP from <%= country %> in <%= party %>' width=170 height=216 />");
+
+function grid (selector,data) {
+/*
+1. de 500 à 1000 EUR brut par mois;
+2. de 1001 à 5000 EUR brut par mois;
+3. de 5001 à 10 000 EUR brut par mois;
+4. plus de 10 000 EUR brut par mois.
+*/
+  var rangeEUR = [
+    {min:0,max:0},
+    {min:500,max:1000},
+    {min:1001,max:5000},
+    {min:5001,max:10000},
+    {min:10001,max:10000},
+  ]; 
+  var ndx = crossfilter(data),
+      all = ndx.groupAll();
+
+  var pie_group = dc.pieChart(selector +  " .group").innerRadius(20).radius(70);
+  var group = ndx.dimension(function(d) {
+      if (typeof d.eugroup == "undefined") return "";
+      return d.eugroup;
+      });
+  var groupGroup   = group.group().reduceSum(function(d) {   return 1; });
+
+  var pie_gender = dc.pieChart(selector +  " .gender").radius(70);
+  var gender = ndx.dimension(function(d) {
+      if (typeof d.gender == "undefined") return "";
+      return d.gender;
+      });
+
+  var groupGender   = gender.group().reduceSum(function(d) {   return 1; });
+
+  var bar_country = dc.barChart(selector + " .country");
+  var country = ndx.dimension(function(d) {
+      if (typeof d.country == "undefined") return "";
+      return d.country;
+      });
+  var countryGroup   = country.group().reduceSum(function(d) { return 1; });
+
+  var interest = ndx.dimension(function(d) {
+      var fields = ["activity","holding","mandate","occasional","membership"];
+      var sum = 0;
+      _.each (fields, function (f) {
+          var declarations = sumDOI(d,f,true);
+          if (!declarations) return;
+           
+          sum += declarations.qty;
+      });
+      return sum;
+  });
+
+  var interestGroup   = interest.group().reduceSum(function(d) {   return 1; });
+  var pie_interest = dc.pieChart(selector +  " .interest")
+    .innerRadius(20).radius(70)
+    .width(200)
+    .height(200)
+    .dimension(interest)
+    .group(interestGroup);
+
+  pie_gender
+    .width(200)
+    .height(200)
+    .dimension(gender)
+    .group(groupGender);
+
+  pie_group
+    .width(200)
+    .height(200)
+    .dimension(group)
+    .colors(d3.scale.category10())
+    .group(groupGroup)
+    .renderlet(function (chart) {
+        });
+
+  bar_country
+    .width(444)
+    .height(200)
+    .outerPadding(0)
+    .gap(1)
+    .margins({top: 0, right: 0, bottom: 95, left: 30})
+    .x(d3.scale.ordinal())
+    .xUnits(dc.units.ordinal)
+    .brushOn(false)
+    .elasticY(true)
+    .yAxisLabel("#MEPs")
+    .dimension(country)
+    .group(countryGroup);
+
+  bar_country.on("postRender", function(c) {rotateBarChartLabels();} );
+
+
+  function rotateBarChartLabels() {
+    d3.selectAll(selector+ ' .country .axis.x text')
+      .style("text-anchor", "end" )
+      .attr("transform", function(d) { return "rotate(-90, -4, 9) "; });
+  }
+
+
+  dc.dataCount(".dc-data-count")
+    .dimension(ndx)
+    .group(all);
+
+/*
+  dc.dataGrid(".dc-data-grid")
+    .dimension(country)
+    .group(function (d) {
+        return d.country;
+        })
+  .size(1000)
+    .html (function(d) { return tpl(d);})
+    .sortBy(function (d) {
+        return d.last_name;
+        })
+  .order(d3.ascending)
+    .renderlet(function (grid) {
+        $("img.lazy-load").lazyload ({
+effect : "fadeIn"
+})
+        .removeClass("lazy-load");
+        });
+*/
+
+  function sumDOI (mep,field, returnData) {
+    returnData = returnData || false;
+    if (!mep.doi)
+      return "?";
+    if (mep.doi[field].length < 1) return "";
+
+    var min = max= qty = 0;
+    _.each(mep.doi[field], function (d) {
+       var i = d[1];
+       qty +=1;
+       if (d.length == 3) { //F: Holding
+         i = d[2];
+if (i != -1 ) console.log (mep);
+       }
+       if (d.length != 2) {
+         console.log (d);
+         return;
+       }
+       if (isNaN(i)) {
+         console.log (d);
+         return;
+       }
+       if (i < 0) return;
+       if (i > 4) {
+         console.log (d);
+         return;
+       }
+      
+       min += rangeEUR[i].min;
+       max += rangeEUR[i].max;
+    });
+
+    if (returnData) {
+      return {min:min, max:max,qty:qty};
+    }
+    if (max == 0) {
+      return "<span class='q"+mep.doi[field].length+"'>"+ mep.doi[field].length+" unpaid</span>";
+    }
+    return "<span class='q"+mep.doi[field].length+"' title='"+mep.doi[field].length+" different occupations'>"+min+"&#8605;"+max+"€</span>";
+  };
+
+  dc.dataTable(".dc-data-grid")
+   .dimension(country)
+    .group(function (d) {
+        return d.country;
+        })
+    .columns([
+        function(d) {
+            return d.first_name +" "+ d.last_name;
+        },
+        function(d) { return (sumDOI(d,"occupation"));},
+        function(d) { return (sumDOI(d,"activity"));},
+        function(d) { return (sumDOI(d,"holding"));},
+        function(d) { return (sumDOI(d,"mandate"));},
+        function(d) { return (sumDOI(d,"occasional"));},
+        function(d) { return (sumDOI(d,"membership"));},
+        function(d) {
+            return d.eugroup;
+        }
+    ])
+  .size(1000)
+  .order(d3.ascending)
+ ;
+
+    $(".dc-data-grid").on("click",".dc-table-row", function () {
+      $("#mepdialog").modal();
+    });
+
+
+dc.renderAll();
+}
+
+</script>
+
+<h1 class="page-header">Declarations of Interest of the Members of the European parliament</h1>
+<p><b>Click on the graphs to filter the Members of the European parliament by country or party</b></p>
+
+
+<div id="ep2014list">
+<div class="group"></div>
+<div class="country"></div>
+<div class="gender"></div>
+<div class="interest"></div>
+<div class="list"></div>
+<div style="clear:both;">
+<div class="dc-data-count">
+<span class="filter-count"></span> selected out of <span class="total-count"></span> MEPs | <a
+href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+</div>
+</div>
+<table class="table table-hover dc-data-grid">
+<tr class=header">
+<thead>
+<th>Name</th> 
+<th>Previous</th> 
+<th>Side</th> 
+<th>Holding</th> 
+<th>Mandate</th> 
+<th>Occasional</th> 
+<th>Membership</th> 
+<th>Group</th> 
+</tr>
+</thead>
+</table>
+
+</div>
+
+<script>
+    var meps=[];
+    var doi=[];
+$(function() {
+    var renderLoaded  = _.after(2,  function () { 
+      _.each (meps, function (m) {
+        m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
+      });
+      grid ("#ep2014list",meps);
+    });
+    d3.csv("mep.csv", function(d) {return d;}
+      ,function(error, rows) {
+         meps = rows;
+         renderLoaded();
+//      grid ("#ep2014list",rows);
+      });      
+    d3.json("doi.json", function (rows) {
+         doi = rows;
+         renderLoaded();
+//      grid ("#ep2014list",rows);
+    });      
+});      
+
+</script>
+
+<style>
+div.gender {float:none;}
+
+#ep2014list table, .dc-data-grid {clear:both;}
+.dc-table-label {background: #F5F5F5; font-weight:bold; }
+.x line {stroke:none;}
+
+body {font-family: arial, helvetica, sans-serif;}
+
+.dc-data-grid, .dc-grid-group {clear:both}
+
+.dc-grid-group {
+  background-color: #F5F5F5;
+border: 1px solid #E3E3E3;
+        border-radius: 4px;
+
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+        margin-bottom: 20px;
+        min-height: 20px;
+padding: 10px;
+}
+
+.dc-grid-item {
+float:left;
+margin:0 10px 10px 0;
+padding:5px;
+width:200px;
+      background-color: #F8F8F8;
+      border-color: #E7E7E7;
+      border-radius: 4px;
+      text-align:center;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+}
+.dc-grid-item img {width:170px;height:215px}
+.dc-grid-top h1 {font-size:22px;}
+.dc-grid-top h2 {font-size:14px;}
+</style>
+</div>
+
+
+</div>
+</div>
+
+<div class="modal fade" id="mepdialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Ulrike LUNACEK</h4>
+      </div>
+      <div class="modal-body">
+<div class="row">
+
+  <div class="col-md-8">
+     <div class="row">
+       <div class="col-md-4">
+Country
+       </div>
+       <div class="col-md-8">
+Austria
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">
+Committee
+       </div>
+       <div class="col-md-8">
+Committee on Foreign Affairs
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">
+Group
+       </div>
+       <div class="col-md-8">
+Group of the Greens/European Free Alliance 
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">
+Party
+       </div>
+       <div class="col-md-8">
+Die Grünen - Die Grüne Alternative
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">
+<b>Score</b>
+       </div>
+       <div class="col-md-8">
+<b>48</b>
+       </div>
+     </div>
+  </div>
+  <div class="col-md-4">
+    <img src="http://www.europarl.europa.eu/mepphoto/97017.jpg" />
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Occupation or Membership</div>
+  <div class="panel-body">
+    <dl class="dl-horizontal">
+  <dt>1001 - 5000 €</dt>
+  <dd>
+Previous Occupation A
+  </dd>
+</dl>
+    <dl  class="dl-horizontal">
+  <dt>5001 - 10000 €</dt>
+  <dd>
+Previous Occupation B
+  </dd>
+</dl>
+  </div>
+</div>
+Other layout (more compact)
+<table class="table table-condensed">
+<tr><td class="dc-table-label" colspan="2">
+Occupation or Membership</td></tr>
+<tr><td>Occupation A</td><td>1001-5000</td></tr>
+<tr><td>Occupation B</td><td>5001-10000</td></tr>
+<tr><td class="dc-table-label" colspan="2">
+Mandate
+</td></tr>
+<tr><td>Mandate A</td><td>1001-5000</td></tr>
+<tr><td class="dc-table-label" colspan="2">
+Activity
+</td></tr>
+
+</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+</html>
