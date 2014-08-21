@@ -26,7 +26,7 @@
 
 <script>
 
-var tpl = _.template("<h2 title='MEP from <%= country %> in <%= party %>'> <%= first_name %> <%= last_name %></h2><img class='lazy-load' dsrc='blank.gif' data-original='<%= image_URL %>' alt='<%= last_name %>, <%= first_name %> member of <%= party %>' title='MEP from <%= country %> in <%= party %>' width=170 height=216 />");
+var tpl = null;
 
 function grid (selector,data) {
 /*
@@ -198,7 +198,7 @@ if (i != -1 ) console.log (mep);
         })
     .columns([
         function(d) {
-            return d.first_name +" "+ d.last_name;
+            return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" "+ d.last_name +"</span>";
         },
         function(d) { return (sumDOI(d,"occupation"));},
         function(d) { return (sumDOI(d,"activity"));},
@@ -215,6 +215,12 @@ if (i != -1 ) console.log (mep);
  ;
 
     $(".dc-data-grid").on("click",".dc-table-row", function () {
+      var epid = $(this).find(".mep").data("epid");
+      var mep = _.find(meps,function (d) { return d.epid == epid  });
+      $("#mepdialog .modal-title").html (mep.first_name + " " + mep.last_name);
+      $("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+epid+".jpg");
+      $("#mepdialog .details").html(tpl (mep));
+      $("#debug").html(JSON.stringify(mep),undefined,2);
       $("#mepdialog").modal();
     });
 
@@ -261,6 +267,7 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
     var meps=[];
     var doi=[];
 $(function() {
+     tpl =  _.template($("#detailstpl").html());
     var renderLoaded  = _.after(2,  function () { 
       _.each (meps, function (m) {
         m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
@@ -325,14 +332,7 @@ width:200px;
 </div>
 </div>
 
-<div class="modal fade" id="mepdialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Ulrike LUNACEK</h4>
-      </div>
-      <div class="modal-body">
+<script type="tpl" id="detailstpl">
 <div class="row">
 
   <div class="col-md-8">
@@ -341,44 +341,47 @@ width:200px;
 Country
        </div>
        <div class="col-md-8">
-Austria
+<%= country %>
        </div>
      </div>
      <div class="row">
-       <div class="col-md-4">
-Committee
-       </div>
-       <div class="col-md-8">
-Committee on Foreign Affairs
-       </div>
+       <div class="col-md-4">Group</div>
+       <div class="col-md-8"><%= eugroup %> </div>
      </div>
      <div class="row">
-       <div class="col-md-4">
-Group
-       </div>
-       <div class="col-md-8">
-Group of the Greens/European Free Alliance 
-       </div>
+       <div class="col-md-4">Party</div>
+       <div class="col-md-8"><%= party %> </div>
      </div>
      <div class="row">
-       <div class="col-md-4">
-Party
-       </div>
-       <div class="col-md-8">
-Die Grünen - Die Grüne Alternative
-       </div>
+       <div class="col-md-4">Committee</div>
+       <div class="col-md-8"><%= committee %> </div>
      </div>
      <div class="row">
-       <div class="col-md-4">
-<b>Score</b>
-       </div>
-       <div class="col-md-8">
-<b>48</b>
-       </div>
+       <div class="col-md-4">Delegation</div>
+       <div class="col-md-8"><%= delegation %> </div>
      </div>
-  </div>
+</div>
+</script>
+
+<div class="modal fade" id="mepdialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Ulrike LUNACEK</h4>
+      </div>
+      <div class="modal-body">
+     <div class="row">
+       <div class="col-md-8">
+         <div class="details"></div>
+
+         <div class="row">
+           <div class="col-md-4"><b>Score</b></div>
+           <div class="col-md-8"><b>48</b>       </div>
+         </div>
+     </div>
   <div class="col-md-4">
-    <img src="http://www.europarl.europa.eu/mepphoto/97017.jpg" />
+    <img id="mepphoto" src="http://www.europarl.europa.eu/mepphoto/97017.jpg" />
   </div>
 </div>
 
@@ -417,6 +420,7 @@ Activity
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
+<div id="debug"></div>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
