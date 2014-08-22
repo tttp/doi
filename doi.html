@@ -26,9 +26,8 @@
 
 <script>
 
-var tpl = null;
+var detailtpl = sidetpl = null ;
 
-function grid (selector,data) {
 /*
 1. de 500 à 1000 EUR brut par mois;
 2. de 1001 à 5000 EUR brut par mois;
@@ -42,6 +41,7 @@ function grid (selector,data) {
     {min:5001,max:10000},
     {min:10001,max:10000},
   ]; 
+function grid (selector,data) {
   var ndx = crossfilter(data),
       all = ndx.groupAll();
 
@@ -150,6 +150,7 @@ effect : "fadeIn"
         });
 */
 
+
   function sumDOI (mep,field, returnData) {
     returnData = returnData || false;
     if (!mep.doi)
@@ -219,7 +220,8 @@ if (i != -1 ) console.log (mep);
       var mep = _.find(meps,function (d) { return d.epid == epid  });
       $("#mepdialog .modal-title").html (mep.first_name + " " + mep.last_name);
       $("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+epid+".jpg");
-      $("#mepdialog .details").html(tpl (mep));
+      $("#mepdialog .details").html(detailtpl (mep));
+      $("#mepdialog .side").html(sidetpl (mep));
       $("#debug").html(JSON.stringify(mep),undefined,2);
       $("#mepdialog").modal();
     });
@@ -228,6 +230,13 @@ if (i != -1 ) console.log (mep);
 dc.renderAll();
 }
 
+  function getAmount (category, field) { //field = min (default) or max
+    field = field || "min";
+    if (isNaN(category)) return category;
+    if (category < 0) return "unpaid";
+
+    return rangeEUR[category][field];
+  }
 </script>
 
 <h1 class="page-header">Declarations of Interest of the Members of the European parliament</h1>
@@ -267,7 +276,8 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
     var meps=[];
     var doi=[];
 $(function() {
-     tpl =  _.template($("#detailstpl").html());
+     detailtpl =  _.template($("#detailstpl").html());
+     sidetpl =  _.template($("#sidetpl").html());
     var renderLoaded  = _.after(2,  function () { 
       _.each (meps, function (m) {
         m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
@@ -332,6 +342,40 @@ width:200px;
 </div>
 </div>
 
+<script type="tpl" id="sidetpl">
+<table class="table table-condensed">
+<tr><td class="dc-table-label" colspan="3">Previous occupation</td></tr>
+<% _.each(doi.occupation, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="3">Activity</td></tr>
+<% _.each(doi.activity, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="3">Occupation or Membership</td></tr>
+<% _.each(doi.membership, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="3">Mandate</td></tr>
+<% _.each(doi.mandate, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+<% }); %>
+<tr><td class="dc-table-label" colspan="3">Additional</td></tr>
+<% _.each(doi.additional, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="3">holding</td></tr>
+<% _.each(doi.holding, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+<% }); %>
+
+</table>
+</script>
+
 <script type="tpl" id="detailstpl">
 <div class="row">
 
@@ -371,52 +415,18 @@ Country
         <h4 class="modal-title">Ulrike LUNACEK</h4>
       </div>
       <div class="modal-body">
-     <div class="row">
-       <div class="col-md-8">
-         <div class="details"></div>
+     
+      <div class="row">
+       <div class="col-md-8 details" ></div>
+       <div class="col-md-4">
+         <img id="mepphoto" src="http://www.europarl.europa.eu/mepphoto/97017.jpg" />
+       </div>
 
-         <div class="row">
-           <div class="col-md-4"><b>Score</b></div>
-           <div class="col-md-8"><b>48</b>       </div>
-         </div>
      </div>
-  <div class="col-md-4">
-    <img id="mepphoto" src="http://www.europarl.europa.eu/mepphoto/97017.jpg" />
-  </div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">Occupation or Membership</div>
-  <div class="panel-body">
-    <dl class="dl-horizontal">
-  <dt>1001 - 5000 €</dt>
-  <dd>
-Previous Occupation A
-  </dd>
-</dl>
-    <dl  class="dl-horizontal">
-  <dt>5001 - 10000 €</dt>
-  <dd>
-Previous Occupation B
-  </dd>
-</dl>
-  </div>
+<div class="side">
 </div>
-Other layout (more compact)
-<table class="table table-condensed">
-<tr><td class="dc-table-label" colspan="2">
-Occupation or Membership</td></tr>
-<tr><td>Occupation A</td><td>1001-5000</td></tr>
-<tr><td>Occupation B</td><td>5001-10000</td></tr>
-<tr><td class="dc-table-label" colspan="2">
-Mandate
-</td></tr>
-<tr><td>Mandate A</td><td>1001-5000</td></tr>
-<tr><td class="dc-table-label" colspan="2">
-Activity
-</td></tr>
-
-</table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
