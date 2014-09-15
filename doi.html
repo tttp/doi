@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Declaration of interest</title>
 <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,6 +29,8 @@
 
 var detailtpl = sidetpl = null ;
 
+var wall = null;
+
 /*
 1. de 500   1000 EUR brut par mois;
 2. de 1001   5000 EUR brut par mois;
@@ -41,6 +44,20 @@ var detailtpl = sidetpl = null ;
     {min:5001,max:10000},
     {min:10001,max:Number.POSITIVE_INFINITY},
   ]; 
+
+var eu_groups = {
+"GUE/NGL":"#df73be",
+"S&D":"#ec2335",
+"Verts/ALE":"#67bd1b",
+"ALDE":"#f1cb01",
+"EFD":"#60c0e2",
+"PPE":"blue",
+"EPP":"blue",
+"ECR":"darkblue",
+"NA/NI":"grey",
+"Array":"pink"
+};
+
 
   function sumDOI (mep,field, returnData) {
     function convert (i) {
@@ -198,12 +215,27 @@ function grid (selector,data) {
   });
 
   var interestGroup   = interest.group().reduceSum(function(d) {   return 1; });
+/*
   var pie_interest = dc.pieChart(selector +  " .interest")
     .innerRadius(20).radius(70)
     .width(200)
     .height(200)
     .dimension(interest)
     .group(interestGroup);
+*/
+  var chart_interest = dc.barChart(selector +  " .interest")
+    .width(300)
+    .height(200)
+    .gap(1)
+    .margins({top: 0, right: 0, bottom: 95, left: 30})
+    .x(d3.scale.ordinal())
+    .xUnits(dc.units.ordinal)
+    .brushOn(false)
+    .elasticY(true)
+    .yAxisLabel("#MEPs")
+    .dimension(interest)
+    .group(interestGroup);
+  
 
   pie_gender
     .width(200)
@@ -215,7 +247,10 @@ function grid (selector,data) {
     .width(200)
     .height(200)
     .dimension(group)
-    .colors(d3.scale.category10())
+    .colorCalculator(function(d, i) {
+      return eu_groups[d.key];
+      //return color(d.value.score/d.value.count);
+    })
     .group(groupGroup)
     .renderlet(function (chart) {
         });
@@ -276,9 +311,13 @@ effect : "fadeIn"
         });
 */
 
+  var name = ndx.dimension(function(d) {
+      return d.first_name.toLowerCase() + " "+ d.last_name.toLowerCase() + " " + d.party.toLowerCase() +" " + d.committee.toLowerCase();
+      });
 
-  dc.dataTable(".dc-data-grid")
-   .dimension(country)
+
+  wall=dc.dataTable(".dc-data-grid")
+   .dimension(name)
     .group(function (d) {
         return d.country;
         })
@@ -294,7 +333,16 @@ effect : "fadeIn"
     ])
   .size(1000)
   .order(d3.ascending)
- ;
+  .renderlet(function (chart) {
+    $("td._2 span").each (function(i) { 
+      $(this).closest ("tr").css("backgroundColor", 
+        $(this).css('backgroundColor')
+      );
+    });
+  });
+
+  drawScore();
+  drawAge();
 
     $(".dc-data-grid").on("click",".dc-table-row", function () {
       var epid = $(this).find(".mep").data("epid");
@@ -309,26 +357,135 @@ effect : "fadeIn"
 
 
 dc.renderAll();
+
+function drawAge() {
+  //var chart_age = dc.barChart(selector + " .age");
+  var chart_age = dc.lineChart(selector + " .age");
+
+ var age = ndx.dimension(function(d) {
+      if (typeof d.age == "undefined") return "";
+      return d.age;
+      });
+
+
+var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
+
+  chart_age
+    .width(444)
+    .height(200)
+    .margins({top: 0, right: 0, bottom: 95, left: 30})
+    .x(d3.scale.linear().domain([20,100]))
+    .brushOn(true)
+    .renderArea(true)
+    .elasticY(true)
+    .yAxisLabel("Number of MEPs")
+    .dimension(age)
+    .group(ageGroup);
+}
+
+function drawScore() {
+ var score = ndx.dimension (function(d) {
+      return d.score;
+      });
+  var scoreGroup = score.group().reduceSum (function(d) { return 1;});
+  var bar_score = dc.barChart (".bar_score")
+    .width(245)
+    .height(130)
+    .outerPadding(5)
+    .gap(0)
+    .margins({top: 10, right: 10, bottom: 20, left: 30})
+    .x(d3.scale.linear().domain([0, 101]))
+    .elasticY(true)
+    .yAxisLabel("Number of MEPs")
+    .round(dc.round.floor)
+    .colorCalculator(function(d, i) {
+        return color(d.key);
+        })
+    .dimension(score)
+    .group(scoreGroup)
+    .renderlet(function (chart) {
+      if (!console || !console.log) return;
+      var d = chart.dimension().top(Number.POSITIVE_INFINITY);
+      var total = nb = 0;
+      d.forEach (function (a) {
+        if (isNaN(a.score)) return;
+        ++nb;
+        total += a.score;
+      });
+      if (nb) {
+        var avg= total/nb;
+        $(".bar_score div#avg_score").text(Math.round(avg));
+      } else {
+        $(".bar_score div#avg_score").text("");
+      }
+    //why doesn't it work? if (chart.dimension().size() !== chart.group().value()) {
+      if (ndx.size() !== nb) {
+        $(".resetall").attr("disabled",false);
+//        ga && ga('send', 'event', 'filter', 'subset', nb);
+      } else {
+        $(".resetall").attr("disabled",true);
+//        ga && ga('send', 'event', 'filter', 'reset');
+      }
+    });
+
+  bar_score.yAxis().ticks(4).tickFormat(d3.format(",.0f"));
+}
+
+
 }
 
   function getAmount (category, field) { //field = min (default) or max
     field = field || "min";
     if (isNaN(category)) return category;
     if (category < 0) return "unpaid";
-
     return rangeEUR[category][field];
   }
 </script>
 
-<h1 class="page-header">Declarations of Interest of the Members of the European parliament</h1>
-<p><b>Click on the graphs to filter the Members of the European parliament by country or party</b></p>
 
+    <div astyle="background-image: url('ep.jpg'); background-size: cover;">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                      <div>
+<h1 class="page-header">Declarations of Interest<small> of the Members of the European parliament</small></h1>
+                      </div>
 
-<div id="ep2014list">
+                        <div class="input-group">
+                            <input type="text" id="search-input" class="form-control input-lg" placeholder="Search">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                        </div>
+                        <span class="help-block" style="color: #E1E1E1;">Filter MEPs by name and party. Click on the bar chart for countr ies.
+                            <button style="float: right; color: black;" class="btn resetall" data-icon="delete">Reset All</button>
+                        </span>
+                        <br />
+                    </div>
+
+                    <div class="col-md-4 frontpage_score">
+                        <div class="dc-data-count">
+                          <div class="bar_score center-block">
+                            <div class="graph_titles text-center"><h2>Scores of <span class="filter-count"></span> MEPs</h2></div>
+                            <div class="text-center" id="avg_score"></div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+                                                                                                                                                      233,14        42%
+
+<div id="ep2014list" class="container">
+
+<div class="row">
+
 <div class="group"></div>
 <div class="country"></div>
 <div class="gender"></div>
 <div class="interest"></div>
+<div class="age"></div>
 <div class="list"></div>
 <div style="clear:both;">
 <div class="dc-data-count">
@@ -336,6 +493,9 @@ dc.renderAll();
 href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 </div>
 </div>
+</div>
+</div>
+
 <table class="table table-hover dc-data-grid">
 <tr class=header">
 <thead>
@@ -347,7 +507,6 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 </thead>
 </table>
 
-</div>
 
 <script>
     var meps=[];
@@ -356,9 +515,17 @@ $(function() {
      detailtpl =  _.template($("#detailstpl").html());
      sidetpl =  _.template($("#sidetpl").html());
     var renderLoaded  = _.after(2,  function () { 
+      var dateFormat = d3.time.format("%d/%m/%Y");
+      var now = Date.now();
+ 
       _.each (meps, function (m) {
         m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
         m.score = getRiskScore (m);
+        if (m.birthdate) {
+          m.birthdate = dateFormat.parse(m.birthdate);
+          m.age= ~~((now - m.birthdate) / (31557600000));// 24 * 3600 * 365.25 * 1000
+        }
+ 
       });
       grid ("#ep2014list",meps);
     });
@@ -372,7 +539,26 @@ $(function() {
          doi = rows;
          renderLoaded();
 //      grid ("#ep2014list",rows);
-    });      
+    });     
+
+  $("#search-input").keyup (function () {
+    var s = $(this ).val().toLowerCase();
+    wall.dimension().filter(function (d) { 
+      return d.indexOf (s) !== -1;} );
+    $(".resetall").attr("disabled",true);
+    dc.redrawAll();
+    console.log ($(this ).val());
+  });
+
+  $(".resetall").click(function() {
+
+    $("#search-input").val("");
+    $(".resetall").attr("disabled",false);
+    dc.filterAll();
+    dc.renderAll();
+  });
+
+ 
 });      
 
 </script>
@@ -485,6 +671,10 @@ width:200px;
      <div class="row">
        <div class="col-md-4">Delegation</div>
        <div class="col-md-8"><%= delegation %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Website</div>
+       <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= epid %>.html">europarl</a></div>
      </div>
 </script>
 
