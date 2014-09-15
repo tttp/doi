@@ -169,8 +169,8 @@ function grid (selector,data) {
 
   var color = d3.scale.linear()
         .clamp(true)
-        .domain([0, 100])
-        .range(["lightgreen","red"])
+        .domain([0,1, 100])
+        .range(["lightgreen", "#47dfed", "#0b0bc9"])
         .interpolate(d3.interpolateHcl);
 
 
@@ -312,7 +312,7 @@ effect : "fadeIn"
 */
 
   var name = ndx.dimension(function(d) {
-      return d.first_name.toLowerCase() + " "+ d.last_name.toLowerCase() + " " + d.party.toLowerCase() +" " + d.committee.toLowerCase();
+      return d.first_name.toLowerCase() + " "+ d.last_name.toLowerCase() + " " + d.party.toLowerCase() +" " + d.committee.toLowerCase() + d.substitute.toLowerCase();
       });
 
 
@@ -449,7 +449,7 @@ function drawScore() {
                 <div class="row">
                     <div class="form-group col-md-8">
                       <div>
-<h1 class="page-header">Declarations of Interest<small> of the Members of the European parliament</small></h1>
+<h1 class="page-header">EU Integrity Watch</h1>
                       </div>
 
                         <div class="input-group">
@@ -667,6 +667,10 @@ width:200px;
      <div class="row">
        <div class="col-md-4">Committee</div>
        <div class="col-md-8"><%= committee %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Substitute</div>
+       <div class="col-md-8"><%= substitute %> </div>
      </div>
      <div class="row">
        <div class="col-md-4">Delegation</div>
