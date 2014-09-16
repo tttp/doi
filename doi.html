@@ -126,40 +126,49 @@ var eu_groups = {
     return "<span class='q"+mep.doi[field].length+"' title='"+mep.doi[field].length+" different occupations'>"+min+" &#8605; "+max+" &euro;</span>";
   };
 
-function getRiskScore (d) {
-  var score=0;
+function setRiskScore (d) {
+  function setMinMax(d, t) {
+    d.min += t.min;
+    d.max += t.max;
+    d.qty += t.qty;
+  }
+  var score= d.min= d.max = d.qty = 0;
   var openscale =false;
 //      var fields = ["activity","holding","mandate","occasional","membership"];
   var t =  sumDOI(d,"activity",true);
   if (t.qty) {
     score += 10 + t.qty + t.min/500;
     openscale = openscale || t.openscale;
+    setMinMax (d,t);
   }
   t =  sumDOI(d,"occasional",true);
   if (t.qty) {
     score += 5 + t.qty + t.min/500;
     openscale = openscale || t.openscale;
+    setMinMax (d,t);
   }
 
   t =  sumDOI(d,"membership",true);
   if (t.qty) {
     score += 5 + t.qty + t.min/500;
     openscale = openscale || t.openscale;
+    setMinMax (d,t);
   }
   t =  sumDOI(d,"mandate",true);
   if (t.qty) {
     score += 5 + t.qty + t.min/500;//mandates don't have money (currency convertion problem)
     openscale = openscale || t.openscale;
+    setMinMax (d,t);
   }
   t =  sumDOI(d,"holding",true);
   if (t.qty) {
     score += 5;
+    setMinMax (d,t);
   }
   if (openscale) {
      score += 10;
   }
-
-  return score;
+  d.score = score;
 }
  
 function grid (selector,data) {
@@ -326,6 +335,15 @@ effect : "fadeIn"
             return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" "+ d.last_name +"</span>";
         },
         function(d) { return (sumDOI(d,"occupation"));},
+        function(d) {
+          if (d.qty == 0) {
+            return "";
+          }
+          if (d.max == 0) {
+            return "<span class='q"+d.qty+"'>"+ d.qty+" unpaid</span>";
+          }
+          return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &#8605; "+d.max+" &euro;</span>";
+        },
         function(d) { return ("<span style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
         function(d) {
             return d.eugroup;
@@ -501,6 +519,7 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 <thead>
 <th>Name</th> 
 <th>Previous</th> 
+<th>Side earnings</th> 
 <th>Score</th> 
 <th>Group</th> 
 </tr>
@@ -520,7 +539,7 @@ $(function() {
  
       _.each (meps, function (m) {
         m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
-        m.score = getRiskScore (m);
+        setRiskScore (m);
         if (m.birthdate) {
           m.birthdate = dateFormat.parse(m.birthdate);
           m.age= ~~((now - m.birthdate) / (31557600000));// 24 * 3600 * 365.25 * 1000
