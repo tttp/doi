@@ -179,7 +179,7 @@ function grid (selector,data) {
   var color = d3.scale.linear()
         .clamp(true)
         .domain([0,1, 100])
-        .range(["lightgreen", "#47dfed", "#0b0bc9"])
+        .range(["white", "#eee", "#333"])
         .interpolate(d3.interpolateHcl);
 
 
@@ -352,7 +352,7 @@ effect : "fadeIn"
   .size(1000)
   .order(d3.ascending)
   .renderlet(function (chart) {
-    $("td._2 span").each (function(i) { 
+    $("td._3 span").each (function(i) { 
       $(this).closest ("tr").css("backgroundColor", 
         $(this).css('backgroundColor')
       );
