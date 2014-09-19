@@ -303,9 +303,6 @@ function grid (selector,data) {
 /*
   dc.dataGrid(".dc-data-grid")
     .dimension(country)
-    .group(function (d) {
-        return d.country;
-        })
   .size(1000)
     .html (function(d) { return tpl(d);})
     .sortBy(function (d) {
@@ -327,13 +324,10 @@ effect : "fadeIn"
 
   wall=dc.dataTable(".dc-data-grid")
    .dimension(name)
-    .group(function (d) {
-        return d.country;
-        })
+    .group(function (d) { return "";return d.country; })
     .columns([
-        function(d) {
-            return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" "+ d.last_name +"</span>";
-        },
+        function(d) { return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" "+ d.last_name +"</span>"; },
+        function(d) {  return d.country; },
         function(d) { return (sumDOI(d,"occupation"));},
         function(d) {
           if (d.qty == 0) {
@@ -344,7 +338,7 @@ effect : "fadeIn"
           }
           return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &#8605; "+d.max+" &euro;</span>";
         },
-        function(d) { return ("<span style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
+        function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
         function(d) {
             return d.eugroup;
         }
@@ -352,7 +346,7 @@ effect : "fadeIn"
   .size(1000)
   .order(d3.ascending)
   .renderlet(function (chart) {
-    $("td._3 span").each (function(i) { 
+    $("td span.score").each (function(i) { 
       $(this).closest ("tr").css("backgroundColor", 
         $(this).css('backgroundColor')
       );
@@ -493,7 +487,6 @@ function drawScore() {
                 </div>
             </div>
         </div>
-                                                                                                                                                      233,14        42%
 
 <div id="ep2014list" class="container">
 
@@ -512,12 +505,14 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 </div>
 </div>
 </div>
-</div>
 
+<div class="row">
+<div class="col-md-12 table-responsive">
 <table class="table table-hover dc-data-grid">
 <tr class=header">
 <thead>
 <th>Name</th> 
+<th>Country</th> 
 <th>Previous</th> 
 <th>Side earnings</th> 
 <th>Score</th> 
@@ -525,7 +520,10 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 </tr>
 </thead>
 </table>
+</div>
+</div>
 
+</div>
 
 <script>
     var meps=[];
@@ -660,6 +658,11 @@ width:200px;
 <div class="row">
 <div class="col-md-12">
 <%= doi.additional %>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<%= doi.support%>
 </div>
 </div>
 </script>
