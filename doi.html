@@ -14,8 +14,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
-<body>
+<style>
+.dc-chart h2 {text-align:center;font-size:14px;}
+
+</style>
 
 <script type="text/javascript" src="js/d3.js"></script>
 <script type="text/javascript" src="js/crossfilter.js"></script>
@@ -24,6 +26,9 @@
 
 <script src="jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
 
 <script>
 
@@ -61,12 +66,12 @@ var eu_groups = {
 
   function sumDOI (mep,field, returnData) {
     function convert (i) {
+      if (i.slice(-3)  == "EUR") return i.substr(0,i.length - 4) * 1;
       if (i.slice(-3)  == "GBP") return i.substr(0,i.length - 4) * 1.25;
       if (i.slice(-3)  == "SEK") return i.substr(0,i.length - 4) * 0.11;
       if (i.slice(-3)  == "HRK") return i.substr(0,i.length - 4) * 0.13;
       if (i.slice(-3)  == "CZK") return i.substr(0,i.length - 4) * 0.035;
 
-      console.log (i);
       return 0;
     }
 
@@ -107,7 +112,7 @@ var eu_groups = {
        }
      if (isNaN(i)) {
        if (i.slice(-3)  == "EUR") {
-         min = max = i.substr(0,i.length - 4);
+         min = max = i.substr(0,i.length - 4) * 1;
        } else {
          min = max = convert (i);
        } 
@@ -121,7 +126,10 @@ var eu_groups = {
       return {min:min, max:max,qty:qty, openscale:openscale};
     }
     if (max == 0) {
-      return "<span class='q"+mep.doi[field].length+"'>"+ mep.doi[field].length+" unpaid</span>";
+      return "<span class='q"+mep.doi[field].length+"'>"+ mep.doi[field].length+" <500&euro;</span>";
+    }
+    if (max == Number.POSITIVE_INFINITY) {
+      return "<span class='q"+mep.doi[field].length+"' title='"+mep.doi[field].length+" different occupations'>"+min+" &euro; or more</span>";
     }
     return "<span class='q"+mep.doi[field].length+"' title='"+mep.doi[field].length+" different occupations'>"+min+" &#8605; "+max+" &euro;</span>";
   };
@@ -156,7 +164,7 @@ function setRiskScore (d) {
   }
   t =  sumDOI(d,"mandate",true);
   if (t.qty) {
-    score += 5 + t.qty + t.min/500;//mandates don't have money (currency convertion problem)
+    score += 5 + t.qty + t.min/500;
     openscale = openscale || t.openscale;
     setMinMax (d,t);
   }
@@ -300,6 +308,10 @@ function grid (selector,data) {
     .dimension(ndx)
     .group(all);
 
+  dc.dataCount(".dc-data-count2")
+    .dimension(ndx)
+    .group(all);
+
 /*
   dc.dataGrid(".dc-data-grid")
     .dimension(country)
@@ -318,7 +330,7 @@ effect : "fadeIn"
 */
 
   var name = ndx.dimension(function(d) {
-      return d.first_name.toLowerCase() + " "+ d.last_name.toLowerCase() + " " + d.party.toLowerCase() +" " + d.committee.toLowerCase() + d.substitute.toLowerCase();
+      return d.last_name.toLowerCase() + " "+ d.first_name.toLowerCase() + " " + d.party.toLowerCase() +" " + d.committee.toLowerCase() + d.substitute.toLowerCase();
       });
 
 
@@ -334,9 +346,10 @@ effect : "fadeIn"
             return "";
           }
           if (d.max == 0) {
-            return "<span class='q"+d.qty+"'>"+ d.qty+" unpaid</span>";
+            return "<span class='q"+d.qty+"'>"+ d.qty+" <500&euro; </span>";
           }
-          return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &#8605; "+d.max+" &euro;</span>";
+          if (d.max == Number.POSITIVE_INFINITY)
+            return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
         },
         function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
         function(d) {
@@ -344,7 +357,7 @@ effect : "fadeIn"
         }
     ])
   .size(1000)
-  .order(d3.ascending)
+  .sortBy(function (d) {return d.last_name})
   .renderlet(function (chart) {
     $("td span.score").each (function(i) { 
       $(this).closest ("tr").css("backgroundColor", 
@@ -363,7 +376,7 @@ effect : "fadeIn"
       $("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+epid+".jpg");
       $("#mepdialog .details").html(detailtpl (mep));
       $("#mepdialog .side").html(sidetpl (mep));
-      $("#debug").html(JSON.stringify(mep),undefined,2);
+//      $("#debug").html(JSON.stringify(mep),undefined,2);
       $("#mepdialog").modal();
     });
 
@@ -448,8 +461,10 @@ function drawScore() {
 
   function getAmount (category, field) { //field = min (default) or max
     field = field || "min";
+    if (!category) return "?";
     if (isNaN(category)) return category;
-    if (category < 0) return "unpaid";
+    if (category < 0) return "<500&euro;";
+console.log (category+"::"+field);
     return rangeEUR[category][field];
   }
 </script>
@@ -468,7 +483,7 @@ function drawScore() {
                             <input type="text" id="search-input" class="form-control input-lg" placeholder="Search">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
                         </div>
-                        <span class="help-block" style="color: #E1E1E1;">Filter MEPs by name and party. Click on the bar chart for countr ies.
+                        <span class="help-block">Search for MEPs, national parties, EP committees (AFET)...
                             <button style="float: right; color: black;" class="btn resetall" data-icon="delete">Reset All</button>
                         </span>
                         <br />
@@ -492,18 +507,20 @@ function drawScore() {
 
 <div class="row">
 
-<div class="group"></div>
-<div class="country"></div>
-<div class="gender"></div>
-<div class="interest"></div>
-<div class="age"></div>
+<div class="group"><h2>EU groups</h2></div>
+<div class="country"><h2>Country</h2></div>
+<div class="gender"><h2>Gender</h2></div>
+<div class="interest"><h2>Extra activities<h2></div>
+<div class="age"><h2>Age</h2></div>
 <div class="list"></div>
-<div style="clear:both;">
-<div class="dc-data-count">
-<span class="filter-count"></span> selected out of <span class="total-count"></span> MEPs | <a
+<div style="clear:both">
+  <div class="dc-data-count2">
+  <span class="filter-count"></span> selected out of <span class="total-count"></span> MEPs | <a
 href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+  </div>
+<p>Click on graphs to apply filters. Click on MEPs to display individual profiles.</p>
 </div>
-</div>
+
 </div>
 
 <div class="row">
@@ -515,7 +532,7 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 <th>Country</th> 
 <th>Previous</th> 
 <th>Side earnings</th> 
-<th>Score</th> 
+<th title="External Activity Indicator">EAI</th> 
 <th>Group</th> 
 </tr>
 </thead>
@@ -523,6 +540,7 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 </div>
 </div>
 
+Last updated: 24 September 2014
 </div>
 
 <script>
@@ -564,11 +582,9 @@ $(function() {
       return d.indexOf (s) !== -1;} );
     $(".resetall").attr("disabled",true);
     dc.redrawAll();
-    console.log ($(this ).val());
   });
 
   $(".resetall").click(function() {
-
     $("#search-input").val("");
     $(".resetall").attr("disabled",false);
     dc.filterAll();
@@ -582,6 +598,7 @@ $(function() {
 
 <style>
 div.gender {float:none;}
+.dc-data-count2.dc-chart {float:right;}
 
 #ep2014list table, .dc-data-grid {clear:both;}
 .dc-table-label {background: #F5F5F5; font-weight:bold; }
@@ -630,30 +647,31 @@ width:200px;
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">Activity</td></tr>
-<% _.each(doi.activity, function (a) { %>
-  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
-<% }); %>
-
-<tr><td class="dc-table-label" colspan="3">Occupation or Membership</td></tr>
-<% _.each(doi.membership, function (a) { %>
-  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
-<% }); %>
-
-<tr><td class="dc-table-label" colspan="3">Mandate</td></tr>
+<tr><td class="dc-table-label" colspan="3">Other mandates</td></tr>
 <% _.each(doi.mandate, function (a) { %>
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">holding</td></tr>
+<tr><td class="dc-table-label" colspan="3">Regular outside activity</td></tr>
+<% _.each(doi.activity, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="3">Committee & Board memberships</td></tr>
+<% _.each(doi.membership, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="3">Occasional outside activity</td></tr>
+<% _.each(doi.occasional, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="3">Holdings</td></tr>
 <% _.each(doi.holding, function (a) { %>
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">Occasional occupation</td></tr>
-<% _.each(doi.occasional, function (a) { %>
-  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
-<% }); %>
 </table>
 <div class="row">
 <div class="col-md-12">
@@ -699,8 +717,8 @@ width:200px;
        <div class="col-md-8"><%= delegation %> </div>
      </div>
      <div class="row">
-       <div class="col-md-4">Website</div>
-       <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= epid %>.html">europarl</a></div>
+       <div class="col-md-4">Full profile</div>
+       <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= epid %>.html">European Parliament Website</a></div>
      </div>
 </script>
 
