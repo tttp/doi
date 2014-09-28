@@ -1,4 +1,5 @@
 .bar_score svg {position:relative;}
+
 .bar_score div#avg_score {
   font-size: 130;
 color: #111;
@@ -9,7 +10,7 @@ margin-top: -30px;
 text-align: center;
 margin-left: auto;
 margin-right: auto;
-min-height:185px;
+amin-height:185px;
 }
 
 
