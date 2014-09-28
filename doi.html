@@ -55,9 +55,9 @@ var wall = null;
 var eu_groups = {
 "GUE/NGL":"#df73be",
 "S&D":"#ec2335",
-"Verts/ALE":"#67bd1b",
+"Green/ALE":"#67bd1b",
 "ALDE":"#f1cb01",
-"EFD":"#60c0e2",
+"EFDD":"#60c0e2",
 "PPE":"blue",
 "EPP":"blue",
 "ECR":"darkblue",
@@ -596,6 +596,13 @@ $(function() {
       var now = Date.now();
  
       _.each (meps, function (m) {
+        if (m.eugroup == "PPE") { 
+          m.eugroup = "EPP";
+        } else if (m.eugroup == "Verts/ALE") { 
+          m.eugroup = "Green/ALE";
+        } else if (m.eugroup == "EFD") { 
+          m.eugroup = "EFDD";
+        }
         m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
         setRiskScore (m);
         if (m.birthdate) {
@@ -687,32 +694,32 @@ width:200px;
 </div> <!-- container -->
 <script type="tpl" id="sidetpl">
 <table class="table table-condensed">
-<tr><td class="dc-table-label" colspan="3">Previous occupation</td></tr>
+<tr><td class="dc-table-label" colspan="3">A. Previous occupation</td></tr>
 <% _.each(doi.occupation, function (a) { %>
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">Other mandates</td></tr>
+<tr><td class="dc-table-label" colspan="3">B. Other mandates</td></tr>
 <% _.each(doi.mandate, function (a) { %>
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">Regular outside activity</td></tr>
+<tr><td class="dc-table-label" colspan="3">C. Regular outside activity</td></tr>
 <% _.each(doi.activity, function (a) { %>
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">Committee & Board memberships</td></tr>
+<tr><td class="dc-table-label" colspan="3">D. Committee & Board memberships</td></tr>
 <% _.each(doi.membership, function (a) { %>
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">Occasional outside activity</td></tr>
+<tr><td class="dc-table-label" colspan="3">E. Occasional outside activity</td></tr>
 <% _.each(doi.occasional, function (a) { %>
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">Holdings</td></tr>
+<tr><td class="dc-table-label" colspan="3">F. Holdings</td></tr>
 <% _.each(doi.holding, function (a) { %>
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
