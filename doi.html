@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/dc.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/material.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -272,6 +273,18 @@ function grid (selector,data) {
     .renderlet(function (chart) {
         });
 
+  function adjustBarChartLabels(chart) {
+    chart.svg().selectAll('.axis.x text')
+      .on("click",function(d) {
+        chart.filter(d);
+        map.filter(d);
+        dc.redrawAll();}
+      )
+      .style("text-anchor", "end" )
+      .attr("transform", function(d) { return "rotate(-90, -4, 9) "; });
+  }
+
+
   bar_country
     .width(444)
     .height(200)
@@ -285,7 +298,9 @@ function grid (selector,data) {
       function(d) {
       return d.value.count;
       })
- 
+    .on("postRender", function( chart ){
+        adjustBarChartLabels(chart);
+     }) 
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
     .brushOn(false)
@@ -294,7 +309,7 @@ function grid (selector,data) {
     .dimension(country)
     .group(countryGroup);
 
-  bar_country.on("postRender", function(c) {rotateBarChartLabels();} );
+//  bar_country.on("postRender", function(c) {rotateBarChartLabels();} );
 
 
   function rotateBarChartLabels() {
@@ -469,15 +484,38 @@ console.log (category+"::"+field);
   }
 </script>
 
-
+<div class="container">
+  <div class="bs-component">
+                            <div class="navbar navbar-warning">
+                                <div class="navbar-header">
+                                    <button data-target=".navbar-warning-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a href="javascript:void(0)" class="navbar-brand withripple">EU Integrity watch<div class="ripple-wrapper"></div></a>
+                                </div>
+                                <div class="navbar-collapse collapse navbar-warning-collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li class="active"><a href="javascript:void(0)">Score</a></li>
+                                        <li><a href="/about.html">About</a></li>
+                                        <li><a href="/contact.html">Contact</a></li>
+                                        <li><a href="/media.html">Media</a></li>
+                                        <li><a href="/methodology.html">Methodolody</a></li>
+                                    </ul>
+                                    <form class="navbar-form navbar-right">
+                                        <div class="form-control-wrapper"><input type="text" placeholder="Search" class="form-control col-lg-8 empty"><span class="material-input"></span>
+</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
     <div astyle="background-image: url('ep.jpg'); background-size: cover;">
-        <div class="container">
-            <div class="jumbotron">
-                <div class="row">
-                    <div class="form-group col-md-8">
-                      <div>
-<h1 class="page-header">EU Integrity Watch</h1>
-                      </div>
+        <div class="acontainer">
+          <div class="row">
+            <div class="bs-component">
+              <div class="form-group col-md-8">
+                <div class="well info-box">
 
                         <div class="input-group">
                             <input type="text" id="search-input" class="form-control input-lg" placeholder="Search">
@@ -487,6 +525,7 @@ console.log (category+"::"+field);
                             <button style="float: right; color: black;" class="btn resetall" data-icon="delete">Reset All</button>
                         </span>
                         <br />
+                    </div>
                     </div>
 
                     <div class="col-md-4 frontpage_score">
@@ -503,15 +542,17 @@ console.log (category+"::"+field);
             </div>
         </div>
 
-<div id="ep2014list" class="container">
+<div id="ep2014list" class="acontainer">
 
 <div class="row">
 
-<div class="group"><h2>EU groups</h2></div>
-<div class="country"><h2>Country</h2></div>
-<div class="gender"><h2>Gender</h2></div>
-<div class="interest"><h2>Extra activities<h2></div>
-<div class="age"><h2>Age</h2></div>
+<div class="group col-md-3"><h2>EU groups</h2></div>
+<div class="country col-md-6"><h2>Country</h2></div>
+<div class="gender col-md-3"><h2>Gender</h2></div>
+</div>
+<div class="row">
+<div class="interest col-md-4"><h2>Extra activities<h2></div>
+<div class="age col-md-6"><h2>Age</h2></div>
 <div class="list"></div>
 <div style="clear:both">
   <div class="dc-data-count2">
@@ -597,7 +638,9 @@ $(function() {
 </script>
 
 <style>
-div.gender {float:none;}
+a.row div.dc-chart {float:none;}
+
+adiv.gender {float:none;}
 .dc-data-count2.dc-chart {float:right;}
 
 #ep2014list table, .dc-data-grid {clear:both;}
@@ -640,6 +683,7 @@ width:200px;
 </div>
 </div>
 
+</div> <!-- container -->
 <script type="tpl" id="sidetpl">
 <table class="table table-condensed">
 <tr><td class="dc-table-label" colspan="3">Previous occupation</td></tr>
@@ -749,6 +793,7 @@ width:200px;
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
 
 </body>
 </html>
