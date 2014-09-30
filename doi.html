@@ -350,10 +350,12 @@ effect : "fadeIn"
       });
 
 
+  var i=0;
   wall=dc.dataTable(".dc-data-grid")
    .dimension(name)
     .group(function (d) { return "";return d.country; })
     .columns([
+        function(d) { i=i+1; return i; },
         function(d) { return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" "+ d.last_name +"</span>"; },
         function(d) {  return d.country; },
         function(d) { return (sumDOI(d,"occupation"));},
@@ -570,6 +572,7 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 <table class="table table-hover dc-data-grid">
 <tr class=header">
 <thead>
+<th>#pos</th> 
 <th>Name</th> 
 <th>Country</th> 
 <th>Previous</th> 
