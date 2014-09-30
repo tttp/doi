@@ -377,6 +377,7 @@ effect : "fadeIn"
   .size(1000)
   .sortBy(function (d) {return d.last_name})
   .renderlet(function (chart) {
+    i = 0;
     $("td span.score").each (function(i) { 
       $(this).closest ("tr").css("backgroundColor", 
         $(this).css('backgroundColor')
