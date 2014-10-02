@@ -357,8 +357,9 @@ effect : "fadeIn"
     .columns([
         function(d) { i=i+1; return i; },
         function(d) { return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" "+ d.last_name +"</span>"; },
+        function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
+        function(d) {  return d.attendance.score; },
         function(d) {  return d.country; },
-        function(d) { return (sumDOI(d,"occupation"));},
         function(d) {
           if (d.qty == 0) {
             return "";
@@ -369,10 +370,10 @@ effect : "fadeIn"
           if (d.max == Number.POSITIVE_INFINITY)
             return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
         },
-        function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
         function(d) {
             return d.eugroup;
-        }
+        },
+        function(d) { return (sumDOI(d,"occupation"));},
     ])
   .size(1000)
   .sortBy(function (d) {return d.last_name})
@@ -575,30 +576,33 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 <thead>
 <th>#pos</th> 
 <th>Name</th> 
-<th>Country</th> 
-<th>Previous</th> 
-<th>Side earnings</th> 
 <th title="External Activity Indicator">EAI</th> 
+<th>Attendance</th> 
+<th>Country</th> 
+<th>Side earnings</th> 
 <th>Group</th> 
+<th title="Income before elected as an MEP">Previous</th> 
 </tr>
 </thead>
 </table>
 </div>
 </div>
 
-Last updated: 24 September 2014
+Last updated: 1 October 2014
 </div>
 
 <script>
     var meps=[];
     var doi=[];
+    var attendance=[];
 $(function() {
      detailtpl =  _.template($("#detailstpl").html());
      sidetpl =  _.template($("#sidetpl").html());
-    var renderLoaded  = _.after(2,  function () { 
+    var renderLoaded  = _.after(3,  function () { 
       var dateFormat = d3.time.format("%d/%m/%Y");
       var now = Date.now();
- 
+      var a;
+
       _.each (meps, function (m) {
         if (m.eugroup == "PPE") { 
           m.eugroup = "EPP";
@@ -608,6 +612,9 @@ $(function() {
           m.eugroup = "EFDD";
         }
         m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
+        a = _.find(attendance,function (d) { return d.id == m.epid  });
+        m.attendance = {"total": parseInt(a.votes,10) , "attended": parseInt(a.voted,10), "score": parseFloat(a.percent)};
+ 
         setRiskScore (m);
         if (m.birthdate) {
           m.birthdate = dateFormat.parse(m.birthdate);
@@ -620,6 +627,12 @@ $(function() {
     d3.csv("mep.csv", function(d) {return d;}
       ,function(error, rows) {
          meps = rows;
+         renderLoaded();
+//      grid ("#ep2014list",rows);
+      });      
+    d3.csv("attendance.csv", function(d) {return d;}
+      ,function(error, rows) {
+         attendance = rows;
          renderLoaded();
 //      grid ("#ep2014list",rows);
       });      
@@ -753,6 +766,10 @@ width:200px;
        <div class="col-md-8 score"><%= score.toFixed(0) %> </div>
      </div>
      <div class="row">
+       <div class="col-md-4">Attendance</div>
+       <div class="col-md-8 score" title="voted on <%= attendance.attended %> votes out of <%= attendance.total %>"><%= attendance.score.toFixed(0) %> </div>
+     </div>
+     <div class="row">
        <div class="col-md-4">Group</div>
        <div class="col-md-8"><%= eugroup %> </div>
      </div>
@@ -763,6 +780,10 @@ width:200px;
      <div class="row">
        <div class="col-md-4">Committee</div>
        <div class="col-md-8"><%= committee %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Age</div>
+       <div class="col-md-8 score"><%= age %> </div>
      </div>
      <div class="row">
        <div class="col-md-4">Substitute</div>
@@ -777,8 +798,8 @@ width:200px;
        <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= epid %>.html">European Parliament Website</a></div>
      </div>
      <div class="row">
-       <div class="col-md-4">Declaration of interest</div>
-       <div class="col-md-8"><a target="_blank" href="<%= doi.url %>">Original pdf file</a></div>
+       <div class="col-md-4">Source</div>
+       <div class="col-md-8"><a target="_blank" href="<%= doi.url %>">Original declaration</a></div>
      </div>
 </script>
 
