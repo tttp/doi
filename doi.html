@@ -25,6 +25,7 @@
 <script type="text/javascript" src="js/crossfilter.js"></script>
 <script type="text/javascript" src="js/dc.js"></script>
 <script type="text/javascript" src="js/underscore-min.js"></script>
+<script src="js/d3-tip.min.js"></script>
 
 <script src="jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -387,6 +388,7 @@ effect : "fadeIn"
   });
 
   drawScore();
+  drawParty();
   drawAge();
 
     $(".dc-data-grid").on("click",".dc-table-row", function () {
@@ -402,6 +404,58 @@ effect : "fadeIn"
 
 
 dc.renderAll();
+
+function drawParty () {
+  var bubble_party = dc.bubbleChart(" .party");
+  var party = ndx.dimension(function(d) {
+      if (typeof d.party == "undefined") return "";
+      return d.party;
+      });
+ var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .html(function(p) { return '<span><h2>' +
+        p.key + "</h2><ul>" + 
+                "<li>Number of MEPs: " +p.value.count + "</li>" +
+                "<li>Average participation: " +Math.floor (p.value.effort/p.value.count) + "</li>" +
+                "<li>Average score: "+Math.floor (p.value.score/p.value.count); 
+       '</li></ul></span>' })
+    .offset([-12, 0])
+
+
+  var partyGroup   = party.group().reduce(
+      function(a,d) {a.eugroup = d.eugroup;a.count +=1; a.score +=d.score; a.effort += d.attendance.score; return a; },
+      function(a,d) {a.eugroup = d.eugroup;a.count -=1; a.score -=d.score; a.effort -= d.attendance.score; return a; },
+      function() {return {eurgroup:0,count:0,score:0,effort:0}; }
+      )
+      .order(function (p) {return p.count});
+  bubble_party
+    .colorCalculator(function(d, i) {
+      return eu_groups[d.value.eugroup];
+    })
+
+  .valueAccessor (
+      function(d) {
+      return d.value.count;
+      })
+  .width(460)
+    .height(200)
+    .margins({top: 20, right: 20, bottom: 20, left: 30})
+    .yAxisLabel("%Votes attended")
+    .dimension(party)
+    .group(partyGroup)
+    .keyAccessor(function (p) {
+        return p.value.score/p.value.count;
+    })
+    .valueAccessor(function (p) {
+        return p.value.effort/p.value.count;
+    })
+    .radiusValueAccessor(function (p) {
+        return p.value.count;
+    })
+    .x(d3.scale.linear().domain([0, 60]))
+    .r(d3.scale.linear().domain([0, 100]))
+    .minRadiusWithLabel(15)
+}
 
 function drawAge() {
   //var chart_age = dc.barChart(selector + " .age");
@@ -557,7 +611,10 @@ console.log (category+"::"+field);
 </div>
 <div class="row">
 <div class="interest col-md-4"><h2>Extra activities<h2></div>
-<div class="age col-md-6"><h2>Age</h2></div>
+<div class="age col-md-5"><h2>Age</h2></div>
+<div class="party col-md-5"><h2>Party</h2></div>
+
+
 <div class="list"></div>
 <div style="clear:both">
   <div class="dc-data-count2">
