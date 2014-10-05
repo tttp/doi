@@ -437,8 +437,8 @@ function drawParty () {
       function(d) {
       return d.value.count;
       })
-  .width(460)
-    .height(200)
+  .width(660)
+    .height(300)
     .margins({top: 20, right: 20, bottom: 20, left: 30})
     .yAxisLabel("%Votes attended")
     .dimension(party)
@@ -693,7 +693,7 @@ $(function() {
          renderLoaded();
 //      grid ("#ep2014list",rows);
       });      
-    d3.json("doi.json", function (rows) {
+    d3.json("doi-pretty.json", function (rows) {
          doi = rows;
          renderLoaded();
 //      grid ("#ep2014list",rows);
