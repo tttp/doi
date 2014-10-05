@@ -46,7 +46,7 @@ var wall = null;
 4. plus de 10 000 EUR brut par mois.
 */
   var rangeEUR = [
-    {min:0,max:0},
+    {min:0,max:499},
     {min:500,max:1000},
     {min:1001,max:5000},
     {min:5001,max:10000},
@@ -104,20 +104,21 @@ var eu_groups = {
          //console.log (d);
          return;
        }
-       if (i < 0) return;
-       if (i > 4) {
-         console.log (d);
-         return;
-       }
-     
-       if (i == 4) {
+       if (i < 0) i=0;
+       if (i >= 4) {
          openscale = true;
+         if (i > 4) {
+           console.log (d);
+           i = 4;
+         }
        }
      if (isNaN(i)) {
        if (i.slice(-3)  == "EUR") {
-         min = max = i.substr(0,i.length - 4) * 1;
+         min += i.substr(0,i.length - 4) * 1;
+         max += i.substr(0,i.length - 4) * 1;
        } else {
-         min = max = convert (i);
+         min += convert (i);
+         min += convert (i);
        } 
      } else {
        min += rangeEUR[i].min;
@@ -127,9 +128,6 @@ var eu_groups = {
     });
     if (returnData) {
       return {min:min, max:max,qty:qty, openscale:openscale};
-    }
-    if (max == 0) {
-      return "<span class='q"+mep.doi[field].length+"'>"+ mep.doi[field].length+" <500&euro;</span>";
     }
     if (max == Number.POSITIVE_INFINITY) {
       return "<span class='q"+mep.doi[field].length+"' title='"+mep.doi[field].length+" different occupations'>"+min+" &euro; or more</span>";
@@ -359,17 +357,15 @@ effect : "fadeIn"
         function(d) { i=i+1; return i; },
         function(d) { return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" "+ d.last_name +"</span>"; },
         function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
-        function(d) {  return d.attendance.score; },
+        function(d) {  return d.attendance.score +"%"; },
         function(d) {  return d.country; },
         function(d) {
           if (d.qty == 0) {
             return "";
           }
-          if (d.max == 0) {
-            return "<span class='q"+d.qty+"'>"+ d.qty+" <500&euro; </span>";
-          }
           if (d.max == Number.POSITIVE_INFINITY)
             return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
+          return d.min +" &#8605; "+d.max +"  &euro;";
         },
         function(d) {
             return d.eugroup;
@@ -537,8 +533,8 @@ function drawScore() {
     field = field || "min";
     if (!category) return "?";
     if (isNaN(category)) return category;
-    if (category < 0) return "<500&euro;";
-console.log (category+"::"+field);
+    if (category < 0 && field == "min") return "0";
+    if (category < 0 && field == "max") return "499";
     return rangeEUR[category][field];
   }
 </script>
