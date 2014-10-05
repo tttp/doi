@@ -146,32 +146,32 @@ function setRiskScore (d) {
 //      var fields = ["activity","holding","mandate","occasional","membership"];
   var t =  sumDOI(d,"activity",true);
   if (t.qty) {
-    score += 10 + t.qty + t.min/500;
+    score += 2*t.qty + t.min/500;
     openscale = openscale || t.openscale;
     setMinMax (d,t);
   }
   t =  sumDOI(d,"occasional",true);
   if (t.qty) {
-    score += 5 + t.qty + t.min/500;
+    score += t.qty + t.min/500;
     openscale = openscale || t.openscale;
     setMinMax (d,t);
   }
 
   t =  sumDOI(d,"membership",true);
   if (t.qty) {
-    score += 5 + t.qty + t.min/500;
+    score += t.qty + t.min/500;
     openscale = openscale || t.openscale;
     setMinMax (d,t);
   }
   t =  sumDOI(d,"mandate",true);
   if (t.qty) {
-    score += 5 + t.qty + t.min/500;
+    score += t.qty + t.min/500;
     openscale = openscale || t.openscale;
     setMinMax (d,t);
   }
   t =  sumDOI(d,"holding",true);
   if (t.qty) {
-    score += 5;
+    score += t.qty;// TODO
     setMinMax (d,t);
   }
   if (openscale) {
@@ -370,7 +370,6 @@ effect : "fadeIn"
         function(d) {
             return d.eugroup;
         },
-        function(d) { return (sumDOI(d,"occupation"));},
     ])
   .size(1000)
   .sortBy(function (d) {return d.last_name})
@@ -479,10 +478,15 @@ var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
 }
 
 function drawScore() {
+
  var score = ndx.dimension (function(d) {
       return d.score;
       });
-  var scoreGroup = score.group().reduceSum (function(d) { return 1;});
+  var scoreGroup   = score.group().reduce(
+      function(a,d) {a.count +=1; a.score +=d.score; a.min +=d.min; a.max += d.max;return a; },
+      function(a,d) {a.count -=1; a.score -=d.score; a.min -=d.min; a.max -= d.max; return a; },
+      function() {return {count:0,score:0, min:0, max:0}; }
+      );
   var bar_score = dc.barChart (".bar_score")
     .width(245)
     .height(130)
@@ -494,20 +498,27 @@ function drawScore() {
     .yAxisLabel("Number of MEPs")
     .round(dc.round.floor)
     .colorCalculator(function(d, i) {
-        return color(d.key);
+        return "#ff5722";
         })
+    .valueAccessor (
+      function(d) {
+      return d.value.count;
+      })
     .dimension(score)
     .group(scoreGroup)
     .renderlet(function (chart) {
       if (!console || !console.log) return;
-      var d = chart.dimension().top(Number.POSITIVE_INFINITY);
+      //var d = chart.dimension().top(Number.POSITIVE_INFINITY);
+      var d = chart.group().top(Number.POSITIVE_INFINITY);
       var total = nb = 0;
       d.forEach (function (a) {
-        if (isNaN(a.score)) return;
-        ++nb;
-        total += a.score;
+        if (isNaN(a.value.count)) return;
+        nb += a.value.count;
+console.log (a.value.score);
+        total += a.value.score*a.value.count;
       });
       if (nb) {
+console.log(total);
         var avg= total/nb;
         $(".bar_score div#avg_score").text(Math.round(avg));
       } else {
@@ -548,7 +559,7 @@ function drawScore() {
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a href="javascript:void(0)" class="navbar-brand withripple">EU Integrity watch<div class="ripple-wrapper"></div></a>
+                                    <a href="javascript:void(0)" class="navbar-brand withripple">EU Integrity Watch<div class="ripple-wrapper"></div></a>
                                 </div>
                                 <div class="navbar-collapse collapse navbar-warning-collapse">
                                     <ul class="nav navbar-nav">
@@ -588,6 +599,8 @@ function drawScore() {
                           <div class="bar_score center-block">
                             <div class="graph_titles text-center"><h2>Scores of <span class="filter-count"></span> MEPs</h2></div>
                             <div class="text-center" id="avg_score"></div>
+                            <div class="text-center" id="sum_side">SUM</div>
+                            <div class="text-center" id="avg_side">AVG</div>
                             </div>
                         </div>
                       </div>
@@ -601,12 +614,12 @@ function drawScore() {
 
 <div class="row">
 
-<div class="group col-md-3"><h2>EU groups</h2></div>
+<div class="group col-md-3"><h2>Political Groups</h2></div>
 <div class="country col-md-6"><h2>Country</h2></div>
 <div class="gender col-md-3"><h2>Gender</h2></div>
 </div>
 <div class="row">
-<div class="interest col-md-4"><h2>Extra activities<h2></div>
+<div class="interest col-md-4"><h2>Outside Activities<h2></div>
 <div class="age col-md-5"><h2>Age</h2></div>
 <div class="party col-md-5"><h2>Party</h2></div>
 
@@ -627,14 +640,13 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 <table class="table table-hover dc-data-grid">
 <tr class=header">
 <thead>
-<th>#pos</th> 
+<th>Nr</th> 
 <th>Name</th> 
 <th title="External Activity Indicator">EAI</th> 
 <th>Attendance</th> 
 <th>Country</th> 
-<th>Side earnings</th> 
+<th>Outside revenues</th> 
 <th>Group</th> 
-<th title="Income before elected as an MEP">Previous</th> 
 </tr>
 </thead>
 </table>
@@ -763,6 +775,7 @@ width:200px;
 
 </div> <!-- container -->
 <script type="tpl" id="sidetpl">
+<h3>Declaration of Members' financial interests</h3>
 <table class="table table-condensed">
 <tr><td class="dc-table-label" colspan="3">A. Previous occupation</td></tr>
 <% _.each(doi.occupation, function (a) { %>
@@ -793,14 +806,12 @@ width:200px;
 <% _.each(doi.holding, function (a) { %>
   <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
 <% }); %>
+<tr><td class="dc-table-label" colspan="3">I. Additional information</td></tr>
+<tr><td colspan="3"><%= doi.additional %></td></tr>
+
 
 </table>
-<div class="row">
-<div class="col-md-12">
-<%= doi.additional %>
-</div>
-</div>
-<div class="row">
+<div class="row hide">
 <div class="col-md-12">
 <%= doi.support%>
 </div>
@@ -815,12 +826,16 @@ width:200px;
        </div>
      </div>
      <div class="row">
-       <div class="col-md-4">Score</div>
+       <div class="col-md-4" title="External Activity Indicator">EAI</div>
        <div class="col-md-8 score"><%= score.toFixed(0) %> </div>
      </div>
      <div class="row">
+       <div class="col-md-4">Outside revenues</div>
+       <div class="col-md-8 score"><%=  min %> &#8605; <%= max %> &euro;</div>
+     </div>
+     <div class="row">
        <div class="col-md-4">Attendance</div>
-       <div class="col-md-8 score" title="voted on <%= attendance.attended %> votes out of <%= attendance.total %>"><%= attendance.score.toFixed(0) %> </div>
+       <div class="col-md-8 score" title="voted on <%= attendance.attended %> votes out of <%= attendance.total %>"><%= attendance.score.toFixed(0) %>%</div>
      </div>
      <div class="row">
        <div class="col-md-4">Group</div>
@@ -853,6 +868,10 @@ width:200px;
      <div class="row">
        <div class="col-md-4">Source</div>
        <div class="col-md-8"><a target="_blank" href="<%= doi.url %>">Original declaration</a></div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Update</div>
+       <div class="col-md-8">fetched on <%= doi.date %></div>
      </div>
 </script>
 
