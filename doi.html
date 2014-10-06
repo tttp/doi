@@ -98,10 +98,8 @@ var eu_groups = {
        qty +=1;
        if (d.length == 3) { //F: Holding
          i = d[2];
-         //if (i != -1 ) console.log (mep);
        }
        if (d.length != 2) {
-         //console.log (d);
          return;
        }
        if (i < 0) i=0;
@@ -187,8 +185,8 @@ function grid (selector,data) {
 
   var color = d3.scale.linear()
         .clamp(true)
-        .domain([0,1, 100])
-        .range(["white", "#eee", "#333"])
+        .domain([0,1, 70])
+        .range(["white","#ffc7b6", "#ff5019"])
         .interpolate(d3.interpolateHcl);
 
 
@@ -483,8 +481,8 @@ function drawScore() {
       return d.score;
       });
   var scoreGroup   = score.group().reduce(
-      function(a,d) {a.count +=1; a.score +=d.score; a.min +=d.min; a.max += d.max;return a; },
-      function(a,d) {a.count -=1; a.score -=d.score; a.min -=d.min; a.max -= d.max; return a; },
+      function(a,d) {a.count +=1; a.score +=d.score; a.min =d.min; a.max = d.max;return a; },
+      function(a,d) {a.count -=1; a.score -=d.score; a.min =d.min; a.max = d.max; return a; },
       function() {return {count:0,score:0, min:0, max:0}; }
       );
   var bar_score = dc.barChart (".bar_score")
@@ -493,7 +491,8 @@ function drawScore() {
     .outerPadding(5)
     .gap(0)
     .margins({top: 10, right: 10, bottom: 20, left: 30})
-    .x(d3.scale.linear().domain([0, 101]))
+    .x(d3.scale.linear().domain([0, 65]))
+    .elasticX(true)
     .elasticY(true)
     .yAxisLabel("Number of MEPs")
     .round(dc.round.floor)
@@ -507,20 +506,22 @@ function drawScore() {
     .dimension(score)
     .group(scoreGroup)
     .renderlet(function (chart) {
-      if (!console || !console.log) return;
-      //var d = chart.dimension().top(Number.POSITIVE_INFINITY);
       var d = chart.group().top(Number.POSITIVE_INFINITY);
-      var total = nb = 0;
+      var total = nb = min = max = 0;
       d.forEach (function (a) {
         if (isNaN(a.value.count)) return;
         nb += a.value.count;
-console.log (a.value.score);
-        total += a.value.score*a.value.count;
+console.log (a.key + "->" + a.value.count);
+        total += a.key*a.value.count;
+        min += a.value.min*a.value.count;
+        max += a.value.max*a.value.count;
       });
       if (nb) {
-console.log(total);
+console.log("total" +nb+" "+total);
         var avg= total/nb;
         $(".bar_score div#avg_score").text(Math.round(avg));
+        $(".bar_score div#sum_side").text(min);
+        $(".bar_score div#avg_side").text(min/nb);
       } else {
         $(".bar_score div#avg_score").text("");
       }
@@ -846,12 +847,12 @@ width:200px;
        <div class="col-md-8"><%= party %> </div>
      </div>
      <div class="row">
-       <div class="col-md-4">Committee</div>
-       <div class="col-md-8"><%= committee %> </div>
-     </div>
-     <div class="row">
        <div class="col-md-4">Age</div>
        <div class="col-md-8 score"><%= age %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Committee</div>
+       <div class="col-md-8"><%= committee %> </div>
      </div>
      <div class="row">
        <div class="col-md-4">Substitute</div>
