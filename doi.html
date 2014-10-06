@@ -353,10 +353,12 @@ effect : "fadeIn"
     .group(function (d) { return "";return d.country; })
     .columns([
         function(d) { i=i+1; return i; },
-        function(d) { return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" "+ d.last_name +"</span>"; },
-        function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
-        function(d) {  return d.attendance.score +"%"; },
+        function(d) { return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" <b>"+ d.last_name +"</b></span>"; },
         function(d) {  return d.country; },
+        function(d) {
+            return d.eugroup;
+        },
+        function(d) {  return d.attendance.score +"%"; },
         function(d) {
           if (d.qty == 0) {
             return "";
@@ -365,16 +367,14 @@ effect : "fadeIn"
             return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
           return d.min +" &#8605; "+d.max +"  &euro;";
         },
-        function(d) {
-            return d.eugroup;
-        },
+        function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
     ])
   .size(1000)
   .sortBy(function (d) {return d.last_name})
   .renderlet(function (chart) {
     i = 0;
     $("td span.score").each (function(i) { 
-      $(this).closest ("tr").css("backgroundColor", 
+      $(this).closest ("td").css("backgroundColor", 
         $(this).css('backgroundColor')
       );
     });
@@ -673,11 +673,11 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 <thead>
 <th>Nr</th> 
 <th>Name</th> 
-<th title="External Activity Indicator">EAI</th> 
-<th>Attendance</th> 
 <th>Country</th> 
-<th>Outside revenues</th> 
 <th>Group</th> 
+<th>Attendance</th> 
+<th>Outside revenues</th> 
+<th title="External Activity Indicator">EAI</th> 
 </tr>
 </thead>
 </table>
