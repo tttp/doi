@@ -400,15 +400,20 @@ effect : "fadeIn"
 dc.renderAll();
 
 function drawRange () {
-  function getRange (amount) {
-    if (amount == 0 ) return "no extra"; 
-    if (amount < 500 ) return "< 500 &euro;"; 
-    if (amount < 5000 ) return "< 5000 &euro;"; 
-    return "or more";
-  });
+ 
+  function getRange (d) {
+    if (d.score === 0 ) return ". no extra"; 
+    if (d.min < 500 ) return "0. < 500"; 
+    if (d.min < 1001 ) return "1. < 1000"; 
+    if (d.min < 5001 ) return "2. < 5000"; 
+    if (d.min < 10001 ) return "3. < 10000"; 
+    return "4. 10000 or more";
+  };
+
   var dimension = ndx.dimension(function(d) {
-    return getRange(d.min);
-  }
+    return getRange(d);
+  });
+
   var group   = dimension.group().reduceSum(function(d) {   return 1; });
   var chart = dc.pieChart(selector +  " .range")
     .innerRadius(20).radius(70)
@@ -416,8 +421,6 @@ function drawRange () {
     .height(200)
     .dimension(dimension)
     .group(group);
-  
-  
 }
 
 function drawParty () {
@@ -644,9 +647,13 @@ function drawScore() {
 <div class="row">
 <div class="interest col-md-4"><h2>Outside Activities<h2></div>
 <div class="age col-md-5"><h2>Age</h2></div>
-<div class="party col-md-5"><h2>Party</h2></div>
-<div class="range col-md-5"><h2>Range</h2></div>
+</div>
+<div class="row">
+<div class="party col-md-8"><h2>Party</h2></div>
+<div class="range col-md-4"><h2>Range</h2></div>
 
+</div>
+<div class="row">
 
 <div class="list"></div>
 <div style="clear:both">
