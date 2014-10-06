@@ -477,7 +477,7 @@ var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
 
 function drawScore() {
 
- var score = ndx.dimension (function(d) {
+  var score = ndx.dimension (function(d) {
       return d.score;
       });
   var scoreGroup   = score.group().reduce(
@@ -485,6 +485,7 @@ function drawScore() {
       function(a,d) {a.count -=1; a.score -=d.score; a.min =d.min; a.max = d.max; return a; },
       function() {return {count:0,score:0, min:0, max:0}; }
       );
+
   var bar_score = dc.barChart (".bar_score")
     .width(245)
     .height(130)
@@ -506,22 +507,21 @@ function drawScore() {
     .dimension(score)
     .group(scoreGroup)
     .renderlet(function (chart) {
-      var d = chart.group().top(Number.POSITIVE_INFINITY);
+//      var d = chart.group().top(Number.POSITIVE_INFINITY);
       var total = nb = min = max = 0;
+      var d = chart.dimension().top(Number.POSITIVE_INFINITY);
       d.forEach (function (a) {
-        if (isNaN(a.value.count)) return;
-        nb += a.value.count;
-console.log (a.key + "->" + a.value.count);
-        total += a.key*a.value.count;
-        min += a.value.min*a.value.count;
-        max += a.value.max*a.value.count;
+        if (isNaN(a.score)) return;
+        ++nb;
+        total += a.score;
+        min += a.min;
+        max += a.max;
       });
       if (nb) {
-console.log("total" +nb+" "+total);
         var avg= total/nb;
         $(".bar_score div#avg_score").text(Math.round(avg));
-        $(".bar_score div#sum_side").text(min);
-        $(".bar_score div#avg_side").text(min/nb);
+        $(".bar_score div#sum_side").html("total "+ min+" &euro;");
+        $(".bar_score div#avg_side").html("average "+Math.round(min/nb)+ " &euro;");
       } else {
         $(".bar_score div#avg_score").text("");
       }
