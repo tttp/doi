@@ -382,6 +382,7 @@ effect : "fadeIn"
 
   drawScore();
   drawParty();
+  drawRange();
   drawAge();
 
     $(".dc-data-grid").on("click",".dc-table-row", function () {
@@ -397,6 +398,27 @@ effect : "fadeIn"
 
 
 dc.renderAll();
+
+function drawRange () {
+  function getRange (amount) {
+    if (amount == 0 ) return "no extra"; 
+    if (amount < 500 ) return "< 500 &euro;"; 
+    if (amount < 5000 ) return "< 5000 &euro;"; 
+    return "or more";
+  });
+  var dimension = ndx.dimension(function(d) {
+    return getRange(d.min);
+  }
+  var group   = dimension.group().reduceSum(function(d) {   return 1; });
+  var chart = dc.pieChart(selector +  " .range")
+    .innerRadius(20).radius(70)
+    .width(200)
+    .height(200)
+    .dimension(dimension)
+    .group(group);
+  
+  
+}
 
 function drawParty () {
   var bubble_party = dc.bubbleChart(" .party");
@@ -623,6 +645,7 @@ console.log("total" +nb+" "+total);
 <div class="interest col-md-4"><h2>Outside Activities<h2></div>
 <div class="age col-md-5"><h2>Age</h2></div>
 <div class="party col-md-5"><h2>Party</h2></div>
+<div class="range col-md-5"><h2>Range</h2></div>
 
 
 <div class="list"></div>
