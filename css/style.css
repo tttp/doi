@@ -1,9 +1,32 @@
 /* @override 
 	http://doi.ap:8888/css/style.css */
+	
+/* FONT */
+@font-face {
+    font-family: 'bebas';
+    src: url('../fonts/BebasNeue-webfont.eot');
+    src: url('../fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/BebasNeue-webfont.woff') format('woff'),
+         url('../fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('../fonts/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
+}
+
+
+
+/* GENERIC ELEMENTS */
 body {
    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important; 
    /* on TI website there is in use the fonts.com helvetica */
+   line-height: 1.6em;
+}
+
+/* CLASSES */
+.more{
+	padding-left: 15px;
+	background: url(../img/more_Arrow.svg) no-repeat;
 }
 
 .bar_score svg {position:relative;}
@@ -22,15 +45,10 @@ body {
 }
 
 
-.dc-data-count .filter-count {
-color: #111;
-font-weight: bold;
-}
-
-
 /* NAV BAR */
 nav.navbar{
 	background: #2180c2;
+	margin-bottom: 0;
 }
 
 button.navbar-toggle{
@@ -54,25 +72,140 @@ div#ti_logo a{
 	min-height: 55px;
 }
 
+.navbar-right a{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	color: #b9d9eb;
+	padding: 0 3%!important;
+}
 
-
-
+a#page_title{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	color: #b9d9eb;
+	padding: 0 3%;
+}
 
 @media only screen and (min-width : 768px) {
+	.navbar-header{
+		width:25%
+	}
+	
+	div#ti_logo{
+		width: 100%;
+	}
+	
+	ul.navbar-nav#title_container li{
+	}
+	
 	a#page_title{
-		font-size: 2.5em;
+		font-size: 2.2em;
+		width: 390px!important;
 		text-transform: uppercase;
 		height: 80px;
-		line-height: 40px;
-		padding-left: 1em;
+		width: auto;
+		line-height: 80px;
 		color: #FFF;
+		padding-left: 5px;
 	}
 	
 	.navbar-right a{
 		display: block;
 		height: 80px;
-		color: #b9d9eb;
-		line-height: 55px!important;
+		margin: 0 0 0 25px;
+		line-height: 92px!important;
 	}
 }
+
+/* HOME */
+/* about */
+
+.container_wrap{
+	padding: 3rem 0;
+}
+
+#about_wrap{
+	background: #f3f9fc;
+}
+
+#about_wrap p{
+	margin-bottom: 0;
+}
+
+/*filter*/
+#filter_wrap{
+	background: #deeff8;
+}
+
+#filter_wrap .input-group{
+	width: 100%;
+}
+
+#filter_wrap input#search-input{
+	width: 100%;
+	padding: 1.2em .5em;
+	background: #FFF;
+	color: #000;
+	margin-bottom: 1em!important;
+	border-bottom: 1px solid #2180c2;
+}
+
+#filter_wrap .btn{
+	padding: 0 0 0 15px;
+	margin-bottom: 2em;
+	color: #3695d8;
+	background: url(../img/close.svg) no-repeat left center;
+}
+
+#filter_wrap .btn:hover{
+	box-shadow: none;
+	text-decoration: underline;
+}
+
+#filter_wrap .btn[disabled=disabled]{
+	display: none!important;
+}
+
+/*mep number*/
+#mep_number{
+	margin-top: 1.2em;
+	color: #808080;
+	font-size: 1.6875em;
+}
+
+#filter_mep_number p{
+	margin-bottom: 0;
+}
+
+#mep_number #big_number{
+	font-family: bebas;
+	font-size: 5em;
+	color: #1f71ab;
+}
+
+@media only screen and (min-width : 768px) {
+	#filter_wrap input#search-input{
+		margin-bottom: 0px;
+	}
+	#filter_wrap .btn{
+		margin-top: 1.5em;
+		margin-bottom: 0;
+		background: url(../img/close.svg) no-repeat left center;
+	}
+	#filter_wrap .btn[disabled=disabled]{
+		visibility: hidden;
+		display: block;
+	}
+	#mep_number{
+		margin-top: 1.7em;
+	}
+}
+
+/* charts */
+.frontpage_score{
+	margin-top: 110px;
+}
+
 
