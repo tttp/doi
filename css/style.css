@@ -1,16 +1,24 @@
+/* @override 
+	http://doi.ap:8888/css/style.css */
+
+body {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important; 
+   /* on TI website there is in use the fonts.com helvetica */
+}
+
 .bar_score svg {position:relative;}
 
 .bar_score div#avg_score {
-  font-size: 130;
-color: #111;
-opacity: 0.5;
-position: relative;
-margin-bottom: -150px;
-margin-top: -30px;
-text-align: center;
-margin-left: auto;
-margin-right: auto;
-amin-height:185px;
+    font-size: 130;
+	color: #111;
+	opacity: 0.5;
+	position: relative;
+	margin-bottom: -150px;
+	margin-top: -30px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	amin-height:185px;
 }
 
 
@@ -19,4 +27,52 @@ color: #111;
 font-weight: bold;
 }
 
+
+/* NAV BAR */
+nav.navbar{
+	background: #2180c2;
+}
+
+button.navbar-toggle{
+	border-radius: 0;
+	border: none;
+	margin-top: 22px;
+}
+
+div#ti_logo{
+	background: #3695d8;
+	height: 80px;
+	padding: 1em;
+}
+
+div#ti_logo a{
+	background: url(../img/ti_logo.png) no-repeat center;
+	background-size: contain;
+	display: block;
+	text-indent: -974em;
+	min-width: 135px;
+	min-height: 55px;
+}
+
+
+
+
+
+@media only screen and (min-width : 768px) {
+	a#page_title{
+		font-size: 2.5em;
+		text-transform: uppercase;
+		height: 80px;
+		line-height: 40px;
+		padding-left: 1em;
+		color: #FFF;
+	}
+	
+	.navbar-right a{
+		display: block;
+		height: 80px;
+		color: #b9d9eb;
+		line-height: 55px!important;
+	}
+}
 
