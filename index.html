@@ -305,11 +305,10 @@ function grid (selector,data) {
 
 
   bar_country
-    .width(444)
-    .height(200)
+    .height(370)
     .outerPadding(0)
     .gap(1)
-    .margins({top: 0, right: 0, bottom: 95, left: 30})
+    .margins({top: 0, right: 30, bottom: 95, left: 30})
    .colorCalculator(function(d, i) {
         return color(d.value.score/d.value.count);
         })
@@ -646,7 +645,7 @@ function drawScore() {
 <div class="container_wrap" id="filter_wrap">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-7" id="filter_field_container">
+			<div class="col-sm-7" id="filter_field_container">
 			 	<p>Filter the results by selecting a range in the charts,
 			 	or by filling the filter box:</p>
 			 	<div class="input-group">
@@ -654,7 +653,7 @@ function drawScore() {
 			 	</div>
 			 	<button class="btn resetall">RESET ALL FILTERS</button>
 			</div>
-			<div class="col-md-4 col-md-offset-1" id="filter_mep_number">
+			<div class="col-sm-5 col-md-4 col-md-offset-1" id="filter_mep_number">
 				<p>You are vewing data for</p>
 				<div id="mep_number" class="dc-data-count">
 					<span id="big_number" class="filter-count"></span>/<strong class="total-count"></strong> MEPs
@@ -664,33 +663,64 @@ function drawScore() {
 	</div>
 </div>
 
-
-<div class="container_wrap" id="main_charts_wrap">
-	main charts
+<div id="ep2014list">
+	<div class="container_wrap" id="main_charts_wrap">
+		<div class="container">
+			<h2>Charts</h2>
+			<div class="row">
+				<div class="country col-md-6">
+					<h3>Country <!--span class="info">info</span--></h3>
+				</div>
+				<div class="group col-md-3">
+					<h3>Political Groups <!--span class="info">info</span--></h3>
+				</div>
+				<div class="group col-md-3">
+					<h3>Outside Activities <!--span class="info">info</span--></h3>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class="container_wrap" id="hidden_charts_wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 frontpage_score">
+				    <div class="dc-data-count">
+				      <div class="bar_score center-block">
+				        <div class="graph_titles"><h3>EAI Scores</h3></div>
+				        <div id="avg_score"></div>
+				        <!--div class="text-center" id="sum_side">SUM</div-->
+				        <!--div class="text-center" id="avg_side">AVG</div-->
+				        </div>
+				    </div>
+				</div>
+				
+				<div class="interest col-md-6"><h3>Outside Activities</h3></div>
+			</div>
+			<div class="row">
+				<div class="party col-md-7">
+					<h3>National Parties</h3>
+				</div>
+				<div class="age col-md-5">
+					<h3>Age</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="gender col-md-12">
+					<h3>Gender</h3>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-<div class="container_wrap" id="hidden_charts_wrap">
-	hidden charts
-</div>
 
-<div class="container">
-<div class="col-md-4 frontpage_score">
-    <div class="dc-data-count">
-      <div class="bar_score center-block">
-        <div class="graph_titles text-center"><h2>Scores of <span class="filter-count"></span> MEPs</h2></div>
-        <div class="text-center" id="avg_score"></div>
-        <div class="text-center" id="sum_side">SUM</div>
-        <div class="text-center" id="avg_side">AVG</div>
-        </div>
-    </div>
-</div>
-</div>
 
-<div id="ep2014list" class="acontainer">
+<!--div class="acontainer">
 
 <div class="row">
 
-<div class="group col-md-3"><h2>Political Groups</h2></div>
 <div class="country col-md-6"><h2>Country</h2></div>
 <div class="gender col-md-3"><h2>Gender</h2></div>
 </div>
@@ -700,41 +730,34 @@ function drawScore() {
 </div>
 <div class="row">
 <div class="party col-md-8"><h2>Party</h2></div>
-<div class="range col-md-4"><h2>Range</h2></div>
+<div class="range col-md-4"><h2>Range</h2></div-->
 
-</div>
-<div class="row">
-
-<div class="list"></div>
-<div style="clear:both">
-  <div class="dc-data-count2">
-  <span class="filter-count"></span> selected out of <span class="total-count"></span> MEPs | <a
-href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
-  </div>
-</div>
-
-</div>
-
-<div class="row">
-<div class="col-md-12 table-responsive">
-<table class="table table-hover dc-data-grid tablesorter-bootstrap">
-<thead>
-<tr class=header>
-<th>Nr</th> 
-<th>Name</th> 
-<th>Country</th> 
-<th>Group</th> 
-<th class="sorter-digit">Attendance</th> 
-<th  class="sorter-amount">Outside revenues</th> 
-<th title="External Activity Indicator" class="sorter-digit">EAI</th> 
-</tr>
-</thead>
-</table>
-</div>
+<div class="container_wrap" id="list_container">
+	<div class="container">
+		<div class="row">
+			<h2>MEPs</h2>
+			<div class="col-md-12 table-responsive">
+				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
+					<thead>
+						<tr class=header>
+							<th class="headerSortDown">Nr</th> 
+							<th>Name</th> 
+							<th>Country</th> 
+							<th>Group</th> 
+							<th class="sorter-digit">Attendance</th> 
+							<th class="sorter-amount">Outside revenues</th> 
+							<th title="External Activity Indicator" class="sorter-digit">EAI</th> 
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
 
-Last updated: 1 October 2014
-</div>
+
+
+<div id="last_update">Last updated: 1 October 2014</div>
 
 <script>
     var meps=[];
@@ -807,53 +830,7 @@ $(function() {
 
 </script>
 
-<style>
-a.row div.dc-chart {float:none;}
 
-adiv.gender {float:none;}
-.dc-data-count2.dc-chart {float:right;}
-
-#ep2014list table, .dc-data-grid {clear:both;}
-.dc-table-label {background: #F5F5F5; font-weight:bold; }
-.x line {stroke:none;}
-
-body {font-family: arial, helvetica, sans-serif;}
-
-.dc-data-grid, .dc-grid-group {clear:both}
-
-.dc-grid-group {
-  background-color: #F5F5F5;
-border: 1px solid #E3E3E3;
-        border-radius: 4px;
-
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-        margin-bottom: 20px;
-        min-height: 20px;
-padding: 10px;
-}
-
-.dc-grid-item {
-float:left;
-margin:0 10px 10px 0;
-padding:5px;
-width:200px;
-      background-color: #F8F8F8;
-      border-color: #E7E7E7;
-      border-radius: 4px;
-      text-align:center;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-}
-.dc-grid-item img {width:170px;height:215px}
-.dc-grid-top h1 {font-size:22px;}
-.dc-grid-top h2 {font-size:14px;}
-</style>
-</div>
-
-
-</div>
-</div>
-
-</div> <!-- container -->
 <script type="tpl" id="sidetpl">
 <h3>Declaration of Members' financial interests</h3>
 <table class="table table-condensed">
@@ -956,32 +933,30 @@ width:200px;
 </script>
 
 <div class="modal fade" id="mepdialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Firstname Lastname</h4>
-      </div>
-      <div class="modal-body">
-     
-      <div class="row">
-       <div class="col-md-8 details" ></div>
-       <div class="col-md-4">
-         <img id="mepphoto" src="" />
-       </div>
+	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        	<h4 class="modal-title">Firstname Lastname</h4>
+      	</div>
+      	<div class="modal-body">
+     		<div class="row">
+       			<div class="col-md-8 details" ></div>
+		        <div class="col-md-4">
+		       		<img id="mepphoto" src="" />
+		        </div>
+     		</div>
+		</div>
+	</div>
 
-     </div>
-</div>
-
-<div class="side">
-</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
-<div id="debug"></div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+	<div class="side">
+	</div>
+    
+    <div class="modal-footer">
+    	<button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
+		<div id="debug"></div>
+    </div>
+</div><!-- /.modal-dialog -->
 
 
 </body>

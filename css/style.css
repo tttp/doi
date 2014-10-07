@@ -11,7 +11,6 @@
          url('../fonts/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 
@@ -21,6 +20,37 @@ body {
    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important; 
    /* on TI website there is in use the fonts.com helvetica */
    line-height: 1.6em;
+   color: #1a1a1a;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important; 
+   /* on TI website there is in use the fonts.com helvetica */
+   font-weight: 300;
+}
+
+h2{
+	font-weight: bold;
+	font-size: 1.8em;
+}
+
+h3{
+	border-bottom: 1px solid #1a1a1a;
+	padding-bottom: .5em;
+	margin-bottom: 1em;
+	position: relative;
+}
+
+h3 .info{
+	position: absolute;
+	right: 0;
+	background: url(../img/info.svg) no-repeat;
+	display: block;
+	bottom: .5rem;
+	right: 0;
+	width: 21px;
+	text-indent: -9834em;
+	cursor: pointer;
 }
 
 /* CLASSES */
@@ -60,16 +90,16 @@ button.navbar-toggle{
 div#ti_logo{
 	background: #3695d8;
 	height: 80px;
-	padding: 1em;
+	padding: .5em 1em;
 }
 
 div#ti_logo a{
-	background: url(../img/ti_logo.png) no-repeat center;
+	background: url(../img/ti_logo.png) no-repeat left center;
 	background-size: contain;
 	display: block;
 	text-indent: -974em;
 	min-width: 135px;
-	min-height: 55px;
+	min-height: 62px;
 }
 
 .navbar-right a{
@@ -170,7 +200,7 @@ a#page_title{
 
 /*mep number*/
 #mep_number{
-	margin-top: 1.2em;
+	margin-top: 1.4em;
 	color: #808080;
 	font-size: 1.6875em;
 }
@@ -204,8 +234,88 @@ a#page_title{
 }
 
 /* charts */
-.frontpage_score{
-	margin-top: 110px;
+/* main charts */
+.hidden_charts_wrap{
+	
 }
 
+
+/*pasted from index html*/
+
+
+#ep2014list table, .dc-data-grid {clear:both;}
+.dc-table-label {
+	background: #F5F5F5; 
+	font-weight:bold; 
+}
+
+.x line {
+	stroke:none;
+}
+
+.dc-data-grid, .dc-grid-group {
+	clear:both
+}
+
+.dc-grid-group {
+	background-color: #F5F5F5;
+	border: 1px solid #E3E3E3;
+    border-radius: 4px;
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+	padding: 10px;
+}
+
+.dc-grid-item {
+	float:left;
+	margin:0 10px 10px 0;
+	padding:5px;
+	width:200px;
+	background-color: #F8F8F8;
+	border-color: #E7E7E7;
+	border-radius: 4px;
+	text-align:center;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+}
+.dc-grid-item img {width:170px;height:215px}
+.dc-grid-top h1 {font-size:22px;}
+.dc-grid-top h2 {font-size:14px;}
+
+td.dc-table-column._5, td.dc-table-column._4,td.dc-table-column._6 {
+	text-align: right;
+}
+
+tr.header th.header{
+	background-color: #d4eaf6;
+	background-image: url(../img/sort.svg);
+	background-repeat: no-repeat;
+	background-position: 99%;
+	border-bottom: 1px solid #1a1a1a;
+	border-right: 1px solid #bfd3de;
+	cursor: pointer;
+}
+
+tr.header th.headerSortUp{
+	background-image: url(../img/sortedup.svg);
+}
+
+tr.header th.headerSortDown{
+	background-image: url(../img/sorteddown.svg);
+}
+
+
+td.dc-table-column{
+	border-bottom: 1px solid #1a1a1a;
+	border-right: 1px solid #eee;
+}
+
+#list_container{
+	background: #f3f9fc;
+}
+
+.dc-table-row{
+	background: #FFF!important;
+}
 
