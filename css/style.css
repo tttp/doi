@@ -59,23 +59,22 @@ h3 .info{
 	background: url(../img/more_Arrow.svg) no-repeat;
 }
 
-.bar_score svg {position:relative;}
-
-.bar_score div#avg_score {
-    font-size: 130;
-	color: #111;
-	opacity: 0.5;
-	position: relative;
-	margin-bottom: -150px;
-	margin-top: -30px;
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	amin-height:185px;
-}
-
 .table-responsive{
 	padding: 0!important;
+}
+
+.chart_box{
+	margin-bottom: 3em;
+}
+
+@media only screen and (min-width : 966px) {
+	.chart_box{
+		margin-bottom: 0em;
+	}
+}
+
+.clear{
+	clear: both;
 }
 
 
@@ -243,6 +242,7 @@ a#page_title{
 }
 
 #view_charts{
+	margin-top: 30px;
 	height: 25px;
 	display: block;
 	float: left;
@@ -250,6 +250,10 @@ a#page_title{
 	background-image: url(../img/hidechart.svg);
 	background-repeat: no-repeat;
 	
+}
+
+#hidden_charts_wrap{
+	padding-top: 0;	
 }
 
 #view_charts.hiddencharts{
@@ -280,6 +284,8 @@ a#page_title{
 	float: left;
 }
 
+
+/* groups */
 .legend div.sd:before{
 	background: #c21200;
 }
@@ -312,15 +318,31 @@ a#page_title{
 	background: #cccccc;
 }
 
-
-
-
-/*groups*/
 .group svg{
 	margin: 0 2em;
 }
 
+/*scores*/
+.bar_score svg{
+	float: left;
+	width: 70%;
+}
 
+#avg_score_container{
+	float: left;
+	width: 30%;
+	color: #3695d8;
+}
+
+#avg_score_container div#avg_score {
+    font-size: 180px;
+    font-family: 'bebas';
+    margin-top:60px;
+}
+
+div.dc-chart{
+	float: none;
+}
 
 
 /*pasted from index html*/

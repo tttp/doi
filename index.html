@@ -19,8 +19,6 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 <style>
-.dc-chart h2 {text-align:center;font-size:14px;}
-.dc-data-count {margin:0;}
 
 </style>
 
@@ -281,15 +279,17 @@ function grid (selector,data) {
     .group(interestGroup);
 */
   var chart_interest = dc.barChart(selector +  " .interest")
-    .width(300)
-    .height(200)
+    .height(220)
     .gap(1)
-    .margins({top: 0, right: 0, bottom: 95, left: 30})
+    .margins({top: 10, right: 10, bottom: 20, left: 40})
+    .colorCalculator(function(d, i) {
+        return "#3695d8";
+        })
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
     .brushOn(false)
     .elasticY(true)
-    .yAxisLabel("#MEPs")
+    .yAxisLabel("Number of MEPs")
     .dimension(interest)
     .group(interestGroup);
   
@@ -329,9 +329,10 @@ function grid (selector,data) {
     .outerPadding(0)
     .gap(1)
     .margins({top: 0, right: 30, bottom: 95, left: 30})
-   .colorCalculator(function(d, i) {
-        return color(d.value.score/d.value.count);
-        })
+    .colorCalculator(function(d, i) {
+        //return color(d.value.score/d.value.count);
+        return "#3695d8";
+    })
    .valueAccessor (
       function(d) {
       return d.value.count;
@@ -532,10 +533,12 @@ function drawAge() {
 var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
 
   chart_age
-    .width(444)
-    .height(200)
-    .margins({top: 0, right: 0, bottom: 95, left: 30})
+    .height(300)
+    .margins({top: 0, right: 20, bottom: 20, left: 30})
     .x(d3.scale.linear().domain([20,100]))
+    .colorCalculator(function(d, i) {
+        return "#3695d8";
+        })
     .brushOn(true)
     .renderArea(true)
     .elasticY(true)
@@ -555,19 +558,17 @@ function drawScore() {
       function() {return {count:0,score:0, min:0, max:0}; }
       );
 
-  var bar_score = dc.barChart (".bar_score")
-    .width(245)
-    .height(130)
-    .outerPadding(5)
+  var bar_score = dc.barChart (".bar_score")   
+    .height(220)
     .gap(0)
-    .margins({top: 10, right: 10, bottom: 20, left: 30})
+    .margins({top: 10, right: 10, bottom: 20, left: 40})
     .x(d3.scale.linear().domain([0, 65]))
     .elasticX(true)
     .elasticY(true)
     .yAxisLabel("Number of MEPs")
     .round(dc.round.floor)
     .colorCalculator(function(d, i) {
-        return "#ff5722";
+        return "#3695d8";
         })
     .valueAccessor (
       function(d) {
@@ -588,11 +589,11 @@ function drawScore() {
       });
       if (nb) {
         var avg= total/nb;
-        $(".bar_score div#avg_score").text(Math.round(avg));
+        $("div#avg_score").text(Math.round(avg));
         $(".bar_score div#sum_side").html("total "+ min+" &euro;");
         $(".bar_score div#avg_side").html("average "+Math.round(min/nb)+ " &euro;");
       } else {
-        $(".bar_score div#avg_score").text("");
+        $("div#avg_score").text("");
       }
     //why doesn't it work? if (chart.dimension().size() !== chart.group().value()) {
       if (ndx.size() !== nb) {
@@ -688,10 +689,12 @@ function drawScore() {
 		<div class="container">
 			<h2>Charts</h2>
 			<div class="row">
-				<div class="country col-md-6">
+				<div class="col-md-6 chart_box">
 					<h3>Country <!--span class="info">info</span--></h3>
+					<div class="country"></div>
+					<br class="clear" />
 				</div>
-				<div class="col-md-3" id="group_container">
+				<div class="col-md-3 chart_box" id="group_container">
 					<h3>Political Groups <!--span class="info">info</span--></h3>
 					<div class="group">
 					</div>
@@ -705,9 +708,13 @@ function drawScore() {
 						<div class="efdd">EFDD</div>
 						<div class="ni">NI</div>
 					</div>
+					<br class="clear" />
 				</div>
-				<div class="group col-md-3">
+				<div class="col-md-3 chart_box">
 					<h3>Outside Activities <!--span class="info">info</span--></h3>
+					<div class="activities">
+					</div>
+					<br class="clear" />
 				</div>
 			</div>
 			<a href="#" id="view_charts" class="hiddencharts">VIEW ALL THE CHARTS</a>
@@ -718,30 +725,47 @@ function drawScore() {
 	<div class="container_wrap" id="hidden_charts_wrap">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 frontpage_score">
+				<div class="col-md-6 chart_box frontpage_score">
 				    <div class="dc-data-count">
-				      <div class="bar_score center-block">
-				        <div class="graph_titles"><h3>EAI Scores</h3></div>
-				        <div id="avg_score"></div>
+				        <h3>EAI Scores</h3>
+				        <div id="avg_score_container">
+				        	<p>average score</p>
+				        	<div id="avg_score">00</div>
+				        </div>
+				        <div class="bar_score">
 				        <!--div class="text-center" id="sum_side">SUM</div-->
 				        <!--div class="text-center" id="avg_side">AVG</div-->
 				        </div>
 				    </div>
+				    <br class="clear" />
 				</div>
 				
-				<div class="interest col-md-6"><h3>Outside Activities</h3></div>
+				<div class="col-md-6 chart_box">
+					<h3>Outside Activities</h3>
+					<div class="interest"></div>
+					<br class="clear" />
+				</div>
 			</div>
 			<div class="row">
-				<div class="party col-md-7">
+				<div class="col-md-7 chart_box">
 					<h3>National Parties</h3>
+					<div class="party">
+					</div>
+					<br class="clear" />
 				</div>
-				<div class="age col-md-5">
+				<div class="col-md-5 chart_box">
 					<h3>Age</h3>
+					<div class="age">
+					</div>
+					<br class="clear" />
 				</div>
 			</div>
 			<div class="row">
-				<div class="gender col-md-12">
+				<div class="col-md-12">
 					<h3>Gender</h3>
+					<div class="gender">
+					</div>
+					<br class="clear" />
 				</div>
 			</div>
 		</div>
