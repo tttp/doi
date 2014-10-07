@@ -74,6 +74,10 @@ h3 .info{
 	amin-height:185px;
 }
 
+.table-responsive{
+	padding: 0!important;
+}
+
 
 /* NAV BAR */
 nav.navbar{
@@ -178,7 +182,7 @@ a#page_title{
 	padding: 1.2em .5em;
 	background: #FFF;
 	color: #000;
-	margin-bottom: 1em!important;
+	margin-bottom: .5em!important;
 	border-bottom: 1px solid #2180c2;
 }
 
@@ -220,7 +224,6 @@ a#page_title{
 		margin-bottom: 0px;
 	}
 	#filter_wrap .btn{
-		margin-top: 1.5em;
 		margin-bottom: 0;
 		background: url(../img/close.svg) no-repeat left center;
 	}
@@ -252,6 +255,72 @@ a#page_title{
 #view_charts.hiddencharts{
 	background-image: url(../img/hiddenchart.svg);
 }
+
+.legend {
+	padding-top: 1em;
+	clear: both;
+}
+
+.legend div{
+	width: 40%;
+	float: left;
+	margin-bottom: .2em;
+	font-size: .8em;
+	margin-left: 10%;
+}
+
+.legend div:before{
+	display: block;
+	content: " ";
+	border-radius:50%;
+	width: 15px;
+	height: 15px;
+	margin-top: 3px;
+	margin-right: 5px;
+	float: left;
+}
+
+.legend div.sd:before{
+	background: #c21200;
+}
+
+.legend div.epp:before{
+	background: #0a3e63;
+}
+
+.legend div.efdd:before{
+	background: #5eced6;
+}
+
+.legend div.alde:before{
+	background: #ffc200;
+}
+
+.legend div.greens:before{
+	background: #05a61e;
+}
+
+.legend div.gue:before{
+	background: #800c00;
+}
+
+.legend div.ecr:before{
+	background: #3086c2;
+}
+
+.legend div.ni:before{
+	background: #cccccc;
+}
+
+
+
+
+/*groups*/
+.group svg{
+	margin: 0 2em;
+}
+
+
 
 
 /*pasted from index html*/
@@ -309,6 +378,7 @@ tr.header th.header{
 	border-bottom: 1px solid #1a1a1a;
 	border-right: 1px solid #bfd3de;
 	cursor: pointer;
+	font-size: .8em;
 }
 
 tr.header th.headerSortUp{
@@ -333,3 +403,33 @@ td.dc-table-column{
 	background: #FFF!important;
 }
 
+/*POPUP*/
+.side{
+	background: #FFF;
+}
+
+.modal-content h4.modal-title {
+	font-size: 1.8em;
+	padding-top: 0em;
+	margin-bottom: 1em;
+	border-bottom: 1px solid #1a1a1a;
+}
+
+.modal-body{
+	padding: 0;
+}
+
+.modal-content h4{
+	padding-top: 1em;
+}
+
+.modal-footer{
+	padding: 0;
+}
+
+.modal-footer button{
+	margin: 0;
+	background: transparent!important;
+	color: #3695d8;
+	box-shadow: none!important;
+}

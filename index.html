@@ -232,7 +232,7 @@ function grid (selector,data) {
 
 
 
-  var pie_group = dc.pieChart(selector +  " .group").innerRadius(20).radius(70);
+  var pie_group = dc.pieChart(selector +  " .group").innerRadius(30).radius(100);
   var group = ndx.dimension(function(d) {
       if (typeof d.eugroup == "undefined") return "";
       return d.eugroup;
@@ -691,8 +691,20 @@ function drawScore() {
 				<div class="country col-md-6">
 					<h3>Country <!--span class="info">info</span--></h3>
 				</div>
-				<div class="group col-md-3">
+				<div class="col-md-3" id="group_container">
 					<h3>Political Groups <!--span class="info">info</span--></h3>
+					<div class="group">
+					</div>
+					<div class="legend">
+						<div class="epp">EPP</div>
+						<div class="gue">GUE/NGL</div>
+						<div class="alde">ALDE</div>
+						<div class="ecr">ECR</div>
+						<div class="sd">S&amp;D</div>
+						<div class="greens">Greens/EFA</div>
+						<div class="efdd">EFDD</div>
+						<div class="ni">NI</div>
+					</div>
 				</div>
 				<div class="group col-md-3">
 					<h3>Outside Activities <!--span class="info">info</span--></h3>
@@ -855,7 +867,7 @@ $(function() {
 
 
 <script type="tpl" id="sidetpl">
-<h3>Declaration of Members' financial interests</h3>
+<h4>Declaration of Members’ financial interests</h4>
 <table class="table table-condensed">
 <tr><td class="dc-table-label" colspan="3">A. Previous occupation</td></tr>
 <% _.each(doi.occupation, function (a) { %>
@@ -960,25 +972,29 @@ $(function() {
     	<div class="modal-content">
       		<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        	<h4 class="modal-title">Firstname Lastname</h4>
+        	<h4 class="modal-title">Firstname <strong>Lastname</strong></h4>
+        	
+        	<div class="modal-body">
+        			<div class="row">
+        				<div class="col-md-8 details" ></div>
+        	        <div class="col-md-4">
+        	       		<img id="mepphoto" src="" />
+        	        </div>
+        			</div>
+        	</div>
+        	<div class="side">
+        	</div>
+        	<div class="modal-footer">
+        		<button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
+        		<div id="debug"></div>
+        	</div>
       	</div>
-      	<div class="modal-body">
-     		<div class="row">
-       			<div class="col-md-8 details" ></div>
-		        <div class="col-md-4">
-		       		<img id="mepphoto" src="" />
-		        </div>
-     		</div>
-		</div>
+      	
 	</div>
 
-	<div class="side">
-	</div>
+	
     
-    <div class="modal-footer">
-    	<button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
-		<div id="debug"></div>
-    </div>
+   
 </div><!-- /.modal-dialog -->
 
 
