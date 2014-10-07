@@ -230,7 +230,7 @@ function grid (selector,data) {
 
 
 
-  var pie_group = dc.pieChart(selector +  " .group").innerRadius(30).radius(100);
+  var pie_group = dc.pieChart(selector +  " .group").innerRadius(50).radius(100);
   var group = ndx.dimension(function(d) {
       if (typeof d.eugroup == "undefined") return "";
       return d.eugroup;
@@ -301,8 +301,6 @@ function grid (selector,data) {
     .group(groupGender);
 
   pie_group
-    .width(200)
-    .height(200)
     .dimension(group)
     .colorCalculator(function(d, i) {
       return eu_groups[d.key];
@@ -652,7 +650,7 @@ function drawScore() {
 	<div class="container">
 		<div id="about_container" class="row">
 			<div class="col-md-3">
-				&nbsp;
+				
 			</div>
 			<div class="col-md-9">
 				<p>EU Integrity Watch is a user-friendly database that provides a unique overview of the activities of members of the European Parliament (MEPs) and enables a range of rankings and visual comparisons. It also allows to better monitor potential conflicts of interests or to identify those MEPs with a high degree of external activity.<br /><br />

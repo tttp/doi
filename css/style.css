@@ -163,6 +163,12 @@ a#page_title{
 	background: #f3f9fc;
 }
 
+@media only screen and (min-width : 966px) {
+	#about_wrap{
+		background: #f3f9fc url(../img/illustration.png) no-repeat 10px top;
+	}
+}
+
 #about_wrap p{
 	margin-bottom: 0;
 }
@@ -319,7 +325,6 @@ a#page_title{
 }
 
 .group svg{
-	margin: 0 2em;
 }
 
 /*scores*/
