@@ -38,6 +38,26 @@
 
 
 <script>
+$( document ).ready(function() {
+	console.log($('#view_charts'));
+	$('#view_charts').click(function(ev) {
+		ev.preventDefault();
+		jQuery('#hidden_charts_wrap').slideToggle('slow', function () {
+			changeLinkStatus();
+		})
+	})
+	
+	function changeLinkStatus() {
+		if(jQuery('#hidden_charts_wrap').css('display') == 'none'){
+			jQuery('#view_charts').text('VIEW ALL THE CHARTS')
+		}else {
+			jQuery('#view_charts').text('HIDE CHARTS')
+		}
+		jQuery('#view_charts').toggleClass('hiddencharts');
+		
+	}
+});
+
 $.tablesorter.addParser({
   // use a unique id
   id: 'amount',
@@ -75,15 +95,15 @@ var wall = null;
   ]; 
 
 var eu_groups = {
-"GUE/NGL":"#df73be",
-"S&D":"#ec2335",
-"Green/ALE":"#67bd1b",
-"ALDE":"#f1cb01",
-"EFDD":"#60c0e2",
-"PPE":"blue",
-"EPP":"blue",
-"ECR":"darkblue",
-"NA/NI":"grey",
+"GUE/NGL":"#800c00",
+"S&D":"#c21200",
+"Green/ALE":"#05a61e",
+"ALDE":"#ffc200",
+"EFDD":"#5eced6",
+"PPE":"#0a3e63",
+"EPP":"#0a3e63",
+"ECR":"#3086c2",
+"NA/NI":"#cccccc",
 "Array":"pink"
 };
 
@@ -639,7 +659,7 @@ function drawScore() {
 				</p>
 			</div>
 		</div>
-	</div>
+	</div><!-- container -->
 </div>
 
 <div class="container_wrap" id="filter_wrap">
@@ -678,8 +698,9 @@ function drawScore() {
 					<h3>Outside Activities <!--span class="info">info</span--></h3>
 				</div>
 			</div>
-			
+			<a href="#" id="view_charts" class="hiddencharts">VIEW ALL THE CHARTS</a>
 		</div>
+		
 	</div>
 	
 	<div class="container_wrap" id="hidden_charts_wrap">
@@ -735,7 +756,9 @@ function drawScore() {
 <div class="container_wrap" id="list_container">
 	<div class="container">
 		<div class="row">
-			<h2>MEPs</h2>
+			<div class="content">
+				<h2>MEPs</h2>
+			</div>
 			<div class="col-md-12 table-responsive">
 				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
 					<thead>

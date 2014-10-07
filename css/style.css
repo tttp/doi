@@ -235,8 +235,22 @@ a#page_title{
 
 /* charts */
 /* main charts */
-.hidden_charts_wrap{
+#hidden_charts_wrap{
+	display: none;
+}
+
+#view_charts{
+	height: 25px;
+	display: block;
+	float: left;
+	padding-left: 28px;
+	background-image: url(../img/hidechart.svg);
+	background-repeat: no-repeat;
 	
+}
+
+#view_charts.hiddencharts{
+	background-image: url(../img/hiddenchart.svg);
 }
 
 
