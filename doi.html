@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/material.css" rel="stylesheet">
+    <link href="css/theme.bootstrap.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,12 +29,30 @@
 <script src="js/d3-tip.min.js"></script>
 
 <script src="jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
 
 <script>
+$.tablesorter.addParser({
+  // use a unique id
+  id: 'amount',
+  is: function(s, table, cell) {
+    return false;
+  },
+  format: function(s, table, cell, cellIndex) {
+    var v = s.split(' ')[0];
+    if (v === "") return -1;
+    return v;
+  },
+  // flag for filter widget (true = ALWAYS search parsed values; false = search cell text)
+  parsed: false,
+  // set the type to either numeric or text (text uses a natural sort function
+  // so it will work for everything, but numeric is faster for numbers
+  type: 'numeric'
+});
 
 var detailtpl = sidetpl = null ;
 
@@ -373,11 +392,15 @@ effect : "fadeIn"
   .sortBy(function (d) {return d.last_name})
   .renderlet(function (chart) {
     i = 0;
+    $(".dc-table-group").remove();
     $("td span.score").each (function(i) { 
       $(this).closest ("td").css("backgroundColor", 
         $(this).css('backgroundColor')
       );
     });
+     $("table.dc-data-grid").tablesorter(
+        {theme:"bootstrap",headers: { 5: { sorter: 'amount' } }}
+     ); 
   });
 
   drawScore();
@@ -595,10 +618,6 @@ function drawScore() {
                                         <li><a href="/media.html">Media</a></li>
                                         <li><a href="/methodology.html">Methodolody</a></li>
                                     </ul>
-                                    <form class="navbar-form navbar-right">
-                                        <div class="form-control-wrapper"><input type="text" placeholder="Search" class="form-control col-lg-8 empty"><span class="material-input"></span>
-</div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -668,16 +687,16 @@ href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
 
 <div class="row">
 <div class="col-md-12 table-responsive">
-<table class="table table-hover dc-data-grid">
+<table class="table table-hover dc-data-grid tablesorter-bootstrap">
 <tr class=header">
 <thead>
 <th>Nr</th> 
 <th>Name</th> 
 <th>Country</th> 
 <th>Group</th> 
-<th>Attendance</th> 
-<th>Outside revenues</th> 
-<th title="External Activity Indicator">EAI</th> 
+<th class="sorter-digit">Attendance</th> 
+<th  class="sorter-amount">Outside revenues</th> 
+<th title="External Activity Indicator" class="sorter-digit">EAI</th> 
 </tr>
 </thead>
 </table>
