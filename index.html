@@ -134,8 +134,8 @@ var eu_groups = {
          min += i.substr(0,i.length - 4) * 1;
          max += i.substr(0,i.length - 4) * 1;
        } else {
-         min += convert (i);
-         max += convert (i);
+         min += Math.round(convert (i));
+         max += Math.round(convert (i));
        } 
      } else {
        min += rangeEUR[i].min;
