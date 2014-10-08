@@ -279,6 +279,7 @@ function grid (selector,data) {
 */
   var chart_interest = dc.barChart(selector +  " .interest")
     .height(220)
+    .width(440)
     .gap(1)
     .margins({top: 10, right: 10, bottom: 20, left: 40})
     .colorCalculator(function(d, i) {
@@ -542,10 +543,11 @@ function drawAge() {
       });
 
 
-var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
+  var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
 
   chart_age
     .height(300)
+    .width (430)
     .margins({top: 0, right: 20, bottom: 20, left: 30})
     .x(d3.scale.linear().domain([20,100]))
     .colorCalculator(function(d, i) {
@@ -572,6 +574,7 @@ function drawScore() {
 
   var bar_score = dc.barChart (".bar_score")   
     .height(220)
+    .width(330)
     .gap(0)
     .margins({top: 10, right: 10, bottom: 20, left: 40})
     .x(d3.scale.linear().domain([0, 65]))
@@ -602,7 +605,7 @@ function drawScore() {
       if (nb) {
         var avg= total/nb;
         $("div#avg_score").text(Math.round(avg));
-        $("div#sum_side").html("Total "+ min+" &euro;");
+        $("div#sum_side").html("Total "+ Math.round(min)+" &euro;");
         $("div#avg_side").html("Average "+Math.round(min/nb)+ " &euro;");
       } else {
         $("div#avg_score").text("");
