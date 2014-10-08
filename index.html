@@ -37,7 +37,6 @@
 
 <script>
 $( document ).ready(function() {
-	console.log($('#view_charts'));
 	$('#view_charts').click(function(ev) {
 		ev.preventDefault();
 		jQuery('#hidden_charts_wrap').slideToggle('slow', function () {
@@ -237,7 +236,7 @@ function grid (selector,data) {
       });
   var groupGroup   = group.group().reduceSum(function(d) {   return 1; });
 
-  var pie_gender = dc.pieChart(selector +  " .gender").radius(70);
+  var pie_gender = dc.pieChart(selector +  " .gender").innerRadius(50).radius(100).height(200);
   var gender = ndx.dimension(function(d) {
       if (typeof d.gender == "undefined") return "";
       return d.gender;
@@ -645,7 +644,7 @@ function drawScore() {
         		<span class="icon-bar"></span>
       		</button>
 	      	<div class="navbar-brand" id="ti_logo">
-	      		<a href="javascript:void(0)">Transparency International</a>
+	      		<a href="index.html">Transparency International</a>
 	     	</div>
 	    </div>
     
@@ -783,7 +782,7 @@ function drawScore() {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-3">
 					<h3>Gender</h3>
 					<div class="gender">
 					</div>
@@ -794,22 +793,6 @@ function drawScore() {
 	</div>
 </div>
 
-
-
-<!--div class="acontainer">
-
-<div class="row">
-
-<div class="country col-md-6"><h2>Country</h2></div>
-<div class="gender col-md-3"><h2>Gender</h2></div>
-</div>
-<div class="row">
-<div class="interest col-md-4"><h2>Outside Activities<h2></div>
-<div class="age col-md-5"><h2>Age</h2></div>
-</div>
-<div class="row">
-<div class="party col-md-8"><h2>Party</h2></div>
-<div class="range col-md-4"><h2>Range</h2></div-->
 
 <div class="container_wrap" id="list_container">
 	<div class="container">
@@ -963,15 +946,15 @@ $(function() {
      </div>
      <div class="row">
        <div class="col-md-4" title="External Activity Indicator">EAI</div>
-       <div class="col-md-8 score"><%= score.toFixed(0) %> </div>
+       <div class="col-md-8 score"><%= score.toFixed(0) %></div>
      </div>
      <div class="row">
        <div class="col-md-4">Outside revenues</div>
-       <div class="col-md-8 score"><%=  min %> &#8605; <%= max %> &euro;</div>
+       <div class="col-md-8 score"><%=  min %> &#8605; <%= max %> <small>&euro;</small></div>
      </div>
      <div class="row">
        <div class="col-md-4">Attendance</div>
-       <div class="col-md-8 score" title="voted on <%= attendance.attended %> votes out of <%= attendance.total %>"><%= attendance.score.toFixed(0) %>%</div>
+       <div class="col-md-8 score" title="voted on <%= attendance.attended %> votes out of <%= attendance.total %>"><%= attendance.score.toFixed(0) %> <small>%</small></div>
      </div>
      <div class="row">
        <div class="col-md-4">Group</div>
@@ -1035,10 +1018,6 @@ $(function() {
       	</div>
       	
 	</div>
-
-	
-    
-   
 </div><!-- /.modal-dialog -->
 
 
