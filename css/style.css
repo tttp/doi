@@ -184,7 +184,8 @@ a#page_title{
 
 #filter_wrap input#search-input{
 	width: 100%;
-	padding: 1.2em .5em;
+	height: 45px;
+	padding: 0 .5em;
 	background: #FFF;
 	color: #000;
 	margin-bottom: .5em!important;
@@ -327,6 +328,27 @@ a#page_title{
 .group svg{
 }
 
+/* outside revenues */
+.legend div._0:before{
+	background: #eaf5fb;
+}
+
+.legend div._1:before{
+	background: #c8e5f4;
+}
+
+.legend div._2:before{
+	background: #91cae9;
+}
+
+.legend div._3:before{
+	background: #5bb0de;
+}
+
+.legend div._4:before{
+	background: #2396d3;
+}
+
 /*scores*/
 .bar_score svg{
 	float: left;
@@ -343,6 +365,11 @@ a#page_title{
     font-size: 180px;
     font-family: 'bebas';
     margin-top:60px;
+    height: 90px;
+}
+
+#sum_side, #avg_side{
+	color: #999;
 }
 
 div.dc-chart{

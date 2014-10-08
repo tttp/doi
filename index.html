@@ -588,8 +588,8 @@ function drawScore() {
       if (nb) {
         var avg= total/nb;
         $("div#avg_score").text(Math.round(avg));
-        $(".bar_score div#sum_side").html("total "+ min+" &euro;");
-        $(".bar_score div#avg_side").html("average "+Math.round(min/nb)+ " &euro;");
+        $("div#sum_side").html("Total "+ min+" &euro;");
+        $("div#avg_side").html("Average "+Math.round(min/nb)+ " &euro;");
       } else {
         $("div#avg_score").text("");
       }
@@ -712,6 +712,13 @@ function drawScore() {
 					<h3>Outside Activities <!--span class="info">info</span--></h3>
 					<div class="activities">
 					</div>
+					<div class="legend">
+						<div class="_0">step 1</div>
+						<div class="_1">step 2</div>
+						<div class="_2">step 3</div>
+						<div class="_3">step 4</div>
+						<div class="_4">step 5</div>
+					</div>
 					<br class="clear" />
 				</div>
 			</div>
@@ -729,10 +736,11 @@ function drawScore() {
 				        <div id="avg_score_container">
 				        	<p>average score</p>
 				        	<div id="avg_score">00</div>
+				        	<div id="sum_side">SUM</div>
+				        	<div id="avg_side">AVG</div>
 				        </div>
 				        <div class="bar_score">
-				        <!--div class="text-center" id="sum_side">SUM</div-->
-				        <!--div class="text-center" id="avg_side">AVG</div-->
+				            
 				        </div>
 				    </div>
 				    <br class="clear" />
@@ -809,12 +817,10 @@ function drawScore() {
 				</table>
 			</div>
 		</div>
+		
+		<div id="last_update">Last updated: 1 October 2014</div>
 	</div>
 </div>
-
-
-
-<div id="last_update">Last updated: 1 October 2014</div>
 
 <script>
     var meps=[];
