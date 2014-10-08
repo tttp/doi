@@ -502,3 +502,6 @@ td.dc-table-column{
 	color: #3695d8;
 	box-shadow: none!important;
 }
+
+.range .pie-slice path {stroke:lightgrey ;}
+div.range .pie-slice {fill:grey ;}

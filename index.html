@@ -461,10 +461,10 @@ function drawRange () {
     return "4. 10000 or more";
   };
 
-  var bluecolor = d3.scale.linear()
+  var rangecolor = d3.scale.linear()
         .clamp(true)
-        .domain([0,6])
-        .range(["#eaf5fb","#0a3e63"])
+        .domain([0,1,6])
+        .range(["white","#f8e8e5","#f85631"])
         .interpolate(d3.interpolateHcl);
   var dimension = ndx.dimension(function(d) {
     return getRange(d);
@@ -474,7 +474,7 @@ function drawRange () {
   var chart = dc.pieChart(selector +  " .range")
     .innerRadius(50).radius(100)
     .height(200)
-    .colors(bluecolor)
+    .colors(rangecolor)
     .colorAccessor(function (d, i){return i;})
     .dimension(dimension)
     .group(group);
