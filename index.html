@@ -453,15 +453,22 @@ function drawRange () {
     return "4. 10000 or more";
   };
 
+  var bluecolor = d3.scale.linear()
+        .clamp(true)
+        .domain([0,6])
+        .range(["#eaf5fb","#0a3e63"])
+        .interpolate(d3.interpolateHcl);
   var dimension = ndx.dimension(function(d) {
     return getRange(d);
   });
 
   var group   = dimension.group().reduceSum(function(d) {   return 1; });
   var chart = dc.pieChart(selector +  " .range")
-    .innerRadius(20).radius(70)
+    .innerRadius(0).radius(100)
     .width(200)
     .height(200)
+    .colors(bluecolor)
+    .colorAccessor(function (d, i){return i;})
     .dimension(dimension)
     .group(group);
 }
