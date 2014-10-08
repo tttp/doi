@@ -330,23 +330,28 @@ a#page_title{
 
 /* outside revenues */
 .legend div._0:before{
-	background: #eaf5fb;
+	background: #ffffff;
+	border: 1px solid #ddd;
 }
 
 .legend div._1:before{
-	background: #c8e5f4;
+	background: #f8e8e5;
 }
 
 .legend div._2:before{
-	background: #91cae9;
+	background: #f9d1c8;
 }
 
 .legend div._3:before{
-	background: #5bb0de;
+	background: #f9a896;
 }
 
 .legend div._4:before{
-	background: #2396d3;
+	background: #fb8065;
+}
+
+.legend div._5:before{
+	background: #f85631;
 }
 
 /*scores*/

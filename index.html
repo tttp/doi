@@ -318,7 +318,7 @@ function grid (selector,data) {
         dc.redrawAll();}
       )
       .style("text-anchor", "end" )
-      .attr("transform", function(d) { return "rotate(-90, -4, 9) "; });
+      .attr("transform", function(d) { return "rotate(-45, -4, 9) "; });
   }
 
 
@@ -443,6 +443,15 @@ effect : "fadeIn"
 dc.renderAll();
 
 function drawRange () {
+	
+	/*colors
+	"#ffffff",
+	"#f8e8e5",
+	"#f9d1c8",
+	"#f9a896",
+	"#fb8065",
+	"#f85631"
+	*/
  
   function getRange (d) {
     if (d.score === 0 ) return ". no extra"; 
@@ -459,8 +468,7 @@ function drawRange () {
 
   var group   = dimension.group().reduceSum(function(d) {   return 1; });
   var chart = dc.pieChart(selector +  " .range")
-    .innerRadius(20).radius(70)
-    .width(200)
+    .innerRadius(50).radius(100)
     .height(200)
     .dimension(dimension)
     .group(group);
@@ -636,7 +644,7 @@ function drawScore() {
     
     	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	    	<ul class="nav navbar-nav" id="title_container">
-	    	    <li><a id="page_title" href="javascript:void(0)"><strong>EU</strong> Integrity Watch</a></li>
+	    	    <li><a id="page_title" href="index.html"><strong>EU</strong> Integrity Watch</a></li>
 	    	</ul>
 	        <ul class="nav navbar-nav navbar-right">
 	            <li><a href="about.html">About</a></li>
@@ -713,11 +721,12 @@ function drawScore() {
 					<div class="activities range">
 					</div>
 					<div class="legend">
-						<div class="_0">step 1</div>
-						<div class="_1">step 2</div>
-						<div class="_2">step 3</div>
-						<div class="_3">step 4</div>
-						<div class="_4">step 5</div>
+						<div class="_0">. no extra</div>
+						<div class="_1">0. &lt; 500</div>
+						<div class="_2">1. &lt; 1000</div>
+						<div class="_3">2. &lt; 5000</div>
+						<div class="_4">3. &lt; 10000</div>
+						<div class="_5">4. 10000 or more</div>
 					</div>
 					<br class="clear" />
 				</div>
