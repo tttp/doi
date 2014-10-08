@@ -58,6 +58,12 @@ h3 .info{
 }
 
 /* CLASSES */
+
+p.desc{
+	color: #999;
+	margin-top: -1em;
+}
+
 .more{
 	padding-left: 15px;
 	background: url(../img/more_Arrow.svg) no-repeat;
