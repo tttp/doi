@@ -464,10 +464,11 @@ function drawRange () {
 
   var group   = dimension.group().reduceSum(function(d) {   return 1; });
   var chart = dc.pieChart(selector +  " .range")
-    .innerRadius(20).radius(70)
+    .innerRadius(0).radius(100)
     .width(200)
     .height(200)
     .colors(bluecolor)
+    .colorAccessor(function (d, i){return i;})
     .dimension(dimension)
     .group(group);
 }
