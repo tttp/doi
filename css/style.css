@@ -193,7 +193,7 @@ a#page_title{
 /* about */
 
 .container_wrap{
-	padding: 3rem 0;
+	padding: 2rem 0;
 }
 
 #about_wrap{
@@ -317,7 +317,6 @@ a#page_title{
 }
 
 #view_charts{
-	margin-top: 30px;
 	height: 25px;
 	display: block;
 	float: left;
@@ -540,6 +539,7 @@ td.dc-table-column{
 }
 
 #list_container{
+	padding-top: 0em!important;
 	background: #f3f9fc;
 }
 
