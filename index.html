@@ -224,7 +224,7 @@ function grid (selector,data) {
   var color = d3.scale.linear()
         .clamp(true)
         .domain([0,1, 70])
-        .range(["white","#ffc7b6", "#ff5019"])
+        .range(["white","#ffc7b6", "#f85631"])
         .interpolate(d3.interpolateHcl);
 
 
@@ -283,7 +283,7 @@ function grid (selector,data) {
     .gap(1)
     .margins({top: 10, right: 10, bottom: 20, left: 40})
     .colorCalculator(function(d, i) {
-        return "#3695d8";
+        return "#f85631";
         })
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
@@ -551,9 +551,6 @@ function drawAge() {
     .width (430)
     .margins({top: 0, right: 20, bottom: 20, left: 30})
     .x(d3.scale.linear().domain([20,100]))
-    .colorCalculator(function(d, i) {
-        return "#3695d8";
-        })
     .brushOn(true)
     .renderArea(true)
     .elasticY(true)
@@ -584,7 +581,7 @@ function drawScore() {
     .yAxisLabel("Number of MEPs")
     .round(dc.round.floor)
     .colorCalculator(function(d, i) {
-        return "#3695d8";
+        return "#f85631";
         })
     .valueAccessor (
       function(d) {

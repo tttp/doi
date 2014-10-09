@@ -372,7 +372,7 @@ a#page_title{
 #avg_score_container{
 	float: left;
 	width: 30%;
-	color: #3695d8;
+	color: #f85631;
 }
 
 #avg_score_container div#avg_score {
@@ -403,6 +403,10 @@ div.dc-chart{
 	background: #3182bd;
 }
 
+/*parties*/
+.party.dc-chart{
+	margin-bottom: 1em;
+}
 
 /*pasted from index html*/
 
