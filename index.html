@@ -279,7 +279,7 @@ function grid (selector,data) {
 */
   var chart_interest = dc.barChart(selector +  " .interest")
     .height(220)
-    .width(440)
+    .width(360)
     .gap(1)
     .margins({top: 10, right: 10, bottom: 20, left: 40})
     .colorCalculator(function(d, i) {
@@ -295,8 +295,9 @@ function grid (selector,data) {
   
 
   pie_gender
-    .width(200)
-    .height(200)
+    .innerRadius(50)
+    .radius(100)
+    .width(262.5)
     .dimension(gender)
     .group(groupGender);
 
@@ -727,7 +728,7 @@ function drawScore() {
 				</div>
 				<div class="col-md-3 chart_box">
 					<h3>Outside income <!--span class="info">info</span--></h3>
-					<p class="desc">Total monthly outside income declared by the member in the Declaration of Financial Interests (EUR)</p>
+					
 					<div class="activities range">
 					</div>
 					
@@ -738,7 +739,9 @@ function drawScore() {
 						<div class="_3">1,001 - 5,000 &euro;</div>
 						<div class="_4">5,001 - 10,000 &euro;</div>
 						<div class="_5">10,000+ &euro;</div>
+						<br class="clear" />
 					</div>
+					<p class="desc">Total monthly outside income declared by the member in the Declaration of Financial Interests (EUR)</p>
 					<br class="clear" />
 				</div>
 			</div>
@@ -750,14 +753,14 @@ function drawScore() {
 	<div class="container_wrap" id="hidden_charts_wrap">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 chart_box frontpage_score">
+				<div class="col-md-5 chart_box frontpage_score">
 				    <div class="dc-data-count">
 				        <h3>EAI Scores</h3>
 				        <div id="avg_score_container">
 				        	<p>average score</p>
-				        	<div id="avg_score">00</div>
-				        	<div id="sum_side">SUM</div>
-				        	<div id="avg_side">AVG</div>
+				        	<div id="avg_score"></div>
+				        	<div id="sum_side"></div>
+				        	<div id="avg_side"></div>
 				        </div>
 				        <div class="bar_score">
 				            
@@ -766,31 +769,35 @@ function drawScore() {
 				    <br class="clear" />
 				</div>
 				
-				<div class="col-md-6 chart_box">
+				<div class="col-md-4 chart_box">
 					<h3>Outside Activities</h3>
 					<div class="interest"></div>
+					<br class="clear" />
+				</div>
+				
+				<div class="col-md-3">
+					<h3>Gender</h3>
+					<div class="gender">
+					</div>
+					<div class="legend gender_legend">
+						<div class="m">M</div>
+						<div class="f">F</div>
+						<br class="clear" />
+					</div>
 					<br class="clear" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-7 chart_box">
 					<h3>National Parties</h3>
-					<p class="desc">Each circle represents a national party ranked according to its MEP's average attendance rate and average External Activity Indicator.</p>
 					<div class="party">
 					</div>
+					<p class="desc">Each circle represents a national party ranked according to its MEP's average attendance rate and average External Activity Indicator.</p>
 					<br class="clear" />
 				</div>
 				<div class="col-md-5 chart_box">
 					<h3>Age</h3>
 					<div class="age">
-					</div>
-					<br class="clear" />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-					<h3>Gender</h3>
-					<div class="gender">
 					</div>
 					<br class="clear" />
 				</div>
