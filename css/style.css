@@ -83,6 +83,10 @@ h3{
 	right: 10.5%;
 }
 
+#attendance_info{
+	right: 26%;
+}
+
 #list_content .desc{
 	z-index: 1000;
 	width: 300px;
@@ -458,23 +462,24 @@ a#page_title{
 
 /* blue version */
 .legend div._0:before{
-	background: #6cc6fa;
+	background: #FFFFFF;
+	border: 1px solid #ddd
 }
 
 .legend div._1:before{
-	background: #55aadb;
+	background: #8ed3fb;
 }
 
 .legend div._2:before{
-	background: #3c8fbd;
+	background: #68add4;
 }
 
 .legend div._3:before{
-	background: #24739d;
+	background: #4388ad;
 }
 
 .legend div._4:before{
-	background: #08587f;
+	background: #1a6287;
 }
 
 .legend div._5:before{

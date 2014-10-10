@@ -481,7 +481,7 @@ function drawRange () {
 
   var color = d3.scale.ordinal()
   	  //blue->orange//.range(["#3695d8", "#5989b3", "#857c93", "#ae6e74", "#d76155", "#ff523a"]);
-      .range(["#6cc6fa", "#55aadb", "#3c8fbd", "#24739d", "#08587f", "#003c60"]);
+      .range(["#FFFFFF", "#8ed3fb", "#68add4", "#4388ad", "#1a6287", "#003c60"]);
         
   var dimension = ndx.dimension(function(d) {
     return getRange(d);
@@ -790,7 +790,7 @@ function drawScore() {
 				        </div>
 				        <div class="info_chart">
 				        	<span class="info">info</span>
-				        	<p class="desc">Total monthly outside income declared by the member in the Declaration of Financial Interests (EUR)</p>
+				        	<p class="desc">The External Activity Indicator was developed by Transparency International EU to provide a quick overview of all outside activities of members of the European Parliament. In short, the higher the indicator the higher the outside income and number of outside activities of a member. A higher EAI is reflected in a darker shading of orange. <br /><a href="about.html#methodology">More details</a></p>
 				        </div>
 				    </div>
 				    <br class="clear" />
@@ -846,14 +846,19 @@ function drawScore() {
 		<div class="row">
 			<div class="content" id="list_content">
 				<h2>MEPs</h2>
+				<div class="info_chart" id="attendance_info">
+					<span class="info">info</span>
+					<p class="desc">Participation in plenary roll-call votes</p>
+				</div>
+				
 				<div class="info_chart" id="EAI_info">
 					<span class="info">info</span>
-					<p class="desc">Total monthly outside income declared by the member in the Declaration of Financial Interests (EUR)</p>
+					<p class="desc">The External Activity Indicator was developed by Transparency International EU to provide a quick overview of all outside activities of members of the European Parliament. In short, the higher the indicator the higher the outside income and number of outside activities of a member. A higher EAI is reflected in a darker shading of orange. <br /><a href="about.html#methodology">More details</a></p>
 				</div>
 				
 				<div class="info_chart" id="OI_info">
 					<span class="info">info</span>
-					<p class="desc">Outside income: Total monthly outside income declared by the member in the Declaration of Financial Interests (EUR)</p>
+					<p class="desc">Total monthly income declared by the member in the Declaration of Financial Interests</p>
 				</div>
 			</div>
 			
@@ -865,7 +870,7 @@ function drawScore() {
 							<th>Name</th> 
 							<th>Country</th> 
 							<th>Group</th> 
-							<th class="sorter-digit">Attendance</th> 
+							<th class="sorter-digit">Attendance <span class="table_spacer">&nbsp;</span></th> 
 							<th class="sorter-amount">Outside income<span class="table_spacer">&nbsp;</span></th> 
 							<th title="External Activity Indicator" class="sorter-digit">EAI <span class="table_spacer">&nbsp;</span></th> 
 						</tr>
