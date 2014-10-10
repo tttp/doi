@@ -92,9 +92,9 @@ var detailtpl = sidetpl = null ;
 var wall = null;
 
 /*
-1. de 500 Â  1000 EUR brut par mois;
-2. de 1001 Â  5000 EUR brut par mois;
-3. de 5001 Â  10 000 EUR brut par mois;
+1. de 500   1000 EUR brut par mois;
+2. de 1001   5000 EUR brut par mois;
+3. de 5001   10 000 EUR brut par mois;
 4. plus de 10 000 EUR brut par mois.
 */
   var rangeEUR = [
@@ -283,14 +283,6 @@ function grid (selector,data) {
   });
 
   var interestGroup   = interest.group().reduceSum(function(d) {   return 1; });
-/*
-  var pie_interest = dc.pieChart(selector +  " .interest")
-    .innerRadius(20).radius(70)
-    .width(200)
-    .height(200)
-    .dimension(interest)
-    .group(interestGroup);
-*/
   var chart_interest = dc.barChart(selector +  " .interest")
     .height(220)
     .width(360)
@@ -433,10 +425,8 @@ effect : "fadeIn"
         $(this).css('backgroundColor')
       );
     });
-     $("table.dc-data-grid").tablesorter(
-        {theme:"bootstrap",headers: { 5: { sorter: 'amount' } }}
-     ); 
-  });
+    $("table.dc-data-grid").trigger("update");
+});
 
   drawScore();
   drawParty();
@@ -456,6 +446,10 @@ effect : "fadeIn"
 
 
 dc.renderAll();
+     $("table.dc-data-grid").tablesorter(
+        {theme:"bootstrap",headers: { 5: { sorter: 'amount' } }}
+     ); 
+     
 
 function drawRange () {
 	
@@ -630,8 +624,8 @@ function drawScore() {
         $(".resetall").attr("disabled",true);
 //        ga && ga('send', 'event', 'filter', 'reset');
       }
-    });
-
+      
+  });
   bar_score.yAxis().ticks(4).tickFormat(d3.format(",.0f"));
 }
 
