@@ -70,6 +70,40 @@ h3{
 	background: #e6e6e6 url(../img/close_info.svg) no-repeat center top;
 }
 
+#list_content{
+	position: relative;
+}
+
+#list_content .info_chart{
+	z-index: 1000;
+	top: 17px;
+}
+
+#OI_info{
+	right: 10.5%;
+}
+
+#list_content .desc{
+	z-index: 1000;
+	width: 300px;
+	position: absolute;
+	right: 0;
+}
+
+#list_content .info{
+	background: #3695d8 url(../img/info_table.svg) no-repeat;
+}
+
+#list_content .info.opened{
+	background: #e6e6e6 url(../img/close_info_table.svg) no-repeat;
+}
+
+.table_spacer{
+	padding: 0 15px;
+}
+
+
+
 p.desc{
 	width: 100%;
 	margin-left: 15px;
@@ -396,30 +430,57 @@ a#page_title{
 }
 
 /* outside revenues */
+/* orange version * /
 .legend div._0:before{
-	background: #ffffff;
-	border: 1px solid #ddd;
+	background: #3695d8;
 }
 
 .legend div._1:before{
-	background: #f8e8e5;
+	background: #5989b3;
 }
 
 .legend div._2:before{
-	background: #f9d1c8;
+	background: #857c93;
 }
 
 .legend div._3:before{
-	background: #f9a896;
+	background: #ae6e74;
 }
 
 .legend div._4:before{
-	background: #fb8065;
+	background: #d76155;
 }
 
 .legend div._5:before{
-	background: #f85631;
+	background: #ff523a;
+} 
+*/
+
+/* blue version */
+.legend div._0:before{
+	background: #6cc6fa;
 }
+
+.legend div._1:before{
+	background: #55aadb;
+}
+
+.legend div._2:before{
+	background: #3c8fbd;
+}
+
+.legend div._3:before{
+	background: #24739d;
+}
+
+.legend div._4:before{
+	background: #08587f;
+}
+
+.legend div._5:before{
+	background: #003c60;
+}
+
 
 /*scores*/
 .bar_score svg{
@@ -580,3 +641,18 @@ td.dc-table-column{
 
 .range .pie-slice path {stroke:lightgrey ;}
 div.range .pie-slice {fill:grey ;}
+
+
+#menu{
+	position: fixed;
+	padding-left:0;
+}
+
+#menu li{
+	margin-bottom: .5em;
+	list-style: none;
+}
+
+#menu li a{
+	color: #999;
+}
