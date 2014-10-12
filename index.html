@@ -371,22 +371,6 @@ function grid (selector,data) {
     .dimension(ndx)
     .group(all);
 
-/*
-  dc.dataGrid(".dc-data-grid")
-    .dimension(country)
-  .size(1000)
-    .html (function(d) { return tpl(d);})
-    .sortBy(function (d) {
-        return d.last_name;
-        })
-  .order(d3.ascending)
-    .renderlet(function (grid) {
-        $("img.lazy-load").lazyload ({
-effect : "fadeIn"
-})
-        .removeClass("lazy-load");
-        });
-*/
 
   var name = ndx.dimension(function(d) {
       return d.last_name.toLowerCase() + " "+ d.first_name.toLowerCase() + " " + d.party.toLowerCase() +" " + d.committee.toLowerCase() + d.substitute.toLowerCase();
@@ -445,7 +429,7 @@ effect : "fadeIn"
     });
 
 
-dc.renderAll();
+    dc.renderAll();
      $("table.dc-data-grid").tablesorter(
         {theme:"bootstrap",headers: { 5: { sorter: 'amount' } }}
      ); 
@@ -703,7 +687,7 @@ function drawScore() {
 			 	<button class="btn resetall">RESET ALL FILTERS</button>
 			</div>
 			<div class="col-sm-5 col-md-4 col-md-offset-1" id="filter_mep_number">
-				<p>You are vewing data for</p>
+				<p>You have currently selected</p>
 				<div id="mep_number" class="dc-data-count">
 					<span id="big_number" class="filter-count"></span>/<strong class="total-count"></strong> MEPs
 				</div>
