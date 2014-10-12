@@ -1017,6 +1017,10 @@ $(function() {
        <div class="col-md-8 score"><%=  min %> &#8605; <%= max %> <small>&euro;</small></div>
      </div>
      <div class="row">
+       <div class="col-md-4">Monthly salary</div>
+       <div class="col-md-8 score"><a href="http://www.transparencyinternational.eu/2014/08/how-much-does-an-mep-make/" target="_blank">8020,53 &euro; + daily subsistance allowance up to 4864 &euro;</a></div>
+     </div>
+     <div class="row">
        <div class="col-md-4">Attendance</div>
        <div class="col-md-8 score" title="voted on <%= attendance.attended %> votes out of <%= attendance.total %>"><%= attendance.score.toFixed(0) %> <small>%</small></div>
      </div>
@@ -1059,7 +1063,7 @@ $(function() {
 </script>
 
 <div class="modal fade" id="mepdialog">
-	<div class="modal-dialog">
+	<div class="modal-dialog  modal-lg">
     	<div class="modal-content">
       		<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

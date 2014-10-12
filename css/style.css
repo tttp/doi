@@ -598,6 +598,10 @@ tr.header th.headerSortDown{
 	background-image: url(../img/sorteddown.svg);
 }
 
+tr {
+	cursor: pointer;
+}
+
 
 td.dc-table-column{
 	border-bottom: 1px solid #1a1a1a;
