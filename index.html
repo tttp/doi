@@ -488,7 +488,7 @@ function drawParty () {
       if (typeof d.party == "undefined") return "";
       return d.party;
       });
- var tip = d3.tip()
+   var tip = d3.tip()
     .attr('class', 'd3-tip')
     .html(function(p) { return '<span><h2>' +
         p.key + "</h2><ul>" + 
@@ -509,7 +509,6 @@ function drawParty () {
     .colorCalculator(function(d, i) {
       return eu_groups[d.value.eugroup];
     })
-
   .valueAccessor (
       function(d) {
       return d.value.count;
@@ -660,13 +659,13 @@ function drawScore() {
         		<span class="icon-bar"></span>
       		</button>
 	      	<div class="navbar-brand" id="ti_logo">
-	      		<a href="index.html">Transparency International</a>
+	      		<a href="/">Transparency International</a>
 	     	</div>
 	    </div>
     
     	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	    	<ul class="nav navbar-nav" id="title_container">
-	    	    <li><a id="page_title" href="http://www.transparencyinternational.eu/" target="_blank"><strong>EU</strong> Integrity Watch</a></li>
+	    	    <li><a id="page_title" href="/" target="_blank"><strong>EU</strong> Integrity Watch</a></li>
 	    	</ul>
 	        <ul class="nav navbar-nav navbar-right">
 	            <li><a href="about.html">About</a></li>
