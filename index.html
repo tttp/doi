@@ -412,6 +412,11 @@ function grid (selector,data) {
   .renderlet(function (chart) {
     i = 0;
     $(".dc-table-group").remove();
+    $("td:first-child").each (function(i) { 
+      $(this).closest ("td").css("backgroundColor", 
+        $(this).css('backgroundColor')
+      );
+    });
     $("td span.score").each (function(i) { 
       $(this).closest ("td").css("backgroundColor", 
         $(this).css('backgroundColor')
@@ -440,7 +445,10 @@ function grid (selector,data) {
     dc.renderAll();
      $("table.dc-data-grid").tablesorter(
         {theme:"bootstrap",headers: { 5: { sorter: 'amount' } }}
-     ); 
+     ).bind("sortEnd",function(e, table) {
+      var i=0;
+      $("td:first-child").each (function(){this.innerHTML=++i;});
+    });
      
 
 function drawRange () {
