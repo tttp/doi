@@ -397,14 +397,7 @@ function grid (selector,data) {
             return d.eugroup;
         },
         function(d) {  return d.attendance.score +"%"; },
-        function(d) {
-          if (d.qty == 0) {
-            return "";
-          }
-          if (d.max == Number.POSITIVE_INFINITY)
-            return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
-          return d.min +" &#8605; "+d.max +"  &euro;";
-        },
+        function(d) {  return getAmountString(d); },
         function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
     ])
   .size(1000)
@@ -581,8 +574,8 @@ function drawScore() {
     .height(220)
     .width(330)
     .gap(0)
-    .margins({top: 10, right: 10, bottom: 20, left: 40})
-    .x(d3.scale.linear().domain([0, 65]))
+    .margins({top: 10, right: 20, bottom: 20, left: 40})
+    .x(d3.scale.linear().domain([0, 70]))
     .elasticX(true)
     .elasticY(true)
     .yAxisLabel("Number of MEPs")
@@ -618,10 +611,10 @@ function drawScore() {
     //why doesn't it work? if (chart.dimension().size() !== chart.group().value()) {
       if (ndx.size() !== nb) {
         $(".resetall").attr("disabled",false);
-//        ga && ga('send', 'event', 'filter', 'subset', nb);
+        ga && ga('send', 'event', 'filter', 'subset', nb);
       } else {
         $(".resetall").attr("disabled",true);
-//        ga && ga('send', 'event', 'filter', 'reset');
+        ga && ga('send', 'event', 'filter', 'reset');
       }
       
   });
@@ -631,12 +624,27 @@ function drawScore() {
 
 }
 
-  function getAmount (category, field) { //field = min (default) or max
+  function getAmountString(d) {
+          if (d.qty == 0) {
+            return "";
+          }
+          if (d.max == Number.POSITIVE_INFINITY)
+            return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
+          return d.min +" &#8605; "+d.max +"  &euro;";
+  }
+
+  function getAmount (category, field) { //field = min (default) or max or "string"
     field = field || "min";
     if (!category) return "?";
     if (isNaN(category)) return category;
     if (category < 0 && field == "min") return "0";
     if (category < 0 && field == "max") return "499";
+    if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
+     
+    if (category >=4 && field == "max") return "or more";
+    if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
+    if (field == "string")
+      return  rangeEUR[category]["min"] + " &#8605; "+  rangeEUR[category]["max"];
     return rangeEUR[category][field];
   }
 </script>
@@ -891,7 +899,7 @@ $(function() {
         if (m.eugroup == "PPE") { 
           m.eugroup = "EPP";
         } else if (m.eugroup == "Verts/ALE") { 
-          m.eugroup = "Green/ALE";
+          m.eugroup = "Greens/EFA";
         } else if (m.eugroup == "EFD") { 
           m.eugroup = "EFDD";
         }
@@ -948,38 +956,38 @@ $(function() {
 
 
 <script type="tpl" id="sidetpl">
-<h4>Declaration of Members’ financial interests</h4>
+<h4>Declaration of Members' financial interests</h4>
 <table class="table table-condensed">
-<tr><td class="dc-table-label" colspan="3">A. Previous occupation</td></tr>
+<tr><td class="dc-table-label" colspan="2">A. Previous occupation</td></tr>
 <% _.each(doi.occupation, function (a) { %>
-  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">B. Other mandates</td></tr>
+<tr><td class="dc-table-label" colspan="2">B. Other mandates</td></tr>
 <% _.each(doi.mandate, function (a) { %>
-  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">C. Regular outside activity</td></tr>
+<tr><td class="dc-table-label" colspan="2">C. Regular outside activity</td></tr>
 <% _.each(doi.activity, function (a) { %>
-  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">D. Committee & Board memberships</td></tr>
+<tr><td class="dc-table-label" colspan="2">D. Committee & Board memberships</td></tr>
 <% _.each(doi.membership, function (a) { %>
-  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">E. Occasional outside activity</td></tr>
+<tr><td class="dc-table-label" colspan="2">E. Occasional outside activity</td></tr>
 <% _.each(doi.occasional, function (a) { %>
-  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
-<tr><td class="dc-table-label" colspan="3">F. Holdings</td></tr>
+<tr><td class="dc-table-label" colspan="2">F. Holdings</td></tr>
 <% _.each(doi.holding, function (a) { %>
-  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"min") %></td><td><%= getAmount(a[1],"max") %></td></tr>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
-<tr><td class="dc-table-label" colspan="3">I. Additional information</td></tr>
+<tr><td class="dc-table-label" colspan="2">I. Additional information</td></tr>
 <tr><td colspan="3"><%= doi.additional %></td></tr>
 
 
