@@ -648,7 +648,7 @@ td.dc-table-column{
 }
 
 .range .pie-slice path {stroke:lightgrey ;}
-div.range .pie-slice {fill:grey ;}
+div.range .pie-slice {fill:#333 ;}
 
 
 #menu{

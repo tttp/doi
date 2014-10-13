@@ -439,6 +439,7 @@ function grid (selector,data) {
      $("table.dc-data-grid").tablesorter(
         {theme:"bootstrap",headers: { 5: { sorter: 'amount' } }}
      ).bind("sortEnd",function(e, table) {
+      ga && ga('send', 'event', 'sort','table');
       var i=0;
       $("td:first-child").each (function(){this.innerHTML=++i;});
     });
@@ -456,7 +457,7 @@ function drawRange () {
 	*/
  
   function getRange (d) {
-    if (d.score === 0 ) return ". no extra"; 
+    if (d.score === 0 ) return ". None"; 
     if (d.min < 500 ) return "0. < 500"; 
     if (d.min < 1001 ) return "1. < 1000"; 
     if (d.min < 5001 ) return "2. < 5000"; 
@@ -685,6 +686,11 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 				<a href="about.html" class="more">Read more</a>
 				</p>
 			</div>
+			<div class="col-md-3" id="about_social">
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="eucampaign">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      </div>
 		</div>
 		
 	</div><!-- container -->
@@ -807,7 +813,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 					<h3>Gender</h3>
 					<div class="gender">
 					</div>
-					<div class="legend gender_legend">
+					<div class="legend gender_legend hide">
 						<div class="m">M</div>
 						<div class="f">F</div>
 						<br class="clear" />
