@@ -425,6 +425,8 @@ function grid (selector,data) {
 
     $(".dc-data-grid").on("click",".dc-table-row", function () {
       var epid = $(this).find(".mep").data("epid");
+      window.location.hash = "mep"+epid;
+
       var mep = _.find(meps,function (d) { return d.epid == epid  });
       $("#mepdialog .modal-title").html (mep.first_name + " " + mep.last_name);
       $("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+epid+".jpg");
@@ -436,6 +438,8 @@ function grid (selector,data) {
 
 
     dc.renderAll();
+    hashFilter();
+
      $("table.dc-data-grid").tablesorter(
         {theme:"bootstrap",headers: { 5: { sorter: 'amount' } }}
      ).bind("sortEnd",function(e, table) {
@@ -647,6 +651,29 @@ function drawScore() {
       return  rangeEUR[category]["min"] + " &#8605; "+  rangeEUR[category]["max"];
     return rangeEUR[category][field];
   }
+
+function hashFilter () {
+  var hash = window.location.hash;
+
+   if(hash.indexOf('#mep') === 0) { 
+     MEPpopup(hash.substring(4));
+     ga && ga('send', 'event', 'urlMEP',hash.substring(4));
+   }
+}
+   
+function MEPpopup (epid) {
+      var mep = _.find(meps,function (d) { return d.epid == epid  });
+      $("#mepdialog .modal-title").html (mep.first_name + " " + mep.last_name);
+      $("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+epid+".jpg");
+      $("#mepdialog .details").html(detailtpl (mep));
+      $("#mepdialog .side").html(sidetpl (mep));
+      $("#mepdialog").modal();
+      window.location.hash = "mep"+d.epid;
+       ga && ga('send', 'event', 'clickMEP',hash.substring(4));
+      //$( "#twitter").html(tplTwitter(d));
+
+}
+
 </script>
 
 
@@ -964,6 +991,7 @@ $(function() {
     $(".resetall").attr("disabled",false);
     dc.filterAll();
     dc.renderAll();
+
   });
 
  
