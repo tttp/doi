@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "occupation": [
             [
@@ -444,37 +444,30 @@
         "activity": [],
         "holding": [
             [
-                "1.",
                 "TR Holding",
                 -1
             ],
             [
-                "2.",
                 "Sport    Media          - Akcininkas",
                 -1
             ],
             [
-                "3.",
                 "Sport   Clothes         - Akcininkas",
                 -1
             ],
             [
                 "NTSG - Akcininkas",
-                "",
                 -1
             ],
             [
                 "TV Žaidimai            - Akcininkas",
-                "",
                 -1
             ],
             [
-                "6.",
                 "Rate   Detective        - Akcininkas (AUS)",
                 -1
             ],
             [
-                "7.",
                 "Ibus     Media          - Akcininkas",
                 -1
             ]
@@ -1047,8 +1040,7 @@
         "activity": [],
         "holding": [
             [
-                "S",
-                ".C Bucharest Asset Management S.R.L",
+                "S.C Bucharest Asset Management S.R.L",
                 2
             ]
         ],
@@ -1989,8 +1981,7 @@
         "activity": [],
         "holding": [
             [
-                "Ma",
-                "atschap W. en J.F. en J. Huitema- Aalberts (Melkveehouderij)",
+                "Maatschap W. en J.F. en J. Huitema- Aalberts (Melkveehouderij)",
                 2
             ]
         ],
@@ -3529,7 +3520,6 @@
         "holding": [
             [
                 "Dionice HT (63 kom)",
-                "",
                 -1
             ]
         ],
@@ -4147,8 +4137,7 @@
         "activity": [],
         "holding": [
             [
-                "DG",
-                "Beratung GmbH",
+                "DG Beratung GmbH",
                 2
             ]
         ],
@@ -4252,12 +4241,10 @@
         "activity": [],
         "holding": [
             [
-                "1.",
                 "Partner      in    Wythall Estate",
                 -1
             ],
             [
-                "2.",
                 "Director,    MCP Systems Consultants Ltd.",
                 -1
             ]
@@ -4818,8 +4805,8 @@
         "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
         "mandate": [
             [
-                "österreichisches Parlament",
-                "Nationalratsabgeordnete,                                   8600 EUR"
+                "Nationalratsabgeordnete, österreichisches Parlament",
+                "8600 EUR"
             ]
         ],
         "occasional": [],
@@ -5199,8 +5186,8 @@
         "support": "1. financiers :\n(*)    alloués par\n2. en personnel :\n(*)    alloués par\n3. en matériel :\n(*)    alloués par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
         "mandate": [
             [
-                "Conseillère indemnité)",
-                "municipale         (sans                                 0 EUR"
+                "Conseillère municipale (sans indemnité)",
+                "0 EUR"
             ]
         ],
         "occasional": [],
@@ -5399,7 +5386,6 @@
         "activity": [],
         "holding": [
             [
-                "1.",
                 "Partecipazione   in TISCALI SPA",
                 1
             ]
@@ -5929,7 +5915,6 @@
         "holding": [
             [
                 "Partner in farming business in receipt of EU subsidy under CAP",
-                "",
                 1
             ]
         ],
@@ -6326,51 +6311,271 @@
         "mep_id": 28208,
         "membership": [
             [
-                "Association d'entraide des pupilles et anciens pupilles de l'Etat et des anciens de l'aide sociale à l'enfance du département de la Moselle Entre tous (Activité non rémunérée)",
+                "Association d'entraide des pupilles et anciens pupilles de l'Etat et des anciens de l'aide sociale \u00e0 l'enfance du d\u00e9partement de la Moselle Entre tous",
                 -1
             ],
             [
-                "Association Home Israelite (Activité non rémunérée)",
+                "Association Home Israelite",
                 -1
             ],
             [
-                "Association Séniors temps libre (Activité non rémunérée)",
+                "Association S\u00e9niors temps libre",
                 -1
             ],
             [
-                "C.U.M. - Conseil scientifique (Activité non rémunérée)",
+                "C.U.M. - Conseil scientifique",
                 -1
             ],
             [
-                "C.U.M        -   Institut universitaire professionnalisé (I.U.P.) Technologies de l'industrie et de son environnement (Activité non rémunérée)",
+                "   C.U.M        -   Institut  universitaire professionnalis\u00e9 (I.U.P.) Technologies de l'industrie et de son environnement",
                 -1
             ],
             [
-                "C.U.M. - U.F.R. droit, économie et administration (Activité non rémunérée)",
+                "C.U.M. - U.F.R. droit, \u00e9conomie et administration",
                 -1
             ],
             [
-                "Centre d'amélioration du logement de la Moselle (C.A.L.M.) (Activité non rémunérée)",
+                "Centre d'am\u00e9lioration du logement de la Moselle (C.A.L.M.)",
                 -1
             ],
             [
-                "Centre départemental de l'enfance à METZ (Activité non rémunérée)",
+                "Centre d\u00e9partemental de l'enfance \u00e0 METZ",
                 -1
             ],
             [
-                "Centre européen Robert Schuman de Scy- Chazelles (CERS) (Activité non rémunérée)",
+                "Centre europ\u00e9en Robert Schuman de Scy- Chazelles (CERS)",
                 -1
             ],
             [
-                "Centre hospitalier spécialisé de JURY (Activité non rémunérée)",
+                "Centre hospitalier sp\u00e9cialis\u00e9 de JURY",
                 -1
             ],
             [
-                "Centre inter-âge de l'université de METZ (comité de direction) (Activité non rémunérée)",
+                "Centre inter-\u00e2ge de l'universit\u00e9 de METZ (comit\u00e9 de direction)",
                 -1
             ],
             [
-                "Centre médico-psychopédagogique de la Moselle (Activité non rémunérée)",
+                "Centre m\u00e9dico-psychop\u00e9dagogique de la Moselle",
+                -1
+            ],
+            [
+                "Cit\u00e9 scolaire relevant de la gestion r\u00e9gionale - METZ G. de la Tour",
+                -1
+            ],
+            [
+                "Coll\u00e8ge de METZ Barbot",
+                -1
+            ],
+            [
+                "Coll\u00e8ge de METZ Magny P. Verlaine + SES",
+                -1
+            ],
+            [
+                "Coll\u00e8ge de METZ Sablon Rabelais",
+                -1
+            ],
+            [
+                "Comit\u00e9 consultatif du centre d\u00e9partemental de documentation p\u00e9dagogique de la Moselle (C.D.D.P.)",
+                -1
+            ],
+            [
+                "Comit\u00e9 consultatif d\u00e9partemental d'action sociale au profit des travailleurs \u00e9trangers",
+                -1
+            ],
+            [
+                "Comit\u00e9 de gestion des haltes d'enfants de l'agglom\u00e9ration messine",
+                -1
+            ],
+            [
+                "Comit\u00e9 de gestion du centre de transfusion sanguine et de r\u00e9animation de la Moselle",
+                -1
+            ],
+            [
+                "Comit\u00e9 d\u00e9partemental des retrait\u00e9s et des personnes ag\u00e9es (CODERPA)",
+                -1
+            ],
+            [
+                "Comit\u00e9 d\u00e9partemental des transports",
+                -1
+            ],
+            [
+                "Commission charg\u00e9e de l'\u00e9tude des questions int\u00e9ressant le plan d'\u00e9quipement sanitaire et social du d\u00e9partement",
+                -1
+            ],
+            [
+                "Commission charg\u00e9e de statuer sur une modification \u00e9ventuelle des cat\u00e9gories professionnelles de la chambre de commerce et d'industrie de la Moselle",
+                -1
+            ],
+            [
+                "Commission charg\u00e9e du suivi de la politique mosellane d'\u00e9lectromobilit\u00e9",
+                -1
+            ],
+            [
+                "Commission d'arrondissement de METZVILLE",
+                -1
+            ],
+            [
+                "Commission de m\u00e9diation relative au roit au logement opposable",
+                -1
+            ],
+            [
+                "Commission de surveillance de la maison d'arret de METZ",
+                -1
+            ],
+            [
+                "Commission d\u00e9partementale consultative des gens du voyage",
+                -1
+            ],
+            [
+                "Commission d\u00e9partementale de la m\u00e9daille de la famille francaise",
+                -1
+            ],
+            [
+                "Commission d\u00e9partementale de l'accueil des jeunes enfants",
+                -1
+            ],
+            [
+                "Commission d\u00e9partementale pour l'examen des d\u00e9rogations aux mesures destin\u00e9es a rendre accessibles aux personnes handicap\u00e9es a mobilit\u00e9 reduite, les installations neuves ouvertes au public",
+                -1
+            ],
+            [
+                "Commission locale d'insertion - Bassin d'emploi de Metz - Bureau territorial de Metz (Cantons de Metz-Ville I, Metz-Ville II et Metz-Ville III)",
+                -1
+            ],
+            [
+                "Commission r\u00e9gionale des \u00e9tudes m\u00e9dicales",
+                -1
+            ],
+            [
+                "Commission r\u00e9gionale des \u00e9tudes pharmaceutiques",
+                -1
+            ],
+            [
+                "Commission sp\u00e9ciale pour l'organisation pour le d\u00e9partement des transports scolaires",
+                -1
+            ],
+            [
+                "Conseil consultatif du droit local CCDL",
+                -1
+            ],
+            [
+                "Conseil de discipline de recours pour les fonctionnaires territoriaux",
+                -1
+            ],
+            [
+                "Conseil d\u00e9partemental de l'Education nationale",
+                -1
+            ],
+            [
+                "Conseil d'orientation plac\u00e9 aupr\u00e8s du d\u00e9l\u00e9gu\u00e9 interd\u00e9partemental d'Alsace-Moselle du centre national de la fonction publique territoriale",
+                -1
+            ],
+            [
+                "Ecole de r\u00e9\u00e9ducation professionnelle Jean Moulin a METZ (conseil d'\u00e9tablisst.)",
+                -1
+            ],
+            [
+                "Etablissement public d\u00e9partemental m\u00e9dico-social de GORZE d\u00e9di\u00e9 aux personnes ag\u00e9es",
+                -1
+            ],
+            [
+                "Etablissement public d\u00e9partemental pour adultes handicap\u00e9s (MARLY)",
+                -1
+            ],
+            [
+                "Etablissement public foncier de Lorraine (E.P.F. Lorraine)",
+                -1
+            ],
+            [
+                "Groupe de travail charg\u00e9 du suivi de la politique de communication du CG",
+                -1
+            ],
+            [
+                "Maison d\u00e9partementale des Personnes Handicap\u00e9es (MDPH)",
+                -1
+            ],
+            [
+                "Moselle D\u00e9veloppement - Comit\u00e9 d'am\u00e9nagement de promotion et d'expansion de la Moselle - CA",
+                -1
+            ],
+            [
+                "Observatoire r\u00e9gional de la sant\u00e9 et des affaires sociales en Lorraine",
+                -1
+            ],
+            [
+                "S.A. d'H.L.M. BATIGERE SAREL",
+                -1
+            ],
+            [
+                "Service d\u00e9partemental d'incendie et de secours (C.A.)",
+                -1
+            ],
+            [
+                "SA coop\u00e9rative immobili\u00e8re de l'Est",
+                -1
+            ],
+            [
+                "Sous-commission de l'enfance inadapt\u00e9e (fusionn\u00e9e avec la commission de coordination de l'enfance et de l'adolescence inadapt\u00e9e)",
+                -1
+            ],
+            [
+                "C.U.M. - Conseil d'administration - C.U.M. Conseil de l'universit\u00e9 de METZ",
+                -1
+            ],
+            [
+                "C.U.M. - institut universitaire de technologie (I.U.T.)",
+                -1
+            ],
+            [
+                "Coll\u00e8ge de METZ Arsenal",
+                -1
+            ],
+            [
+                "Coll\u00e8ge de METZ Bellecroix J. Lagneau",
+                -1
+            ],
+            [
+                "Coll\u00e8ge de METZ Queuleu P. de Vigneultes + SES",
+                -1
+            ],
+            [
+                "Coll\u00e8ge de METZ Taison",
+                -1
+            ],
+            [
+                "Comit\u00e9 mosellan de sauvegarde de l'enfance et de l'adolescence",
+                -1
+            ],
+            [
+                "Commission administrative paritaire",
+                -1
+            ],
+            [
+                "Commission de controle de l'assistance m\u00e9dicale gratuite",
+                -1
+            ],
+            [
+                "Commission de r\u00e9forme du personnel relevant de la caisse d\u00e9partementale de retraite et de la caisse nationale des retraites des agents des collectivit\u00e9s locales (C.N.R.A.C.L.)",
+                -1
+            ],
+            [
+                "Commission d\u00e9partementale de l'emploi et de l'insertion. Formations sp\u00e9cialis\u00e9es : emploi - insertion \u00e9conomique",
+                -1
+            ],
+            [
+                "Commission d\u00e9partementale des bourses d'\u00e9tudes",
+                -1
+            ],
+            [
+                "Commission interd\u00e9partementale de r\u00e9partition du fonds d\u00e9partemental de la taxe professionnelle concernant la centrale nucl\u00e9aire de Cattenom",
+                -1
+            ],
+            [
+                "Groupe de d\u00e9veloppement de la foret communale",
+                -1
+            ],
+            [
+                "Syndicat Mixte Num\u00e9rique pour la Communication Audiovisuelle (SMNCA)",
                 -1
             ]
         ],
@@ -7343,7 +7548,6 @@
         "holding": [
             [
                 "Melllor, Jackson Solicitors",
-                "",
                 -1
             ]
         ],
@@ -9310,17 +9514,14 @@
         "holding": [
             [
                 "15 Aktien WEB Windenergie",
-                "",
                 -1
             ],
             [
                 "5 Aktien Ökostrom",
-                "",
                 -1
             ],
             [
-                "Gesellschafterin von         Südwind Entwicklungspolitik",
-                "",
+                "Gesellschafterin von Südwind Entwicklungspolitik",
                 -1
             ]
         ],
@@ -10111,8 +10312,8 @@
         "support": "1. financiers :\n(*)    alloués par\n2. en personnel :\n(*)    alloués par\n3. en matériel :\n(*)    alloués par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
         "mandate": [
             [
-                "Conseiller Normandie",
-                "régional      de     Haute                             2000 EUR"
+                "Conseiller régional de Haute Normandie",
+                "2000 EUR"
             ]
         ],
         "occasional": [],
@@ -10692,26 +10893,21 @@
         "holding": [
             [
                 "Sorep",
-                "",
                 3
             ],
             [
-                "2.",
                 "Sci Sorep Immobilier",
                 -1
             ],
             [
-                "3.",
                 "Ambulances St Martin",
                 -1
             ],
             [
-                "4.",
                 "Liberty Ski Venture",
                 -1
             ],
             [
-                "5.",
                 "Bel ombre gestion",
                 -1
             ]
@@ -12680,8 +12876,7 @@
         "activity": [],
         "holding": [
             [
-                "Mitgesellschafter (16      %)      und Vorsitzender     des Aufsichtsrates Ernst- Deutsch-Theater gGmbH",
-                "",
+                "Mitgesellschafter (16 %) und Vorsitzender des Aufsichtsrates Ernst- Deutsch-Theater gGmbH",
                 -1
             ]
         ],
@@ -13071,7 +13266,6 @@
         "activity": [],
         "holding": [
             [
-                "1.",
                 "European Universal SE (40% SJM s Lenkou Pocovou)",
                 -1
             ]
@@ -13228,8 +13422,7 @@
         "activity": [],
         "holding": [
             [
-                "1.",
-                "Stanley           Hill Management Company (Joint 50% Interest) - no income received",
+                "Stanley Hill Management Company (Joint 50% Interest) - no income received",
                 -1
             ]
         ],
@@ -13751,22 +13944,18 @@
         "holding": [
             [
                 "EUROPEJSKI KONGRES GOSPODARCZY (bez wynagrodzenia)",
-                "",
                 -1
             ],
             [
                 "EUROPEJSKIE FORUM NOWYCH IDEI           (bez wynagrodzenia)",
-                "",
                 -1
             ],
             [
                 "EUROPEJSKI KONGRES MŚP (bez wynagrodzenia)",
-                "",
                 -1
             ],
             [
                 "SPOŁECZNA RADA GOSPODARKI NISKOEMISYJNEJ (bez wynagrodzenia)",
-                "",
                 -1
             ]
         ],
@@ -15869,7 +16058,6 @@
         "activity": [],
         "holding": [
             [
-                "1.",
                 "VITICOM    S.R.L. Panciu (40% părți sociale)",
                 1
             ]
@@ -16453,7 +16641,6 @@
         "holding": [
             [
                 "Aller Wohnen e.G.",
-                "",
                 -1
             ]
         ],
@@ -16724,7 +16911,6 @@
         "holding": [
             [
                 "L'Humanité (Journal et entreprise)",
-                "",
                 -1
             ]
         ],
@@ -17029,7 +17215,6 @@
         "activity": [],
         "holding": [
             [
-                "1.",
                 "Titulaire des parts de      la     Société Civile     Immobilière de placements et participations (société familiale)",
                 1
             ]
@@ -17796,7 +17981,6 @@
         "holding": [
             [
                 "Symphony Plastic Technologies PLC",
-                "",
                 2
             ]
         ],
@@ -18483,7 +18667,6 @@
         "holding": [
             [
                 "I     am     a small shareholder in 3 Legs Resources PLC      (IOM),    an AIM listed company on     the    London stock exchange which explores for shale gas in Europe. I also benefit as a former Non-Executive Director    of    the 3 Legs Group of companies (Jan 2007- Dec 10) from the 2009 share option plan granted to Non- Executive Directors to acquire ordinary shares in 3 Legs Resources PLC by December 2014. The options have not yet been exercised.",
-                "",
                 -1
             ]
         ],
@@ -20239,8 +20422,7 @@
         "activity": [],
         "holding": [
             [
-                "1.",
-                "JUNIPERUS 100% udjela     Napomena -    nakon     početka obavljanja    funkcije zastupnika          ne namjeravam       imati primanja    redovitog tipa tj. u obliku mjesečnog dohotka!",
+                "JUNIPERUS 100% udjela Napomena - nakon početka obavljanja funkcije zastupnika ne namjeravam imati primanja redovitog tipa tj. u obliku mjesečnog dohotka!",
                 -1
             ]
         ],
@@ -20278,17 +20460,14 @@
         "holding": [
             [
                 "Kone OYJ, hallitus",
-                "",
                 2
             ],
             [
                 "Lammin säästöpankki, hallitus",
-                "",
                 1
             ],
             [
                 "Creative Only",
-                "",
                 -1
             ]
         ],
@@ -20607,7 +20786,6 @@
         ],
         "holding": [
             [
-                "1.",
                 "MDNA",
                 -1
             ]
@@ -20830,7 +21008,6 @@
         "holding": [
             [
                 "HT GO dionica nominalna vrijednost 258.00",
-                "",
                 -1
             ]
         ],
