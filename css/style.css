@@ -664,3 +664,9 @@ div.range .pie-slice {fill:#333 ;}
 #menu li a{
 	color: #999;
 }
+
+.dc-chart g.axis.x text{
+  cursor:pointer;
+  pointer-events: auto;
+}
+

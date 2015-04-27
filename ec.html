@@ -39,6 +39,13 @@
 <script src="js/jquery.tablesorter.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
+<style>
+td.dc-table-column._4,
+td.dc-table-column._5,
+td.dc-table-column._6
+{text-align:left;}
+</style>
+
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@TI_EU" />
 <meta name="twitter:creator" content="@eucampaign" />
@@ -149,10 +156,131 @@ function grid (selector,data) {
   drawTable();
   drawDate();
   drawWeekDay();
+  drawHost();
+  drawSector();
+  drawCountry();
 /*  drawScore();
   drawParty();
   drawRange();
 */
+
+    function rotateBarChartLabels(chart) {
+      chart.svg().selectAll('.axis.x text')
+        .style("text-anchor", "end" )
+        .attr("transform", function(d) { return "rotate(-45, -4, 9) "; });
+
+    }
+
+  function drawCountry () {
+  var dim = ndx.dimension (function(d) {
+      if (!representatives[d.guestid])
+        return "unknown";
+      return representatives[d.guestid].contact_country;
+  });
+
+  var group   = dim.group().reduceSum(function(d) {   
+        if (d.key == "108")
+          return 0;
+      return 1; });
+
+  var graph = dc.barChart (".country")   
+    .height(320)
+    .width(530)
+    .gap(0)
+    .margins({top: 10, right: 20, bottom: 200, left: 40})
+    .x(d3.scale.ordinal())
+    .xUnits(dc.units.ordinal)
+    .elasticX(true)
+    .elasticY(true)
+    .yAxisLabel("Number of Meetings")
+    .colorCalculator(function(d, i) {
+        return "#f85631";
+        })
+    .dimension(dim)
+    .group(group)
+    .on("postRender", function(c) {
+        
+        rotateBarChartLabels(c);} )
+    .yAxis().ticks(4).tickFormat(d3.format(",.0f"));
+  }
+
+
+  function drawSector () {
+  var dim = ndx.dimension (function(d) {
+      if (!representatives[d.guestid])
+        return "unknown";
+      return representatives[d.guestid].sub_category_title;
+  });
+
+  var group   = dim.group().reduceSum(function(d) {   return 1; });
+  group.orderNatural();
+
+  //var graph = dc.barChart (".sector")   
+  var graph = dc.rowChart (".sector")   
+    .height(600)
+    .width(530)
+    .gap(1)
+    .cap(20)
+    .ordering(function(d){return -d.value})
+    .margins({top: 10, right: 20, bottom: 200, left: 40})
+    .x(d3.scale.ordinal())
+//    .xUnits(dc.units.ordinal)
+    .elasticX(true)
+ //   .elasticY(true)
+    .colorCalculator(function(d, i) {
+        return "#f85631";
+        })
+    .dimension(dim)
+    .group(group)
+    .on("postRender", function(c) {
+//      c.svg().selectAll('.axis.x text')
+//      .click(function (d,i) { console.log(d)} );
+      rotateBarChartLabels(c);} )
+
+//    graph.on("postRender", function(c) {rotateBarChartLabels(c);} )
+  }
+
+
+  function drawHost () {
+  var cabinet2Topic = {
+    "" : "",
+    "" : "",
+  };
+  var host2Topic = {
+    "President Jean-Claude Juncker" : "presidency",
+    "" : "",
+  };
+
+  var dim = ndx.dimension (function(d) {
+      if (d.cabinet) {
+        return cabinet2Topic[d.cabinet] || d.cabinet.substr(19); //remove Cabinet member of...
+      }
+      return host2Topic[d.host] || d.host;
+  });
+
+  var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+  var graph = dc.barChart (".host")   
+    .height(320)
+    .width(530)
+    .gap(0)
+    .margins({top: 10, right: 20, bottom: 200, left: 40})
+    .x(d3.scale.ordinal())
+    .xUnits(dc.units.ordinal)
+    .elasticX(true)
+    .elasticY(true)
+    .yAxisLabel("Number of events")
+    .colorCalculator(function(d, i) {
+        return "#f85631";
+        })
+    .dimension(dim)
+    .group(group)
+    .on("postRender", function(c) {rotateBarChartLabels(c);} )
+    .yAxis().ticks(4).tickFormat(d3.format(",.0f"));
+
+
+  }
+
   function drawTable () {
     var i=0;
     wall=dc.dataTable(".dc-data-grid")
@@ -162,13 +290,13 @@ function grid (selector,data) {
           function(d) { i=i+1; return i; },
           function(d) {  return d.host; },
           function(d) {
-              return d.date;
+              if (d.date == null) return "canceled";
+              return d.date.getDay()+"/"+d.date.getMonth()+"/"+d.date.getFullYear();
           },
           function(d) {  return d.title; },
-          function(d) {  return d.guestname; },
-          function(d) {  return d.location; },
+          function(d) {  return d.guest; },
       ])
-    .size(1000)
+    .size(100)
     .sortBy(function (d) {return d.date})
     .renderlet(function (chart) {
       i = 0;
@@ -348,16 +476,19 @@ function drawWeekDay() {
 
 function drawScore() {
 
-  var score = ndx.dimension (function(d) {
-      return d.score;
-      });
-  var scoreGroup   = score.group().reduce(
-      function(a,d) {a.count +=1; a.score +=d.score; a.min =d.min; a.max = d.max;return a; },
-      function(a,d) {a.count -=1; a.score -=d.score; a.min =d.min; a.max = d.max; return a; },
-      function() {return {count:0,score:0, min:0, max:0}; }
-      );
+  var cabinet2Topic = {};
+  var host2Topic = {};
 
-  var bar_score = dc.barChart (".bar_score")   
+  var dim = ndx.dimension (function(d) {
+      if (d.cabinet) {
+        return cabinet2Topic[d.cabinet] | d.cabinet;
+      }
+      return host2Topic[d.host] | d.host;
+  });
+
+  var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+  var graph = dc.barChart (".bar_score")   
     .height(220)
     .width(330)
     .gap(0)
@@ -374,8 +505,8 @@ function drawScore() {
       function(d) {
       return d.value.count;
       })
-    .dimension(score)
-    .group(scoreGroup)
+    .dimension(dim)
+    .group(group)
     .renderlet(function (chart) {
 //      var d = chart.group().top(Number.POSITIVE_INFINITY);
       var total = nb = min = max = 0;
@@ -485,7 +616,7 @@ function eventpopup (epid) {
 		<div id="about_container" class="row">
 			<div class="col-md-9" id="about_content">
 				<p>
-EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the activities of members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter events. Thereby the database allows to better monitor potential conflicts of interests or to identify those events with more outside activities with the help of the External Activity Indicator (EAI)
+EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the activities of the commissionners and cabinet members in the European Commission.members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter events.
 <br/>
 				<a href="about.html" class="more">Read more</a>
 				</p>
@@ -493,6 +624,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 			<div class="col-md-3" id="about_social">
 
 <br/>
+<!--
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="TI_EU" data-text="Want to know #events income & activities outside @Europarl_EN? Find out">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <br/>
@@ -509,6 +641,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
   }(document, 'script', 'facebook-jssdk'));</script>
 
 </p>
+-->
       </div>
 		</div>
 		
@@ -531,7 +664,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 			 	<p>Filter the results by selecting a range in the charts,
 			 	or by filling the filter box:</p>
 			 	<div class="input-group">
-			 	    <input type="text" id="search-input" class="form-control input-lg" placeholder="filter by event name, national party, EP committee...">
+			 	    <input type="text" id="search-input" class="form-control input-lg" placeholder="filter by meeting name or organisation...">
 			 	</div>
 			 	<button class="btn resetall">RESET ALL FILTERS</button>
 			</div>
@@ -562,7 +695,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 					<br class="clear" />
 				</div>
 				<div class="col-md-3 chart_box">
-					<h3>Sector</h3>
+					<h3>Sector of Lobby organisation</h3>
 
 					<div class="sector range">
 					</div>
@@ -577,35 +710,12 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 	
 	<div class="container_wrap" id="ihidden_charts_wrap">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-5 chart_box frontpdate_score">
-				    <div class="dc-data-count">
-				        <h3>Date</h3>
-				        <div id="avg_score_container">
-				        <div class="bar_score">
-				        </div>
-				    </div>
-				    <br class="clear" />
-				</div>
 				
-				<div class="col-md-4 chart_box">
-					<h3>Location</h3>
-					<div class="interest"></div>
-					<br class="clear" />
-				</div>
-				
-				<div class="col-md-3">
-					<h3>Gender</h3>
-					<div class="gender">
-					</div>
-					<br class="clear" />
-				</div>
-			</div>
 			<div class="row">
 				<div class="col-md-7 chart_box">
-					<h3>Cabinet?</h3>
+					<h3>Country</h3>
 					
-					<div class="party">
+					<div class="country">
 					</div>
 					
 					<br class="clear" />
@@ -652,7 +762,6 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 							<th>date</th> 
               <th>Title</th> 
 							<th>With</th> 
-              <th>Location</th> 
 						</tr>
 					</thead>
 				</table>
@@ -666,26 +775,34 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 <script>
 'use strict';
   var events=[];
-  var representatives=[];
+  var representatives={};
   $(function() {
     var renderLoaded  = _.after(2,  function () { 
-      var dateFormat = d3.time.format("%d/%m/%Y");
+      //var dateFormat = d3.time.format("%d/%m/%Y");
+      var dateFormat = d3.time.format("%Y-%m-%d");
       var now = Date.now();
       var a;
 
       _.each (events, function (d) {
         d.date=dateFormat.parse(d.date);
- 
+        if (!d.cabinet) 
+          return;
+        if (d.cabinet.substr(19)=="Cabinet member of ")
+          d.cabinet = d.cabinet.substr(19);
       });
       grid ("#ec",events);
     });
-    d3.tsv("data/meeting.tsv", function(d) {return d;}
+    d3.csv("data/meeting.csv", function(d) {return d;}
       ,function(error, rows) {
          events = rows;
          renderLoaded();
       });      
-    d3.json("data/representative.json", function (rows) {
-         representatives = rows;
+    //d3.json("data/representative-light.json", function (rows) {
+    d3.csv("data/representative.csv", function (rows) {
+         _.each (rows, function (d) {
+            //representatives[d.identification_code]=d;
+            representatives[d.id]=d;
+      });
          renderLoaded();
     });     
 
