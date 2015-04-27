@@ -242,41 +242,47 @@ function grid (selector,data) {
 
 
   function drawHost () {
-  var cabinet2Topic = {
-    "" : "",
-    "" : "",
-  };
-  var host2Topic = {
-    "President Jean-Claude Juncker" : "presidency",
-    "" : "",
+  var host2portfolio = {
+    "President Jean-Claude Juncker" : "Presidency",
+    "Secretary-General Catherine Day": "Presidency",
+
+    "Director-General Robert Madelin":"Digital Economy",
+"Commissioner Günther Oettinger":"Digital Economy",
+
+"Commissioner Miguel Arias Cañete":"Climate & Energy",
+"Director-General Dominique Ristori":"Climate & Energy",
+"Director-General Jos Delbeke": "Climate & Energy",
+
+"Commissioner Cecilia Malmström":"Trade",
+"Director-General Jean-Luc Demarty":"Trade",
+"Commissioner Jonathan Hill":"Neighbourhood",
+"Director-General Christian Danielsson":"Neighbourhood",
+
+    "Vice-President Jyrki Katainen" : "Jobs & Growth",
   };
 
   var dim = ndx.dimension (function(d) {
       if (d.cabinet) {
-        return cabinet2Topic[d.cabinet] || d.cabinet.substr(19); //remove Cabinet member of...
+        return host2portfolio[d.cabinet.substr(19)] || d.cabinet.substr(19);//remove Cabinet member of...
+        //return cabinet2Topic[d.cabinet] || d.cabinet.substr(19); //remove Cabinet member of...
       }
-      return host2Topic[d.host] || d.host;
+      return host2portfolio[d.host] || d.host;
   });
 
   var group   = dim.group().reduceSum(function(d) {   return 1; });
 
-  var graph = dc.barChart (".host")   
-    .height(320)
+  //var graph = dc.barChart (".host")   
+  var graph = dc.rowChart (".host")   
+    .height(520)
     .width(530)
     .gap(0)
-    .margins({top: 10, right: 20, bottom: 200, left: 40})
     .x(d3.scale.ordinal())
-    .xUnits(dc.units.ordinal)
     .elasticX(true)
-    .elasticY(true)
-    .yAxisLabel("Number of events")
     .colorCalculator(function(d, i) {
         return "#f85631";
         })
     .dimension(dim)
-    .group(group)
-    .on("postRender", function(c) {rotateBarChartLabels(c);} )
-    .yAxis().ticks(4).tickFormat(d3.format(",.0f"));
+    .group(group);
 
 
   }
@@ -476,7 +482,6 @@ function drawWeekDay() {
 
 function drawScore() {
 
-  var cabinet2Topic = {};
   var host2Topic = {};
 
   var dim = ndx.dimension (function(d) {

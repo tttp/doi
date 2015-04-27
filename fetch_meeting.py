@@ -12,9 +12,8 @@ meeting = result["results"]
 
 while result["next"]:
     offset = offset + limit
-    url = 'http://api.lobbyfacts.eu/api/1/meeting?limit='+`limit`+'&offset='+`offset`
+    url = result["next"]
     print "fetching " + url
-    u = urllib.urlopen(url)
     u = urllib.urlopen(url)
     result = json.load(u)
     meeting = meeting + result["results"]

@@ -670,3 +670,6 @@ div.range .pie-slice {fill:#333 ;}
   pointer-events: auto;
 }
 
+div.dc-chart g.row text {fill:black}
+
+.unregistered {color:darkred}
