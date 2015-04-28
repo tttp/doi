@@ -3,8 +3,12 @@ echo 'id,name' > country.csv
 jq -M ".[]|[.id,.name]|@csv" ../country.json >> country.csv
 
 #representative
-echo 'id,contact_country,sub_category_title' >  representative.csv
-jq -r ".[]|[.id,.contact_country,.sub_category_title]|@csv" representative.json >> representative.csv
+#echo 'id,contact_country,acronym,name,main_category,sub_category' >  representative.csv
+#jq -r ".[]|[.id,.contact_country,.acronym,.name,.main_category,.sub_category]|@csv" representative.json >> representative.csv
+
+#debug version
+echo 'id,contact_country,sub_category,sub_category_title,acronym,name,main_category,main_category_title' >  representative.csv
+jq -r ".[]|[.id,.contact_country,.sub_category,.sub_category_title,.acronym,.name,.main_category,.main_category_title]|@csv" representative.json >> representative.csv
 
 #meeting
 sed -i 's/T00:00:00//g' meeting.json 

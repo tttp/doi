@@ -151,8 +151,8 @@ function grid (selector,data) {
 
   var name = ndx.dimension(function(d) {
         if (d.guest)
-          return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase()+ " ";
-        return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.unregistered.toLowerCase()+ " "
+          return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase()+ " "+representatives[d.guestid].acronym.toLowerCase()+ " ";
+        return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.unregistered.toLowerCase()+ " ";
           //+representative.[d.guestid];
       });
 
@@ -163,6 +163,7 @@ function grid (selector,data) {
   drawHostType();
   drawGuest();
   drawSector();
+  drawMainCategory();
   drawCountry();
 /*  drawScore();
   drawParty();
@@ -209,7 +210,31 @@ function grid (selector,data) {
     .yAxis().ticks(4).tickFormat(d3.format(",.0f"));
   }
 
+  
+  function drawMainCategory () {
+    function getName (d) {
+      if (!d.guestid){
+        if (d.unregistered == "")
+          return "Not mentioned";
 
+        return "Not registered";
+      }
+      if (!representatives[d.guestid])
+        return "Unknown";
+      return representatives[d.guestid].main_category;
+    }
+
+    var dim = ndx.dimension (function(d) {
+        return getName(d);   
+    });
+
+    var group   = dim.group().reduceSum(function(d) {   return 1; });
+    var chart = dc.pieChart(".main_category")
+      .innerRadius(10).radius(90)
+      .height(200)
+      .dimension(dim)
+      .group(group);
+  }
 
   function drawSector () {
   var dim = ndx.dimension (function(d) {
@@ -221,7 +246,7 @@ function grid (selector,data) {
       }
       if (!representatives[d.guestid])
         return "Unknown";
-      return representatives[d.guestid].sub_category_title;
+      return [representatives[d.guestid].main_category,representatives[d.guestid].sub_category_title];
   });
 
   var group   = dim.group().reduceSum(function(d) {   return 1; });
@@ -232,11 +257,15 @@ function grid (selector,data) {
     .height(500)
     .width(530)
     .gap(1)
-    .cap(10)
-//    .ordering(function(d){return -d.value})
+//    .ordering(function(d){return -d.key})
     .margins({top: 0, right: 0, bottom: 0, left: 0})
     .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
+    .label(function(d){
+       if (typeof d.key == "string")
+         return d.key;
+       return d.key[1]; 
+    })
     .elasticX(true)
  //   .elasticY(true)
     .colorCalculator(function(d, i) {
@@ -413,8 +442,8 @@ function grid (selector,data) {
     var filteredGroup = (function (source_group) {return {
         all:function () {
             return source_group.top(10).filter(function(d) {
-                                                      return d.key != "Not mentioned";
-                              });
+                return (d.key != "Not mentioned" && d.value !=0) ;
+            });
         }
     };})(group);
     var graph = dc.rowChart (".guest")   
@@ -449,12 +478,15 @@ function grid (selector,data) {
           function(d) {  return d.title; },
           function(d) {  
           if (!d.guestid) {
-              return "<span class='unregistered'>"+d.unregistered+"</span>";
-              }
-            return d.guest; },
+            return "<span class='unregistered'>"+d.unregistered+"</span>";
+          }
+          if (representatives[d.guestid].acronym )
+            return "<span title='"+d.guest+"'>"+representatives[d.guestid].acronym +"</span>";
+          return d.guest;
+          },
       ])
     .size(100)
-    .sortBy(function (d) {return d.date})
+    .sortBy(function (d) {return -d.date})
     .renderlet(function (chart) {
       i = 0;
       $(".dc-table-group").remove();
@@ -586,7 +618,7 @@ function drawDate() {
   var dateGroup   = date.group().reduceSum(function(d) {   return 1; });
 
   chart_date
-    .height(300)
+    .height(200)
     .width (430)
     .margins({top: 0, right: 20, bottom: 20, left: 30})
         .round(d3.time.month.round)
@@ -856,7 +888,9 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 					<br class="clear" />
 				</div>
 				<div class="col-md-4 chart_box">
-					<h3>Sector of Lobby organisation</h3>
+					<h3>Category of Lobby organisation</h3>
+          <div class="main_category"></div>
+					<h4>Sector of Lobby organisation</h4>
 					<div class="sector range">
 					</div>
 					
