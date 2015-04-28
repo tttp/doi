@@ -672,4 +672,8 @@ div.range .pie-slice {fill:#333 ;}
 
 div.dc-chart g.row text {fill:black}
 
+.dc-chart .pie-slice {
+  fill:black;
+}
+
 .unregistered {color:darkred}

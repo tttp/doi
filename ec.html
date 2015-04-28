@@ -160,6 +160,7 @@ function grid (selector,data) {
   drawDate();
   drawWeekDay();
   drawHost();
+  drawHostType();
   drawGuest();
   drawSector();
   drawCountry();
@@ -254,99 +255,129 @@ function grid (selector,data) {
   }
 
 
-  function drawHost () {
-  var host2portfolio = {
-    "President Jean-Claude Juncker" : "Presidency",
-    "Secretary-General Catherine Day": "Presidency",
-"Director-General Ann Mettler": "Presidency",
+  function getPortfolio (d) {
+    var host2portfolio = {
+      "President Jean-Claude Juncker" : "Presidency",
+      "Secretary-General Catherine Day": "Presidency",
+  "Director-General Ann Mettler": "Presidency",
 
-    "Director-General Robert Madelin":"Digital Economy",
-"Commissioner Günther Oettinger":"Digital Economy",
-"Director-General Stephen Quest":"Digital Economy",
+      "Director-General Robert Madelin":"Digital Economy",
+  "Commissioner Günther Oettinger":"Digital Economy",
+  "Director-General Stephen Quest":"Digital Economy",
 
-"Commissioner Miguel Arias Cañete":"Climate & Energy",
-"Director-General Dominique Ristori":"Climate & Energy",
-"Director-General Jos Delbeke": "Climate & Energy",
+  "Commissioner Miguel Arias Cañete":"Climate & Energy",
+  "Director-General Dominique Ristori":"Climate & Energy",
+  "Director-General Jos Delbeke": "Climate & Energy",
 
-"Commissioner Cecilia Malmström":"Trade",
-"Director-General Jean-Luc Demarty":"Trade",
+  "Commissioner Cecilia Malmström":"Trade",
+  "Director-General Jean-Luc Demarty":"Trade",
 
-"Commissioner Jonathan Hill":"Financial Markets",
-"Director-General Jonathan Faull":"Financial Markets",
+  "Commissioner Jonathan Hill":"Financial Markets",
+  "Director-General Jonathan Faull":"Financial Markets",
 
-"Commissioner Johannes Hahn":"Neighbourhood",
-"Director-General Christian Danielsson":"Neighbourhood",
+  "Commissioner Johannes Hahn":"Neighbourhood",
+  "Director-General Christian Danielsson":"Neighbourhood",
 
-    "Vice-President Jyrki Katainen" : "Jobs & Growth",
+      "Vice-President Jyrki Katainen" : "Jobs & Growth",
 
-"Commissioner Christos Stylianides":"Humanitarian Aid",
+  "Commissioner Christos Stylianides":"Humanitarian Aid",
 
-"Commissioner Corina Crețu":"Regional Policy",
-"Director-General Walter Deffaa":"Regional Policy",
+  "Commissioner Corina Crețu":"Regional Policy",
+  "Director-General Walter Deffaa":"Regional Policy",
 
-"Commissioner Dimitris Avramopoulos":"Home Affairs",
-"Director-General Alfred Matthias Ruete":"Home Affairs",
+  "Commissioner Dimitris Avramopoulos":"Home Affairs",
+  "Director-General Alfred Matthias Ruete":"Home Affairs",
 
-"First Vice-President Frans Timmermans":"Better Regulation",
+  "First Vice-President Frans Timmermans":"Better Regulation",
 
-"Commissioner Phil Hogan":"Agriculture",
-"Director-General Jerzy Bogdan Plewa":"Agriculture",
+  "Commissioner Phil Hogan":"Agriculture",
+  "Director-General Jerzy Bogdan Plewa":"Agriculture",
 
-"Commissioner Violeta Bulc":"Transport",
-"Director-General Daniel Calleja Crespo":"Transport",
-"Director-General Joao Aguiar Machado":"Transport",
+  "Commissioner Violeta Bulc":"Transport",
+  "Director-General Daniel Calleja Crespo":"Transport",
+  "Director-General Joao Aguiar Machado":"Transport",
 
-"Vice-President Kristalina Georgieva": "Budget",
-"Director-General Nadia Maria Calvino Santamaria":"Budget",
+  "Vice-President Kristalina Georgieva": "Budget",
+  "Director-General Nadia Maria Calvino Santamaria":"Budget",
 
-"Vice-President Andrus Ansip":"Digital Single Market",
+  "Vice-President Andrus Ansip":"Digital Single Market",
 
-"Vice-President Maroš Šefčovič":"Energy Union",
+  "Vice-President Maroš Šefčovič":"Energy Union",
 
-"Commissioner Elżbieta Bieńkowska": "Education",
-"Commissioner Tibor Navracsics":"Education",
-"Director-General Xavier Prats Monné": "Education",
-"Director-General Vladimir Šucha":"Education",
+  "Commissioner Elżbieta Bieńkowska": "Education",
+  "Commissioner Tibor Navracsics":"Education",
+  "Director-General Xavier Prats Monné": "Education",
+  "Director-General Vladimir Šucha":"Education",
 
-"Commissioner Karmenu Vella":"Environment",
-"Director-General Lowri Evans":"Environment",
-"Director-General Karl-Friedrich Falkenberg":"Environment",
+  "Commissioner Karmenu Vella":"Environment",
+  "Director-General Lowri Evans":"Environment",
+  "Director-General Karl-Friedrich Falkenberg":"Environment",
 
-"High Representative/Vice-President Federica Mogherini":"External Action",
+  "High Representative/Vice-President Federica Mogherini":"External Action",
 
-"Commissioner Vytenis Andriukaitis":"Health",
-"Director-General Ladislav Miko":"Health",
+  "Commissioner Vytenis Andriukaitis":"Health",
+  "Director-General Ladislav Miko":"Health",
 
-"Director-General Fernando Frutuoso de Melo":"Development",
-"Commissioner Neven Mimica":"Development",
+  "Director-General Fernando Frutuoso de Melo":"Development",
+  "Commissioner Neven Mimica":"Development",
 
-"Vice-President Valdis Dombrovskis":"Euro",
+  "Vice-President Valdis Dombrovskis":"Euro",
 
-"Commissioner Pierre Moscovici":"Economics & Tax",
-"Director-General Heinz Zourek":"Economics & Tax",
+  "Commissioner Pierre Moscovici":"Economics & Tax",
+  "Director-General Heinz Zourek":"Economics & Tax",
 
-"Commissioner Věra Jourová":"Justice",
-"Director-General Paraskevi MICHOU":"Justice",
+  "Commissioner Věra Jourová":"Justice",
+  "Director-General Paraskevi MICHOU":"Justice",
 
-"Commissioner Marianne Thyssen":"Employment",
-"Director-General Michel Servoz":"Employment",
-"Director-General Walter Radermacher":"Employment",
+  "Commissioner Marianne Thyssen":"Employment",
+  "Director-General Michel Servoz":"Employment",
+  "Director-General Walter Radermacher":"Employment",
 
-"Director-General Robert-Jan Smits":"Research",
-"Commissioner Carlos Moedas":"Research",
+  "Director-General Robert-Jan Smits":"Research",
+  "Commissioner Carlos Moedas":"Research",
 
-"Commissioner Margrethe Vestager":"Competition",
-"Director-General Alexander Italianer":"Competition",
+  "Commissioner Margrethe Vestager":"Competition",
+  "Director-General Alexander Italianer":"Competition",
 
 
-  };
+    };
 
-  var dim = ndx.dimension (function(d) {
       if (d.cabinet) {
         return host2portfolio[d.cabinet.substr(19)] || d.cabinet.substr(19);//remove Cabinet member of...
         //return cabinet2Topic[d.cabinet] || d.cabinet.substr(19); //remove Cabinet member of...
       }
       return host2portfolio[d.host] || d.host;
+  }
+
+  function drawHostType () {
+    function getType (d) {
+      if (d.cabinet)
+        return "Cabinet Members";
+      if (d.host.indexOf ("Director-General") !== -1)
+        return "Directors";
+      if (d.host.indexOf ("President")  !== -1)
+        return "Presidents";
+      return "Commissioners"
+    }
+
+    var dim = ndx.dimension (function(d) {
+        return getType(d);   
+    });
+
+    var group   = dim.group().reduceSum(function(d) {   return 1; });
+    var chart = dc.pieChart(".hosttype")
+      .innerRadius(10).radius(90)
+      .height(200)
+      .dimension(dim)
+      .group(group);
+  
+  }
+
+  function drawHost () {
+
+  var dim = ndx.dimension (function(d) {
+        return getPortfolio(d);
+
   });
 
   var group   = dim.group().reduceSum(function(d) {   return 1; });
@@ -409,6 +440,7 @@ function grid (selector,data) {
       .group(function (d) { return "";return d.country; })
       .columns([
           function(d) { i=i+1; return i; },
+          function(d) {  return getPortfolio(d); },
           function(d) {  return d.host; },
           function(d) {
               if (d.date == null) return "canceled";
@@ -809,7 +841,9 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 			<h2>Charts</h2>
 			<div class="row">
 				<div class="col-md-5 chart_box">
-					<h3>Host Portfolio<!--span class="info">info</span--></h3>
+					<h3>Host<!--span class="info">info</span--></h3>
+					<div class="hosttype"></div>
+					<h4>Portfolio<!--span class="info">info</span--></h4>
 					<div class="host"></div>
 					<br class="clear" />
 				</div>
@@ -884,6 +918,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 					<thead>
 						<tr class=header>
 							<th class="headerSortDown">Nr</th> 
+							<th>Portfolio</th> 
 							<th>Name</th> 
 							<th>date</th> 
               <th>Title</th> 
