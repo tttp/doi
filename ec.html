@@ -150,7 +150,7 @@ function grid (selector,data) {
 
 
   var name = ndx.dimension(function(d) {
-        return d.title.toLowerCase();
+        return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase();
       });
 
   drawTable();
