@@ -224,7 +224,7 @@ function grid (selector,data) {
     .gap(1)
     .cap(20)
     .ordering(function(d){return -d.value})
-    .margins({top: 10, right: 20, bottom: 200, left: 40})
+    .margins({top: 0, right: 0, bottom: 0, left: 0})
     .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
     .elasticX(true)
@@ -344,8 +344,9 @@ function grid (selector,data) {
 
   //var graph = dc.barChart (".host")   
   var graph = dc.rowChart (".host")   
+    .margins({top: 0, right: 10, bottom: 20, left: 10})
     .height(520)
-    .width(530)
+    .width(380)
     .gap(0)
     .x(d3.scale.ordinal())
     .elasticX(true)
@@ -368,12 +369,13 @@ function grid (selector,data) {
           function(d) {  return d.host; },
           function(d) {
               if (d.date == null) return "canceled";
-              return d.date.getDay()+"/"+d.date.getMonth()+"/"+d.date.getFullYear();
+              return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
           },
           function(d) {  return d.title; },
           function(d) {  
-            if (!d.guestid)
-              return "<span class='unknown'>"+d.guest+"</span>";
+          if (!d.guestid) {
+              return "<span class='unregistered'>"+d.unregistered+"</span>";
+              }
             return d.guest; },
       ])
     .size(100)
@@ -511,9 +513,9 @@ function drawDate() {
     .height(300)
     .width (430)
     .margins({top: 0, right: 20, bottom: 20, left: 30})
-        .x(d3.time.scale().domain([new Date(2014, 11, 1), new Date(2015, 11, 31)]))
         .round(d3.time.month.round)
         .xUnits(d3.time.months)
+        .x(d3.time.scale().domain([new Date(2014, 11, 1), new Date(2015, 06, 1)]))
 
     .brushOn(true)
     .renderArea(true)
