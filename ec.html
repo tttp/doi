@@ -375,12 +375,19 @@ function grid (selector,data) {
       return d.guest;
     });
     var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+    var filteredGroup = (function (source_group) {return {
+        all:function () {
+            return source_group.top(10).filter(function(d) {
+                                                      return d.key != "Not mentioned";
+                              });
+        }
+    };})(group);
     var graph = dc.rowChart (".guest")   
       .margins({top: 0, right: 10, bottom: 20, left: 10})
       .height(300)
       .width(200)
       .gap(0)
-      .cap(10)
       .x(d3.scale.ordinal())
       .elasticX(true)
       .colorCalculator(function(d, i) {
@@ -388,7 +395,7 @@ function grid (selector,data) {
           })
     .ordering(function(d){return -d.value})
       .dimension(dim)
-      .group(group);
+      .group(filteredGroup);
 
   };
 
@@ -538,6 +545,8 @@ function drawDate() {
       return d.date;
       });
 
+//minDate = date.bottom(1)[0].key;
+//maxDate = date.top(1)[0].key;
 
   var dateGroup   = date.group().reduceSum(function(d) {   return 1; });
 
