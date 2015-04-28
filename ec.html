@@ -150,7 +150,10 @@ function grid (selector,data) {
 
 
   var name = ndx.dimension(function(d) {
-        return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase();
+        if (d.guest)
+          return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase()+ " ";
+        return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.unregistered.toLowerCase()+ " "
+          //+representative.[d.guestid];
       });
 
   drawTable();
@@ -225,11 +228,11 @@ function grid (selector,data) {
 
   //var graph = dc.barChart (".sector")   
   var graph = dc.rowChart (".sector")   
-    .height(600)
+    .height(500)
     .width(530)
     .gap(1)
-    .cap(20)
-    .ordering(function(d){return -d.value})
+    .cap(10)
+//    .ordering(function(d){return -d.value})
     .margins({top: 0, right: 0, bottom: 0, left: 0})
     .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
@@ -859,7 +862,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2>Meetings in the commission</h2>
+				<h2>Latest 100 meetings in the commission</h2>
 				<div class="info_chart" id="attendance_info">
 					<span class="info">info</span>
 					<p class="desc">Events</p>
