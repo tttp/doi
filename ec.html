@@ -157,6 +157,7 @@ function grid (selector,data) {
   drawDate();
   drawWeekDay();
   drawHost();
+  drawGuest();
   drawSector();
   drawCountry();
 /*  drawScore();
@@ -205,10 +206,15 @@ function grid (selector,data) {
   }
 
 
+
   function drawSector () {
   var dim = ndx.dimension (function(d) {
-      if (!d.guestid)
+      if (!d.guestid){
+        if (d.unregistered == "")
+          return "Not mentioned";
+
         return "Not registered";
+      }
       if (!representatives[d.guestid])
         return "Unknown";
       return representatives[d.guestid].sub_category_title;
@@ -230,7 +236,7 @@ function grid (selector,data) {
     .elasticX(true)
  //   .elasticY(true)
     .colorCalculator(function(d, i) {
-        if (d.key == "Unknown" || d.key == "Not registered")
+        if (d.key == "Not mentioned" || d.key == "Unknown" || d.key == "Not registered")
           return "lightblue";
         return "#f85631";
         })
@@ -359,6 +365,33 @@ function grid (selector,data) {
 
   }
 
+  function drawGuest () {
+    var dim = ndx.dimension (function(d) {
+      if (!d.guest) {
+        if (d.unregistered == "")
+          return "Not mentioned";
+        return "*"+d.unregistered;
+      }
+      return d.guest;
+    });
+    var group   = dim.group().reduceSum(function(d) {   return 1; });
+    var graph = dc.rowChart (".guest")   
+      .margins({top: 0, right: 10, bottom: 20, left: 10})
+      .height(300)
+      .width(200)
+      .gap(0)
+      .cap(10)
+      .x(d3.scale.ordinal())
+      .elasticX(true)
+      .colorCalculator(function(d, i) {
+          return "#f85631";
+          })
+    .ordering(function(d){return -d.value})
+      .dimension(dim)
+      .group(group);
+
+  };
+
   function drawTable () {
     var i=0;
     wall=dc.dataTable(".dc-data-grid")
@@ -407,7 +440,6 @@ function grid (selector,data) {
       var i=0;
       $("td:first-child").each (function(){this.innerHTML=++i;});
     });
-     
 
 function drawRange () {
 	
@@ -499,7 +531,7 @@ function drawParty () {
 }
 
 function drawDate() {
-  var chart_date = dc.lineChart(selector + " .date");
+  var chart_date = dc.lineChart(".date");
 
  var date = ndx.dimension(function(d) {
       if (typeof d.date == "undefined") return "";
@@ -607,7 +639,7 @@ function drawScore() {
       } else {
         $("div#avg_score").text("");
       }
-    //why doesn't it work? if (chart.dimension().size() !== chart.group().value()) {
+      //why doesn't it work? if (chart.dimension().size() !== chart.group().value()) {}
       if (ndx.size() !== nb) {
         $(".resetall").attr("disabled",false);
         ga && ga('send', 'event', 'filter', 'subset', nb);
@@ -615,7 +647,7 @@ function drawScore() {
         $(".resetall").attr("disabled",true);
         ga && ga('send', 'event', 'filter', 'reset');
       }
-      
+
   });
   bar_score.yAxis().ticks(4).tickFormat(d3.format(",.0f"));
 }
@@ -764,7 +796,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 		<div class="container">
 			<h2>Charts</h2>
 			<div class="row">
-				<div class="col-md-6 chart_box">
+				<div class="col-md-5 chart_box">
 					<h3>Host<!--span class="info">info</span--></h3>
 					<div class="host"></div>
 					<br class="clear" />
@@ -773,11 +805,12 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 					<h3>Day of weeks <!--span class="info">info</span--></h3>
 					<div class="day-of-week-chart">
 					</div>
+					<h3>Top organisations<!--span class="info">info</span--></h3>
+            <div class="guest"></div>
 					<br class="clear" />
 				</div>
-				<div class="col-md-3 chart_box">
+				<div class="col-md-4 chart_box">
 					<h3>Sector of Lobby organisation</h3>
-
 					<div class="sector range">
 					</div>
 					
