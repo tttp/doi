@@ -254,8 +254,8 @@ function grid (selector,data) {
       }
       if (!representatives[d.guestid])
         return "Unknown";
-      return [representatives[d.guestid].sub_category,representatives[d.guestid].sub_category_title];
-      return [representatives[d.guestid].main_category,representatives[d.guestid].sub_category_title];
+      sub=representatives[d.guestid].sub_category;
+      return [representatives[d.guestid].main_category,subCategories[sub]];
   });
 
   var group   = dim.group().reduceSum(function(d) {   return 1; });
