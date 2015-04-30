@@ -439,6 +439,8 @@ function grid (selector,data) {
     .dimension(dim)
     .group(group);
 
+    graph.xAxis().ticks(5).tickFormat(d3.format("d"));
+    //.xAxis().ticks(4);
 
   }
 
@@ -473,6 +475,7 @@ function grid (selector,data) {
     .ordering(function(d){return -d.value})
       .dimension(dim)
       .group(filteredGroup);
+    graph.xAxis().ticks(5).tickFormat(d3.format("d"));
 
   };
 
