@@ -146,10 +146,18 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     return d.id;    
   })
 
-  dc.dataCount(".dc-data-count")
+  var count=dc.dataCount(".dc-data-count")
     .dimension(ndx)
     //.dimension(event)
     .group(all);
+
+  count.renderlet (function(c) {
+      var total=c.dimension().size();
+      var filtered= c.group().value();
+      var disabled= (total == filtered);
+      $(".resetall").attr("disabled",disabled);
+      ga && ga('send', 'event', 'filter', 'subset', filtered);
+  });
 
   dc.dataCount(".dc-data-count2")
     .dimension(ndx)
@@ -1029,13 +1037,13 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
     var s = $(this ).val().toLowerCase();
     wall.dimension().filter(function (d) { 
       return d.indexOf (s) !== -1;} );
-    $(".resetall").attr("disabled",true);
+    $(".resetall").attr("disabled",false);
     dc.redrawAll();
   });
 
   $(".resetall").click(function() {
     $("#search-input").val("");
-    $(".resetall").attr("disabled",false);
+    $(".resetall").attr("disabled",true);
     dc.filterAll();
     dc.renderAll();
 
