@@ -165,8 +165,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 
   var name = ndx.dimension(function(d) {
-        if (d.guest)
-          return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase()+ " "+representatives[d.guestid].acronym.toLowerCase()+ " ";
+      if (d.guest) {
+          if (representatives[d.guestid])
+            return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase()+ " "+representatives[d.guestid].acronym.toLowerCase()+ " ";   
+          else
+            return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase()+ " ";   
+
+        }
         return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.unregistered.toLowerCase()+ " ";
           //+representative.[d.guestid];
       });
@@ -281,35 +286,27 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
        JSON.stringify(t);
     */
 
-  //var graph = dc.barChart (".sector")   
   var graph = dc.rowChart (".sector")   
     .height(500)
-    .width(530)
+    .width(350)
     .gap(1)
-//    .ordering(function(d){return -d.key})
     .margins({top: 0, right: 0, bottom: 0, left: 0})
     .x(d3.scale.ordinal())
-//    .xUnits(dc.units.ordinal)
     .label(function(d){
        if (typeof d.key == "string")
          return d.key;
        return d.key[1]; 
     })
     .elasticX(true)
- //   .elasticY(true)
     .colorCalculator(function(d, i) {
-        if (d.key == "Not mentioned" || d.key == "Unknown" || d.key == "Not registered")
-          return "lightblue";
-        return "#f85631";
-        })
+      if (d.key == "Not mentioned" || d.key == "Unknown" || d.key == "Not registered")
+        return "lightblue";
+      return "#f85631";
+    })
     .dimension(dim)
     .group(group)
-    .on("postRender", function(c) {
-//      c.svg().selectAll('.axis.x text')
-//      .click(function (d,i) { console.log(d)} );
-      rotateBarChartLabels(c);} )
+    .xAxis().ticks(4).tickFormat(d3.format(",.0f"));
 
-//    graph.on("postRender", function(c) {rotateBarChartLabels(c);} )
   }
 
 
@@ -1025,7 +1022,8 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
          renderLoaded();
       });      
     //d3.json("data/representative-light.json", function (rows) {
-    d3.csv("data/representative.csv", function (rows) {
+    //d3.csv("data/representative.csv", function (rows) {
+    d3.csv("data/representative-finance-light.csv", function (rows) {
          _.each (rows, function (d) {
             //representatives[d.identification_code]=d;
             representatives[d.id]=d;

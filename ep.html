@@ -513,6 +513,7 @@ function drawParty () {
       if (typeof d.party == "undefined") return "";
       return d.party;
       });
+  
    var tip = d3.tip()
     .attr('class', 'd3-tip')
     .html(function(p) { return '<span><h2>' +
@@ -530,13 +531,14 @@ function drawParty () {
       function() {return {eurgroup:0,count:0,score:0,effort:0}; }
       )
       .order(function (p) {return p.count});
+
   bubble_party
     .colorCalculator(function(d, i) {
       return eu_groups[d.value.eugroup];
     })
   .valueAccessor (
       function(d) {
-      return d.value.count;
+        return d.value.count;
       })
   .width(660)
     .height(300)
@@ -989,7 +991,12 @@ $(function() {
         }
  
       });
-      grid ("#ep2014list",meps);
+      try {
+        grid ("#ep2014list",meps);
+      } catch (e) {
+        console.log (e);
+      }
+
     });
     d3.csv("mep.csv", function(d) {return d;}
       ,function(error, rows) {
