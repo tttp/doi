@@ -185,6 +185,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
   drawSector();
   drawMainCategory();
   drawCountry();
+  drawExpense();
 /*  drawScore();
   drawParty();
   drawRange();
@@ -196,6 +197,39 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         .attr("transform", function(d) { return "rotate(-45, -4, 9) "; });
 
     }
+
+  function drawExpense () {
+    var dim = ndx.dimension (function(d) {
+      if (!representatives[d.guestid])
+        return 0;
+      return representatives[d.guestid].cost_min;
+  });
+
+  var group   = dim.group().reduceSum(function(d) {   
+      return 1; });
+
+  var graph = dc.barChart (".expense")   
+    .height(320)
+    .width(530)
+    .gap(0)
+    .margins({top: 10, right: 20, bottom: 200, left: 40})
+    .x(d3.scale.linear().domain([0, 100000]))
+ //   .x(d3.scale.ordinal())
+//    .xUnits(dc.units.ordinal)
+    .elasticX(true)
+    .elasticY(true)
+        .brushOn(true)
+    .yAxisLabel("Lobbying expense")
+    .colorCalculator(function(d, i) {
+        return "#f85631";
+        })
+    .dimension(dim)
+    .group(group);
+
+    graph.xAxis().ticks(5).tickFormat(d3.format(",.0f"));
+
+    graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
+  }
 
   function drawCountry () {
   var dim = ndx.dimension (function(d) {
@@ -934,6 +968,16 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 	<div class="container_wrap" id="ihidden_charts_wrap">
 		<div class="container">
 				
+			<div class="row">
+				<div class="col-md-7 chart_box">
+					<h3>Lobbying expense</h3>
+					
+					<div class="expense">
+					</div>
+					
+				</div>
+			</div>
+		</div>
 			<div class="row">
 				<div class="col-md-7 chart_box">
 					<h3>Country</h3>
