@@ -1,11 +1,12 @@
 import json
+import copy
 
 json_data=open('meeting.json').read()
 meetings = []
 for data in json.loads(json_data):
   if len(data["participants"]) > 0:
     for participant in (data["participants"]):
-      meeting = dict(data)
+      meeting =  copy.deepcopy(data)
       del meeting["participants"]
       meeting["participant"]= participant[1]
       meeting["participant_id"]= participant[0]
