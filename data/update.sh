@@ -22,5 +22,5 @@ jq -r ".[]|select(.cancelled=false)|[.id,.ec_representative,.date,.subject,.part
 
 
 csvjoin   --left -c id,representative representative.csv financial_data.csv  > representative-financial.csv
-csvcut representative-financial.csv -c id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max > representative-finance-light.csv
+csvcut representative-financial.csv -c id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute > representative-finance-light.csv
 

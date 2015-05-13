@@ -44,6 +44,9 @@ td.dc-table-column._4,
 td.dc-table-column._5,
 td.dc-table-column._6
 {text-align:left;}
+
+#mep_number {
+    margin-top: 0.1em;}
 </style>
 
 <meta name="twitter:card" content="summary" />
@@ -145,18 +148,30 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
   var event = ndx.dimension(function(d) {
     return d.id;    
   })
+  var eventgroup   = event.group().reduceSum(function(d) {  return 1; });
 
   var count=dc.dataCount(".dc-data-count")
-    .dimension(ndx)
-    //.dimension(event)
-    .group(all);
+    .dimension(eventgroup)
+    .group({value: function() {
+            return eventgroup.all().filter(function(kv) { return kv.value>0; }).length;
+      }});
+    //.dimension(ndx)
+    //.group(all);
 
-  count.renderlet (function(c) {
+  count.on("renderlet.resetall", function(c) {
       var total=c.dimension().size();
       var filtered= c.group().value();
       var disabled= (total == filtered);
+
       $(".resetall").attr("disabled",disabled);
       ga && ga('send', 'event', 'filter', 'subset', filtered);
+
+      if (filtered >=0) {
+        var one2one=0;
+        eventgroup.all().forEach(function(d) { if(d.value ==1) one2one ++;});
+        var ratio=Math.round(100-one2one/filtered*100);
+        $(".one2one").html( ratio + "% collective meetings");
+      }
   });
 
   dc.dataCount(".dc-data-count2")
@@ -198,11 +213,12 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
     }
 
+
   function drawExpense () {
     var dim = ndx.dimension (function(d) {
       if (!representatives[d.guestid])
         return 0;
-      return representatives[d.guestid].cost_min;
+      return representatives[d.guestid].cost_absolute || representatives[d.guestid].cost_min;
   });
 
   var group   = dim.group().reduceSum(function(d) {   
@@ -523,6 +539,12 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       .group(filteredGroup);
     graph.xAxis().ticks(5).tickFormat(d3.format("d"));
 
+    var count=dc.dataCount(".org-count")
+      .dimension(group)
+      .group({value: function() {
+          return group.all().filter(function(kv) { return kv.value>0; }).length;
+      }});
+
   };
 
   function drawTable () {
@@ -532,8 +554,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       .group(function (d) { return "";return d.country; })
       .columns([
           function(d) { i=i+1; return i; },
-          function(d) {  return getPortfolio(d); },
           function(d) {  return d.host; },
+          function(d) {  return getPortfolio(d); },
           function(d) {
               if (d.date == null) return "canceled";
               return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
@@ -543,8 +565,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
           if (!d.guestid) {
             return "<span class='unregistered'>"+d.unregistered+"</span>";
           }
-          if (representatives[d.guestid].acronym )
-            return "<span title='"+d.guest+"'>"+representatives[d.guestid].acronym +"</span>";
+          if (representatives[d.guestid] && representatives[d.guestid].acronym )
+          return "<span title='"+d.cost_absolute+"'>"+d.guest + " ("+representatives[d.guestid].acronym +")</span>";
           return d.guest;
           },
       ])
@@ -920,12 +942,21 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 			 	</div>
 			 	<button class="btn resetall">RESET ALL FILTERS</button>
 			</div>
-			<div class="col-sm-5 col-md-4 col-md-offset-1" id="filter_mep_number">
+			<div class="col-sm-3 col-md-3 no-col-md-offset-1" id="filter_mep_number">
 				<p>You have currently selected</p>
 				<div id="mep_number" class="dc-data-count">
-					<span id="big_number" class="filter-count"></span>/<strong class="total-count"></strong> events
+					<span id="abig_number" class="filter-count"></span>/<span class="total-count"></span> events
+				</div>
+				<div id="org_number" class="org-count">
+					<span class="filter-count"></span>/<span class="total-count"></span> organisations
 				</div>
 			</div>
+			<div class="col-sm-2">
+        <div></div>
+        <div class="one2one"></div>
+        <div class="civilsociety">x% civil society?</div>
+      </div>
+
 		</div>
 	</div>
 </div>
@@ -1025,10 +1056,10 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 					<thead>
 						<tr class=header>
 							<th class="headerSortDown">Nr</th> 
-							<th>Portfolio</th> 
 							<th>Name</th> 
+							<th>Portfolio</th> 
 							<th>date</th> 
-              <th>Title</th> 
+              <th>Subject</th> 
 							<th>With</th> 
 						</tr>
 					</thead>
@@ -1036,7 +1067,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 			</div>
 		</div>
 		
-		<div id="last_update">Last updated: 11 March 2015</div>
+		<div id="last_update">Last updated: 11 May 2015</div>
 	</div>
 </div>
 
