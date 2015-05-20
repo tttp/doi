@@ -385,6 +385,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
       "Vice-President Jyrki Katainen" : "Jobs & Growth",
 
+  "Claus Sørensen":"Humanitarian Aid",
   "Commissioner Christos Stylianides":"Humanitarian Aid",
 
   "Commissioner Corina Crețu":"Regional Policy",
@@ -404,6 +405,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
   "Vice-President Kristalina Georgieva": "Budget",
   "Director-General Nadia Maria Calvino Santamaria":"Budget",
+  "Director-General Irene Souka":"Budget",
 
   "Vice-President Andrus Ansip":"Digital Single Market",
 
@@ -422,6 +424,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
   "Commissioner Vytenis Andriukaitis":"Health",
   "Director-General Ladislav Miko":"Health",
+  "Ladislav Miko":"Health",
 
   "Director-General Fernando Frutuoso de Melo":"Development",
   "Commissioner Neven Mimica":"Development",
@@ -430,6 +433,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
   "Commissioner Pierre Moscovici":"Economics & Tax",
   "Director-General Heinz Zourek":"Economics & Tax",
+  "Director-General Marco Buti":"Economics & Tax",
 
   "Commissioner Věra Jourová":"Justice",
   "Director-General Paraskevi MICHOU":"Justice",
@@ -558,7 +562,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
           function(d) {  return getPortfolio(d); },
           function(d) {
               if (d.date == null) return "canceled";
-              return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
+              return "<span title='"+d.id+"'>"+d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear()+"</span>";
           },
           function(d) {  return d.title; },
           function(d) {  
