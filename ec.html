@@ -1115,7 +1115,17 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
     wall.dimension().filter(function (d) { 
       return d.indexOf (s) !== -1;} );
     $(".resetall").attr("disabled",false);
-    dc.redrawAll();
+    throttle();
+//        dc.redrawAll();
+
+    var throttleTimer;
+    function throttle() {
+      window.clearTimeout(throttleTimer);
+      throttleTimer = window.setTimeout(function() {
+        console.log ("redraw");
+          dc.redrawAll();
+      }, 250);
+    }
   });
 
   $(".resetall").click(function() {
