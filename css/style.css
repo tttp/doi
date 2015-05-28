@@ -82,12 +82,16 @@ h3{
 	top: 8px;
 }
 
+#attendance_info{
+	right: 26%;
+}
+
 #OI_info{
 	right: 10.5%;
 }
 
-#attendance_info{
-	right: 26%;
+#EAI_info{
+	/*right: 1%;*/
 }
 
 #list_content .desc{
