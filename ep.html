@@ -70,13 +70,15 @@ $( document ).ready(function() {
 		$('#view_charts').toggleClass('hiddencharts');
 	}
 	
-	$('#collapse_about a').click(function(ev) {
-		ev.preventDefault();
-		$('#collapse_about a').toggleClass('opened');
-		$('#about_wrap').slideToggle('slow', function () {
-			
-		})
-	})
+  $('#collapse_about a').click(function(ev) {
+    ev.preventDefault();
+    $('#collapse_about a').toggleClass('opened');
+    $('#collapse_about a').toggleClass('closed');
+    $('#about_wrap').slideToggle('slow', function () {
+      $('#about_wrap_top').slideToggle('fast')
+    })
+    
+  })
 	
 	$('.info').click(function(ev) {
 		ev.preventDefault();
@@ -700,42 +702,45 @@ function MEPpopup (epid) {
 
 
 <nav class="navbar navbar-default" role="navigation">
-	<div class="container">
-    	<div class="navbar-header">
-      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        		<span class="sr-only">Toggle navigation</span>
-        		<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-      		</button>
-	      	<div class="navbar-brand" id="ti_logo">
-	      		<a href="http://www.transparencyinternational.eu">Transparency International</a>
-	     	</div>
-	    </div>
-    
-    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	    	<ul class="nav navbar-nav" id="title_container">
-	    	    <li><a id="page_title" href="/" target="_blank"><strong>EU</strong> Integrity Watch</a></li>
-	    	</ul>
-	        <ul class="nav navbar-nav navbar-right">
-	            <li><a href="about.html">About</a></li>
-	            <li><a href="contact.html">Contact</a></li>
-	    	</ul>
-    	</div>
+  <div class="container">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand" id="ti_logo_container">
+            <a id="ti_logo" href="http://www.transparencyinternational.eu">Transparency International</a>
+            <a id="page_title" href="/" target="_blank"><strong>EU</strong> Integrity<br />Watch</a>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li id="cm_tool_btn"><a href="#"><strong>EU</strong> Commission <br />meetings</a></li>
+            <li id="bl_tool_btn"><a href="#"><strong>EU</strong> Brussels <br />lobbyist</a></li>
+            <li class="active" id="mi_tool_btn"><a href="#"><strong>EU</strong> MEP <br />incomes</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
    </div><!-- container -->
 </nav>
-
-<div class="container_wrap" id="about_wrap">
-	<div class="container">
-		<div id="about_container" class="row">
-			<div class="col-md-9" id="about_content">
-				<p>
-EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the activities of members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter MEPs. Thereby the database allows to better monitor potential conflicts of interests or to identify those MEPs with more outside activities with the help of the External Activity Indicator (EAI)
-<br/>
-				<a href="about.html" class="more">Read more</a>
-				</p>
-			</div>
-			<div class="col-md-3" id="about_social">
+<div class="container_wrap mi_header" id="about_wrap_top">&nbsp;</div>
+<div class="container_wrap mi_header" id="about_wrap">
+  <div class="container">
+    <div id="about_container" class="row">
+      <div class="col-md-3 col-lg-2" id="about_content_icon">
+      </div>
+      <div class="col-md-6 col-lg-7" id="about_content">
+        <p>EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the activities of members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter MEPs. Thereby the database allows to better monitor potential conflicts of interests or to identify those MEPs with more outside activities with the help of the External Activity Indicator (EAI)
+        <br/>
+        <a href="about.html" class="more">Read more</a>
+        </p>
+      </div>
+      <div class="col-md-3" id="about_social">
 
 <br/>
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="TI_EU" data-text="Want to know #MEPs income & activities outside @Europarl_EN? Find out">Tweet</a>
@@ -755,39 +760,44 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 
 </p>
       </div>
-		</div>
-		
-	</div><!-- container -->
+    </div>
+    
+  </div><!-- container -->
 </div>
 <div class="container_wrap" id="toggle_about_wrap">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-2 col-md-1 col-centered" id="collapse_about">
-				<a class="opened" href="#">collapse</a>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2 col-md-1 col-centered mi_collapse" id="collapse_about">
+        <a class="opened" href="#">collapse</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container_wrap" id="filter_wrap">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-7" id="filter_field_container">
-			 	<p>Filter the results by selecting a range in the charts,
-			 	or by filling the filter box:</p>
-			 	<div class="input-group">
-			 	    <input type="text" id="search-input" class="form-control input-lg" placeholder="filter by MEP name, national party, EP committee...">
-			 	</div>
-			 	<button class="btn resetall">RESET ALL FILTERS</button>
-			</div>
-			<div class="col-sm-5 col-md-4 col-md-offset-1" id="filter_mep_number">
-				<p>You have currently selected</p>
-				<div id="mep_number" class="dc-data-count">
-					<span id="big_number" class="filter-count"></span>/<strong class="total-count"></strong> MEPs
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-9 col-sm-9 col-md-4" id="filter_field_container">
+        <p>Search or Filter:</p>
+        <div class="input-group">
+            <input type="text" id="search-input" class="form-control input-lg" placeholder="MEP name, national party, EP committee...">
+        </div>
+      </div>
+      <div class="col-sm-7 col-md-7" id="filter_numbers">
+        <div class="row">
+          <div class="col-md-2" id="currently_selected_text"><p>You have currently selected</p></div>
+          <div class="col-md-4 filter_number">
+            <div id="mep_number" class="dc-data-count">
+            <span class="big_number filter-count"></span>out of <strong class="total-count"></strong> MEPs
+            </div>
+          </div>          
+        </div>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-1" id="resetall_container">
+        <button class="btn resetall">RESET<br />FILTERS</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="ep2014list">
