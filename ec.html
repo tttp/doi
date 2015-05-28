@@ -307,7 +307,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     */
 
     var chart = dc.pieChart(".main_category")
-      .innerRadius(10).radius(90)
+      .innerRadius(50).radius(100)
       .height(200)
       .label(function(d){ return d.key[1] })
       .dimension(dim)
@@ -475,7 +475,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
     var group   = dim.group().reduceSum(function(d) {   return 1; });
     var chart = dc.pieChart(".hosttype")
-      .innerRadius(10).radius(90)
+      .innerRadius(50).radius(100)
       .height(200)
       .dimension(dim)
       .group(group);
