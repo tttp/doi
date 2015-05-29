@@ -759,8 +759,10 @@ div.dc-chart{
 	width: 70%;
 }
 
-div.country.dc-chart{
+div.dc-chart.chart-full{
 	width: 100%;
+	float: none;
+	margin: 0 auto;
 }
 
 /* gender */

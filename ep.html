@@ -368,7 +368,7 @@ function grid (selector,data) {
 				//return color(d.value.score/d.value.count);
 				return "#3695d8";
 		})
-	 .valueAccessor (
+		.valueAccessor (
 			function(d) {
 			return d.value.count;
 			})
@@ -806,7 +806,7 @@ function MEPpopup (epid) {
 			<div class="row">
 				<div class="col-md-6 chart_box">
 					<h3>Country <!--span class="info">info</span--></h3>
-					<div class="country"></div>
+					<div class="country chart-full"></div>
 					<br class="clear" />
 				</div>
 				<div class="col-md-3 chart_box" id="group_container">

@@ -523,32 +523,38 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		});
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
 
-		var filteredGroup = (function (source_group) {return {
-				all:function () {
-						return source_group.top(10).filter(function(d) {
-								return (d.key != "Not mentioned" && d.value !=0) ;
-						});
+		var filteredGroup = (function(source_group) {
+			return {
+				all: function() {
+					return source_group.top(10).filter(function(d) {
+						return (d.key != "Not mentioned" && d.value != 0);
+					});
 				}
-		};})(group);
-		var graph = dc.rowChart (".guest")   
-			.margins({top: 0, right: 10, bottom: 20, left: 10})
-			.height(300)
-			.width(200)
-			.gap(0)
+			};
+		})(group);
+
+		var graph = dc.rowChart(".guest")   
+			.margins({top: 0, right: 3, bottom: 20, left: 3})
+			.height(240)
+			//.width(360)
+			.gap(1)
 			.x(d3.scale.ordinal())
 			.elasticX(true)
 			.colorCalculator(function(d, i) {
-					return "#f85631";
-					})
-		.ordering(function(d){return -d.value})
+				return "#f85631";
+			})
+			.ordering(function(d){return -d.value})
 			.dimension(dim)
 			.group(filteredGroup);
+
 		graph.xAxis().ticks(5).tickFormat(d3.format("d"));
 
-		var count=dc.dataCount(".org-count")
+		var count = dc.dataCount(".org-count")
 			.dimension(group)
 			.group({value: function() {
-					return group.all().filter(function(kv) { return kv.value>0; }).length;
+				return group.all().filter(function(kv) {
+					return kv.value>0; 
+				}).length;
 			}});
 
 	};
@@ -979,28 +985,35 @@ function eventpopup (epid) {
 		<div class="container">
 			<h2>Charts</h2>
 			<div class="row">
-				<div class="col-md-5 chart_box">
+				<div class="col-md-4 chart_box">
 					<h3>Host<!--span class="info">info</span--></h3>
 					<div class="hosttype"></div>
-					<h4>Portfolio<!--span class="info">info</span--></h4>
-					<div class="host"></div>
 					<br class="clear" />
 				</div>
-				<div class="col-md-3 chart_box" id="group_container">
+				<div class="col-md-4 chart_box" id="group_container">
 					<h3>Top organisations<!--span class="info">info</span--></h3>
-						<div class="guest"></div>
-					<h3>Day of weeks <!--span class="info">info</span--></h3>
-					<div class="day-of-week-chart">
-					</div>
+						<div class="guest chart-full"></div>
+						<div class="text-center">Number of events</div>
+					<!--h3>Day of weeks <!--span class="info">info</span--><!--/h3>
+					<div class="day-of-week-chart chart-full">
+					</div-->
 					<br class="clear" />
 				</div>
 				<div class="col-md-4 chart_box">
 					<h3>Category of Lobby organisation</h3>
 					<div class="main_category"></div>
-					<h4>Sector of Lobby organisation</h4>
-					<div class="sector range">
-					</div>
-					
+					<br class="clear" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 chart_box">
+					<h3>Portfolio<!--span class="info">info</span--></h3>
+					<div class="host chart-full"></div>
+					<br class="clear" />
+				</div>
+				<div class="col-md-6 chart_box">
+					<h3>Sector of Lobby organisation<!--span class="info">info</span--></h3>
+					<div class="sector range chart-full"></div>
 					<br class="clear" />
 				</div>
 			</div>
