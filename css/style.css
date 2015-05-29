@@ -482,7 +482,7 @@ a#page_title{
 	
 	#filter_wrap{
 		height: 8.5vh;
-		min-height: 75px;
+		min-height: 90px;
 	}
 	
 	#filter_wrap #filter_field_container p{
@@ -503,7 +503,7 @@ a#page_title{
 	#filter_wrap .btn{
 		margin-bottom: 0;
 		height: 8.5vh;
-		min-height: 75px;
+		min-height: 90px;
 		margin-top: 0;
 		padding: 20px .5em 0;
 		width: 100%;
@@ -536,6 +536,10 @@ a#page_title{
 	
 	#filter_wrap .filter_number{
 		line-height: 1.2em;
+	}
+	
+	#filter_wrap .filter_long{
+		margin-top: 16px;
 	}
 }
 
