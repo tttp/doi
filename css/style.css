@@ -237,6 +237,11 @@ a#page_title{
 		color: #FFF;
 	}
 	
+	.nav li#cm_tool_btn.active a{
+		background: #004c79;
+		color: #FFF;
+	}
+	
 	.nav.navbar-right li a{
 		width: auto;
 		border: none;
@@ -300,18 +305,26 @@ a#page_title{
 #about_wrap{
 	padding-bottom: 0;
 	padding-top: 0;
+	color: #FFF;
 }
 
 #about_wrap.mi_header{
-	color: #FFF;
 	background: #039AAB;
 }
+#about_wrap.cm_header {
+	background: #004c79;
+}
 
-#about_wrap_top.mi_header{
-	background: #039AAB;
+#about_wrap_top{
 	padding: 0;
 	height: 5px;
 	display: none;
+}
+#about_wrap_top.mi_header{
+	background: #039AAB;
+}
+#about_wrap_top.cm_header{
+	background: #004c79;
 }
 
 
@@ -340,11 +353,13 @@ a#page_title{
 	}
 	
 	#about_wrap.mi_header{
-		color: #FFF;
 		background: #039AAB url(../img/icon_mi.png) no-repeat -5% center;
 	}
+	#about_wrap.cm_header{
+		background: #004c79 url(../img/icon_cm.png) no-repeat -5% center;
+	}
 	
-	#about_wrap.mi_header #about_container{
+	#about_wrap #about_container{
 		background-size: 18%;
 	}
 	
@@ -356,8 +371,10 @@ a#page_title{
 
 @media only screen and (min-width : 1200px){
 	#about_wrap.mi_header{
-		color: #FFF;
 		background: #039AAB url(../img/icon_mi.png) no-repeat 2% center;
+	}
+	#about_wrap.cm_header{
+		background: #004c79 url(../img/icon_cm.png) no-repeat 2% center;
 	}
 	#about_wrap p{
 		margin-bottom: 1em;
@@ -365,19 +382,11 @@ a#page_title{
 	}
 }
 
-#collapse_about a.opened{
-	top: -18px;
-	background: #FFF url(../img/collapse.svg) no-repeat center top;
-	background-size: 30px;
-	-webkit-transition: all .35s ease-out 0s;
-	   -moz-transition: all .35s ease-out 0s;
-		    transition: all .35s ease-out 0s;
-}
-
 #collapse_about a{
 	-webkit-transition: top .35s ease-in-out 0s;
-	top: 0px;
+	top: -18px;
 	position: relative;
+	background: #FFF url(../img/collapse.svg) no-repeat center top;
 	background-size: 30px!important;
 	height: 20px;
 	bottom: 0;
@@ -389,12 +398,20 @@ a#page_title{
 	   -moz-transition: all .35s ease-out 0s;
 		    transition: all .35s ease-out 0s;
 }
+#collapse_about.mi_collapse a{
+	background: #039AAB url(../img/collapse_mi.svg) no-repeat center top;
+}
+#collapse_about.cm_collapse a{
+	background: #004c79 url(../img/collapse_cm.svg) no-repeat center top;
+}
 
-#collapse_about.mi_collapse a.closed{
+#collapse_about a.closed{
 	top: 0px;
-	background-size: 30px;
-	background: #039AAB url(../img/collapse.svg) no-repeat center bottom;
-	margin: 0 auto;
+	background-position: center bottom;
+}
+
+#collapse_about a.opened{
+	background-color: #fff;
 }
 
 /*filter*/

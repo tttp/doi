@@ -83,9 +83,11 @@ $( document ).ready(function() {
 	$('#collapse_about a').click(function(ev) {
 		ev.preventDefault();
 		$('#collapse_about a').toggleClass('opened');
+		$('#collapse_about a').toggleClass('closed');
 		$('#about_wrap').slideToggle('slow', function () {
-			
+			$('#about_wrap_top').slideToggle('fast')
 		})
+		
 	})
 	
 	$('.info').click(function(ev) {
@@ -866,59 +868,61 @@ function eventpopup (epid) {
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container">
 			<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<div class="navbar-brand" id="ti_logo">
-						<a href="http://www.transparencyinternational.eu">Transparency International</a>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand" id="ti_logo_container">
+						<a id="ti_logo" href="http://www.transparencyinternational.eu">Transparency International</a>
+						<a id="page_title" href="/" target="_blank"><strong>EU</strong> Integrity<br />Watch</a>
 				</div>
 			</div>
 		
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav" id="title_container">
-						<li><a id="pdate_title" href="/" target="_blank"><strong>EU</strong> Integrity Watch</a></li>
+				<ul class="nav navbar-nav">
+					<li class="active" id="cm_tool_btn"><a href="#"><strong>EU</strong> Commission <br />meetings</a></li>
+					<li id="bl_tool_btn"><a href="#"><strong>EU</strong> Brussels <br />lobbyist</a></li>
+					<li id="mi_tool_btn"><a href="#"><strong>EU</strong> MEP <br />incomes</a></li>
 				</ul>
-					<ul class="nav navbar-nav navbar-right">
-							<li><a href="about.html">About</a></li>
-							<li><a href="contact.html">Contact</a></li>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
 				</ul>
 			</div>
 	 </div><!-- container -->
 </nav>
-
-<div class="container_wrap" id="about_wrap">
+<div class="container_wrap cm_header" id="about_wrap_top">&nbsp;</div>
+<div class="container_wrap cm_header" id="about_wrap">
 	<div class="container">
 		<div id="about_container" class="row">
-			<div class="col-md-9" id="about_content">
+			<div class="col-md-3 col-lg-2" id="about_content_icon">
+			</div>
+			<div class="col-md-6 col-lg-7" id="about_content">
 				<p>
-EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the activities of the commissionners and cabinet members in the European Commission.members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter events.
-<br/>
-				<a href="about.html" class="more">Read more</a>
+					EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the activities of the commissionners and cabinet members in the European Commission.members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter events.
+					<br/>
+					<a href="about.html" class="more">Read more</a>
 				</p>
 			</div>
 			<div class="col-md-3" id="about_social">
+				<br/>
+				<!--
+				<a href="https://twitter.com/share" class="twitter-share-button" data-via="TI_EU" data-text="Want to know #events income & activities outside @Europarl_EN? Find out">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				<br/>
+				<br/>
+				<div class="fb-like" data-show-faces="false"  data-href="http://www.integritywatch.eu/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 
-<br/>
-<!--
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="TI_EU" data-text="Want to know #events income & activities outside @Europarl_EN? Find out">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<br/>
-<br/>
-<div class="fb-like" data-show-faces="false"  data-href="http://www.integritywatch.eu/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-
- <div id="fb-root"></div>
-	<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-
-</p>
+				<div id="fb-root"></div>
+				<script>(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
 -->
 			</div>
 		</div>
@@ -928,7 +932,7 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 <div class="container_wrap" id="toggle_about_wrap">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-2 col-md-1 col-centered" id="collapse_about">
+			<div class="col-xs-2 col-md-1 col-centered cm_collapse" id="collapse_about">
 				<a class="opened" href="#">collapse</a>
 			</div>
 		</div>
@@ -943,7 +947,6 @@ EU Integrity Watch is a user-friendly interactive database that provides a uniqu
 				<div class="input-group">
 						<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by meeting name or organisation...">
 				</div>
-				<!--button class="btn resetall">RESET ALL FILTERS</button-->
 			</div>
 			<div class="col-sm-7 col-md-7" id="filter_numbers">
 				<div class="row">
