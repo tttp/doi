@@ -21,6 +21,8 @@ meetings = []
 count=0
 #counter = defaultdict(int)
 for data in json.loads(json_data):
+  if data["status"]=="inactive":
+    continue
   count +=1
   if len(data["participants"]) > 0:
     ps = get_reps(data["participants"])
