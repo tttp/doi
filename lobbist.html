@@ -7,9 +7,9 @@
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/dc.css"/>
 <!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"-->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bower.css" rel="stylesheet">
 <link href="css/material.css" rel="stylesheet">
-<link href="css/theme.bootstrap.css" rel="stylesheet">
+<!--link href="css/theme.bootstrap.css" rel="stylesheet"-->
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 
@@ -24,20 +24,23 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.11/crossfilter.min.js"></script>
 <script type="text/javascript" src="js/dc.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-<script src="js/d3-tip.min.js"></script-->
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.tablesorter.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/d3.js" charset="utf-8"></script>
 <script type="text/javascript" src="js/crossfilter.js"></script>
-<script type="text/javascript" src="js/dc.js"></script>
 <script type="text/javascript" src="js/underscore-min.js"></script>
 <script src="js/d3-tip.min.js"></script>
-
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.tablesorter.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<script src="js/d3-tip.min.js"></script-->
+
+<script type="text/javascript" src="js/bower.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
 
 <style>
 td.dc-table-column._4,
@@ -109,28 +112,12 @@ $( document ).ready(function() {
 	
 });
 
-$.tablesorter.addParser({
-	// use a unique id
-	id: 'amount',
-	is: function(s, table, cell) {
-		return false;
-	},
-	format: function(s, table, cell, cellIndex) {
-		var v = s.split(' ')[0];
-		if (v === "") return -1;
-		return v;
-	},
-	// flag for filter widget (true = ALWAYS search parsed values; false = search cell text)
-	parsed: false,
-	// set the type to either numeric or text (text uses a natural sort function
-	// so it will work for everything, but numeric is faster for numbers
-	type: 'numeric'
-});
-
 var detailtpl = sidetpl = null ;
+var datatable = null;
+var rep = null;
 
-var wall = null;
-
+var representatives = events = [];
+var ridx ={};
 
 function grid (selector,data) {
 
@@ -165,6 +152,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			var filtered= c.group().value();
 			var disabled= (total == filtered);
 
+      RefreshTable();
+
 			$(".resetall").attr("disabled",disabled);
 			ga && ga('send', 'event', 'filter', 'subset', filtered);
 
@@ -176,34 +165,22 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			}
 	});
 
-	dc.dataCount(".dc-data-count2")
-		.dimension(ndx)
-		.group(all);
 
-
-	var name = ndx.dimension(function(d) {
-			if (d.guest) {
-					if (representatives[d.guestid])
-						return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase()+ " "+representatives[d.guestid].acronym.toLowerCase()+ " ";   
-					else
-						return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase()+ " ";   
-
-				}
-				return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.unregistered.toLowerCase()+ " ";
-					//+representative.[d.guestid];
-			});
+	rep = ndx.dimension(function(d) {
+      return d.acronym.toLowerCase()+ " " + d.name.toLowerCase()+ " ";
+	});
 
 	drawTable();
-	drawDate();
+	drawSector();
+/*	drawDate();
 	drawWeekDay();
 	drawHost();
 	drawHostType();
 	drawGuest();
-	drawSector();
 	drawMainCategory();
 	drawCountry();
 	drawExpense();
-/*  drawScore();
+  drawScore();
 	drawParty();
 	drawRange();
 */
@@ -320,16 +297,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	function drawSector () {
 	var dim = ndx.dimension (function(d) {
-			if (!d.guestid){
-				if (d.unregistered == "")
-					return "Not mentioned";
-
-				return "Not registered";
-			}
-			if (!representatives[d.guestid])
-				return "Unknown";
-			sub=representatives[d.guestid].sub_category;
-			return [representatives[d.guestid].main_category,subCategories[sub]];
+			return d.sub_category;
 	});
 
 	var group   = dim.group().reduceSum(function(d) {   return 1; });
@@ -364,164 +332,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	}
 
 
-	function getPortfolio (d) {
-		var host2portfolio = {
-			"President Jean-Claude Juncker" : "Presidency",
-			"Secretary-General Catherine Day": "Presidency",
-	"Director-General Ann Mettler": "Presidency",
-
-			"Director-General Robert Madelin":"Digital Economy",
-	"Commissioner Günther Oettinger":"Digital Economy",
-	"Director-General Stephen Quest":"Digital Economy",
-
-	"Commissioner Miguel Arias Cañete":"Climate & Energy",
-	"Director-General Dominique Ristori":"Climate & Energy",
-	"Director-General Jos Delbeke": "Climate & Energy",
-
-	"Commissioner Cecilia Malmström":"Trade",
-	"Director-General Jean-Luc Demarty":"Trade",
-
-	"Commissioner Jonathan Hill":"Financial Markets",
-	"Director-General Jonathan Faull":"Financial Markets",
-
-	"Commissioner Johannes Hahn":"Neighbourhood",
-	"Director-General Christian Danielsson":"Neighbourhood",
-
-			"Vice-President Jyrki Katainen" : "Jobs & Growth",
-
-	"Claus Sørensen":"Humanitarian Aid",
-	"Commissioner Christos Stylianides":"Humanitarian Aid",
-
-	"Commissioner Corina Crețu":"Regional Policy",
-	"Director-General Walter Deffaa":"Regional Policy",
-
-	"Commissioner Dimitris Avramopoulos":"Home Affairs",
-	"Director-General Alfred Matthias Ruete":"Home Affairs",
-
-	"First Vice-President Frans Timmermans":"Better Regulation",
-
-	"Commissioner Phil Hogan":"Agriculture",
-	"Director-General Jerzy Bogdan Plewa":"Agriculture",
-
-	"Commissioner Violeta Bulc":"Transport",
-	"Director-General Joao Aguiar Machado":"Transport",
-
-  "Commissioner Elżbieta Bieńkowska": "Internal Market",
-	"Director-General Daniel Calleja Crespo":"Internal Market",
-
-	"Vice-President Kristalina Georgieva": "Budget",
-	"Director-General Nadia Maria Calvino Santamaria":"Budget",
-	"Director-General Irene Souka":"Budget",
-
-	"Vice-President Andrus Ansip":"Digital Single Market",
-
-	"Vice-President Maroš Šefčovič":"Energy Union",
-
-	"Commissioner Tibor Navracsics":"Education",
-	"Director-General Xavier Prats Monné": "Education",
-	"Director-General Vladimir Šucha":"Education",
-
-	"Commissioner Karmenu Vella":"Environment",
-	"Director-General Lowri Evans":"Environment",
-	"Director-General Karl-Friedrich Falkenberg":"Environment",
-
-	"High Representative/Vice-President Federica Mogherini":"External Action",
-
-	"Commissioner Vytenis Andriukaitis":"Health",
-	"Director-General Ladislav Miko":"Health",
-	"Ladislav Miko":"Health",
-
-	"Director-General Fernando Frutuoso de Melo":"Development",
-	"Commissioner Neven Mimica":"Development",
-
-	"Vice-President Valdis Dombrovskis":"Euro",
-
-	"Commissioner Pierre Moscovici":"Economics & Tax",
-	"Director-General Heinz Zourek":"Economics & Tax",
-	"Director-General Marco Buti":"Economics & Tax",
-
-	"Commissioner Věra Jourová":"Justice",
-	"Director-General Paraskevi MICHOU":"Justice",
-
-	"Commissioner Marianne Thyssen":"Employment",
-	"Director-General Michel Servoz":"Employment",
-	"Director-General Walter Radermacher":"Employment",
-
-	"Director-General Robert-Jan Smits":"Research",
-	"Commissioner Carlos Moedas":"Research",
-
-	"Commissioner Margrethe Vestager":"Competition",
-	"Director-General Alexander Italianer":"Competition",
-
-
-		};
-
-			if (d.cabinet) {
-				return host2portfolio[d.cabinet.substr(19)] || d.cabinet.substr(19);//remove Cabinet member of...
-				//return cabinet2Topic[d.cabinet] || d.cabinet.substr(19); //remove Cabinet member of...
-			}
-			return host2portfolio[d.host] || d.host;
-	}
-
-	function drawHostType () {
-		function getType (d) {
-			if (d.cabinet)
-				return "Cabinet Members";
-			if (d.host.indexOf ("Director-General") !== -1)
-				return "Directors";
-			if (d.host.indexOf ("President")  !== -1)
-				return "Presidents";
-			return "Commissioners"
-		}
-
-		var dim = ndx.dimension (function(d) {
-				return getType(d);   
-		});
-
-		var group   = dim.group().reduceSum(function(d) {   return 1; });
-		var chart = dc.pieChart(".hosttype")
-			.innerRadius(50).radius(100)
-			.height(200)
-			.dimension(dim)
-			.group(group);
-	
-	}
-
-	function drawHost () {
-
-	var dim = ndx.dimension (function(d) {
-				return getPortfolio(d);
-
-	});
-
-	var group   = dim.group().reduceSum(function(d) {   return 1; });
-
-	//var graph = dc.barChart (".host")   
-	var graph = dc.rowChart (".host")   
-		.margins({top: 0, right: 10, bottom: 20, left: 10})
-		.height(520)
-		.width(380)
-		.gap(0)
-		.x(d3.scale.ordinal())
-		.elasticX(true)
-		.colorCalculator(function(d, i) {
-				return "#f85631";
-				})
-		.dimension(dim)
-		.group(group);
-
-		graph.xAxis().ticks(5).tickFormat(d3.format("d"));
-		//.xAxis().ticks(4);
-
-	}
 
 	function drawGuest () {
 		var dim = ndx.dimension (function(d) {
-			if (!d.guest) {
-				if (d.unregistered == "")
-					return "Not mentioned";
-				return "*"+d.unregistered;
-			}
 			return d.guest;
 		});
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
@@ -563,297 +376,84 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	};
 
 	function drawTable () {
-		var i=0;
-		wall=dc.dataTable(".dc-data-grid")
-		 .dimension(name)
-			.group(function (d) { return "";return d.country; })
-			.columns([
-					function(d) { i=i+1; return i; },
-					function(d) {  return d.host; },
-					function(d) {  return getPortfolio(d); },
-					function(d) {
-							if (d.date == null) return "canceled";
-							return "<span title='"+d.id+"'>"+d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear()+"</span>";
-					},
-					function(d) {  return d.title; },
-					function(d) {  
-					if (!d.guestid) {
-						return "<span class='unregistered'>"+d.unregistered+"</span>";
-					}
-					if (representatives[d.guestid] && representatives[d.guestid].acronym )
-					return "<span title='"+d.cost_absolute+"'>"+d.guest + " ("+representatives[d.guestid].acronym +")</span>";
-					return d.guest;
-					},
-			])
-		.size(100)
-		.sortBy(function (d) {return -d.date})
-		.renderlet(function (chart) {
-			i = 0;
-			$(".dc-table-group").remove();
-			$("td:first-child").each (function(i) { 
-				$(this).closest ("td").css("backgroundColor", 
-					$(this).css('backgroundColor')
-				);
-			});
-			$("td span.score").each (function(i) { 
-				$(this).closest ("td").css("backgroundColor", 
-					$(this).css('backgroundColor')
-				);
-			});
-			$("table.dc-data-grid").trigger("update");
-		});
+		var count=0;
+    //id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute
+
+    datatable = $(".table").dataTable({
+            "columnDefs": [ {
+              "searchable": false,
+              "defaultContent":"",
+              "orderable": false,
+              "targets": 0,   
+              data: function ( row, type, val, meta ) {
+                count++;
+                return count;
+              }
+              },{
+              "defaultContent":"AA",
+              "orderable": true,
+              "targets": 1,
+              data: "acronym",   
+              },{
+              "defaultContent":"AA",
+              "searchable": false,
+              "orderable": true,
+              "targets": 2,
+              data: "name",  
+              },{
+              "searchable": false,
+              "orderable": true,
+              "targets": 3,
+              data: function (row,type,val,meta) { 
+                if (row.cost_absolute > 0)
+                  return row.cost_absolute;
+                return row.cost_min
+              } 
+              },{
+              "defaultContent":"AA",
+              "searchable": false,
+              "orderable": true,
+              "targets": 4,
+              data: "meetings",  
+              } 
+            ],
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": false,
+            "order": [[ 4, "desc" ]],
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "bDeferRender": true,
+            "aaData": rep.top(Infinity),
+            "bDestroy": true,
+        });
+
+        datatable.on( 'order.dt search.dt', function () {
+          datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+          } );
+
+        });
+
 	}
+
+       function RefreshTable() {
+            dc.events.trigger(function () {
+                alldata = rep.top(Infinity);
+                datatable.fnClearTable();
+                datatable.fnAddData(alldata);
+                datatable.fnDraw();
+            });
+        }
 
 		dc.renderAll();
 		hashFilter();
 
-		 $("table.dc-data-grid").tablesorter(
-				{theme:"bootstrap",headers: {}}
-		 ).bind("sortEnd",function(e, table) {
-			ga && ga('send', 'event', 'sort','table');
-			var i=0;
-			$("td:first-child").each (function(){this.innerHTML=++i;});
-		});
-
-function drawRange () {
-	
-	/*colors
-	"#ffffff",
-	"#f8e8e5",
-	"#f9d1c8",
-	"#f9a896",
-	"#fb8065",
-	"#f85631"
-	*/
- 
-	function getRange (d) {
-		if (d.score === 0 ) return ". None"; 
-		if (d.min < 500 ) return "0. < 500"; 
-		if (d.min < 1001 ) return "1. < 1000"; 
-		if (d.min < 5001 ) return "2. < 5000"; 
-		if (d.min < 10001 ) return "3. < 10000"; 
-		return "4. 10000 or more";
-	};
-
-	var color = d3.scale.ordinal()
-			//blue->orange//.range(["#3695d8", "#5989b3", "#857c93", "#ae6e74", "#d76155", "#ff523a"]);
-			.range(["#FFFFFF", "#8ed3fb", "#68add4", "#4388ad", "#1a6287", "#003c60"]);
-				
-	var dimension = ndx.dimension(function(d) {
-		return getRange(d);
-	});
-
-	var group   = dimension.group().reduceSum(function(d) { return 1; });
-	var chart = dc.pieChart(selector +  " .range")
-		.innerRadius(50).radius(100)
-		.height(200)
-		.colors(color)
-		.colorAccessor(function (d, i){return i;})
-		.dimension(dimension)
-		.group(group);
-}
-
-function drawParty () {
-	var bubble_party = dc.bubbleChart(" .party");
-	var party = ndx.dimension(function(d) {
-			if (typeof d.party == "undefined") return "";
-			return d.party;
-			});
-	 var tip = d3.tip()
-		.attr('class', 'd3-tip')
-		.html(function(p) { return '<span><h2>' +
-				p.key + "</h2><ul>" + 
-								"<li>Number of events: " +p.value.count + "</li>" +
-								"<li>Averdate participation: " +Math.floor (p.value.effort/p.value.count) + "</li>" +
-								"<li>Averdate score: "+Math.floor (p.value.score/p.value.count); 
-			 '</li></ul></span>' })
-		.offset([-12, 0])
-
-
-	var partyGroup   = party.group().reduce(
-			function(a,d) {a.eugroup = d.eugroup;a.count +=1; a.score +=d.score; a.effort += d.attendance.score; return a; },
-			function(a,d) {a.eugroup = d.eugroup;a.count -=1; a.score -=d.score; a.effort -= d.attendance.score; return a; },
-			function() {return {eurgroup:0,count:0,score:0,effort:0}; }
-			)
-			.order(function (p) {return p.count});
-	bubble_party
-		.colorCalculator(function(d, i) {
-			return eu_groups[d.value.eugroup];
-		})
-	.valueAccessor (
-			function(d) {
-			return d.value.count;
-			})
-	.width(660)
-		.height(300)
-		.margins({top: 20, right: 20, bottom: 20, left: 30})
-		.yAxisLabel("%Votes attended")
-		.dimension(party)
-		.group(partyGroup)
-		.keyAccessor(function (p) {
-				return p.value.score/p.value.count;
-		})
-		.valueAccessor(function (p) {
-				return p.value.effort/p.value.count;
-		})
-		.radiusValueAccessor(function (p) {
-				return p.value.count;
-		})
-		.x(d3.scale.linear().domain([0, 60]))
-		.r(d3.scale.linear().domain([0, 100]))
-		.minRadiusWithLabel(150)
-}
-
-function drawDate() {
-	var chart_date = dc.lineChart(".date");
-
- var date = ndx.dimension(function(d) {
-			if (typeof d.date == "undefined") return "";
-			return d.date;
-			});
-
-//minDate = date.bottom(1)[0].key;
-//maxDate = date.top(1)[0].key;
-
-	var dateGroup   = date.group().reduceSum(function(d) {   return 1; });
-
-	chart_date
-		.height(200)
-		.width (430)
-		.margins({top: 0, right: 20, bottom: 20, left: 30})
-				.round(d3.time.month.round)
-				.xUnits(d3.time.months)
-				.x(d3.time.scale().domain([new Date(2014, 11, 1), new Date(2015, 06, 1)]))
-
-		.brushOn(true)
-		.renderArea(true)
-		.elasticY(true)
-		.yAxisLabel("Number of meetings")
-		.dimension(date)
-		.group(dateGroup);
-}
-
-function drawWeekDay() {
-		var graph=dc.rowChart('.day-of-week-chart');
-		// counts per weekday
-		var dayOfWeek = ndx.dimension(function (d) {
-				if (d.date == null) return "Unknown";
-				var day = d.date.getDay();
-				var name = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-				return day + '.' + name[day];
-		});
-		var dayOfWeekGroup = dayOfWeek.group();
-
-		
-		graph.width(180)
-				.height(180)
-				.margins({top: 20, left: 10, right: 10, bottom: 20})
-				.group(dayOfWeekGroup)
-				.dimension(dayOfWeek)
-				// assign colors to each value in the x scale domain
-				.ordinalColors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
-				.label(function (d) {
-						return d.key.split('.')[1];
-				})
-				// title sets the row text
-				.title(function (d) {
-						return d.value;
-				})
-				.elasticX(true)
-				.xAxis().ticks(4);
-
-}
-
-function drawScore() {
-
-	var host2Topic = {};
-
-	var dim = ndx.dimension (function(d) {
-			if (d.cabinet) {
-				return cabinet2Topic[d.cabinet] | d.cabinet;
-			}
-			return host2Topic[d.host] | d.host;
-	});
-
-	var group   = dim.group().reduceSum(function(d) {   return 1; });
-
-	var graph = dc.barChart (".bar_score")   
-		.height(220)
-		.width(330)
-		.gap(0)
-		.margins({top: 10, right: 20, bottom: 20, left: 40})
-		.x(d3.scale.linear().domain([0, 70]))
-		.elasticX(true)
-		.elasticY(true)
-		.yAxisLabel("Number of events")
-		.round(dc.round.floor)
-		.colorCalculator(function(d, i) {
-				return "#f85631";
-				})
-		.valueAccessor (
-			function(d) {
-			return d.value.count;
-			})
-		.dimension(dim)
-		.group(group)
-		.renderlet(function (chart) {
-//      var d = chart.group().top(Number.POSITIVE_INFINITY);
-			var total = nb = min = max = 0;
-			var d = chart.dimension().top(Number.POSITIVE_INFINITY);
-			d.forEach (function (a) {
-				if (isNaN(a.score)) return;
-				++nb;
-				total += a.score;
-				min += a.min;
-				max += a.max;
-			});
-			if (nb) {
-				var avg= total/nb;
-				$("div#avg_score").text(Math.round(avg));
-				$("div#sum_side").html("Total "+ Math.round(min)+" &euro;");
-				$("div#avg_side").html("Averdate "+Math.round(min/nb)+ " &euro;");
-			} else {
-				$("div#avg_score").text("");
-			}
-			//why doesn't it work? if (chart.dimension().size() !== chart.group().value()) {}
-			if (ndx.size() !== nb) {
-				$(".resetall").attr("disabled",false);
-				ga && ga('send', 'event', 'filter', 'subset', nb);
-			} else {
-				$(".resetall").attr("disabled",true);
-				ga && ga('send', 'event', 'filter', 'reset');
-			}
-
-	});
-	bar_score.yAxis().ticks(4).tickFormat(d3.format(",.0f"));
-}
 
 
 }
 
-	function getAmountString(d) {
-					if (d.qty == 0) {
-						return "";
-					}
-					if (d.max == Number.POSITIVE_INFINITY)
-						return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
-					return d.min +" &#8605; "+d.max +"  &euro;";
-	}
-
-	function getAmount (category, field) { //field = min (default) or max or "string"
-		field = field || "min";
-		if (!category) return "?";
-		if (isNaN(category)) return category;
-		if (category < 0 && field == "min") return "0";
-		if (category < 0 && field == "max") return "499";
-		if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
-		 
-		if (category >=4 && field == "max") return "or more";
-		if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
-		if (field == "string")
-			return  rangeEUR[category]["min"] + " &#8605; "+  rangeEUR[category]["max"];
-		return rangeEUR[category][field];
-	}
 
 function hashFilter () {
 	var hash = window.location.hash;
@@ -962,12 +562,7 @@ function eventpopup (epid) {
 					<div class="col-md-2" id="currently_selected_text"><p>You have currently selected</p></div>
 					<div class="col-md-3 filter_number">
 						<div id="mep_number" class="dc-data-count">
-							<span id="abig_number" class="big_number filter-count"></span>out of <strong class="total-count"></strong> events
-						</div>
-					</div>
-					<div class="col-md-3 filter_number">
-						<div id="org_number" class="org-count">
-							<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> organisations
+							<span id="abig_number" class="big_number filter-count"></span>out of <strong class="total-count"></strong> organisations
 						</div>
 					</div>
 					<div class="col-md-4 filter_number">
@@ -1063,7 +658,7 @@ function eventpopup (epid) {
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2>Latest 100 meetings in the commission</h2>
+				<h2>Registered Lobbyists</h2>
 				<div class="info_chart" id="attendance_info">
 					<span class="info">info</span>
 					<p class="desc">Events</p>
@@ -1084,12 +679,11 @@ function eventpopup (epid) {
 				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
 					<thead>
 						<tr class=header>
-							<th class="headerSortDown">Nr</th> 
+							<th>Nr</th> 
+							<th>Accronym</th> 
 							<th>Name</th> 
-							<th>Portfolio</th> 
-							<th>date</th> 
-							<th>Subject</th> 
-							<th>With</th> 
+							<th>Cost declared</th> 
+							<th>Number of meetings</th> 
 						</tr>
 					</thead>
 				</table>
@@ -1112,13 +706,16 @@ function eventpopup (epid) {
 			var a;
 
 			_.each (events, function (d) {
+        if (ridx[d.guestid]) {
+          representatives[ridx[d.guestid]].meetings +=1;
+        }
 				d.date=dateFormat.parse(d.date);
 				if (!d.cabinet) 
 					return;
 				if (d.cabinet.substr(19)=="Cabinet member of ")
 					d.cabinet = d.cabinet.substr(19);
 			});
-			grid ("#ec",events);
+			grid ("#ec",representatives);
 		});
 		d3.csv("data/meeting.csv", function(d) {return d;}
 			,function(error, rows) {
@@ -1127,17 +724,20 @@ function eventpopup (epid) {
 			});      
 		//d3.json("data/representative-light.json", function (rows) {
 		//d3.csv("data/representative.csv", function (rows) {
-		d3.csv("data/representative-finance-light.csv", function (rows) {
-				 _.each (rows, function (d) {
+    d3.csv("data/representative-finance-light.csv", function(d) {return d;}
+      ,function (rows) {
+        representatives = rows;
+				 _.each (representatives, function (d,i) {
 						//representatives[d.identification_code]=d;
-						representatives[d.id]=d;
+            ridx[d.id]=i;
+						d.meetings=0;
 			});
 				 renderLoaded();
 		});     
 
 	$("#search-input").keyup (function () {
 		var s = $(this ).val().toLowerCase();
-		wall.dimension().filter(function (d) { 
+		rep.filter(function (d) { 
 			return d.indexOf (s) !== -1;} );
 		$(".resetall").attr("disabled",false);
 		throttle();
@@ -1147,7 +747,6 @@ function eventpopup (epid) {
 		function throttle() {
 			window.clearTimeout(throttleTimer);
 			throttleTimer = window.setTimeout(function() {
-				console.log ("redraw");
 					dc.redrawAll();
 			}, 250);
 		}
