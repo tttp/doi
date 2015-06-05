@@ -171,15 +171,16 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	});
 
 	drawTable();
+	drawMainCategory();
 	drawSector();
+	drawExpense();
 /*	drawDate();
+	drawMeetings();
 	drawWeekDay();
 	drawHost();
 	drawHostType();
 	drawGuest();
-	drawMainCategory();
 	drawCountry();
-	drawExpense();
   drawScore();
 	drawParty();
 	drawRange();
@@ -195,11 +196,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	function drawExpense () {
 		var dim = ndx.dimension (function(d) {
-      if (!representatives[d.guestid]) {
-      console.log("don't find "+d.guestid)
-				return 0;
-      }
-			return representatives[d.guestid].cost_absolute || representatives[d.guestid].cost_min;
+			return d.cost_absolute || d.cost_min;
 	});
 
 	var group   = dim.group().reduceSum(function(d) {   
@@ -263,34 +260,17 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	
 	function drawMainCategory () {
-		function getName (d) {
-			if (!d.guestid){
-				if (d.unregistered == "")
-					return [98,"Not mentioned"];
-
-				return [99,"Not registered"];
-			}
-			if (!representatives[d.guestid])
-				return [100,"Unknown"];
-			return [representatives[d.guestid].main_category,mainCategories[representatives[d.guestid].main_category]];
-		}
-
 		var dim = ndx.dimension (function(d) {
-				return getName(d);   
+			  return d.main_category;
 		});
 
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
-		/*
-			 //return [representatives[d.guestid].main_category,representatives[d.guestid].main_category_title];
-			 var t={};
-			 group.all().forEach (function (d) {if (d.key[0]) t[d.key[0]]=d.key[1]})
-			 JSON.stringify(t);
-		*/
 
 		var chart = dc.pieChart(".main_category")
-			.innerRadius(50).radius(100)
+			.innerRadius(20).radius(100)
 			.height(200)
-			.label(function(d){ return d.key[1] })
+			.label(function(d){ return mainCategories[d.key] })
+			.title (function(d){ return mainCategories[d.key] +" "+d.value })
 			.dimension(dim)
 			.group(group);
 	}
@@ -309,16 +289,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		*/
 
 	var graph = dc.rowChart (".sector")   
-		.height(500)
+		.height(380)
 		.width(350)
 		.gap(1)
 		.margins({top: 0, right: 0, bottom: 0, left: 0})
 		.x(d3.scale.ordinal())
-		.label(function(d){
-			 if (typeof d.key == "string")
-				 return d.key;
-			 return d.key[1]; 
-		})
+			.label(function(d){ return subCategories[d.key] })
+			.title (function(d){ return subCategories[d.key] +" "+d.value })
 		.elasticX(true)
 		.colorCalculator(function(d, i) {
 			if (d.key == "Not mentioned" || d.key == "Unknown" || d.key == "Not registered")
@@ -415,6 +392,12 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "orderable": true,
               "targets": 4,
               data: "meetings",  
+              },{
+              "defaultContent":"AA",
+              "searchable": false,
+              "orderable": true,
+              "targets": 5,
+              data: "accredited",  
               } 
             ],
             "bPaginate": true,
@@ -429,6 +412,27 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             "bDestroy": true,
         });
 
+    function format (d) {
+      var s="<div>";
+      s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' target='_blank'>Transarency registry</a>";
+      return s+"</div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";
+    }
+
+    datatable.on('click', 'tr[role="row"]', function () {
+        var tr = $(this);
+        var row = datatable.DataTable().row( tr );
+ 
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()) ).show();
+            tr.addClass('shown');
+        }
+    } );
         datatable.on( 'order.dt search.dt', function () {
           datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
             cell.innerHTML = i+1;
@@ -584,29 +588,8 @@ function eventpopup (epid) {
 			<h2>Charts</h2>
 			<div class="row">
 				<div class="col-md-4 chart_box">
-					<h3>Host<!--span class="info">info</span--></h3>
-					<div class="hosttype"></div>
-					<br class="clear" />
-				</div>
-				<div class="col-md-4 chart_box" id="group_container">
-					<h3>Top organisations<!--span class="info">info</span--></h3>
-						<div class="guest chart-full"></div>
-						<div class="text-center">Number of events</div>
-					<!--h3>Day of weeks <!--span class="info">info</span--><!--/h3>
-					<div class="day-of-week-chart chart-full">
-					</div-->
-					<br class="clear" />
-				</div>
-				<div class="col-md-4 chart_box">
 					<h3>Category of Lobby organisation</h3>
 					<div class="main_category"></div>
-					<br class="clear" />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 chart_box">
-					<h3>Portfolio<!--span class="info">info</span--></h3>
-					<div class="host chart-full"></div>
 					<br class="clear" />
 				</div>
 				<div class="col-md-6 chart_box">
@@ -683,7 +666,8 @@ function eventpopup (epid) {
 							<th>Accronym</th> 
 							<th>Name</th> 
 							<th>Cost declared</th> 
-							<th>Number of meetings</th> 
+							<th>Nb meetings</th> 
+							<th>Nb accredications</th> 
 						</tr>
 					</thead>
 				</table>
@@ -706,6 +690,8 @@ function eventpopup (epid) {
 			var a;
 
 			_.each (events, function (d) {
+        if (!d.guestid)
+          return;
         if (ridx[d.guestid]) {
           representatives[ridx[d.guestid]].meetings +=1;
         }
@@ -724,7 +710,7 @@ function eventpopup (epid) {
 			});      
 		//d3.json("data/representative-light.json", function (rows) {
 		//d3.csv("data/representative.csv", function (rows) {
-    d3.csv("data/representative-finance-light.csv", function(d) {return d;}
+    d3.csv("data/r.csv", function(d) {return d;}
       ,function (rows) {
         representatives = rows;
 				 _.each (representatives, function (d,i) {

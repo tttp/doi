@@ -1,3 +1,5 @@
+#http://harelba.github.io/q/install.html
+
 #country
 echo 'id,name' > country.csv
 jq -M ".[]|[.id,.name]|@csv" ../country.json >> country.csv
@@ -7,8 +9,8 @@ jq -M ".[]|[.id,.name]|@csv" ../country.json >> country.csv
 #jq -r ".[]|[.id,.contact_country,.acronym,.name,.main_category,.sub_category]|@csv" representative.json >> representative.csv
 
 #debug version
-echo 'id,contact_country,sub_category,sub_category_title,acronym,name,main_category,main_category_title' >  representative.csv
-jq -r ".[]|[.id,.contact_country,.sub_category,.sub_category_title,.acronym,.name,.main_category,.main_category_title]|@csv" representative.json >> representative.csv
+echo 'id,contact_country,sub_category,sub_category_title,acronym,name,main_category,main_category_title,code' >  representative.csv
+jq -r ".[]|[.id,.contact_country,.sub_category,.sub_category_title,.acronym,.name,.main_category,.main_category_title,.identification_code]|@csv" representative.json >> representative.csv
 
 #meeting
 sed -i 's/T00:00:00//g' meeting-flat.json 
@@ -23,5 +25,12 @@ jq -r ".[]|select(.cancelled=false)|[.id,.ec_representative,.date,.subject,.part
 #curl -O http://api.lobbyfacts.eu/api/1/financial_data.csv > financial_data.csv
 
 csvjoin   --left -c id,representative representative.csv financial_data.csv  > representative-financial.csv
-csvcut representative-financial.csv -c id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute > representative-finance-light.csv
+csvcut representative-financial.csv -c id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,code > representative-finance-light.csv
+
+#curl -O http://api.lobbyfacts.eu/api/1/accreditation.csv > accreditation.csv
+echo 'id,accredited' > representative_count.csv
+#q "select representative_id,count(*) FROM accreditation.csv where status='active' group by representative_id"  -d, -H >> representative_count.csv;
+
+csvjoin --left -c id,id  representative-finance-light.csv representative_count.csv  > r.csv
+
 
