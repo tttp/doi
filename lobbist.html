@@ -430,18 +430,19 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
     function format (d) {
       var s="<div>More details on:";
+      s += '<div class="btn-group" qdata-toggle="buttons">';
       s += "<button class='btn btn-sm btn-primary' data-type='event'>Events</button>";
       s += "<button class='btn btn-sm btn-primary' data-type='accreditation'>Accreditations</button>";
       s += "<button class='btn btn-sm btn-primary' data-type='financial_data'>Financial declarations</button>";
       s += "<button class='btn btn-sm btn-primary' data-type='representative'>Details</button>";
-      s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' class='btn' target='_blank'>Transparency registry</a>";
-      return s+"</div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";
+      s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' class='btn btn-sm' target='_blank'>Transparency registry</a>";
+      return s+"</div></div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";
     }
 
     datatable.on('click', 'button', function () {
         var tr = $(this).closest('tr');
         var type=$(this).data("type");
-        var pre=$(this).parent().next("pre");
+        var pre=$(this).parent().parent().next("pre");
         var row = datatable.DataTable().row( tr.prev()[0] );
         var d=row.data();
      
@@ -452,6 +453,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               sevents.push(e);
             });
             pre.html(JSON.stringify(sevents,null,2));
+            return;
         }
 
         var r= (tr.data("representative"));
@@ -466,8 +468,16 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         display(r,type);
 
         function display (data) {
-            pre.html(JSON.stringify(data,null,2));
-          switch (type) {}
+          switch (type) {
+            case "financial_data":
+             pre.html(JSON.stringify(data["financial_data"],null,2));
+              break;
+            case "accreditation":
+             pre.html(JSON.stringify(data["accreditations"],null,2));
+              break;
+            default:
+              pre.html(JSON.stringify(data,null,2));
+          }
         }
         
     } );
