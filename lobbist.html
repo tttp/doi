@@ -5,11 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>EU Integrity Watch</title>
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" type="text/css" href="css/dc.css"/>
-<!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"-->
-<link href="css/bower.css" rel="stylesheet">
-<link href="css/material.css" rel="stylesheet">
-<!--link href="css/theme.bootstrap.css" rel="stylesheet"-->
+<link href="css/bower.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 
@@ -20,29 +16,12 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<!--script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.11/crossfilter.min.js"></script>
-<script type="text/javascript" src="js/dc.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-
-
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.tablesorter.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/d3.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/crossfilter.js"></script>
-<script type="text/javascript" src="js/underscore-min.js"></script>
-<script src="js/d3-tip.min.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.tablesorter.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script src="js/d3-tip.min.js"></script-->
 
 <script type="text/javascript" src="js/bower.js"></script>
-<script type="text/javascript" src="js/dc.js"></script>
 
 <style>
+td.number{text-align:right}
+
 td.dc-table-column._4,
 td.dc-table-column._5,
 td.dc-table-column._6
@@ -140,12 +119,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	var eventgroup   = event.group().reduceSum(function(d) {  return 1; });
 
 	var count=dc.dataCount(".dc-data-count")
-		.dimension(eventgroup)
+/*		.dimension(eventgroup)
 		.group({value: function() {
 						return eventgroup.all().filter(function(kv) { return kv.value>0; }).length;
 			}});
-		//.dimension(ndx)
-		//.group(all);
+*/
+		.dimension(ndx)
+		.group(all);
 
 	count.on("renderlet.resetall", function(c) {
 			var total=c.dimension().size();
@@ -174,6 +154,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawMainCategory();
 	drawSector();
 	drawExpense();
+	drawNbMeetings();
 /*	drawDate();
 	drawMeetings();
 	drawWeekDay();
@@ -196,7 +177,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	function drawExpense () {
 		var dim = ndx.dimension (function(d) {
-			return d.cost_absolute || d.cost_min;
+      return getCost(d);
 	});
 
 	var group   = dim.group().reduceSum(function(d) {   
@@ -259,6 +240,40 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	}
 
 	
+	function drawNbMeetings () {
+		var dim = ndx.dimension (function(d) {
+        if (d.meetings>4)
+          return 5;
+			  return d.meetings;
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+		var chart = dc.pieChart(".meetings")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.label(function(d){ 
+          if (d.key == 5)
+            return ">5";
+          return d.key })
+			.title (function(d){ 
+         switch(d.key) {
+           case 0:
+             return "no meeting";
+           case 1:
+             return d.key + " meeting: " + d.value;
+             break;
+           case 5:
+             return ">5 meetings: " + d.value;
+             break;
+           default:
+             return d.key + " meetings: " + d.value;
+         }
+       })
+			.dimension(dim)
+			.group(group);
+	}
+
 	function drawMainCategory () {
 		var dim = ndx.dimension (function(d) {
 			  return d.main_category;
@@ -358,7 +373,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
     datatable = $(".table").dataTable({
             "columnDefs": [ {
-              "searchable": false,
               "defaultContent":"",
               "orderable": false,
               "targets": 0,   
@@ -381,11 +395,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "searchable": false,
               "orderable": true,
               "targets": 3,
-              data: function (row,type,val,meta) { 
-                if (row.cost_absolute > 0)
-                  return row.cost_absolute;
-                return row.cost_min
-              } 
+              "className": "number",
+              "render": function ( data, type, row ) { 
+                if (data == "")
+                  return "<10k";
+                return d3.format(",g")(data)+"€";
+              },
+              data: function (row, type, val, meta) { return getCost(row)}
               },{
               "defaultContent":"AA",
               "searchable": false,
@@ -413,11 +429,48 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         });
 
     function format (d) {
-      var s="<div>";
-      s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' target='_blank'>Transarency registry</a>";
+      var s="<div>More details on:";
+      s += "<button class='btn btn-sm btn-primary' data-type='event'>Events</button>";
+      s += "<button class='btn btn-sm btn-primary' data-type='accreditation'>Accreditations</button>";
+      s += "<button class='btn btn-sm btn-primary' data-type='financial_data'>Financial declarations</button>";
+      s += "<button class='btn btn-sm btn-primary' data-type='representative'>Details</button>";
+      s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' class='btn' target='_blank'>Transparency registry</a>";
       return s+"</div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";
     }
 
+    datatable.on('click', 'button', function () {
+        var tr = $(this).closest('tr');
+        var type=$(this).data("type");
+        var pre=$(this).parent().next("pre");
+        var row = datatable.DataTable().row( tr.prev()[0] );
+        var d=row.data();
+     
+        if (type == "event") {
+            var sevents =[];
+            _.each(events,function (e){
+            if (e.guestid == d.id)
+              sevents.push(e);
+            });
+            pre.html(JSON.stringify(sevents,null,2));
+        }
+
+        var r= (tr.data("representative"));
+        if (!r) {
+          url="http://api.lobbyfacts.eu/api/1/representative/"+d.id+"?callback=?";
+          $.getJSON( url, function( data ) {
+            tr.data("representative",data);
+            display (data);
+          });
+          return;
+        }
+        display(r,type);
+
+        function display (data) {
+            pre.html(JSON.stringify(data,null,2));
+          switch (type) {}
+        }
+        
+    } );
     datatable.on('click', 'tr[role="row"]', function () {
         var tr = $(this);
         var row = datatable.DataTable().row( tr );
@@ -458,6 +511,11 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 }
 
+function getCost (d) { 
+  if (d.cost_absolute > 0)
+    return d.cost_absolute;
+  return d.cost_min
+} 
 
 function hashFilter () {
 	var hash = window.location.hash;
@@ -558,7 +616,7 @@ function eventpopup (epid) {
 			<div class="col-xs-9 col-sm-9 col-md-4" id="filter_field_container">
 				<p>Search or Filter:</p>
 				<div class="input-group">
-						<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by meeting name or organisation...">
+						<input type="text" id="search-input" class="form-control input-lg" placeholder="type a name ...">
 				</div>
 			</div>
 			<div class="col-sm-7 col-md-7" id="filter_numbers">
@@ -571,7 +629,7 @@ function eventpopup (epid) {
 					</div>
 					<div class="col-md-4 filter_number">
 						<div class="filter_long one2one"></div>
-						<div class="filter_long civilsociety">x% civil society?</div>
+						<div class="filter_long civilsociety"></div>
 					</div>
 				</div>
 			</div>
@@ -607,6 +665,13 @@ function eventpopup (epid) {
 		<div class="container">
 				
 			<div class="row">
+				<div class="col-md-5 chart_box">
+					<h3>Nb meetings</h3>
+					
+					<div class="meetings">
+					</div>
+					
+				</div>
 				<div class="col-md-7 chart_box">
 					<h3>Lobbying expense</h3>
 					

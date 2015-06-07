@@ -16,7 +16,8 @@ gulp.task('bower', function() {
         var cssFilter = filter('*.css');
         var fontFilter = filter(['*.eot', '*.woff', '*.svg', '*.ttf']);
 
-        return gulp.src(mainBowerFiles())
+        var files= mainBowerFiles().concat(["css/dc.css","css/material.css","style.css","js/dc.js"]);
+        return gulp.src(files)
         .pipe(debug({title:"all:"}))
 
         // grab vendor js files from bower_components, minify and push in /public
