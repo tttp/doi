@@ -188,7 +188,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.width(530)
 		.gap(0)
 		.margins({top: 10, right: 20, bottom: 200, left: 40})
-		.x(d3.scale.linear().domain([0, 100000]))
+		.x(d3.scale.linear().domain([0, 1000000]))
  //   .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
 		.elasticX(true)
@@ -381,12 +381,10 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
                 return count;
               }
               },{
-              "defaultContent":"AA",
               "orderable": true,
               "targets": 1,
               data: "acronym",   
               },{
-              "defaultContent":"AA",
               "searchable": false,
               "orderable": true,
               "targets": 2,
@@ -394,6 +392,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               },{
               "searchable": false,
               "orderable": true,
+              "type":"num-fmt",
               "targets": 3,
               "className": "number",
               "render": function ( data, type, row ) { 
@@ -523,8 +522,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 function getCost (d) { 
   if (d.cost_absolute > 0)
-    return d.cost_absolute;
-  return d.cost_min
+    return +d.cost_absolute;
+  return +d.cost_min;
 } 
 
 function hashFilter () {
