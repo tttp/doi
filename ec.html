@@ -612,6 +612,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 					return "<span title='"+d.cost_absolute+"'>"+d.guest + " ("+representatives[d.guestid].acronym +")</span>";
 					return d.guest;
 					},
+					function(d) {  return d.participants; },
 			])
 		.size(100)
 		.sortBy(function (d) {return -d.date})
@@ -1069,6 +1070,7 @@ function eventpopup (epid) {
 							<th>date</th> 
 							<th>Subject</th> 
 							<th>With</th> 
+							<th>Participants</th> 
 						</tr>
 					</thead>
 				</table>

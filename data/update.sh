@@ -7,14 +7,22 @@ jq -M ".[]|[.id,.name]|@csv" ../country.json >> country.csv
 #dealing with meeting_participants.csv
 q 'select `meetings.id` as id,"registered" as status ,representative as guest,`meetings.ec_representative` as host,`meetings.ec_org` as cabinet,`meetings.date` as date,representative_id as guestid,`meetings.subject` as title,`meetings.unregistered` as unregistered, "0" as nb from meeting_participants.csv where `meetings.status` = "active" and unregistered="" ' -d, -H  -O > meeting_flat.csv
 
-q 'select `meetings.id` as id,"registered" as status ,representative as guest,`meetings.ec_representative` as host,`meetings.ec_org` as cabinet,`meetings.date` as date,representative_id as guestid,`meetings.subject` as title,`meetings.unregistered` as unregistered, "0" as nb from meeting_participants.csv where `meetings.status` = "active"' -d, -H   >> meeting_flat.csv
+#q 'select `meetings.id` as id,"registered" as status ,representative as guest,`meetings.ec_representative` as host,`meetings.ec_org` as cabinet,`meetings.date` as date,representative_id as guestid,`meetings.subject` as title,`meetings.unregistered` as unregistered, "0" as nb from meeting_participants.csv where `meetings.status` = "active"' -d, -H   >> meeting_flat.csv
 
-q 'select `meetings.unregistered` as unregistered from meeting_participants.csv where unregistered!="" limit 10' -d, -H -O
-
+#q 'select `meetings.unregistered` as unregistered from meeting_participants.csv where unregistered!="" limit 10' -d, -H -O
 
 #dealing with meeting_deregistered.csv
 q 'select meeting.id as id,"dereg" as status ,guest.name as guest, meeting.ec_representative as host,meeting.ec_org as cabinet,meeting.date as date,identification_code as guestid,meeting.subject as title,meeting.unregistered as unregistered, "0" as nb  from  meeting.csv meeting join meeting_deregistered.csv guest on (meeting.id = guest.meeting) where guest.status="active"' -d, -H >> meeting_flat.csv
 
+## add the number of meetings
+echo "id,participants" > participant_count.csv
+awk -F, '{A[$1]++}END{for(i in A)print i,A[i]}' OFS=, meeting_flat.csv >> participant_count.csv
+
+csvjoin --left -c id,id  meeting_flat.csv participant_count.csv  > meetings_count.csv
+csvcut -c id,status,guest,host,cabinet,date,guestid,title,unregistered,count meetings_count.csv > meeting_flat.csv 
+
+##rm participant_count.csv
+##rm meetings_count.csv
 
 #representative
 #echo 'id,contact_country,acronym,name,main_category,sub_category' >  representative.csv
