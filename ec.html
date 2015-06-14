@@ -204,6 +204,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawMainCategory();
 	drawCountry();
 	drawExpense();
+	drawNbParticipants();
 	drawEFT();
 /*  drawScore();
 	drawParty();
@@ -491,6 +492,20 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			return host2portfolio[d.host] || d.host;
 	}
 
+	function drawNbParticipants () {
+
+		var dim = ndx.dimension (function(d) {
+				return d.participants;   
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+		var chart = dc.pieChart(".nbparticipants")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.dimension(dim)
+			.group(group);
+	
+	}
 	function drawHostType () {
 		function getType (d) {
 			if (d.cabinet)
@@ -989,16 +1004,22 @@ function eventpopup (epid) {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 chart_box">
+				<div class="col-md-4 chart_box">
 					<h3>Portfolio<!--span class="info">info</span--></h3>
 					<div class="host chart-full"></div>
 					<br class="clear" />
 				</div>
-				<div class="col-md-6 chart_box">
+				<div class="col-md-4 chart_box">
 					<h3>Sector of Lobby organisation<!--span class="info">info</span--></h3>
 					<div class="sector range chart-full"></div>
 					<br class="clear" />
 				</div>
+				<div class="col-md-4 chart_box">
+					<h3>Nb of participants</h3>
+					<div class="nbparticipants"></div>
+					<br class="clear" />
+				</div>
+			</div>
 			</div>
 			<a href="#" id="view_charts" class="hiddencharts">VIEW ALL THE CHARTS</a>
 		</div>
