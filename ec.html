@@ -496,6 +496,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	function drawNbParticipants () {
 
 		var dim = ndx.dimension (function(d) {
+        if (d.participants>4)
+          return 5;
 				return d.participants;   
 		});
 
@@ -503,6 +505,22 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var chart = dc.pieChart(".nbparticipants")
 			.innerRadius(50).radius(100)
 			.height(200)
+			.label(function(d){ 
+          if (d.key == 5)
+            return ">5";
+          return d.key })
+			.title (function(d){ 
+         switch(d.key) {
+           case 1:
+             return "one on one" + d.value;
+             break;
+           case 5:
+             return ">5 participants: " + d.value;
+             break;
+           default:
+             return d.key + " participants: " + d.value;
+         }
+       })
 			.dimension(dim)
 			.group(group);
 	
@@ -617,6 +635,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			.height(240)
 			//.width(360)
 			.gap(1)
+      .fixedBarHeight(20)
 			.x(d3.scale.ordinal())
 			.elasticX(true)
 			.colorCalculator(function(d, i) {
