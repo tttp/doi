@@ -221,7 +221,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	function drawExpense () {
 		var dim = ndx.dimension (function(d) {
       if (!representatives[d.guestid]) {
-      console.log("don't find "+d.guestid)
+        //console.log("don't find "+d.guestid + "" + d.guest)
 				return 0;
       }
 			return representatives[d.guestid].cost_absolute || representatives[d.guestid].cost_min;
@@ -310,6 +310,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
   
 	function drawMainCategory () {
 		function getName (d) {
+			if (d.status == "dereg") {
+				return [97,"Deregistered"];
+      } 
 			if (!d.guestid){
 				if (d.unregistered == "")
 					return [98,"Not mentioned"];
@@ -349,6 +352,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 				return "Not registered";
 			}
+			if (d.status=="dereg")
+				return "Deregistered";
 			if (!representatives[d.guestid])
 				return "Unknown";
 			sub=representatives[d.guestid].sub_category;
@@ -376,7 +381,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		})
 		.elasticX(true)
 		.colorCalculator(function(d, i) {
-			if (d.key == "Not mentioned" || d.key == "Unknown" || d.key == "Not registered")
+			if (d.key == "Not mentioned" || d.key == "Unknown" || d.key == "Not registered" || d.key == "Deregistered")
 				return "lightblue";
 			return "#f85631";
 		})
@@ -676,56 +681,6 @@ function drawRange () {
 		.group(group);
 }
 
-function drawParty () {
-	var bubble_party = dc.bubbleChart(" .party");
-	var party = ndx.dimension(function(d) {
-			if (typeof d.party == "undefined") return "";
-			return d.party;
-			});
-	 var tip = d3.tip()
-		.attr('class', 'd3-tip')
-		.html(function(p) { return '<span><h2>' +
-				p.key + "</h2><ul>" + 
-								"<li>Number of events: " +p.value.count + "</li>" +
-								"<li>Averdate participation: " +Math.floor (p.value.effort/p.value.count) + "</li>" +
-								"<li>Averdate score: "+Math.floor (p.value.score/p.value.count); 
-			 '</li></ul></span>' })
-		.offset([-12, 0])
-
-
-	var partyGroup   = party.group().reduce(
-			function(a,d) {a.eugroup = d.eugroup;a.count +=1; a.score +=d.score; a.effort += d.attendance.score; return a; },
-			function(a,d) {a.eugroup = d.eugroup;a.count -=1; a.score -=d.score; a.effort -= d.attendance.score; return a; },
-			function() {return {eurgroup:0,count:0,score:0,effort:0}; }
-			)
-			.order(function (p) {return p.count});
-	bubble_party
-		.colorCalculator(function(d, i) {
-			return eu_groups[d.value.eugroup];
-		})
-	.valueAccessor (
-			function(d) {
-			return d.value.count;
-			})
-	.width(660)
-		.height(300)
-		.margins({top: 20, right: 20, bottom: 20, left: 30})
-		.yAxisLabel("%Votes attended")
-		.dimension(party)
-		.group(partyGroup)
-		.keyAccessor(function (p) {
-				return p.value.score/p.value.count;
-		})
-		.valueAccessor(function (p) {
-				return p.value.effort/p.value.count;
-		})
-		.radiusValueAccessor(function (p) {
-				return p.value.count;
-		})
-		.x(d3.scale.linear().domain([0, 60]))
-		.r(d3.scale.linear().domain([0, 100]))
-		.minRadiusWithLabel(150)
-}
 
 function drawDate() {
 	var chart_date = dc.lineChart(".date");
@@ -808,7 +763,7 @@ function drawScore() {
 		.x(d3.scale.linear().domain([0, 70]))
 		.elasticX(true)
 		.elasticY(true)
-		.yAxisLabel("Number of events")
+		.yAxisLabel("Number of meetings")
 		.round(dc.round.floor)
 		.colorCalculator(function(d, i) {
 				return "#f85631";
@@ -1131,7 +1086,7 @@ function eventpopup (epid) {
 	$(function() {
 		var renderLoaded  = _.after(2,  function () { 
 			//var dateFormat = d3.time.format("%d/%m/%Y");
-			var dateFormat = d3.time.format("%Y-%m-%d");
+			var dateFormat = d3.time.format("%Y-%m-%dT00:00:00");
 			var now = Date.now();
 			var a;
 
@@ -1144,7 +1099,8 @@ function eventpopup (epid) {
 			});
 			grid ("#ec",events);
 		});
-		d3.csv("data/meeting.csv", function(d) {return d;}
+		//d3.csv("data/meeting.csv", function(d) {return d;}
+		d3.csv("data/meeting_flat.csv", function(d) {return d;}
 			,function(error, rows) {
 				 events = rows;
 				 renderLoaded();
