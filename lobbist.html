@@ -398,7 +398,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "render": function ( data, type, row ) { 
                 if (data == "")
                   return "<10k";
-                return d3.format(",g")(data)+"€";
+                return d3.format(",g")(data)";
               },
               data: function (row, type, val, meta) { return getCost(row)}
               },{
@@ -777,7 +777,7 @@ function eventpopup (epid) {
 			});
 			grid ("#ec",representatives);
 		});
-		d3.csv("data/meeting.csv", function(d) {return d;}
+		d3.csv("data/meeting_flat.csv", function(d) {return d;}
 			,function(error, rows) {
 				 events = rows;
 				 renderLoaded();
