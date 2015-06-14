@@ -19,7 +19,7 @@ echo "id,participants" > participant_count.csv
 awk -F, '{A[$1]++}END{for(i in A)print i,A[i]}' OFS=, meeting_flat.csv >> participant_count.csv
 
 csvjoin --left -c id,id  meeting_flat.csv participant_count.csv  > meetings_count.csv
-csvcut -c id,status,guest,host,cabinet,date,guestid,title,unregistered,count meetings_count.csv > meeting_flat.csv 
+csvcut -c id,status,guest,host,cabinet,date,guestid,title,unregistered,participants meetings_count.csv > meeting_flat.csv 
 
 ##rm participant_count.csv
 ##rm meetings_count.csv
