@@ -200,6 +200,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawHost();
 	drawHostType();
 	drawGuest();
+	drawTopHost();
 	drawSector();
 	drawMainCategory();
 	drawCountry();
@@ -557,6 +558,38 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		//.xAxis().ticks(4);
 
 	}
+	function drawTopHost () {
+		var dim = ndx.dimension (function(d) {
+			return d.host;
+		});
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+		var filteredGroup = (function(source_group) {
+			return {
+				all: function() {
+					return source_group.top(10).filter(function(d) {
+						return (d.key != "Not mentioned" && d.value != 0);
+					});
+				}
+			};
+		})(group);
+
+		var graph = dc.rowChart(".tophost")   
+			.margins({top: 0, right: 3, bottom: 20, left: 3})
+			.height(240)
+			//.width(360)
+			.gap(1)
+			.x(d3.scale.ordinal())
+			.elasticX(true)
+			.colorCalculator(function(d, i) {
+				return "#f85631";
+			})
+			.ordering(function(d){return -d.value})
+			.dimension(dim)
+			.group(filteredGroup);
+
+
+	};
 
 	function drawGuest () {
 		var dim = ndx.dimension (function(d) {
@@ -1018,6 +1051,10 @@ function eventpopup (epid) {
 					<h3>Nb of participants</h3>
 					<div class="nbparticipants"></div>
 					<br class="clear" />
+					<h3>Top Hosts<!--span class="info">info</span--></h3>
+						<div class="tophost chart-full"></div>
+					<br class="clear" />
+				</div>
 				</div>
 			</div>
 			</div>
