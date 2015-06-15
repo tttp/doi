@@ -9,6 +9,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "ff6ba0bcb497410fa406c9794206bf37",177,31,"Non-governmental organisations, platforms and networks and similar","ECNAIS","European Council of National Associations of Independent Schools",3,"III - Non-governmental organisations","153452315640-05",0
 "ff698260d45047178a5e8775547815bc",105,21,"Companies & groups","daa","daa plc",2,"II - In-house lobbyists and trade/professional associations","64031768679-71",6
 "ff5e850d10a34a8d9e0b6772f68050b2",82,51,"Organisations representing churches and religious communities","SGI EBA","SGI Europe Buddhist Association",5,"V - Organisations representing churches and religious communities","828340313721-55",0
+"ff4ffaee340a4512af726094b4ef145d",209,11,"Professional consultancies","ENERTIKA","INGENIERIA Y SERVICIOS DE EFICIENCIA ENERGETICA S.L.",1,"I - Professional consultancies/law firms/self-employed consultants","580103617803-87",0
 "ff3d3f236e4747af9fc50ff58ddb4377",233,31,"Non-governmental organisations, platforms and networks and similar","MEC","Middle East Concern",3,"III - Non-governmental organisations","814728213659-93",0
 "ff3855a7d5c54d27947ce7773f6b3357",82,21,"Companies & groups","EWE AG","EWE Aktiengesellschaft",2,"II - In-house lobbyists and trade/professional associations","00741337988-18",3
 "ff2dcae924f245828146c2bb86178fde",21,13,"Self-employed consultants",,,1,"I - Professional consultancies/law firms/self-employed consultants","520259613506-88",1
@@ -129,7 +130,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "fa50a6011bb545b49ba8a1acb1621072",21,11,"Professional consultancies",,"acumen public affairs",1,"I - Professional consultancies/law firms/self-employed consultants","85679286747-21",6
 "fa4166d5fcb74e4ea89fd5fe0e84f225",215,21,"Companies & groups",,"AlpVision SA",2,"II - In-house lobbyists and trade/professional associations","350385813808-39",0
 "fa3d81fad0ca49349e657458b5710f2b",108,21,"Companies & groups","VITA","Vita Società Editoriale",2,"II - In-house lobbyists and trade/professional associations","320544213233-74",0
-"fa3ba49879924f28b3fc557c7150c775",21,31,"Non-governmental organisations, platforms and networks and similar","OSEPI","Open Society European Policy Institute",3,"III - Non-governmental organisations","8557515321-37",6
+"fa3ba49879924f28b3fc557c7150c775",21,31,"Non-governmental organisations, platforms and networks and similar","OSEPI","Open Society European Policy Institute",3,"III - Non-governmental organisations","8557515321-37",19
 "fa30ac2918dd4865964af6dd2d16ff6a",21,11,"Professional consultancies",,"Grayling",1,"I - Professional consultancies/law firms/self-employed consultants","53141413510-95",23
 "fa2fc208dc1c4b3ab936403f64e2efdf",21,51,"Organisations representing churches and religious communities","RCCEI","Church of Cyprus to the E.U. in Brussels",5,"V - Organisations representing churches and religious communities","01774163859-33",3
 "fa27c5fb16824b36830d36c27aa96519",233,22,"Trade, business & professional associations","ECCH","European Central Council of Homeopaths",2,"II - In-house lobbyists and trade/professional associations","04627551301-91",0
@@ -225,7 +226,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "f6e6911dd7da418e93db4a1e816a586c",21,22,"Trade, business & professional associations","CED","Council of European Dentists",2,"II - In-house lobbyists and trade/professional associations","4885579968-84",3
 "f6de70e44b674f58a27ff6abe7270fbe",234,22,"Trade, business & professional associations","GMA","Grocery Manufacturers Association",2,"II - In-house lobbyists and trade/professional associations","495769815195-93",2
 "f6d988aff8f4490fb05b96da86906fe7",108,31,"Non-governmental organisations, platforms and networks and similar","Cesvot","Cesvot-Centro Servizi Volontariato Toscana",3,"III - Non-governmental organisations","51272727909-41",2
-"f6be542c900e48428b72f4630be6a603",214,31,"Non-governmental organisations, platforms and networks and similar",,"Avesta Naturskyddsförening",3,"III - Non-governmental organisations","489324417684-82",5
+"f6be542c900e48428b72f4630be6a603",214,31,"Non-governmental organisations, platforms and networks and similar",,"Avesta Naturskyddsförening",3,"III - Non-governmental organisations","489324417684-82",0
 "f6b482c17a304352a19414af5a0db070",21,22,"Trade, business & professional associations","PIN-SME","Pan European ICT & eBusiness Network for SMEs",2,"II - In-house lobbyists and trade/professional associations","920867915729-68",1
 "f6a33a7e72e44e5d870da708a31ad8a1",21,22,"Trade, business & professional associations","Pneurop","European Association of Manufacturers of Compressors, Vacuum Pumps, Pneumatic Tools and Air & Condensate Treatment Equipment",2,"II - In-house lobbyists and trade/professional associations","67236492080-88",0
 "f69b3b35118e44238d249d78587e9a2b",21,22,"Trade, business & professional associations","Empac E.A.","European Metal Packaging External Affairs",2,"II - In-house lobbyists and trade/professional associations","867965517169-77",0
@@ -298,7 +299,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "f4b1222b90104dbea84793a7497eb025",180,11,"Professional consultancies","SCG DCG","SC Grupul de Consultanță pentru Dezvoltare DCG SRL",1,"I - Professional consultancies/law firms/self-employed consultants","973338017496-27",0
 "f4adfc02d5fb4e9ca729dcd67fd56251",21,21,"Companies & groups","LVMH Publica","LVMH Publica",2,"II - In-house lobbyists and trade/professional associations","16094042309-21",3
 "f4aa5db07a4d4ef29b40b08d04d6fa17",202,31,"Non-governmental organisations, platforms and networks and similar",,"The Association for help and self-help of homeless people Kings of the Street",3,"III - Non-governmental organisations","866591216505-33",11
-"f4aa4440ee2446e09b1f935dd2821bbe",141,22,"Trade, business & professional associations","JFMO-SIP.","JFMO SERVICIOS EN INTERMEDIACIÓN PÚBLICA, ASOCIACIÓN EN PARTICIPACION",2,"II - In-house lobbyists and trade/professional associations","88881058567-20",13
+"f4aa4440ee2446e09b1f935dd2821bbe",141,22,"Trade, business & professional associations","JFMO-SIP.","JFMO SERVICIOS EN INTERMEDIACIÓN PÚBLICA, ASOCIACIÓN EN PARTICIPACION",2,"II - In-house lobbyists and trade/professional associations","88881058567-20",11
 "f4a58107710a404d99d5c8dff4ed4205",108,22,"Trade, business & professional associations","FETRATAB","FÉDÉRATION EUROPÉENNE DES TRANSFORMATEURS DE TABAC",2,"II - In-house lobbyists and trade/professional associations","835059415132-95",0
 "f4a3f547a42847edb7833026f844ca13",74,61,"Local, regional and municipal authorities (at sub-national level)","AFLRA","The Association of Finnish Local and Regional Authorities",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","10235216783-84",3
 "f49eea45a1024061979f88a1a7e5f558",82,31,"Non-governmental organisations, platforms and networks and similar","aireg","Aviation Initiative for Renewable Energy in Germany e.V.",3,"III - Non-governmental organisations","526264710638-11",0
@@ -345,6 +346,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "f377b37466b24558ac9b1dfc88800488",21,31,"Non-governmental organisations, platforms and networks and similar","HCWH Europe","Health Care Without Harm Europe",3,"III - Non-governmental organisations","57514749088-82",1
 "f3738c65dcf044278ea5b9f1efff907b",177,22,"Trade, business & professional associations","AIVE","AIVE",2,"II - In-house lobbyists and trade/professional associations","192594214094-84",1
 "f35f3d13f3d3496cb2af426a568886e8",233,22,"Trade, business & professional associations","AITO","Association of Independent Tour Operators",2,"II - In-house lobbyists and trade/professional associations","14779552873-05",0
+"f34b3d4473df43ecb84a8c0a4a683eef",74,21,"Companies & groups",,"MTV Oy",2,"II - In-house lobbyists and trade/professional associations","471903417802-72",0
 "f341b22f6ccd497287121fb616199daf",105,22,"Trade, business & professional associations",,"Dublin Chamber of Commerce",2,"II - In-house lobbyists and trade/professional associations","205178317010-49",0
 "f340de5f549a4d13970f76883ea05818",105,21,"Companies & groups","King","King Digital Entertainment",2,"II - In-house lobbyists and trade/professional associations","872026216875-40",1
 "f3384b532208426daef259b1b5a97931",82,31,"Non-governmental organisations, platforms and networks and similar",,"wetransform GmbH",3,"III - Non-governmental organisations","329361316438-76",0
@@ -363,6 +365,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "f28916d1639343c9910f6674826216fa",75,22,"Trade, business & professional associations","S.N.I.A.A","SYNDICAT NATIONAL DES INDUSTRIES AROMATIQUES ALIMENTAIRES",2,"II - In-house lobbyists and trade/professional associations","648077210630-54",0
 "f26956bd0ff348b19b5237b4370890b4",215,31,"Non-governmental organisations, platforms and networks and similar","WIP","Women In Parliaments Global Forum",3,"III - Non-governmental organisations","419508817229-68",0
 "f2678c233dde413c839bb1e67856a68f",21,22,"Trade, business & professional associations","BEDA","Bureau of European Design Associations",2,"II - In-house lobbyists and trade/professional associations","71028143474-84",3
+"f24eb8beaa944cbba1000260c5614053",85,24,"Other similar organisations","BHCC","British Hellenic Chamber of Commerce",2,"II - In-house lobbyists and trade/professional associations","501059417735-17",0
 "f23ffd79d7dd4651aa3aaae5694b5f59",69,22,"Trade, business & professional associations","EPKK","Eesti Põllumajandus-Kaubanduskoda",2,"II - In-house lobbyists and trade/professional associations","340415211061-17",1
 "f23bb14e6bcc466ba267358f42b5ec68",65,31,"Non-governmental organisations, platforms and networks and similar","jcia","Judges Club International Arbitration",3,"III - Non-governmental organisations","997195616567-55",100
 "f231ebb8054a4ccba40bdcdac72053fa",214,22,"Trade, business & professional associations","SBA","Swedish Bankers´ Association",2,"II - In-house lobbyists and trade/professional associations","53517281038-30",4
@@ -564,6 +567,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "ebea97b741e545928b91b176b01dc350",21,22,"Trade, business & professional associations","GEBTA","Guild of European Business Travel Association",2,"II - In-house lobbyists and trade/professional associations","843162615419-55",0
 "ebe95d6e166b480cafac10bd80ca271c",75,22,"Trade, business & professional associations","APDC","Association des Avocats pratiquant le Droit de la Concurrence",2,"II - In-house lobbyists and trade/professional associations","516422616734-26",1
 "ebe312a8a67c460db18fea5d9ff72184",75,31,"Non-governmental organisations, platforms and networks and similar","Bharathi CCFT","Association Bharathi Centre Culturel Franco-tamoul",3,"III - Non-governmental organisations","064246014538-30",40
+"ebddfa516eea4e508f262b190952d15e",233,21,"Companies & groups",,"John  Menzies",2,"II - In-house lobbyists and trade/professional associations","233834617750-04",2000
 "ebdcecc4ecee4265b1470f6ee737dee3",215,22,"Trade, business & professional associations","AQC","Association pour l'Assurance Qualité des Fabricants de Bracelets Cuirs",2,"II - In-house lobbyists and trade/professional associations","247630115259-45",0
 "ebd96bc40a3a4bae85b09b56106b947f",75,21,"Companies & groups",,"BONDUELLE",2,"II - In-house lobbyists and trade/professional associations","76613874128-42",0
 "ebcc45f9526543238ea0b59543ec164a",21,22,"Trade, business & professional associations",,"Europacable",2,"II - In-house lobbyists and trade/professional associations","4543103789-92",1
@@ -626,7 +630,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "ea6bd7099b2f438ebb45f857356657a7",75,24,"Other similar organisations","CCIPIF","Association des Chambres de Commerce et d'Industrie de Paris/Ile-de-France",2,"II - In-house lobbyists and trade/professional associations","68505291432-20",2
 "ea6b2f2dbd8b452498cc1f592a780a60",21,31,"Non-governmental organisations, platforms and networks and similar","MMM Europe","Make Mothers Matter European Delegation",3,"III - Non-governmental organisations","68995403035-84",1
 "ea673167766944e0bdaa3a7ea10ed22f",21,31,"Non-governmental organisations, platforms and networks and similar","CAL","Centre d'Action Laïque",3,"III - Non-governmental organisations","35076172269-15",3
-"ea657f8c71af4938903cc82f7ea1af69",233,31,"Non-governmental organisations, platforms and networks and similar",,"World Animal Protection",3,"III - Non-governmental organisations","630990212371-30",2
+"ea657f8c71af4938903cc82f7ea1af69",233,31,"Non-governmental organisations, platforms and networks and similar",,"World Animal Protection",3,"III - Non-governmental organisations","630990212371-30",1
 "ea63c556687542a6bd095d9072471a56",234,21,"Companies & groups",,"Chevron Belgium NV",2,"II - In-house lobbyists and trade/professional associations","09981988815-02",3
 "ea636cc3e62d413a817eb84356dd08ed",21,22,"Trade, business & professional associations","ENA","EUROPEAN NURSERYSTOCK ASSOCIATION (ENA)",2,"II - In-house lobbyists and trade/professional associations","248993414712-40",0
 "ea5fa46be00847ef8750895581db36b2",155,12,"Law firms",,"AKD advocaten & notarissen",1,"I - Professional consultancies/law firms/self-employed consultants","858985017078-86",16
@@ -634,6 +638,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "ea50750cde48478d9c264f62ee2f84be",21,41,"Think tanks and research institutions",,"Vattel",4,"IV - Think tanks, research and academic institutions","707254213774-04",2
 "ea4c2bb9b2374f86af383e0e28a1de00",205,21,"Companies & groups",,"Naspers",2,"II - In-house lobbyists and trade/professional associations","891417815208-71",0
 "ea30d732edc74181901e08fd50855e32",233,31,"Non-governmental organisations, platforms and networks and similar","ECOVAST","European Council for the Village and Small Town",3,"III - Non-governmental organisations","83348423395-20",0
+"ea2a90f88f1a47df9ec8e77b4bb1f970",233,41,"Think tanks and research institutions","GMI","Gold Mercury International",4,"IV - Think tanks, research and academic institutions","876855817752-59",12
 "ea279ad3a0ea4826b379a50992a017e7",176,31,"Non-governmental organisations, platforms and networks and similar",,"Naturalists Club Poland",3,"III - Non-governmental organisations","49269345249-25",0
 "ea25a62c2531465fa9deacb366245acb",233,31,"Non-governmental organisations, platforms and networks and similar","POWER","POWER Action Group",3,"III - Non-governmental organisations","317112517642-41",1
 "ea22e76c4cc54825842864529b5680a5",59,21,"Companies & groups",,"VELUX A/S (VELUX Group)",2,"II - In-house lobbyists and trade/professional associations","423142010527-25",0
@@ -750,6 +755,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "e6b3084c7f054fe185489b5b6bb6f5bb",75,22,"Trade, business & professional associations","COOP de France","COOP de France",2,"II - In-house lobbyists and trade/professional associations","9447162467-70",2
 "e6a14220754c4bc6870014933df12085",21,22,"Trade, business & professional associations","CEGROBB","EUROPEAN FEDERATION OF ASSOCIATIONS OF BEER AND BEVERAGES WHOLESALERS",2,"II - In-house lobbyists and trade/professional associations","989600214523-35",1
 "e69c6b613da74c93ab819c4cf8d57119",82,21,"Companies & groups",,"LANXESS AG",2,"II - In-house lobbyists and trade/professional associations","77303494979-13",1
+"e69732be4e104c798ab0f77df52f1e14",82,41,"Think tanks and research institutions","ISRIM-MLS","ISRIM-MLS gGmbH",4,"IV - Think tanks, research and academic institutions","387963517726-44",2
 "e6910e8d8fe4452f98f4660cb1aa4973",21,31,"Non-governmental organisations, platforms and networks and similar","ACTION","ACTION for Food Reserves",3,"III - Non-governmental organisations","982623711334-75",1
 "e67e3e815d594843b97bb731edcd61dd",21,22,"Trade, business & professional associations","EFBWW","EUROPEAN FEDERATION OF BUILDING AND WOODWORKERS",2,"II - In-house lobbyists and trade/professional associations","57745478360-42",1
 "e67dc100505f46dea388b6397d47ffe2",75,31,"Non-governmental organisations, platforms and networks and similar",,"Hello Marseille",3,"III - Non-governmental organisations","570989116173-08",11
@@ -787,6 +793,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "e53f4ed834574f1e9a1e092d7d714b35",82,22,"Trade, business & professional associations","WG","Web-Guard",2,"II - In-house lobbyists and trade/professional associations","938641310866-54",0
 "e532eaa100104962886997c55a312d95",75,22,"Trade, business & professional associations","France Galop","FRANCE GALOP",2,"II - In-house lobbyists and trade/professional associations","79516935891-72",0
 "e520b0b1d2594ca681a6c26523145f40",82,24,"Other similar organisations","VDE","VDE Verband der Elektrotechnik Elektronik Informationstechnik",2,"II - In-house lobbyists and trade/professional associations","1059364571-78",1
+"e51bea525cf54075ae6d351ea06709e8",234,41,"Think tanks and research institutions","PIIE","Peterson Institute for International Economics",4,"IV - Think tanks, research and academic institutions","513347117795-30",0
 "e51ace3dbe19456daa74c17fc758c583",234,21,"Companies & groups","PBI","Pitney Bowes Inc.",2,"II - In-house lobbyists and trade/professional associations","733270116708-89",0
 "e50b6a667b0740f586490f96c5cb6606",155,11,"Professional consultancies","S&P","Schuttelaar & Partners",1,"I - Professional consultancies/law firms/self-employed consultants","57779082499-25",1
 "e50ad35c6fb0465fafffb08ded32370f",21,61,"Local, regional and municipal authorities (at sub-national level)","Central Sweden","Central Sweden European Office",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","15210638110-88",3
@@ -1027,7 +1034,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "dcc5ef4ea1044127825e9b61e181942b",82,22,"Trade, business & professional associations","UFE","Union des Finanzpersonals in Europa",2,"II - In-house lobbyists and trade/professional associations","721865911899-81",2
 "dcc2a5a587cc4a40968d7f89b45bc676",21,31,"Non-governmental organisations, platforms and networks and similar","Test-Achats","Association Belge des Consommateurs Test-Achats / Belgische Verbruikersunie Test Aankoop",3,"III - Non-governmental organisations","694466214317-80",1
 "dcb5236ea75d466ab4ef5c5bf1650bed",75,31,"Non-governmental organisations, platforms and networks and similar","MAA","MARTIAL ARTS ACADEMY",3,"III - Non-governmental organisations","841993712994-50",2
-"dcb4837e93da4b879a27c41dbe71077d",58,41,"Think tanks and research institutions","DEX IC","DEX Innovation Centre",4,"IV - Think tanks, research and academic institutions","386586714528-72",4
+"dcb4837e93da4b879a27c41dbe71077d",58,41,"Think tanks and research institutions","DEX IC","DEX Innovation Centre",4,"IV - Think tanks, research and academic institutions","386586714528-72",0
 "dcb20271545b48dfb38ad0acc6076ad7",21,31,"Non-governmental organisations, platforms and networks and similar","EAA","European Anglers Alliance",3,"III - Non-governmental organisations","60105502183-69",6
 "dcb12fe9934b4a4d9da99241bd095e8d",108,31,"Non-governmental organisations, platforms and networks and similar",,"Forum della Meritocrazia",3,"III - Non-governmental organisations","939758014412-83",0
 "dca43d99117a44b392f856ad59f8f223",21,13,"Self-employed consultants","SAB","CA:s Sångskola/ Singing Across Boarders/Eva Christina Andersson",1,"I - Professional consultancies/law firms/self-employed consultants","907198011660-78",1
@@ -1041,6 +1048,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "dc89a6c37abd434d89d973a0ec9fe552",82,31,"Non-governmental organisations, platforms and networks and similar","GI","Gesellschaft für Informatik e.V.",3,"III - Non-governmental organisations","786100813031-55",1
 "dc80fded6f7b41b4b32b0aeada0f12d9",82,11,"Professional consultancies",,"PaySys Consultancy GmbH",1,"I - Professional consultancies/law firms/self-employed consultants","41992129328-73",0
 "dc7f6ff7b3fa4f16b8dc543da5447b60",120,11,"Professional consultancies",,"Strasbourger",1,"I - Professional consultancies/law firms/self-employed consultants","827267415070-46",1
+"dc73fafa640b4589b657638702390ca4",155,31,"Non-governmental organisations, platforms and networks and similar","Stichting de Woudreu","De Woudreus",3,"III - Non-governmental organisations","619036217494-56",0
 "dc6f2bc8123c451296e08102d0a808b9",215,31,"Non-governmental organisations, platforms and networks and similar",,"fair–fish.net",3,"III - Non-governmental organisations","27726434917-24",1
 "dc6932ac406341479e781ba2568db89c",82,31,"Non-governmental organisations, platforms and networks and similar","BEF Germany","Baltic Environmental Forum Deutschland e. V.",3,"III - Non-governmental organisations","12403795227-28",4
 "dc5e1bd33d4d456b8b5d4de7feb253e7",39,22,"Trade, business & professional associations","IFD","International Federation of Denturists",2,"II - In-house lobbyists and trade/professional associations","23366236923-91",6
@@ -1179,6 +1187,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "d85bf933dee14a248d192b4d2d44fba0",82,22,"Trade, business & professional associations","ver.di","Vereinte Dienstleistungsgewerkschaft",2,"II - In-house lobbyists and trade/professional associations","16178359495-57",4
 "d855990a23714649992812acc7c8ec91",157,21,"Companies & groups","Fonterra","Fonterra Co-operative Group Limited",2,"II - In-house lobbyists and trade/professional associations","234577416588-90",0
 "d8538e5e54c04dcc997102295e056623",21,22,"Trade, business & professional associations","EUPLAT","EUPLAT - European Association of Public e-Tendering Platform Providers",2,"II - In-house lobbyists and trade/professional associations","634178712261-18",0
+"d846d66de056414a8f699f1190d4d8e3",108,22,"Trade, business & professional associations",,"COOPSALUTE Società Cooperativa",2,"II - In-house lobbyists and trade/professional associations","768050517724-59",0
 "d844aecc4b144655a0b54cb6d02308e2",234,21,"Companies & groups",,"Dell Inc",2,"II - In-house lobbyists and trade/professional associations","28739192542-16",2
 "d842822a45944286b394f751cf69dbd1",176,62,"Other public or mixed entities, etc.","TVP","Telewizja Polska S.A.",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","450369216860-12",1
 "d83e3fb0d3784f1bacf47c719c579b3c",21,31,"Non-governmental organisations, platforms and networks and similar","FRW","Fondation Rurale de wallonie",3,"III - Non-governmental organisations","52479135118-38",0
@@ -1294,6 +1303,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "d4ca24777de1476d81a4676b30e102c5",233,41,"Think tanks and research institutions","OSL","The office of Stuart long",4,"IV - Think tanks, research and academic institutions","739465915816-74",0
 "d4c8252ae6ac41b68cc6d8e993bcccec",196,31,"Non-governmental organisations, platforms and networks and similar",,"Evropski forum - European Forum",3,"III - Non-governmental organisations","26472108041-25",1
 "d4b917d78d9745e0a72778574fc5c646",21,22,"Trade, business & professional associations","FEDMA","Federation of European Direct and Interactive Marketing",2,"II - In-house lobbyists and trade/professional associations","39300567160-02",2
+"d4a61816f73b4475a27937f5de09fa7d",14,31,"Non-governmental organisations, platforms and networks and similar",,"Austrian Mobile Power",3,"III - Non-governmental organisations","295078717151-80",0
 "d49d4a9439ef43c0bc146fbe79235dd6",75,13,"Self-employed consultants",,"ILA CONSULTING - ALLOULI Lamia",1,"I - Professional consultancies/law firms/self-employed consultants","270442613593-04",1
 "d49813d76b454ae2872be203b082084d",165,61,"Local, regional and municipal authorities (at sub-national level)","KSB","KS Enterprises",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","32567099476-60",0
 "d4914d8ca3924e31b9a0b01bb341df98",165,24,"Other similar organisations","9434415651-11","Norsk Industri / Federation of Norwegian Industries",2,"II - In-house lobbyists and trade/professional associations","9434415651-11",2
@@ -1377,7 +1387,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "d23f49ddc8fc49f88588ee6bd810c1a0",21,22,"Trade, business & professional associations","EWFA","European Window Film Association",2,"II - In-house lobbyists and trade/professional associations","86497137168-71",0
 "d219974002c948da945ff9c5562a295c",215,31,"Non-governmental organisations, platforms and networks and similar","ECU","European Chess Union",3,"III - Non-governmental organisations","771087217632-01",6
 "d21256a1904c4d80b713c68be3df227e",209,22,"Trade, business & professional associations","ASOPROVAC","Asociación Nacional de Productores de Vacuno de carne",2,"II - In-house lobbyists and trade/professional associations","120867616360-39",3
-"d20fa1d7b54c4a53821d1139d6bf5cf8",234,21,"Companies & groups",,"Yelp",2,"II - In-house lobbyists and trade/professional associations","173076213280-06",0
+"d20fa1d7b54c4a53821d1139d6bf5cf8",234,21,"Companies & groups",,"Yelp",2,"II - In-house lobbyists and trade/professional associations","173076213280-06",1
 "d20edbb7131446bb89ecd4f0f2028aa9",58,11,"Professional consultancies","CEC GR","CEC Government Relations (CZ)",1,"I - Professional consultancies/law firms/self-employed consultants","325690811969-84",0
 "d20c6b42e6f943b5bc76933923170b3d",21,22,"Trade, business & professional associations","AECM","Association of European Candle Makers",2,"II - In-house lobbyists and trade/professional associations","08145029448-62",0
 "d2050364f1364a96ae5463cbfd9f9b5f",209,31,"Non-governmental organisations, platforms and networks and similar","FMWCB","Foundation Mobile World Capital Barcelona",3,"III - Non-governmental organisations","019226413901-71",3
@@ -1448,6 +1458,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "d009120c9c1b4905aafa5c8de8cb9253",82,22,"Trade, business & professional associations","VDS","Verband Deutscher Schleifmittelwerke",2,"II - In-house lobbyists and trade/professional associations","15242613639-84",0
 "cff4f6ef187e4ee0a6098a0e188bf371",21,21,"Companies & groups",,"Thalys International",2,"II - In-house lobbyists and trade/professional associations","658273712316-01",0
 "cff09f262b3e4225940d95803a3f9e72",21,22,"Trade, business & professional associations","EMIRI","Energy Materials Industrial Research Initiative",2,"II - In-house lobbyists and trade/professional associations","143035111648-31",1
+"cfe81a476b144b0490b7fcf44e201cb7",99,21,"Companies & groups","MATÁSZSZ","Magyar Távhőszolgáltatók Szakmai Szövetsége",2,"II - In-house lobbyists and trade/professional associations","217389817722-05",1
 "cfe77383ae644285a5b9ed2e6cf626dc",233,31,"Non-governmental organisations, platforms and networks and similar","NEZS","North of England Zoological Society",3,"III - Non-governmental organisations","652624111117-19",0
 "cfd4410dca1549149f1346bb3d11aa39",75,22,"Trade, business & professional associations","FFTélécoms","Fédération Française des Télécoms",2,"II - In-house lobbyists and trade/professional associations","005930614727-54",1
 "cfce35cbdd9448c28163c1f8af3556c4",108,22,"Trade, business & professional associations","AIM","ASSOCIAZIONE ITALIANA MASSOTERAPISTI",2,"II - In-house lobbyists and trade/professional associations","26510874603-28",0
@@ -1480,7 +1491,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "cef54a87ebfc46e9a5f19da316a7fe30",177,11,"Professional consultancies","Ecogestus","Ecogestus Resíduos Estudos e Soluções Lda",1,"I - Professional consultancies/law firms/self-employed consultants","835453517396-62",0
 "ceeff696f0914a03af85426d8a96d114",34,31,"Non-governmental organisations, platforms and networks and similar","NPO","National Patients' Organisation - Bulgaria",3,"III - Non-governmental organisations","499828110213-28",10
 "ceeaeabae7e04257b143b3fe5912ba0d",75,22,"Trade, business & professional associations",,"Association Pierre de Bourgogne",2,"II - In-house lobbyists and trade/professional associations","348951614647-89",0
-"cee8c220effe4cee94895ee0e3ad61f1",215,31,"Non-governmental organisations, platforms and networks and similar","SwissCore","SwissCore, Contact Office for European Research, Innovation and Education",3,"III - Non-governmental organisations","94320538514-40",4
+"cee8c220effe4cee94895ee0e3ad61f1",215,41,"Think tanks and research institutions","SwissCore","SwissCore, Contact Office for European Research, Innovation and Education",4,"IV - Think tanks, research and academic institutions","94320538514-40",4
 "ced52d0839e04878b7a7b0ef118a5b23",21,13,"Self-employed consultants",,"Anja Siegemund",1,"I - Professional consultancies/law firms/self-employed consultants","75476386637-51",1
 "cecadafbb145429092744189625bd429",75,22,"Trade, business & professional associations","GFII","Groupement Français de l'Industrie de l'Information",2,"II - In-house lobbyists and trade/professional associations","68875826595-43",0
 "cec8bc7359bd4ccd87c16c459314bb39",75,12,"Law firms",,"BDGS Associés",1,"I - Professional consultancies/law firms/self-employed consultants","672184615439-70",28
@@ -1538,6 +1549,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "cd3cbc46b2fb40108c87999f441efee4",202,21,"Companies & groups","Pipistrel","Pipistrel d.o.o. Ajdovščina",2,"II - In-house lobbyists and trade/professional associations","926634815297-45",0
 "cd363b4f42da45a482d73007fd007b0a",233,42,"Academic institutions","UBAH","University of Bath",4,"IV - Think tanks, research and academic institutions","826475510596-39",17
 "cd2fa855ab10452388fe096dbed67603",209,31,"Non-governmental organisations, platforms and networks and similar","Vitartis","Asociación de la Industria Alimentaria de Castilla y León",3,"III - Non-governmental organisations","462506710603-71",0
+"cd1eb1d3190a437eb3efd53c0fdb2a6b",82,31,"Non-governmental organisations, platforms and networks and similar",,"Nationale Armutskonferenz",3,"III - Non-governmental organisations","068063617730-94",2
 "cd1d363e9bf149dc9ac542e4dafd2023",21,31,"Non-governmental organisations, platforms and networks and similar","SAW-B","SAW-B (solidarité des alternatives wallonnes et bruxelloises)",3,"III - Non-governmental organisations","53171186468-38",1
 "cd18e97d0ef743c8a9498688874ab961",177,21,"Companies & groups","i2QL","i2QL - Investimentos para a Inovação e Qualificação na Lusofonia, S.A.",2,"II - In-house lobbyists and trade/professional associations","364739417332-72",0
 "cd15ce7c67d74000bcbaebbacb5e7407",209,24,"Other similar organisations","FNCP","FEDERACIÓN NACIONAL DE COFRADÍAS DE PESCADORES",2,"II - In-house lobbyists and trade/professional associations","57215462204-95",5
@@ -1554,6 +1566,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "ccf6c2b89e584c41adf8eecf015b8aab",21,22,"Trade, business & professional associations","EUROFEDOP","European Federation of Employees in Public Services",2,"II - In-house lobbyists and trade/professional associations","316613410489-78",2
 "ccf30e4a86194e999ab5c1a7bcc21bd4",59,24,"Other similar organisations","KODA","Selskabet til Forvaltning af Internationale Komponistrettigheder i Danmark",2,"II - In-house lobbyists and trade/professional associations","507715016279-06",1
 "cce9c77c03a543ab9637478d1e68750a",58,13,"Self-employed consultants",,"Petr Kolar",1,"I - Professional consultancies/law firms/self-employed consultants","237732715185-74",1
+"ccdf0b84a6d64155ab701b8645a76ce9",82,62,"Other public or mixed entities, etc.",,"Axel Schneider",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","221574417727-83",0
 "ccdaaf4d90ca4d3791a4393cd6d0d09b",209,22,"Trade, business & professional associations","ACERGA","ASOCIACIÓN DE ARMADORES DE CERCO DE GALICIA",2,"II - In-house lobbyists and trade/professional associations","359461017695-17",8
 "ccd3ae9eb0c845db99ec236f2c0f7bb5",108,31,"Non-governmental organisations, platforms and networks and similar","U.P.F.","Università Popolare di Firenze",3,"III - Non-governmental organisations","901668713710-71",0
 "ccc3ecf0524a4ebc8e1f095e919dc3d6",234,22,"Trade, business & professional associations","AFGI","Association of Financial Guaranty Insurers",2,"II - In-house lobbyists and trade/professional associations","26383628836-60",0
@@ -1572,7 +1585,6 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "cc83a4aebc944585bc0c2ee362b10609",209,22,"Trade, business & professional associations","ANEDA","ASOCIACION NACIONAL ESPAÑOLA DE DISTRIBUIDORES AUTOMATICOS",2,"II - In-house lobbyists and trade/professional associations","256267610215-10",0
 "cc7aa93ba9b34485a7c9e6c856f4d138",21,11,"Professional consultancies","AB-S Consulting","Alberto Bichi Consulting",1,"I - Professional consultancies/law firms/self-employed consultants","755605912443-18",1
 "cc7a2245c0424d1d80ed7386546bbd82",209,42,"Academic institutions","AMH","Academia Melitense",4,"IV - Think tanks, research and academic institutions","989779717201-25",7
-"cc72facdaa454a4fb2113420c462ca4b",233,13,"Self-employed consultants","IRIS","IRIS Consultancy and Logistics Limited",1,"I - Professional consultancies/law firms/self-employed consultants","709437417540-29",0
 "cc704d3d530a41feb5738454e1a8785d",75,22,"Trade, business & professional associations","SNITEM","syndicat national de l'industrie des technologies médicales",2,"II - In-house lobbyists and trade/professional associations","2316397126-08",0
 "cc6a89d42d4b419fb5ec4ddd1786bd13",14,31,"Non-governmental organisations, platforms and networks and similar","ARGEDATEN","ARGE DATEN - PRIVACY AUSTRIA",3,"III - Non-governmental organisations","88305294967-50",0
 "cc6760a3b1524636bc15db589f8dd9c7",209,31,"Non-governmental organisations, platforms and networks and similar",,"Asociación Artevalencia",3,"III - Non-governmental organisations","471380012172-90",3
@@ -1601,7 +1613,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "cb8c97b204e24dd794a8316909c4b554",74,31,"Non-governmental organisations, platforms and networks and similar","BSAG","Foundation for a Living Baltic Sea/Baltic Sea Action Group",3,"III - Non-governmental organisations","142635814274-55",5
 "cb76bccf965b4f9e8cc3025604e05723",177,61,"Local, regional and municipal authorities (at sub-national level)","CIM Ave","CIM Ave - Comunidade Intermunicipal do Ave",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","606690414164-13",1
 "cb719320d27a4a5695ef21b15b2668df",82,22,"Trade, business & professional associations",,"SPECTARIS Deutscher Industrieverband für optische, medizinische und mechatronische Technologien e.V.",2,"II - In-house lobbyists and trade/professional associations","55587639351-53",0
-"cb6b451ae29a49f0a568374ef6405fb7",234,31,"Non-governmental organisations, platforms and networks and similar",,"Avaaz",3,"III - Non-governmental organisations","475565317526-24",110
+"cb6b451ae29a49f0a568374ef6405fb7",234,31,"Non-governmental organisations, platforms and networks and similar",,"Avaaz",3,"III - Non-governmental organisations","475565317526-24",2
 "cb632094d3ca4c2b8b4963ac0dfe5107",215,21,"Companies & groups",,"Syngenta International AG",2,"II - In-house lobbyists and trade/professional associations","16822412339-79",2
 "cb5883424d0548d882b338260a4fab85",234,31,"Non-governmental organisations, platforms and networks and similar",,"Personal Connected Health Alliance",3,"III - Non-governmental organisations","228418013575-67",0
 "cb53a14b89244199bab07495912991f5",21,31,"Non-governmental organisations, platforms and networks and similar","ECAS","European Citizen Action Service",3,"III - Non-governmental organisations","47003483702-10",1
@@ -1615,6 +1627,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "cb1dc3fc8ff440a8aa7001f7449809ac",155,62,"Other public or mixed entities, etc.","TUDOP","TU Delft Optics Research Group",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","312529412441-17",9
 "cb1d95eed6e54b5381648e52aa0703bb",233,31,"Non-governmental organisations, platforms and networks and similar","CMI","Cheniere Marketing Limited",3,"III - Non-governmental organisations","814393617568-15",0
 "cb06abe495c14daa9182a16ec1226ea8",233,22,"Trade, business & professional associations","EGGA","European General Galvanizers Association",2,"II - In-house lobbyists and trade/professional associations","634416015579-93",1
+"cafdad0258a44d30be181e91bf42b57f",108,22,"Trade, business & professional associations","ANVE","Associazione Nazionale Vivaisti Esportatori",2,"II - In-house lobbyists and trade/professional associations","746724017716-07",13
 "caeec213d04a44018de15289ac9823a8",82,31,"Non-governmental organisations, platforms and networks and similar","TAE","Taxpayers Association of Europe",3,"III - Non-governmental organisations","5903604107-54",0
 "caedb43d6ac245308eabfc644e29c533",75,22,"Trade, business & professional associations","UNIFAB","UNION DES FABRICANTS",2,"II - In-house lobbyists and trade/professional associations","527831213232-14",1
 "cae7fbb5824841ac975236a793390677",233,22,"Trade, business & professional associations","IUA","International Underwriting Association of London Limited",2,"II - In-house lobbyists and trade/professional associations","58082761985-18",2
@@ -1732,6 +1745,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "c6eebaea5353468c8b2f8dfe649f5245",108,21,"Companies & groups",,"SAVE S.p.A.",2,"II - In-house lobbyists and trade/professional associations","760932516614-51",0
 "c6e76d610b5045e1a1f2e379a38f10c2",155,13,"Self-employed consultants","JongmanEcology","JongmanEcology",1,"I - Professional consultancies/law firms/self-employed consultants","843104517610-39",0
 "c6e3fe2a365f44d8be7ce4313ce40a65",21,31,"Non-governmental organisations, platforms and networks and similar","CNUE","Conseil des Notariats de l'Union Européenne",3,"III - Non-governmental organisations","98885666486-72",5
+"c6dee9bbfed34f049c2a7edae0ae5dc9",177,22,"Trade, business & professional associations","UGT","União Geral de Trabalhadores",2,"II - In-house lobbyists and trade/professional associations","263496117721-74",2
 "c6cfeee4ec5a4d9f9e0ba7628a6f5fe9",234,22,"Trade, business & professional associations","NMPF","National Milk Producers Federation",2,"II - In-house lobbyists and trade/professional associations","706392016842-13",0
 "c6cc18319fa2437eb66d7ea43a567542",21,13,"Self-employed consultants",,"AliénorEU",1,"I - Professional consultancies/law firms/self-employed consultants","204793610436-15",2
 "c6a8e7e75d82419dbad8afeeb5abe059",21,22,"Trade, business & professional associations","EASA","European Advertising Standards Alliance",2,"II - In-house lobbyists and trade/professional associations","070638512780-81",1
@@ -1844,6 +1858,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "c351256158764de89fe621a4c752eff2",75,11,"Professional consultancies","ETIC Management","Ethique Technologie Innovation Conseil & Management",1,"I - Professional consultancies/law firms/self-employed consultants","525135514607-52",0
 "c34ceb998f4c4b70b7db662165a9de54",74,22,"Trade, business & professional associations","FFIF","Finnish Forest Industries Federation (Metsäteollisuus ry)",2,"II - In-house lobbyists and trade/professional associations","39671713910-36",3
 "c34b4f68b8f24acbbc44ebb63174a202",165,22,"Trade, business & professional associations","NLF","Norges Lastbileier-Forbund",2,"II - In-house lobbyists and trade/professional associations","22508118361-79",1
+"c34a2dcb464848cd83f14354c56672b4",180,31,"Non-governmental organisations, platforms and networks and similar","PN","PrimaNatura Association",3,"III - Non-governmental organisations","810779317820-35",0
 "c34732478533405fa2efcb269a000c39",233,13,"Self-employed consultants",,"Einion Dafydd",1,"I - Professional consultancies/law firms/self-employed consultants","12202438202-86",1
 "c3467cfb51444becbc24bb1aad84f5fe",233,41,"Think tanks and research institutions","The IARS Institute","Independent Academic Research Studies International Institute",4,"IV - Think tanks, research and academic institutions","37786175225-56",6
 "c33a3331479940599c36e3e4174a4865",108,21,"Companies & groups","SICOME","Sicome sc Società italiana conciliazione e mediazione",2,"II - In-house lobbyists and trade/professional associations","343999315465-81",0
@@ -1866,6 +1881,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "c2d13eb21b294832b7a294c623c27ed0",58,22,"Trade, business & professional associations","SP ČR","Svaz průmyslu a dopravy ČR",2,"II - In-house lobbyists and trade/professional associations","785320514128-81",3
 "c2cef3b62c734bf0a469582fda521dbd",21,22,"Trade, business & professional associations","UEIL","UEIL, Union of the European Lubricants Industry",2,"II - In-house lobbyists and trade/professional associations","38096451110-61",0
 "c2cb86b45781403785344e920a858566",21,22,"Trade, business & professional associations","ERCPA","European Renal Care Providers Association",2,"II - In-house lobbyists and trade/professional associations","282170114180-03",2
+"c2cad4a79fb546078975ac1eae4f2846",155,31,"Non-governmental organisations, platforms and networks and similar","LREF","Liberation Route Europe Foundation",3,"III - Non-governmental organisations","674977317737-09",0
 "c2ca42a4b9194b2f95b8806d14c83b34",21,21,"Companies & groups","KBRV","Royal Belgian Shipowners' Association",2,"II - In-house lobbyists and trade/professional associations","97217841648-02",3
 "c2c70443de5f4b0497046eeac6b94c21",82,22,"Trade, business & professional associations","DKG","Deutsche Krankenhausgesellschaft e.V.",2,"II - In-house lobbyists and trade/professional associations","80248698067-50",2
 "c2c468aee38a42dda2ac361b34d6cf1c",74,21,"Companies & groups",,"Sanoma Corporation",2,"II - In-house lobbyists and trade/professional associations","712395115155-72",0
@@ -1897,6 +1913,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "c1cd1bc532ef4a44924879a6b580d141",105,31,"Non-governmental organisations, platforms and networks and similar",,"Vergote Group",3,"III - Non-governmental organisations","30308293798-01",0
 "c1c899ac950c4e24a265ca815d3a1437",75,22,"Trade, business & professional associations","CIVC","Comité interprofessionnel du vin de Champagne",2,"II - In-house lobbyists and trade/professional associations","667659215985-31",1
 "c1c220d5ea3445fe9f472f3bdb9773eb",233,22,"Trade, business & professional associations","EMA","Electronic Money Association",2,"II - In-house lobbyists and trade/professional associations","84308599569-14",2
+"c1b46819fccc45e68dc872a26b9c9fe5",155,21,"Companies & groups",,"Royal SMIT Transformers B.V.",2,"II - In-house lobbyists and trade/professional associations","658937817773-55",0
 "c1b24ac1fa7046cca71fcbe21f367d8a",54,22,"Trade, business & professional associations",,"CLUSTER OF MARICULTURE",2,"II - In-house lobbyists and trade/professional associations","654432712063-36",0
 "c1adef6fb4a2475bad222f90b8e8390c",209,22,"Trade, business & professional associations","ASEJA","Asociación Española de Empresas de Parques y Jardines",2,"II - In-house lobbyists and trade/professional associations","98788707859-13",0
 "c1a4ad5a6bd449aeb72b944d39a852fb",233,31,"Non-governmental organisations, platforms and networks and similar",,"European Hanfu Association",3,"III - Non-governmental organisations","267919716935-59",196
@@ -2065,6 +2082,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "bcb292a1c93146b4b81ddf8efbeb9caa",100,13,"Self-employed consultants",,"Degeorges Consulting ehf.",1,"I - Professional consultancies/law firms/self-employed consultants","452128415086-14",0
 "bcb1326a117d46ac8f9eb5b75066220c",180,11,"Professional consultancies",,"PR Lobby & Consulting",1,"I - Professional consultancies/law firms/self-employed consultants","820307812453-72",0
 "bcadfb70d60d44ad889047fbc4c760eb",14,22,"Trade, business & professional associations","VÖZ","Verband Österreichischer Zeitungen",2,"II - In-house lobbyists and trade/professional associations","8526236159-63",0
+"bca4242bee824e0cbf54a033152d1acc",75,22,"Trade, business & professional associations","CNGTC","CONSEIL NATIONAL DES GREFFIERS DES TRIBUNAUX DE COMMERCE",2,"II - In-house lobbyists and trade/professional associations","397335917715-58",0
 "bc9efa8864c0435d8f0ac82b4baa3851",155,31,"Non-governmental organisations, platforms and networks and similar","FRG","Foundation De Regenboeg Groep",3,"III - Non-governmental organisations","37826442653-25",2
 "bc9726731331421187de7bb5d8314a4e",209,12,"Law firms",,"SALESAS TRES CENTRO DE ESTUDIOS",1,"I - Professional consultancies/law firms/self-employed consultants","400183910694-08",2
 "bc8c95c17f4348bab1d0576c5cfd6797",21,22,"Trade, business & professional associations","UPFF","Union des Producteurs de Films Francophones",2,"II - In-house lobbyists and trade/professional associations","06976923829-30",1
@@ -2084,6 +2102,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "bc208094efe14d13a15f0fcf197367bc",233,31,"Non-governmental organisations, platforms and networks and similar","ECCVAT","European Charities' Committee on VAT",3,"III - Non-governmental organisations","72562234730-60",1
 "bc172260f8304cbdbed6116ef9ce824b",233,22,"Trade, business & professional associations","DMA (UK)","The Direct Marketing Association (UK) Limited",2,"II - In-house lobbyists and trade/professional associations","91525908016-11",1
 "bc15bae578634b92accaed758069b4b9",108,21,"Companies & groups",,"Proteo Engineering S.R.L",2,"II - In-house lobbyists and trade/professional associations","054473716646-29",0
+"bc0c579bc0d54a76b1f50c8b510e4f9d",108,11,"Professional consultancies",,"Health Italia S.r.l.",1,"I - Professional consultancies/law firms/self-employed consultants","986389817719-86",0
 "bbffe9b5c5c7416db68f827b343eabcd",21,13,"Self-employed consultants",,"Euro Freelancers",1,"I - Professional consultancies/law firms/self-employed consultants","19018528036-36",0
 "bbfe2c4a00e04a49a56584dedac8b2f6",75,22,"Trade, business & professional associations","ASF","Association française des sociétés Financières",2,"II - In-house lobbyists and trade/professional associations","97303386616-87",1
 "bbf40c6f7e524bfdaa438b9364e04d6e",82,31,"Non-governmental organisations, platforms and networks and similar","CCC","Chaos Computer Club e.V.",3,"III - Non-governmental organisations","538596512726-68",0
@@ -2676,15 +2695,17 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "a97b3c8aa26149e1be202cf48ab9bb20",75,31,"Non-governmental organisations, platforms and networks and similar","drdh","des requins et des hommes",3,"III - Non-governmental organisations","042904713422-67",0
 "a979f3e20247434097fd197a0ad00e21",233,22,"Trade, business & professional associations","IP FEDERATION","IP FEDERATION",2,"II - In-house lobbyists and trade/professional associations","83549331760-12",1
 "a9767a866be04e32aed257485cd1e5e8",155,31,"Non-governmental organisations, platforms and networks and similar","ToN","Tribe of Noise",3,"III - Non-governmental organisations","254017712716-90",0
+"a97512b3f551474faada8b0008b8a28a",82,41,"Think tanks and research institutions","SDSN Germany","Sustainable Development Solutions Network Germany",4,"IV - Think tanks, research and academic institutions","750468617710-14",2
 "a93c05b3d049460b8262848de6afeace",135,24,"Other similar organisations","CPSU Malta","Central Procurement & Supplies Unit Malta",2,"II - In-house lobbyists and trade/professional associations","554142617162-13",0
 "a9383856f9864576864eb4be8b827a2d",85,24,"Other similar organisations","HCC","Kentro Ellinikou Politismou - Hellenic Culture Centre",2,"II - In-house lobbyists and trade/professional associations","88716154351-15",1
 "a93446f0daad4327ac8b50a60e299f1a",82,22,"Trade, business & professional associations","DSGV","Deutscher Sparkassen-und Giroverband",2,"II - In-house lobbyists and trade/professional associations","62379064909-15",10
 "a929ef777995480781649456e96a80db",234,21,"Companies & groups",,"Bell Helicopter",2,"II - In-house lobbyists and trade/professional associations","313362713000-43",1
 "a91b22dc9d1a403c961a48854ae4f46e",82,22,"Trade, business & professional associations","BDF","Bundesverband der Deutschen Fluggesellschaften",2,"II - In-house lobbyists and trade/professional associations","01687677911-90",0
 "a90cf90bc5a248cd92870f5b97d9e6e8",21,22,"Trade, business & professional associations","Insurance Europe","Insurance Europe",2,"II - In-house lobbyists and trade/professional associations","33213703459-54",40
-"a8ee2879b55a4995b76b1e68ccbf36d0",,41,"Think tanks and research institutions",,"Service de lutte contre la pauvreté, la précarité et l'exclusion sociale",4,"IV - Think tanks, research and academic institutions","277921617625-94",6
+"a8ee2879b55a4995b76b1e68ccbf36d0",21,41,"Think tanks and research institutions",,"Service de lutte contre la pauvreté, la précarité et l'exclusion sociale",4,"IV - Think tanks, research and academic institutions","277921617625-94",6
 "a8e7c222a63a4740bf5323950e1969d1",108,13,"Self-employed consultants",,"Antiterrorism Consulting",1,"I - Professional consultancies/law firms/self-employed consultants","029561113364-11",0
 "a8e2e18663af4d98b3b33ed33a37c705",111,31,"Non-governmental organisations, platforms and networks and similar","JBMIA","Japan Business Machine and Information System Industries Association",3,"III - Non-governmental organisations","246330915180-10",4
+"a8cd189393d74790997449e556c776ad",233,31,"Non-governmental organisations, platforms and networks and similar","DECG","Dee Estuary Conservation Group",3,"III - Non-governmental organisations","563578217771-57",0
 "a8bdf3bdf75643b3bda83e66e9491806",215,21,"Companies & groups",,"INEOS Enterprises",2,"II - In-house lobbyists and trade/professional associations","393707614696-39",0
 "a8a39f5290514b539bd9fe4adca09d0d",233,22,"Trade, business & professional associations",,"Association of British Bookmakers",2,"II - In-house lobbyists and trade/professional associations","749296414922-59",0
 "a89e3356106c432baead500d97e8d822",233,22,"Trade, business & professional associations",,"Electronic Cigarette Industry Trade Association",2,"II - In-house lobbyists and trade/professional associations","558430817570-09",0
@@ -2721,6 +2742,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "a7956ec0ddb34734ad5edf0c8704f514",75,22,"Trade, business & professional associations","URSCOP LR","UNION RÉGIONALE DES SOCIÉTÉS COOPÉRATIVES ET PARTICIPATIVES DU LANGUEDOC ROUSSILLON",2,"II - In-house lobbyists and trade/professional associations","282030416473-51",6
 "a78d1e4daafa45d8a81059caeee43034",135,21,"Companies & groups","BOV","Bank of Valletta Group",2,"II - In-house lobbyists and trade/professional associations","85472489822-85",1
 "a77448d5ee664c30aae28765b7b3e615",233,41,"Think tanks and research institutions",,"New Financial",4,"IV - Think tanks, research and academic institutions","435008814959-36",4
+"a768356393e04322bbdfc281fbe92b2b",177,62,"Other public or mixed entities, etc.","CES","Conselho Económico e Social",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","141221217748-19",0
 "a767b1530f5d410da66a5298af173906",209,41,"Think tanks and research institutions","TECNALIA","TECNALIA Research & Innovation",4,"IV - Think tanks, research and academic institutions","87365826901-63",5
 "a752bd2033354ddfb36152b0316ed71a",176,31,"Non-governmental organisations, platforms and networks and similar","ODF","Open Dialog Foundation",3,"III - Non-governmental organisations","807840314371-39",2
 "a74da77fa7344d45b191afaff36c0014",21,31,"Non-governmental organisations, platforms and networks and similar","EUCIS-LLL","European Civil Society Platform on Lifelong Learning",3,"III - Non-governmental organisations","74923516160-01",2
@@ -2739,6 +2761,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "a6ce4c1bcf6343dcbd5ef8fe7d7795d5",233,41,"Think tanks and research institutions",,"Autism Causes Centre",4,"IV - Think tanks, research and academic institutions","847002714644-96",0
 "a6ce0395b4744c969ece97cd97dcdecd",21,11,"Professional consultancies",,"Rohde Public Policy",1,"I - Professional consultancies/law firms/self-employed consultants","96530144280-28",9
 "a6cd5b4ed66440b5966995110cfdb432",59,31,"Non-governmental organisations, platforms and networks and similar",,"BØRNEfonden/ChildFund",3,"III - Non-governmental organisations","607574814476-56",1
+"a6cd15a634e940fe8fd8af8216bfd8de",39,21,"Companies & groups",,"DBRS",2,"II - In-house lobbyists and trade/professional associations","244159417768-18",0
 "a6c703d41db0454a8e6842d7710be777",21,22,"Trade, business & professional associations","Cefic","European Chemical Industry Council",2,"II - In-house lobbyists and trade/professional associations","64879142323-90",45
 "a6badb09533a41ab9868a68b8b4da9c0",108,41,"Think tanks and research institutions","AREL","AREL agenzia ricerche e legislazione fondata da nino andreatta",4,"IV - Think tanks, research and academic institutions","200366615906-38",4
 "a6b224fdb7a7476fa42d6ed111d486fe",82,31,"Non-governmental organisations, platforms and networks and similar","DTSchB","Deutscher Tierschutzbund - German Animal Welfare Federation",3,"III - Non-governmental organisations","39442733245-10",0
@@ -2782,6 +2805,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "a5e87293b28c4e01ac041430ab5a40c0",82,22,"Trade, business & professional associations","BRAK","Bundesrechtsanwaltskammer",2,"II - In-house lobbyists and trade/professional associations","25412265365-88",6
 "a5e040b313054646be1c27415cbce7ab",233,11,"Professional consultancies","BSL","Baines Simmons Ltd",1,"I - Professional consultancies/law firms/self-employed consultants","43935866630-61",0
 "a5dc2ac8995a41c8a3da7c7a3e1e54fd",108,21,"Companies & groups","EDS","Edison Spa",2,"II - In-house lobbyists and trade/professional associations","401111262-07",2
+"a5cd707a88a3453caa4b96f3b172c2a7",21,13,"Self-employed consultants",,"TRUE EU",1,"I - Professional consultancies/law firms/self-employed consultants","152452817751-81",1
 "a5bc8b888eeb4d26ab868cab34247501",82,51,"Organisations representing churches and religious communities",,"FORUMBrussels International",5,"V - Organisations representing churches and religious communities","08459686341-35",1
 "a5b236f226104286b8e230faa2ef9cab",108,22,"Trade, business & professional associations","ASSIFACT","Associazione Italiana per il Factoring",2,"II - In-house lobbyists and trade/professional associations","9866251530-14",0
 "a5929ecfb32c4677835ca9ebd64ed0b8",21,31,"Non-governmental organisations, platforms and networks and similar","ECI","European Coalition for Israel",3,"III - Non-governmental organisations","14499928133-02",2
@@ -2810,6 +2834,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "a4c89014867b482791f6db266af76734",85,31,"Non-governmental organisations, platforms and networks and similar","M.E.S.O","MESO Music Events",3,"III - Non-governmental organisations","58052308509-68",0
 "a4bedfcf150b45c2953a8fb55ff7e8a4",234,13,"Self-employed consultants","aahrabak","Albert A. Hrabak",1,"I - Professional consultancies/law firms/self-employed consultants","168943310007-25",0
 "a4ba7d562a554da19477bb041f1a9da9",82,31,"Non-governmental organisations, platforms and networks and similar","ENSIS","European Network for Social Innovation and Solidarity",3,"III - Non-governmental organisations","523465116221-96",0
+"a4b8325d812145478a5f2480b5250656",75,31,"Non-governmental organisations, platforms and networks and similar","MdM-F","Médecins du Monde France",3,"III - Non-governmental organisations","499860717742-29",1
 "a4b7d1c31fcc4b3e94660019988d2f1b",108,11,"Professional consultancies",,"Assomela",1,"I - Professional consultancies/law firms/self-employed consultants","15331581826-28",0
 "a4b457babfcc48a6b4a962cd36d50326",21,21,"Companies & groups","KBC AM","KBC Asset Management NV",2,"II - In-house lobbyists and trade/professional associations","87948608746-55",0
 "a4b2339925524d4aaec174f2462b35b6",234,21,"Companies & groups",,"The Carlyle Group",2,"II - In-house lobbyists and trade/professional associations","663383410693-21",0
@@ -2937,6 +2962,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "a158841e70a640c0a8864a0c3601972f",233,22,"Trade, business & professional associations","IAQM","Institute for Air Quality Management",2,"II - In-house lobbyists and trade/professional associations","59516946438-69",0
 "a1578cf6a9964c468c324d249a15cb67",82,21,"Companies & groups","EDEKA","EDEKA Zentrale AG & Co. KG",2,"II - In-house lobbyists and trade/professional associations","650035215812-91",1
 "a1499fa4380f4fdabaa6344f37ef4545",21,31,"Non-governmental organisations, platforms and networks and similar",,"Sociale InnovatieFabriek",3,"III - Non-governmental organisations","101643916571-60",7
+"a1462d8e18cd4d6db1f0a7936148d53e",233,22,"Trade, business & professional associations","WSTA","Wine and Spirit Trade Association",2,"II - In-house lobbyists and trade/professional associations","113950817782-30",2
 "a1224dfdcc5e4d74ab7bd3517f45cfa9",234,21,"Companies & groups",,"Hilton Worldwide",2,"II - In-house lobbyists and trade/professional associations","924134817693-97",0
 "a115ebad06c1434fa7e9edfa3ebb9066",75,24,"Other similar organisations","UNCEIA","UNION NATIONALE DES COOPERATIVES AGRICOLES D'ELEVAGE ET D'INSEMINATION ANIMALE",2,"II - In-house lobbyists and trade/professional associations","570618814190-38",0
 "a1132a1d5fd1460b8cde23c0b3976012",82,31,"Non-governmental organisations, platforms and networks and similar",,"Europacommittee gegen Unregelmäßigkeiten im Amt",3,"III - Non-governmental organisations","199181513281-29",6
@@ -3092,7 +3118,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "9c17bb0cc621430a94e8c9c5b0e22fb5",21,31,"Non-governmental organisations, platforms and networks and similar",,"Finance Watch",3,"III - Non-governmental organisations","37943526882-24",3
 "9c12594d184b4d9fbe0f4eb2c7909955",75,31,"Non-governmental organisations, platforms and networks and similar","FPEC","Fédération Pro Europa Christiana",3,"III - Non-governmental organisations","65395896737-91",1
 "9c1013326b6d44fe9da3ead2deb5de91",233,31,"Non-governmental organisations, platforms and networks and similar","RSA","Regional Studies Association",3,"III - Non-governmental organisations","07457573050-15",6
-"9c0997e003c4409699386654ffcc0fc2",108,21,"Companies & groups",,"GTECH",2,"II - In-house lobbyists and trade/professional associations","57431575616-23",2
+"9c0997e003c4409699386654ffcc0fc2",108,21,"Companies & groups",,"Lottomatica",2,"II - In-house lobbyists and trade/professional associations","57431575616-23",2
 "9c07704c2b544ea7963b38233492d213",75,24,"Other similar organisations","AIS","Association Des Inventeurs Salariés",2,"II - In-house lobbyists and trade/professional associations","926191912450-91",0
 "9bf1dc7e52ce47298bafc340362bbc89",75,21,"Companies & groups","SG","Société Générale",2,"II - In-house lobbyists and trade/professional associations","34369111614-57",2
 "9bf09cd992e041bf9efcac26bc9a0c00",21,31,"Non-governmental organisations, platforms and networks and similar",,"DYNAMO INTERNATIONAL",3,"III - Non-governmental organisations","87282918583-53",8
@@ -3215,12 +3241,15 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "988c0dd915464234b24ad5f46b18d1c0",14,31,"Non-governmental organisations, platforms and networks and similar","UWD","Umweltdachverband",3,"III - Non-governmental organisations","730024411461-80",8
 "9889bbda288d4b52a2404fc051f7a3f9",108,22,"Trade, business & professional associations",,"Assogestioni - Italian Investment Management Association",2,"II - In-house lobbyists and trade/professional associations","89046007765-76",10
 "98893fe0d2554088b253b817a47f535b",21,22,"Trade, business & professional associations","ETUC","EUROPEAN TRADE UNION CONFEDERATION",2,"II - In-house lobbyists and trade/professional associations","06698681039-26",18
+"986cf3a87c8b4a7e8ec8e3c088bd9420",177,22,"Trade, business & professional associations","CCP","Confederação do Comércio e Serviços de Portugal",2,"II - In-house lobbyists and trade/professional associations","867972817694-57",1
+"986045dd56a54771940d2fe3e9632a4f",177,62,"Other public or mixed entities, etc.","PA, S.A","PORTOS DOS AÇORES, S.A.",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","093711917796-25",0
 "985f1bd1874943b0b5b4d042656926bb",75,31,"Non-governmental organisations, platforms and networks and similar","AIJ","Alliance internationale de journalistes",3,"III - Non-governmental organisations","49987976590-63",1
 "985c45e055094de0b46abdae51bc416b",82,21,"Companies & groups","lffm","Lauffenmühle GmbH & Co. KG",2,"II - In-house lobbyists and trade/professional associations","972539816491-88",0
 "985c1f28a9d14d969233ef9d6da65fc4",75,21,"Companies & groups","TIGF","Transport et Infrastructures Gaz France",2,"II - In-house lobbyists and trade/professional associations","727627616409-44",1
 "984ebc2761e440618bef3788343a2d60",34,31,"Non-governmental organisations, platforms and networks and similar","ISOC-Bulgaria","Internet Society - Bulgaria",3,"III - Non-governmental organisations","212858810418-75",0
 "98421d31d7c5420a9eb16f5aabaa1944",233,22,"Trade, business & professional associations",,"Pact",2,"II - In-house lobbyists and trade/professional associations","69129338988-95",1
 "9840b09b4bce489bb5391c953183c9a9",82,11,"Professional consultancies",,"Dr. Koch Consulting",1,"I - Professional consultancies/law firms/self-employed consultants","72208052502-15",0
+"9831bac132034f84a4f035fe7a61b537",233,22,"Trade, business & professional associations",,"WorldDMB",2,"II - In-house lobbyists and trade/professional associations","313735017680-60",0
 "982d9a8ed9d7459da297f1fada6e2a6a",34,21,"Companies & groups",,"vesk consult ltd.",2,"II - In-house lobbyists and trade/professional associations","136522214381-44",2
 "9828f3697c214528a497df98a45ee684",21,31,"Non-governmental organisations, platforms and networks and similar","EBCO","European Bureau for Conscientious Objection",3,"III - Non-governmental organisations","32954646807-31",1
 "982776bf6024490a9b91d79ed7ed9391",13,22,"Trade, business & professional associations","AFMA","Australian Financial Markets Association",2,"II - In-house lobbyists and trade/professional associations","176528715359-70",0
@@ -3288,7 +3317,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "962529ab26a74715adf1b10857964dc3",233,42,"Academic institutions","CISL","University of Cambridge Institute for Sustainability Leadership",4,"IV - Think tanks, research and academic institutions","618254915321-39",5
 "961fd91353ef422ebbfd19ef655ba0b8",75,22,"Trade, business & professional associations","FEPS","Fédération Européenne du Portage Salarial",2,"II - In-house lobbyists and trade/professional associations","171767211533-02",5
 "961aaed2bafd4eacabd7b4d919420b2e",108,11,"Professional consultancies",,"LABELAB",1,"I - Professional consultancies/law firms/self-employed consultants","323601313579-03",0
-"95e6966171f448e5bed4001410a3e35f",155,21,"Companies & groups",,"Triodos Bank",2,"II - In-house lobbyists and trade/professional associations","543556311400-69",1000
+"95e6966171f448e5bed4001410a3e35f",155,21,"Companies & groups",,"Triodos Bank",2,"II - In-house lobbyists and trade/professional associations","543556311400-69",0
 "95e2c72e249c4586ac5a65652e77ba73",233,31,"Non-governmental organisations, platforms and networks and similar",,"ADAS UK Limited",3,"III - Non-governmental organisations","933381915459-41",450
 "95d92c5880d8471e882bc14acf21f70a",21,21,"Companies & groups",,"VERSUS PRODUCTION",2,"II - In-house lobbyists and trade/professional associations","824715913041-50",1
 "95d4acfdeeb54deebba6b204e60fb939",214,31,"Non-governmental organisations, platforms and networks and similar","TechMarket","TechMarket Sweden AB",3,"III - Non-governmental organisations","962987717034-65",4
@@ -3312,6 +3341,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "9541a9651ea8424e872700d49500effb",155,42,"Academic institutions","NBU","Universiteit Nyenrode B.V.",4,"IV - Think tanks, research and academic institutions","14215374635-32",1
 "9540a7b47a01448fa252150532c528b6",21,62,"Other public or mixed entities, etc.","EURHONET","European Housing Network",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","014986915888-27",3
 "952736068d5d4859a4e054121329e7d3",209,22,"Trade, business & professional associations","UNESA","ASOCIACIÓN ESPAÑOLA DE LA INDUSTRIA ELÉCTRICA",2,"II - In-house lobbyists and trade/professional associations","849997016104-66",7
+"951b8f18c7884b20b5ba37a51004e3db",165,31,"Non-governmental organisations, platforms and networks and similar","CESSDA","Consortium of European Social Science Data Archives",3,"III - Non-governmental organisations","708755017740-13",2
 "950b3c83e7c449f898ba95c8066bd5e4",155,31,"Non-governmental organisations, platforms and networks and similar","EuroPris","European Organisation of Prison and Correctional Services",3,"III - Non-governmental organisations","081830016245-42",1
 "9507da4beb7f470a98de61621407818d",155,21,"Companies & groups","SR","Strukton Rail",2,"II - In-house lobbyists and trade/professional associations","0804666277-93",0
 "94fbaacea67446cc9530b8cc5892e442",108,22,"Trade, business & professional associations","FEDERACCIAI","Federazione Imprese Siderurgiche Italiane",2,"II - In-house lobbyists and trade/professional associations","83425058760-88",1
@@ -3347,8 +3377,10 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "940fd12a8f6d41cd992ba991f21a2f32",155,21,"Companies & groups","ASML","ASML Netherlands BV",2,"II - In-house lobbyists and trade/professional associations","268981016303-87",1
 "9409c71910d543fd8306e035e900be1a",233,22,"Trade, business & professional associations",,"Dairy UK",2,"II - In-house lobbyists and trade/professional associations","776259317589-13",1
 "93fffd31a57241659c9b79ece763e53c",108,31,"Non-governmental organisations, platforms and networks and similar",,"S.O.S. Telefono Azzurro Onlus",3,"III - Non-governmental organisations","667622916380-77",5
+"93fef634002246688c2e132fe48989c7",82,31,"Non-governmental organisations, platforms and networks and similar","DigiGes","Digitale Gesellschaft e.V.",3,"III - Non-governmental organisations","281621317714-62",1
 "93fe53c64c5247e8a26d0add6affd82f",233,31,"Non-governmental organisations, platforms and networks and similar","AEF","Aviation Environment Federation",3,"III - Non-governmental organisations","684281411855-42",0
 "93e98dd6cbaf4393aa99e1c11d4b62bf",233,31,"Non-governmental organisations, platforms and networks and similar","ResearchPool","ResearchPool Ltd",3,"III - Non-governmental organisations","909799316887-42",1
+"93e77f3c62bb4c9fa74f796d7320d50b",233,42,"Academic institutions","QMUL","Queen Mary University of London",4,"IV - Think tanks, research and academic institutions","457868017641-61",3535
 "93e6c565df324448a79ca76a247fba93",233,31,"Non-governmental organisations, platforms and networks and similar",,"Iman Foundation",3,"III - Non-governmental organisations","795178413560-40",0
 "93e4a02850e242c495dd681858868337",233,22,"Trade, business & professional associations","EBN","European Biosafety Network",2,"II - In-house lobbyists and trade/professional associations","539635916353-39",1
 "93e0ca3b24be482fad9182bee8ebd121",21,42,"Academic institutions","AI","ANETA IGNATOWICZ",4,"IV - Think tanks, research and academic institutions","49044199834-60",0
@@ -3363,6 +3395,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "9374952b7efe4724b8d402c249e5a672",108,31,"Non-governmental organisations, platforms and networks and similar","EHO","Europe HOpes",3,"III - Non-governmental organisations","976367712706-08",0
 "9368b4b7ad0a48928e512c02139c9812",233,31,"Non-governmental organisations, platforms and networks and similar","EuroRAP","European Road Assessment Association AISBL",3,"III - Non-governmental organisations","140030415115-75",5
 "9366ab1927f54458ab9546730efeeb10",215,21,"Companies & groups","Nestlé (SIX: NESN)","Nestlé S.A.",2,"II - In-house lobbyists and trade/professional associations","15366395387-57",4
+"936036a55fe745ac8f5873e4765d7de6",233,31,"Non-governmental organisations, platforms and networks and similar","S.I.F.","Scottish Islands Federation",3,"III - Non-governmental organisations","831820317744-78",0
 "935ae344837a461eb6de6493d3829153",34,31,"Non-governmental organisations, platforms and networks and similar","Center for RIA","Center for RIA Foundation",3,"III - Non-governmental organisations","39352357614-15",2
 "935356db2c104f02a942a9773e70a50f",21,31,"Non-governmental organisations, platforms and networks and similar",,"Platform for Better Oral Health in Europe",3,"III - Non-governmental organisations","672133316550-32",0
 "934fa5b256fb495cb1d9975bbaf6795e",21,22,"Trade, business & professional associations","EUCOLAIT","EUROPEAN ASSOCIATION OF DAIRY TRADE",2,"II - In-house lobbyists and trade/professional associations","5159980776-55",3
@@ -3450,6 +3483,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "90c83470f84141eda789f2dbdf8759c9",21,31,"Non-governmental organisations, platforms and networks and similar","CEC","Comité Européen de Coordination",3,"III - Non-governmental organisations","333457117059-94",2
 "90bceed51e954be3a8f711f3097721ab",14,24,"Other similar organisations",,"AIFM Federation Austria",2,"II - In-house lobbyists and trade/professional associations","07879611199-77",0
 "90bcafb44af449eab2412cfe088bd81a",99,42,"Academic institutions","ELTE","Eötvös Loránd University",4,"IV - Think tanks, research and academic institutions","948827016897-72",12
+"90b8d28c5ea740669beb882e085276d8",233,22,"Trade, business & professional associations","BSNA","British Specialist Nutrition Association",2,"II - In-house lobbyists and trade/professional associations","865069217779-49",1
 "90a36a19cb4544069586fecf1154130d",21,31,"Non-governmental organisations, platforms and networks and similar","EFSLI","European Forum of Sign Language Interpreters",3,"III - Non-governmental organisations","48768025823-95",4
 "908b04b8a91941369bd9fcb86e1f016e",14,21,"Companies & groups","KTM","KTM Motorrad AG",2,"II - In-house lobbyists and trade/professional associations","603752516259-64",0
 "9088ddaab513480f92b06e490170c888",82,22,"Trade, business & professional associations","GVSt","Gesamtverband Steinkohle e. V.",2,"II - In-house lobbyists and trade/professional associations","65376111996-22",1
@@ -3471,6 +3505,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "8fdca7f3dbf24e059550176616bc13e6",209,31,"Non-governmental organisations, platforms and networks and similar","AGP group","Grupo de Animación y Gestión de Proyectos",3,"III - Non-governmental organisations","32805682572-12",1
 "8fdb38ee7fbc4f4e9bba5719258ee2fe",75,22,"Trade, business & professional associations","O.N.C.D.","Conseil national de l'Ordre des chirurgiens-dentistes",2,"II - In-house lobbyists and trade/professional associations","17758097980-76",1
 "8fd3a536fad24c8dbc80370cb9f7c31f",108,31,"Non-governmental organisations, platforms and networks and similar","ARCS","ARCI CULTURA E SVILUPPO",3,"III - Non-governmental organisations","0609770269-37",0
+"8fd2cc687e45471e9d97100577cb0639",21,42,"Academic institutions","VUB PG Sport","Vrije Universiteit Brussel Sports Management",4,"IV - Think tanks, research and academic institutions","243711817823-35",2
 "8fcf186434b540ad87af3a74621d13b1",21,31,"Non-governmental organisations, platforms and networks and similar","EBC","European Brain Council",3,"III - Non-governmental organisations","31091478710-90",4
 "8fc3f55262304dec90cb71e4c476820b",234,21,"Companies & groups","Genzyme","Genzyme a SANOFI Company",2,"II - In-house lobbyists and trade/professional associations","2946627525-90",1
 "8fc27f98cf6443918dd590d4115d1b31",21,13,"Self-employed consultants",,"Penrose DPA",1,"I - Professional consultancies/law firms/self-employed consultants","754456416972-42",1
@@ -3596,6 +3631,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "8c6c451796ef42d49ed9433a736f4d2b",209,22,"Trade, business & professional associations","SATSE","SINDICATO DE ENFERMERIA SATSE",2,"II - In-house lobbyists and trade/professional associations","45704364993-49",0
 "8c6c3bef890e49239ed7becc46c94b54",181,11,"Professional consultancies","ACIG","ACIG Group of companies",1,"I - Professional consultancies/law firms/self-employed consultants","518504215404-81",2
 "8c69dd081b7c447197bc50374fd05382",82,31,"Non-governmental organisations, platforms and networks and similar","FECOF","Federation Europeenne des Communes Forestieres",3,"III - Non-governmental organisations","22553705184-17",0
+"8c65602c3dca4ac0a942bfcaaf97fad2",75,31,"Non-governmental organisations, platforms and networks and similar",,"Alliance VITA",3,"III - Non-governmental organisations","458242017765-22",1
 "8c4f9d9e0b764115a0f84c5bcb8161e5",82,21,"Companies & groups","IB.SH","Investitionsbank Schleswig-Holstein",2,"II - In-house lobbyists and trade/professional associations","87628071816-18",0
 "8c414de6959249dfa7a30d140bc8c928",209,31,"Non-governmental organisations, platforms and networks and similar","Dianova","Asociación Dianova España",3,"III - Non-governmental organisations","08614897787-35",0
 "8c3a717a6b034f8ba5926764540d9200",155,31,"Non-governmental organisations, platforms and networks and similar",,"Eurosite",3,"III - Non-governmental organisations","40754955270-22",0
@@ -3612,7 +3648,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "8bdc416347e04167ad116e7109ab4764",75,31,"Non-governmental organisations, platforms and networks and similar","ORSE","Observatoire sur la Responsabilité Sociétale des Entreprises",3,"III - Non-governmental organisations","002146314062-01",0
 "8bd7a420943e404b98009a299d824163",177,61,"Local, regional and municipal authorities (at sub-national level)","NAV Portugal","Navegação Aérea de Portugal",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","102302110310-65",15
 "8bd1a72d072e4772b74242be101147e5",75,21,"Companies & groups","SFR","Société Française de Radiotéléphone",2,"II - In-house lobbyists and trade/professional associations","48521259756-08",1
-"8bcb07e919304b0e9bb2aefa907a0533",21,41,"Think tanks and research institutions","BYPS","Bulgarian Young Professionals Society",4,"IV - Think tanks, research and academic institutions","347086613170-96",0
+"8bcb07e919304b0e9bb2aefa907a0533",21,41,"Think tanks and research institutions","BYPS","Bulgarian Young Professionals Society",4,"IV - Think tanks, research and academic institutions","347086613170-96",1
 "8bc6a567cd8547bd8af925af76aa884c",209,21,"Companies & groups","TPS","Telecoming Payment Solutions",2,"II - In-house lobbyists and trade/professional associations","90277287822-85",0
 "8bc629b31bee44a7afa51ac5f23e5910",155,41,"Think tanks and research institutions","Deltares","Stichting Deltares",4,"IV - Think tanks, research and academic institutions","11882605348-33",0
 "8baa360991e94804a79c2be9856f5e30",82,21,"Companies & groups",,"W.L.Gore & Associates",2,"II - In-house lobbyists and trade/professional associations","931731716899-81",0
@@ -3646,6 +3682,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "8aaa7989555b40cda70751783bbaa4d3",21,31,"Non-governmental organisations, platforms and networks and similar","EUFORES","European Forum for Renewable Energy Sources",3,"III - Non-governmental organisations","96507906043-80",3
 "8a9e71989f5a4b39a03f9b52aabc69ab",155,31,"Non-governmental organisations, platforms and networks and similar",,"UTZ Certified",3,"III - Non-governmental organisations","60554685648-73",0
 "8a9a7f6474e84c0bb33fe0bc20e1a989",226,61,"Local, regional and municipal authorities (at sub-national level)","SODEM","Association of Social Democratic Municipalities",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","198354815537-92",2
+"8a89f17156dd4dfea935c48ce1475953",54,21,"Companies & groups","INsig2","INsig2 d.o.o.",2,"II - In-house lobbyists and trade/professional associations","649747517707-28",9
 "8a6d3688ddb0490f96059554b7a5ef0a",105,21,"Companies & groups","Irish Ferries","Irish Ferries Limited",2,"II - In-house lobbyists and trade/professional associations","10930644855-47",300
 "8a6ab6e825eb483ea463c0a63488e83c",82,11,"Professional consultancies",,"Eo Ipso Communications",1,"I - Professional consultancies/law firms/self-employed consultants","383821814353-88",0
 "8a661fa8524f4a3a801a5000287c7e9a",75,11,"Professional consultancies",,"Ecologie Logistique",1,"I - Professional consultancies/law firms/self-employed consultants","511336917208-15",1
@@ -3674,6 +3711,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "898ebf4fa4514338a06d618edff050d9",233,13,"Self-employed consultants",,"FromOverHere Ltd",1,"I - Professional consultancies/law firms/self-employed consultants","103264717371-88",0
 "8979adcb97844d7fa61e0e3fc5022d8b",75,61,"Local, regional and municipal authorities (at sub-national level)","AUDELOR","Agence d'Urbanisme et de Développement Economique du Pays de Lorient",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","00459096739-87",0
 "89708dfbb8f942bdbb574a21a75826af",75,22,"Trade, business & professional associations",,"Armateurs de France",2,"II - In-house lobbyists and trade/professional associations","493735015952-63",2
+"896cab1947594a3f8ce90b9b57fc7b13",34,31,"Non-governmental organisations, platforms and networks and similar","BSPB","Bulgarian Society for the Protection of Birds",3,"III - Non-governmental organisations","162176417558-70",3
 "895e9fc739484a8bab23372c65ca3be6",233,31,"Non-governmental organisations, platforms and networks and similar","Anti-Slavery","Anti-Slavery International",3,"III - Non-governmental organisations","464644816865-02",1
 "895b5c0d304b49859cae013b8f897c4b",21,22,"Trade, business & professional associations",,"BPA Coalition",2,"II - In-house lobbyists and trade/professional associations","761659815834-09",0
 "8953a0e58c6b4672a25e8c5860f7a288",233,21,"Companies & groups","SSE","SSE plc",2,"II - In-house lobbyists and trade/professional associations","64436972598-17",1
@@ -3914,6 +3952,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "81e3375b443d40a8b3b135a2ca94f22b",120,22,"Trade, business & professional associations","LTK","Latvian Chamber of Traders",2,"II - In-house lobbyists and trade/professional associations","098542210935-41",0
 "81d9d19ef13248b5bdf8cbbe2944a1fb",82,61,"Local, regional and municipal authorities (at sub-national level)","DSVAE","Deutsche Sozialversicherung Arbeitsgemeinschaft Europa",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","917393784-31",5
 "81c8f6f3bf2c4851b9f518a59ad4ca19",82,31,"Non-governmental organisations, platforms and networks and similar","IZW","Informationszentrum Wärmepumpen und Kältetechnik e.V.",3,"III - Non-governmental organisations","30854527461-32",0
+"81c84b21cafa4b2aae5e30c4aad445f0",21,12,"Law firms",,"McGuireWoods",1,"I - Professional consultancies/law firms/self-employed consultants","687411517746-84",0
 "81c2c8e51b934dc88dcc7fc129c26534",75,22,"Trade, business & professional associations","AAF","Association des archivistes français",2,"II - In-house lobbyists and trade/professional associations","428409016011-10",0
 "81bd273528894e2ba64d6de56d1a39f2",21,31,"Non-governmental organisations, platforms and networks and similar","IDDC","International Disability and Development Consortium",3,"III - Non-governmental organisations","26634082731-16",3
 "81ab51eaca5e4c2aab5a8476a709393f",21,41,"Think tanks and research institutions","EUROPEX","EUROPEX - Association of European Energy Exchanges",4,"IV - Think tanks, research and academic institutions","50679663522-75",2
@@ -4008,6 +4047,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "7e235e34e6bd4fa29ecaf2f82a3d8a66",21,22,"Trade, business & professional associations","CPME","Committee of Poly Ethyleneterephthalate (PET) Manufacturers in Europe",2,"II - In-house lobbyists and trade/professional associations","73204818098-04",0
 "7e1b5a935455437185ce7009476d8a6c",75,22,"Trade, business & professional associations",,"AIUFFASS",2,"II - In-house lobbyists and trade/professional associations","04878831234-67",0
 "7e17518e063344018c878050f0826584",21,11,"Professional consultancies",,"Luther Pendragon Brussels",1,"I - Professional consultancies/law firms/self-employed consultants","58186246516-27",5
+"7e118e4728e1409280466588f2a5a996",108,22,"Trade, business & professional associations","ANSI","ANSI – Associazione Nazionale Sanità Integrativa",2,"II - In-house lobbyists and trade/professional associations","276081217725-31",0
 "7e0c056fdf354425bcad999bbb2bc099",75,22,"Trade, business & professional associations",,"SNCNMM CFE-CGC",2,"II - In-house lobbyists and trade/professional associations","751358417628-79",0
 "7dfd8e966b5c44cbb684d33fde2e79e4",82,22,"Trade, business & professional associations","VPI","Verband der pyrotechnischen Industrie",2,"II - In-house lobbyists and trade/professional associations","96771571148-58",0
 "7dfb33bae61c417f8e2bb64b6f5414b6",120,31,"Non-governmental organisations, platforms and networks and similar","DOTS","Foundation for an Open Society DOTS",3,"III - Non-governmental organisations","632264216418-66",0
@@ -4120,6 +4160,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "7a669038795f4ac8b6c0f23eed45517b",39,11,"Professional consultancies","TCHSI","The Canadian Health Sciences Institute",1,"I - Professional consultancies/law firms/self-employed consultants","12118929197-69",10
 "7a5a55c4b4b74c948b16b8ade3ccb28b",108,61,"Local, regional and municipal authorities (at sub-national level)","APV","Autorità Portuale di Venezia",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","743682215626-67",5
 "7a4fb83d4d0d436882a22b1b02dabea3",214,22,"Trade, business & professional associations","SvF","Svenska Förläggareföreningen",2,"II - In-house lobbyists and trade/professional associations","169614215276-16",1
+"7a4aebc693824872a4dbdb33d3503725",233,24,"Other similar organisations","ESPGHAN","European Society for Paediatric Gastroenterology Hepatology and Nutrtition",2,"II - In-house lobbyists and trade/professional associations","282115817825-22",0
 "7a45b5be9d3344c093e3868efdaa15bd",155,22,"Trade, business & professional associations","BCMM","Beroepsvereniging Componisten MultiMedia",2,"II - In-house lobbyists and trade/professional associations","202197712893-76",0
 "7a4538d419ea4981a27de9fbfba379b7",108,41,"Think tanks and research institutions","TSCorp","TS Corporation Srl",4,"IV - Think tanks, research and academic institutions","715951113489-25",8
 "7a446a1b6c8e441395292dba83690a8b",21,31,"Non-governmental organisations, platforms and networks and similar","EWLA","Eurogroup for Wildlife and Laboratory Animals",3,"III - Non-governmental organisations","1594566495-63",1
@@ -4134,6 +4175,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "7a0b069271214c83b819288567a84e2b",209,22,"Trade, business & professional associations","COAG","Coordinadora de Organizaciones de Agricultores y Ganaderos - Iniciativa Rural",2,"II - In-house lobbyists and trade/professional associations","389710617277-61",4
 "79fb232bf368407986a7611c61cdbabf",82,22,"Trade, business & professional associations","BBV","Bayerischer Bauernverband",2,"II - In-house lobbyists and trade/professional associations","193322312286-94",2
 "79faa0195e9349e4b8d806fc7403f915",234,21,"Companies & groups","AT&T","AT&T, Inc.",2,"II - In-house lobbyists and trade/professional associations","92442218459-37",3
+"79f499a424e0409894f81fcc882dd670",21,11,"Professional consultancies",,"societè generale financiere europeenne sprlu",1,"I - Professional consultancies/law firms/self-employed consultants","935718717775-79",3
 "79f106508bf64499b51f068b8fded357",75,31,"Non-governmental organisations, platforms and networks and similar","EBU","European Blind Union",3,"III - Non-governmental organisations","42378755934-87",0
 "79ebac56f25047b9aab3f6cb979d4cbe",75,22,"Trade, business & professional associations","FNPF","Fédération Nationale des Producteurs de Fruits",2,"II - In-house lobbyists and trade/professional associations","34632339562-59",4
 "79da5c823290483482c38fb3847728b5",21,61,"Local, regional and municipal authorities (at sub-national level)","WFEO","West Finland European Office, Länsi-Suomen Eurooppa-toimisto",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","270301515668-71",0
@@ -4285,6 +4327,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "75bc29f997ec4370b85c7a823ab7111e",233,21,"Companies & groups",,"AstraZeneca",2,"II - In-house lobbyists and trade/professional associations","42561875992-94",2
 "75b74aa800a14ebd9406c759df4939bb",233,41,"Think tanks and research institutions","NCI","New City Initiative",4,"IV - Think tanks, research and academic institutions","090466117449-87",1
 "75b280c0e3da401aaea0d2b285220310",21,31,"Non-governmental organisations, platforms and networks and similar",,"ADHRB",3,"III - Non-governmental organisations","409945716647-81",1
+"758e933b7449495a9056d1e2ecf3a8ce",205,11,"Professional consultancies","Kusaga Taka","Kusaga Taka Consulting (Pty) Ltd",1,"I - Professional consultancies/law firms/self-employed consultants","287378417723-78",0
 "758b9e69fe23425197dedc70270588e8",82,21,"Companies & groups","STIHL","Andreas STIHL AG & Co. KG",2,"II - In-house lobbyists and trade/professional associations","08122337648-18",1
 "7571476c724f4d94ba9f4c16ecdf6007",233,42,"Academic institutions","IDS","Institute of Development Studies",4,"IV - Think tanks, research and academic institutions","19339685611-45",150
 "7570218f96264a079aaa5f2f6afbece1",21,31,"Non-governmental organisations, platforms and networks and similar","ENQA","European Association for Quality Assurance in Higher Education",3,"III - Non-governmental organisations","940278813607-60",5
@@ -4322,10 +4365,12 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "745c36827daf4b4785f9d6a65d5b3b33",21,24,"Other similar organisations","CONEBI ASBL","Confederation of the European Bicycle Industry ASBL",2,"II - In-house lobbyists and trade/professional associations","677937617205-76",1
 "7444949b53ae42da8495cbdc82cb0803",233,22,"Trade, business & professional associations","OFTEC","Oil Firing Technical Association",2,"II - In-house lobbyists and trade/professional associations","702260715330-32",0
 "743b2bba27094445983c8bb1b1b22eb3",21,31,"Non-governmental organisations, platforms and networks and similar","DEF","Digital Enlightenment Forum",3,"III - Non-governmental organisations","328575115987-19",1
+"743a26e964d046b1aafbecb251f80612",82,21,"Companies & groups",,"SCHUFA Holding AG",2,"II - In-house lobbyists and trade/professional associations","188505217747-03",1
 "74364efe541e4525b2a308ee0b0ae119",215,31,"Non-governmental organisations, platforms and networks and similar","EvB","Erklärung von Bern",3,"III - Non-governmental organisations","985292011111-44",0
 "7432cd9d2c1244e5a153da60aadb8393",21,22,"Trade, business & professional associations","NEW-IG","New Energy World Industry Grouping - European Industry Grouping for a Hydrogen and Fuel Cell Joint Undertaking",2,"II - In-house lobbyists and trade/professional associations","77659588648-75",1
 "742428073b9a429c87e0e2aeac4a529f",233,42,"Academic institutions",,"The Royal Society",4,"IV - Think tanks, research and academic institutions","041898210470-66",1
 "73fd832089d84455b4e64f258e607e12",209,42,"Academic institutions","Cif2Ei","Cif2Ei ""Centro Internacional de Formación e Investigación de Estudios Estratégicos e Inteligencia""",4,"IV - Think tanks, research and academic institutions","063557915055-72",0
+"73f9278f5e0c47cc948ddd3d8e96ded5",205,31,"Non-governmental organisations, platforms and networks and similar","REDISA NPC","REDISA Non-Profit Company",3,"III - Non-governmental organisations","550734417720-16",0
 "73f2a2a43eaa4b6eaeaffa46d438eaba",15,31,"Non-governmental organisations, platforms and networks and similar","ICC","International Cooperation Center",3,"III - Non-governmental organisations","475825813958-48",0
 "73eed5cf3c284c60b7fc95ff7fa73ca5",21,22,"Trade, business & professional associations",,"PlasticsEurope",2,"II - In-house lobbyists and trade/professional associations","454264611835-56",8
 "73ed3811b47a4bf0ae08556764df853a",14,22,"Trade, business & professional associations","Oesterreichs Energie","Österreichs E-Wirtschaft",2,"II - In-house lobbyists and trade/professional associations","80966174852-38",3
@@ -4353,6 +4398,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "734280a12a204631bf5bc7e344094e48",209,31,"Non-governmental organisations, platforms and networks and similar","FMAB","Fundación Miguel Ángel Blanco",3,"III - Non-governmental organisations","53456384273-44",1
 "7334c9fa6a2e47f7b60523e96ef415ae",21,22,"Trade, business & professional associations","ENFE","European Network of Forest Entrepreneurs e.V.",2,"II - In-house lobbyists and trade/professional associations","601926913376-61",0
 "732632d9453448f48f801caf6c2484b1",21,22,"Trade, business & professional associations",,"Glass for Europe",2,"II - In-house lobbyists and trade/professional associations","15997912445-80",1
+"731b74ae14ee49bfa18c1d02ec60952b",180,11,"Professional consultancies","ECONSULTING","ECONSULTING SRL",1,"I - Professional consultancies/law firms/self-employed consultants","518906817756-24",3
 "73166cf7b6094afbafb512cae2f7a813",82,24,"Other similar organisations","UETA","United European Tattoo Artists e.V.",2,"II - In-house lobbyists and trade/professional associations","00259222525-88",1
 "73164c7a231e4eb797340193d6be93d4",108,21,"Companies & groups","EuroProjects","EuroProjects Srl",2,"II - In-house lobbyists and trade/professional associations","303833890-77",2
 "7312a3fccd78404a97771afb1c6629ed",127,31,"Non-governmental organisations, platforms and networks and similar","CICM / IRH","Conseil Interrégional des Chambres des Métiers / Interregionaler Rat der Handwerkskammern",3,"III - Non-governmental organisations","688595314810-78",0
@@ -4403,9 +4449,11 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "7119e38115754a0a9ac36af28343cbe8",21,22,"Trade, business & professional associations","ECGA","European Carbon and Graphite Association",2,"II - In-house lobbyists and trade/professional associations","66301488645-70",0
 "7110de30a2af469fa2b219ef1b124ba3",21,13,"Self-employed consultants",,"Vincent Tilman",1,"I - Professional consultancies/law firms/self-employed consultants","41735426336-45",1
 "710bfa17a28243e9a06e4d78735e93f0",75,13,"Self-employed consultants","GRC","Global Regulatory Communications",1,"I - Professional consultancies/law firms/self-employed consultants","461439614934-68",1
+"710a5a4c62a6405ab6945877a4d9dcbf",230,31,"Non-governmental organisations, platforms and networks and similar","DP","Dwelling Places",3,"III - Non-governmental organisations","532687117753-07",37
 "71063a3e41a24bf3a1607581226ce9fb",75,11,"Professional consultancies",,"katalin kolosy",1,"I - Professional consultancies/law firms/self-employed consultants","84931429002-57",1
 "71061d2e8174413b982730ef73a09f70",21,22,"Trade, business & professional associations","celcaa","European Liaison Committee for Agriculture and agri-food trade",2,"II - In-house lobbyists and trade/professional associations","546282614966-51",0
 "7101031e85ac4d34b62905fa93d391ca",21,21,"Companies & groups","ageas","ageas SA/NV",2,"II - In-house lobbyists and trade/professional associations","582768716033-06",1
+"70ee54e76da54b0fa1dbf9093ca9e526",82,31,"Non-governmental organisations, platforms and networks and similar",,"Baltic Sea Music Education Foundation e. V.",3,"III - Non-governmental organisations","072152517801-83",2
 "70e8ebe99d924909afced4a9c05f698a",108,61,"Local, regional and municipal authorities (at sub-national level)","E.N.D.A.S.","E.N.D.A.S. ENTE NAZIONALE DEMOCRATICO DI AZIONE SOCIALE",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","978510212073-44",0
 "70e8980b5dd24884b663622d421066cf",82,41,"Think tanks and research institutions","DJeu","DATAJOCKEY: Aktionsforschung & Dialog",4,"IV - Think tanks, research and academic institutions","23326339299-51",0
 "70ddcf0a40c04563af064445bab96f07",21,22,"Trade, business & professional associations","EMOTA","European Multi-channel and Online Trade Association",2,"II - In-house lobbyists and trade/professional associations","11251212351-96",1
@@ -4510,6 +4558,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "6d3d895e8ca44200bb1fce3f9ca5d3d0",82,21,"Companies & groups",,"Merck KGaA",2,"II - In-house lobbyists and trade/professional associations","49654992078-52",0
 "6d3a3da244ea406799f7c95683055392",82,22,"Trade, business & professional associations","CDH","Centralvereinigung Deutscher Wirtschaftsverbände für Handelsvermittlung und Vertrieb e.V.",2,"II - In-house lobbyists and trade/professional associations","64839612200-68",0
 "6d2f9dc0b5b54dc58a1c4fba1f982aac",21,31,"Non-governmental organisations, platforms and networks and similar","EUSTAFOR","European State Forest Association",3,"III - Non-governmental organisations","99982273034-52",1
+"6d2a9b79d45d4aa7bdebca5cf8b6dc05",54,31,"Non-governmental organisations, platforms and networks and similar","Vigilare","""Vigilare"", udruga za promicanje sudjelovanja građana u civilnim i političkim sektorima društva i očuvanje dostojanstva i prava pojedinca, obitelji i vrijednosti života",3,"III - Non-governmental organisations","410303617760-40",1
 "6d2886dcb051497d88559cb2eaf221be",54,41,"Think tanks and research institutions","HDBZ","Hrvatsko društvo biljne zaštite",4,"IV - Think tanks, research and academic institutions","484497615618-60",1
 "6d20195c34b445c3aa70987dd6888efc",108,24,"Other similar organisations","ITALIA ORTOFRUTTA","ITALIA ORTOFRUTTA - UNIONE NAZIONALE SOCIETA' CONSORTILE",2,"II - In-house lobbyists and trade/professional associations","08478999298-42",0
 "6d12120bd8d846f39dfc0c55442aa48b",21,22,"Trade, business & professional associations","AEL","Alliance for European Logistics",2,"II - In-house lobbyists and trade/professional associations","38033128051-39",1
@@ -4583,7 +4632,6 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "6aef0854a65e4e56833e39d1ca517436",108,11,"Professional consultancies","Sigmasei","Sigma sei",1,"I - Professional consultancies/law firms/self-employed consultants","44835178512-45",1
 "6ae55977cf8a49b9a7ec85315c19caf0",21,31,"Non-governmental organisations, platforms and networks and similar","EUN","EUN Partnership aisbl",3,"III - Non-governmental organisations","977907115068-02",1
 "6ae43b138b7346f7a60accd1296cd71a",21,31,"Non-governmental organisations, platforms and networks and similar",,"Eurodiaconia",3,"III - Non-governmental organisations","4293010684-55",6
-"6ade2ed04e4f486f9ba40c62c4402780",108,31,"Non-governmental organisations, platforms and networks and similar","S.O.N.C.M.C.","Serenissimo Ordine Nobiliare dei Cavalieri di Malta e Cilicia",3,"III - Non-governmental organisations","197933317703-22",25
 "6acb13387e784dd48f94756f77b349ec",21,41,"Think tanks and research institutions",,"Premier Cercle",4,"IV - Think tanks, research and academic institutions","944508813290-94",0
 "6ab659f731b54d0caba61cd581c7b80d",21,22,"Trade, business & professional associations","EIA","European Irrigation Association",2,"II - In-house lobbyists and trade/professional associations","837818415965-04",0
 "6ab332a5a6044bc2b99d52ab17c2f602",21,22,"Trade, business & professional associations","ELA","European Logistics Association",2,"II - In-house lobbyists and trade/professional associations","486101215470-41",0
@@ -4661,7 +4709,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "689945d0423644309aa34d1c3de74c23",82,12,"Law firms",,"Markus Nessler - Beratung & Recht",1,"I - Professional consultancies/law firms/self-employed consultants","406221917152-97",0
 "688df9629ad544cfbdeee880912c6d3a",226,21,"Companies & groups","Netcad","Netcad Software Company",2,"II - In-house lobbyists and trade/professional associations","755918017535-64",12
 "6883067f20bf45f083e0ffe571b1ba24",21,31,"Non-governmental organisations, platforms and networks and similar","CFEP","Centre for European Progression",3,"III - Non-governmental organisations","569749915015-87",1
-"687fa5974d3a491694b8bc7c17ee99dd",,22,"Trade, business & professional associations","UCM National","Union des Classes des Moyennes National",2,"II - In-house lobbyists and trade/professional associations","989992317660-93",0
+"687fa5974d3a491694b8bc7c17ee99dd",21,22,"Trade, business & professional associations","UCM National","Union des Classes des Moyennes National",2,"II - In-house lobbyists and trade/professional associations","989992317660-93",0
 "687d05d75c954755814f796e964896f2",82,41,"Think tanks and research institutions","acatech","acatech-Deutsche Akademie der Technikwissenschaften/ National Academy of Science and Engineering",4,"IV - Think tanks, research and academic institutions","07872017103-70",2
 "68793b55fe7e44fbbf754005f0af67bd",75,41,"Think tanks and research institutions","G-NOVA","G-NOVA",4,"IV - Think tanks, research and academic institutions","82902419004-91",17
 "6869af0294d04f279cd1d654288f2c12",21,11,"Professional consultancies","D&D","D&D Consulting Services",1,"I - Professional consultancies/law firms/self-employed consultants","40855887550-54",0
@@ -4669,7 +4717,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "685a3b6785e3488983607e6f8555a2dd",82,41,"Think tanks and research institutions","FhG","Fraunhofer-Gesellschaft",4,"IV - Think tanks, research and academic institutions","35124436517-75",3
 "6858f7ca9a0642c19d2de936a9602abf",82,11,"Professional consultancies","IPVIC","International Photovoltaic Investors Club",1,"I - Professional consultancies/law firms/self-employed consultants","869707217577-48",0
 "6855501f81dd4cbba9337cd13c80b4bd",234,31,"Non-governmental organisations, platforms and networks and similar","ILRF","International Labor Rights Forum",3,"III - Non-governmental organisations","956287317110-34",0
-"6853fa7c0af64a2a93f582ce86cd05b0",,31,"Non-governmental organisations, platforms and networks and similar",,"European Platform for Patients’ Organisations, Science and Industry",3,"III - Non-governmental organisations","237806117704-74",1
+"6853fa7c0af64a2a93f582ce86cd05b0",21,31,"Non-governmental organisations, platforms and networks and similar",,"European Platform for Patients’ Organisations, Science and Industry",3,"III - Non-governmental organisations","237806117704-74",1
 "684e79e6690f4a1f82c71807af1717e6",21,31,"Non-governmental organisations, platforms and networks and similar","CAE","Culture Action Europe",3,"III - Non-governmental organisations","11331097409-13",5
 "683b9223f10f40b3959ab60d0d53bee8",21,41,"Think tanks and research institutions","SE","Science Europe",4,"IV - Think tanks, research and academic institutions","73131808686-11",8
 "682532cee4dc4f94b0c97314857e42b0",14,21,"Companies & groups","UBA-GmbH","Umweltbundesamt Gesellschaft mit beschränkter Haftung",2,"II - In-house lobbyists and trade/professional associations","840436411868-20",377
@@ -4815,6 +4863,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "62cad71219c7474aae3d313148517720",75,31,"Non-governmental organisations, platforms and networks and similar",,"Avise",3,"III - Non-governmental organisations","838412814070-85",0
 "62b1cd916dc74d589b51d5d68f185f0b",233,42,"Academic institutions","KCL","King's College London",4,"IV - Think tanks, research and academic institutions","233619415222-82",0
 "62a5bf495f6148aeb546cb94c1879988",82,22,"Trade, business & professional associations","EUROMOT","European Association of Internal Combustion Engine Manufacturers - EUROMOT",2,"II - In-house lobbyists and trade/professional associations","6284937371-73",2
+"629e47a511914eb48f9dabc76006d686",108,31,"Non-governmental organisations, platforms and networks and similar","SLO","Salviamo l'Orso Associazione per la conservazione dell'orso bruno marsicano",3,"III - Non-governmental organisations","453671917474-76",9
 "62951c9811104925869b2d54a73286de",180,21,"Companies & groups","MICROEL","MICROELECTRONICA S.A.",2,"II - In-house lobbyists and trade/professional associations","986174915223-79",1
 "62937cffaa0b4dca80763020bc0f62d9",82,31,"Non-governmental organisations, platforms and networks and similar","DJV","Deutscher Jugendschutz-Verband",3,"III - Non-governmental organisations","805334410556-18",0
 "628af7c52c114a4b9bc7b827f71a1758",82,42,"Academic institutions","ZBW","ZBW - Leibniz Information Centre for Economics",4,"IV - Think tanks, research and academic institutions","65947576406-40",1
@@ -4865,7 +4914,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "6111085c9bb543b1acabd96613aea87c",75,31,"Non-governmental organisations, platforms and networks and similar","Energy Cities","Energy Cities",3,"III - Non-governmental organisations","11514322965-05",1
 "610a21e39f6d478b84019b774c2c07a9",21,31,"Non-governmental organisations, platforms and networks and similar","EEIP","Energy Efficiency in Industrial Processes",3,"III - Non-governmental organisations","66629495136-40",0
 "60f752995241450d8b5be7eb04e16be5",99,22,"Trade, business & professional associations","HOE","National Association of Recyclers",2,"II - In-house lobbyists and trade/professional associations","36107195559-59",0
-"60edd8d91f554adfac8cd1507198441a",108,42,"Academic institutions","GAFM & IBS & AAPM","GAFM Global Academy of Finance and Management Exam Center",4,"IV - Think tanks, research and academic institutions","186166514171-23",1
+"60edd8d91f554adfac8cd1507198441a",108,42,"Academic institutions","GAFM & IBS & AAPM","GAFM Global Academy of Finance and Management Standards Council",4,"IV - Think tanks, research and academic institutions","186166514171-23",1
 "60e8f13b2df247319eb4bb9f1e03b3cb",75,22,"Trade, business & professional associations","ADBU","Association des directeurs et personnels de direction des Bibliothèques Universitaires et de la documentation",2,"II - In-house lobbyists and trade/professional associations","662270213147-71",0
 "60d3c1b4afe345ea82a1d3d88480fb33",75,22,"Trade, business & professional associations","AFEP","Association Française des Entreprises Privées",2,"II - In-house lobbyists and trade/professional associations","953933297-85",3
 "60cf45f0a8384ceb9c7ed790789a78d6",82,31,"Non-governmental organisations, platforms and networks and similar","sculpture network","sculpture network",3,"III - Non-governmental organisations","37166494679-75",0
@@ -5017,6 +5066,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "5c1cca96b4404fd88aea7ebfda21fa1b",234,21,"Companies & groups","TIAA-CREF","Teachers Insurance and Annuity Association-College Retirement Equities Fund",2,"II - In-house lobbyists and trade/professional associations","884154917393-58",0
 "5c18ce670b1846689ce41cad89fa21c7",14,21,"Companies & groups","APG","Austrian Power Grid AG",2,"II - In-house lobbyists and trade/professional associations","204613612418-94",1
 "5c137a38695a4a81b3616acdd8fddd96",21,31,"Non-governmental organisations, platforms and networks and similar","CEPR","Council for European Palestinian Relations",3,"III - Non-governmental organisations","60574176433-83",2
+"5c12f0b37b484eab8a285403ba1f6f2e",108,21,"Companies & groups",,"OCTA INNOVATION",2,"II - In-house lobbyists and trade/professional associations","726888117805-23",2
 "5c0d1522e6a046e9911c2da82e135161",233,11,"Professional consultancies",,"Decideum",1,"I - Professional consultancies/law firms/self-employed consultants","038458910546-31",0
 "5c0888ac0d4447cd97172d103ca22260",21,31,"Non-governmental organisations, platforms and networks and similar","EAEA","European Association for the Education of Adults",3,"III - Non-governmental organisations","3334854676-12",3
 "5c067278951b4527ba906a894a4f72e1",108,13,"Self-employed consultants","F.I.S.C. A.S.D. A.P.","F.I.S.C. - Federazione Italiana Sport Cinofili A.S.D. A.P.S.",1,"I - Professional consultancies/law firms/self-employed consultants","934526112723-85",9
@@ -5041,6 +5091,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "5b567a11066f4b19a8977237704ef740",209,41,"Think tanks and research institutions","TEKNIKER","Fundación TEKNIKER",4,"IV - Think tanks, research and academic institutions","01152007812-56",76
 "5b4ed4cd883b4e5fb3d8c2dfe6cbbe12",215,31,"Non-governmental organisations, platforms and networks and similar",,"Kofi Annan Foundation",3,"III - Non-governmental organisations","961873216116-63",0
 "5b49dbb7817046aeb05f4dfccbafb723",21,21,"Companies & groups","SYMC","Symantec Corporation",2,"II - In-house lobbyists and trade/professional associations","3612325809-89",2
+"5b49422d934141f3b02364b4de6bec02",209,21,"Companies & groups",,"Atlantic Copper S.L.U.",2,"II - In-house lobbyists and trade/professional associations","742216017712-41",0
 "5b46f1ae53ce4d9894d37492d5f726cd",75,11,"Professional consultancies",,"CALIF",1,"I - Professional consultancies/law firms/self-employed consultants","783456217223-84",0
 "5b43dc6d8b73411aade0f304d0b1cf57",82,21,"Companies & groups",,"ZTE Europe",2,"II - In-house lobbyists and trade/professional associations","861490216611-57",1
 "5b417adcfe554967aa989ce458654574",21,31,"Non-governmental organisations, platforms and networks and similar","CELEP","Coalition of European Lobbies on Eastern African Pastoralism",3,"III - Non-governmental organisations","76932284955-08",0
@@ -5051,11 +5102,12 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "5b302ade5e734ce88ec0ed0be69a199c",233,22,"Trade, business & professional associations",,"CFA Society of the UK",2,"II - In-house lobbyists and trade/professional associations","817108014753-38",0
 "5b2915fd39dd43fe8c47f34bc1761963",82,51,"Organisations representing churches and religious communities",,"Kommissariat der deutschen Bischöfe - Katholisches Büro in Berlin -",5,"V - Organisations representing churches and religious communities","524375510752-92",0
 "5b22161dfc2048e682e5c5399a02ebc7",59,61,"Local, regional and municipal authorities (at sub-national level)",,"IKA",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","35752786566-81",2
+"5b1c1c5aa977470094a674b51c3de48c",82,31,"Non-governmental organisations, platforms and networks and similar","Biotop-Fonds OL-DEL","Biotop-Fonds der Jägerschaft Oldenburg-Delmenhorst e.V.",3,"III - Non-governmental organisations","809034117826-51",0
 "5b0c3466edba498d821399aa386e75c9",108,22,"Trade, business & professional associations","ASSORETI","Associazione delle Società per la Consulenza agli Investimenti",2,"II - In-house lobbyists and trade/professional associations","43106565215-92",1
 "5b0a61784a1e48298fed2942a2952ace",82,22,"Trade, business & professional associations","MEW","MEW Mittelständische Energiewirtschaft Deutschland e.V.",2,"II - In-house lobbyists and trade/professional associations","550558011475-69",1
 "5afb0d7e73f5417f8f431d68b8d7e7b9",99,31,"Non-governmental organisations, platforms and networks and similar","European CSR","Ezüstkanál Nyugdíjas Társasági, Környezet- és Természetvédelmi Egyesület/Senior Corporate Silver Spoon, Environment and Nature Association",3,"III - Non-governmental organisations","30399232694-16",3
 "5aed1ad427a1457ead28b05adb4e254d",21,31,"Non-governmental organisations, platforms and networks and similar","EQuAMA","European Quarter Area Management Association",3,"III - Non-governmental organisations","646724913522-40",0
-"5ae24a45b8db4408a66f4f2814246e32",155,41,"Think tanks and research institutions",,"Center of global transformation",4,"IV - Think tanks, research and academic institutions","414887714121-44",0
+"5ae24a45b8db4408a66f4f2814246e32",155,41,"Think tanks and research institutions",,"Institute of global transformation",4,"IV - Think tanks, research and academic institutions","414887714121-44",1
 "5ad2ca271028477e98adea35e0810938",21,22,"Trade, business & professional associations","FEPI","European Council of Nursing Regulators",2,"II - In-house lobbyists and trade/professional associations","7515130179-20",1
 "5abf83524e3f4ef78e950da853c79020",75,31,"Non-governmental organisations, platforms and networks and similar","MakeSense","MakeSense",3,"III - Non-governmental organisations","126709116455-44",0
 "5abecd75a8374d2eb0651e1430834ca9",233,22,"Trade, business & professional associations","AIC","Agricultural Industries Confederation Ltd",2,"II - In-house lobbyists and trade/professional associations","123852915269-65",6
@@ -5133,6 +5185,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "57e8b2edcf4c49acb2b821ec03c5b92d",75,22,"Trade, business & professional associations","GUIDE-GNSS","GNSS Usage Innovation and Development of Excellence",2,"II - In-house lobbyists and trade/professional associations","375050911599-57",2
 "57d0f54303e546758fad8f6e3063a4ba",21,13,"Self-employed consultants",,"Ludivine Félix",1,"I - Professional consultancies/law firms/self-employed consultants","579845713362-69",1
 "57ceb76fcaa641b495c12471e3a4b73e",21,31,"Non-governmental organisations, platforms and networks and similar","ALTER-EU","Alliance for Lobbying Transparency and Ethics Regulation",3,"III - Non-governmental organisations","2694372574-63",3
+"57c5eead13874b50bf578a95b1b14527",209,11,"Professional consultancies","Enertika","Ingenieria y Servicios de eficiencia energetica SL",1,"I - Professional consultancies/law firms/self-employed consultants","443946417822-22",50
 "57c1ea6562ff4098af9c2de33913d361",82,22,"Trade, business & professional associations","FENCA","Federation of European National Collection Associations",2,"II - In-house lobbyists and trade/professional associations","69597322458-18",0
 "57bf51ea850c4684a6b3a0d95a733daf",21,31,"Non-governmental organisations, platforms and networks and similar",,"FERN",3,"III - Non-governmental organisations","40538475090-82",11
 "57bb72abbfe44826803cf7bd1100d8b7",129,31,"Non-governmental organisations, platforms and networks and similar","BCSDN","Balkan Civil Society Developmet Network",3,"III - Non-governmental organisations","63794152825-82",6
@@ -5157,7 +5210,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "5760c694b6434373aa196616f81e2df2",214,22,"Trade, business & professional associations","KCEM","KCEM AB",2,"II - In-house lobbyists and trade/professional associations","553490316852-08",1
 "575d118d178c40fbb944e32238203698",180,11,"Professional consultancies","PPA","Point Public Affairs",1,"I - Professional consultancies/law firms/self-employed consultants","84063994168-23",0
 "575b7f4e1e02477fa5edbd7436769c0b",21,51,"Organisations representing churches and religious communities",,"Chapel for Europe",5,"V - Organisations representing churches and religious communities","684096310631-20",1
-"57355c76531645209fea7e8e6f413693",21,22,"Trade, business & professional associations","EPIA","European Photovoltaic Industry Association",2,"II - In-house lobbyists and trade/professional associations","2680046412-48",6
+"57355c76531645209fea7e8e6f413693",21,22,"Trade, business & professional associations",,"EPIA SolarPower Europe",2,"II - In-house lobbyists and trade/professional associations","2680046412-48",6
 "57271b4d0b8f4ba48dae725c59b5b153",75,22,"Trade, business & professional associations","CMF","Cluster Maritime Français",2,"II - In-house lobbyists and trade/professional associations","876697915814-91",0
 "572716146f7942169c1703a1fc3c6bc0",14,31,"Non-governmental organisations, platforms and networks and similar","VIRUS","VIRUS - Verein Projektwerkstatt für Umwelt und Soziales",3,"III - Non-governmental organisations","89377373434-32",0
 "571bd86c4dd842cfb62f89189280521e",233,21,"Companies & groups","S&P","Sarasin & Partners LLP",2,"II - In-house lobbyists and trade/professional associations","956714817197-49",0
@@ -5170,6 +5223,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "56f671002429443cab141674a7186792",233,31,"Non-governmental organisations, platforms and networks and similar","SA","Soil Association",3,"III - Non-governmental organisations","543698010969-83",1
 "56ef5e3f3b8349aebec934617d24d3b3",226,22,"Trade, business & professional associations","MUSİAD","Müstakil Sanayici ve İşadamları Derneği (Independent Industrialists and Businessmen's Association)",2,"II - In-house lobbyists and trade/professional associations","892985911073-36",2
 "56ded2acca314e84a983988e7c530a02",155,31,"Non-governmental organisations, platforms and networks and similar","IFMSA","International Federation of Medical Students' Associations",3,"III - Non-governmental organisations","431215415539-52",0
+"56db666ec9ba411a853952c007971519",233,21,"Companies & groups",,"Sustainable Aviation",2,"II - In-house lobbyists and trade/professional associations","595203617758-83",1
 "56c5e9737d024549b92e5b3f273a3d0d",21,31,"Non-governmental organisations, platforms and networks and similar","EAR","European Academy of the Regions",3,"III - Non-governmental organisations","925546214858-78",0
 "56c164a81a174563a576ec020c19a584",82,22,"Trade, business & professional associations",,"erdgas mobil e. V.",2,"II - In-house lobbyists and trade/professional associations","48838196790-63",0
 "56bb8e80b65f48cb9eb13f62dec8725b",58,31,"Non-governmental organisations, platforms and networks and similar","PEMC","Platform of European Memory and Conscience",3,"III - Non-governmental organisations","571941915067-62",4
@@ -5237,6 +5291,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "54acc9c233534a3b873ccdd31ed76d88",105,31,"Non-governmental organisations, platforms and networks and similar",,"Children's Rights Alliance Ireland",3,"III - Non-governmental organisations","13019323995-97",0
 "54a567a6dd454450a5c5e6d9077f1988",21,61,"Local, regional and municipal authorities (at sub-national level)","FOMU","AP FotoMuseum Provincie Antwerpen",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","353054713089-56",22
 "549cc612aa424acb9911ccdba893c6ba",75,21,"Companies & groups",,"MERIAL",2,"II - In-house lobbyists and trade/professional associations","497945417142-72",0
+"5491fe884635434d8ef9a81a2c5a8d88",209,22,"Trade, business & professional associations","AAEF","ASOCIACIÓN DE EMPRESAS FORESTALES Y PAISAJÍSTICAS DE ANDALUCIA",2,"II - In-house lobbyists and trade/professional associations","178836117777-57",0
 "5489f7dafe65411390531636d15cb238",59,22,"Trade, business & professional associations","F&L","Finans og Leasing",2,"II - In-house lobbyists and trade/professional associations","45302097366-82",0
 "5481182872c14866bffff825785c6477",21,31,"Non-governmental organisations, platforms and networks and similar","EURASHE","European Association of Institutions in Higher Education",3,"III - Non-governmental organisations","622449913391-69",1
 "547c4149b8ec45fe92550ff901d0dba5",155,31,"Non-governmental organisations, platforms and networks and similar",,"Vereniging IFR PRO-PILOT",3,"III - Non-governmental organisations","465256414196-68",0
@@ -5391,6 +5446,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "4f8bc9b66658473cab5f954c420fcc52",21,31,"Non-governmental organisations, platforms and networks and similar","ECETOC","European Centre for Ecotoxicology and Toxicology of Chemicals",3,"III - Non-governmental organisations","07168816617-21",1
 "4f8a4081966e4cc1adfb85c033be76d8",21,21,"Companies & groups",,"VAT Forum",2,"II - In-house lobbyists and trade/professional associations","01068149340-74",0
 "4f893c5fbb514714833952a600ec660c",75,13,"Self-employed consultants",,"ITAL ASSIST",1,"I - Professional consultancies/law firms/self-employed consultants","129479811982-70",0
+"4f7fce3f0fdc493f905f90193de9970b",233,21,"Companies & groups","smat","SMAT formation Ltd",2,"II - In-house lobbyists and trade/professional associations","358476217708-15",3
 "4f7efb08a3fa4c7ea3814bec57aea5c4",234,11,"Professional consultancies","CA","Climate Advisers",1,"I - Professional consultancies/law firms/self-employed consultants","042086716078-96",1
 "4f7c7fd85c0b42c2a3d4a548bd700808",233,22,"Trade, business & professional associations","AMDEA","Association of Manufacturers of Domestic Appliances",2,"II - In-house lobbyists and trade/professional associations","68988128250-54",6
 "4f6e19de23f341b78f07fc14382fd600",233,22,"Trade, business & professional associations","ITPAC","The Imported Tobacco Products Advisory Council",2,"II - In-house lobbyists and trade/professional associations","68037164462-39",1
@@ -5514,6 +5570,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "4b717a24de0a4f6f85dd71d41fc653b3",82,22,"Trade, business & professional associations","ZVO","Zentralverband Oberflächentechnik e.V.",2,"II - In-house lobbyists and trade/professional associations","00975784840-38",1
 "4b6d53cf15fb4fe6aaa094045cdfdd91",21,11,"Professional consultancies",,"Deloitte Services & Investments",1,"I - Professional consultancies/law firms/self-employed consultants","53994278504-37",1
 "4b58740641684c9b8b789e281f98809d",21,21,"Companies & groups","BDO","BDO/Brussels Worldwide Services BVBA",2,"II - In-house lobbyists and trade/professional associations","36576556470-62",2
+"4b4defc1f25147d486516caae66a405b",82,31,"Non-governmental organisations, platforms and networks and similar",,"aktion ./. arbeitsunrecht Initiative für Demokratie in Wirtschaft und Betrieb e.V.",3,"III - Non-governmental organisations","292998117761-45",1
 "4b4d8e00fa794090a185b7f4fbd32609",209,31,"Non-governmental organisations, platforms and networks and similar","FIJC","Fundacio Privada Internacional Josep Carreras",3,"III - Non-governmental organisations","09176682973-55",0
 "4b4a4e0035684525adf41a57db8182fc",209,22,"Trade, business & professional associations","UP","UNIÓN PROFESIONAL",2,"II - In-house lobbyists and trade/professional associations","57238506728-24",4
 "4b44a4a33be2439fb11a32a38c3cad51",108,22,"Trade, business & professional associations","ASSOBIOPLASTICHE","associazione italiana delle bioplastiche e dei materiali biodegradabili e compostabili",2,"II - In-house lobbyists and trade/professional associations","84791296291-88",0
@@ -5577,6 +5634,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "490714f2e4f94297a61ecca19da72a85",21,13,"Self-employed consultants","CHRIXO","De Smedt Christiaan Henri M /CHRIXO",1,"I - Professional consultancies/law firms/self-employed consultants","994133511255-55",1
 "48ec620a18ef4f5091f67672a19e1835",14,22,"Trade, business & professional associations","FV Steine-Keramik","Fachverband der Stein- und keramischen Industrie",2,"II - In-house lobbyists and trade/professional associations","35832214158-18",0
 "48e88f0338ca49c6afdbbfb6ddd5383f",21,31,"Non-governmental organisations, platforms and networks and similar","GEM+","Pour une Gouvernance Européenne Multilingue",3,"III - Non-governmental organisations","039384116698-93",15
+"48d67dec725f45289b02a9673686d9d9",234,31,"Non-governmental organisations, platforms and networks and similar",,"Eaton Vance Management",3,"III - Non-governmental organisations","468153817764-02",5
 "48d62ec99e22422fbf52b0fd1d7909a7",234,31,"Non-governmental organisations, platforms and networks and similar","R.I.","ROTARY INTERNATIONAL",3,"III - Non-governmental organisations","512870513007-47",2
 "48bac68bbb90450f9b5f283643f9d1a8",234,21,"Companies & groups",,"Edwards Lifesciences",2,"II - In-house lobbyists and trade/professional associations","610682813051-39",0
 "48ba4263dbc9495686f732cb25fe0a9c",233,31,"Non-governmental organisations, platforms and networks and similar","BHS","British Herpetological Society",3,"III - Non-governmental organisations","21692168573-63",1
@@ -5662,6 +5720,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "45fb86828b834f4caa9a4ee8863cd3c0",214,22,"Trade, business & professional associations","SFB","Svenska Flygbranschen",2,"II - In-house lobbyists and trade/professional associations","516569711859-97",0
 "45eafdb9ffa6423383c00f3ce6d58d18",233,22,"Trade, business & professional associations","The MAA","The Manufacturers' Agents' Association of Great Britain and Ireland Incorporated",2,"II - In-house lobbyists and trade/professional associations","324216914679-04",5
 "45e877156ed5494daae6af22ec9d5ab6",234,31,"Non-governmental organisations, platforms and networks and similar","IRC","International Rescue Committee Inc",3,"III - Non-governmental organisations","66790095679-26",1
+"45e5b2383d26478c980a41f3989395bf",234,21,"Companies & groups",,"InterDigital, Inc.",2,"II - In-house lobbyists and trade/professional associations","787513017798-23",0
 "45e1636b2b4547e993bb24e7fb4fe56c",75,31,"Non-governmental organisations, platforms and networks and similar","OFEDH","Organisation Franco Egyptienne pour les Droits de l'Homme",3,"III - Non-governmental organisations","556855015490-60",1
 "45e086ab34e744beb015f07c6b03407b",100,21,"Companies & groups","CRI","Carbon Recycling International ehf.",2,"II - In-house lobbyists and trade/professional associations","049800311195-76",0
 "45dc6d179e34404ca89c78cd28533230",85,22,"Trade, business & professional associations","OESYNE","Federation of Hellenic Associations of Young Entrepreneurs",2,"II - In-house lobbyists and trade/professional associations","13823036174-60",0
@@ -5670,6 +5729,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "45d131d2dfe84ed28a2de5a1dd849a05",108,13,"Self-employed consultants","MM","Studio Maraglino",1,"I - Professional consultancies/law firms/self-employed consultants","668656115970-68",0
 "45cefc2425ad4af59185fc68c185f6d3",21,22,"Trade, business & professional associations","BEAF","Bureau Européen de l'Agriculture Française",2,"II - In-house lobbyists and trade/professional associations","23921286363-39",4
 "45ca76d689564de58ede723af0abc6ff",82,41,"Think tanks and research institutions","ESI","Europäische Stabilitäts-Initiative e.V.",4,"IV - Think tanks, research and academic institutions","545618415097-69",1
+"45c379ba2ebf493cb76069dfbd3625d2",233,21,"Companies & groups","ESA","European Sponsorship Association",2,"II - In-house lobbyists and trade/professional associations","327568117807-24",0
 "45c32fceccac4fbb94cf5b349bc25670",181,21,"Companies & groups","JSCo RZD","JSC Russian Railways",2,"II - In-house lobbyists and trade/professional associations","924447316659-52",0
 "45c21055d80e46678ee9e28b954632b3",165,62,"Other public or mixed entities, etc.","RCN","The Research Council of Norway",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","833569212328-68",1
 "45bb143e43b74de3b5028e7be0168af2",155,31,"Non-governmental organisations, platforms and networks and similar","EMH","European Maritime Heritage",3,"III - Non-governmental organisations","172022811006-14",0
@@ -5865,7 +5925,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "3fd41976ad4643a2b8029d01a55556c1",82,41,"Think tanks and research institutions","AWI","Alfred-Wegener-Institut, Helmholtz-Zentrum für Polar- und Meeresforschung",4,"IV - Think tanks, research and academic institutions","04974299180-63",0
 "3fca08b5f68d46c8875c452318870adb",108,24,"Other similar organisations","F.I.P.I.A.","Federazione Italiana Pesca In Apnea",2,"II - In-house lobbyists and trade/professional associations","108741511824-07",0
 "3fc9ee67b22d44e9a9356ee944f521b3",233,22,"Trade, business & professional associations","The 100 Group","The Hundred Group of Finance Directors",2,"II - In-house lobbyists and trade/professional associations","644009216018-24",0
-"3fc9290a33544e7284bc8ac8715172da",155,31,"Non-governmental organisations, platforms and networks and similar","BirdLife Europe","Stichting BirdLife Europe",3,"III - Non-governmental organisations","1083162721-43",14
+"3fc9290a33544e7284bc8ac8715172da",155,31,"Non-governmental organisations, platforms and networks and similar","BirdLife Europe","Stichting BirdLife Europe",3,"III - Non-governmental organisations","1083162721-43",15
 "3fb7b74fe41142189c369c710fdb20d0",135,31,"Non-governmental organisations, platforms and networks and similar","GRF","genista research foundation",3,"III - Non-governmental organisations","364565210333-78",0
 "3fb7b228984e43b1baf59f0da37a8d61",75,22,"Trade, business & professional associations","GICAN","Groupement des Industries de Construction et Activités Navales",2,"II - In-house lobbyists and trade/professional associations","251727115825-26",0
 "3faa7e4a57fa4b71931a311a7d1f95be",234,21,"Companies & groups","Access Industries","Access Industries",2,"II - In-house lobbyists and trade/professional associations","066359416494-95",0
@@ -5957,6 +6017,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "3d133a58b0974e1ebc0bc657a0ed32a5",75,31,"Non-governmental organisations, platforms and networks and similar","FAFCE","Fédération des Associations Familiales Catholiques en Europe",3,"III - Non-governmental organisations","509209111889-44",1
 "3d0a3488aa5542a7a5f564027c8d0f97",129,21,"Companies & groups","RA","Ramadani Abdulxhemil",2,"II - In-house lobbyists and trade/professional associations","576121012471-77",100
 "3d0986f618034e87a02ac60d095d1477",233,21,"Companies & groups",,"American Express Corporation",2,"II - In-house lobbyists and trade/professional associations","671547715580-60",0
+"3d0407c25b1d42f68b19b224586cc044",21,31,"Non-governmental organisations, platforms and networks and similar",,"EIT Digital",3,"III - Non-governmental organisations","241696917766-40",1
 "3cff07771e57480e82fe3e70bbc59b6c",155,21,"Companies & groups",,"VanDrie Group",2,"II - In-house lobbyists and trade/professional associations","095285315431-70",0
 "3cf072596ab241e09988304c02a3e398",21,22,"Trade, business & professional associations","AICV","European Cider and Fruit Wine Association",2,"II - In-house lobbyists and trade/professional associations","27459429876-64",0
 "3cd963c448aa4b79919ca49bf3de2600",176,22,"Trade, business & professional associations","SFP","Stowarzyszenie Filmowców Polskich",2,"II - In-house lobbyists and trade/professional associations","122158812891-33",0
@@ -5983,6 +6044,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "3c294d9b610f4c95a0fefaa29450f863",75,24,"Other similar organisations","CNOM","Conseil National de l'Ordre des Médecins",2,"II - In-house lobbyists and trade/professional associations","46314992900-82",0
 "3c26260a38cc4b3ebcf3fc4833ad1d75",233,41,"Think tanks and research institutions",,"RAND Europe",4,"IV - Think tanks, research and academic institutions","055428317246-43",15
 "3c16a1266e754518a271c3068be26b8a",82,22,"Trade, business & professional associations","FFII","Foundation for a Free Information Infrastructure",2,"II - In-house lobbyists and trade/professional associations","903724910906-52",2
+"3c0d1913c1d944b1a28643d92c01b048",21,22,"Trade, business & professional associations","EMPA","European Melamine Producers Association",2,"II - In-house lobbyists and trade/professional associations","717101617809-28",0
 "3c04cf1ebe8942f791508e145870beb9",82,11,"Professional consultancies",,"Maurus Consulting GmbH",1,"I - Professional consultancies/law firms/self-employed consultants","641446710469-35",1
 "3bfef0c00bf94b50be3067365b8f02d1",14,31,"Non-governmental organisations, platforms and networks and similar","ETG","Eurasian Transition Group",3,"III - Non-governmental organisations","414873514797-14",2
 "3bfd5053260a44c7b074bc28798d17f4",233,22,"Trade, business & professional associations","IPRA","International Public Relations Association",2,"II - In-house lobbyists and trade/professional associations","59893117192-26",0
@@ -6121,12 +6183,14 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "37dfb333e22b491c86e1694baf26d9f2",177,22,"Trade, business & professional associations","CETS","CONSELHO EMPRESARIAL DO TÂMEGA E SOUSA",2,"II - In-house lobbyists and trade/professional associations","368766714131-58",3
 "37d7575f218b419a85cf6294f2189fd8",180,31,"Non-governmental organisations, platforms and networks and similar","KGSC Community","Asociatia Know, Grow, Share & Change Community",3,"III - Non-governmental organisations","647028713360-41",12
 "37cfd2279f2445c2b726987cf5f8b0c5",108,13,"Self-employed consultants",,"Veniceside",1,"I - Professional consultancies/law firms/self-employed consultants","006386716460-51",0
+"37cf722f22e241f5aca89dd97b285845",82,31,"Non-governmental organisations, platforms and networks and similar",,"Initiative Wald mit Wild",3,"III - Non-governmental organisations","705376917728-85",0
 "37c711034918433384c51aa2be0f0ab3",234,11,"Professional consultancies","AG","Augustus Global LLC",1,"I - Professional consultancies/law firms/self-employed consultants","449074917633-12",2
 "37b8f4862b7340a9a2165ec080a97d9c",82,21,"Companies & groups","DB","Deutsche Bahn AG",2,"II - In-house lobbyists and trade/professional associations","4516220482-22",4
 "376e3b5cd77145e1bb40dea844310330",75,22,"Trade, business & professional associations","C.E.P.M","Confédération Européenne de la Production de Maïs",2,"II - In-house lobbyists and trade/professional associations","583664013504-15",2
 "376350713dee45799e3e462c0da017b5",199,21,"Companies & groups","SGX","Singapore Exchange Limited",2,"II - In-house lobbyists and trade/professional associations","812438516709-37",1
 "374487b831324cfdbcdc0e6d37dd5c1c",75,31,"Non-governmental organisations, platforms and networks and similar","FIM","INTERNATIONAL FEDERATION OF MUSICIANS",3,"III - Non-governmental organisations","01953872943-65",0
 "373fb11741ea470f98ff564bdb9a5452",155,31,"Non-governmental organisations, platforms and networks and similar","BE","Both ENDS",3,"III - Non-governmental organisations","15018461696-11",2
+"37072d4490d9444da70f5176f1d3dfcc",14,31,"Non-governmental organisations, platforms and networks and similar",,"ARGE Kompost & Biogas Österreich",3,"III - Non-governmental organisations","480779417713-69",0
 "36fed157b0014c98816c68573dfef7b6",234,21,"Companies & groups","SPE","Sony Pictures Entertainment Inc.",2,"II - In-house lobbyists and trade/professional associations","925398116167-82",0
 "36f3f59c7e7a4306a96be0d1f1e7cf3e",209,31,"Non-governmental organisations, platforms and networks and similar",,"OCEANA",3,"III - Non-governmental organisations","47937943241-80",2
 "36eee24c2197456dabc5ece859875267",202,41,"Think tanks and research institutions","GeoZS","Geological Survey of Slovenia",4,"IV - Think tanks, research and academic institutions","42093214201-74",1
@@ -6392,6 +6456,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "2e207340d06f462c9b3a748d448613e8",59,22,"Trade, business & professional associations","AC","Akademikerne",2,"II - In-house lobbyists and trade/professional associations","622547314676-47",0
 "2e1e583f0a3847759b0c12da48fa99b7",21,22,"Trade, business & professional associations","EAAM","European Association for Aquatic Mammals",2,"II - In-house lobbyists and trade/professional associations","629585111323-32",3
 "2e1af223b6e54c3fa2581112fea3246b",233,21,"Companies & groups",,"Cuckmere Trug Company",2,"II - In-house lobbyists and trade/professional associations","134967914038-13",1
+"2e15da6a810b420d923f4743167cf0e2",75,22,"Trade, business & professional associations","FNUJA","Fédération Nationale des Unions des Jeunes Avocats",2,"II - In-house lobbyists and trade/professional associations","232498917754-25",5
 "2e12a35907c94c12b5da5b1374d19fe7",233,31,"Non-governmental organisations, platforms and networks and similar","Keep NI Beautiful","Keep Northern Ireland Beautiful",3,"III - Non-governmental organisations","295192412054-52",1
 "2e0dc12d63a54417b6b2db032ce7d260",82,21,"Companies & groups","GEMA","Gesellschaft für musikalische Aufführungs- und mechanische Vervielfältigungsrechte",2,"II - In-house lobbyists and trade/professional associations","63284686285-78",1
 "2df0df0e86b348abadd2e4f5d7c8280c",233,22,"Trade, business & professional associations","REA","Renewable Energy Association",2,"II - In-house lobbyists and trade/professional associations","97560524441-16",1
@@ -6424,6 +6489,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "2d27a95254f74579a472a0a8923ff6fd",233,41,"Think tanks and research institutions",,"Open Europe",4,"IV - Think tanks, research and academic institutions","73494557272-88",8
 "2d25f14da07e4530962e05c871082c07",82,31,"Non-governmental organisations, platforms and networks and similar",,"Bundesverband Deutscher Stiftungen",3,"III - Non-governmental organisations","59764204061-33",19
 "2d2562c7bb3f4f8e9fe16f6fbbcf90a5",99,22,"Trade, business & professional associations","VHT","Vágóállat és Hús Szakmaközi Szervezet és Terméktanács",2,"II - In-house lobbyists and trade/professional associations","246873617244-60",0
+"2d24b31db59c446e9e306e1d509315ce",75,31,"Non-governmental organisations, platforms and networks and similar","WIL Europe","European Network for Women in Leadership",3,"III - Non-governmental organisations","290784516944-56",1
 "2d1a7981a27f4caeb5a8f43eeb02de47",75,21,"Companies & groups",,"GROUPE CANAL+",2,"II - In-house lobbyists and trade/professional associations","645753416723-84",1
 "2d149150b87b44c8a5c3aa0f6586c5bf",209,31,"Non-governmental organisations, platforms and networks and similar","EDbN","European Deafblind Network",3,"III - Non-governmental organisations","535776713965-43",1
 "2cf13303b19449bf9ee995d4b3b98dfe",85,21,"Companies & groups","Prisma","Prisma Electronics SA",2,"II - In-house lobbyists and trade/professional associations","31843962957-96",21
@@ -6862,6 +6928,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "1d2b37682d394e4e86919f15d92f5708",21,22,"Trade, business & professional associations","UEPC","Union Européenne des Promoteurs-Constructeurs",2,"II - In-house lobbyists and trade/professional associations","80003592094-64",0
 "1d25f78b105543cbb16e566bf81ce92a",233,22,"Trade, business & professional associations","ETOA","European tourism association",2,"II - In-house lobbyists and trade/professional associations","700500614404-28",1
 "1d1be6ebb0404e69877519712500d766",126,41,"Think tanks and research institutions","VPVI/ PPMI","VšĮ ""Viešosios politikos ir vadybos institutas""",4,"IV - Think tanks, research and academic institutions","434975917349-94",100
+"1d0bb26c5e5b4bc4b932f98dace1757b",21,22,"Trade, business & professional associations","EEA","European Elevator Association",2,"II - In-house lobbyists and trade/professional associations","471970117739-42",2
 "1d01ab5d46444401aed15fde29bae518",21,31,"Non-governmental organisations, platforms and networks and similar","A.E.I.A.R.","Association Européenne des Institutions d'Aménagement Rural",3,"III - Non-governmental organisations","50868489948-77",0
 "1cf3d95955f842c1a351f6bcd18c0f20",209,22,"Trade, business & professional associations","INVERCO","Asociación de Instituciones de Inversión Colectiva y Fondos de Pensiones",2,"II - In-house lobbyists and trade/professional associations","648651917120-02",2
 "1cf153551037494eb13e90f65d210d3f",233,21,"Companies & groups","HLF","Herbalife Europe Limited",2,"II - In-house lobbyists and trade/professional associations","30426456664-32",2
@@ -7112,6 +7179,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "150a9ceacee847128c6cc7edc1fe525f",209,21,"Companies & groups","ANA","ACCIONA, S.A.",2,"II - In-house lobbyists and trade/professional associations","451019811573-55",0
 "150a26037b2147718d8ed6618c49b697",14,24,"Other similar organisations","VFRÖ","Verband Freier Radios Österreich",2,"II - In-house lobbyists and trade/professional associations","898973212735-08",0
 "14fe55e440cb46fba2249948fc7e45cf",75,24,"Other similar organisations","ECC","Europe Culture & Citoyenneté",2,"II - In-house lobbyists and trade/professional associations","846740410675-03",2
+"14fb66249b5c4c048cae32083f97644d",75,22,"Trade, business & professional associations","FIANET","Féderation Internationale des Asssociations Nationales d’Exploitants de Téléphériques,  funiculaires et autres installations de transports par câble, pour voyageurs",2,"II - In-house lobbyists and trade/professional associations","863600617718-51",0
 "14f765b0b10f441ab641ca0be7b5578b",75,21,"Companies & groups","ST","STMicroelectronics",2,"II - In-house lobbyists and trade/professional associations","70843878143-13",2
 "14e841815d9a4293b247f22ec9ac5754",21,41,"Think tanks and research institutions","CEPS","Centre for European Policy Studies",4,"IV - Think tanks, research and academic institutions","86853666704-95",50
 "14dae510c5ef4086b24a40d5164f5157",108,41,"Think tanks and research institutions","EURAC","Europäische Akademie Bozen",4,"IV - Think tanks, research and academic institutions","64226865049-04",100
@@ -7256,6 +7324,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "104c97f6466f4c1998f56bd6a76c9e58",75,31,"Non-governmental organisations, platforms and networks and similar","taca","Association taca (agir pour le climat)",3,"III - Non-governmental organisations","409770911791-28",5
 "1048b21bddda4abdba8543ca7cab7e33",82,41,"Think tanks and research institutions","KDM","German Marine Research Consortium",4,"IV - Think tanks, research and academic institutions","94603465987-30",2
 "10458085048d449aa9ae55c9fd2f0296",82,22,"Trade, business & professional associations","GDV","Gesamtverband der Deutschen Versicherungswirtschaft e.V.",2,"II - In-house lobbyists and trade/professional associations","6437280268-55",14
+"10448fb283194cfe8572a23f0fb5ae94",82,41,"Think tanks and research institutions","IfW","Institut für Weltwirtschaft",4,"IV - Think tanks, research and academic institutions","071476117686-50",43
 "10418206bc72486d8ffcab703f237837",21,22,"Trade, business & professional associations",,"Bouwunie",2,"II - In-house lobbyists and trade/professional associations","58156025957-90",0
 "103fb92896bb4e2ab24003a3a0d964ce",176,31,"Non-governmental organisations, platforms and networks and similar","POLFARMED","Polska Izba Przemysłu Farmaceutycznego i Wyrobów Medycznych POLFARMED",3,"III - Non-governmental organisations","82909919628-05",0
 "102c48df73874a8585ca57ea69bd5035",75,41,"Think tanks and research institutions",,"L'Agora Jeunes en Europe / Young Europeans Agora",4,"IV - Think tanks, research and academic institutions","993365916919-37",0
@@ -7369,6 +7438,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "0c8ebebcfc2f4e3eb6a6684f3d35d3db",127,21,"Companies & groups","AM","ArcelorMittal",2,"II - In-house lobbyists and trade/professional associations","23527541824-60",4
 "0c8af1bd036940c3b8b8b601af64e9cb",209,13,"Self-employed consultants",,"ELSA &PARTNERS",1,"I - Professional consultancies/law firms/self-employed consultants","462142617062-10",1
 "0c8aa2bfdacb49cb9de7d6c0e3c409ed",233,31,"Non-governmental organisations, platforms and networks and similar","FTE","Fair Trials Europe",3,"III - Non-governmental organisations","302540016347-29",2
+"0c8693aeec0e4c1ea528644fde7c6d55",180,31,"Non-governmental organisations, platforms and networks and similar","ZETELAKA","AVPS ZETELAKA ES TARSAI",3,"III - Non-governmental organisations","093824317762-20",80
 "0c7ae50f030c4e18bd2d75db47c0a229",155,22,"Trade, business & professional associations","VNCI","Vereniging van de Nederlandse Chemische Industrie",2,"II - In-house lobbyists and trade/professional associations","78753091151-50",2
 "0c78ed96ebc349b4a137fa2dc93da4fc",21,22,"Trade, business & professional associations","SEAP","Society of European Affairs Professionals",2,"II - In-house lobbyists and trade/professional associations","9264296748-42",0
 "0c6df94ee7914570a38d2adb3e47453d",45,22,"Trade, business & professional associations","EUCCC","European Union Chamber of Commerce in China",2,"II - In-house lobbyists and trade/professional associations","592343015058-67",0
@@ -7377,6 +7447,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "0c63d79149904a07802bcbdf6c16efab",155,13,"Self-employed consultants","JPA","Jilleba Public Affairs",1,"I - Professional consultancies/law firms/self-employed consultants","892755315889-69",0
 "0c63a6b4645749808e8e692c2b9e447f",75,61,"Local, regional and municipal authorities (at sub-national level)","IdFE","Ile-de-France Europe",6,"VI - Organisations representing local, regional and municipal authorities, other public or mixed entities, etc.","86172696311-16",8
 "0c492d17d9034f32af6096a3ea0e39a9",233,22,"Trade, business & professional associations","ECU","European Chiropractors' Union",2,"II - In-house lobbyists and trade/professional associations","43612725310-63",0
+"0c3e1e784bdf4f949da2abde670857c7",108,31,"Non-governmental organisations, platforms and networks and similar",,"Consorzio Remedia",3,"III - Non-governmental organisations","947770317755-01",1
 "0c37c3102ea84835a8837efa10499950",177,22,"Trade, business & professional associations","ACIBEV","Associação de Vinhos e Espirituosas de Portugal",2,"II - In-house lobbyists and trade/professional associations","612904817011-64",0
 "0c30dbd31f264f52bbca8cdb3c844b73",21,22,"Trade, business & professional associations","COGEN Europe","The European Association for the Promotion of Cogeneration",2,"II - In-house lobbyists and trade/professional associations","38305846546-70",3
 "0c21d9c656de4ae4b7e42abfa680ad33",75,42,"Academic institutions","PAF","Performing Arts Forum",4,"IV - Think tanks, research and academic institutions","26966582061-93",2
@@ -7399,6 +7470,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "0b7f6579ba204290a11c5d61b5b30d22",209,22,"Trade, business & professional associations","CPITIA","Colegio Profesional de Ingenieros Técnicos en Informática de Andalucía",2,"II - In-house lobbyists and trade/professional associations","782705212521-03",0
 "0b7a9c6b13b4487d9fd35eb345d67930",14,11,"Professional consultancies","communicationmatters","communication matters Kollmann & Partner Public Relations GmbH",1,"I - Professional consultancies/law firms/self-employed consultants","043063314596-74",0
 "0b6d0bcb494c463cb479eea21f0560e6",82,41,"Think tanks and research institutions","WIK","WIK Wissenschaftliches Institut für Infrastruktur und Kommunikationsdienste GmbH",4,"IV - Think tanks, research and academic institutions","469802815536-67",0
+"0b6227ed37d242adb08decf325da6c2e",233,11,"Professional consultancies",,"Quigg Golden",1,"I - Professional consultancies/law firms/self-employed consultants","973004117732-42",0
 "0b6164f4e20748d6be9e934dff82f85c",215,24,"Other similar organisations","ESTAL","European association for Surface Treatment on Aluminium",2,"II - In-house lobbyists and trade/professional associations","48093185331-36",1
 "0b5fe36ecd114b729aab1d8683a34215",233,22,"Trade, business & professional associations","CPI","Confederation of Paper Industries",2,"II - In-house lobbyists and trade/professional associations","453515910702-95",0
 "0b5acc95ca764d6fb8f2598237f975ef",75,31,"Non-governmental organisations, platforms and networks and similar",,"FINANSOL",3,"III - Non-governmental organisations","304534011864-27",0
@@ -7458,6 +7530,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "093b03a9a8ac40cdaa051c029979326b",82,22,"Trade, business & professional associations","SEMI Europe","Semiconductor Equipment and Materials International",2,"II - In-house lobbyists and trade/professional associations","671799223-02",1
 "0936bfb0554b4305b5674a582446a551",14,22,"Trade, business & professional associations","FG FDL/WKW","Wirtschaftskammer Wien/Fachgruppe Finanzdienstleister",2,"II - In-house lobbyists and trade/professional associations","4607967111-17",0
 "0932f444506f47ffba1e9c48556759d8",21,41,"Think tanks and research institutions","EGMONT","Egmont Institute",4,"IV - Think tanks, research and academic institutions","531633416247-38",14
+"0926fb7c5f2542d88073f6cb75bc80bf",201,24,"Other similar organisations","BU obce Dolný Kubín","Bývalí urbarialisti obce Dolný Kubín, pozemkové spoločenstvo",2,"II - In-house lobbyists and trade/professional associations","920150017824-86",0
 "09264165b40743e681550fe789118f97",108,31,"Non-governmental organisations, platforms and networks and similar","D.E.S.I.","DIPARTIMENTO EUROPEO SICUREZZA INFORMAZIONI-ORGANIZZAZIONE INTERNAZIONALE DI SICUREZZA SOCIALE",3,"III - Non-governmental organisations","250347610817-14",18
 "09235ee85af947ba878ff2d9f554c387",82,41,"Think tanks and research institutions","IASS","Institute for Advanced Sustainability Studies e.V.",4,"IV - Think tanks, research and academic institutions","940967617145-32",15
 "091e832f7f2f4e769e54c17550e992bf",234,21,"Companies & groups","n/a","JPMorganChase & Co.",2,"II - In-house lobbyists and trade/professional associations","9171899949-17",10
@@ -7600,6 +7673,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "050ff29afba64852972febfa0f3ebb3a",180,31,"Non-governmental organisations, platforms and networks and similar","AMM","Asociatia pentru Mobilitate Metropolitana",3,"III - Non-governmental organisations","132075811858-95",1
 "0504f232608d4e67b4ba8e29f624bc2a",209,22,"Trade, business & professional associations","ASTIC","Asociación del Transporte Internacional por Carretera",2,"II - In-house lobbyists and trade/professional associations","496065717421-22",0
 "04fc3b9b41b441939e2b1fdb5e90dbeb",209,31,"Non-governmental organisations, platforms and networks and similar","EURAF","European Agroforestry Federation",3,"III - Non-governmental organisations","86637739028-14",10
+"04f38551043e434d912bf4981bc57c5d",75,21,"Companies & groups",,"Quintiles Benefit France",2,"II - In-house lobbyists and trade/professional associations","272435817776-55",0
 "04eeb2df82994b22889b9e34bd5002e0",34,31,"Non-governmental organisations, platforms and networks and similar","CIEDT Amalipe","AMALIPE Center for Interethnic Dialogue and Tolerance",3,"III - Non-governmental organisations","98535315829-78",1
 "04e7cdc815ae4396ab6fa917d8a7c0a7",75,21,"Companies & groups","SNCF","Société Nationale des Chemins de Fer Français",2,"II - In-house lobbyists and trade/professional associations","97914681026-14",2
 "04e7784adab144c78a67f0d0d0765e84",82,31,"Non-governmental organisations, platforms and networks and similar","BoSti","Bodensee-Stiftung",3,"III - Non-governmental organisations","368272115503-48",7
@@ -7660,6 +7734,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "02eda40c64384bf18895bfd6d91b52cf",54,12,"Law firms",,"Odvjetničko društvo Gjurašić, Fak & Partneri",1,"I - Professional consultancies/law firms/self-employed consultants","979536915941-22",1
 "02e5b0431e7147bf899412a843ea4fc9",155,11,"Professional consultancies","EdC","Edburgh Consultants BV",1,"I - Professional consultancies/law firms/self-employed consultants","208915612576-95",2
 "02d334563952413bafb5627eb3fb040c",233,22,"Trade, business & professional associations","BADA","The British Antique Dealers' Association",2,"II - In-house lobbyists and trade/professional associations","26694895474-86",0
+"02cffc61871348369baf4689af30aaeb",233,31,"Non-governmental organisations, platforms and networks and similar",,"International Centre for Sport Security Europe",3,"III - Non-governmental organisations","228745717780-44",0
 "02c7c6c3cf874e1bb792a9597a07662f",233,22,"Trade, business & professional associations","PD Forum","Project Developer Forum Ltd",2,"II - In-house lobbyists and trade/professional associations","837983310707-88",2
 "02c3e17180884f338aa6dfe60a5d71f8",85,22,"Trade, business & professional associations","UNICEN","HELLENIC UNION OF INDUSTRIAL CONSUMERS OF ENERGY",2,"II - In-house lobbyists and trade/professional associations","836745216685-46",0
 "02b9076860da411f89d0e7403ff4a689",214,31,"Non-governmental organisations, platforms and networks and similar","ESFN","European Social Franchise Network",3,"III - Non-governmental organisations","561214416503-76",0
@@ -7670,6 +7745,7 @@ id,contact_country,sub_category,sub_category_title,acronym,name,main_category,ma
 "029d6026da1b4f7cbd573a82706a16f1",209,41,"Think tanks and research institutions","CTNM","Centro Tecnológico Naval y del Mar",4,"IV - Think tanks, research and academic institutions","408706416073-64",2
 "029b310e5b774593bb96a041adb6c5c4",82,21,"Companies & groups","SSBM","Springer Science+Business Media Deutschland GmbH",2,"II - In-house lobbyists and trade/professional associations","391575415702-29",0
 "028e5da01b274ee383eef2475de95bd6",233,21,"Companies & groups",,"Cuadrilla Resources",2,"II - In-house lobbyists and trade/professional associations","584530510830-81",1
+"028269c242ef4a9bacd5e5f1388290dc",105,31,"Non-governmental organisations, platforms and networks and similar",,"Irish Cancer Society",3,"III - Non-governmental organisations","029812417517-16",1
 "026f2a6ce95c4192bd167691453b5e3b",82,21,"Companies & groups","Braskem","Braskem Europe GmbH",2,"II - In-house lobbyists and trade/professional associations","529936114505-80",0
 "026c60593ea5478095aa8fb499ec214c",180,31,"Non-governmental organisations, platforms and networks and similar","Qvorum","Institute for Participatory Democracy Euro Qvorum",3,"III - Non-governmental organisations","52186386629-74",0
 "026b27eff2644eb99d38555aa782e271",180,13,"Self-employed consultants",,"PFA GHEORGHE HRISCU",1,"I - Professional consultancies/law firms/self-employed consultants","69500289678-51",1
