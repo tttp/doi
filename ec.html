@@ -196,17 +196,21 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	drawTable();
 	drawDate();
+
 	drawWeekDay();
 	drawHost();
 	drawHostType();
-	drawGuest();
+	drawTopGuest();
 	drawTopHost();
 	drawSector();
 	drawMainCategory();
 	drawCountry();
 	drawExpense();
 	drawNbParticipants();
+  /*
 	drawEFT();
+*/
+
 /*  drawScore();
 	drawParty();
 	drawRange();
@@ -496,6 +500,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	function drawNbParticipants () {
 
 		var dim = ndx.dimension (function(d) {
+        if (!d.participants)
+          return 0;
         if (d.participants>4)
           return 5;
 				return d.participants;   
@@ -609,13 +615,15 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	};
 
-	function drawGuest () {
+	function drawTopGuest () {
 		var dim = ndx.dimension (function(d) {
-			if (!d.guest) {
+			if (!d.guestid) {
 				if (d.unregistered == "")
 					return "Not mentioned";
 				return "*"+d.unregistered;
 			}
+      if (!d.guest && representatives[d.guestid]) //wtf is the guest not set
+        return representatives[d.guestid].name;
 			return d.guest;
 		});
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
@@ -676,8 +684,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 						return "<span class='unregistered'>"+d.unregistered+"</span>";
 					}
 					if (representatives[d.guestid] && representatives[d.guestid].acronym )
-					return "<span title='"+d.cost_absolute+"'>"+d.guest + " ("+representatives[d.guestid].acronym +")</span>";
-					return d.guest;
+  					return "<span title='"+d.cost_absolute+"'>"+representatives[d.guestid].name + " ("+representatives[d.guestid].acronym +")</span>";
+            return "<span title='"+d.cost_absolute+"'>"+representatives[d.guestid].name +"</span>";
 					},
 					function(d) {  return d.participants; },
 			])
@@ -1173,6 +1181,13 @@ function eventpopup (epid) {
 				d.date=dateFormat.parse(d.date);
 				if (!d.cabinet) 
 					return;
+        if (!d.guest && d.guestid){
+          if (representatives[d.guestid]) {
+            d.guest = representatives[d.guestid].name;
+          } else {
+            d.guest ="Unknown";
+          }
+        } 
 				if (d.cabinet.substr(19)=="Cabinet member of ")
 					d.cabinet = d.cabinet.substr(19);
 			});
