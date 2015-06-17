@@ -155,13 +155,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawSector();
 	drawExpense();
 	drawNbMeetings();
+	drawCountry();
 /*	drawDate();
 	drawMeetings();
 	drawWeekDay();
 	drawHost();
 	drawHostType();
 	drawGuest();
-	drawCountry();
   drawScore();
 	drawParty();
 	drawRange();
@@ -173,6 +173,42 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 				.attr("transform", function(d) { return "rotate(-45, -4, 9) "; });
 
 		}
+
+	function drawCountry () {
+	var dim = ndx.dimension (function(d) {
+			return countries[d.contact_country][1];
+	});
+
+	var group   = dim.group().reduceSum(function(d) {   
+			return 1; });
+
+		var filteredGroup = (function(source_group) {
+			return {
+				all: function() {
+					return source_group.top(10).filter(function(d) {
+						return (d.key != "Not mentioned" && d.value != 0);
+					});
+				}
+			};
+      })(dim.group().reduceSum(function(d) {return 1; }));
+
+		var graph = dc.rowChart(".country")   
+			.margins({top: 0, right: 3, bottom: 20, left: 3})
+			.height(240)
+			//.width(360)
+			.gap(1)
+      .fixedBarHeight(20)
+			.x(d3.scale.ordinal())
+			.elasticX(true)
+			.colorCalculator(function(d, i) {
+				return "#f85631";
+			})
+			.ordering(function(d){return -d.value})
+			.dimension(dim)
+			.group(filteredGroup);
+
+	}
+
 
 
 	function drawExpense () {
@@ -229,39 +265,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		graph.xAxis().ticks(5).tickFormat(d3.format(",.0f"));
 
 		graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
-	}
-
-	function drawCountry () {
-	var dim = ndx.dimension (function(d) {
-			if (!representatives[d.guestid])
-				return "unknown";
-			return representatives[d.guestid].contact_country;
-	});
-
-	var group   = dim.group().reduceSum(function(d) {   
-				if (d.key == "108")
-					return 0;
-			return 1; });
-
-	var graph = dc.barChart (".country")   
-		.height(320)
-		.width(530)
-		.gap(0)
-		.margins({top: 10, right: 20, bottom: 200, left: 40})
-		.x(d3.scale.ordinal())
-		.xUnits(dc.units.ordinal)
-		.elasticX(true)
-		.elasticY(true)
-		.yAxisLabel("Number of Meetings")
-		.colorCalculator(function(d, i) {
-				return "#f85631";
-				})
-		.dimension(dim)
-		.group(group)
-		.on("postRender", function(c) {
-				
-				rotateBarChartLabels(c);} )
-		.yAxis().ticks(4).tickFormat(d3.format(",.0f"));
 	}
 
 	
@@ -717,7 +720,7 @@ function eventpopup (epid) {
 		</div>
 			<div class="row">
 				<div class="col-md-7 chart_box">
-					<h3>Country</h3>
+					<h3>Top countries</h3>
 					
 					<div class="country">
 					</div>
@@ -781,8 +784,10 @@ function eventpopup (epid) {
 'use strict';
 	var events=[];
 	var representatives={};
+  var countries={};
+
 	$(function() {
-		var renderLoaded  = _.after(2,  function () { 
+		var renderLoaded  = _.after(3,  function () { 
 			//var dateFormat = d3.time.format("%d/%m/%Y");
 			var dateFormat = d3.time.format("%Y-%m-%d");
 			var now = Date.now();
@@ -802,6 +807,13 @@ function eventpopup (epid) {
 			});
 			grid ("#ec",representatives);
 		});
+		d3.csv("data/country.csv", function(d) {return d;}
+			,function(error, rows) {
+         _.each(rows, function(d) {
+           countries[d["id"]] = [d["code"],d["name"]];
+         });
+				 renderLoaded();
+			});      
 		d3.csv("data/meeting_flat.csv", function(d) {return d;}
 			,function(error, rows) {
 				 events = rows;

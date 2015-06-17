@@ -204,7 +204,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawTopHost();
 	drawSector();
 	drawMainCategory();
-	drawCountry();
 	drawExpense();
 	drawNbParticipants();
   /*
@@ -258,40 +257,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 		graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
 	}
-
-	function drawCountry () {
-	var dim = ndx.dimension (function(d) {
-			if (!representatives[d.guestid])
-				return "unknown";
-			return representatives[d.guestid].contact_country;
-	});
-
-	var group   = dim.group().reduceSum(function(d) {   
-				if (d.key == "108")
-					return 0;
-			return 1; });
-
-	var graph = dc.barChart (".country")   
-		.height(320)
-		.width(530)
-		.gap(0)
-		.margins({top: 10, right: 20, bottom: 200, left: 40})
-		.x(d3.scale.ordinal())
-		.xUnits(dc.units.ordinal)
-		.elasticX(true)
-		.elasticY(true)
-		.yAxisLabel("Number of Meetings")
-		.colorCalculator(function(d, i) {
-				return "#f85631";
-				})
-		.dimension(dim)
-		.group(group)
-		.on("postRender", function(c) {
-				
-				rotateBarChartLabels(c);} )
-		.yAxis().ticks(4).tickFormat(d3.format(",.0f"));
-	}
-
 
   function drawEFT(){
   	var dim = ndx.dimension(function(d) {
@@ -603,6 +568,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			.height(240)
 			//.width(360)
 			.gap(1)
+      .fixedBarHeight(20)
 			.x(d3.scale.ordinal())
 			.elasticX(true)
 			.colorCalculator(function(d, i) {
@@ -1107,14 +1073,6 @@ function eventpopup (epid) {
 			</div>
 		</div>
 			<div class="row">
-				<div class="col-md-7 chart_box">
-					<h3>Country</h3>
-					
-					<div class="country">
-					</div>
-					
-					<br class="clear" />
-				</div>
 				<div class="col-md-5 chart_box">
 					<h3>Date</h3>
 					<div class="date">
