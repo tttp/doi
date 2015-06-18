@@ -32,7 +32,7 @@ csvcut -c id,status,guest,host,cabinet,date,guestid,title,unregistered,participa
 echo 'id,contact_country,sub_category,sub_category_title,acronym,name,main_category,main_category_title,code,fte' >  representative.csv
 jq -r '.[]|select(.status=="active")|[.id,.contact_country,.sub_category,.sub_category_title,.acronym,.name,.main_category,.main_category_title,.identification_code,.members_fte]|@csv' representative.json >> representative.csv
 
-exit
+#exit
 
 #meeting
 #sed -i 's/T00:00:00//g' meeting-flat.json 

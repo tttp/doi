@@ -151,12 +151,33 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	var event = ndx.dimension(function(d) {
 		return d.id;    
 	})
-	var eventgroup   = event.group().reduceSum(function(d) {  return 1; });
+  var eventgroup   = event.group().reduce(
+      function(p,d) {  
+        p.nb +=1;
+        if (!d.guestid || ! representatives[d.guestid])
+          return p;
+        p.fte += d.fte;
+        p.accredited += d.accredited;
+        return p;
+      },
+      function(p,d) {  
+        p.nb -=1;
+         if (!d.guestid || ! representatives[d.guestid])
+           return p;
+        p.fte -= d.fte;
+        p.accredited -= d.accredited;
+        return p;
+      },
+      function(p,d) {  
+        return {nb:0,fte:0,accredited:0}; 
+      }
+
+  );
 
 	var count=dc.dataCount(".dc-data-count")
 		.dimension(eventgroup)
 		.group({value: function() {
-						return eventgroup.all().filter(function(kv) { return kv.value>0; }).length;
+						return eventgroup.all().filter(function(kv) { return kv.value.nb>0; }).length;
 			}});
 		//.dimension(ndx)
 		//.group(all);
@@ -368,7 +389,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			"President Jean-Claude Juncker" : "Presidency",
 			"Secretary-General Catherine Day": "Presidency",
 	"Director-General Ann Mettler": "Presidency",
-
+"Martine Reicherts": "Presidency",
 			"Director-General Robert Madelin":"Digital Economy",
 	"Commissioner Günther Oettinger":"Digital Economy",
 	"Director-General Stephen Quest":"Digital Economy",
@@ -533,7 +554,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	var graph = dc.rowChart (".host")   
 		.margins({top: 0, right: 10, bottom: 20, left: 10})
 		.height(520)
-		.width(380)
+		.width(300)
 		.gap(0)
 		.x(d3.scale.ordinal())
 		.elasticX(true)
@@ -592,13 +613,36 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         return representatives[d.guestid].name;
 			return d.guest;
 		});
-		var group   = dim.group().reduceSum(function(d) {   return 1; });
+		//var group   = dim.group().reduceSum(function(d) {   return 1; });
+    var group   = dim.group().reduce(
+      function(p,d) {  
+        p.nb +=1;
+        if (!d.guestid || ! representatives[d.guestid])
+          return p;
+        p.fte += +representatives[d.guestid].fte;
+        p.accredited += +representatives[d.guestid].accredited;
+        return p;
+      },
+      function(p,d) {  
+        p.nb -=1;
+         if (!d.guestid || ! representatives[d.guestid])
+           return p;
+        p.fte -= +representatives[d.guestid].fte;
+        p.accredited -= +representatives[d.guestid].accredited;
+        return p;
+      },
+      function(p,d) {  
+        return {nb:0,fte:0,accredited:0}; 
+      }
+    );
+    group.order (function(p){return p.nb});
+
 
 		var filteredGroup = (function(source_group) {
 			return {
 				all: function() {
 					return source_group.top(10).filter(function(d) {
-						return (d.key != "Not mentioned" && d.value != 0);
+						return (d.key != "Not mentioned" && d.value.nb != 0);
 					});
 				}
 			};
@@ -609,6 +653,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			.height(240)
 			//.width(360)
 			.gap(1)
+      .valueAccessor(function(d){
+          return d.value.nb})
       .fixedBarHeight(20)
 			.x(d3.scale.ordinal())
 			.elasticX(true)
@@ -621,13 +667,23 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 		graph.xAxis().ticks(5).tickFormat(d3.format("d"));
 
+    var fte=0;
+    var accredited=0;
 		var count = dc.dataCount(".org-count")
 			.dimension(group)
 			.group({value: function() {
 				return group.all().filter(function(kv) {
-					return kv.value>0; 
+          fte += +kv.value.fte;
+          accredited += +kv.value.accredited;
+					return kv.value.nb>0; 
 				}).length;
-			}});
+			}})
+		.renderlet(function (chart) {
+        console.log(fte);
+        console.log(accredited);
+        fte=0;
+        accredited=0;
+		});
 
 	};
 
@@ -1162,7 +1218,8 @@ function eventpopup (epid) {
 			});      
 		//d3.json("data/representative-light.json", function (rows) {
 		//d3.csv("data/representative.csv", function (rows) {
-		d3.csv("data/representative-finance-light.csv", function (rows) {
+		//d3.csv("data/representative-finance-light.csv", function (rows) {
+		d3.csv("data/r.csv", function (rows) {
 				 _.each (rows, function (d) {
 						//representatives[d.identification_code]=d;
 						representatives[d.id]=d;
