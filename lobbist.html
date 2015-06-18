@@ -155,6 +155,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawSector();
 	drawExpense();
 	drawNbMeetings();
+	drawNbLobbyists();
+  drawNbBadges();
 	drawCountry();
 /*	drawDate();
 	drawMeetings();
@@ -195,7 +197,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var graph = dc.rowChart(".country")   
 			.margins({top: 0, right: 3, bottom: 20, left: 3})
 			.height(240)
-			//.width(360)
+			.width(300)
 			.gap(1)
       .fixedBarHeight(20)
 			.x(d3.scale.ordinal())
@@ -296,6 +298,75 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
              break;
            default:
              return d.key + " meetings: " + d.value;
+         }
+       })
+			.dimension(dim)
+			.group(group);
+	}
+
+	function drawNbBadges () {
+		var dim = ndx.dimension (function(d) {
+        if (!d.accredited) return 0;
+        if (d.accredited>4)
+          return 5;
+			  return d.accredited;
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+		var chart = dc.pieChart(".accreditations")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.label(function(d){ 
+          if (d.key == 5)
+            return ">5";
+          return d.key })
+			.title (function(d){ 
+         switch(d.key) {
+           case 0:
+             return "no accreditation";
+           case 1:
+             return d.key + " accreditation: " + d.value;
+             break;
+           case 5:
+             return ">5 accreditations: " + d.value;
+             break;
+           default:
+             return d.key + " accreditations: " + d.value;
+         }
+       })
+			.dimension(dim)
+			.group(group);
+	}
+
+	function drawNbLobbyists () {
+		var dim = ndx.dimension (function(d) {
+        if (d.fte>4)
+          return 5;
+			  return d.fte;
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+		var chart = dc.pieChart(".nblobbyists")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.label(function(d){ 
+          if (d.key == 5)
+            return ">5";
+          return d.key })
+			.title (function(d){ 
+         switch(d.key) {
+           case 0:
+             return "no staff";
+           case 1:
+             return d.key + " staff: " + d.value;
+             break;
+           case 5:
+             return ">5 staff: " + d.value;
+             break;
+           default:
+             return d.key + " staffs: " + d.value;
          }
        })
 			.dimension(dim)
@@ -451,6 +522,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               data: "accredited",  
               } 
             ],
+            "iDisplayLength" : 100,
             "bPaginate": true,
             "bLengthChange": false,
             "bFilter": false,
@@ -727,7 +799,7 @@ function eventpopup (epid) {
 			</div>
 		</div>
 			<div class="row">
-				<div class="col-md-7 chart_box">
+				<div class="col-md-4 chart_box">
 					<h3>Top countries</h3>
 					
 					<div class="country">
@@ -735,9 +807,15 @@ function eventpopup (epid) {
 					
 					<br class="clear" />
 				</div>
-				<div class="col-md-5 chart_box">
-					<h3>Date</h3>
-					<div class="date">
+				<div class="col-md-4 chart_box">
+					<h3>Lobbyists</h3>
+					<div class="nblobbyists">
+					</div>
+					<br class="clear" />
+				</div>
+				<div class="col-md-4 chart_box">
+					<h3>EP Badges</h3>
+					<div class="accreditations">
 					</div>
 					<br class="clear" />
 				</div>
@@ -774,10 +852,10 @@ function eventpopup (epid) {
 						<tr class=header>
 							<th>Nr</th> 
 							<th>Name</th> 
-							<th>Lobby budget</th> 
+							<th>Lobby Budget</th> 
 							<th>Meetings</th> 
+							<th>Lobbyists</th> 
 							<th>EP badges</th> 
-							<th>Lobbyist</th> 
 						</tr>
 					</thead>
 				</table>
