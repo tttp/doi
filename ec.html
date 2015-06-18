@@ -707,7 +707,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 					}
 					if (representatives[d.guestid] && representatives[d.guestid].acronym )
   					return "<span title='"+d.cost_absolute+"'>"+representatives[d.guestid].name + " ("+representatives[d.guestid].acronym +")</span>";
-            if (!d.guest)
+            if (!d.guest && d.guestid && representatives[d.guestid])
               return "<span title='"+d.cost_absolute+"'>"+representatives[d.guestid].name +"</span>";
             return "<span title='"+d.cost_absolute+"'>"+d.guest +"</span>";
 
