@@ -409,19 +409,20 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
                 return count;
               }
               },{
-              "orderable": true,
-              "targets": 1,
-              data: "acronym",   
-              },{
               "searchable": false,
               "orderable": true,
-              "targets": 2,
-              data: "name",  
+              "targets": 1,
+              data: function (row, type, val, meta) { 
+                if (row.acronym) 
+                  return row.name+" ("+row.acronym +" )";
+                return row.name;
+                }
+              //data: "name",  
               },{
               "searchable": false,
               "orderable": true,
               "type":"num-fmt",
-              "targets": 3,
+              "targets": 2,
               "className": "number",
               "render": function ( data, type, row ) { 
                 if (data == "")
@@ -434,8 +435,14 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "defaultContent":"AA",
               "searchable": false,
               "orderable": true,
-              "targets": 4,
+              "targets": 3,
               data: "meetings",  
+              },{
+              "defaultContent":"AA",
+              "searchable": false,
+              "orderable": true,
+              "targets": 4,
+              data: "fte",  
               },{
               "defaultContent":"AA",
               "searchable": false,
@@ -447,7 +454,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             "bPaginate": true,
             "bLengthChange": false,
             "bFilter": false,
-            "order": [[ 4, "desc" ]],
+            "order": [[ 3, "desc" ]],
             "bSort": true,
             "bInfo": false,
             "bAutoWidth": false,
@@ -766,11 +773,11 @@ function eventpopup (epid) {
 					<thead>
 						<tr class=header>
 							<th>Nr</th> 
-							<th>Accronym</th> 
 							<th>Name</th> 
-							<th>Cost declared</th> 
-							<th>Nb meetings</th> 
-							<th>Nb accredications</th> 
+							<th>Lobby budget</th> 
+							<th>Meetings</th> 
+							<th>EP badges</th> 
+							<th>Lobbyist</th> 
 						</tr>
 					</thead>
 				</table>
