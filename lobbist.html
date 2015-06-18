@@ -425,7 +425,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "className": "number",
               "render": function ( data, type, row ) { 
                 if (data == "")
-                  return "<10k";
+                  return 0;
+                  //return "<10k";
                 return d3.format(",g")(data);
               },
               data: function (row, type, val, meta) { return getCost(row)}

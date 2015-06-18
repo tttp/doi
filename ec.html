@@ -465,8 +465,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	function drawNbParticipants () {
 
 		var dim = ndx.dimension (function(d) {
-        if (!d.participants)
-          return 0;
+        if (!d.participants || d.participants ==0)
+          return 1;
         if (d.participants>4)
           return 5;
 				return d.participants;   
