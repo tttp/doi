@@ -231,8 +231,6 @@ a#page_title{
 }
 
 ul.nav.navbar-right li.active a{
-	background: transparent;
-	text-decoration: underline;
 }
 
 .navbar-collapse .navbar-right a{
@@ -345,11 +343,13 @@ ul.nav.navbar-right li.active a{
 		height: 60px;
 	}
 	
-	.navbar-right a{
+	.navbar-collapse ul.navbar-right li a{
 		display: block;
 		height: 80px;
-		margin: 0 0 0 25px;
+		margin: 0 0 0 0px;
+		width: auto;
 		line-height: 92px!important;
+		padding: 0 2em!important;
 	}
 }
 
@@ -970,6 +970,7 @@ tr.header th.header{
 	border-right: 1px solid #bfd3de;
 	cursor: pointer;
 	font-size: .8em;
+	padding: .6em 1.6em .6em .6em;
 }
 
 tr.header th.headerSortUp{

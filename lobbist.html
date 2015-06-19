@@ -211,8 +211,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	var graph = dc.bubbleChart (".expense")   
 //		.colorCalculator(function(d, i) { return blue;})
-	.width(550)
-		.height(300)
+		.width(750)
+		.height(380)
 		.margins({top: 20, right: 20, bottom: 20, left: 30})
 		.yAxisLabel("Nb Meetings")
 		.dimension(dim)
@@ -708,9 +708,9 @@ function eventpopup (epid) {
 		
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li id="cm_tool_btn"><a href="ec.html"><strong>EU</strong> Commission <br />meetings</a></li>
-					<li class="active" id="bl_tool_btn"><a href="lobbist.html"><strong>EU</strong> Brussels <br />lobbyist</a></li>
-					<li id="mi_tool_btn"><a href="ep.html"><strong>EU</strong> MEP <br />incomes</a></li>
+					<li id="cm_tool_btn"><a href="ec.html"><strong>Commission</strong> <br />meetings</a></li>
+					<li class="active" id="bl_tool_btn"><a href="lobbist.html"><strong>EU</strong><br />Lobbyists</a></li>
+					<li id="mi_tool_btn"><a href="ep.html"><strong>MEP</strong> <br />incomes</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="about.html">About</a></li>
@@ -797,6 +797,13 @@ function eventpopup (epid) {
 	<div class="container_wrap" id="main_charts_wrap">
 		<div class="container">
 			<div class="row">
+				<div class="col-md-3 chart_box">
+					<h3>Top 10 Countries</h3>
+					<div class="country">
+					</div>
+					<br class="clear" />
+					<div class="label">Number of meetings</div>
+				</div>
 				<div class="col-md-3 chart_box" id="hosttype">
 					<h3>Accreditation<!--span class="info">info</span--></h3>
 					<div class="accreditations"></div>
@@ -806,13 +813,6 @@ function eventpopup (epid) {
 					<h3>Number of meetings</h3>
 					<div class="meetings">
 					</div>
-				</div>
-				<div class="col-md-3 chart_box">
-					<h3>Top 10 Countries</h3>
-					<div class="country">
-					</div>
-					<br class="clear" />
-					<div class="label">Number of meetings</div>
 				</div>
 				<div class="col-md-3 chart_box">
 					<h3>Category of Lobby organisation</h3>
@@ -834,17 +834,17 @@ function eventpopup (epid) {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3 chart_box">
-					<h3>Portfolio<!--span class="info">info</span--></h3>
+				<!--<div class="col-md-3 chart_box">
+					<h3>Portfolio</h3>
 					<div class="host range chart-full"></div>
 					<br class="clear" />
-				</div>
-				<div class="col-md-6 chart_box">
+				</div>-->
+				<div class="col-md-8 chart_box">
 					<h3>Lobbying expense</h3>
 					<div class="expense">
 					</div>
 				</div>
-				<div class="col-md-3 chart_box">
+				<div class="col-md-4 chart_box">
 					<h3>Sector of Lobby organisation<!--span class="info">info</span--></h3>
 					<div class="sector range chart-full"></div>
 					<br class="clear" />
@@ -867,28 +867,14 @@ function eventpopup (epid) {
 		<div class="row">
 			<div class="content" id="list_content">
 				<h2 class="table_title">Registered Lobbyists</h2><div id="last_update">Last updated: 11 March 2015</div>
-				<div class="info_chart" id="attendance_info">
-					<span class="info">info</span>
-					<p class="desc">Events</p>
-				</div>
-				
-				<div class="info_chart" id="EAI_info">
-					<span class="info">info</span>
-					<p class="desc">The External Activity Indicator was developed by Transparency International EU to provide a quick overview of all outside activities of members of the European Parliament. In short, the higher the indicator the higher the outside income and number of outside activities of a member. A higher EAI is reflected in a darker shading of orange. <br /><a href="about.html#methodology">More details</a></p>
-				</div>
-				
-				<div class="info_chart" id="OI_info">
-					<span class="info">info</span>
-					<p class="desc">Total monthly income declared by the member in the Declaration of Financial Interests</p>
-				</div>
 			</div>
 			
 			<div class="col-md-12 table-responsive">
 				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
 					<thead>
 						<tr class=header>
-							<th>Nr</th> 
-							<th>Name</th> 
+							<th class="col-md-1">Nr</th> 
+							<th class="col-md-5">Name</th> 
 							<th>Lobby Budget</th> 
 							<th>Meetings</th> 
 							<th>Lobbyists</th> 
@@ -898,8 +884,6 @@ function eventpopup (epid) {
 				</table>
 			</div>
 		</div>
-		
-		<div id="last_update">Last updated: 11 May 2015</div>
 	</div>
 </div>
 
