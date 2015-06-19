@@ -1,8 +1,13 @@
 /* @override 
-	http://doi.ap:8888/css/dc.css */
+	http://doi.ap:8888/css/dc.css
+	http://localhost:8888/transp_doi/doifork/css/dc.css */
 
 div.dc-chart {
     float: left;
+}
+
+.dc-chart text{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important;
 }
 
 .dc-chart rect.bar {
@@ -288,6 +293,14 @@ div.dc-chart {
     opacity: .5;
 }
 
+.dc-chart g rect.deselected {
+    fill: #ccc;
+}
+
+.dc-chart g rect.deselected  {
+    opacity: .5;
+}
+
 .dc-chart .symbol{
     stroke: none;
 }
@@ -302,3 +315,22 @@ div.dc-chart {
     pointer-events: all;
     cursor: pointer;
 }
+
+svg g .selected path{
+	stroke: #FFF;
+	stroke-width: 1px;
+}
+
+svg g g.deselected path{
+	stroke: #FFF;
+	opacity: .3;
+	stroke-width: .5px;
+}
+
+/* lobby */
+.guest.dc-chart g.row rect, .host.dc-chart g.row rect, .sector.dc-chart g.row rect{
+    fill-opacity: 1;
+    cursor: pointer;
+}
+/*
+*/
