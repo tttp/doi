@@ -2,7 +2,8 @@
 	http://doi.ap:8888/css/style.css
 	http://localhost:8888/transp_doi/doi/css/style.css
 	http://doi.ap:8888/doifork/css/style.css
-	http://localhost:8888/transp_doi/doifork/css/style.css */
+	http://localhost:8888/transp_doi/doifork/css/style.css
+	http://doi.ap:8888/doi/css/style.css */
 
 
 /* GENERIC ELEMENTS */
@@ -444,7 +445,7 @@ ul.nav.navbar-right li.active a{
 	}
 	
 	#about_wrap.mi_header{
-		background: #039AAB url(../img/icon_mi.png) no-repeat -5% center;
+		background: #039AAB url(../img/icon_mi.svg) no-repeat -5% center;
 	}
 	#about_wrap.cm_header{
 		background: #004c79 url(../img/icon_cm.png) no-repeat -5% center;
@@ -879,6 +880,10 @@ div.dc-chart.chart-full{
 	margin: 0 auto;
 }
 
+#ep2014list .country svg{
+	width: 100%;
+}
+
 /* gender */
 .gender_legend div{
 	width: 20%;
@@ -898,8 +903,20 @@ div.dc-chart.chart-full{
 }
 
 /*pasted from index html*/
+td.number{
+	text-align:right
+}
 
+td.dc-table-column._4,
+td.dc-table-column._5,
+td.dc-table-column._6{
+	text-align:left;
+}
 
+#mep_number {
+	margin-top: 0.1em;
+}
+		
 #ep2014list table, .dc-data-grid {clear:both;}
 .dc-table-label {
 	background: #F5F5F5; 
@@ -1091,8 +1108,8 @@ div.dc-chart g.row text {fill:black}
 	margin-left: 5%;
 }
 
-/* category */
-.main_category.dc-chart{
+/* centering pie charts */
+.meetings.dc-chart, .accreditations.dc-chart, .main_category.dc-chart{
 	width: auto;
 	float: none;
 }
@@ -1152,6 +1169,9 @@ div.dc-chart g.row text {fill:black}
 	background: #f2f2f2;
 }
 
+.btn-sm {
+	padding:8px 15px;
+}
 
-.btn-sm {padding:8px 15px;}
+
 

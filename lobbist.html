@@ -19,18 +19,6 @@
 
 <script type="text/javascript" src="js/bower.js"></script>
 
-<style>
-td.number{text-align:right}
-
-td.dc-table-column._4,
-td.dc-table-column._5,
-td.dc-table-column._6
-{text-align:left;}
-
-#mep_number {
-		margin-top: 0.1em;}
-</style>
-
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@TI_EU" />
 <meta name="twitter:creator" content="@eucampaign" />
@@ -196,14 +184,14 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 		var graph = dc.rowChart(".country")   
 			.margins({top: 0, right: 3, bottom: 20, left: 3})
-			.height(240)
-			.width(300)
-			.gap(1)
-      .fixedBarHeight(20)
+			.height(340)
+			//.width(300)
+			.gap(2)
+      		//.fixedBarHeight(20)
 			.x(d3.scale.ordinal())
 			.elasticX(true)
 			.colorCalculator(function(d, i) {
-				return "#f85631";
+				return "#ecb005";
 			})
 			.ordering(function(d){return -d.value})
 			.dimension(dim)
@@ -223,7 +211,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	var graph = dc.bubbleChart (".expense")   
 //		.colorCalculator(function(d, i) { return blue;})
-	.width(660)
+	.width(550)
 		.height(300)
 		.margins({top: 20, right: 20, bottom: 20, left: 30})
 		.yAxisLabel("Nb Meetings")
@@ -278,29 +266,35 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		});
 
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
-
+		
+		var color = d3.scale.ordinal()
+		    .range(["#f9e5ad", "#f1ca58","#ecb007","#e7960e","#e37e17","#de631f"]);
+		
 		var chart = dc.pieChart(".meetings")
 			.innerRadius(50).radius(100)
 			.height(200)
 			.label(function(d){ 
-          if (d.key == 5)
-            return ">5";
-          return d.key })
+          	if (d.key == 5)
+            	return ">5";
+          	return d.key })
 			.title (function(d){ 
-         switch(d.key) {
-           case 0:
-             return "no meeting";
-           case 1:
-             return d.key + " meeting: " + d.value;
-             break;
-           case 5:
-             return ">5 meetings: " + d.value;
-             break;
-           default:
-             return d.key + " meetings: " + d.value;
-         }
-       })
+         		switch(d.key) {
+           			case 0:
+             			return "no meeting";
+           			case 1:
+             			return d.key + " meeting: " + d.value;
+            	 	break;
+           			case 5:
+             			return ">5 meetings: " + d.value;
+             		break;
+           				default:
+             		return d.key + " meetings: " + d.value;
+         		}
+       		})
 			.dimension(dim)
+			.colorCalculator(function(d, i) {
+				return color(d.key);
+			})
 			.group(group);
 	}
 
@@ -313,29 +307,35 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		});
 
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
-
+		
+		var color = d3.scale.ordinal()
+		    .range(["#f9e5ad", "#f1ca58","#ecb007","#e7960e","#e37e17","#de631f"]);
+					
 		var chart = dc.pieChart(".accreditations")
 			.innerRadius(50).radius(100)
 			.height(200)
 			.label(function(d){ 
-          if (d.key == 5)
-            return ">5";
-          return d.key })
-			.title (function(d){ 
-         switch(d.key) {
-           case 0:
-             return "no accreditation";
-           case 1:
-             return d.key + " accreditation: " + d.value;
-             break;
-           case 5:
-             return ">5 accreditations: " + d.value;
-             break;
-           default:
-             return d.key + " accreditations: " + d.value;
-         }
+	          if (d.key == 5)
+	            return ">5";
+	          return d.key })
+				.title (function(d){ 
+	         switch(d.key) {
+	           case 0:
+	             return "no accreditation";
+	           case 1:
+	             return d.key + " accreditation: " + d.value;
+	             break;
+	           case 5:
+	             return ">5 accreditations: " + d.value;
+	             break;
+	           default:
+	             return d.key + " accreditations: " + d.value;
+	         }
        })
 			.dimension(dim)
+			.colorCalculator(function(d, i) {
+				return color(d.key);
+			})
 			.group(group);
 	}
 
@@ -442,7 +442,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	var graph = dc.rowChart (".sector")   
 		.height(380)
-		.width(350)
+		//.width(350)
 		.gap(1)
 		.margins({top: 0, right: 0, bottom: 0, left: 0})
 		.x(d3.scale.ordinal())
@@ -802,11 +802,17 @@ function eventpopup (epid) {
 					<div class="accreditations"></div>
 					<br class="clear" />
 				</div>
-				<div class="col-md-6 chart_box">
-					<h3>Country</h3>
+				<div class="col-md-3 chart_box">
+					<h3>Number of meetings</h3>
+					<div class="meetings">
+					</div>
+				</div>
+				<div class="col-md-3 chart_box">
+					<h3>Top 10 Countries</h3>
 					<div class="country">
 					</div>
 					<br class="clear" />
+					<div class="label">Number of meetings</div>
 				</div>
 				<div class="col-md-3 chart_box">
 					<h3>Category of Lobby organisation</h3>
@@ -830,7 +836,7 @@ function eventpopup (epid) {
 			<div class="row">
 				<div class="col-md-3 chart_box">
 					<h3>Portfolio<!--span class="info">info</span--></h3>
-					<div class="sector range chart-full"></div>
+					<div class="host range chart-full"></div>
 					<br class="clear" />
 				</div>
 				<div class="col-md-6 chart_box">
@@ -845,12 +851,7 @@ function eventpopup (epid) {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3 chart_box">
-					<h3>Number of meetings</h3>
-					<div class="meetings">
-					</div>
-				</div>
-				<div class="col-md-9 chart_box">
+				<div class="col-md-12 chart_box">
 					<h3>Date</h3>
 					<div class="date">
 					</div>
