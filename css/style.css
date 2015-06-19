@@ -219,14 +219,6 @@ div#ti_logo_container a#ti_logo{
 	text-indent: -974em;
 }
 
-.navbar-right a{
-	display: block;
-	height: 40px;
-	line-height: 40px;
-	color: #b9d9eb;
-	padding: 0 3%!important;
-}
-
 a#page_title{
 	display: inline-block;
 	color: #FFF;
@@ -241,6 +233,58 @@ ul.nav.navbar-right li.active a{
 	background: transparent;
 	text-decoration: underline;
 }
+
+.navbar-collapse .navbar-right a{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	color: #b9d9eb;
+	padding: 0 3%!important;
+}
+
+@media only screen and (max-width : 768px){
+	.navbar-collapse{
+		z-index: 100000;
+		position: relative;
+		background: #2180c2;
+	}
+	
+	.navbar-collapse.collapse.in{
+		z-index: 100000;
+		background: #2180c2;
+	}
+	
+	.navbar-collapse li{
+		border-bottom: 1px solid #1b6da6;
+	}
+	
+	.navbar-collapse ul.navbar-right{
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+	
+	.navbar-collapse ul{
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+	
+	.navbar-collapse .navbar-right a{
+		display: block;
+		height: 40px;
+		line-height: 40px;
+		color: #b9d9eb;
+		padding: 0 3%!important;
+	}
+	
+	.navbar-collapse ul.navbar-right li a{
+		display: block;
+		height: 40px;
+		line-height: 40px;
+		color: #b9d9eb;
+		padding: 0 2%!important;
+	}
+}
+
 
 @media only screen and (min-width : 768px) {
 	nav.navbar{
