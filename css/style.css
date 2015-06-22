@@ -3,7 +3,8 @@
 	http://localhost:8888/transp_doi/doi/css/style.css
 	http://doi.ap:8888/doifork/css/style.css
 	http://localhost:8888/transp_doi/doifork/css/style.css
-	http://doi.ap:8888/doi/css/style.css */
+	http://doi.ap:8888/doi/css/style.css
+	http://doi.lattecreative.com/doi/css/style.css */
 
 @import url("http://fast.fonts.net/lt/1.css?apiType=css&c=7bacdeec-00ae-4450-bf23-75f7f74f9628&fontids=739810,739467");
 @font-face{
@@ -244,6 +245,7 @@ a#page_title{
 }
 
 ul.nav.navbar-right li.active a{
+
 }
 
 .navbar-collapse .navbar-right a{
@@ -457,15 +459,37 @@ ul.nav.navbar-right li.active a{
 		margin-bottom: 0em;
 	}
 	
-	#about_wrap.mi_header{
-		background: #039AAB url(../img/icon_mi.svg) no-repeat -5% center;
-	}
 	#about_wrap.cm_header{
-		background: #004c79 url(../img/icon_cm.png) no-repeat -5% center;
+		background: #004c79 url(../img/bg_hands-01.png) repeat-y -130% top;
+		background-size: 70%;
+	}
+	
+	#about_wrap.cm_header #about_container{
+		background: url('../img/icon_hands.png') no-repeat left center;
+		background-size: 16%;
+	}
+	
+	#about_wrap.bl_header{
+		background: #8d1556 url(../img/bg_suit-01.png) repeat-y -45% top;
+		background-size: 50%;
+	}
+	
+	#about_wrap.bl_header #about_container{
+		background: url('../img/icon_suit.png') no-repeat left center;
+		background-size: 16%;
+	}
+	
+	#about_wrap.mi_header{
+		background: #039AAB url(../img/bg_money-01.png) repeat-y -130% top;
+		background-size: 70%;
+	}
+	
+	#about_wrap.mi_header #about_container{
+		background: url(../img/icon_money.png) no-repeat left center;
+		background-size: 25%;
 	}
 	
 	#about_wrap #about_container{
-		background-size: 18%;
 		padding-bottom: 1em;
 	}
 	
@@ -476,12 +500,36 @@ ul.nav.navbar-right li.active a{
 }
 
 @media only screen and (min-width : 1200px){
-	#about_wrap.mi_header{
-		background: #039AAB url(../img/icon_mi.png) no-repeat 2% center;
-	}
 	#about_wrap.cm_header{
-		background: #004c79 url(../img/icon_cm.png) no-repeat 2% center;
+		background: #004c79 url(../img/bg_hands-01.png) repeat-y -41% top;
+		background-size: 45%;
 	}
+	
+	#about_wrap.cm_header #about_container{
+		background: url('../img/icon_hands.png') no-repeat 5% center;
+		background-size: 16%;
+	}
+
+	#about_wrap.bl_header{
+		background: #8d1556 url(../img/bg_suit-01.png) repeat-y -40% top;
+		background-size: 45%;
+	}
+	
+	#about_wrap.bl_header #about_container{
+		background: url(../img/icon_suit.png) no-repeat left center;
+		background-size: 24%;
+	}
+	
+	#about_wrap.mi_header{
+		background: #039AAB url(../img/bg_money-01.png) repeat-y -40% top;
+		background-size: 45%;
+	}
+	
+	#about_wrap.mi_header #about_container{
+		background: url(../img/icon_money.png) no-repeat left center;
+		background-size: 25%;
+	}
+	
 	#about_wrap p{
 		margin-bottom: 1em;
 		margin-top: 1em;
@@ -1146,6 +1194,7 @@ div.dc-chart g.row text {fill:black}
 	margin-left: 5%;
 }
 
+
 /* centering pie charts */
 .meetings.dc-chart, .accreditations.dc-chart, .main_category.dc-chart{
 	width: auto;
@@ -1207,6 +1256,7 @@ div.dc-chart g.row text {fill:black}
 	background: #f2f2f2;
 }
 
+
 .btn-sm {
 	padding:8px 15px;
 }
@@ -1232,4 +1282,3 @@ ul li{
 	border: none;
 	margin-bottom: 0;
 }
-

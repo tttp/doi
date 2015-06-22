@@ -56,20 +56,17 @@ body.inverse,
 body.inverse .form-control {
   color: rgba(255, 255, 255, 0.84);
 }
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+body {
+   font-family: 'Helvetica W02 Light', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important; 
+   line-height: 1.6em;
+   color: #5d5d5d;
+   padding-bottom: 90px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   font-family: 'Helvetica W02 Bd Cn', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important;
+   font-weight: normal;
+   text-transform: uppercase;
 }
 body .well,
 .container .well,
