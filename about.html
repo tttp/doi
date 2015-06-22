@@ -3,11 +3,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Declaration of interest</title>
-<link rel="stylesheet" type="text/css" href="css/dc.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<title>About</title>
+
+
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    <!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/material.css" rel="stylesheet">
+    <link href="css/theme.bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,8 +19,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script src="jquery.min.js"></script>
+
+
+<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
@@ -42,7 +49,6 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
 				</ul>
 			</div>
 	 </div><!-- container -->
@@ -52,26 +58,37 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
-				<ul id="menu">
-					<li><a href="#about">About</a></li>
-					<li><a href="#recommendations">Recommendations</a></li>
-					<li><a href="#methodology">Methodology</a></li>
-				</ul>
+				<div id="about_menu_container">
+					<ul id="menu">
+						<li><a href="#about">About</a></li>
+						<li><a href="#disclaimers">Disclaimers</a></li>
+						<li><a href="#bg_info">Background information</a></li>
+						<li><a href="#lobby_info">Additional information on the Commission meeting and Brussels lobbying tools</a></li>
+						<li><a href="#mep_info">Additional information on the MEP income tool</a></li>
+						<li><a href="#contact">Contact details</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				&nbsp;
-			</div>
-				<div class="col-md-7">
+			<div class="col-md-7" id="about_text_container">
 				<h1 id="about">About</h1>
-				<p>EU Integrity Watch is a user-friendly database that provides a unique
-				overview of the activities of members of the European Parliament
-				(MEPs) and enables a range of rankings and visual comparisons. It
-				also allows to better monitor potential conflicts of interests or to
-				identify those MEPs with a high degree of external activity.</p>
-<p>EU Integrity Watch was launched in October 2014 by the Transparency International EU Office (TI-EU). The project is co-funded by the <a href="http://www.opensocietyfoundations.org/about/offices-foundations/open-society-initiative-europe">Open Society Initiative for Europe (OSIFE)</a>, with a contribution by the <a href="http://www.kbs-frb.be/index.aspx?langtype=1033">King Baudouin Foundation</a>.</p>
-
+				<p>EU Integrity Watch is designed to be a central hub for online tools that allow citizens, journalists and civil society to monitor their politicians in the European institutions. For this purpose, data that is often scattered and difficult to access is collected, harmonised and made easily available. The platform allows it in an intuitive way to search, rank and filter the information. Thereby EU Integrity Watch contributes to increasing transparency, integrity and equality of access to EU decision-making and to monitor the EU institutions for potential conflicts of interest, undue influence or even corruption.</p>
+				<p>The technology behind the platform (<a href="http://d3js.org/">D3.js</a>) was developed by the New York Times. It helps us to make the complex datasets accessible to a wider audience. All datasets are also available for download as this platform strongly supports the principles of open software and open data.</p>
+				
+				<p>The website currently contains two different datasets on the following topics:</p>
+				<ul>
+					<li>Data on the members of the European Parliament (MEPs), mainly on their outside activities and incomes</li>
+					<li>Data on lobbying in Brussels. For that we have combined the records of lobby meetings at the European Commission with the information contained in the EU Transparency Register – the register of Brussels lobbyists
+					</li>
+				</ul>
+				<p>Information from the declaration of financial interest of MEPs provides a unique overview of their activities and enables a range of rankings and visual comparisons. It also allows to better monitor potential conflicts of interests or to identify those MEPs with a high degree of external activity.
+				</p>
+				<p>Self-reported data of senior public officials of European Commission on lobby meetings contains a range of potential important insights on current dynamics and content of lobby activities. Data from the voluntary Transparency Register provides additional information on who those lobbyists are, how much they spent on lobbying, how many people they have working for them and what files and topics they are active on.
+				</p>
+				<p>All datasets used on Integrity Watch are extracted from the official websites of the European Institutions. We read out this information on a regular basis and publish the date of the latest update prominently on our websites. EU Integrity Watch is not responsible for the accuracy of the original data published by the EU Institutions. If you are using the data please always confirm your findings with the original information on the websites of the EU Institutions.
+				</p>
+				<p>EU Integrity Watch was first launched in October 2014 by Transparency International EU (TI EU). The project is co-funded by the <a href="http://www.opensocietyfoundations.org/about/programs/open-society-initiative-europe" target="_blank">Open Society Initiative for Europe (OSIFE)</a>, with a contribution by the <a href="http://www.kbs-frb.be/index.aspx?langtype=1033" target="_blank">King Baudouin Foundation</a>.
+				</p>
+				
 				<p>For more information on TI EU: <br />
 				<a href="http://www.transparencyinternational.eu/"><img src="img/ti_logo_black.png" /></a><br />
 				
@@ -81,284 +98,188 @@
 				<p >Website design:<br />
 				<a href="http://www.techtothepeople.com">Tech To The People</a><br />
 				<a href="http://www.lattecreative.com" title="Latte Creative">Latte Creative</a></p>
-			
-       <p>Data extracted and published under and opendata licence by <a href="http://parltrack.euwiki.org/">parltrack</a></p>	
-				<h3>Background on lobbying and conflicts of interest</h3>
-				<p>Over recent years, public policy debates have been giving increasing
-				attention to the importance of safeguarding the integrity of
-				parliamentarians and their activities.&nbsp; As the scope of
-				interaction between public and private sectors increases, for example
-				through the greater privatisation of public services, the systematic
-				use of external expertise to feed into law-making, and individuals
-				moving in and out of each sector over the course of their careers,
-				ethics regimes in public institutions need to be sufficient to deal
-				with heightened integrity and corruption risks.&nbsp; As the OECD
-				noted in their <a href="http://www.oecd.org/gov/ethics/48994419.pdf">2005
-				Guidelines for Managing Conflict of Interest in the Public Service</a>,
-				without adequate <em>identification
-				and management</em> of potential
-				conflicts of interest, the opportunities for public figures to abuse
-				their positions for personal gain increase.&nbsp; Protections
-				therefore need to be in place to ensure that legislators serve the
-				public interest and not narrow, vested interests.</p>
 				
-				<p >The
-				situation in Europe is mixed.&nbsp; In our 2012 report &lsquo;<a href="http://www.transparency.org/enis/report">Money, Politics, Power: Corruption Risks in Europe</a> &rsquo;,
-				Transparency International looked at the anti-corruption safeguards
-				in 25 European countries.&nbsp; Our research found that while only a
-				small number of these countries had codes of conduct in place for
-				parliamentarians, the majority do require legislators to declare
-				their interests, assets and outside income.&nbsp; However, problems
-				were noticed in the verification mechanisms in many countries,
-				affecting public confidence in the veracity of declarations.</p>
-				
-				<p >In its <a href="http://ec.europa.eu/dgs/home-affairs/e-library/documents/policies/organized-crime-and-human-trafficking/corruption/docs/acr_2014_en.pdf">2014 EU Anti-Corruption Report</a>,
-				the European Commission identified similar concerns, highlighting the
-				lack of checks on financial declarations of national MPs as a major
-				weakness in the integrity systems of many EU countries. Verifications
-				on the substance of declarations of interests were found often to be
-				&lsquo;formalistic and mostly limited to administrative checks&rsquo;,
-				with the tools and capacity to carry out substantial checks deemed to
-				be &lsquo;insufficient&rsquo;.</p>
-				
-				<h3>Background on the
-				European Parliament&rsquo;s Code of Conduct</h3>
-				<p >As a reaction to the
-				cash-for-amendments scandal that hit the European Parliament in 2011
-				(in which four members accepted payments from undercover journalists
-				posing as lobbyists in exchange for the introduction of legislative
-				amendments) a new <a href="http://www.europarl.europa.eu/pdf/meps/201206_Code_of_conduct_EN.pdf">code
-				of conduct</a> was introduced in 2012.</p>
-				
-				<p >The Code obliges Members of the European Parliament (MEPs) to submit information on
-				their financial interests, to declare their attendance at third party
-				events and to reveal any gifts that they have received.</p>
-				
-				<p >On paper the 2012
-				Code of Conduct meant significant progress and the reporting
-				obligations were quite extensive at the time. Unfortunately the
-				implementation proved less ambitious. Despite recommendations by the
-				Advisory Committee to the President of the European Parliament
-				finding that seven MEPs had violated the Code of Conduct, not a
-				single one has been sanctioned to date.</p>
-				
-				<p >National Parliaments
-				across Europe &ndash; Germany, France and the United Kingdom in
-				particular &ndash; have significantly
-				tightened their rules and reporting obligations during the last two
-				years.
-				Often these steps came in direct responses to scandals. In
-				comparison, the European Parliament is now falling behind standards
-				at national level, and this in a moment when euro-scepticism and
-				public perception of the EU institutions as corrupt are at an
-				all-time high.</p>
-				
-				<p >In this context
-				Transparency International has published a comprehensive review of
-				the integrity of 10 EU Institutions, including the European
-				Parliament, Commission Council and the European Court of Justice
-				(<a href="http://www.transparencyinternational.eu/focus_areas/eu-integrity-study/">EUIS
-				report</a>). Transparency International is using the
-				findings to advocate change inside the institutions and has
-				recommended a reform of the Code of Conduct of the European
-				Parliament that would establish an independent ethics committee to
-				monitor potential conflicts of interest.</p>
-				
-				<h3>Background on the EU Integrity Watch project </h3>
-				<p >Following the
-				elections to the European Parliament in May, the new Parliament took
-				office on the 1st of July 2014. All members &ndash; new and old &ndash;
-				had until the 3rd of July to submit their declarations of financial
-				interest, thereby submitting their information on outside revenues,
-				board memberships and financial holdings.</p>
-				
-				<p >Policy recommendations
+				<p>Data extracted and published under and opendata licence by <a href="http://parltrack.euwiki.org/" target="_blank">parltrack</a>
 				</p>
 				
-				<p >This user-friendly
-				database provides a unique overview of the activities of the newly
-				elected European Parliament and enables a range of rankings and
-				visual comparisons. It also allows to better monitor potential
-				conflicts of interest or to identify those MEPs with a high degree of
-				external activity.</p>
 				
-				<p >For that purpose
-				Transparency International has developed an &ldquo;External Activity
-				Indicator (EAI)&rdquo; (Methodology),
-				which scores each MEP based on the number of outside occupations,
-				board memberships or other political mandates as well as the
-				cumulative income derived from these activities.</p>
 				
-				<h3 id="recommendations">Transparency International policy recommendations</h3>
-				<p >One conclusion
-				that can already be drawn from the EU Integrity Watch database is
-				that the declarations of financial interest and thus the Code of
-				Conduct of the European Parliament need reform. Meaningful monitoring
-				of conflicts of interest is impossible when MEPs declare that their
-				side-job is &ldquo;consultant&rdquo;, &ldquo;freelancer&rdquo;,
-				&ldquo;manager&rdquo; or something that goes under an abbreviation
-				such as &ldquo;RvC FMO&rdquo; or &ldquo;ASDCAM&rdquo;. The financial
-				thresholds in the declarations need to be revised and should allow
-				much more accurate reporting instead of capping the information at
-				&ldquo;more than 10,000 EUR&rdquo;. Better guidelines on how to fill
-				out the declarations are needed and the European Parliament should
-				better monitor the submitted declarations. An independent ethics
-				committee should monitor compliance and publish recommendations in
-				case of an alleged breach.</p>
-				<p >To further
-				improve public monitoring of potential conflicts of interest at the
-				Parliament and at the Commission, TI-EU suggests the adoption of a
-				&lsquo;legislative footprint&rsquo; mechanism &ndash; a record of all
-				meetings between lobbyists and lawmakers. 181 MEPs have already
-				committed to using this as part of TI-EU&rsquo;s anti-corruption
-				<a href="http://www.transparencyinternational.eu/2014/10/european-parliament-elections-2014-the-anti-corruption-pledge/">election
-				pledge</a>.</p>
-				<p >Finally, TI-EU
-				continues to advocate for a mandatory Transparency Register of
-				Lobbyists that covers the European Parliament, the Commission and the
-				Council, something that Commission President elect Jean-Claude
-				Juncker has announced for his term.</p>
-				<h3>Core recommendations:</h3>
+				<h2 id="disclaimers">Disclaimers</h2>
+				<p>All information and data used by EU Integrity Watch is gathered from the websites of the European Commission for the lobby meetings, from the EU Transparency Register (the register of Brussels lobbyists) for the information on lobby organisations and from the website of the European Parliament for the declarations of financial interests. Data in the EU register is self-reported on a voluntary basis by lobbyists. We read out this information on a regular basis and publish the date of the latest update prominently on our websites.
+				</p>
+				<p>Transparency International and EU Integrity Watch bear no responsibility for the accuracy of the original data as we only reproduce information that is publicly available on the above-mentioned websites.
+				</p>
+				<p>Before publication of any findings, please always check the latest data on the websites of the EU Institutions.
+				</p>
+				<p>Should you spot any inaccuracies in the data or any functionality that does not work properly please contact <a href="mailto:dfreund@transparency.org ">dfreund@transparency.org</a>
+				</p>
+				
+				
+				<h3>Disclaimer on outside incomes of MEPs </h3>
+				<p>The Code of Conduct of the European Parliament establishes that for reasons of transparency, Members of the European Parliament (MEPs) shall submit a declaration of financial interests. Those declarations shall then be published on the Parliament's website.</p> 
+				<p>All data of outside incomes of MEPs comes from the website of the European Parliament. EU Integrity Watch automatically extracts the information from the original declarations that are published in Pdf format on the Parliament's website and uses them to regularly update its own database. The date of the latest update is featured on our website. All information contained in the original declaration is under the sole responsibility of the member of the European Parliament that filled out and signed the declaration. This means also that the information is currently only available in the language in which the member has filled out the declaration. Given that the Parliament only provides the data in Pdf format instead of a reliable .xml format our data might not be 100% accurate. On each profile of a member we link to the profile on the Parliament's own website, where the original declaration and all other information can be check and verified. 
+				</p>
+				
+				<h3>Disclaimer on lobby meetings with the European Commission</h3>
+				<p>Since 1 December 2014, senior European Commission staff, including Commissioners, members of their Cabinets and Directors-General, are required to disclose on their websites details of meetings with lobbyists, including the names of organisations and self-employed participants, time, location and the subject of the meeting (European Commission decision C(2014 9048 final and 9051 final). Under Article 4(1) the information shall be published in a standardised format within a period of two weeks following the meeting.</p>
+				<p>These self-reported data is automatically retrieved from the individual EU Commission webpages and consolidated. The reporting and publication of the events is in sole responsibility of the EU Commission senior staff. Therefore, the validity, completeness and timeliness of publication have to be ensured by the public officials themselves. </p>
+				<p>Additional information on the identification and characterisation of the interest groups are retrieved from the Transparency Register database. The definition of classification has been spelled out in the Annex IX to the Rules of Procedure of the European Parliament and can be found here(***insert link***).
+				</p>
+				
+				
+				<h2 id="bg_info">Background information</h2>
+				<h3>What is the story behind Integrity Watch?</h3>
+				<p>Transparency International EU has identified political corruption as one of the core problems of European democracies and the EU Institutions. In this context, we see the lack of transparency in decision-making, conflicts of interest and undue influence by lobbyists as some of the major challenges for our political systems. For more detailed informations please also refer to our main research work:
+				</p>
 				<ul>
-				  <li><p >Publish more  detailed information in the declarations to allow a meaningful				  monitoring of potential conflicts of interest</p></li>
-				  <li><p >Revise the
-				  financial thresholds in the declaration to allow more accurate
-				  reporting and monitoring of outside revenue</p></li>
-				  <li><p >Translate all
-				  declarations into all official languages</p></li>
-				  <li><p >The European
-				  Parliament administration should better check the declarations for
-				  plausibility and possible errors &ndash; false declarations should
-				  lead to sanctions</p></li>
-				  <li><p >The Code of
-				  Conduct needs to be fully respected in word and in spirit and
-				  violations need to be sanctioned by the EP President</p></li>
-				  <li><p >Standardise as
-				  much of the information as possible to allow better comparisons and
-				  groupings and to connect the information with other databases, such
-				  as the Transparency Register</p></li>
-				  <li><p >Publish all
-				  declarations of interest in a centralised, searchable manner,
-				  including historical declarations (.xml/.json files instead of .pdf)</p></li>
+					<li>2015 Report: <a href="http://www.transparencyinternational.eu/wp-content/uploads/2015/04/lobbying_web.pdf">Lobbying in Europe – Hidden Influence, Privilegdged Access</a></li>
+					<li>2015 Paper: <a href="http://www.transparencyinternational.eu/wp-content/uploads/2015/03/transparency-05-small-text-web.pdf">EU Legislative Footprint – What is the real influence of lobbying?</a></li>
+					<li>2014 Report: <a href="http://www.transparencyinternational.eu/wp-content/uploads/2014/04/eu_integrity_system_report.pdf">European Union Integrity System Study</a></li>
+					<li>2012 Report: <a href="http://www.transparencyinternational.eu/wp-content/uploads/2015/03/2012-corruption-risks-in-europe.pdf">Money, Politics, Power: Corruption Risks in Europe</a></li>
+				</ul>
+				
+				<p>In this context, we aim to rebuild citizens’ trust in the EU Institutions through increased transparency, accountability and citizen engagement using the power of modern technology and modern communication to empower EU citizens.</p>
+				<p>Transparency alone is of course not a solution to any problem, but can only ever be the first step on a longer way. Without the necessary information no problem can be addressed. In that sense transparency is a necessary pre-condition for a well-run political system, accountable to citizens and free of corruption. EU Integrity Watch seeks to make information that is already in the public domain – but often in a format difficult to access (Pdf) and impossible to search – more accessible and provide larger overviews of the overall situation. </p>
+				
+				
+				<h3>Where does the data come from?</h3>
+				<p>All data used on EU Integrity Watch comes from the websites of the EU Institutions. We have used the following datasets:
+				<p>For the tool on “MEP incomes”:</p>
+				<ul>
+					<li>General information contained on the sites of the 751 MEPs, such as this <a href="http://www.europarl.europa.eu/meps/en/1911/martin_schulz_home.html">page</a> for President Martin Schulz on nationality, party and group memberships, committee memberships…</li>
+					<li>The declarations of financial interests that all MEPs have to fill out. These declarations are also available on the same page. The example for President Martin Schulz can be found <a href="http://www.europarl.europa.eu/mepdif/1911_dfi_rev0_de.pdf">here</a>.</li>
+				</ul>
+				
+				<p>For the tools on “Commission meetings” and “EU Lobbyists”:</p>
+				<ul>
+					<li>The lists of meetings with lobbyists published on the websites of European Commissioners and Directors-General. An example for European Commission President Jean-Claude Juncker can be found <a href="http://ec.europa.eu/transparencyinitiative/meetings/meeting.do?host=829436d0-1850-424f-aebe-6dd76c793be2">here</a>. The complete information is scattered over 98 different webpages as each Commissioner, each Cabinet and each DG have their own page. A complete list of the links can be downloaded here (***insert link***).</li>
+					<li>The information on lobby organisations comes from the EU Transparency Register. The full dataset of the register can be downloaded <a href="https://open-data.europa.eu/en/data/dataset/transparency-register">here</a>.</li>
 				</ul>
 				
 				
-				</div><!-- col-md-7 -->
-			</div>
-			<div class="row">
-			<br /><br /><br />
-				<div class="col-md-3">&nbsp;</div>
-
-				<div class="col-md-7">
-					<h1 id="methodology">Methodology</h1>
-					<p >EU Integrity Watch
-					was launched in October 2014 by the Transparency International EU
-					Office (TI-EU). The project is co-funded by the Open Society
-					Initiative for Europe (OSIFE).</p>
-					
-					<h3>Where does the data come from&#8204;?</h3>
-<p>All data contained in the EU Integrity Watch database comes from the website of the European Parliament. EU Integrity Watch automatically extracts the information from the original declarations that are published in Pdf format on the Parliament's website and uses them to regularly update its own database. The date of the latest update is featured on our website. EU Integrity Watch is not responsible for the data that is provided by the European Parliament. All information contained in the original declaration is under the sole responsibility of the member of the European Parliament that filled out and signed the declaration. Given that the Parliament only provides the data in Pdf format instead of a reliable .xml format our data might not be 100% accurate. Please report any inaccuracies that you might spot to dfreund@transparency.org</p>
-					<h4>How do Members of
-					the European Parliament declare their financial interests&#8204;?</h4>
-					<p >The Code of Conduct
-					of the European Parliament establishes that for reasons of
-					transparency, Members of the European Parliament (MEPs) shall submit
-					a declaration of financial interests. Those declarations shall then
-					be published on Parliament's website. The declarations are the
-					sole responsibility of each individual member. EU Integrity Watch
-					merely copies the information contained in the declarations and makes
-					it available on its website. This means that the information is
-					currently only available in the language in which the member has
-					filled out the declaration.</p>
-					
-					<p >On each profile of a member we link to the profile on the Parliament's own website,
-					where the original declaration and all other information can be
-					accessed and verified.
-					</p>
-					<br />
-					<h4>Why are all revenues provided as a range&#8204;?</h4>
-					<p>According to the Code of Conduct of the European Parliament all outside revenues or
-					financial interests shall be placed in one of the following
-					categories:</p>
-					<ul>
-					  <li><p >500 -
-					  1,000 EUR per month</li>
-					  <li><p >1,001 -
-					  5,000 EUR per month</li>
-					  <li><p >5,001 -
-					  10,000 EUR per month</p></li>
-					  <li><p >More than
-					  10,000 EUR per month</p></li>
-					</ul>
-					<p >In case of revenues
-					of less than 500 EUR per month or 5,000 per year no category needs to
-					be indicated.</p>
-					
-					<br />
-					
-					<h4>What is the
-					External Activity Indicator (EAI)&#8204;?</h4>
-					<p >The External
-					Activity Indicator was developed by Transparency International to
-					provide a quick overview of all activities that fall under the remits
-					of the Code of Conduct and the declarations of financial interests.
-					In short, the higher the indicator the more activities a member has
-					declared and the higher the declared revenues. The website shades
-					MEPs according to their EAI - the higher the EAI the darker the
-					grey shading.</p>
-					
-					<p >The External
-					Activity Indicator is not an assessment of an MEP's performance
-					or a judgement on the declared activities. It does not identify
-					actual conflicts of interest. It only serves to quickly and easily
-					identify those MEPs that have a higher number of declared activities
-					or a higher declared income from outside activities.</p>
-					
-					<p >Transparency
-					International fully supports the European Parliament in its efforts
-					towards greater transparency. Therefore we encourage all Members of
-					the European Parliament to provide detailed and accurate declarations
-					of their activities and financial interests. Only those declarations
-					that provide meaningful and detailed information will allow the
-					public and civil society to monitor potential conflicts of interests.</p>
-					<br />
-					<h4>How is the
-					External Activity Indicator (EAI) calculated&#8204;?</h4>
-					<p >The External
-					Activity Indicator is calculated by an algorithm that allocates
-					points for each activity declared in a Member's declaration of
-					financial interest. If no activities are declared a member has an EAI
-					of 0. Points are attributed as follows:
-					
-					<ul>
-					  <li><p >1 point for
-					  each activity (2 points if the activity is a "regular
-					  remunerated activity")</p></li>
-					  <li><p >1 points for
-					  each financial holding</p></li>
-					  <li><p >1 point for
-					  every 500 EUR of minimum monthly outside revenue</p></li>
-					  
-					  <li><p >10 points if
-					  revenue of "more than 10,000 EUR per month" are declared
-					  in at least one activity</p></li>
-					</ul>
-					<br />
-					<h4>And if my question is not answered here?</h4>
-					<p>Then please do not hesitate to get in touch:</p>
-					
-					<p >Daniel Freund<br />
-					Policy Officer EU Integrity<br />
-					Transparency International EU Office<br />
-					+32 489 58 7140<br />
-					dfreund@transparency.org
-					</p>
-				</div>
+				
+				<h2 id="lobby_info">Additional information on the Commission meeting and Brussels lobbying tools</h2>
+				<h3>What are the rules governing the publication of meetings with lobbyists by the European Commission?</h3>
+				<p>The European Commission under President Jean-Claude Juncker has made strong commitments to increased transparency. Since 1 December 2015 Commissioners, their Cabinets and Director-Generals publish their meetings and only meet with lobbyists registered in the EU Transparency Register. Publication is made on the Commission website as explained above. Commission Vice-President Frans Timmermans has been tasked to put forward a proposal for a mandatory register by the end of 2015. </p>
+				<p>The Commission also pledged to “ensure an appropriate balance and representativeness in the stakeholders they meet”. Indeed, a communication from the President to the Commission on the Working Methods of the European Commission 2014 – 2019 reads: "While contact with stakeholders is a natural and important part of the work of a Member of the Commission, all such contacts should be conducted with transparency and Members of the Commission should seek to ensure an appropriate balance and representativeness in the stakeholders they meet." The full text of the communication can be found <a href="http://ec.europa.eu/transparency/regdoc/rep/3/2014/en/3-2014-9004-en-f1-1.pdf">here</a>.</p>
+				</p>
+				
+				<h3>What is the EU Transparency Register?</h3>
+				<p>Created in 2011 as a joint register for lobbyists by the European Commission and Parliament, the voluntary register of Brussels lobbyists has undergone multiple revisions. Following the launch of an updated website on 27 January 2015, all registered organisations had to undergo a first annual update of their information. Despite the suspension of several hundred organisation and updated declarations from more than 7800 organisations that are currently registered, the quality of the data remains relatively poor, although improving compared to previous years. Transparency International has been campaigning for a mandatory register with meaningful sanctions for lobbyists that break the rules. 
+				</p>
+				
+				<h3>What does Transparency International recommend to improve lobbying transparency?</h3>
+				<p>The European Commission under Jean-Claude Juncker has taken good steps in the right direction when it comes to lobbying transparency. Allowing only registered lobbyists to meet the highest level of decision-makers and publishing those meetings have greatly improved transparency and are indeed the reason this present analysis was possible at all.
+				Nevertheless, the findings of our work also illustrate that more is needed to ensure transparency, integrity and equality of access in EU lobbying. We recommend to:
+				</p>
+				
+				<ol>
+					<li><strong>Make the EU Transparency Register mandatory</strong><span>Only if registration is mandatory for lobbyists can we be sure to capture all those seeking to directly or indirectly influence EU decision-making. A mandatory register would also allow sanctioning of organisations that do not comply with the rules. The Transparency Register Secretariat needs to be provided with the necessary resources to better check the declarations for possible errors, particularly on those organisations that have frequent meetings at the highest level. Smart online tools like Integrity Watch can help in that regard.</span><span>
+					The Commission could also start today to improve the system by no longer meeting with unregistered lobbyists. Such an order to all officials would not create any additional costs and could be put in place immediately. All it would take is a decision by the political leadership to say that unregistered lobbyists are no longer welcome at the European Commission.</span>
+					</li>
+					<li><strong>Introduce a Legislative Footprint for EU decision-making and legislation</strong><span>A legislative footprint is a comprehensive public record of lobbyists’ influence on a piece of legislation or public decision. This can be established through the registration of meetings and by capturing written input from lobbyists. The Commission has started both, but the measures need to be extended to everyone involved in the decision-making process. This means extending current provision to the lower levels of the Commission but more importantly to the European Parliament and Council. Standardisation of subject matters and the mention of concrete legislative files as well as the use of open data would greatly increase the usability of the data by a wider audience. Our detailed recommendations to all three European Institutions can be found in this <a href="http://www.transparencyinternational.eu/wp-content/uploads/2015/03/transparency-05-small-text-web.pdf">paper</a>.</span>
+					</li>
+				</ol>
+				
+				
+				
+				
+				<h2 id="mep_info">Additional information on the MEP income tool</h2>
+				<h3>What are the rules governing the publication of the declarations of financial interests of MEPs?
+				</h3>
+				<p>As a reaction to the cash-for-amendments scandal that hit the European Parliament in 2011 (in which four members accepted payments from undercover journalists posing as lobbyists in exchange for the introduction of legislative amendments) a new <a href="http://www.europarl.europa.eu/pdf/meps/201206_code_of_conduct_en.pdf">code of conduct</a> was introduced in 2012.
+				</p>
+				<p>The Code obliges Members of the European Parliament (MEPs) to submit information on their financial interests, to declare their attendance at third party events and to reveal any gifts that they have received.</p>
+				<p>On paper the 2012 Code of Conduct meant significant progress and the reporting obligations were quite extensive at the time. Unfortunately the implementation proved less ambitious. Despite recommendations by the Advisory Committee to the President of the European Parliament finding that seven MEPs had violated the Code of Conduct, not a single one has been sanctioned to date.</p>
+				<p>National Parliaments across Europe – Germany, France and the United Kingdom in particular – have significantly tightened their rules and reporting obligations during the last two years. Often these steps came in direct responses to scandals. In comparison, the European Parliament is now falling behind standards at national level, and this in a moment when euro-scepticism and public perception of the EU institutions as corrupt are at an all-time high.</p>
+				
+				<h3>What is the
+				External Activity Indicator (EAI)&#8204;?</h3>
+				<p >The External
+				Activity Indicator was developed by Transparency International to
+				provide a quick overview of all activities that fall under the remits
+				of the Code of Conduct and the declarations of financial interests.
+				In short, the higher the indicator the more activities a member has
+				declared and the higher the declared revenues. The website shades
+				MEPs according to their EAI - the higher the EAI the darker the
+				grey shading.</p>
+				
+				<p >The External
+				Activity Indicator is not an assessment of an MEP's performance
+				or a judgement on the declared activities. It does not identify
+				actual conflicts of interest. It only serves to quickly and easily
+				identify those MEPs that have a higher number of declared activities
+				or a higher declared income from outside activities.</p>
+				
+				<p >Transparency
+				International fully supports the European Parliament in its efforts
+				towards greater transparency. Therefore we encourage all Members of
+				the European Parliament to provide detailed and accurate declarations
+				of their activities and financial interests. Only those declarations
+				that provide meaningful and detailed information will allow the
+				public and civil society to monitor potential conflicts of interests.</p>
+				<br />
+				<h4>How is the
+				External Activity Indicator (EAI) calculated&#8204;?</h4>
+				<p >The External
+				Activity Indicator is calculated by an algorithm that allocates
+				points for each activity declared in a Member's declaration of
+				financial interest. If no activities are declared a member has an EAI
+				of 0. Points are attributed as follows:
+				
+				<ul>
+				  <li><p >1 point for
+				  each activity (2 points if the activity is a "regular
+				  remunerated activity")</p></li>
+				  <li><p >1 points for
+				  each financial holding</p></li>
+				  <li><p >1 point for
+				  every 500 EUR of minimum monthly outside revenue</p></li>
+				  
+				  <li><p >10 points if
+				  revenue of "more than 10,000 EUR per month" are declared
+				  in at least one activity</p></li>
+				</ul>
+				
+				
+				<h3>Transparency International’s recommendations to improve the Code of Conduct:</h3>
+				<p>One conclusion that can already be drawn from the EU Integrity Watch database is that the declarations of financial interest and thus the Code of Conduct of the European Parliament need reform. Meaningful monitoring of conflicts of interest is impossible when MEPs declare that their side-job is “consultant”, “freelancer”, “manager” or something that goes under an abbreviation such as “RvC FMO” or “ASDCAM”. The financial thresholds in the declarations need to be revised and should allow much more accurate reporting instead of capping the information at “more than 10,000 EUR”. Better guidelines on how to fill out the declarations are needed and the European Parliament should better monitor the submitted declarations. An independent ethics committee should monitor compliance and publish recommendations in case of an alleged breach.</p>
+				
+				<h3>Core recommendations:</h3>
+				<ul>
+					<li>Publish more detailed information in the declarations to allow a meaningful monitoring of potential conflicts of interest</li>
+					<li>Revise the financial thresholds in the declaration to allow more accurate reporting and monitoring of outside revenue
+					<li>Translate all declarations into all official languages</li>
+					<li>The European Parliament administration should better check the declarations for plausibility and possible errors – false declarations should lead to sanctions</li>
+					<li>The Code of Conduct needs to be fully respected in word and in spirit and violations need to be sanctioned by the EP President</li>
+					<li>Standardise as much of the information as possible to allow better comparisons and groupings and to connect the information with other databases, such as the Transparency Register</li>
+					<li>Publish all declarations of interest in a centralised, searchable manner, including historical declarations (xml/json files instead of Pdf)</li>
+				</ul>
+				
+				
+				<h2>Contact details</h2>
+				<p>If your questions have not been answered here please contact:</p>
+				
+				<p>Daniel Freund<br />
+				Policy Officer EU Integrity<br />
+				Transparency International EU Office<br />
+				+32 489 58 7140<br />
+				<a href="mailto:dfreund@transparency.org">dfreund@transparency.org</a>
+				</p>
+				
 			</div>
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+	$('#menu').width($('#about_menu_container').width())
+	$('#menu li a').click(function(e) {
+		e.preventDefault();
+		$('html, body').animate({
+		       scrollTop: $($(this).attr('href')).offset().top
+		   }, 1000);
+	})
+</script>
 
 </body>
 </html>

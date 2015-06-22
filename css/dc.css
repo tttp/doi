@@ -7,7 +7,7 @@ div.dc-chart {
 }
 
 .dc-chart text{
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important;
+	font-family:"Helvetica W02 Light";
 }
 
 .dc-chart rect.bar {
@@ -62,8 +62,8 @@ div.dc-chart {
 }
 
 .dc-chart .selected path {
-    stroke-width: 3;
-    stroke: #ccc;
+    stroke-width: 1;
+    stroke: #fff;
     fill-opacity: 1;
 }
 
@@ -197,12 +197,12 @@ div.dc-chart {
 }
 
 .dc-chart g.row rect {
-    fill-opacity: 0.8;
+    fill-opacity: 0.9;
     cursor: pointer;
 }
 
 .dc-chart g.row rect:hover {
-    fill-opacity: 0.6;
+    fill-opacity: 0.7;
 }
 
 .dc-chart g.row text {

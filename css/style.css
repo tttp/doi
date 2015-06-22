@@ -3,23 +3,35 @@
 	http://localhost:8888/transp_doi/doi/css/style.css
 	http://doi.ap:8888/doifork/css/style.css
 	http://localhost:8888/transp_doi/doifork/css/style.css
-	http://doi.ap:8888/doi/css/style.css */
+	http://doi.ap:8888/doi/css/style.css
+	http://doi.lattecreative.com/doi/css/style.css */
+
+@import url("http://fast.fonts.net/lt/1.css?apiType=css&c=7bacdeec-00ae-4450-bf23-75f7f74f9628&fontids=739810,739467");
+@font-face{
+font-family:"Helvetica W02 Light";
+src:url("../fonts/739810/ff80873b-6ac3-44f7-b029-1b4111beac76.eot?#iefix");
+src:url("../fonts/739810/ff80873b-6ac3-44f7-b029-1b4111beac76.eot?#iefix") format("eot"),url("../fonts/739810/5f69edb2-7ba6-4bcf-9266-186b412dc27c.woff2") format("woff2"),url("../fonts/739810/80c34ad2-27c2-4d99-90fa-985fd64ab81a.woff") format("woff"),url("../fonts/739810/b8cb02c2-5b58-48d8-9501-8d02869154c2.ttf") format("truetype"),url("../fonts/739810/92c941ea-2b06-4b72-9165-17476d424d6c.svg#92c941ea-2b06-4b72-9165-17476d424d6c") format("svg");
+}
+@font-face{
+font-family:"Helvetica W02 Bd Cn";
+src:url("../fonts/739467/41d468de-0241-4086-8be4-21f7a002cf7d.eot?#iefix");
+src:url("../fonts/739467/41d468de-0241-4086-8be4-21f7a002cf7d.eot?#iefix") format("eot"),url("../fonts/739467/7da3dc49-a6ed-4109-a2da-c0ac6f52c294.woff2") format("woff2"),url("../fonts/739467/a986da64-fc96-499e-a852-8b33bf8d7825.woff") format("woff"),url("../fonts/739467/f4cc47e5-a53d-41f6-8719-87302b7e4a58.ttf") format("truetype"),url("../fonts/739467/7b6755aa-ec63-418c-9db9-088d83b0352e.svg#7b6755aa-ec63-418c-9db9-088d83b0352e") format("svg");
+}
 
 
 /* GENERIC ELEMENTS */
 
 body {
-   font-family: 'Neue Helvetica 55 Roman', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important; 
-   /* on TI website there is in use the fonts.com helvetica */
+   font-family: 'Helvetica W02 Light', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    line-height: 1.6em;
    color: #5d5d5d;
    padding-bottom: 90px;
 }
 
 h1,h2,h3,h4,h5,h6 {
-   font-family: 'Neue Helvetica 57 Condensed', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   /* on TI website there is in use the fonts.com helvetica */
-   font-weight: 300;
+   font-family: 'Helvetica W02 Bd Cn', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: normal;
+   text-transform: uppercase;
 }
 
 h1{
@@ -27,7 +39,6 @@ h1{
 }
 
 h2{
-	font-weight: bold;
 	font-size: 1.8em;
 	margin-bottom: 0;
 }
@@ -37,8 +48,11 @@ h3{
 	padding-bottom: .3em;
 	margin-bottom: 1em;
 	position: relative;
-	font-size: 1.2em;
-	font-weight: bold;
+	font-size: 1.4em;
+}
+
+.chart_box h3{
+	font-size: 1.15em;
 }
 
 a{
@@ -231,6 +245,7 @@ a#page_title{
 }
 
 ul.nav.navbar-right li.active a{
+
 }
 
 .navbar-collapse .navbar-right a{
@@ -444,15 +459,37 @@ ul.nav.navbar-right li.active a{
 		margin-bottom: 0em;
 	}
 	
-	#about_wrap.mi_header{
-		background: #039AAB url(../img/icon_mi.svg) no-repeat -5% center;
-	}
 	#about_wrap.cm_header{
-		background: #004c79 url(../img/icon_cm.png) no-repeat -5% center;
+		background: #004c79 url(../img/bg_hands-01.png) repeat-y -130% top;
+		background-size: 70%;
+	}
+	
+	#about_wrap.cm_header #about_container{
+		background: url('../img/icon_hands.png') no-repeat left center;
+		background-size: 16%;
+	}
+	
+	#about_wrap.bl_header{
+		background: #8d1556 url(../img/bg_suit-01.png) repeat-y -45% top;
+		background-size: 50%;
+	}
+	
+	#about_wrap.bl_header #about_container{
+		background: url('../img/icon_suit.png') no-repeat left center;
+		background-size: 16%;
+	}
+	
+	#about_wrap.mi_header{
+		background: #039AAB url(../img/bg_money-01.png) repeat-y -130% top;
+		background-size: 70%;
+	}
+	
+	#about_wrap.mi_header #about_container{
+		background: url(../img/icon_money.png) no-repeat left center;
+		background-size: 25%;
 	}
 	
 	#about_wrap #about_container{
-		background-size: 18%;
 		padding-bottom: 1em;
 	}
 	
@@ -463,12 +500,36 @@ ul.nav.navbar-right li.active a{
 }
 
 @media only screen and (min-width : 1200px){
-	#about_wrap.mi_header{
-		background: #039AAB url(../img/icon_mi.png) no-repeat 2% center;
-	}
 	#about_wrap.cm_header{
-		background: #004c79 url(../img/icon_cm.png) no-repeat 2% center;
+		background: #004c79 url(../img/bg_hands-01.png) repeat-y -41% top;
+		background-size: 45%;
 	}
+	
+	#about_wrap.cm_header #about_container{
+		background: url('../img/icon_hands.png') no-repeat 5% center;
+		background-size: 16%;
+	}
+
+	#about_wrap.bl_header{
+		background: #8d1556 url(../img/bg_suit-01.png) repeat-y -40% top;
+		background-size: 45%;
+	}
+	
+	#about_wrap.bl_header #about_container{
+		background: url(../img/icon_suit.png) no-repeat left center;
+		background-size: 24%;
+	}
+	
+	#about_wrap.mi_header{
+		background: #039AAB url(../img/bg_money-01.png) repeat-y -40% top;
+		background-size: 45%;
+	}
+	
+	#about_wrap.mi_header #about_container{
+		background: url(../img/icon_money.png) no-repeat left center;
+		background-size: 25%;
+	}
+	
 	#about_wrap p{
 		margin-bottom: 1em;
 		margin-top: 1em;
@@ -656,11 +717,11 @@ ul.nav.navbar-right li.active a{
 	}
 	
 	#filter_wrap .big_number{
-		font-family: 'Neue Helvetica 57 Condensed', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-		font-size: 1.7em;
-		margin-bottom: 6px;
+		font-family: 'Helvetica W02 Bd Cn', 'Neue Helvetica 57 Condensed', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-size: 2.1em;
+		margin-bottom: 10px;
 		display: block;
-		margin-top: 16px;
+		margin-top: 14px;
 		color: #FFF;
 		font-weight: bold;
 	}
@@ -861,9 +922,9 @@ ul.nav.navbar-right li.active a{
 
 #avg_score_container div#avg_score {
     font-size: 180px;
-    font-weight: bold;
     margin-top:60px;
     height: 90px;
+	font-family:"Helvetica W02 Bd Cn";    
 }
 
 #sum_side, #avg_side{
@@ -927,6 +988,10 @@ td.dc-table-column._6{
 	stroke:none;
 }
 
+table{
+	font-size: 1.1em;
+}
+
 .dc-data-grid, .dc-grid-group {
 	clear:both
 }
@@ -969,8 +1034,25 @@ tr.header th.header{
 	border-bottom: 1px solid #1a1a1a;
 	border-right: 1px solid #bfd3de;
 	cursor: pointer;
-	font-size: .8em;
-	padding: .6em 1.6em .6em .6em;
+	font-size: 1em;
+	padding: .6em 1.6em .6em .6em;	
+}
+
+th.header{
+	
+}
+
+table.dataTable thead th.header.sorting_desc {
+  background-image: url(../img/sorteddown.svg);
+}
+
+table.dataTable thead th.header.sorting_asc {
+  background-image: url(../img/sortedup.svg);
+}
+
+table.dataTable thead th.header.sorting_disabled{
+	background-image: none;
+	cursor: default;
 }
 
 tr.header th.headerSortUp{
@@ -1034,6 +1116,9 @@ td.dc-table-column{
 .range .pie-slice path {stroke:lightgrey ;}
 div.range .pie-slice {fill:#333 ;}
 
+#about_menu_container{
+	height: 70%;
+}
 
 #menu{
 	position: fixed;
@@ -1109,6 +1194,7 @@ div.dc-chart g.row text {fill:black}
 	margin-left: 5%;
 }
 
+
 /* centering pie charts */
 .meetings.dc-chart, .accreditations.dc-chart, .main_category.dc-chart{
 	width: auto;
@@ -1170,10 +1256,29 @@ div.dc-chart g.row text {fill:black}
 	background: #f2f2f2;
 }
 
+
 .btn-sm {
 	padding:8px 15px;
 }
 
+ol{
+	padding-left:1.2em
+}
 
+ol strong{
+	display: block;
+	
+}
 
+ol li{
+	margin-bottom: 1em;
+}
 
+ul li{
+	margin-bottom: 1em;
+}
+
+#about_text_container h3{
+	border: none;
+	margin-bottom: 0;
+}
