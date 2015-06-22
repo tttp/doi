@@ -223,6 +223,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawHostType();
 	drawTopGuest();
 	drawTopHost();
+  drawGuestCounter();
 	drawSector();
 	drawMainCategory();
 	drawExpense();
@@ -659,6 +660,59 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	};
 
+  function drawGuestCounter (){
+		var dim = ndx.dimension (function(d) {
+			if (!d.guestid) {
+				return "";
+			}
+      if (d.guestid)
+        return d.guestid;
+			return d.guest;
+		});
+    var group   = dim.group().reduce(
+      function(p,d) {  
+        p.nb +=1;
+        if (!d.guestid || ! representatives[d.guestid])
+          return p;
+        p.fte = +representatives[d.guestid].fte;
+        p.accredited = +representatives[d.guestid].accredited;
+        return p;
+      },
+      function(p,d) {  
+        p.nb -=1;
+         if (!d.guestid || ! representatives[d.guestid])
+           return p;
+        p.fte = +representatives[d.guestid].fte;
+        p.accredited = +representatives[d.guestid].accredited;
+        return p;
+      },
+      function(p,d) {  
+        return {nb:0,fte:0,accredited:0}; 
+      }
+    );
+    group.order (function(p){return p.nb});
+    var fte=0;
+    var accredited=0;
+	var count = dc.dataCount(".org-count")
+		.dimension(group)
+		.group({value: function() {
+			return group.all().filter(function(kv) {
+        if (kv.value.nb >0) {
+          fte += +kv.value.fte;
+          accredited += +kv.value.accredited;
+        }
+
+				return kv.value.nb>0; 
+			}).length;
+		}})
+		.renderlet(function (chart) {
+        $(".nbfte").html(fte);
+        $(".nbaccredited").html(accredited);
+        fte=0;
+        accredited=0;
+		});
+  }
+
 	function drawTopGuest () {
 		var dim = ndx.dimension (function(d) {
 			if (!d.guestid) {
@@ -670,36 +724,14 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         return representatives[d.guestid].name;
 			return d.guest;
 		});
-		//var group   = dim.group().reduceSum(function(d) {   return 1; });
-    var group   = dim.group().reduce(
-      function(p,d) {  
-        p.nb +=1;
-        if (!d.guestid || ! representatives[d.guestid])
-          return p;
-        p.fte += +representatives[d.guestid].fte;
-        p.accredited += +representatives[d.guestid].accredited;
-        return p;
-      },
-      function(p,d) {  
-        p.nb -=1;
-         if (!d.guestid || ! representatives[d.guestid])
-           return p;
-        p.fte -= +representatives[d.guestid].fte;
-        p.accredited -= +representatives[d.guestid].accredited;
-        return p;
-      },
-      function(p,d) {  
-        return {nb:0,fte:0,accredited:0}; 
-      }
-    );
-    group.order (function(p){return p.nb});
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
 
 
 	var filteredGroup = (function(source_group) {
 		return {
 			all: function() {
 				return source_group.top(10).filter(function(d) {
-					return (d.key != "Not mentioned" && d.value.nb != 0);
+					return (d.key != "Not mentioned" && d.value != 0);
 				});
 			}
 		};
@@ -710,9 +742,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.height(340)
 		//.width(360)
 		.gap(3)
-      	.valueAccessor(function(d){
-          return d.value.nb})
-      	//.fixedBarHeight(20)
 		.x(d3.scale.ordinal())
 		.elasticX(true)
 		.colorCalculator(function(d, i) {
@@ -724,23 +753,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 		graph.xAxis().ticks(10).tickFormat(d3.format("d"));
 
-    var fte=0;
-    var accredited=0;
-	var count = dc.dataCount(".org-count")
-		.dimension(group)
-		.group({value: function() {
-			return group.all().filter(function(kv) {
-      fte += +kv.value.fte;
-      accredited += +kv.value.accredited;
-				return kv.value.nb>0; 
-			}).length;
-		}})
-		.renderlet(function (chart) {
-        console.log(fte);
-        console.log(accredited);
-        fte=0;
-        accredited=0;
-		});
 
 	};
 
@@ -1084,13 +1096,13 @@ function eventpopup (epid) {
 <div class="container_wrap filter_cm" id="filter_wrap">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-9 col-sm-9 col-md-4" id="filter_field_container">
+			<div class="col-md-4" id="filter_field_container">
 				<p>Search or filter:</p>
 				<div class="input-group">
 						<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by Lobbyist, Host, Subject…">
 				</div>
 			</div>
-			<div class="col-sm-7 col-md-7" id="filter_numbers">
+			<div class="col-md-7" id="filter_numbers">
 				<div class="row">
 					<div class="col-md-2" id="currently_selected_text"><p>Currently selected:</p></div>
 					<div class="col-md-3 filter_number">
@@ -1103,13 +1115,13 @@ function eventpopup (epid) {
 							<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> organisations
 						</div>
 					</div>
-					<div class="col-md-4 filter_number">
-						<div class="filter_long one2one"></div>
-						<div class="filter_long civilsociety">x% civil society?</div>
+					<div class="col-md-3 filter_number">
+            <div title="full time equivalent"><span class="afilter_long nbfte">AA</span> fte</div>
+            <div title="access badges to the European Parliament"><span class="afilter_long nbaccredited">BB</span> EP badges</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-3 col-sm-3 col-md-1" id="resetall_container">
+			<div class="col-md-1" id="resetall_container">
 				<button class="btn resetall">RESET<br />FILTERS</button>
 			</div>
 		</div>
