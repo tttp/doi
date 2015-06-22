@@ -5,21 +5,32 @@
 	http://localhost:8888/transp_doi/doifork/css/style.css
 	http://doi.ap:8888/doi/css/style.css */
 
+@import url("http://fast.fonts.net/lt/1.css?apiType=css&c=7bacdeec-00ae-4450-bf23-75f7f74f9628&fontids=739810,739467");
+@font-face{
+font-family:"Helvetica W02 Light";
+src:url("../fonts/739810/ff80873b-6ac3-44f7-b029-1b4111beac76.eot?#iefix");
+src:url("../fonts/739810/ff80873b-6ac3-44f7-b029-1b4111beac76.eot?#iefix") format("eot"),url("../fonts/739810/5f69edb2-7ba6-4bcf-9266-186b412dc27c.woff2") format("woff2"),url("../fonts/739810/80c34ad2-27c2-4d99-90fa-985fd64ab81a.woff") format("woff"),url("../fonts/739810/b8cb02c2-5b58-48d8-9501-8d02869154c2.ttf") format("truetype"),url("../fonts/739810/92c941ea-2b06-4b72-9165-17476d424d6c.svg#92c941ea-2b06-4b72-9165-17476d424d6c") format("svg");
+}
+@font-face{
+font-family:"Helvetica W02 Bd Cn";
+src:url("../fonts/739467/41d468de-0241-4086-8be4-21f7a002cf7d.eot?#iefix");
+src:url("../fonts/739467/41d468de-0241-4086-8be4-21f7a002cf7d.eot?#iefix") format("eot"),url("../fonts/739467/7da3dc49-a6ed-4109-a2da-c0ac6f52c294.woff2") format("woff2"),url("../fonts/739467/a986da64-fc96-499e-a852-8b33bf8d7825.woff") format("woff"),url("../fonts/739467/f4cc47e5-a53d-41f6-8719-87302b7e4a58.ttf") format("truetype"),url("../fonts/739467/7b6755aa-ec63-418c-9db9-088d83b0352e.svg#7b6755aa-ec63-418c-9db9-088d83b0352e") format("svg");
+}
+
 
 /* GENERIC ELEMENTS */
 
 body {
-   font-family: 'Neue Helvetica 55 Roman', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important; 
-   /* on TI website there is in use the fonts.com helvetica */
+   font-family: 'Helvetica W02 Light', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    line-height: 1.6em;
    color: #5d5d5d;
    padding-bottom: 90px;
 }
 
 h1,h2,h3,h4,h5,h6 {
-   font-family: 'Neue Helvetica 57 Condensed', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   /* on TI website there is in use the fonts.com helvetica */
-   font-weight: 300;
+   font-family: 'Helvetica W02 Bd Cn', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: normal;
+   text-transform: uppercase;
 }
 
 h1{
@@ -27,7 +38,6 @@ h1{
 }
 
 h2{
-	font-weight: bold;
 	font-size: 1.8em;
 	margin-bottom: 0;
 }
@@ -37,8 +47,11 @@ h3{
 	padding-bottom: .3em;
 	margin-bottom: 1em;
 	position: relative;
-	font-size: 1.2em;
-	font-weight: bold;
+	font-size: 1.4;
+}
+
+.chart_box h3{
+	font-size: 1.15em;
 }
 
 a{
@@ -656,11 +669,11 @@ ul.nav.navbar-right li.active a{
 	}
 	
 	#filter_wrap .big_number{
-		font-family: 'Neue Helvetica 57 Condensed', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-		font-size: 1.7em;
-		margin-bottom: 6px;
+		font-family: 'Helvetica W02 Bd Cn', 'Neue Helvetica 57 Condensed', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-size: 2.1em;
+		margin-bottom: 10px;
 		display: block;
-		margin-top: 16px;
+		margin-top: 14px;
 		color: #FFF;
 		font-weight: bold;
 	}
@@ -861,9 +874,9 @@ ul.nav.navbar-right li.active a{
 
 #avg_score_container div#avg_score {
     font-size: 180px;
-    font-weight: bold;
     margin-top:60px;
     height: 90px;
+	font-family:"Helvetica W02 Bd Cn";    
 }
 
 #sum_side, #avg_side{
@@ -927,6 +940,10 @@ td.dc-table-column._6{
 	stroke:none;
 }
 
+table{
+	font-size: 1.1em;
+}
+
 .dc-data-grid, .dc-grid-group {
 	clear:both
 }
@@ -969,8 +986,25 @@ tr.header th.header{
 	border-bottom: 1px solid #1a1a1a;
 	border-right: 1px solid #bfd3de;
 	cursor: pointer;
-	font-size: .8em;
-	padding: .6em 1.6em .6em .6em;
+	font-size: 1em;
+	padding: .6em 1.6em .6em .6em;	
+}
+
+th.header{
+	
+}
+
+table.dataTable thead th.header.sorting_desc {
+  background-image: url(../img/sorteddown.svg);
+}
+
+table.dataTable thead th.header.sorting_asc {
+  background-image: url(../img/sortedup.svg);
+}
+
+table.dataTable thead th.header.sorting_disabled{
+	background-image: none;
+	cursor: default;
 }
 
 tr.header th.headerSortUp{
@@ -1034,6 +1068,9 @@ td.dc-table-column{
 .range .pie-slice path {stroke:lightgrey ;}
 div.range .pie-slice {fill:#333 ;}
 
+#about_menu_container{
+	height: 70%;
+}
 
 #menu{
 	position: fixed;
@@ -1174,5 +1211,21 @@ div.dc-chart g.row text {fill:black}
 	padding:8px 15px;
 }
 
+ol{
+	padding-left:1.2em
+}
+
+ol strong{
+	display: block;
+	
+}
+
+ol li{
+	margin-bottom: 1em;
+}
+
+ul li{
+	margin-bottom: 1em;
+}
 
 
