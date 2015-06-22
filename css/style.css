@@ -47,7 +47,7 @@ h3{
 	padding-bottom: .3em;
 	margin-bottom: 1em;
 	position: relative;
-	font-size: 1.4;
+	font-size: 1.4em;
 }
 
 .chart_box h3{
@@ -1228,4 +1228,8 @@ ul li{
 	margin-bottom: 1em;
 }
 
+#about_text_container h3{
+	border: none;
+	margin-bottom: 0;
+}
 
