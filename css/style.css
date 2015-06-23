@@ -1169,15 +1169,15 @@ div.dc-chart g.row text {fill:black}
 /* legend */
 
 .legend div.directors:before{
-	background: #2163ad;
+	background: #84c0e8;
 }
 
 .legend div.commissioner:before{
-	background: #3793d1;
+	background: #2163ad;
 }
 
 .legend div.cabinet:before{
-	background: #84c0e8;
+	background: #3793d1;
 }
 
 #hosttype .legend div{
@@ -1281,4 +1281,29 @@ ul li{
 
 text.dc-cloud-word{
 	font-family:"Helvetica W02 Bd Cn", Helvetica!important;
+}
+
+/* TABLE */
+.l_data_container{
+	padding: 1em 4em;
+	background: #FFF;
+	font-weight: bolder;
+	color: #222;
+}
+
+.l_data_container div{
+	border-bottom: 1px solid #ddd;
+	margin-top: .5em;
+	padding-bottom: .4em;
+}
+
+.l_data_container label{
+	margin: 0;
+	font-size: .9em;
+	font-weight: normal;
+	color: #999;
+}
+
+.l_initiatives label{
+	display: block;
 }

@@ -27,7 +27,7 @@
 <meta property="og:url" content="http://www.integritywatch.eu" />
 <meta property="og:title" content="EU Integrity Watch: monitor potential conflicts of interests" />
 <meta property="og:description" content="Interactive database that provides a unique overview of the activities and outside income for the members of the European Parliament and Commission" />
-<meta property="og:imdate" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
+<meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
 
 </head>
 <body>
@@ -270,7 +270,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	function drawExpense () {
 		var dim = ndx.dimension (function(d) {
       if ((+d.meetings + +d.accredited + +d.cost_min +d.cost_absolute) == 0){
-        console.log ("filtered");
+        //console.log ("filtered");
         return "";
       }
 
@@ -621,10 +621,34 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             "aaData": rep.top(Infinity),
             "bDestroy": true,
         });
-
-    function format (d) {
-    	console.log(JSON.stringify(d,null,2));
-      var s="<div>More details on:";
+	
+    function format (d) {   	    	
+    	var l_data = JSON.parse(JSON.stringify(d,null,2))
+    	
+    	console.log(l_data);
+    	l_string  = "<div class='l_data_container'>";
+    	acr = "";acr
+    	if (l_data['acronym'] != "") {
+    		acr = "("+l_data['acronym']+")"
+    	}
+    	l_string += "<div class='l_name'><label>Name</label> "+l_data['name']+" "+acr+"</div>";
+    	l_string += "<div class='l_category'><label>Type</label> "+mainCategories[l_data['main_category']]+": "+subCategories[l_data['sub_category']]+"</div>";
+    	l_string += "<div class='l_country'><label>Country</label> "+countries[l_data['contact_country']][1]+"</div>"
+    	l_string += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
+	    	if (l_data['cost_absolute'] == "") {
+	    		l_string += "min "+l_data['cost_min']+" / max "+l_data['cost_max']
+	    	}else {
+	    		l_string += l_data['cost_absolute']
+	    	}
+    	l_string += "</div>";
+    	l_string += "<div class='l_fte'><label>Total Lobbyist</label> "+l_data['fte']+"</div>";
+    	l_string += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+l_data['accredited']+"</div>";
+    	l_string += "<div class='l_meetings'><label>Reported Meetings</label> "+l_data['meetings']+"</div>";
+    	l_string += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+l_data['code']+"' target='_blank'>Transparency registry</a></div>";
+    	l_string += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> "+"-"+"</div>";//TODO: where is this info?
+    	l_string += "</div>";
+    	return l_string;
+      /*var s="<div>More details on:";
       if (!d.code)
         return "Data missing to display";
       
@@ -634,7 +658,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       s += "<button class='btn btn-sm btn-primary' data-type='financial_data'>Financial declarations</button>";
       s += "<button class='btn btn-sm btn-primary' data-type='representative'>Details</button>";
       s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' class='btn btn-sm' target='_blank'>Transparency registry</a>";
-      return s+"</div></div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";
+      return s+"</div></div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";*/
     }
 
     datatable.on('click', 'button', function () {
@@ -786,7 +810,7 @@ function eventpopup (epid) {
 			</div>
 			<div class="col-md-3" id="about_social">
 				<br/>
-				<a href="https://twitter.com/share" class="twitter-share-button" data-via="TI_EU" data-text="Want to know #MEPs income & activities outside @Europarl_EN? Find out">Tweet</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-via="TI_EU" data-text="Who’s #lobbying the @EU_Commission and how much are they spending? Check #integritywatch #transparency">Tweet</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				<br/>
 				<br/>
