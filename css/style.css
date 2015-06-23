@@ -656,6 +656,7 @@ ul.nav.navbar-right li.active a{
 /*mep number*/
 #filter_numbers p{
 	margin-bottom: 0;
+	margin-top: 21px;
 	line-height: 1.2em;
 }
 
@@ -719,7 +720,7 @@ ul.nav.navbar-right li.active a{
 	#filter_wrap .big_number{
 		font-family: 'Helvetica W02 Bd Cn', 'Neue Helvetica 57 Condensed', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 		font-size: 1.8em;
-		margin-bottom: 10px;
+		margin-bottom: 6px;
 		display: block;
 		margin-top: 14px;
 		color: #FFF;
@@ -932,10 +933,6 @@ ul.nav.navbar-right li.active a{
 	color: #999;
 }
 
-div.dc-chart{
-	line-height: 1em;
-}
-
 div.dc-chart.chart-full{
 	width: 100%;
 	float: none;
@@ -973,9 +970,6 @@ td.dc-table-column._4,
 td.dc-table-column._5,
 td.dc-table-column._6{
 	text-align:left;
-}
-
-#mep_number {
 }
 		
 #ep2014list table, .dc-data-grid {clear:both;}
