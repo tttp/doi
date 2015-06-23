@@ -638,9 +638,11 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         });
 
     function format (d) {
+    	console.log(JSON.stringify(d,null,2));
       var s="<div>More details on:";
       if (!d)
         return "Data missing to display";
+      
       s += '<div class="btn-group" qdata-toggle="buttons">';
       s += "<button class='btn btn-sm btn-primary' data-type='event'>Events</button>";
       s += "<button class='btn btn-sm btn-primary' data-type='accreditation'>Accreditations</button>";
@@ -692,6 +694,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         }
         
     } );
+    
     datatable.on('click', 'tr[role="row"]', function () {
         var tr = $(this);
         var row = datatable.DataTable().row( tr );
@@ -867,15 +870,15 @@ function eventpopup (epid) {
 					<div class="country">
 					</div>
 					<br class="clear" />
-					<div class="label">Number of contacts</div>
+					<div class="label">Number of organisations</div>
 				</div>
 				<div class="col-md-3 chart_box" id="hosttype">
-					<h3>Accreditation<!--span class="info">info</span--></h3>
+					<h3>Parliament accreditations<!--span class="info">info</span--></h3>
 					<div class="accreditations"></div>
 					<br class="clear" />
 				</div>
 				<div class="col-md-3 chart_box">
-					<h3>Number of contacts</h3>
+					<h3>Number of meetings</h3>
 					<div class="meetings">
 					</div>
 				</div>
