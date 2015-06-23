@@ -145,7 +145,7 @@ function grid (selector,data) {
 
 var mainCategories = {"1":"Consultants","2":"Corporate","3":"NGOs","4":"Think tanks ","5":"Churches ","6":"Municipal"};
 
-var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Self-employed consultants","21":"Companies & groups","22":"Trade and business associations","23":"Trade unions","24":"Other organisations","31":"Non-governmental organisations, platforms and networks and similar","41":"Think tanks and research institutions","42":"Academic institutions","51":"Organisations representing churches and religious communities","61":"Local, regional and municipal authorities (at sub-national level)","62":"Other public or mixed entities, etc.","444":"Trade unions and professional associations","446":"Trade unions and professional associations","450":"Regional structures","458":"Other public or mixed entities, created by law whose purpose is to act in the public interest","466":"Trade unions and professional associations","469":"Trade unions and professional associations","477":"Other public or mixed entities, created by law whose purpose is to act in the public interest","480":"Trade unions and professional associations","501":"Trade unions and professional associations","504":"Other public or mixed entities, created by law whose purpose is to act in the public interest","506":"Trade unions and professional associations","508":"Trade unions and professional associations","5055":"Trade unions and professional associations","5060":"Trade unions and professional associations","5062":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5065":"Trade unions and professional associations","5073":"Trade unions and professional associations","5074":"Regional structures","5075":"Trade unions and professional associations","5085":"Regional structures","5087":"Trade unions and professional associations","5089":"Trade unions and professional associations","5095":"Trade unions and professional associations","5099":"Transnational associations and networks of public regional or other sub-national authorities","5105":"Trade unions and professional associations","5110":"Trade unions and professional associations","5115":"Trade unions and professional associations","5130":"Trade unions and professional associations","5133":"Regional structures","5141":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5157":"Transnational associations and networks of public regional or other sub-national authorities","5159":"Trade unions and professional associations","5171":"Trade unions and professional associations","5172":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5197":"Regional structures","5205":"Trade unions and professional associations","5226":"Trade unions and professional associations","5227":"Trade unions and professional associations","5230":"Trade unions and professional associations","5256":"Trade unions and professional associations","5262":"Regional structures","5356":"Trade unions and professional associations","5371":"Trade unions and professional associations","5374":"Trade unions and professional associations","5390":"Regional structures","5400":"Trade unions and professional associations"};
+var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Self-employed consultants","21":"Companies & groups","22":"Trade and business associations","23":"Trade unions","24":"Other Business organisations","31":"Non-governmental organisations, platforms and networks and similar","41":"Think tanks and research institutions","42":"Academic institutions","51":"Organisations representing churches and religious communities","61":"Local, regional and municipal authorities (at sub-national level)","62":"Other public or mixed entities, etc.","444":"Trade unions and professional associations","446":"Trade unions and professional associations","450":"Regional structures","458":"Other public or mixed entities, created by law whose purpose is to act in the public interest","466":"Trade unions and professional associations","469":"Trade unions and professional associations","477":"Other public or mixed entities, created by law whose purpose is to act in the public interest","480":"Trade unions and professional associations","501":"Trade unions and professional associations","504":"Other public or mixed entities, created by law whose purpose is to act in the public interest","506":"Trade unions and professional associations","508":"Trade unions and professional associations","5055":"Trade unions and professional associations","5060":"Trade unions and professional associations","5062":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5065":"Trade unions and professional associations","5073":"Trade unions and professional associations","5074":"Regional structures","5075":"Trade unions and professional associations","5085":"Regional structures","5087":"Trade unions and professional associations","5089":"Trade unions and professional associations","5095":"Trade unions and professional associations","5099":"Transnational associations and networks of public regional or other sub-national authorities","5105":"Trade unions and professional associations","5110":"Trade unions and professional associations","5115":"Trade unions and professional associations","5130":"Trade unions and professional associations","5133":"Regional structures","5141":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5157":"Transnational associations and networks of public regional or other sub-national authorities","5159":"Trade unions and professional associations","5171":"Trade unions and professional associations","5172":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5197":"Regional structures","5205":"Trade unions and professional associations","5226":"Trade unions and professional associations","5227":"Trade unions and professional associations","5230":"Trade unions and professional associations","5256":"Trade unions and professional associations","5262":"Regional structures","5356":"Trade unions and professional associations","5371":"Trade unions and professional associations","5374":"Trade unions and professional associations","5390":"Regional structures","5400":"Trade unions and professional associations"};
 
 
 	var event = ndx.dimension(function(d) {
@@ -371,7 +371,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			.colorCalculator(function(d, i) {
 				return lobby_category_colors[d.key[1]];
 			})
-			.ordering(function(d) { return -d.value; });
+			.ordering(function(d) { return -d.value; }); //TODO: Sort in same order as on TR
 	}
 
 	function drawSector () {
@@ -400,7 +400,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	var lobby_sector_colors = {	
 		"Companies & groups":"#cf270e",//Corporate
 		"Trade and business associations":"#cf270e",//Corporate
-		"Other organisations":"#cf270e",//Corporate
+		"Other Business organisations":"#cf270e",//Corporate
 		"Law firms":"#d74517",//Consultants
 		"Professional consultancies":"#d74517",//Consultants
 		"Self-employed consultants":"#d74517",//Consultants
@@ -584,8 +584,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 				return "Cabinet Members";
 			if (d.host.indexOf ("Director-General") !== -1)
 				return "Directors";
-			if (d.host.indexOf ("President")  !== -1)
-				return "Presidents";
+//			if (d.host.indexOf ("President")  !== -1)
+//				return "Presidents";
 			return "Commissioners"
 		}
 
@@ -594,11 +594,20 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		});
 
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
+		var hosttypecolor = {
+			"Directors":"#2163ad",
+			"Commissioners":"#3793d1",
+			"Cabinet Members":"#84c0e8"
+		};
+		
 		var chart = dc.pieChart(".hosttype")
 			.innerRadius(50).radius(100)
 			.height(200)
 			.dimension(dim)
-			.group(group);
+			.group(group)
+			.colorCalculator(function(d, i) {
+				return hosttypecolor[d.key];
+			});
 	
 	}
 
@@ -622,7 +631,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		"Euro":"#2063ad"
 	};
 	
-	//var graph = dc.barChart (".host")   
 	var graph = dc.rowChart (".host")   
 		.margins({top: 0, right: 5, bottom: 20, left: 5})
 		.height(520)
@@ -893,7 +901,7 @@ function drawDate() {
 		.brushOn(true)
 		.renderArea(true)
 		.elasticY(true)
-		.yAxisLabel("Number of meetings")
+		.yAxisLabel("Number of contacts")
 		.dimension(date)
 		.group(dateGroup);
 }
@@ -950,7 +958,7 @@ function drawScore() {
 		.x(d3.scale.linear().domain([0, 70]))
 		.elasticX(true)
 		.elasticY(true)
-		.yAxisLabel("Number of meetings")
+		.yAxisLabel("Number of contacts")
 		.round(dc.round.floor)
 		.colorCalculator(function(d, i) {
 				return "#f85631";
@@ -1070,9 +1078,9 @@ function eventpopup (epid) {
 <div class="container_wrap cm_header" id="about_wrap">
 	<div class="container">
 		<div id="about_container" class="row">
-			<div class="col-md-3 col-lg-2" id="about_content_icon">
+			<div class="col-md-3 col-lg-3" id="about_content_icon">
 			</div>
-			<div class="col-md-6 col-lg-7" id="about_content">
+			<div class="col-md-6 col-lg-6" id="about_content">
 				<p>EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the lobby organisations registered in the EU Transparency Register – the register of Brussels lobbyists.
 				<br /><a href="about.html" class="more">Read more</a></p>
 					<p>By simply clicking on the graphs or the list below users can rank, sort and filter the meetings.</p>
@@ -1122,22 +1130,25 @@ function eventpopup (epid) {
 			<div class="col-md-7" id="filter_numbers">
 				<div class="row">
 					<div class="col-md-2" id="currently_selected_text"><p>Currently selected:</p></div>
-					<div class="col-md-3 filter_number">
+					
+					<div class="col-md-2 filter_number">
 						<div id="mep_number" class="dc-data-count">
 							<span id="abig_number" class="big_number filter-count"></span>out of <strong class="total-count"></strong><br /> meetings
 						</div>
 					</div>
-					<div class="col-md-3 filter_number">
+					<div class="col-md-2 filter_number">
 						<div id="org_number" class="org-count">
 							<span class="big_number filter-count"></span>out of <strong class="total-count"></strong><br />organisations
 						</div>
 					</div>
+					<div class="col-md-2 filter_number">
+            			<div title="full time equivalent"><span class="big_number afilter_long nbfte"></span> Full-time equivalent</div>
+					</div>
 					<div class="col-md-3 filter_number">
-            <div title="full time equivalent"><span class="afilter_long nbfte">AA</span> fte</div>
-            <div title="access badges to the European Parliament"><span class="afilter_long nbaccredited">BB</span> EP badges</div>
+						<div title="access badges to the European Parliament"><span class="big_number afilter_long nbaccredited"></span> access badges to the European Parliament</div>
+						</div>
 					</div>
 				</div>
-			</div>
 			<div class="col-md-1" id="resetall_container">
 				<button class="btn resetall">RESET<br />FILTERS</button>
 			</div>
@@ -1156,7 +1167,6 @@ function eventpopup (epid) {
 							<h3>Policy Level<!--span class="info">info</span--></h3>
 							<div class="hosttype"></div>
 							<div class="legend">
-								<div class="presidents">Presidents</div>
 								<div class="directors">Directors</div>
 								<div class="commissioner">Commissioner</div>
 								<div class="cabinet">Cabinet Members</div>
@@ -1168,7 +1178,7 @@ function eventpopup (epid) {
 						<div class="col-md-6 chart_box">
 							<h3>Top 10 Hosts<!--span class="info">info</span--></h3>
 							<div class="tophost chart-full"></div>
-							<div class="label">Number of meetings</div>
+							<div class="label">Number of contacts</div>
 							<br class="clear" />
 						</div>
 					</div>
@@ -1180,12 +1190,12 @@ function eventpopup (epid) {
 						<div class="col-md-6 chart_box" id="group_container">
 							<h3>Top 10 Organisations<!--span class="info">info</span--></h3>
 								<div class="guest chart-full"></div>
-								<div class="label">Number of meetings</div>
+								<div class="label">Number of contacts</div>
 							<br class="clear" />
 						</div>
 						
 						<div class="col-md-6 chart_box" id="main_category">
-							<h3>Category of Lobby Organisation</h3>
+							<h3>Category</h3>
 							<div class="main_category"></div>
 							<div class="legend">
 								<div class="corporate">Corporate</div>
@@ -1194,10 +1204,10 @@ function eventpopup (epid) {
 								<div class="municipal">Municipal</div>
 								<div class="ngos">NGOs</div>
 								<div class="churches">Churches</div>
-								<div class="not_mentioned">Not mentioned</div>
-								<div class="not_registered">Not registered</div>
 								<div class="unknown">Unknown</div>
-								<div class="deregistered">Deregistered</div>
+								<!--div class="not_mentioned">Not mentioned</div>
+								<div class="not_registered">Not registered</div>
+								<div class="deregistered">Deregistered</div-->
 								<br class="clear" />
 							</div>
 							<br class="clear" />
@@ -1209,7 +1219,7 @@ function eventpopup (epid) {
 				<div class="col-md-3 chart_box">
 					<h3>Portfolio<!--span class="info">info</span--></h3>
 					<div class="host chart-full"></div>
-					<div class="label">Number of meetings</div>
+					<div class="label">Number of contacts</div>
 					<div class="legend" id="portfolio_legend">
 						<div class="directors">Presidents and Vice-presidents</div>
 						<div class="cabinet">Commissioners</div>
@@ -1221,9 +1231,9 @@ function eventpopup (epid) {
             <div class="wordcloud"></div>
 				</div>
 				<div class="col-md-3 chart_box">
-					<h3>Sector of Lobby organisation<!--span class="info">info</span--></h3>
+					<h3>Sub-Category of lobby organisation<!--span class="info">info</span--></h3>
 					<div class="sector range chart-full"></div>
-					<div class="label">Number of meetings</div>
+					<div class="label">Number of contacts</div>
 					<br class="clear" />
 				</div>
 			</div>
@@ -1265,7 +1275,7 @@ function eventpopup (epid) {
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">Latest 100 meetings in the commission</h2><div id="last_update">Last updated: 11 March 2015</div>
+				<h2 class="table_title">Lobby Meetings of the European Commission</h2><div id="last_update">Last updated: 11 March 2015</div>
 			</div>
 			
 			<div class="col-md-12 table-responsive">
@@ -1273,11 +1283,11 @@ function eventpopup (epid) {
 					<thead>
 						<tr class=header>
 							<th class="headerSortDown">Nr</th> 
-							<th>Name</th> 
+							<th>Host</th> 
 							<th>Portfolio</th> 
-							<th>date</th> 
+							<th>Date</th> 
 							<th class="col-md-4">Subject</th> 
-							<th>With</th> 
+							<th>Lobby Organisation</th> 
 							<th>Participants</th> 
 						</tr>
 					</thead>
