@@ -436,7 +436,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		})
 		.dimension(dim)
 		.group(group)
-		.ordering(function(d) { return -d.value; })
 		.xAxis().ticks(4).tickFormat(d3.format(",.0f"));
 
 	}
@@ -634,7 +633,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			}
 		})
 		.dimension(dim)
-		.ordering(function(d){return -d.value})
 		.group(group);
 
 		graph.xAxis().ticks(5).tickFormat(d3.format("d"));
