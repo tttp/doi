@@ -718,12 +718,12 @@ ul.nav.navbar-right li.active a{
 	
 	#filter_wrap .big_number{
 		font-family: 'Helvetica W02 Bd Cn', 'Neue Helvetica 57 Condensed', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-		font-size: 2.1em;
+		font-size: 1.8em;
 		margin-bottom: 10px;
 		display: block;
 		margin-top: 14px;
 		color: #FFF;
-		font-weight: bold;
+		font-weight: normal;
 	}
 	
 	#filter_wrap .filter_number{
@@ -1278,4 +1278,9 @@ ul li{
 #about_text_container h3{
 	border: none;
 	margin-bottom: 0;
+}
+
+#about_text_container h2{
+	color: #3695d8;
+	margin-top: 2em;
 }

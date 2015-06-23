@@ -257,7 +257,7 @@
 				</ul>
 				
 				
-				<h2 id="contacts">Contact details</h2>
+				<h2 id="contact">Contact details</h2>
 				<p>If your questions have not been answered here please contact:</p>
 				
 				<p>Daniel Freund<br />
@@ -276,7 +276,7 @@
 	$('#menu li a').click(function(e) {
 		e.preventDefault();
 		$('html, body').animate({
-		       scrollTop: $($(this).attr('href')).offset().top
+		       scrollTop: $($(this).attr('href')).offset().top - 20
 		   }, 1000);
 	})
 </script>

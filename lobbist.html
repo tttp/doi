@@ -202,7 +202,11 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	function drawCountry () {
 	var dim = ndx.dimension (function(d) {
-			return countries[d.contact_country][1];
+			c = countries[d.contact_country][1];
+			if(c == "Belgium"){
+				c = "Belgium / EU"
+			};
+			return c;
 	});
 
 	var group   = dim.group().reduceSum(function(d) {   
@@ -221,9 +225,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var graph = dc.rowChart(".country")   
 			.margins({top: 0, right: 3, bottom: 20, left: 3})
 			.height(340)
-			//.width(300)
 			.gap(2)
-      		//.fixedBarHeight(20)
 			.x(d3.scale.ordinal())
 			.elasticX(true)
 			.colorCalculator(function(d, i) {
@@ -742,9 +744,9 @@ function eventpopup (epid) {
 <div class="container_wrap bl_header" id="about_wrap">
 	<div class="container">
 		<div id="about_container" class="row">
-			<div class="col-md-3 col-lg-2" id="about_content_icon">
+			<div class="col-md-3 col-lg-3" id="about_content_icon">
 			</div>
-			<div class="col-md-6 col-lg-7" id="about_content">
+			<div class="col-md-6 col-lg-6" id="about_content">
 				<p>EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the lobby organisations registered in the EU Transparency Register – the register of Brussels lobbyists.
 				<br /><a href="about.html" class="more">Read more</a></p>
 					<p>By simply clicking on the graphs or the list below users can rank, sort and filter the meetings.</p>
@@ -788,22 +790,26 @@ function eventpopup (epid) {
 			<div class="col-xs-9 col-sm-9 col-md-4" id="filter_field_container">
 				<p>Search or filter:</p>
 				<div class="input-group">
-						<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by Lobbyist, Host, Subject">
+					<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by Lobbyist, Host, Subject">
 				</div>
 			</div>
 			<div class="col-sm-7 col-md-7" id="filter_numbers">
 				<div class="row">
 					<div class="col-md-2" id="currently_selected_text"><p>Currently selected:</p></div>
-					<div class="col-md-3 filter_number">
+					<div class="col-md-2 filter_number">
 						<div id="mep_number" class="dc-data-count org-count">
 							<span id="abig_number" class="big_number filter-count"></span>out of <strong class="total-count"></strong> organisations
 						</div>
 					</div>
-					<div class="col-md-4 filter_number">
-            <div title="full time equivalent"><span class="afilter_long nbfte"></span> Lobbyists</div>
-            <div title="full time equivalent"><span class="afilter_long nbcost"></span> Lobby budget</div>
-            <div title="access badges to the European Parliament"><span class="afilter_long nbaccredited"></span> EP badges</div>
-					</div>
+					<div class="col-md-2 filter_number">
+            			<div title="full time equivalent"><span class="big_number afilter_long nbfte"></span> Lobbyists</div>
+            		</div>
+            		<div class="col-md-2 filter_number">
+            			<div title="full time equivalent"><span class="big_number afilter_long nbcost"></span> Lobby budget</div>
+            		</div>
+            		<div class="col-md-2 filter_number">
+            			<div title="access badges to the European Parliament"><span class="big_number afilter_long nbaccredited"></span> EP badges</div>
+            		</div>
 				</div>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-1" id="resetall_container">
@@ -822,7 +828,7 @@ function eventpopup (epid) {
 					<div class="country">
 					</div>
 					<br class="clear" />
-					<div class="label">Number of meetings</div>
+					<div class="label">Number of contacts</div>
 				</div>
 				<div class="col-md-3 chart_box" id="hosttype">
 					<h3>Accreditation<!--span class="info">info</span--></h3>
@@ -830,7 +836,7 @@ function eventpopup (epid) {
 					<br class="clear" />
 				</div>
 				<div class="col-md-3 chart_box">
-					<h3>Number of meetings</h3>
+					<h3>Number of contacts</h3>
 					<div class="meetings">
 					</div>
 				</div>
@@ -886,7 +892,7 @@ function eventpopup (epid) {
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">Registered Lobbyists</h2><div id="last_update">Last updated: 11 March 2015</div>
+				<h2 class="table_title">Registered Lobby Organisations</h2><div id="last_update">Last updated: 11 March 2015</div>
 			</div>
 			
 			<div class="col-md-12 table-responsive">
@@ -895,10 +901,10 @@ function eventpopup (epid) {
 						<tr class=header>
 							<th class="col-md-1">Nr</th> 
 							<th class="col-md-5">Name</th> 
-							<th>Lobby Budget</th> 
-							<th>Meetings</th> 
+							<th>Meetings</th>
+							<th>EP badges</th>
 							<th>Lobbyists</th> 
-							<th>EP badges</th> 
+							<th>Lobby Budget</th> 							
 						</tr>
 					</thead>
 				</table>
