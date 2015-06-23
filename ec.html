@@ -126,7 +126,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 
 
-	var evt = ndx.dimension(function(d) {
+	evt = ndx.dimension(function(d) {
 		return d.id;    
 	})
   var eventgroup   = evt.group().reduce(
@@ -182,7 +182,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.group(all);
 
 
-	var name = ndx.dimension(function(d) {
+	nameEvent = ndx.dimension(function(d) {
 			if (d.guest) {
 					if (representatives[d.guestid])
 						return d.title.toLowerCase()+" "+d.host.toLowerCase()+" "+d.guest.toLowerCase()+ " "+representatives[d.guestid].acronym.toLowerCase()+ " ";   
@@ -839,7 +839,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             "bInfo": false,
             "bAutoWidth": false,
             "bDeferRender": true,
-            "aaData": evt.top(Infinity),
+            "aaData": nameEvent.top(Infinity),
             "bDestroy": true,
         });
 
@@ -860,7 +860,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		//l_string += "<div class='l_country'><label>Country</label> "+countries[l_data['contact_country']][1]+"</div>"
 		l_string += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
 	    	if (d.cost_absolute == "") {
-	    		l_string += "min "+d.cost_min+" / max "+d.cost_max]
+	    		l_string += "min "+d.cost_min+" / max "+d.cost_max;
 	    	}else {
 	    		l_string += d.cost_absolute
 	    	}
@@ -1533,6 +1533,7 @@ function eventpopup (epid) {
 'use strict';
 	var events=[];
   var evt=null;
+  var nameEvent=null;
 	var representatives={};
 	$(function() {
 		var renderLoaded  = _.after(2,  function () { 
@@ -1576,7 +1577,7 @@ function eventpopup (epid) {
 
 	$("#search-input").keyup (function () {
 		var s = $(this ).val().toLowerCase();
-		wall.dimension().filter(function (d) { 
+		nameEvent.filter(function (d) { 
 			return d.indexOf (s) !== -1;} );
 		$(".resetall").attr("disabled",false);
 		throttle();
