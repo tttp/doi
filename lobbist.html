@@ -462,7 +462,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
 
 		var chart = dc.pieChart(".nblobbyists")
-			.innerRadius(50).radius(100)
+			.innerRadius(0).radius(80)
 			.height(200)
 			.label(function(d){ 
           if (d.key == 5)
@@ -490,7 +490,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var dim = ndx.dimension (function(d) {
         if (d.costbyfte>=500000)
           return 500000;
-        if (d.costbyfte == 0 && d.fte=="")
+        if (d.costbyfte == 0 && (+d.fte)<1)
           return "-1";
         if (d.costbyfte == 0)
           return 0;
@@ -502,7 +502,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
     var nameRange = function (d) {
       var names={
-      "-1":"no lobbyist declared",
+      "-1":"no cost & < 1 fte",
       0:"some lobbyist but no cost",
       1:"some cost",
       500000:">500k by lobbyist"
@@ -510,7 +510,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       return names[d.key];
     }
 		var chart = dc.pieChart(".costbyfte")
-			.innerRadius(50).radius(100)
+			.innerRadius(0).radius(80)
 			.height(200)
 			.label(function(d){ 
           return nameRange(d);
