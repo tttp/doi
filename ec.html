@@ -216,6 +216,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			});
 
 	drawTable();
+	drawCloud();
 	drawDate();
 
 	drawWeekDay();
@@ -279,6 +280,20 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 		graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
 	}
+
+  function drawCloud() {
+     var dim = ndx.dimension(function(d) {
+      return d.title || "";
+     })
+
+     var group   = dim.group().reduceSum(function(d) { return 1; });
+
+     var graph =  dc.wordCloud(".wordcloud")
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .dimension(dim)
+      .group(group);
+
+  }
 
   function drawEFT(){
   	var dim = ndx.dimension(function(d) {
@@ -1201,6 +1216,7 @@ function eventpopup (epid) {
 				</div>
 				<div class="col-md-6 chart_box">
 					<h3>Word Cloud<!--span class="info">info</span--></h3>
+            <div class="wordcloud"></div>
 				</div>
 				<div class="col-md-3 chart_box">
 					<h3>Sector of Lobby organisation<!--span class="info">info</span--></h3>
