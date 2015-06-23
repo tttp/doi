@@ -1284,3 +1284,7 @@ ul li{
 	color: #3695d8;
 	margin-top: 2em;
 }
+
+text.dc-cloud-word{
+	font-family:"Helvetica W02 Bd Cn", Helvetica!important;
+}
