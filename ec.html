@@ -336,10 +336,10 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			"NGOs":"#ecb005",
 			"Churches":"#f6d882",
 			
-			"Not mentioned":"#808080",
-			"Not registered":"#a6a6a6",
+			"Not mentioned":"#cccccc",
+			"Not registered":"#cccccc",
 			"Unknown":"#cccccc",
-			"Deregistered":"#f2f2f2"
+			"Deregistered":"#cccccc"
 		}
 
 		var chart = dc.pieChart(".main_category")
@@ -845,44 +845,44 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	
     function format (d) {
-      if (!d)
-        return "invalid data";  
-    	var l_data = JSON.parse(JSON.stringify(d,null,2))
-    	
-    	console.log(l_data);
-    	l_string  = "<div class='l_data_container'>";
-    	acr = "";acr
-    	if (l_data['acronym'] != "") {
-    		acr = "("+l_data['acronym']+")"
-    	}
-    	l_string += "<div class='l_name'><label>Name</label> "+l_data['name']+" "+acr+"</div>";
-    	l_string += "<div class='l_category'><label>Type</label> "+mainCategories[l_data['main_category']]+": "+subCategories[l_data['sub_category']]+"</div>";
-//    	l_string += "<div class='l_country'><label>Country</label> "+countries[l_data['contact_country']][1]+"</div>"
-    	l_string += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
-	    	if (l_data['cost_absolute'] == "") {
-	    		l_string += "min "+l_data['cost_min']+" / max "+l_data['cost_max']
+      	if (!d)
+        	return "invalid data";  
+        
+		var l_data = JSON.parse(JSON.stringify(d,null,2))
+		
+		l_string  = "<div class='l_data_container'>";
+		acr = "";
+		if (d.acronym != "") {
+			acr = "("+d.acronym+")";
+		}
+		l_string += "<div class='l_name'><label>Name</label> "+d.name+" "+acr+"</div>";
+		l_string += "<div class='l_category'><label>Type</label> "+mainCategories[d.main_category]+": "+subCategories[d.sub_category]+"</div>";
+		//l_string += "<div class='l_country'><label>Country</label> "+countries[l_data['contact_country']][1]+"</div>"
+		l_string += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
+	    	if (d.cost_absolute == "") {
+	    		l_string += "min "+d.cost_min+" / max "+d.cost_max]
 	    	}else {
-	    		l_string += l_data['cost_absolute']
+	    		l_string += d.cost_absolute
 	    	}
-    	l_string += "</div>";
-    	l_string += "<div class='l_fte'><label>Total Lobbyist</label> "+l_data['fte']+"</div>";
-    	l_string += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+l_data['accredited']+"</div>";
-    	l_string += "<div class='l_meetings'><label>Reported Meetings</label> "+l_data['meetings']+"</div>";
-    	l_string += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+l_data['code']+"' target='_blank'>Transparency registry</a></div>";
-    	l_string += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> "+"-"+"</div>";//TODO: where is this info?
-    	l_string += "</div>";
-    	return l_string;
-      /*var s="<div>More details on:";
-      if (!d.code)
-        return "Data missing to display";
+		l_string += "</div>";
+		l_string += "<div class='l_fte'><label>Total Lobbyist</label> "+d.fte+"</div>";
+		l_string += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+d.accredited+"</div>";
+		l_string += "<div class='l_meetings'><label>Reported Meetings</label> "+d.meetings+"</div>";
+		l_string += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' target='_blank'>Transparency registry</a></div>";
+		l_string += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> "+"-"+"</div>";//TODO: where is this info?
+		l_string += "</div>";
+		return l_string;
+      	/*var s="<div>More details on:";
+      	if (!d.code)
+        	return "Data missing to display";
       
-      s += '<div class="btn-group" qdata-toggle="buttons">';
-      s += "<button class='btn btn-sm btn-primary' data-type='event'>Events</button>";
-      s += "<button class='btn btn-sm btn-primary' data-type='accreditation'>Accreditations</button>";
-      s += "<button class='btn btn-sm btn-primary' data-type='financial_data'>Financial declarations</button>";
-      s += "<button class='btn btn-sm btn-primary' data-type='representative'>Details</button>";
-      s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' class='btn btn-sm' target='_blank'>Transparency registry</a>";
-      return s+"</div></div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";*/
+		s += '<div class="btn-group" qdata-toggle="buttons">';
+		s += "<button class='btn btn-sm btn-primary' data-type='event'>Events</button>";
+		s += "<button class='btn btn-sm btn-primary' data-type='accreditation'>Accreditations</button>";
+		s += "<button class='btn btn-sm btn-primary' data-type='financial_data'>Financial declarations</button>";
+		s += "<button class='btn btn-sm btn-primary' data-type='representative'>Details</button>";
+		s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' class='btn btn-sm' target='_blank'>Transparency registry</a>";
+		return s+"</div></div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";*/
     }
 
     datatable.on('click', 'button', function () {
@@ -902,7 +902,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             return;
         }
 
-        var r= (tr.data("representative"));
+        var r = (tr.data("representative"));
         if (!r) {
           url="http://api.lobbyfacts.eu/api/1/representative/"+d.id+"?callback=?";
           $.getJSON( url, function( data ) {
@@ -1376,8 +1376,8 @@ function eventpopup (epid) {
 							<div class="hosttype"></div>
 							<div class="legend">
 								<div class="directors">Directors</div>
-								<div class="commissioner">Commissioner</div>
 								<div class="cabinet">Cabinet Members</div>
+								<div class="commissioner">Commissioner</div>								
 								<br class="clear" />
 							</div>
 							<br class="clear" />

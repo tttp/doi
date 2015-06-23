@@ -111,10 +111,10 @@ function grid (selector,data) {
 			"Municipal":"#e58a13",
 			"NGOs":"#ecb005",
 			"Churches":"#f6d882",
-			"Not mentioned":"#808080",
-			"Not registered":"#a6a6a6",
+			"Not mentioned":"#cccccc",
+			"Not registered":"#cccccc",
 			"Unknown":"#cccccc",
-			"Deregistered":"#f2f2f2"
+			"Deregistered":"#cccccc"
 		}
 		
 
@@ -348,20 +348,20 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 */
     
 	var graph = dc.barChart (".expense")   
-		.height(200)
+		.height(340)
 		.width(530)
 		.gap(0)
-		  .margins({top: 10, right: 20, bottom: 20, left: 40})
+		.margins({top: 0, right: 10, bottom: 20, left: 40})
 		.x(d3.scale.linear().domain([0, 10000]))
  //   .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
 		.elasticX(true)
 		.elasticY(true)
 				.brushOn(true)
-		.yAxisLabel("Lobbying expense")
+		//.yAxisLabel("Lobbying expense")
 		.colorCalculator(function(d, i) {
-				return "#f85631";
-				})
+			return "#f1ca58";
+		})
 		.dimension(dim)
 		.group(group);
 		graph.xAxis().ticks(5).tickFormat(d3.format(",.0f"));
@@ -454,6 +454,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	}
 
 	function drawNbLobbyists () {
+		var color = d3.scale.ordinal()
+		    .range(["#f9e5ad", "#f1ca58","#ecb007","#e7960e","#e37e17","#de631f"]);
 		var dim = ndx.dimension (function(d) {
         if (d.fte>4)
           return 5;
@@ -463,28 +465,32 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
 
 		var chart = dc.pieChart(".nblobbyists")
-			.innerRadius(0).radius(80)
+			.innerRadius(50).radius(100)
 			.height(200)
+			.width(220)
 			.label(function(d){ 
-          if (d.key == 5)
-            return ">5";
-          return d.key })
-			.title (function(d){ 
-         switch(d.key) {
-           case 0:
-             return "no staff";
-           case 1:
-             return d.key + " staff: " + d.value;
-             break;
-           case 5:
-             return ">5 staff: " + d.value;
-             break;
-           default:
-             return d.key + " staffs: " + d.value;
-         }
-       })
+	          if (d.key == 5)
+	            return ">5";
+	          return d.key })
+				.title (function(d){ 
+	         switch(d.key) {
+	           case 0:
+	             return "no staff";
+	           case 1:
+	             return d.key + " staff: " + d.value;
+	             break;
+	           case 5:
+	             return ">5 staff: " + d.value;
+	             break;
+	           default:
+	             return d.key + " staffs: " + d.value;
+	         }
+	       })
 			.dimension(dim)
-			.group(group);
+			.group(group)
+			.colorCalculator(function(d, i) {
+				return color(d.key);
+			});
 	}
 
 	function drawCostByFTE () {
@@ -673,32 +679,37 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             "bDestroy": true,
         });
 	
-    function format (d) {   	    	
-    	var l_data = JSON.parse(JSON.stringify(d,null,2))
+    function format (d) {
+    	var initiatives;
     	
-    	console.log(l_data);
-    	l_string  = "<div class='l_data_container'>";
-    	acr = "";acr
-    	if (l_data['acronym'] != "") {
-    		acr = "("+l_data['acronym']+")"
+    	url="http://api.lobbyfacts.eu/api/1/representative/"+d.id+"?callback=?";
+    	$.getJSON( url, function( data ) {
+    		$('#initiatives'+d.id).text(data.activity_eu_legislative)
+    	});          
+    	//activity_eu_legislative
+    	
+    	s  = "<div class='l_data_container'>";
+    	acr = "";
+    	if (d.acronym != "") {
+    		acr = "("+d.acronym+")"
     	}
-    	l_string += "<div class='l_name'><label>Name</label> "+l_data['name']+" "+acr+"</div>";
-    	l_string += "<div class='l_category'><label>Type</label> "+mainCategories[l_data['main_category']]+": "+subCategories[l_data['sub_category']]+"</div>";
-    	l_string += "<div class='l_country'><label>Country</label> "+countries[l_data['contact_country']][1]+"</div>"
-    	l_string += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
-	    	if (l_data['cost_absolute'] == "") {
-	    		l_string += "min "+l_data['cost_min']+" / max "+l_data['cost_max']
+    	s += "<div class='l_name'><label>Name</label> "+d.name+" "+acr+"</div>";
+    	s += "<div class='l_category'><label>Type</label> "+mainCategories[d.main_category]+": "+subCategories[d.sub_category]+"</div>";
+    	s += "<div class='l_country'><label>Country</label> "+countries[d.contact_country][1]+"</div>"
+    	s += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
+	    	if (d.cost_absolute == "") {
+	    		s += "min "+d.cost_min+" / max "+d.cost_max
 	    	}else {
-	    		l_string += l_data['cost_absolute']
+	    		s += d.cost_absolute
 	    	}
-    	l_string += "</div>";
-    	l_string += "<div class='l_fte'><label>Total Lobbyist</label> "+l_data['fte']+"</div>";
-    	l_string += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+l_data['accredited']+"</div>";
-    	l_string += "<div class='l_meetings'><label>Reported Meetings</label> "+l_data['meetings']+"</div>";
-    	l_string += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+l_data['code']+"' target='_blank'>Transparency registry</a></div>";
-    	l_string += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> "+"-"+"</div>";//TODO: where is this info?
-    	l_string += "</div>";
-    	return l_string;
+    	s += "</div>";
+    	s += "<div class='l_fte'><label>Total Lobbyist</label> "+d.fte+"</div>";
+    	s += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+d.accredited+"</div>";
+    	s += "<div class='l_meetings'><label>Reported Meetings</label> "+d.meetings+"</div>";
+    	s += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' target='_blank'>Transparency registry</a></div>";
+    	s += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> <span id='initiatives"+d.id+"'></span></div>";
+    	s += "</div>";
+    	return s;
       /*var s="<div>More details on:";
       if (!d.code)
         return "Data missing to display";
@@ -718,7 +729,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         var pre=$(this).parent().parent().next("pre");
         var row = datatable.DataTable().row( tr.prev()[0] );
         var d=row.data();
-     
+     	
         if (type == "event") {
             var sevents =[];
             _.each(events,function (e){
@@ -729,13 +740,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             return;
         }
 
-        var r= (tr.data("representative"));
+        var r = (tr.data("representative"));
         if (!r) {
           url="http://api.lobbyfacts.eu/api/1/representative/"+d.id+"?callback=?";
           $.getJSON( url, function( data ) {
-            tr.data("representative",data);
+            tr.data("representative",data);            
             display (data);
-          });
+          });          
           return;
         }
         display(r,type);
@@ -937,26 +948,18 @@ function eventpopup (epid) {
 					<br class="clear" />
 					<div class="label">Number of organisations</div>
 				</div>
-				<div class="col-md-3 chart_box" id="hosttype">
-					<h3>Parliament accreditations<!--span class="info">info</span--></h3>
+				<div class="col-md-6 chart_box" id="lobbying_expense">
+					<h3>Lobbying expense</h3>
 					<div class="info_chart">
 						<span class="info">info</span>
-						<p class="desc">Number of access badges to the European Parliament per lobby organisation. All registered lobby organisations can obtain access badges to the European Parliament – numbers are not caped. Share of the pie indicates the number of organisations that have this many badges.
+						<p class="desc">Correlation between lobbying budget (as declared by the organisation on the EU Transparency Register) and the number of meetings registered by the European Commission.
 						</p>
 					</div>
-					<div class="accreditations"></div>
-					<br class="clear" />
-				</div>
-				<div class="col-md-3 chart_box">
-					<h3>Number of meetings</h3>
-					<div class="info_chart">
-						<span class="info">info</span>
-						<p class="desc">Number of high-level lobby meetings with the European Commission per lobby organisation. Share of pie indicates the number of organisations that have this many meetings.
-						</p>
+					<div class="expense">
 					</div>
-					<div class="meetings">
-					</div>
+					<label>Lobbying expense</label>
 				</div>
+				
 				<div class="col-md-3 chart_box">
 					<h3>Category of Lobby organisation</h3>
 					<div class="info_chart">
@@ -988,38 +991,50 @@ function eventpopup (epid) {
 					<div class="host range chart-full"></div>
 					<br class="clear" />
 				</div>-->
-				<div class="col-md-8 chart_box">
-					<h3>Lobbying expense</h3>
-					<div class="info_chart">
-						<span class="info">info</span>
-						<p class="desc">Correlation between lobbying budget (as declared by the organisation on the EU Transparency Register) and the number of meetings registered by the European Commission.
-						</p>
-					</div>
-					<div class="expense">
-					</div>
-			    <div class="row">
-				  <div class="col-md-6 chart_box">
-					  <h3>Cost by lobbyist</h3>
+				<!--div class="col-md-6 chart_box">
+					<h3>Cost by lobbyist</h3>
 				  	<div class="costbyfte">
 		   			</div>
-          </div>
-				  <div class="col-md-6 chart_box">
-			  		<h3>Declared lobbyists</h3>
-				  	<div class="nblobbyists">
-			  		</div>
+          		</div-->
+          		<div class="col-md-8">
+          			<div class="col-md-4 chart_box" id="hosttype">
+          					<h3>Parliament accreditations<!--span class="info">info</span--></h3>
+          					<div class="info_chart">
+          						<span class="info">info</span>
+          						<p class="desc">Number of access badges to the European Parliament per lobby organisation. All registered lobby organisations can obtain access badges to the European Parliament – numbers are not caped. Share of the pie indicates the number of organisations that have this many badges.
+          						</p>
+          					</div>
+          					<div class="accreditations"></div>
+          					<br class="clear" />
+          				</div>
+          				<div class="col-md-4 chart_box">
+          					<h3>Number of meetings</h3>
+          					<div class="info_chart">
+          						<span class="info">info</span>
+          						<p class="desc">Number of high-level lobby meetings with the European Commission per lobby organisation. Share of pie indicates the number of organisations that have this many meetings.
+          						</p>
+          					</div>
+          					<div class="meetings">
+          					</div>
+          				</div>
+          				<div class="col-md-4 chart_box">
+          					<h3>Lobbyists</h3>
+          					<div class="nblobbyists"></div>
+          				</div>
+          		</div>
+          		<div class="col-md-4">
+          			<div class="chart_box">
+          				<h3>Sub-Category of lobby organisation<!--span class="info">info</span--></h3>
+          				<div class="info_chart">
+          					<span class="info">info</span>
+          					<p class="desc">The classifications in this graph reflect the sub-categories established by the EU Transparency Register. Some names have been shortened. Graph indicates the number of registered lobby organisations per sub-category.
+          					</p>
+          				</div>
+          				<div class="sector range chart-full"></div>
+          				<br class="clear" />
+          			</div>
 			  	</div>
-			  	</div>
-				</div>
-				<div class="col-md-4 chart_box">
-					<h3>Sub-Category of lobby organisation<!--span class="info">info</span--></h3>
-					<div class="info_chart">
-						<span class="info">info</span>
-						<p class="desc">The classifications in this graph reflect the sub-categories established by the EU Transparency Register. Some names have been shortened. Graph indicates the number of registered lobby organisations per sub-category.
-						</p>
-					</div>
-					<div class="sector range chart-full"></div>
-					<br class="clear" />
-				</div>
+				
 			</div>
 			<div class="row">
 				<div class="col-md-12 chart_box">
