@@ -596,14 +596,24 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "defaultContent":"AA",
               "searchable": false,
               "orderable": true,
+              "type":"num-fmt",
               "targets": 4,
-              data: "fte",  
+              "data": function (row, type, val, meta) { return (+row.fte).toFixed();}
               },{
               "defaultContent":"AA",
               "searchable": false,
               "orderable": true,
+              "type":"num-fmt",
               "targets": 3,
               data: "accredited",  
+              },{
+              "searchable": false,
+              "orderable": true,
+              "type":"num-fmt",
+              "targets": 6,
+              data: function (row, type, val, meta) { 
+                return (+getCost(row)/+row.fte).toFixed();
+                }
               } 
             ],
             "iDisplayLength" : 100,
@@ -621,7 +631,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
     function format (d) {
       var s="<div>More details on:";
-      if (!d.code)
+      if (!d)
         return "Data missing to display";
       s += '<div class="btn-group" qdata-toggle="buttons">';
       s += "<button class='btn btn-sm btn-primary' data-type='event'>Events</button>";
@@ -931,6 +941,7 @@ function eventpopup (epid) {
 							<th>EP badges</th>
 							<th>Lobbyists</th> 
 							<th>Lobby Budget</th> 							
+							<th>Control</th> 							
 						</tr>
 					</thead>
 				</table>
