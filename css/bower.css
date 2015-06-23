@@ -7040,10 +7040,15 @@ table.dataTable td {
 }
 
 /* @override 
-	http://doi.ap:8888/css/dc.css */
+	http://doi.ap:8888/css/dc.css
+	http://localhost:8888/transp_doi/doifork/css/dc.css */
 
 div.dc-chart {
     float: left;
+}
+
+.dc-chart text{
+	font-family:"Helvetica W02 Light";
 }
 
 .dc-chart rect.bar {
@@ -7098,8 +7103,8 @@ div.dc-chart {
 }
 
 .dc-chart .selected path {
-    stroke-width: 3;
-    stroke: #ccc;
+    stroke-width: 1;
+    stroke: #fff;
     fill-opacity: 1;
 }
 
@@ -7233,12 +7238,12 @@ div.dc-chart {
 }
 
 .dc-chart g.row rect {
-    fill-opacity: 0.8;
+    fill-opacity: 0.9;
     cursor: pointer;
 }
 
 .dc-chart g.row rect:hover {
-    fill-opacity: 0.6;
+    fill-opacity: 0.7;
 }
 
 .dc-chart g.row text {
@@ -7329,6 +7334,14 @@ div.dc-chart {
     opacity: .5;
 }
 
+.dc-chart g rect.deselected {
+    fill: #ccc;
+}
+
+.dc-chart g rect.deselected  {
+    opacity: .5;
+}
+
 .dc-chart .symbol{
     stroke: none;
 }
@@ -7343,6 +7356,25 @@ div.dc-chart {
     pointer-events: all;
     cursor: pointer;
 }
+
+svg g .selected path{
+	stroke: #FFF;
+	stroke-width: 1px;
+}
+
+svg g g.deselected path{
+	stroke: #FFF;
+	opacity: .3;
+	stroke-width: .5px;
+}
+
+/* lobby */
+.guest.dc-chart g.row rect, .host.dc-chart g.row rect, .sector.dc-chart g.row rect{
+    fill-opacity: 1;
+    cursor: pointer;
+}
+/*
+*/
 
 /* @override 
 	http://doi.ap:8888/css/material.css */
@@ -7402,20 +7434,17 @@ body.inverse,
 body.inverse .form-control {
   color: rgba(255, 255, 255, 0.84);
 }
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+body {
+   font-family: 'Helvetica W02 Light', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important; 
+   line-height: 1.6em;
+   color: #5d5d5d;
+   padding-bottom: 90px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   font-family: 'Helvetica W02 Bd Cn', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!important;
+   font-weight: normal;
+   text-transform: uppercase;
 }
 body .well,
 .container .well,

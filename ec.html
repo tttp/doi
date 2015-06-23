@@ -5,13 +5,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>EU Integrity Watch</title>
 <link rel="shortcut icon" href="favicon.ico">
+<link href="css/bower.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/dc.css"/>
-<!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"-->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/material.css" rel="stylesheet">
-<link href="css/theme.bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
+
+
+
+<script type="text/javascript" src="js/bower.js"></script>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the pdate via file:// -->
@@ -20,24 +21,6 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<!--script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.11/crossfilter.min.js"></script>
-<script type="text/javascript" src="js/dc.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-<script src="js/d3-tip.min.js"></script-->
-
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.tablesorter.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/d3.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/crossfilter.js"></script>
-<script type="text/javascript" src="js/dc.js"></script>
-<script type="text/javascript" src="js/underscore-min.js"></script>
-<script src="js/d3-tip.min.js"></script>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.tablesorter.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 
 <style>
 td.dc-table-column._4,
@@ -109,24 +92,6 @@ $( document ).ready(function() {
 	
 });
 
-$.tablesorter.addParser({
-	// use a unique id
-	id: 'amount',
-	is: function(s, table, cell) {
-		return false;
-	},
-	format: function(s, table, cell, cellIndex) {
-		var v = s.split(' ')[0];
-		if (v === "") return -1;
-		return v;
-	},
-	// flag for filter widget (true = ALWAYS search parsed values; false = search cell text)
-	parsed: false,
-	// set the type to either numeric or text (text uses a natural sort function
-	// so it will work for everything, but numeric is faster for numbers
-	type: 'numeric'
-});
-
 var detailtpl = sidetpl = null ;
 
 var wall = null;
@@ -161,10 +126,10 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 
 
-	var event = ndx.dimension(function(d) {
+	var evt = ndx.dimension(function(d) {
 		return d.id;    
 	})
-  var eventgroup   = event.group().reduce(
+  var eventgroup   = evt.group().reduce(
       function(p,d) {  
         p.nb +=1;
         if (!d.guestid || ! representatives[d.guestid])
@@ -209,6 +174,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 				var ratio=Math.round(100-one2one/filtered*100);
 				$(".one2one").html( ratio + "% collective meetings");
 			}
+      RefreshTable();
 	});
 
 	dc.dataCount(".dc-data-count2")
@@ -307,6 +273,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       .size([520,600])
       .dimension(dim)
       .group(group)
+//      .fontSize(d3.scale.linear().domain([0,100]).range([6,80]).clamp(true))
       .textAccessor(function(d) {return d.title;})
       .stopWords (/^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|i'll|you'll|he'll|she'll|we'll|they'll|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't|doesn't|don't|didn't|won't|wouldn't|shan't|shouldn't|can't|cannot|couldn't|mustn't|let's|that's|who's|what's|here's|there's|when's|where's|why's|how's|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall|la|du|mr|commissioner|et|des|dg|commission|de|pour|en|les|le|meeting)$/);
 
@@ -796,6 +763,221 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	};
 
 	function drawTable () {
+		var count=0;
+    //id,status,guest,host,cabinet,date,guestid,title,unregistered,participants
+
+    datatable = $(".table").dataTable({
+            "columnDefs": [ {
+              "defaultContent":"",
+              "orderable": false,
+              "targets": 0,   
+              data: function ( row, type, val, meta ) {
+                count++;
+                return count;
+              }
+              },{
+              "searchable": false,
+              "orderable": true,
+              "targets": 1,
+              "data":"host",
+              },{
+              "searchable": false,
+              "orderable": true,
+              "targets": 2,
+              "className": "number",
+              data: function (row, type, val, meta) { return getPortfolio(row)}
+              },{
+              "defaultContent":"AA",
+              "searchable": false,
+              "orderable": true,
+              "type":"date-eu",
+              "targets": 3,
+              "data": function(d) {
+                 if (d.date == null) return "canceled";
+                   return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
+                },
+              },{
+              "defaultContent":"AA",
+              "searchable": false,
+              "orderable": true,
+              "type":"num-fmt",
+              "targets": 4,
+              "data": function (d, type, val, meta) {
+                 return d.title; 
+                }
+              },{
+              "defaultContent":"AA",
+              "searchable": false,
+              "orderable": true,
+              "type":"num-fmt",
+              "targets": 5,
+					    "data": function(d) {  
+       					if (!d.guestid) {
+			      			return "<span class='unregistered'>"+d.unregistered+"</span>";
+					      }
+					      if (representatives[d.guestid] && representatives[d.guestid].acronym )
+  					      return "<span title='"+d.cost_absolute+"'>"+representatives[d.guestid].name + " ("+representatives[d.guestid].acronym +")</span>";
+                if (!d.guest && d.guestid && representatives[d.guestid])
+                  return "<span title='"+d.cost_absolute+"'>"+representatives[d.guestid].name +"</span>";
+                return "<span title='"+d.cost_absolute+"'>"+d.guest +"</span>";
+
+					     }
+             },{
+					    data: "participants",
+              "orderable": true,
+              "targets": 6,
+              } 
+            ],
+            "iDisplayLength" : 100,
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": false,
+            "order": [[ 3, "desc" ]],
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "bDeferRender": true,
+            "aaData": evt.top(Infinity),
+            "bDestroy": true,
+        });
+	
+    function format (d) {
+      if (!d)
+        return "invalid data";  
+    	var l_data = JSON.parse(JSON.stringify(d,null,2))
+    	
+    	console.log(l_data);
+    	l_string  = "<div class='l_data_container'>";
+    	acr = "";acr
+    	if (l_data['acronym'] != "") {
+    		acr = "("+l_data['acronym']+")"
+    	}
+    	l_string += "<div class='l_name'><label>Name</label> "+l_data['name']+" "+acr+"</div>";
+    	l_string += "<div class='l_category'><label>Type</label> "+mainCategories[l_data['main_category']]+": "+subCategories[l_data['sub_category']]+"</div>";
+    	l_string += "<div class='l_country'><label>Country</label> "+countries[l_data['contact_country']][1]+"</div>"
+    	l_string += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
+	    	if (l_data['cost_absolute'] == "") {
+	    		l_string += "min "+l_data['cost_min']+" / max "+l_data['cost_max']
+	    	}else {
+	    		l_string += l_data['cost_absolute']
+	    	}
+    	l_string += "</div>";
+    	l_string += "<div class='l_fte'><label>Total Lobbyist</label> "+l_data['fte']+"</div>";
+    	l_string += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+l_data['accredited']+"</div>";
+    	l_string += "<div class='l_meetings'><label>Reported Meetings</label> "+l_data['meetings']+"</div>";
+    	l_string += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+l_data['code']+"' target='_blank'>Transparency registry</a></div>";
+    	l_string += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> "+"-"+"</div>";//TODO: where is this info?
+    	l_string += "</div>";
+    	return l_string;
+      /*var s="<div>More details on:";
+      if (!d.code)
+        return "Data missing to display";
+      
+      s += '<div class="btn-group" qdata-toggle="buttons">';
+      s += "<button class='btn btn-sm btn-primary' data-type='event'>Events</button>";
+      s += "<button class='btn btn-sm btn-primary' data-type='accreditation'>Accreditations</button>";
+      s += "<button class='btn btn-sm btn-primary' data-type='financial_data'>Financial declarations</button>";
+      s += "<button class='btn btn-sm btn-primary' data-type='representative'>Details</button>";
+      s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' class='btn btn-sm' target='_blank'>Transparency registry</a>";
+      return s+"</div></div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";*/
+    }
+
+    datatable.on('click', 'button', function () {
+        var tr = $(this).closest('tr');
+        var type=$(this).data("type");
+        var pre=$(this).parent().parent().next("pre");
+        var row = datatable.DataTable().row( tr.prev()[0] );
+        var d=row.data();
+     
+        if (type == "event") {
+            var sevents =[];
+            _.each(events,function (e){
+            if (e.guestid == d.id)
+              sevents.push(e);
+            });
+            pre.html(JSON.stringify(sevents,null,2));
+            return;
+        }
+
+        var r= (tr.data("representative"));
+        if (!r) {
+          url="http://api.lobbyfacts.eu/api/1/representative/"+d.id+"?callback=?";
+          $.getJSON( url, function( data ) {
+            tr.data("representative",data);
+            display (data);
+          });
+          return;
+        }
+        display(r,type);
+
+        function display (data) {
+          switch (type) {
+            case "financial_data":
+             pre.html(JSON.stringify(data["financial_data"],null,2));
+              break;
+            case "accreditation":
+             pre.html(JSON.stringify(data["accreditations"],null,2));
+              break;
+            default:
+              pre.html(JSON.stringify(data,null,2));
+          }
+        }
+        
+    } );
+    
+    datatable.on('click', 'tr[role="row"]', function () {
+        var tr = $(this);
+        var row = datatable.DataTable().row( tr );
+ 
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()) ).show();
+            tr.addClass('shown');
+        }
+    } );
+        datatable.on( 'order.dt search.dt', function () {
+          datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+          } );
+
+        });
+
+	}
+
+       function RefreshTable() {
+            dc.events.trigger(function () {
+                alldata = rep.top(Infinity);
+                datatable.fnClearTable();
+                datatable.fnAddData(alldata);
+                datatable.fnDraw();
+            });
+        }
+
+        /*
+$.tablesorter.addParser({
+	// use a unique id
+	id: 'amount',
+	is: function(s, table, cell) {
+		return false;
+	},
+	format: function(s, table, cell, cellIndex) {
+		var v = s.split(' ')[0];
+		if (v === "") return -1;
+		return v;
+	},
+	// flag for filter widget (true = ALWAYS search parsed values; false = search cell text)
+	parsed: false,
+	// set the type to either numeric or text (text uses a natural sort function
+	// so it will work for everything, but numeric is faster for numbers
+	type: 'numeric'
+});
+
+	function drawTable () {
 		var i=0;
 		wall=dc.dataTable(".dc-data-grid")
 		 .dimension(name)
@@ -840,17 +1022,19 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			$("table.dc-data-grid").trigger("update");
 		});
 	}
-
+*/
 		dc.renderAll();
 		hashFilter();
 
-		 $("table.dc-data-grid").tablesorter(
+/*
+    $("table.dc-data-grid").tablesorter(
 				{theme:"bootstrap",headers: {}}
 		 ).bind("sortEnd",function(e, table) {
 			ga && ga('send', 'event', 'sort','table');
 			var i=0;
 			$("td:first-child").each (function(){this.innerHTML=++i;});
 		});
+*/    
 
 function drawRange () {
 	
@@ -1326,7 +1510,7 @@ function eventpopup (epid) {
 				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
 					<thead>
 						<tr class=header>
-							<th class="headerSortDown">Nr</th> 
+							<th>Nr</th> 
 							<th>Host</th> 
 							<th>Portfolio</th> 
 							<th>Date</th> 
@@ -1345,6 +1529,7 @@ function eventpopup (epid) {
 <script>
 'use strict';
 	var events=[];
+  var evt=null;
 	var representatives={};
 	$(function() {
 		var renderLoaded  = _.after(2,  function () { 
