@@ -1173,9 +1173,6 @@ div.dc-chart g.row text {fill:black}
 }
 
 /* legend */
-.legend div.presidents:before{
-	background: #123c81;
-}
 
 .legend div.directors:before{
 	background: #2163ad;

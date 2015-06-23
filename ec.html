@@ -583,8 +583,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 				return "Cabinet Members";
 			if (d.host.indexOf ("Director-General") !== -1)
 				return "Directors";
-			if (d.host.indexOf ("President")  !== -1)
-				return "Presidents";
+//			if (d.host.indexOf ("President")  !== -1)
+//				return "Presidents";
 			return "Commissioners"
 		}
 
@@ -593,11 +593,20 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		});
 
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
+		var hosttypecolor = {
+			"Directors":"#2163ad",
+			"Commissioners":"#3793d1",
+			"Cabinet Members":"#84c0e8"
+		};
+		
 		var chart = dc.pieChart(".hosttype")
 			.innerRadius(50).radius(100)
 			.height(200)
 			.dimension(dim)
-			.group(group);
+			.group(group)
+			.colorCalculator(function(d, i) {
+				return hosttypecolor[d.key];
+			});
 	
 	}
 
@@ -621,7 +630,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		"Euro":"#2063ad"
 	};
 	
-	//var graph = dc.barChart (".host")   
 	var graph = dc.rowChart (".host")   
 		.margins({top: 0, right: 5, bottom: 20, left: 5})
 		.height(520)
@@ -1155,7 +1163,6 @@ function eventpopup (epid) {
 							<h3>Policy Level<!--span class="info">info</span--></h3>
 							<div class="hosttype"></div>
 							<div class="legend">
-								<div class="presidents">Presidents</div>
 								<div class="directors">Directors</div>
 								<div class="commissioner">Commissioner</div>
 								<div class="cabinet">Cabinet Members</div>
