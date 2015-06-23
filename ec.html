@@ -1096,7 +1096,7 @@ function eventpopup (epid) {
 			<div class="col-md-3 col-lg-3" id="about_content_icon">
 			</div>
 			<div class="col-md-6 col-lg-6" id="about_content">
-				<p>EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the lobby organisations registered in the EU Transparency Register – the register of Brussels lobbyists.
+				<p>EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the lobby meetings of the European Commission since December 2014.
 				<br /><a href="about.html" class="more">Read more</a></p>
 					<p>By simply clicking on the graphs or the list below users can rank, sort and filter the meetings.</p>
 			</div>
@@ -1180,6 +1180,12 @@ function eventpopup (epid) {
 					<div class="row">
 						<div class="col-md-6 chart_box" id="hosttype">
 							<h3>Policy Level<!--span class="info">info</span--></h3>
+							<div class="info_chart">
+								<span class="info">info</span>
+								<p class="desc">Current transparency provision apply to Commissioners (including President and Vice-Presidents), their cabinets and all Directors-General. The shares of the pie reflect the number of meetings by hierarchy level.
+								</p>
+							</div>
+							
 							<div class="hosttype"></div>
 							<div class="legend">
 								<div class="directors">Directors</div>
@@ -1192,6 +1198,11 @@ function eventpopup (epid) {
 						
 						<div class="col-md-6 chart_box">
 							<h3>Top 10 Hosts<!--span class="info">info</span--></h3>
+							<div class="info_chart">
+								<span class="info">info</span>
+								<p class="desc">Individuals from the European Commission with most contacts with lobbyists. When individuals meet several lobby organisations in a single meeting, the tool counts each contact separately. The number of contacts can thus be higher than the number of meetings.
+								</p>
+							</div>
 							<div class="tophost chart-full"></div>
 							<div class="label">Number of contacts</div>
 							<br class="clear" />
@@ -1203,7 +1214,11 @@ function eventpopup (epid) {
 					<h2>Lobbyist</h2>
 					<div class="row">
 						<div class="col-md-6 chart_box" id="group_container">
-							<h3>Top 10 Organisations<!--span class="info">info</span--></h3>
+							<h3>Top 10 Organisations</h3>
+							<div class="info_chart">
+								<span class="info">info</span>
+								<p class="desc">Lobby organisations with the most high-level meetings at the European Commission.</p>
+							</div>
 								<div class="guest chart-full"></div>
 								<div class="label">Number of contacts</div>
 							<br class="clear" />
@@ -1233,6 +1248,11 @@ function eventpopup (epid) {
 			<div class="row">
 				<div class="col-md-3 chart_box">
 					<h3>Portfolio<!--span class="info">info</span--></h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">The 28 portfolios of the European Commissioners by the number of lobby contacts they have had. Titles have been shortened. Directors-Generals have been included in the portfolios of their Commissioners according to the organisational chart of the European Commission. Full detail in the About section.
+						</p>
+					</div>
 					<div class="host chart-full"></div>
 					<div class="label">Number of contacts</div>
 					<div class="legend" id="portfolio_legend">
@@ -1243,10 +1263,19 @@ function eventpopup (epid) {
 				</div>
 				<div class="col-md-6 chart_box">
 					<h3>Subjects of lobby meetings<!--span class="info">info</span--></h3>
-            <div class="wordcloud"></div>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">This word cloud provides an overview of the most common terms that appear in the meeting subjects. The more meetings on a given subject the bigger it appears in the word cloud.
+						</p>
+					</div>
+            		<div class="wordcloud"></div>
 				</div>
 				<div class="col-md-3 chart_box">
 					<h3>Sub-Category of lobby organisation<!--span class="info">info</span--></h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">The classifications in this graph reflect the sub-categories established by the EU Transparency Register. Some names have been shortened. Graph indicates the number of lobby meetings by sub-category of lobby organisation.</p>
+					</div>
 					<div class="sector range chart-full"></div>
 					<div class="label">Number of contacts</div>
 					<br class="clear" />

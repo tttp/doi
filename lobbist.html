@@ -925,6 +925,11 @@ function eventpopup (epid) {
 			<div class="row">
 				<div class="col-md-3 chart_box">
 					<h3>Top 10 Countries</h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Countries where organisations are headquartered according to their filings with the EU Transparency Register. Graph shows the number of meetings organisations from these countries have had with the European Commission since December 2014.
+						</p>
+					</div>
 					<div class="country">
 					</div>
 					<br class="clear" />
@@ -932,16 +937,31 @@ function eventpopup (epid) {
 				</div>
 				<div class="col-md-3 chart_box" id="hosttype">
 					<h3>Parliament accreditations<!--span class="info">info</span--></h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Number of access badges to the European Parliament per lobby organisation. All registered lobby organisations can obtain access badges to the European Parliament – numbers are not caped. Share of the pie indicates the number of organisations that have this many badges.
+						</p>
+					</div>
 					<div class="accreditations"></div>
 					<br class="clear" />
 				</div>
 				<div class="col-md-3 chart_box">
 					<h3>Number of meetings</h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Number of high-level lobby meetings with the European Commission per lobby organisation. Share of pie indicates the number of organisations that have this many meetings.
+						</p>
+					</div>
 					<div class="meetings">
 					</div>
 				</div>
 				<div class="col-md-3 chart_box">
 					<h3>Category of Lobby organisation</h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">The classifications in this graph reflect the categories established by the EU Transparency Register. Names have been shortened. The shares of the pie reflect the number of registered organisations per category.
+						</p>
+					</div>
 					<div class="main_category"></div>
 					<div class="legend">
 						<div class="corporate">Corporate</div>
@@ -968,6 +988,11 @@ function eventpopup (epid) {
 				</div>-->
 				<div class="col-md-8 chart_box">
 					<h3>Lobbying expense</h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Correlation between lobbying budget (as declared by the organisation on the EU Transparency Register) and the number of meetings registered by the European Commission.
+						</p>
+					</div>
 					<div class="expense">
 					</div>
 			    <div class="row">
@@ -985,6 +1010,11 @@ function eventpopup (epid) {
 				</div>
 				<div class="col-md-4 chart_box">
 					<h3>Sub-Category of lobby organisation<!--span class="info">info</span--></h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">The classifications in this graph reflect the sub-categories established by the EU Transparency Register. Some names have been shortened. Graph indicates the number of registered lobby organisations per sub-category.
+						</p>
+					</div>
 					<div class="sector range chart-full"></div>
 					<br class="clear" />
 				</div>
@@ -1012,12 +1042,12 @@ function eventpopup (epid) {
 				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
 					<thead>
 						<tr class=header>
-							<th class="col-md-1">Nr</th> 
-							<th class="col-md-5">Name</th> 
-							<th>Meetings</th>
-							<th>EP badges</th>
-							<th>Lobbyists</th> 
-							<th>Lobby Budget</th> 							
+							<th class="header col-md-1">Nr</th> 
+							<th class="header col-md-5">Name</th> 
+							<th class="header">Meetings</th>
+							<th class="header">EP badges</th>
+							<th class="header">Lobbyists</th> 
+							<th class="header">Lobby Budget</th> 							
 						</tr>
 					</thead>
 				</table>
