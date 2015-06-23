@@ -9134,6 +9134,7 @@ function cloud(d3) {
             _fontSize = function(d) { return _scale(+d.value); },
             _text = function(d) { return d.key; },
             _rotate = function(d) { return 0; },
+            _textAccessor = function(d) { throw "missing mandatory textAccessor(d) function"},
             _onClick = function(d) { 
                 _chart.filter(_text(d));
             },
@@ -9238,6 +9239,12 @@ function cloud(d3) {
         _chart.rotate = function(r) {
             if (!arguments.length) return _rotate;
             _rotate = r;
+            return _chart;
+        }
+
+        _chart.textAccessor = function(f) {
+            if (!arguments.length) return _textAccessor;
+            _textAccessor = f;
             return _chart;
         }
 
@@ -9375,14 +9382,14 @@ function cloud(d3) {
         }
 
         function getCloudWords() {
-            //var texts = _chart.dimension().top(Infinity),
-            var texts = _chart.group().all();
+            var texts = _chart.dimension().top(Infinity);
+            //var texts = _chart.group().all();
             var   lump = '';
                 //_valueAccessor = _chart.valueAccessor();
-            var _keyAccessor = _chart.keyAccessor();
+            var t = _textAccessor;
 
             texts.forEach(function(d) {
-                lump += ',' + _keyAccessor(d);
+                lump += ',' + t(d);
             });
 
             parseText(lump);
@@ -9474,7 +9481,7 @@ function cloud(d3) {
             });
             _chart.turnOffControls();
             dc.redrawAll(); 
-            _chart.invokeFilteredListener(_chart, null);
+            _chart._invokeFilteredListener(_chart, null);
         }
 
         _chart.turnOnControls = function () {
