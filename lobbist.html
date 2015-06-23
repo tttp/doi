@@ -98,9 +98,37 @@ function grid (selector,data) {
 				.range(["white","#ffc7b6", "#f85631"])
 				.interpolate(d3.interpolateHcl);
 
-var mainCategories = {"1":"Consultants","2":"Corporate","3":"NGOs","4":"Think tanks ","5":"Churches ","6":"Municipal"};
+		var lobby_category_colors = { //please note that Think tanks and churches have an extra space at the end of the string
+			"Corporate":"#cf270e",
+			"Consultants":"#d74517",
+			"Think tanks ":"#de6320",
+			"Municipal":"#e58a13",
+			"NGOs":"#ecb005",
+			"Churches ":"#f6d882",
+			"Not mentioned":"#808080",
+			"Not registered":"#a6a6a6",
+			"Unknown":"#cccccc",
+			"Deregistered":"#f2f2f2"
+		}
+		
 
-var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Self-employed consultants","21":"Companies & groups","22":"Trade and business associations","23":"Trade unions","24":"Other organisations","31":"Non-governmental organisations, platforms and networks and similar","41":"Think tanks and research institutions","42":"Academic institutions","51":"Organisations representing churches and religious communities","61":"Local, regional and municipal authorities (at sub-national level)","62":"Other public or mixed entities, etc.","444":"Trade unions and professional associations","446":"Trade unions and professional associations","450":"Regional structures","458":"Other public or mixed entities, created by law whose purpose is to act in the public interest","466":"Trade unions and professional associations","469":"Trade unions and professional associations","477":"Other public or mixed entities, created by law whose purpose is to act in the public interest","480":"Trade unions and professional associations","501":"Trade unions and professional associations","504":"Other public or mixed entities, created by law whose purpose is to act in the public interest","506":"Trade unions and professional associations","508":"Trade unions and professional associations","5055":"Trade unions and professional associations","5060":"Trade unions and professional associations","5062":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5065":"Trade unions and professional associations","5073":"Trade unions and professional associations","5074":"Regional structures","5075":"Trade unions and professional associations","5085":"Regional structures","5087":"Trade unions and professional associations","5089":"Trade unions and professional associations","5095":"Trade unions and professional associations","5099":"Transnational associations and networks of public regional or other sub-national authorities","5105":"Trade unions and professional associations","5110":"Trade unions and professional associations","5115":"Trade unions and professional associations","5130":"Trade unions and professional associations","5133":"Regional structures","5141":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5157":"Transnational associations and networks of public regional or other sub-national authorities","5159":"Trade unions and professional associations","5171":"Trade unions and professional associations","5172":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5197":"Regional structures","5205":"Trade unions and professional associations","5226":"Trade unions and professional associations","5227":"Trade unions and professional associations","5230":"Trade unions and professional associations","5256":"Trade unions and professional associations","5262":"Regional structures","5356":"Trade unions and professional associations","5371":"Trade unions and professional associations","5374":"Trade unions and professional associations","5390":"Regional structures","5400":"Trade unions and professional associations"};
+var mainCategories = {"1":"Consultants","2":"Corporate","3":"NGOs","4":"Think tanks","5":"Churches","6":"Municipal"};
+
+var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Self-employed consultants","21":"Companies & groups","22":"Trade and business associations",
+"24":"Other organisations",
+"25":"Trade and business organisations",
+"26":"Trade unions",
+"27":"Other in house lobbyists",  
+"31":"Non-governmental organisations, platforms and networks and similar","41":"Think tanks and research institutions","42":"Academic institutions","51":"Churches & religious communities","61":"Local, regional and municipal authorities (at sub-national level)","62":"Other public or mixed entities, etc.","444":"Trade unions and professional associations","446":"Trade unions and professional associations","450":"Regional structures","66":"Other public or mixed entities, etc","466":"Trade unions and professional associations","469":"Trade unions and professional associations","477":"Other public or mixed entities, created by law whose purpose is to act in the public interest","480":"Trade unions and professional associations","501":"Trade unions and professional associations","504":"Other public or mixed entities, created by law whose purpose is to act in the public interest","506":"Trade unions and professional associations","508":"Trade unions and professional associations","5055":"Trade unions and professional associations","5060":"Trade unions and professional associations","5062":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5065":"Trade unions and professional associations","5073":"Trade unions and professional associations","5074":"Regional structures","5075":"Trade unions and professional associations","5085":"Regional structures","5087":"Trade unions and professional associations","5089":"Trade unions and professional associations","5095":"Trade unions and professional associations","5099":"Transnational associations and networks of public regional or other sub-national authorities","5105":"Trade unions and professional associations","5110":"Trade unions and professional associations","5115":"Trade unions and professional associations","5130":"Trade unions and professional associations","5133":"Regional structures","5141":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5157":"Transnational associations and networks of public regional or other sub-national authorities","5159":"Trade unions and professional associations","5171":"Trade unions and professional associations","5172":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5197":"Regional structures","5205":"Trade unions and professional associations","5226":"Trade unions and professional associations","5227":"Trade unions and professional associations","5230":"Trade unions and professional associations","5256":"Trade unions and professional associations","5262":"Regional structures","5356":"Trade unions and professional associations","5371":"Trade unions and professional associations","5374":"Trade unions and professional associations","5390":"Regional structures","5400":"Trade unions and professional associations",
+"62": "Other public or mixed",
+"63": "Regional structures",
+"64": "Other sub-national public authorities",
+"65": "Transnational public networks",
+"66": "Other public or mixed entities", 
+
+};
+
+
 
 
 
@@ -241,9 +269,12 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	function drawExpense () {
 		var dim = ndx.dimension (function(d) {
-      if (d.meetings + d.accredited)
-        return d.id;
-      return "";
+      if ((+d.meetings + +d.accredited + +d.cost_min +d.cost_absolute) == 0){
+        console.log ("filtered");
+        return "";
+      }
+
+      return d.id;
 	});
 
   var group   = dim.group().reduce(
@@ -269,6 +300,16 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     )
     .order(function (p) {return p.nb});
 
+		var filteredGroup = (function(source_group) {
+			return {
+				top: function() {
+					return source_group.top(Infinity).filter(function(d) {
+						return (d.key != "");
+					});
+				}
+			};
+      })(group);
+
 	var graph = dc.bubbleChart (".expense")   
 //		.colorCalculator(function(d, i) { return blue;})
 		.width(750)
@@ -276,7 +317,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.margins({top: 20, right: 20, bottom: 20, left: 30})
 		.yAxisLabel("Nb Meetings")
 		.dimension(dim)
-		.group(group)
+		.group(filteredGroup)
 		.keyAccessor(function (d) {
         return d.value.cost;
 		})
@@ -440,20 +481,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
 		
-		var lobby_category_colors = { //please note that Think tanks and churches have an extra space at the end of the string
-			"Corporate":"#cf270e",
-			"Consultants":"#d74517",
-			"Think tanks ":"#de6320",
-			"Municipal":"#e58a13",
-			"NGOs":"#ecb005",
-			"Churches ":"#f6d882",
-			
-			"Not mentioned":"#808080",
-			"Not registered":"#a6a6a6",
-			"Unknown":"#cccccc",
-			"Deregistered":"#f2f2f2"
-		}
-		
 		var chart = dc.pieChart(".main_category")
 			.innerRadius(50).radius(100)
 			.height(200)
@@ -506,8 +533,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.gap(1)
 		.margins({top: 0, right: 0, bottom: 0, left: 0})
 		.x(d3.scale.ordinal())
-			.label(function(d){ return subCategories[d.key] })
-			.title (function(d){ return subCategories[d.key] +" "+d.value })
+		.label(function(d){ return subCategories[d.key] || d.key })
+		.title (function(d){ return subCategories[d.key] +" "+d.value })
 		.elasticX(true)
 		.colorCalculator(function(d, i) {
 			if (d.key == "Not mentioned" || d.key == "Unknown" || d.key == "Not registered")

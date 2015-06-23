@@ -1,3 +1,7 @@
+# to update the representatives
+#python fetch_representative.py 
+#python rep.py 
+#cp representative.json data
 #http://harelba.github.io/q/install.html
 
 #country
