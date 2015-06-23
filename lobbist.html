@@ -541,7 +541,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.colorCalculator(function(d, i) {
 			if (d.key == "Not mentioned" || d.key == "Unknown" || d.key == "Not registered")
 				return "#cccccc";
-			return "#ecb005";
+			return lobby_sector_colors[subCategories[d.key]]
+			//return "#ecb005";
 		})
 		.dimension(dim)
 		.group(group)
