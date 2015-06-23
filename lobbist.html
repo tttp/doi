@@ -149,6 +149,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawNbMeetings();
 	drawNbLobbyists();
   	drawNbBadges();
+    drawCostByFTE();
   	drawCounter();
 	drawCountry();
 /*	drawDate();
@@ -273,6 +274,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 
 
+
 	function drawExpense () {
 		var dim = ndx.dimension (function(d) {
 /*      if ((+d.meetings + +d.accredited + +d.cost_min +d.cost_absolute) == 0){
@@ -323,7 +325,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	var graph = dc.bubbleChart (".expense")   
 //		.colorCalculator(function(d, i) { return blue;})
 		.width(750)
-		.height(380)
+		.height(250)
 		.margins({top: 20, right: 20, bottom: 20, left: 30})
 		.yAxisLabel("Nb Meetings")
 		.dimension(dim)
@@ -343,12 +345,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.r(d3.scale.linear().domain([0, 1000]))
 		.minRadiusWithLabel(5000)
 */
+    
 	var graph = dc.barChart (".expense")   
-		.height(320)
+		.height(200)
 		.width(530)
 		.gap(0)
-		  .margins({top: 10, right: 20, bottom: 200, left: 40})
-		.x(d3.scale.linear().domain([0, 1000000]))
+		  .margins({top: 10, right: 20, bottom: 20, left: 40})
+		.x(d3.scale.linear().domain([0, 10000]))
  //   .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
 		.elasticX(true)
@@ -453,7 +456,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var dim = ndx.dimension (function(d) {
         if (d.fte>4)
           return 5;
-			  return d.fte;
+			  return (+d.fte).toFixed();
 		});
 
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
@@ -478,6 +481,42 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
            default:
              return d.key + " staffs: " + d.value;
          }
+       })
+			.dimension(dim)
+			.group(group);
+	}
+
+	function drawCostByFTE () {
+		var dim = ndx.dimension (function(d) {
+        if (d.costbyfte>=500000)
+          return 500000;
+        if (d.costbyfte == 0 && d.fte=="")
+          return "-1";
+        if (d.costbyfte == 0)
+          return 0;
+        return 1;
+			  return d.fte;
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+    var nameRange = function (d) {
+      var names={
+      "-1":"no lobbyist declared",
+      0:"some lobbyist but no cost",
+      1:"some cost",
+      500000:">500k by lobbyist"
+      }
+      return names[d.key];
+    }
+		var chart = dc.pieChart(".costbyfte")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.label(function(d){ 
+          return nameRange(d);
+      })
+			.title (function(d){ 
+          return nameRange(d) + ": "+d.value;
        })
 			.dimension(dim)
 			.group(group);
@@ -616,12 +655,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "type":"num-fmt",
               "targets": 3,
               data: "accredited",  
-              },{
-              "searchable": false,
-              "orderable": true,
-              "type":"num-fmt",
-              "targets": 6,
-              data: "costbyfte"
               } 
             ],
             "iDisplayLength" : 100,
@@ -912,10 +945,18 @@ function eventpopup (epid) {
 					<h3>Lobbying expense</h3>
 					<div class="expense">
 					</div>
-					<div class="costbyfte">
-					</div>
-					<div class="fte">
-					</div>
+			    <div class="row">
+				  <div class="col-md-6 chart_box">
+					  <h3>Cost by lobbyist</h3>
+				  	<div class="costbyfte">
+		   			</div>
+          </div>
+				  <div class="col-md-6 chart_box">
+			  		<h3>Declared lobbyists</h3>
+				  	<div class="nblobbyists">
+			  		</div>
+			  	</div>
+			  	</div>
 				</div>
 				<div class="col-md-4 chart_box">
 					<h3>Sub-Category of lobby organisation<!--span class="info">info</span--></h3>
@@ -952,7 +993,6 @@ function eventpopup (epid) {
 							<th>EP badges</th>
 							<th>Lobbyists</th> 
 							<th>Lobby Budget</th> 							
-							<th>Control</th> 							
 						</tr>
 					</thead>
 				</table>
