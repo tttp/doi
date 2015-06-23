@@ -381,6 +381,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			.label(function(d){ return d.key[1] })
 			.dimension(dim)
 			.group(group)
+			.minAngleForLabel(.2)
 			.colorCalculator(function(d, i) {
 				return lobby_category_colors[d.key[1]];
 			})
@@ -606,10 +607,10 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		});
 
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
-		var hosttypecolor = {
-			"Directors":"#2163ad",
-			"Commissioners":"#3793d1",
-			"Cabinet Members":"#84c0e8"
+		var hosttypecolor = {			
+			"Directors":"#84c0e8",
+			"Commissioners":"#2163ad",
+			"Cabinet Members":"#3793d1"
 		};
 		
 		var chart = dc.pieChart(".hosttype")
@@ -617,6 +618,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			.height(200)
 			.dimension(dim)
 			.group(group)
+			//.legend(dc.legend().x(0).y(190).gap(10)) TODO: use dc.legend		
 			.colorCalculator(function(d, i) {
 				return hosttypecolor[d.key];
 			});
@@ -626,22 +628,22 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	function drawHost () {
 
 	var dim = ndx.dimension (function(d) {
-				return getPortfolio(d);
+		return getPortfolio(d);
 
 	});
 
 	var group   = dim.group().reduceSum(function(d) {   return 1; });
 	
-	var portfolio_type = {
-		"Better Regulation":"#2063ad",
-		"External Action":"#2063ad",
-		"Presidency":"#2063ad",
-		"Digital Single Market":"#2063ad",
-		"Jobs & Growth":"#2063ad",
-		"Budget":"#2063ad",
-		"Energy Union":"#2063ad",
-		"Euro":"#2063ad"
-	};
+	var portfolio_type = [
+		"Better Regulation",
+		"External Action",
+		"Presidency",
+		"Digital Single Market",
+		"Jobs & Growth",
+		"Budget",
+		"Energy Union",
+		"Euro"
+	];
 	
 	var graph = dc.rowChart (".host")   
 		.margins({top: 0, right: 5, bottom: 20, left: 5})
@@ -650,8 +652,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.x(d3.scale.ordinal())
 		.elasticX(true)
 		.colorCalculator(function(d, i) {
-			if(Object.keys(portfolio_type).indexOf(d.key) > -1){
-				return portfolio_type[d.key];
+			if(portfolio_type.indexOf(d.key) > -1){
+				return "#2063ad";
 			} else {
 				return "#84c0e9";
 			}
@@ -1154,10 +1156,10 @@ function eventpopup (epid) {
 						</div>
 					</div>
 					<div class="col-md-2 filter_number">
-            			<div title="full time equivalent"><span class="big_number afilter_long nbfte"></span> Full-time equivalent</div>
+            			<div title="full time equivalent"><span class="big_number afilter_long nbfte"></span> out of <strong>8,047</strong><br /> Lobbyists</div>
 					</div>
-					<div class="col-md-3 filter_number">
-						<div title="access badges to the European Parliament"><span class="big_number afilter_long nbaccredited"></span> access badges to the European Parliament</div>
+					<div class="col-md-4 filter_number">
+						<div title="access badges to the European Parliament"><span class="big_number afilter_long nbaccredited"></span>  out of <strong>3,438</strong> Lobbyists accredited with the European Parliament</div>
 						</div>
 					</div>
 				</div>

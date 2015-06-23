@@ -374,6 +374,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var chart = dc.pieChart(".meetings")
 			.innerRadius(50).radius(100)
 			.height(200)
+			.minAngleForLabel(.2)
 			.label(function(d){ 
           	if (d.key == 5)
             	return ">5";
@@ -415,6 +416,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var chart = dc.pieChart(".accreditations")
 			.innerRadius(50).radius(100)
 			.height(200)
+			.minAngleForLabel(.2)
 			.label(function(d){ 
 	          if (d.key == 5)
 	            return ">5";
@@ -876,10 +878,11 @@ function eventpopup (epid) {
 						<div class="municipal">Municipal</div>
 						<div class="ngos">NGOs</div>
 						<div class="churches">Churches</div>
-						<div class="not_mentioned">Not mentioned</div>
-						<div class="not_registered">Not registered</div>
 						<div class="unknown">Unknown</div>
-						<div class="deregistered">Deregistered</div>
+						<!--div class="not_mentioned">Not mentioned</div>
+						<div class="not_registered">Not registered</div>
+						
+						<div class="deregistered">Deregistered</div-->
 						<br class="clear" />
 					</div>
 					<br class="clear" />
@@ -897,7 +900,7 @@ function eventpopup (epid) {
 					</div>
 				</div>
 				<div class="col-md-4 chart_box">
-					<h3>Sector of Lobby organisation<!--span class="info">info</span--></h3>
+					<h3>Sub-Category of lobby organisation<!--span class="info">info</span--></h3>
 					<div class="sector range chart-full"></div>
 					<br class="clear" />
 				</div>
