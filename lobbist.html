@@ -34,6 +34,12 @@
 
 
 <script>
+function getCost (d) { 
+  if (d.cost_absolute > 0)
+    return +d.cost_absolute;
+  return +d.cost_min;
+} 
+
 $( document ).ready(function() {
 	$('#view_charts').click(function(ev) {
 		ev.preventDefault();
@@ -269,14 +275,18 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	function drawExpense () {
 		var dim = ndx.dimension (function(d) {
-      if ((+d.meetings + +d.accredited + +d.cost_min +d.cost_absolute) == 0){
+/*      if ((+d.meetings + +d.accredited + +d.cost_min +d.cost_absolute) == 0){
         console.log ("filtered");
         return "";
       }
-
-      return d.id;
+*/
+        return getCost(d);
+//      return d.id;
 	});
+  
+    var group   = dim.group().reduceSum( function(d) {return +d.meetings;});
 
+    /*
   var group   = dim.group().reduce(
       function(p,d) {  
         p.nb +=1;
@@ -332,13 +342,11 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.y(d3.scale.linear().domain([0, 40]))
 		.r(d3.scale.linear().domain([0, 1000]))
 		.minRadiusWithLabel(5000)
-/*
+*/
 	var graph = dc.barChart (".expense")   
 		.height(320)
 		.width(530)
 		.gap(0)
-    .keyAccessor(function(d) { 
-        return d.key[0]})
 		  .margins({top: 10, right: 20, bottom: 200, left: 40})
 		.x(d3.scale.linear().domain([0, 1000000]))
  //   .x(d3.scale.ordinal())
@@ -352,7 +360,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 				})
 		.dimension(dim)
 		.group(group);
-*/
 		graph.xAxis().ticks(5).tickFormat(d3.format(",.0f"));
 
 		graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
@@ -614,9 +621,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "orderable": true,
               "type":"num-fmt",
               "targets": 6,
-              data: function (row, type, val, meta) { 
-                return (+getCost(row)/+row.fte).toFixed();
-                }
+              data: "costbyfte"
               } 
             ],
             "iDisplayLength" : 100,
@@ -727,11 +732,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 }
 
-function getCost (d) { 
-  if (d.cost_absolute > 0)
-    return +d.cost_absolute;
-  return +d.cost_min;
-} 
 
 function hashFilter () {
 	var hash = window.location.hash;
@@ -909,6 +909,10 @@ function eventpopup (epid) {
 					<h3>Lobbying expense</h3>
 					<div class="expense">
 					</div>
+					<div class="costbyfte">
+					</div>
+					<div class="fte">
+					</div>
 				</div>
 				<div class="col-md-4 chart_box">
 					<h3>Sub-Category of lobby organisation<!--span class="info">info</span--></h3>
@@ -1000,6 +1004,7 @@ function eventpopup (epid) {
         representatives = rows;
 				 _.each (representatives, function (d,i) {
 						//representatives[d.identification_code]=d;
+            d.costbyfte = (+getCost(d)/+d.fte).toFixed();
             ridx[d.id]=i;
 						d.meetings=0;
 			});
