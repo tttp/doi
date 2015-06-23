@@ -1309,6 +1309,10 @@ text.dc-cloud-word{
 	display: block;
 }
 
+td.number{
+	text-align: left;
+}
+
 #lobbying_expense label{
 	font-size: .8em;
 	font-weight: normal;

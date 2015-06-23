@@ -842,47 +842,41 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             "aaData": evt.top(Infinity),
             "bDestroy": true,
         });
-
-	
+        	
     function format (d) {
-      	if (!d)
-        	return "invalid data";  
-        
-		var l_data = JSON.parse(JSON.stringify(d,null,2))
-		
-		l_string  = "<div class='l_data_container'>";
-		acr = "";
-		if (d.acronym != "") {
-			acr = "("+d.acronym+")";
-		}
-		l_string += "<div class='l_name'><label>Name</label> "+d.name+" "+acr+"</div>";
-		l_string += "<div class='l_category'><label>Type</label> "+mainCategories[d.main_category]+": "+subCategories[d.sub_category]+"</div>";
-		//l_string += "<div class='l_country'><label>Country</label> "+countries[l_data['contact_country']][1]+"</div>"
-		l_string += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
-	    	if (d.cost_absolute == "") {
-	    		l_string += "min "+d.cost_min+" / max "+d.cost_max
-	    	}else {
-	    		l_string += d.cost_absolute
-	    	}
-		l_string += "</div>";
-		l_string += "<div class='l_fte'><label>Total Lobbyist</label> "+d.fte+"</div>";
-		l_string += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+d.accredited+"</div>";
-		l_string += "<div class='l_meetings'><label>Reported Meetings</label> "+d.meetings+"</div>";
-		l_string += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' target='_blank'>Transparency registry</a></div>";
-		l_string += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> "+"-"+"</div>";//TODO: where is this info?
-		l_string += "</div>";
-		return l_string;
-      	/*var s="<div>More details on:";
-      	if (!d.code)
-        	return "Data missing to display";
-      
-		s += '<div class="btn-group" qdata-toggle="buttons">';
-		s += "<button class='btn btn-sm btn-primary' data-type='event'>Events</button>";
-		s += "<button class='btn btn-sm btn-primary' data-type='accreditation'>Accreditations</button>";
-		s += "<button class='btn btn-sm btn-primary' data-type='financial_data'>Financial declarations</button>";
-		s += "<button class='btn btn-sm btn-primary' data-type='representative'>Details</button>";
-		s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' class='btn btn-sm' target='_blank'>Transparency registry</a>";
-		return s+"</div></div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";*/
+    	//TODO: display lobby infos
+//    	var l;
+//    	url="http://api.lobbyfacts.eu/api/1/representative/"+d.guestid+"?callback=?";
+//    	$.getJSON( url, function( data ) {
+//    		l = data; //this get the lobbyist data
+//    		var sl = "";
+//    		sl += "<div class='l_category'><label>Type</label> "+mainCategories[l.main_category]+": "+subCategories[d.sub_category]+"</div>";
+//    		sl += "<div class='l_country'><label>Country</label> "+l.contact_country[1]+"</div>"
+//    		sl += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
+//    			if (l.cost_absolute == "") {
+//    				s += "min "+l.cost_min+" / max "+l.cost_max
+//    			}else {
+//    				s += l.cost_absolute
+//    			}
+//    		sl += "</div>";
+//    		sl += "<div class='l_fte'><label>Total Lobbyist</label> "+l.fte+"</div>";
+//    		sl += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+l.accredited+"</div>";
+//    		sl += "<div class='l_meetings'><label>Reported Meetings</label> "+l.meetings+"</div>";
+//    		sl += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+l.code+"' target='_blank'>Transparency registry</a></div>";
+//    		
+//    		$('#lobbyist'+d.guestid).html(sl);
+//    	}); 
+    	            	
+    	s  = "<div class='l_data_container'>";
+    	s += "<div class='l_name'><label>Title</label> "+d.title+"</div>";
+    	s += "<div class='l_name'><label>Date</label> "+d.date+"</div>";
+    	s += "<div class='l_name'><label>Cabinet</label> "+d.cabinet+"</div>";
+    	s += "<div class='l_name'><label>Host</label> "+d.host+"</div>";
+    	s += "<div class='l_category'><label>Guest</label> "+representatives[d.guestid].name+"</div>";
+//    	s += "<span class='lobbyist_info_container' id='lobbyist"+d.guestid+"'></span>"
+    	s += "</div>";
+    	return s;
+     
     }
 
     datatable.on('click', 'button', function () {
@@ -1512,14 +1506,14 @@ function eventpopup (epid) {
 			<div class="col-md-12 table-responsive">
 				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
 					<thead>
-						<tr class=header>
-							<th>Nr</th> 
-							<th>Host</th> 
-							<th>Portfolio</th> 
-							<th>Date</th> 
-							<th class="col-md-4">Subject</th> 
-							<th>Lobby Organisation</th> 
-							<th>Participants</th> 
+						<tr class="header">
+							<th class="header">Nr</th> 
+							<th class="header">Host</th> 
+							<th class="header">Portfolio</th> 
+							<th class="header">Date</th> 
+							<th class="header col-md-4">Subject</th> 
+							<th class="header">Lobby Organisation</th> 
+							<th class="header">Participants</th> 
 						</tr>
 					</thead>
 				</table>
