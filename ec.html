@@ -835,34 +835,39 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "orderable": true,
               "targets": 2,
               "className": "number",
-              data: function (row, type, val, meta) { return getPortfolio(row)}
+              data: function (row, type, val, meta) { 
+                if (!d) return;
+                return getPortfolio(row)}
               },{
-              "defaultContent":"AA",
+              "defaultContent":"N/A",
               "searchable": false,
               "orderable": true,
               "type":"date-eu",
               "targets": 3,
               "data": function(d) {
+                 if (!d) return;
                  if (d.date == null) return "canceled";
                    return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
                    //return d.date.getFullYear()+"-"+(1+d.date.getMonth())+"-"+d.date.getDate();
                 },
               },{
-              "defaultContent":"AA",
+              "defaultContent":"N/A",
               "searchable": false,
               "orderable": true,
               "type":"num-fmt",
               "targets": 4,
               "data": function (d, type, val, meta) {
+                 if (!d) return;
                  return d.title; 
                 }
               },{
-              "defaultContent":"AA",
+              "defaultContent":"N/A",
               "searchable": false,
               "orderable": true,
               "type":"num-fmt",
               "targets": 5,
-					    "data": function(d) {  
+					    "data": function(d) { 
+                if (!d) return;
        					if (!d.guestid) {
 			      			return "<span class='unregistered'>"+d.unregistered+"</span>";
 					      }
