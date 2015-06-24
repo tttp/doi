@@ -648,22 +648,22 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
                   //return "<10k";
                 return d3.format(",g")(data);
               },
-              data: function (row, type, val, meta) { return getCost(row)}
+              data: function (row, type, val, meta) { if (!row) {return "";} ;return getCost(row);}
               },{
-              "defaultContent":"AA",
+              "defaultContent":"No data",
               "searchable": false,
               "orderable": true,
               "targets": 2,
               data: "meetings",  
               },{
-              "defaultContent":"AA",
+              "defaultContent":"No data",
               "searchable": false,
               "orderable": true,
               "type":"num-fmt",
               "targets": 4,
-              "data": function (row, type, val, meta) { return (+row.fte).toFixed();}
+              "data": function (row, type, val, meta) { if (!row) {return "";}; return (+row.fte).toFixed();}
               },{
-              "defaultContent":"AA",
+              "defaultContent":"No data",
               "searchable": false,
               "orderable": true,
               "type":"num-fmt",
