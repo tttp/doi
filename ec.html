@@ -13,7 +13,52 @@
 
 
 <script type="text/javascript" src="js/bower.js"></script>
+<script>
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+    "date-eu-pre": function ( date ) {
+        date = date.replace(" ", "");
+         
+        if ( ! date ) {
+            return 0;
+        }
+ 
+        var year;
+        var eu_date = date.split(/[\.\-\/]/);
+ 
+        /*year (optional)*/
+        if ( eu_date[2] ) {
+            year = eu_date[2];
+        }
+        else {
+            year = 0;
+        }
+ 
+        /*month*/
+        var month = eu_date[1];
+        if ( month.length == 1 ) {
+            month = 0+month;
+        }
+ 
+        /*day*/
+        var day = eu_date[0];
+        if ( day.length == 1 ) {
+            day = 0+day;
+        }
+ 
+        return (year + month + day) * 1;
+    },
+ 
+    "date-eu-asc": function ( a, b ) {
+        return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+    },
+ 
+    "date-eu-desc": function ( a, b ) {
+        return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+    }
+} );
 
+
+</script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the pdate via file:// -->
 <!--[if lt IE 9]>
@@ -798,6 +843,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "data": function(d) {
                  if (d.date == null) return "canceled";
                    return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
+                   //return d.date.getFullYear()+"-"+(1+d.date.getMonth())+"-"+d.date.getDate();
                 },
               },{
               "defaultContent":"AA",
@@ -1338,10 +1384,14 @@ function eventpopup (epid) {
 						</div>
 					</div>
 					<div class="col-md-2 filter_number">
-            			<div title="full time equivalent"><span class="big_number afilter_long nbfte"></span> out of <strong>8,047</strong><br /> Lobbyists</div>
+            			<div title="full time equivalent"><span class="big_number afilter_long nbfte"></span> 
+ Lobbyists
+</div>
 					</div>
 					<div class="col-md-4 filter_number">
-						<div title="access badges to the European Parliament"><span class="big_number afilter_long nbaccredited"></span>  out of <strong>3,438</strong> Lobbyists accredited with the European Parliament</div>
+						<div title="access badges to the European Parliament"><span class="big_number afilter_long nbaccredited"></span>
+  Lobbyists accredited with the European Parliament
+</div>
 						</div>
 					</div>
 				</div>
@@ -1611,6 +1661,8 @@ function eventpopup (epid) {
 
 	ga('create', 'UA-55613514-1', 'auto');
 	ga('send', 'pdateview');
+
+
 
 </script>
 </body>
