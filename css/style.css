@@ -209,6 +209,7 @@ p.desc{
 	position: relative;
 	top: 58px;
 	
+	z-index: 1;
 	display: none;
 }
 
@@ -970,9 +971,10 @@ ul.nav.navbar-right li.active a{
 }
 
 #avg_score_container div#avg_score {
-    font-size: 180px;
-    margin-top:60px;
-    height: 90px;
+    font-size: 140px;
+    letter-spacing: -.1em;
+    margin-top:50px;
+    height: 70px;
 	font-family:"Helvetica W02 Bd Cn";    
 }
 

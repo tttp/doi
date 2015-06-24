@@ -317,6 +317,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       .rotate(function() { return ~~(Math.random() * 2) * 90; })
       .size([520,600])
       .dimension(dim)
+      .ordinalColors(['#133d82', '#2163ad', '#3893d1', '#84c0e8', '#cfecff'])
       .group(group)
 //      .fontSize(d3.scale.linear().domain([0,100]).range([6,80]).clamp(true))
       .textAccessor(function(d) {return d.title;})
