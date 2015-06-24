@@ -836,7 +836,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "targets": 2,
               "className": "number",
               data: function (row, type, val, meta) { 
-                if (!d) return;
+                if (!row) return;
                 return getPortfolio(row)}
               },{
               "defaultContent":"N/A",
