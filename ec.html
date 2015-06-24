@@ -34,14 +34,14 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
         }
  
         /*month*/
-        var month = eu_date[1];
+        var month = eu_date[1] | "";
         if ( month.length == 1 ) {
             month = 0+month;
         }
  
         /*day*/
-        var day = eu_date[0];
-        if ( day.length == 1 ) {
+        var day = eu_date[0] | "";
+        if ( !day | day.length == 1 ) {
             day = 0+day;
         }
  
@@ -829,14 +829,16 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "searchable": false,
               "orderable": true,
               "targets": 1,
+              "defaultContent":"N/A",
               "data":"host",
               },{
               "searchable": false,
               "orderable": true,
               "targets": 2,
               "className": "number",
+              "defaultContent":"N/A",
               data: function (row, type, val, meta) { 
-                if (!row) return;
+                if (!row) return "";
                 return getPortfolio(row)}
               },{
               "defaultContent":"N/A",
@@ -845,7 +847,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "type":"date-eu",
               "targets": 3,
               "data": function(d) {
-                 if (!d) return;
+                 if (!d) return "";
                  if (d.date == null) return "canceled";
                    return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
                    //return d.date.getFullYear()+"-"+(1+d.date.getMonth())+"-"+d.date.getDate();
@@ -857,7 +859,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "type":"num-fmt",
               "targets": 4,
               "data": function (d, type, val, meta) {
-                 if (!d) return;
+                 if (!d) return "";
                  return d.title; 
                 }
               },{
@@ -867,7 +869,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "type":"num-fmt",
               "targets": 5,
 					    "data": function(d) { 
-                if (!d) return;
+                if (!d) return "";
        					if (!d.guestid) {
 			      			return "<span class='unregistered'>"+d.unregistered+"</span>";
 					      }
