@@ -825,10 +825,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
                 return "<span title='"+d.cost_absolute+"'>"+d.guest +"</span>";
 
 					     }
-             },{
-					    data: "participants",
-              "orderable": true,
-              "targets": 6,
               } 
             ],
             "iDisplayLength" : 100,
@@ -868,6 +864,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 //    		$('#lobbyist'+d.guestid).html(sl);
 //    	}); 
     	            	
+      if (!d)
+        return "no data";
     	s  = "<div class='l_data_container'>";
     	s += "<div class='l_name'><label>Title</label> "+d.title+"</div>";
     	s += "<div class='l_name'><label>Date</label> "+d.date+"</div>";
@@ -1515,7 +1513,6 @@ function eventpopup (epid) {
 							<th class="header">Date</th> 
 							<th class="header col-md-4">Subject</th> 
 							<th class="header">Lobby Organisation</th> 
-							<th class="header">Participants</th> 
 						</tr>
 					</thead>
 				</table>
