@@ -52,7 +52,7 @@ h3{
 }
 
 .chart_box h3{
-	font-size: 1.15em;
+	font-size: 1.1em;
 }
 
 a{
@@ -83,6 +83,16 @@ svg path, svg rect{
 	width: 100%;
 }
 
+.info_table{
+	position: absolute;
+	top: -30px;
+	right: 25px;
+}
+
+th{
+	position: relative;
+}
+
 .info{
 	position: absolute;
 	background: #e6e6e6 url(../img/info.svg) no-repeat;
@@ -107,6 +117,7 @@ svg path, svg rect{
 	margin-bottom: .5em;
 	display: inline-block;
 	width: 50%;
+	position: relative;
 }
 
 #last_update{
@@ -118,19 +129,52 @@ svg path, svg rect{
 
 #list_content .info_chart{
 	z-index: 1000;
-	top: 28px;
+	top: 30px;
+}
+
+#list_content h2 .info_chart{
+	top: 0;
+}
+
+#list_content h2 .info_chart .info{
+	top: 2px;
+	width: 22px;
+	height: 22px;
+}
+
+#list_content h2 .info_chart .desc{
+	top: 22px;
+	font-size: .55em;
+	font-family:"Helvetica W02 Light";
+	text-transform: lowercase;
 }
 
 #attendance_info{
-	right: 26%;
+	right: 28%;
 }
 
 #OI_info{
-	right: 10.5%;
+	right: 11.5%;
 }
 
 #EAI_info{
 	/*right: 1%;*/
+}
+
+#badges_info{
+	right: 29%;
+}
+
+#lobbyist_info{
+	right: 17.3%;
+}
+
+#budget_info{
+	
+}
+
+#meetings_info{
+	right: 41.2%;
 }
 
 #list_content .desc{
@@ -152,7 +196,10 @@ svg path, svg rect{
 	padding: 0 15px;
 }
 
-
+.info_chart p.desc{
+	font-weight: normal;
+	font-size: .875em;
+}
 
 p.desc{
 	width: 100%;
@@ -1287,7 +1334,6 @@ text.dc-cloud-word{
 .l_data_container{
 	padding: 1em 4em;
 	background: #FFF;
-	font-weight: bolder;
 	color: #222;
 }
 

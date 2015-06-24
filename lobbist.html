@@ -1002,30 +1002,32 @@ function eventpopup (epid) {
 		   			</div>
           		</div-->
           		<div class="col-md-8">
-          			<div class="col-md-4 chart_box" id="hosttype">
-          					<h3>Parliament accreditations<!--span class="info">info</span--></h3>
-          					<div class="info_chart">
-          						<span class="info">info</span>
-          						<p class="desc">Number of access badges to the European Parliament per lobby organisation. All registered lobby organisations can obtain access badges to the European Parliament – numbers are not caped. Share of the pie indicates the number of organisations that have this many badges.
-          						</p>
-          					</div>
-          					<div class="accreditations"></div>
-          					<br class="clear" />
-          				</div>
-          				<div class="col-md-4 chart_box">
-          					<h3>Number of meetings</h3>
-          					<div class="info_chart">
-          						<span class="info">info</span>
-          						<p class="desc">Number of high-level lobby meetings with the European Commission per lobby organisation. Share of pie indicates the number of organisations that have this many meetings.
-          						</p>
-          					</div>
-          					<div class="meetings">
-          					</div>
-          				</div>
-          				<div class="col-md-4 chart_box">
-          					<h3>Lobbyists</h3>
-          					<div class="nblobbyists"></div>
-          				</div>
+          			<div class="row">
+	          			<div class="col-md-4 chart_box" id="hosttype">
+	          					<h3>Parliament accreditations<!--span class="info">info</span--></h3>
+	          					<div class="info_chart">
+	          						<span class="info">info</span>
+	          						<p class="desc">Number of access badges to the European Parliament per lobby organisation. All registered lobby organisations can obtain access badges to the European Parliament – numbers are not caped. Share of the pie indicates the number of organisations that have this many badges.
+	          						</p>
+	          					</div>
+	          					<div class="accreditations"></div>
+	          					<br class="clear" />
+	          				</div>
+	      				<div class="col-md-4 chart_box">
+	      					<h3>Number of meetings</h3>
+	      					<div class="info_chart">
+	      						<span class="info">info</span>
+	      						<p class="desc">Number of high-level lobby meetings with the European Commission per lobby organisation. Share of pie indicates the number of organisations that have this many meetings.
+	      						</p>
+	      					</div>
+	      					<div class="meetings">
+	      					</div>
+	      				</div>
+	      				<div class="col-md-4 chart_box">
+	      					<h3>Lobbyists</h3>
+	      					<div class="nblobbyists"></div>
+	      				</div>
+      				</div>
           		</div>
           		<div class="col-md-4">
           			<div class="chart_box">
@@ -1058,6 +1060,29 @@ function eventpopup (epid) {
 		<div class="row">
 			<div class="content" id="list_content">
 				<h2 class="table_title">Registered Lobby Organisations</h2><div id="last_update">Last updated: 23 June 2015</div>
+				<div id="info_table_container">
+					<div class="info_chart info_table" id="meetings_info">
+						<span class="info">info</span>
+						<p class="desc">Number of high-level meetings the organisation has had with the European Commission since December 2014.
+						</p>
+					</div>
+					
+					<div class="info_chart info_table" id="budget_info">
+						<span class="info">info</span>
+						<p class="desc">Lobby budget as declared by the organisation in the EU Transparency Register under “estimate of the annual costs related to activities covered by the register”. According to the official guidelines estimates should include staff costs, office, administrative and operational expenses, outsourced activities, memberships and other relevant costs.</p>
+					</div>
+					
+					<div class="info_chart info_table" id="lobbyist_info">
+						<span class="info">info</span>
+						<p class="desc">Number of lobbyists (in full-time equivalent) as declared by the organisation on the EU Transparency Register.</p>
+					</div>
+					
+					<div class="info_chart info_table" id="badges_info">
+						<span class="info">info</span>
+						<p class="desc">Number of access badges to the European Parliament that the organisation holds for the lobbyists. Information published on the EU Transparency Register.
+						</p>
+					</div>
+				</div>
 			</div>
 			
 			<div class="col-md-12 table-responsive">
@@ -1065,7 +1090,7 @@ function eventpopup (epid) {
 					<thead>
 						<tr class=header>
 							<th class="header col-md-1">Nr</th> 
-							<th class="header col-md-5">Name</th> 
+							<th class="header col-md-5">Name </th> 
 							<th class="header">Meetings</th>
 							<th class="header">EP badges</th>
 							<th class="header">Lobbyists</th> 
