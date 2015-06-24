@@ -346,16 +346,20 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.r(d3.scale.linear().domain([0, 1000]))
 		.minRadiusWithLabel(5000)
 */
-    
+
+  var formatInteger = d3.format(".0f");
+  var maxBudget=610000000;
 	var graph = dc.barChart (".expense")   
 		.height(340)
 		.width(530)
 		.gap(0)
+    .on("preRender",(function(chart,filter){
+    }))
 		.margins({top: 0, right: 10, bottom: 20, left: 40})
-		.x(d3.scale.linear().domain([0, 10000]))
+		.x(d3.scale.sqrt().domain([0, maxBudget]))
  //   .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
-		.elasticX(true)
+//		.elasticX(true)
 		.elasticY(true)
 				.brushOn(true)
 		//.yAxisLabel("Lobbying expense")
@@ -364,7 +368,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		})
 		.dimension(dim)
 		.group(group);
-		graph.xAxis().ticks(5).tickFormat(d3.format(",.0f"));
+		//graph.xAxis().ticks(5).tickFormat(d3.format(",.0f"));
+    graph.xAxis().ticks(5).tickFormat(function(d) {return formatInteger(d / 1e6) + "M";});
 
 		graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
 	}
@@ -957,7 +962,7 @@ function eventpopup (epid) {
 					</div>
 					<div class="expense">
 					</div>
-					<label>Lobbying expense</label>
+					<label>Nb Organisations</label>
 				</div>
 				
 				<div class="col-md-3 chart_box">
