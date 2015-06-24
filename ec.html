@@ -303,7 +303,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	function drawMainCategory () {
 		function getName (d) {
 			if (d.status == "dereg") {
-				return [97,"Deregistered"];
+				return [100,"Unknown"];
       } 
 			if (!d.guestid){
 				if (d.unregistered == "")
@@ -363,7 +363,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 				return "Not registered";
 			}
 			if (d.status=="dereg")
-				return "Deregistered";
+				return "Unknown";
 			if (!representatives[d.guestid])
 				return "Unknown";
 			sub=representatives[d.guestid].sub_category;
@@ -453,7 +453,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 			"Vice-President Jyrki Katainen" : "Jobs & Growth",
 
-	"Claus Sørensen":"Humanitarian Aid",
+	"Director-General Claus Sørensen":"Humanitarian Aid",
 	"Commissioner Christos Stylianides":"Humanitarian Aid",
 
 	"Commissioner Corina Crețu":"Regional Policy",
@@ -1540,6 +1540,8 @@ function eventpopup (epid) {
 
 			_.each (events, function (d) {
 				d.date=dateFormat.parse(d.date);
+        if(d.host == "Claus Sørensen")
+          d.host="Director-General "+d.host;
 				if (!d.cabinet) 
 					return;
         if (!d.guest && d.guestid){
@@ -1548,7 +1550,7 @@ function eventpopup (epid) {
           } else {
             d.guest ="Unknown";
           }
-        } 
+        }
 				if (d.cabinet.substr(19)=="Cabinet member of ")
 					d.cabinet = d.cabinet.substr(19);
 			});
