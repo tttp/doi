@@ -776,17 +776,18 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 					return "Not mentioned";
 				return "*"+d.unregistered;
 			}
-      if (!d.guest && representatives[d.guestid]) //wtf is the guest not set
-        return representatives[d.guestid].name;
-			return d.guest;
+      		if (!d.guest && representatives[d.guestid]) //wtf is the guest not set
+        		return representatives[d.guestid].name;
+				return d.guest;
 		});
-		var group   = dim.group().reduceSum(function(d) {   return 1; });
+			
+		var group = dim.group().reduceSum(function(d) {   return 1; });
+		
 
-
-	var filteredGroup = (function(source_group) {
-		return {
-			all: function() {
-				return source_group.top(10).filter(function(d) {
+		var filteredGroup = (function(source_group) {
+			return {
+				all: function() {
+					return source_group.top(10).filter(function(d) {
 					return (d.key != "Not mentioned" && d.value != 0);
 				});
 			}

@@ -1218,11 +1218,11 @@ div.dc-chart g.row text {fill:black}
 /* legend */
 
 .legend div.directors:before{
-	background: #84c0e8;
+	background: #2063ad;
 }
 
 .legend div.commissioner:before{
-	background: #2163ad;
+	background: #84c0e8;
 }
 
 .legend div.cabinet:before{
