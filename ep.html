@@ -442,7 +442,7 @@ function grid (selector,data) {
 });
 
 	drawScore();
-	drawParty();
+//	drawParty();
 	drawRange();
 	drawAge();
 
@@ -973,7 +973,8 @@ $(function() {
 		 detailtpl =  _.template($("#detailstpl").html());
 		 sidetpl =  _.template($("#sidetpl").html());
 		var renderLoaded  = _.after(3,  function () { 
-			var dateFormat = d3.time.format("%d/%m/%Y");
+			//var dateFormat = d3.time.format("%d/%m/%Y");
+			var dateFormat = d3.time.format("%Y-%m-%d");
 			var now = Date.now();
 			var a;
 
