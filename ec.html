@@ -476,6 +476,41 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 
 	function getPortfolio (d) {
+    var shortenName =
+    {
+      "Agriculture and Rural Development": "Agriculture",
+      "Communications Networks, Content and Technology": "Digital Economy",
+      "Economic and Financial Affairs": "Economics & Tax",
+      "Education and Culture": "Education",
+      "Employment, Social Affairs and Inclusion": "Employment",
+      "Climate Action": "Climate & Energy",
+      "Energy": "Energy Union",
+      "EuropeAid Development & Cooperation": "Development",
+      "European Neighbourhood Policy and Enlargement Negotiations": "Neighbourhood",
+      "European Political Strategy Centre": "Presidency",
+      "Eurostat": "Employment",
+      "Financial Stability, Financial Services and Capital Markets Union": "Financial Markets",
+      "Health and Food Safety": "Health",
+      "Human Resources and Security": "Budget",
+      "Humanitarian Aid and Civil Protection": "Humanitarian Aid",
+      "Informatics": "Digital Economy",
+      "Internal Market, Industry, Entrepreneurship and SMEs": "Internal Market",
+      "Joint Research Centre": "Education",
+      "Maritime Affairs and Fisheries": "Environment",
+      "Mobility and Transport": "Transport",
+      "Office for Administration and Payment of individual entitlements ": "Budget",
+      "Publications Office": "Education",
+      "Research and Innovation": "Research",
+      "Secretariat-General": "Presidency",
+      "Taxation and Customs Union": "Economics & Tax",
+    };
+
+    return shortenName[d.cabinet] || d.cabinet;
+
+		if (d.cabinet) {
+      return d.cabinet;
+    }
+
 		var host2portfolio = {
 			"President Jean-Claude Juncker" : "Presidency",
 			"Secretary-General Catherine Day": "Presidency",
@@ -610,13 +645,12 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	}
 	function drawHostType () {
 		function getType (d) {
-			if (d.cabinet)
-				return "Cabinet Members";
-			if (d.host.indexOf ("Director-General") !== -1)
+			if (d.host.indexOf ("Director-General") !== -1 || d.host.indexOf("Secretary-General") !== -1) 
 				return "Directors";
-//			if (d.host.indexOf ("President")  !== -1)
-//				return "Presidents";
-			return "Commissioners"
+      if ( d.host.indexOf ("Commissioner") !== -1 || d.host.indexOf("President") !== -1)
+			  return "Commissioners";
+
+			return "Cabinet Members";
 		}
 
 		var dim = ndx.dimension (function(d) {
