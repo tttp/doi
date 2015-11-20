@@ -587,7 +587,7 @@ ecf537c1687c49338431dccec3fef6ec,234,21,Tesla Motors,"Tesla Motors, Inc.",2,,,20
 ecf41002f4724c528e9ad5538d693d75,82,25,KBV,Kassenärztliche Bundesvereinigung,2,,,115000,2,82797211999-77,2
 ecedfed63c804d0ba37e03cf548044da,75,11,FVC&PA,FairValue Corporate & Public Affairs,1,,9999,,4.5,69852587017-33,3
 ecea1fc7dd224b279fdd1e72ed921bc8,214,31,EUFASD Alliance,European Fetal Alcohol Spectrum Disorders Alliance,3,,,200,1,415170819008-88,
-ece99dcafdfc4c7a84c8ce930a051ced,74,31,EHYT ry,Ehkäisevä päihdetyö EHYT ry,3,,,57517000,1.75,104368419271-46,
+ece99dcafdfc4c7a84c8ce930a051ced,74,31,EHYT ry,Ehkäisevä päihdetyö EHYT ry,3,,,10870,1.75,104368419271-46,
 ece996ab939a4d2b926a93f5ade011e2,39,25,NI,Nickel Institute,2,400000,499999,,1.5,77947983421-21,4
 ece1d6b7c3104aae8b96779442a5b4bb,176,31,PZZL,Polski Związek Zrzeszeń Leśnych,3,,9999,,1,477606513320-09,
 ecdefc28c4024b5d9dadc15099ce4084,21,31,ELTI,European Association of Long-Term Investors,3,,9999,,1,977980112556-82,1
@@ -979,7 +979,7 @@ e25ae572696c4ef6860b90a9f289a154,155,41,SPARC Europe,Scholarly Publishing and Ac
 e257e93e91a24398ad4082004957dbf6,21,31,CAP 2020,CAP 2020 asbl,3,,9999,,0.25,821020111846-15,
 e247c50bb36b466fb36e48104c55edde,21,25,CECIP,Comité Européen de Constructeurs d'Instruments de Pesage,2,100000,199999,,4,48444564134-24,
 e241e5b63c4a4f1780fc3cd6f2e1a14b,233,11,Brevia Consulting,Brevia Ltd,1,,9999,,0.75,993851515186-23,
-e2356f982a9542898fe799a29965e4eb,75,51,BOE,Bureau de représentation du Patriarcat Orthodoxe des Nations et du Patriarcat Orthodoxe d'Europe auprès des Institutions de l'Union Européenne,5,,9999,,0.75,839512811552-12,
+e2356f982a9542898fe799a29965e4eb,75,51,BOE,Bureau de représentation du Patriarcat Orthodoxe des Nations et du Patriarcat Orthodoxe d'Europe auprès des Institutions de l'Union Européenne,5,,,,0.75,839512811552-12,
 e2305eff3f52489c8e774b67d2639bdf,21,31,,ICSMS-AISBL,3,25000,49999,,0.75,889066518720-82,
 e227c584fd3842d188b7a26d9ff1e9c8,214,25,SRI,Swedish Recycling Industries´ Assocation,2,,,30000,0.25,255548111478-45,
 e21f5a81ec0645d2bac9a6b79588eaf4,75,26,FPF,Financement Participatif France,2,10000,24999,,0.25,105517517338-01,
@@ -1256,7 +1256,7 @@ da0802bc40194cabbc860f2712e20621,209,21,,Antonio Javierre,2,,,0,4,859572114475-0
 d9f79d4313174cc6acddd55d3af614cb,85,21,HELPE,Hellenic Petroleum Group of Companies,2,100000,199999,,8.25,823007117305-62,
 d9f0b0b61ee44618949538630b51a251,155,63,LVNL,Luchtverkeersleiding Nederland,6,,9999,,2,943962512957-38,
 d9ef0e35658c4dea961bc0384b74c5e0,82,63,HWK,Handwerkskammer Frankfurt-Rhein-Main,6,100000,199999,,1.75,67816104631-57,1
-d9e2d60ad87744149c62770c8e57dc84,82,21,,Metro Ag,2,500000,599999,,2,479994110538-77,3
+d9e2d60ad87744149c62770c8e57dc84,82,21,,Metro Ag,2,600000,699999,,2,479994110538-77,3
 d9df67499d614e3aa75378b996a92606,75,12,DS Avocats,DS Avocats A.A.R.P.I,1,,9999,,0.5,399343412089-18,3
 d9d48ca035374af597e7f0eedbb3981d,233,31,,Copyright for Knowledge,3,,,,0.5,623371316728-31,
 d9cbceb9343249388415076174f2688d,155,11,WIx,Wageningen International Experts,1,,9999,,3,60046377606-72,1
@@ -1679,7 +1679,7 @@ cdbec1d045d34a1e93a2d47ff75ce19e,21,25,WAPA,World Apple and Pear Association,2,,
 cdb43f79866c45ada325c8a44f8419a7,82,25,VPRT,Verband Privater Rundfunk und Telemedien e.V.,2,,,125000,1.5,27085111347-65,2
 cdb0ce7cce354193af1d8ef97207265e,82,21,,Kaufland,2,300000,399999,,1,13480556813-27,1
 cdb0bdd528e24a8aa2cc0b4b6d42307e,233,41,,The Genesis Initiative,4,,9999,,0.5,05221658419-01,1
-cd8ae008d6444078bd8312b855c3c870,21,41,WMCES,Wilfried Martens Centre for European Studies,4,,,,0.75,865557816122-74,
+cd8ae008d6444078bd8312b855c3c870,21,41,WMCES,Wilfried Martens Centre for European Studies,4,4750000,4999999,,0.75,865557816122-74,
 cd862710f0844a3bae0aa8ad61bd795a,82,51,ACN,Aid to the Church in Need,5,25000,49999,,1.25,118236613508-31,1
 cd834eedf92b418183b80323983524b5,75,66,ANSES,"Agence nationale de sécurité sanitaire de l'alimentation, de l'environnement et du travail",6,,9999,,2.5,118084810394-25,
 cd817153b28b44c18e0562ed90e518aa,74,11,Momentous,Momentous,1,25000,49999,,0.5,373750418787-42,
@@ -2105,7 +2105,7 @@ c1a7b006577545a4a69c00a13ca1bb04,135,26,MBF,Malta Business Foundation,2,25000,49
 c1a5ccda89b449908d037218fb3d60d1,209,26,COITIMUR,Colegio Profesional de Ingenieros Técnicos en Informática y Graduados en Ingeniería Informática de la Región de Murcia,2,,,0,0.25,167911918475-10,
 c1a4ad5a6bd449aeb72b944d39a852fb,233,31,,European Hanfu Association,3,,9999,,196,267919716935-59,
 c19c0947ed9248ac9355de297368ba38,233,31,TACD,Transatlantic Consumer Dialogue,3,50000,99999,,3.25,534385811072-96,2
-c19691c570b246e5a11a7469c2a4df45,233,31,,Practical Action,3,,,50000,5.5,13386822830-30,
+c19691c570b246e5a11a7469c2a4df45,233,31,,Practical Action,3,,,5000,5.5,13386822830-30,
 c1964674454d49c3af9ae1355895c978,21,13,,Alesia Ramanishyna,1,,9999,,0.75,046259818469-22,
 c18adb5e61d14bbdaa451bcc676a031b,21,26,EJD,European Junior Doctors Permanent Working Group,2,,9999,,0.25,540516714978-95,
 c17f91c069c04a74906a07d671156458,82,13,SC,Sadler Consultants,1,,9999,,1.25,751574610825-45,
@@ -2211,7 +2211,7 @@ bf2e14a9d7904625b91182a06bda4c1c,21,25,,Beryllium Science & Technology Associati
 bf28420d5af14ca4b65cb3285c785793,233,11,GHB,G & H Associates (Brussels) Ltd,1,50000,99999,,1.5,117819413609-43,
 bf0e6623f40840bebf1b577a254c526e,69,31,SEV,MTÜ Sotsiaalsete Ettevõtete Võrgustik (Estonian Social Enterprise Network),3,,9999,,0.25,390646816512-88,
 bf00ca619fbc4b3c9957c396fc0b5a48,209,25,AUTOCONTROL,Asociación para la autorregulación de la comunicación comercial,2,10000,24999,,0.5,408240818967-73,
-beffb1e894d74c78949833e861808749,108,11,,Euro,1,10000,24999,,9.75,792894116117-92,
+beffb1e894d74c78949833e861808749,108,11,,Euro,1,,,,9.75,792894116117-92,
 beef094dcbcb4e94918255a2cfb42ffd,34,31,БАР,Bulgarian Association of Recycling,3,,,9000,1,293820018495-39,
 beed1a4ab63e4b85926ba59bc0a24718,234,25,SIFMA,Securities Industry and Financial Markets Association,2,400000,499999,,2.75,995801715250-37,
 beebf35d42a84d46b5a759e963244499,21,31,ANEC,European Association for the Co-ordination of Consumer Representation in Standardisation,3,50000,99999,,3.75,507800799-30,5
@@ -2424,7 +2424,7 @@ b91a910f0e9a4eb0b9ad8c1369475edc,82,21,DVF,Deutsches Verkehrsforum,2,25000,49999
 b9104b88c4b34b95b9c5b3e9d0ada6d7,215,31,Interpeace,International Peacebuilding Alliance,3,100000,199999,,2,521918914219-44,1
 b90d9d919a4f48e0b774ae7b2932f31d,155,31,IBF,international bear foundation,3,,9999,,3,880626518060-38,
 b90d470ab8524748a2df51f87aa525a5,127,31,FEU,Federation of the European Union Fire Officers Associations,3,,,32030,1,131889118986-65,
-b9088f358974427098c75dacb102f5d7,233,66,UoS,University of Salford,6,,,,4,237421516534-90,
+b9088f358974427098c75dacb102f5d7,233,66,UoS,University of Salford,6,,,265000,4,237421516534-90,
 b903af0265a34a6087486a73a21d0029,82,25,UTV,Unabhängiger Tanklagerverband,2,200000,299999,,1,92831167662-65,
 b8e10931d85f42de915072d04e9bf6b6,21,25,Invest Europe,Invest Europe - the voice of Private Capital,2,1000000,1249999,,4,60975211600-74,6
 b8d227bf39b34b8080ca3e4e3787979c,21,25,EPMF,European Precious Metals Federation,2,,9999,,5,72702399216-46,
@@ -2843,7 +2843,7 @@ ac9dadaaf56e4646bf51ed255dcbc4b5,21,25,PNA,Potassium Nitrate Association,2,10000
 ac8e72cd359a4265bd6d618e4f180d8d,135,11,ef.Info,EuropeanFunds.info,1,,,,2,227819215851-41,
 ac8a5a6743c94b8ea0e1ff9c16abb785,82,31,VCD e.V.,Verkehrsclub Deutschland e.V.,3,,9999,,1,20396927547-17,
 ac85bfbc19d74c658c0967fe8b138d55,82,31,,Sonnenernte e.V.,3,,,1000,0.75,277796518235-57,
-ac832f18a5a5436db23f07d48bc536a8,177,66,APDL,"APDL - Administracao dos Portos do Douro, Leixoes e Viana do Castelo, SA",6,,,,0.5,505857115939-41,
+ac832f18a5a5436db23f07d48bc536a8,177,66,APDL,"APDL - Administracao dos Portos do Douro, Leixoes e Viana do Castelo, SA",6,50000,99999,,0.5,505857115939-41,
 ac7c630e3b5f4c918618e0e88f01c37e,233,25,ICS,International Chamber of Shipping,2,,9999,,0.5,90104608462-14,
 ac7a996e948b46c19b91ff91936913a9,21,31,QCEA,Quaker Council for European Affairs,3,,9999,,4.25,3960234639-24,3
 ac6d582fa59e45db8b267cb57612238d,74,21,IFR,International Film Revolution Ltd,2,,,0,0.75,948985013158-12,
@@ -2917,7 +2917,7 @@ aa8af1099dc34c3e9e8c132891b8eee5,75,21,ADAGP,Société des auteurs dans les arts
 aa83fabca5ac43848055b25dce99a2db,105,21,,Supermac's Holding Limited,2,,9999,,1.5,374011918661-85,
 aa8343009954475bb23a54e8aadf3ac2,21,31,BROmo,BROmotion,3,,9999,,1.5,8522206185-94,1
 aa82fb1716e942568ceb7e648ad89966,21,41,CMC,Centre Maurits Coppieters,4,100000,199999,,1.5,57231475311-15,
-aa82d848195d4d64b5e80db9380e9116,209,41,ASEMED,ASOCIACIÓN ESPAÑOLA DE MEDIACIÓN,4,10000,24999,,5,387256811777-08,1
+aa82d848195d4d64b5e80db9380e9116,209,41,ASEMED,ASOCIACIÓN ESPAÑOLA DE MEDIACIÓN,4,,,,5,387256811777-08,1
 aa7c14d559574170b3bb22b49dafa6fe,21,13,,Reguls,1,,9999,,1,585322315216-79,1
 aa78e2fe077344fb8a94b562256437a5,21,41,EEPA,Europe External Policy Advisors,4,50000,99999,,1.5,719135118053-50,
 aa776ed83673445dab420dfa2f7284bd,82,12,Baker & McKenzie DE,"Baker & McKenzie Partnerschaft von Rechtsanwälten, Wirtschaftsprüfern und Steuerberatern mbB",1,,9999,,0.5,92306069602-32,
@@ -3742,7 +3742,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 93a04ac955fa447cb3fa6756e182ffad,209,31,SDE,SOLAR DECATHLON EUROPE,3,,9999,,0.25,280865315484-79,
 9388737a415d47a4a6849548424a7f88,21,31,EUCASA,European Caucasus House,3,,,,4,682615017510-62,
 9385ea25f6c54149be4edc903f3c7bfa,82,41,ASEA,Assembly of Scientists and Experts of Afghanistan,4,,9999,,2.5,168024811535-96,
-9374952b7efe4724b8d402c249e5a672,108,31,EHO,Europe HOpes,3,,9999,,0.25,976367712706-08,5
+9374952b7efe4724b8d402c249e5a672,108,31,EHO,Europe HOpes,3,,,,0.25,976367712706-08,5
 9368b4b7ad0a48928e512c02139c9812,233,31,EuroRAP,European Road Assessment Programme AISBL,3,,9999,,5.5,140030415115-75,2
 9366ab1927f54458ab9546730efeeb10,215,21,Nestlé (SIX: NESN),Nestlé S.A.,2,200000,299999,,4.5,15366395387-57,5
 936036a55fe745ac8f5873e4765d7de6,233,31,S.I.F.,Scottish Islands Federation,3,,,25000,0.5,831820317744-78,
@@ -3920,7 +3920,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 8e1d9322ce5f45b89f472d177fda5247,201,31,CultCode,CultCode Inštitút vizuálneho umenia,3,,9999,,0.5,932466714616-60,
 8e1af762e33d4a0c8721dba1d467f098,214,11,,PRUDENS,1,,9999,,0.25,259128616764-41,1
 8e177fd2d79848b7a6910d4e15a00817,75,21,EPEX,EPEX SPOT,2,,9999,,1,623791615310-21,
-8e093e4176934583a3447206b7227873,75,21,,Alstom,2,300000,399999,,1.5,43284012043-03,6
+8e093e4176934583a3447206b7227873,75,21,,Alstom,2,100000,199999,,1.5,43284012043-03,6
 8e002378a98240dca947e303864cb7d5,75,31,,NCRI,3,,9999,,4,32804976169-82,
 8dfac0c8c87b4963beec6d8f622e33a3,214,31,WTO,Worldwide Toradokan Organization,3,,9999,,67,334731117292-08,
 8df36d5df9df4e8fb2f7b501b778a2d7,99,12,Stelli-Kis Ü.I.,Stelli-Kis Ügyvédi Iroda,1,,,,2.5,156944819119-32,
@@ -4066,7 +4066,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 8a2539fc0fac47fd885ff8c54d7f4105,21,31,RED,Ruralité-Environnement-Développement,3,25000,49999,,1,33811981305-20,
 8a14f266f9ca4400bb9cb73d670b5f6b,215,31,IFRC,International Federation of Red Cross and Red Crescent Societies,3,100000,199999,,10,132236315085-89,9
 8a0fbfb9608a439db4f34988d892980d,233,25,,Radiocentre,2,,,15000,0.5,466807918432-36,
-8a06cf7f781943b6a2bc06dea44d3396,85,25,HELAPCO,Hellenic Association of Photovoltaic Companies,2,,9999,,0.5,525891219143-78,
+8a06cf7f781943b6a2bc06dea44d3396,85,25,HELAPCO,Hellenic Association of Photovoltaic Companies,2,,,,0.5,525891219143-78,
 8a006b23ccba470b999179d510c63ae0,21,11,,EFS Strategy Consulting sprl,1,,9999,,1,53416059030-10,1
 8a005fcba1e4478f83efe1c7a325da4b,82,31,Imana,Initiative Madrenatura e.V.,3,,,100,1.25,488584417917-65,
 89fa5a6694174e9094c6fb806d6c473f,75,31,ATD Quart Monde,ATD Quart Monde,3,25000,49999,,2.75,14200875377-44,
@@ -4504,7 +4504,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 7c96f857faa445cc89756f927f5f26ed,108,26,UNCC,Unione Nazionale delle Camere Civili,2,,9999,,0.25,41941735308-84,
 7c95b6104166492ca0222b48b930ef50,21,31,ENNA,European Network of NGOs in Afghanistan,3,,9999,,1.25,215775411428-82,2
 7c915983da4b4726a3860f1d5ca35332,199,25,EU-ABC,EU-ASEAN Business Council,2,,9999,,0.5,614220318268-60,
-7c8eb58847fc45259ae60bd725d2aed4,82,12,,Anwaltskanzlei Horst Herbartz,1,,9999,,1,298966813279-61,
+7c8eb58847fc45259ae60bd725d2aed4,82,12,,Anwaltskanzlei Horst Herbartz,1,,,,1,298966813279-61,
 7c81f5bd7b554c448bc505473c0e0d68,14,25,ISPA,Internet Service Providers Austria,2,,9999,,0.25,56028372438-43,
 7c7d7654fab64626aa08a4f77ca1cb97,59,21,RI,Rockwool International A/S,2,100000,199999,,2.25,2301233810-42,
 7c6a71c9b6fa4347bca5164dcc8f7f85,21,25,,Methanol Institute,2,,,30000,0.75,334674912578-83,
@@ -4819,7 +4819,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 7356ab49a8d3468888462bc969d6e4d9,21,63,FEDARENE,European Federation of Agencies and Regions for Energy and the Environment,6,200000,299999,,3,18165266149-22,
 734d772f3b6a4ab182d4eb87f57171da,209,41,FCE,Fundació Catalunya Europa,4,,9999,,0.5,94083303830-25,
 734be5aa09a94a54a76c71a0a5238c78,108,21,NGI,NGI SpA,2,10000,24999,,0.75,709372119396-21,
-73442812dff640d892af2b3c1894d887,21,26,ENS,European Nuclear Society,2,,,,0.25,256541315882-09,
+73442812dff640d892af2b3c1894d887,21,26,ENS,European Nuclear Society,2,50000,99999,,0.25,256541315882-09,
 733cfe30131f47b0ad8eea502e7839e2,69,25,,Estonian E-Commerce Association,2,,9999,,0.25,597132418648-75,
 7334c9fa6a2e47f7b60523e96ef415ae,21,25,ENFE,European Network of Forest Entrepreneurs e.V.,2,,9999,,0.25,601926913376-61,
 732632d9453448f48f801caf6c2484b1,21,25,,Glass for Europe,2,100000,199999,,1.5,15997912445-80,2
@@ -5007,7 +5007,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 6d0f72c6540a451b9e83dc4b863ffb42,82,21,SAG,Software AG,2,,9999,,0.25,449487215964-04,
 6d03060de1a74b57832a0dc2fcfe3366,21,25,ELC,Federation of European Specialty Food Ingredients Industries,2,500000,599999,,2,6160532422-38,2
 6cf7ccd94bb44023a57a593d0f7d9abc,75,21,,Hachette Livre,2,,9999,,0.25,534834216948-42,
-6cf471159f3f4a1abb7f841d02c95324,82,25,BTW,Bundesverband der Deutschen Tourismuswirtschaft e. V.,2,,,100000,6,191474218897-06,
+6cf471159f3f4a1abb7f841d02c95324,82,25,BTW,Bundesverband der Deutschen Tourismuswirtschaft e. V.,2,,,,6,191474218897-06,
 6ce62e3199e848a48198ff654df98be3,176,25,POPiHN,Polska Organizacja Przemysłu i Handlu Naftowego,2,,9999,,4,74847485849-48,
 6ce292f7aa5341dea2e2659f53ed8e42,215,26,EAACI,European Academy of Allergy and Clinical Immunology,2,100000,199999,,2,567788614987-34,
 6ce02580d1344029a889103377a3a773,75,25,EEPCA,European Electrical Products Certification Association,2,,9999,,0.25,60225718415-97,
@@ -5810,7 +5810,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 547a6047ed98466e836a1d9e243d82be,127,31,,Klima-Bündnis Lëtzebuerg,3,200000,299999,,4.5,481513911429-60,
 5477748bbbc7482cad09f326827b668b,21,11,H+K,Hill & Knowlton International Belgium,1,4500000,4749000,,14.75,3183894853-03,11
 546dfa3389cd46b0bc1f272208028674,74,25,FFTI,The Federation of Finnish Technology Industries,2,100000,199999,,5,39705603497-38,1
-5462ba88e1b24286b86fe8afca34637a,108,12,,Studio Legale Internazionale avv. Simona Putzu,1,10000,24999,,2.5,548952614323-14,2
+5462ba88e1b24286b86fe8afca34637a,108,12,,Studio Legale Internazionale avv. Simona Putzu,1,,,,2.5,548952614323-14,2
 54542c431f7f40c2b93f23a0c52998da,75,26,eTIC-CEC,European Federation for Managers in Technologies of Information and Communication,2,,9999,,0.5,551868910766-44,
 54455aeac61647efbe80b477f67a89ad,82,11,Euventures,Euventures,1,50000,99999,,2,19619257184-36,
 54451f48bfcf405a84f6370d6b1b88b5,233,31,EBCU,European Beer Consumers Union,3,,9999,,0.25,570846710712-13,
@@ -6020,7 +6020,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 4e0307cdbc9c44e2a3ff5125c1c50367,82,21,DPDHL,Deutsche Post DHL Group,2,,,1764902,7,48544465107-88,6
 4df7358ceb144ec38e0cfb65f653646a,82,25,WVM,WirtschaftsVereinigung Metalle,2,,,500000,4.75,9002547940-17,1
 4df702c8cf654f17994e42b7c648a248,82,25,recrate,recrate e.V.,2,,,1000,0.5,691186415343-74,
-4deeef0f235a49b49cc32edd1616e369,21,41,EAC,EU-Asia Centre,4,,9999,,1,707568010386-43,1
+4deeef0f235a49b49cc32edd1616e369,21,41,EAC,EU-Asia Centre,4,,,,1,707568010386-43,1
 4de9f42da39d4033b7e59bff47b0ab0b,21,25,ETNO,European Telecommunications Network Operators' Association,2,1000000,1249999,,3,08957111909-85,2
 4de2643f9ae54a5ea593ebdbff3f1a72,21,13,,Ekaterina Tsaranok,1,,9999,,1,614115015810-67,1
 4de1808506324991b718fb7663f00cb4,75,25,EOA,European Oilseed Alliance,2,,9999,,0.5,265299815747-31,1
@@ -6546,7 +6546,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 3e16068aa46d4659b85eead295dabfa5,82,25,BDWi,Bundesverband der Dienstleistungswirtschaft,2,,9999,,0.25,66554994595-42,
 3e132cbd292b41579f09442b893b40a3,101,21,TCS,Tata Consultancy Services,2,300000,399999,,1.5,930116617440-93,
 3e128db329d8460ebbf94cd5a2a48623,14,51,KOO,Coordination Office of the Austrian Bishop’s Conference,5,10000,24999,,0.25,966433512347-76,
-3e0bf83c80e2432c857981e06749a673,21,12,L&L,Lallemand & Legros,1,,9999,,0.5,174113013525-31,
+3e0bf83c80e2432c857981e06749a673,21,12,L&L,Lallemand & Legros,1,,,,0.5,174113013525-31,
 3e095cd337eb40a5bdcb322a99b7e2c9,120,31,META,Multilingual Europe Technology Alliance,3,,,,2.5,769943317286-11,
 3e073266e70042c3b5cf3b370c251305,209,31,WWF España,Asociación para la Defensa de la Naturaleza,3,,,69850,6.5,621929318922-12,
 3e037b262d674609a2b77dee70218fe7,165,25,NHO,Confederation of Norwegian Enterprise,2,50000,99999,,2.5,07442991338-05,3
@@ -7217,7 +7217,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 29c7af36bf9d4aa981280f00d1aa8684,21,41,PABXL,PubAffairsBruxelles ASBL,4,,9999,,0.25,492644015170-55,4
 29c75f7efb33428b8ec512caf629cebf,155,25,ETIRA,European Toner & Inkjet Remanufacturers' Association,2,10000,24999,,0.5,66749712601-11,
 29c54de30f014990b08f78ccdbb59132,82,13,FBsüd,Forstberatung Südharz UG,1,,9999,,0.5,817303217916-46,
-29bb8ca2f79c432184459f7ea5e5f44f,99,12,,Mayer és Társai Ügyvédi Iroda,1,,,61142,2.75,415436719159-09,
+29bb8ca2f79c432184459f7ea5e5f44f,99,12,,Mayer és Társai Ügyvédi Iroda,1,,,,2.75,415436719159-09,
 29b5bebe4b9244008141b84c0136c47d,176,41,CASE,CASE – Centrum Analiz Społeczno-Ekonomicznych – Fundacja Naukowa,4,,,657743,27,357597318050-45,
 29aaf08513d142fa924809f75f9451e9,82,11,,CNC - Communications & Network Consulting AG,1,50000,99999,,1.5,41870286144-59,2
 29aa90cf28df4118a70fb0f39f68d749,75,12,FVF AVOCATS,FAU Bernard,1,25000,49999,,5,759842510633-18,
@@ -8119,7 +8119,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 0d80bed434d346cfaeceda459f16e198,75,25,ESA,European Sealing Association,2,,9999,,1.25,651253716541-93,
 0d6a863c65a141b7b6bd8348a427023c,176,31,IGTE,The Chamber of Pension Funds,3,,,175000,0.25,045735017344-88,
 0d65c72f8f4f4fb2838e89dfd87c6771,108,27,CIAMPI,Gruppo Strumentale Ciampi,2,,9999,,0.25,17701233536-18,
-0d60241dc3c848fda99341a11424c665,21,12,Beiten Burkhardt,BEITEN BURKHARDT,1,,,0,0.5,95076788289-77,2
+0d60241dc3c848fda99341a11424c665,21,12,Beiten Burkhardt,BEITEN BURKHARDT,1,,,,0.5,95076788289-77,2
 0d600df278294e1e9484f82649d01b04,108,25,,Assosim - Associazione Italiana Intermediari Mobiliari,2,,9999,,6.75,613060211547-05,1
 0d5ac660138945a3a633c06007a8b39b,233,21,NEC,NEC Europe,2,,9999,,0.75,365322315763-20,
 0d45f6d6c9e3447cb4028c716790dcec,75,21,,Claim Assistance,2,,,,3,354845416876-86,
@@ -8554,7 +8554,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 007037e06c684243b0aef6542473899a,201,21,SPP-D,"SPP - distribúcia, a.s.",2,,9999,,0.25,403181718710-11,
 0066e2f4068a4fbeb6a2a5c5b35d9a26,74,21,DNA,DNA Oy,2,25000,49999,,1,215050018674-84,
 0050e87eb3e94df7ae7a85ffd4c809df,82,11,,LNE Group,1,50000,99999,,1.25,985391413349-80,1
-0049c37552ce43538368b08e2b103f0f,155,31,IEA,International Association for the Evaluation of Educational Achievement,3,,,15768000,140,557820217302-40,
+0049c37552ce43538368b08e2b103f0f,155,31,IEA,International Association for the Evaluation of Educational Achievement,3,,9999,,140,557820217302-40,
 00412f00a65344c4beb238357f70bb2b,21,11,,Kontou Associates,1,,,0,2,717277515479-50,2
 002f111071ce43b787917d408174b527,21,25,CEEP,Central Europe Energy Partners,2,300000,399999,,22.5,87738563745-94,4
 002d2938cafa44dc8b28ae531b5c8f76,233,25,CFA,Consumer Finance Association,2,,9999,,4,24843495531-93,
