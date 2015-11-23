@@ -889,6 +889,10 @@ ul.nav.navbar-right li.active a{
 	background: #05a61e;
 }
 
+.legend div.enf:before {
+  background:#A1480D;
+}
+
 .legend div.gue:before{
 	background: #800c00;
 }
