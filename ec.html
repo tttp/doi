@@ -821,8 +821,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var filteredGroup = (function(source_group) {
 			return {
 				all: function() {
-					return source_group.top(10).filter(function(d) {
-					return (d.key != "Not mentioned" && d.value != 0);
+					return source_group.top(11).filter(function(d) {
+					return (d.key != "Unknown" && d.key != "Not mentioned" && d.value != 0);
 				});
 			}
 		};
