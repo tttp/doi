@@ -13,39 +13,11 @@
 
 
 <script type="text/javascript" src="js/bower.js"></script>
-<script>
+<script type="text/javascript">
+var dmy = d3.time.format("%d/%m/%Y");
 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     "date-eu-pre": function ( date ) {
-        date = date.replace(" ", "");
-         
-        if ( ! date ) {
-            return 0;
-        }
- 
-        var year;
-        var eu_date = date.split(/[\.\-\/]/);
- 
-        /*year (optional)*/
-        if ( eu_date[2] ) {
-            year = eu_date[2];
-        }
-        else {
-            year = 0;
-        }
- 
-        /*month*/
-        var month = eu_date[1] | "";
-        if ( month.length == 1 ) {
-            month = 0+month;
-        }
- 
-        /*day*/
-        var day = eu_date[0] | "";
-        if ( !day | day.length == 1 ) {
-            day = 0+day;
-        }
- 
-        return (year + month + day) * 1;
+				return dmy.parse(date);
     },
  
     "date-eu-asc": function ( a, b ) {
@@ -891,7 +863,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "defaultContent":"N/A",
               "searchable": false,
               "orderable": true,
-              "type":"num-fmt",
               "targets": 4,
               "data": function (d, type, val, meta) {
                  if (!d) return "";
@@ -901,7 +872,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "defaultContent":"N/A",
               "searchable": false,
               "orderable": true,
-              "type":"num-fmt",
               "targets": 5,
 					    "data": function(d) { 
                 if (!d) return "";
@@ -1650,6 +1620,7 @@ function eventpopup (epid) {
           if (representatives[d.guestid]) {
             d.guest = representatives[d.guestid].name;
           } else {
+          console.log (d);
             d.guest ="Unknown";
           }
         }
