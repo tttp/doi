@@ -514,7 +514,9 @@ function drawRange () {
 function drawParty () {
 	var bubble_party = dc.bubbleChart(" .party");
 	var party = ndx.dimension(function(d) {
-			if (typeof d.party == "undefined") return "";
+      if (typeof d.party == "undefined") {
+        return "";
+      }
 			return d.party;
 			});
 	
@@ -536,12 +538,14 @@ function drawParty () {
 			)
 			.order(function (p) {return p.count});
 
+
 	bubble_party
 		.colorCalculator(function(d, i) {
 			return eu_groups[d.value.eugroup];
 		})
 	.valueAccessor (
 			function(d) {
+
 				return d.value.count;
 			})
 	.width(660)

@@ -49,25 +49,6 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96891_DFI_rev0_IT.pdf",
-        "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 96891,
-        "membership": [],
-        "other": "Interessi finanziari\n1.\n2.\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "10\/06\/2014",
-        "occupation": [
-            [
-                "Deputato presso il Parlamento Europeo",
-                3
-            ]
-        ]
-    },
-    {
-        "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96764_DFI_rev1_DE.pdf",
         "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
         "mandate": [],
@@ -889,7 +870,7 @@
                 -1
             ]
         ],
-        "date": "",
+        "date": "04\/06\/2014",
         "occupation": [
             [
                 "Latvijas valdība 2010-2014",
@@ -1047,25 +1028,6 @@
             ],
             [
                 "1\/03\/2013 - 11\/01\/2015 Assistent EP (APA)",
-                2
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124882_DFI_rev0_FR.pdf",
-        "support": "1. financiers :\n(*)    alloués par\n2. en personnel :\n(*)    alloués par\n3. en matériel :\n(*)    alloués par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 124882,
-        "membership": [],
-        "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "03\/06\/2014",
-        "occupation": [
-            [
-                "poseł na Sejm",
                 2
             ]
         ]
@@ -1730,7 +1692,7 @@
                 2
             ]
         ],
-        "date": "",
+        "date": "28\/11\/2014",
         "occupation": [
             [
                 "eurodéputé",
@@ -1939,44 +1901,6 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/1038_DFI_rev0_DE.pdf",
-        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
-        "mandate": [],
-        "occasional": [
-            [
-                "Vorträge, Verfassen von Texten",
-                1
-            ]
-        ],
-        "mep_id": 1038,
-        "membership": [
-            [
-                "Mitglied in der Deutschen Umweltstiftung - ehrenamtlich",
-                -1
-            ]
-        ],
-        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
-        "holding": [],
-        "activity": [
-            [
-                "Landwirt",
-                2
-            ]
-        ],
-        "date": "25\/06\/2014",
-        "occupation": [
-            [
-                "Mitglied des Europäischen Parlaments",
-                3
-            ],
-            [
-                "Landwirt",
-                2
-            ]
-        ]
-    },
-    {
-        "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/4282_DFI_rev1_DE.pdf",
         "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:                  Unterstützung bei Sekretariats- und Organisationsarbeiten\nausschlieβlich für meinen Vorsitz des EP Bierclub\n(*)    bereitgestellt von             Europäische Brauer\n3. materiell:                  Unterstützung ausschlieβlich für Veranstaltungen des EP\nBierclub (zur Verfügungstellung von Räumlichkeiten, Biere\nzur Verkostung etc.)\n(*)    bereitgestellt von             Europäische Brauer\n(*) Identität dieses\/dieser Dritten.",
         "mandate": [],
@@ -2165,9 +2089,9 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/131750_DFI_LEG8_rev0_RO.pdf",
         "support": "1. susținere financiară:\n(*)     acordată de\n2. susținere sub formă de\npersonal:\n(*)     acordată de\n3. susținere sub formă de\nmateriale:\n(*)     acordată de\n(*) Identitatea terților părți în cauză.",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 131750,
+        "date": "09\/04\/2015",
         "membership": [
             [
                 "Membru Consiliul Director - Federaţia Naţională a Crescătorilor de Porumbei din România",
@@ -2180,8 +2104,8 @@
         ],
         "other": "Interese financiare:\n1.\n2.\n5\/7                                             RO\n3.",
         "holding": [],
-        "activity": [],
-        "date": "09\/04\/2015",
+        "mandate": [],
+        "mep_id": 131750,
         "occupation": [
             [
                 "Inspector - Direcţia Sanitară Veterinară şi pentru Siguranţa Alimentelor Botoşani (2011-2012)",
@@ -2253,14 +2177,14 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/131507_DFI_LEG8_rev0_ES.pdf",
         "support": "1. financieras:\n(*)    concedidas por\n2. de personal:\n(*)    concedidas por\n3. materiales:\n(*)    concedidas por\n(*) Identidad del\/de los tercero(s) de que se trate.",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 131507,
+        "date": "09\/03\/2015",
         "membership": [],
         "other": "Intereses económicos:\n1.\n2.\n3.",
         "holding": [],
-        "activity": [],
-        "date": "09\/03\/2015",
+        "mandate": [],
+        "mep_id": 131507,
         "occupation": [
             [
                 "Asociación Papel Mojado (no remunerado)",
@@ -2297,25 +2221,6 @@
             [
                 "41-во Народно събрание",
                 2
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96673_DFI_rev0_SV.pdf",
-        "support": "1. ekonomiskt bidrag:\n(*)    från\n2. i form av personal:\n(*)    från\n3. i form av materiel:\n(*)    från\n(*) Givarens identitet.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 96673,
-        "membership": [],
-        "other": "Ekonomiska intressen:\n1.\n2.\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "10\/06\/2014",
-        "occupation": [
-            [
-                "Ledamot av Europarlamentet",
-                3
             ]
         ]
     },
@@ -2367,21 +2272,29 @@
         "occupation": []
     },
     {
-        "additional": "I am Chairman of the British Pub & Beer group at the European Parliament. I receive no\nremuneration in respect to this role.",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28132_DFI_rev1_EN.pdf",
-        "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28284_DFI_LEG8_rev1_PL.pdf",
+        "support": "1. finansowe:\n(*)    przyznane przez:\n2. kadrowe:\n(*)    przyznane przez:\n3. w formie sprzętu:\n(*)    przyznane przez:\n(*) W przypadku wsparcia udzielonego przez osoby trzecie, proszę podać ich dane.",
         "mandate": [],
         "occasional": [],
-        "mep_id": 28132,
+        "mep_id": 28284,
         "membership": [],
-        "other": "Financial interest:\n1.\n2.\n3.",
+        "other": "Interesy finansowe:\n1.\n2.\n4\/6                                       PL\n3.",
         "holding": [],
         "activity": [],
-        "date": "06\/10\/2014",
+        "date": "24\/03\/2015",
         "occupation": [
             [
-                "Member of the European Parliament",
-                3
+                "Poseł na Sejm",
+                2
+            ],
+            [
+                "Minister Nauki i Szkolnictwa Wyższego",
+                2
+            ],
+            [
+                "Wyższa Szkoła Administracji Publicznej Białystok",
+                2
             ]
         ]
     },
@@ -3149,7 +3062,7 @@
         "other": "Intérêt financier :\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "",
+        "date": "22\/06\/2015",
         "occupation": [
             [
                 "2010-2014 : Vice-présidente de la Commission européenne",
@@ -3427,7 +3340,7 @@
         "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
         "holding": [],
         "activity": [],
-        "date": "",
+        "date": "24\/06\/2014",
         "occupation": [
             [
                 "Membre du ¨Parlement européen",
@@ -3491,25 +3404,6 @@
         "occupation": [
             [
                 "Europa-Abgeordneter",
-                3
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96790_DFI_rev0_PL.pdf",
-        "support": "1. finansowe:\n(*)    przyznane przez:\n2. kadrowe:\n(*)    przyznane przez:\n3. w formie sprzętu:\n(*)    przyznane przez:\n(*) W przypadku wsparcia udzielonego przez osoby trzecie, proszę podać ich dane.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 96790,
-        "membership": [],
-        "other": "Interesy finansowe:\n1. W ROKU 2013 OTRZYMAŁEM KWOTĘ 327,67 ZŁ BRUTTO Z TYTUŁU NADPŁATY\nSKŁADEK ZA UBEZPIECZENIE EMERYTALNE I RENTOWE ZA PAŹDZIERNIK 2008 R. ,\nKTÓRA ZOSTAŁA WYPŁACONA PRZEZ KANCELARIĘ PREZYDENTA RP I OBJĘTA\n4\/6                                       PL\nPISMEM ZAKŁADU UBEZPIECZEŃ SPOŁECZNYCH I ODDZIAŁ W WARSZAWIE Z\nDNIA 07 PAŹDZIERNIKA 2013 R.\n2. W ROKU 2014 R. OTRZYMAŁEM KWOTĘ 601,87 ZŁ BRUTTO Z TYTUŁU ODSETEK\nOD POŻYCZKI PIENIĘŻNEJ, UDZIELONEJ W DNIU 17 WRZEŚNIA 2013 R., NA\nRZECZ OSOBY FIZYCZNEJ (OBYWATELA POLSKIEGO), NIEPOZOSTAJĄCEGO W\nSTOSUNKU POKREWIEŃSTWA LUB POWINOWACTWA , ZAREJESTROWANEJ W\nURZĘDZIE SKARBOWYM (POLSKA).\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "24\/06\/2014",
-        "occupation": [
-            [
-                "Poseł do Parlamentu Europejskiego",
                 3
             ]
         ]
@@ -4865,14 +4759,14 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/131051_DFI_LEG8_rev0_IT.pdf",
         "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 131051,
+        "date": "23\/02\/2015",
         "membership": [],
         "other": "Interessi finanziari\n1.\n2.\n3.",
         "holding": [],
-        "activity": [],
-        "date": "23\/02\/2015",
+        "mandate": [],
+        "mep_id": 131051,
         "occupation": [
             [
                 "CONSIGLIERE REGIONALE",
@@ -5187,33 +5081,6 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28284_DFI_LEG8_rev1_PL.pdf",
-        "support": "1. finansowe:\n(*)    przyznane przez:\n2. kadrowe:\n(*)    przyznane przez:\n3. w formie sprzętu:\n(*)    przyznane przez:\n(*) W przypadku wsparcia udzielonego przez osoby trzecie, proszę podać ich dane.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 28284,
-        "membership": [],
-        "other": "Interesy finansowe:\n1.\n2.\n4\/6                                       PL\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "24\/03\/2015",
-        "occupation": [
-            [
-                "Poseł na Sejm",
-                2
-            ],
-            [
-                "Minister Nauki i Szkolnictwa Wyższego",
-                2
-            ],
-            [
-                "Wyższa Szkoła Administracji Publicznej Białystok",
-                2
-            ]
-        ]
-    },
-    {
-        "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96882_DFI_rev1_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
         "mandate": [],
@@ -5304,25 +5171,6 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124776_DFI_rev0_FR.pdf",
-        "support": "1. financiers :\n(*)    alloués par\n2. en personnel :\n(*)    alloués par\n3. en matériel :\n(*)    alloués par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 124776,
-        "membership": [],
-        "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "10\/06\/2014",
-        "occupation": [
-            [
-                "2009-2013 Ministre",
-                4
-            ]
-        ]
-    },
-    {
-        "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28393_DFI_rev0_ES.pdf",
         "support": "1. financieras:\n(*)    concedidas por\n2. de personal:\n(*)    concedidas por\n3. materiales:\n(*)    concedidas por\n(*) Identidad del\/de los tercero(s) de que se trate.",
         "mandate": [],
@@ -5387,46 +5235,6 @@
         ]
     },
     {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124871_DFI_rev0_BG.pdf",
-        "support": "1. във вид на финансови\nсредства:\n(*)   предоставена от\n2. във вид на персонал:\n(*)   предоставена от\n3. във вид на материали:\n(*)   предоставена от\n(*) Самоличност на съответното(ите) трето(и) лице(а).",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 124871,
-        "membership": [
-            [
-                "Сдружение - Гражданско Сдружение България без Цензура",
-                -1
-            ],
-            [
-                "Сдружение - План БГ",
-                -1
-            ],
-            [
-                "Сдружение - Българска Федерация по ММА",
-                -1
-            ],
-            [
-                "Би Медиа Груп АД",
-                -1
-            ]
-        ],
-        "other": "Финансов интерес:\n1.\n4\/6                           BG\n2.\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "12\/06\/2014",
-        "occupation": [
-            [
-                "ТВ СЕДЕМ ЕАД",
-                4
-            ],
-            [
-                "Балкан Българска Телевизия ЕАД",
-                3
-            ]
-        ]
-    },
-    {
         "additional": "I receive rental income from one property in London",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/5846_DFI_rev1_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
@@ -5454,61 +5262,6 @@
             [
                 "ERA Planning                   Local          Government Consultant",
                 1
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/4553_DFI_rev0_EN.pdf",
-        "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 4553,
-        "membership": [],
-        "other": "Financial interest:\n1.\n2.\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "11\/06\/2014",
-        "occupation": [
-            [
-                "MEP",
-                3
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96912_DFI_rev0_EN.pdf",
-        "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 96912,
-        "membership": [
-            [
-                "19 Allison Road Management Company (Registered company, no salary)",
-                -1
-            ]
-        ],
-        "other": "Financial interest:\n1.\n2.\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "22\/09\/2014",
-        "occupation": [
-            [
-                "Burson Marsteller Public Relations, London",
-                2
-            ],
-            [
-                "Chairman of UKIP (to Sept. 2006) & NEC Board Member (no salary)",
-                -1
-            ],
-            [
-                "19 Allison Road Management Company LTD (Registered company, no salary)",
-                -1
-            ],
-            [
-                "MEP",
-                3
             ]
         ]
     },
@@ -5663,6 +5416,137 @@
         "occupation": [
             [
                 "Professeur d'université, Le Havre",
+                3
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/1038_DFI_rev0_DE.pdf",
+        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
+        "mandate": [],
+        "occasional": [
+            [
+                "Vorträge, Verfassen von Texten",
+                1
+            ]
+        ],
+        "mep_id": 1038,
+        "membership": [
+            [
+                "Mitglied in der Deutschen Umweltstiftung - ehrenamtlich",
+                -1
+            ]
+        ],
+        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
+        "holding": [],
+        "activity": [
+            [
+                "Landwirt",
+                2
+            ]
+        ],
+        "date": "25\/06\/2014",
+        "occupation": [
+            [
+                "Mitglied des Europäischen Parlaments",
+                3
+            ],
+            [
+                "Landwirt",
+                2
+            ]
+        ]
+    },
+    {
+        "additional": "I am Chairman of the British Pub & Beer group at the European Parliament. I receive no\nremuneration in respect to this role.",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28132_DFI_rev1_EN.pdf",
+        "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 28132,
+        "membership": [],
+        "other": "Financial interest:\n1.\n2.\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "06\/10\/2014",
+        "occupation": [
+            [
+                "Member of the European Parliament",
+                3
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96912_DFI_rev0_EN.pdf",
+        "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 96912,
+        "membership": [
+            [
+                "19 Allison Road Management Company (Registered company, no salary)",
+                -1
+            ]
+        ],
+        "other": "Financial interest:\n1.\n2.\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "22\/09\/2014",
+        "occupation": [
+            [
+                "Burson Marsteller Public Relations, London",
+                2
+            ],
+            [
+                "Chairman of UKIP (to Sept. 2006) & NEC Board Member (no salary)",
+                -1
+            ],
+            [
+                "19 Allison Road Management Company LTD (Registered company, no salary)",
+                -1
+            ],
+            [
+                "MEP",
+                3
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96891_DFI_rev0_IT.pdf",
+        "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 96891,
+        "membership": [],
+        "other": "Interessi finanziari\n1.\n2.\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "10\/06\/2014",
+        "occupation": [
+            [
+                "Deputato presso il Parlamento Europeo",
+                3
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96673_DFI_rev0_SV.pdf",
+        "support": "1. ekonomiskt bidrag:\n(*)    från\n2. i form av personal:\n(*)    från\n3. i form av materiel:\n(*)    från\n(*) Givarens identitet.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 96673,
+        "membership": [],
+        "other": "Ekonomiska intressen:\n1.\n2.\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "10\/06\/2014",
+        "occupation": [
+            [
+                "Ledamot av Europarlamentet",
                 3
             ]
         ]
@@ -10333,19 +10217,19 @@
         "additional": "sijoitusasunto",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/132366_DFI_LEG8_rev0_FI.pdf",
         "support": "1. Taloudellinen tuki:\n(*)   Tuen myöntäjä:\n2. Työvoiman muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n3. Materiaalin muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n(*) Tukea myöntäneiden kolmansien osapuolten nimet.",
+        "activity": [],
+        "occasional": [],
+        "date": "06\/05\/2015",
+        "membership": [],
+        "other": "Taloudellinen sidonnaisuus:\n1.\n2.\n5\/7                                            FI\n3.",
+        "holding": [],
         "mandate": [
             [
                 "kansanedustaja 2007-2015 (6350 e kk)",
                 "6350 EUR"
             ]
         ],
-        "occasional": [],
         "mep_id": 132366,
-        "membership": [],
-        "other": "Taloudellinen sidonnaisuus:\n1.\n2.\n5\/7                                            FI\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "06\/05\/2015",
         "occupation": [
             [
                 "Kansanedustaja",
@@ -10446,14 +10330,14 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/131749_DFI_LEG8_rev0_ES.pdf",
         "support": "1. financieras:\n(*)    concedidas por\n2. de personal:\n(*)    concedidas por\n3. materiales:\n(*)    concedidas por\n(*) Identidad del\/de los tercero(s) de que se trate.",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 131749,
+        "date": "30\/03\/2015",
         "membership": [],
         "other": "Intereses económicos:\n1.\n2.\n3.",
         "holding": [],
-        "activity": [],
-        "date": "30\/03\/2015",
+        "mandate": [],
+        "mep_id": 131749,
         "occupation": [
             [
                 "Asistente de Investigacion en proyectos de I+D",
@@ -10640,53 +10524,6 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96897_DFI_rev0_EN.pdf",
-        "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 96897,
-        "membership": [
-            [
-                "Member of the National Farmer's Union",
-                -1
-            ],
-            [
-                "Member of Songbird Survival Trust",
-                -1
-            ],
-            [
-                "Member of Anglia Farmers' Cooperative",
-                -1
-            ]
-        ],
-        "other": "Financial interest:\n1.\n2.\n3.",
-        "holding": [
-            [
-                "Partner in farming business in receipt of EU subsidy under CAP",
-                "",
-                1
-            ]
-        ],
-        "activity": [
-            [
-                "Farmer",
-                2
-            ]
-        ],
-        "date": "30\/06\/2014",
-        "occupation": [
-            [
-                "MEP",
-                3
-            ],
-            [
-                "Farmer",
-                1
-            ]
-        ]
-    },
-    {
-        "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96767_DFI_rev1_DE.pdf",
         "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
         "mandate": [],
@@ -10734,9 +10571,9 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/130833_DFI_rev0_EL.pdf",
         "support": "1. οικονομική υποστήριξη:\n(*)   που χορηγήθηκε από\n2.    υποστήριξη            σε\nπροσωπικό:\n(*)   που χορηγήθηκε από\n3. υποστήριξη σε υλικούς\nπόρους:\n(*)   που χορηγήθηκε από\n(*) Ταυτότητα του(των) εμπλεκομένου(ων) τρίτου(ων).",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 130833,
+        "date": "11\/02\/2015",
         "membership": [
             [
                 "ΜΕΛΟΣ ΔΙΟΙΚΗΤΙΚΟΥ ΣΥΜΒΟΥΛΙΟΥ",
@@ -10745,8 +10582,8 @@
         ],
         "other": "Οικονομικό συμφέρον:\n1.\n4\/6                                  EL\n2.\n3.",
         "holding": [],
-        "activity": [],
-        "date": "11\/02\/2015",
+        "mandate": [],
+        "mep_id": 130833,
         "occupation": [
             [
                 "ΔΙΕΥΘΥΝΩΝ                ΣΥΜΒΟΥΛΟΣ              \/ ΔΗΜΟΣΙΟΓΡΑΦΟΣ",
@@ -10758,14 +10595,14 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/132925_DFI_LEG8_rev0_PL.pdf",
         "support": "1. finansowe:\n(*)    przyznane przez:\n2. kadrowe:\n(*)    przyznane przez:\n3. w formie sprzętu:\n(*)    przyznane przez:\n(*) W przypadku wsparcia udzielonego przez osoby trzecie, proszę podać ich dane.",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 132925,
+        "date": "17\/06\/2015",
         "membership": [],
         "other": "Interesy finansowe:\n1.\n2.\n4\/6                                       PL\n3.",
         "holding": [],
-        "activity": [],
-        "date": "17\/06\/2015",
+        "mandate": [],
+        "mep_id": 132925,
         "occupation": [
             [
                 "Poseł na Sejm",
@@ -10841,14 +10678,14 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/133316_DFI_LEG8_rev0_DE.pdf",
         "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 133316,
+        "date": "14\/07\/2015",
         "membership": [],
         "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                       DE\n3.",
         "holding": [],
-        "activity": [],
-        "date": "14\/07\/2015",
+        "mandate": [],
+        "mep_id": 133316,
         "occupation": [
             [
                 "Volksschuldirektorin",
@@ -11099,14 +10936,14 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/134243_DFI_LEG8_rev0_SV.pdf",
         "support": "1. ekonomiskt bidrag:\n(*)    från\n2. i form av personal:\n(*)    från\n3. i form av materiel:\n(*)    från\n(*) Tredje mans eller berörd parts identitet.",
-        "mandate": [],
+        "activity": [],
         "occasional": [
             [
                 "Eventuella royalties och restbetalningar från teaterpjäser, översättningar och böcker jag har skrivit",
                 1
             ]
         ],
-        "mep_id": 134243,
+        "date": "01\/10\/2015",
         "membership": [
             [
                 "Styrelsemedlem   av   Bertil Ohlininstitutet (<EUR 500 gross a month)",
@@ -11126,8 +10963,8 @@
                 -1
             ]
         ],
-        "activity": [],
-        "date": "01\/10\/2015",
+        "mandate": [],
+        "mep_id": 134243,
         "occupation": [
             [
                 "Statssekreterare 2010-2014 Arbetsmarknadsdepartementet, Regeringskansliet, Sverige",
@@ -11140,6 +10977,65 @@
             [
                 "Har inte utövat någon yrkesmässig verksamhet under de tre år som föregick det nuvarande mandatet",
                 -1
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124871_DFI_rev0_BG.pdf",
+        "support": "1. във вид на финансови\nсредства:\n(*)   предоставена от\n2. във вид на персонал:\n(*)   предоставена от\n3. във вид на материали:\n(*)   предоставена от\n(*) Самоличност на съответното(ите) трето(и) лице(а).",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 124871,
+        "membership": [
+            [
+                "Сдружение - Гражданско Сдружение България без Цензура",
+                -1
+            ],
+            [
+                "Сдружение - План БГ",
+                -1
+            ],
+            [
+                "Сдружение - Българска Федерация по ММА",
+                -1
+            ],
+            [
+                "Би Медиа Груп АД",
+                -1
+            ]
+        ],
+        "other": "Финансов интерес:\n1.\n4\/6                           BG\n2.\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "12\/06\/2014",
+        "occupation": [
+            [
+                "ТВ СЕДЕМ ЕАД",
+                4
+            ],
+            [
+                "Балкан Българска Телевизия ЕАД",
+                3
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/4553_DFI_rev0_EN.pdf",
+        "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+        "activity": [],
+        "occasional": [],
+        "date": "11\/06\/2014",
+        "membership": [],
+        "other": "Financial interest:\n1.\n2.\n3.",
+        "holding": [],
+        "mandate": [],
+        "mep_id": 4553,
+        "occupation": [
+            [
+                "MEP",
+                3
             ]
         ]
     },
@@ -12057,7 +11953,7 @@
         "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
         "holding": [],
         "activity": [],
-        "date": "Nîmes",
+        "date": "28\/05\/2014",
         "occupation": [
             [
                 "Député européen",
@@ -12740,7 +12636,7 @@
         "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
         "holding": [],
         "activity": [],
-        "date": "",
+        "date": "11\/06\/2014",
         "occupation": [
             [
                 "Député européen",
@@ -13882,14 +13778,14 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/4519_DFI_rev1_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 4519,
+        "date": "19\/11\/2014",
         "membership": [],
         "other": "Financial interest:\n1.\n2.\n3.",
         "holding": [],
-        "activity": [],
-        "date": "19\/11\/2014",
+        "mandate": [],
+        "mep_id": 4519,
         "occupation": [
             [
                 "Commissioner, CRE, 1998-1999 (less than 500€)",
@@ -13972,7 +13868,7 @@
         "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
         "holding": [],
         "activity": [],
-        "date": "",
+        "date": "22\/10\/2014",
         "occupation": [
             [
                 "Députée européenne",
@@ -14553,34 +14449,6 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/125039_DFI_rev1_ES.pdf",
-        "support": "1. financieras:\n(*)    concedidas por\n2. de personal:\n(*)    concedidas por\n3. materiales:\n(*)    concedidas por\n(*) Identidad del\/de los tercero(s) de que se trate.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 125039,
-        "membership": [],
-        "other": "Intereses económicos:\n1.\n2.\n3.",
-        "holding": [],
-        "activity": [
-            [
-                "Agente de seguros",
-                2
-            ],
-            [
-                "Colaborador de una entidad de propriedad industrial",
-                1
-            ]
-        ],
-        "date": "30\/09\/2014",
-        "occupation": [
-            [
-                "Fundacion Progreso i Democracia",
-                2
-            ]
-        ]
-    },
-    {
-        "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/72779_DFI_LEG8_rev1_FR.pdf",
         "support": "1. financiers :\n(*)    alloués par\n2. en personnel :\n(*)    alloués par\n3. en matériel :\n(*)    alloués par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
         "mandate": [
@@ -14726,17 +14594,6 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/130100_DFI_rev0_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 130100,
-        "membership": [
-            [
-                "Member of the board of Open Vld (not renumerated)",
-                -1
-            ]
-        ],
-        "other": "Financial interest:\n1.\n2.\n3.",
-        "holding": [],
         "activity": [
             [
                 "Alderwoman Open Vld City Sint-Truiden (2013- )",
@@ -14755,7 +14612,18 @@
                 1
             ]
         ],
+        "occasional": [],
         "date": "28\/01\/2015",
+        "membership": [
+            [
+                "Member of the board of Open Vld (not renumerated)",
+                -1
+            ]
+        ],
+        "other": "Financial interest:\n1.\n2.\n3.",
+        "holding": [],
+        "mandate": [],
+        "mep_id": 130100,
         "occupation": [
             [
                 "Secretary General Open Vld Group House of Representatives (2011-2014)",
@@ -15085,14 +14953,14 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/133326_DFI_LEG8_rev0_IT.pdf",
         "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 133326,
+        "date": "15\/07\/2015",
         "membership": [],
         "other": "Interessi finanziari\n1.\n2.\n3.",
         "holding": [],
-        "activity": [],
-        "date": "15\/07\/2015",
+        "mandate": [],
+        "mep_id": 133326,
         "occupation": [
             [
                 "Presidente TEM",
@@ -15490,6 +15358,25 @@
             [
                 "Poslanec EP 2009-2014",
                 3
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124776_DFI_rev0_FR.pdf",
+        "support": "1. financiers :\n(*)    alloués par\n2. en personnel :\n(*)    alloués par\n3. en matériel :\n(*)    alloués par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 124776,
+        "membership": [],
+        "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "10\/06\/2014",
+        "occupation": [
+            [
+                "2009-2013 Ministre",
+                4
             ]
         ]
     },
@@ -16925,7 +16812,7 @@
         "other": "Intérêt financier :\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "",
+        "date": "02\/07\/2014",
         "occupation": [
             [
                 "Inspecteur de l'administration en activité (jusqu'à 2011)",
@@ -17242,7 +17129,7 @@
         "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
         "holding": [],
         "activity": [],
-        "date": "",
+        "date": "28\/05\/2014",
         "occupation": [
             [
                 "Député européen",
@@ -18237,9 +18124,9 @@
         "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124949_DFI_rev0_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
-        "mandate": [],
+        "activity": [],
         "occasional": [],
-        "mep_id": 124949,
+        "date": "10\/06\/2014",
         "membership": [
             [
                 "Governor, Maria Fidelis RC Convent School - unpaid",
@@ -18248,8 +18135,8 @@
         ],
         "other": "Financial interest:\n1.\n2.\n3.",
         "holding": [],
-        "activity": [],
-        "date": "10\/06\/2014",
+        "mandate": [],
+        "mep_id": 124949,
         "occupation": [
             [
                 "Head of Resource Management, National Union of Teachers",
@@ -19673,7 +19560,7 @@
         "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
         "holding": [],
         "activity": [],
-        "date": "",
+        "date": "04\/06\/2014",
         "occupation": [
             [
                 "Député européen",
@@ -21047,6 +20934,53 @@
             [
                 "Bäuerin (Mitarbeitendes Familienmitglied)",
                 -1
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96897_DFI_rev0_EN.pdf",
+        "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 96897,
+        "membership": [
+            [
+                "Member of the National Farmer's Union",
+                -1
+            ],
+            [
+                "Member of Songbird Survival Trust",
+                -1
+            ],
+            [
+                "Member of Anglia Farmers' Cooperative",
+                -1
+            ]
+        ],
+        "other": "Financial interest:\n1.\n2.\n3.",
+        "holding": [
+            [
+                "Partner in farming business in receipt of EU subsidy under CAP",
+                "",
+                1
+            ]
+        ],
+        "activity": [
+            [
+                "Farmer",
+                2
+            ]
+        ],
+        "date": "30\/06\/2014",
+        "occupation": [
+            [
+                "MEP",
+                3
+            ],
+            [
+                "Farmer",
+                1
             ]
         ]
     },
