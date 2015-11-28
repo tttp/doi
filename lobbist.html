@@ -631,7 +631,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "searchable": false,
               "orderable": true,
               "targets": 1,
-              data: function (row, type, val, meta) { 
+              data: function (row, type, val, meta) {
                 if (row.acronym) 
                   return row.name+" ("+row.acronym +" )";
                 return row.name;
@@ -1120,7 +1120,7 @@ function eventpopup (epid) {
 			_.each (events, function (d) {
         if (!d.guestid)
           return;
-        if (ridx[d.guestid]) {
+        if (ridx[d.guestid] && representatives[ridx[d.guestid]]) {
           representatives[ridx[d.guestid]].meetings +=1;
         }
 				d.date=dateFormat.parse(d.date);
@@ -1145,7 +1145,7 @@ function eventpopup (epid) {
 			});      
 		//d3.json("data/representative-light.json", function (rows) {
 		//d3.csv("data/representative.csv", function (rows) {
-    d3.csv("data/r.csv", function(d) {return d;}
+    d3.csv("data/r.active.csv", function(d) {return d;}
       ,function (rows) {
         representatives = rows;
 				 _.each (representatives, function (d,i) {
@@ -1153,6 +1153,7 @@ function eventpopup (epid) {
             d.costbyfte = (+getCost(d)/+d.fte).toFixed();
             ridx[d.id]=i;
 						d.meetings=0;
+           //if (d.status!="active") delete representatives[i];
 			});
 				 renderLoaded();
 		});     
