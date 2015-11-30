@@ -1,0 +1,1187 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EU Integrity Watch</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link href='http://fonts.googleapis.com/css?family=Lekton:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/dc.css"/>
+<!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"-->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/material.css" rel="stylesheet">
+<link href="css/theme.bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!--script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.11/crossfilter.min.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script src="js/d3-tip.min.js"></script-->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/d3.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+<script type="text/javascript" src="js/underscore-min.js"></script>
+<script src="js/d3-tip.min.js"></script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@TI_EU" />
+<meta name="twitter:creator" content="@eucampaign" />
+
+<meta property="og:url" content="http://www.integritywatch.eu" />
+<meta property="og:title" content="EU Integrity Watch: monitor potential conflicts of interests" />
+<meta property="og:description" content="Interactive database that provides a unique overview of the activities and outside income for the members of the European Parliament" />
+<meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
+
+</head>
+<body>
+
+
+<script>
+$( document ).ready(function() {
+	$('#view_charts').click(function(ev) {
+		ev.preventDefault();
+		$('#hidden_charts_wrap').slideToggle('slow', function () {
+			changeLinkStatus();
+		})
+	})
+	
+	function changeLinkStatus() {
+		if($('#hidden_charts_wrap').css('display') == 'none'){
+			$('#view_charts').text('VIEW ALL THE CHARTS')
+		}else {
+			$('#view_charts').text('HIDE CHARTS')
+		}
+		$('#view_charts').toggleClass('hiddencharts');
+	}
+	
+	$('#collapse_about a').click(function(ev) {
+		ev.preventDefault();
+		$('#collapse_about a').toggleClass('opened');
+		$('#collapse_about a').toggleClass('closed');
+		$('#about_wrap').slideToggle('slow', function () {
+			$('#about_wrap_top').slideToggle('fast')
+		})
+		
+	})
+	
+	$('.info').click(function(ev) {
+		ev.preventDefault();
+		if($(this).hasClass('opened')){
+			$(this).removeClass('opened');
+			$(this).parents('.info_chart').find('p.desc').slideUp('fast')
+		}else{
+			closeAllInfos();
+			$(this).addClass('opened');
+			$(this).parents('.info_chart').find('p.desc').slideDown('fast')
+		}
+	});
+	
+	function closeAllInfos() {
+		$('.info').removeClass('opened');
+		$('p.desc').slideUp('fast');
+	}
+	
+});
+
+$.tablesorter.addParser({
+  // use a unique id
+  id: 'amount',
+  is: function(s, table, cell) {
+    return false;
+  },
+  format: function(s, table, cell, cellIndex) {
+    var v = s.split(' ')[0];
+    if (v === "") return -1;
+    return v;
+  },
+  // flag for filter widget (true = ALWAYS search parsed values; false = search cell text)
+  parsed: false,
+  // set the type to either numeric or text (text uses a natural sort function
+  // so it will work for everything, but numeric is faster for numbers
+  type: 'numeric'
+});
+
+var detailtpl = sidetpl = null ;
+
+var wall = null;
+
+/*
+1. de 500   1000 EUR brut par mois;
+2. de 1001   5000 EUR brut par mois;
+3. de 5001   10 000 EUR brut par mois;
+4. plus de 10 000 EUR brut par mois.
+*/
+  var rangeEUR = [
+    {min:0,max:499},
+    {min:500,max:1000},
+    {min:1001,max:5000},
+    {min:5001,max:10000},
+    {min:10001,max:Number.POSITIVE_INFINITY},
+  ]; 
+
+var eu_groups = {
+"GUE/NGL":"#800c00",
+"S&D":"#c21200",
+"Greens/EFA":"#05a61e",
+"ALDE":"#ffc200",
+"EFDD":"#5eced6",
+"PPE":"#0a3e63",
+"EPP":"#0a3e63",
+"ECR":"#3086c2",
+"NA/NI":"#cccccc",
+"Array":"pink"
+};
+
+
+  function sumDOI (mep,field, returnData) {
+    function convert (i) {
+      if (i.slice(-3)  == "EUR") return i.substr(0,i.length - 4) * 1;
+      if (i.slice(-3)  == "GBP") return i.substr(0,i.length - 4) * 1.25;
+      if (i.slice(-3)  == "SEK") return i.substr(0,i.length - 4) * 0.11;
+      if (i.slice(-3)  == "HRK") return i.substr(0,i.length - 4) * 0.13;
+      if (i.slice(-3)  == "CZK") return i.substr(0,i.length - 4) * 0.035;
+
+      return 0;
+    }
+
+    returnData = returnData || false;
+    if (!mep.doi)
+      return "?";
+    if (mep.doi[field].length < 1) return "";
+
+    var min = max= qty = 0;
+    var openscale = false;
+
+    returnData = returnData || false;
+    if (!mep.doi)
+      return "?";
+    if (mep.doi[field].length < 1) return "";
+
+    var min = max= qty = 0;
+    var openscale = false;
+    _.each(mep.doi[field], function (d) {
+       var i = d[1];
+       qty +=1;
+       if (d.length == 3) { //F: Holding
+         i = d[2];
+       }
+       if (d.length != 2) {
+         return;
+       }
+       if (i < 0) i=0;
+       if (i >= 4) {
+         openscale = true;
+         if (i > 4) {
+           console.log (d);
+           i = 4;
+         }
+       }
+     if (isNaN(i)) {
+       if (i.slice(-3)  == "EUR") {
+         min += i.substr(0,i.length - 4) * 1;
+         max += i.substr(0,i.length - 4) * 1;
+       } else {
+         min += Math.round(convert (i));
+         max += Math.round(convert (i));
+       } 
+     } else {
+       min += rangeEUR[i].min;
+       max += rangeEUR[i].max;
+     }
+
+    });
+    if (returnData) {
+      return {min:min, max:max,qty:qty, openscale:openscale};
+    }
+    if (max == Number.POSITIVE_INFINITY) {
+      return "<span class='q"+mep.doi[field].length+"' title='"+mep.doi[field].length+" different occupations'>"+min+" &euro; or more</span>";
+    }
+    return "<span class='q"+mep.doi[field].length+"' title='"+mep.doi[field].length+" different occupations'>"+min+" &#8605; "+max+" &euro;</span>";
+  };
+
+function setRiskScore (d) {
+  function setMinMax(d, t) {
+    d.min += t.min;
+    d.max += t.max;
+    d.qty += t.qty;
+  }
+  var score= d.min= d.max = d.qty = 0;
+  var openscale =false;
+//      var fields = ["activity","holding","mandate","occasional","membership"];
+  var t =  sumDOI(d,"activity",true);
+  if (t.qty) {
+    score += 2*t.qty + t.min/500;
+    openscale = openscale || t.openscale;
+    setMinMax (d,t);
+  }
+  t =  sumDOI(d,"occasional",true);
+  if (t.qty) {
+    score += t.qty + t.min/500;
+    openscale = openscale || t.openscale;
+    setMinMax (d,t);
+  }
+
+  t =  sumDOI(d,"membership",true);
+  if (t.qty) {
+    score += t.qty + t.min/500;
+    openscale = openscale || t.openscale;
+    setMinMax (d,t);
+  }
+  t =  sumDOI(d,"mandate",true);
+  if (t.qty) {
+    score += t.qty + t.min/500;
+    openscale = openscale || t.openscale;
+    setMinMax (d,t);
+  }
+  t =  sumDOI(d,"holding",true);
+  if (t.qty) {
+    score += t.qty;// TODO
+    setMinMax (d,t);
+  }
+  if (openscale) {
+     score += 10;
+  }
+  d.score = score;
+}
+ 
+function grid (selector,data) {
+
+  var ndx = crossfilter(data),
+      all = ndx.groupAll();
+
+  var color = d3.scale.linear()
+        .clamp(true)
+        .domain([0,1, 70])
+        .range(["white","#ffc7b6", "#f85631"])
+        .interpolate(d3.interpolateHcl);
+
+
+
+  var pie_group = dc.pieChart(selector +  " .group").innerRadius(50).radius(100);
+  var group = ndx.dimension(function(d) {
+      if (typeof d.eugroup == "undefined") return "";
+      return d.eugroup;
+      });
+  var groupGroup   = group.group().reduceSum(function(d) {   return 1; });
+
+  var pie_gender = dc.pieChart(selector +  " .gender").innerRadius(50).radius(100).height(200);
+  var gender = ndx.dimension(function(d) {
+      if (typeof d.gender == "undefined") return "";
+      return d.gender;
+      });
+
+  var groupGender   = gender.group().reduceSum(function(d) {   return 1; });
+
+  var bar_country = dc.barChart(selector + " .country");
+  var country = ndx.dimension(function(d) {
+      if (typeof d.country == "undefined") return "";
+      return d.country;
+      });
+  var countryGroup   = country.group().reduce(
+      function(a,d) {a.count +=1; a.score +=d.score; return a; },
+      function(a,d) {a.count -=1; a.score -=d.score; return a; },
+      function() {return {count:0,score:0}; }
+      );
+
+
+  var interest = ndx.dimension(function(d) {
+      var fields = ["activity","holding","mandate","occasional","membership"];
+      var sum = 0;
+      _.each (fields, function (f) {
+          var declarations = sumDOI(d,f,true);
+          if (!declarations) return;
+           
+          sum += declarations.qty;
+      });
+      return sum;
+  });
+
+  var interestGroup   = interest.group().reduceSum(function(d) {   return 1; });
+  var chart_interest = dc.barChart(selector +  " .interest")
+    .height(220)
+    .width(360)
+    .gap(1)
+    .margins({top: 10, right: 10, bottom: 20, left: 40})
+    .colorCalculator(function(d, i) {
+        return "#f85631";
+        })
+    .x(d3.scale.ordinal())
+    .xUnits(dc.units.ordinal)
+    .brushOn(false)
+    .elasticY(true)
+    .yAxisLabel("Number of MEPs")
+    .dimension(interest)
+    .group(interestGroup);
+  
+
+  pie_gender
+    .innerRadius(50)
+    .radius(100)
+    .width(262.5)
+    .dimension(gender)
+    .group(groupGender);
+
+  pie_group
+    .dimension(group)
+    .colorCalculator(function(d, i) {
+      return eu_groups[d.key];
+      //return color(d.value.score/d.value.count);
+    })
+    .group(groupGroup)
+    .renderlet(function (chart) {
+        });
+
+  function adjustBarChartLabels(chart) {
+    chart.svg().selectAll('.axis.x text')
+      .on("click",function(d) {
+        chart.filter(d);
+        map.filter(d);
+        dc.redrawAll();}
+      )
+      .style("text-anchor", "end" )
+      .attr("transform", function(d) { return "rotate(-45, -4, 9) "; });
+  }
+
+
+  bar_country
+    .height(340)
+    .outerPadding(0)
+    .gap(1)
+    .margins({top: 0, right: 30, bottom: 95, left: 30})
+    .colorCalculator(function(d, i) {
+        //return color(d.value.score/d.value.count);
+        return "#3695d8";
+    })
+   .valueAccessor (
+      function(d) {
+      return d.value.count;
+      })
+    .on("postRender", function( chart ){
+        adjustBarChartLabels(chart);
+     }) 
+    .x(d3.scale.ordinal())
+    .xUnits(dc.units.ordinal)
+    .brushOn(false)
+    .elasticY(true)
+    .yAxisLabel("#MEPs")
+    .dimension(country)
+    .group(countryGroup);
+
+//  bar_country.on("postRender", function(c) {rotateBarChartLabels();} );
+
+
+  function rotateBarChartLabels() {
+    d3.selectAll(selector+ ' .country .axis.x text')
+      .style("text-anchor", "end" )
+      .attr("transform", function(d) { return "rotate(-90, -4, 9) "; });
+  }
+
+
+  dc.dataCount(".dc-data-count")
+    .dimension(ndx)
+    .group(all);
+
+  dc.dataCount(".dc-data-count2")
+    .dimension(ndx)
+    .group(all);
+
+
+  var name = ndx.dimension(function(d) {
+      return d.last_name.toLowerCase() + " "+ d.first_name.toLowerCase() + " " + d.party.toLowerCase() +" " + d.committee.toLowerCase() + d.substitute.toLowerCase();
+      });
+
+
+  var i=0;
+  wall=dc.dataTable(".dc-data-grid")
+   .dimension(name)
+    .group(function (d) { return "";return d.country; })
+    .columns([
+        function(d) { i=i+1; return i; },
+        function(d) { return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" <b>"+ d.last_name +"</b></span>"; },
+        function(d) {  return d.country; },
+        function(d) {
+            return d.eugroup;
+        },
+        function(d) {  return d.attendance.score +"%"; },
+        function(d) {  return getAmountString(d); },
+        function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
+    ])
+  .size(1000)
+  .sortBy(function (d) {return d.last_name})
+  .renderlet(function (chart) {
+    i = 0;
+    $(".dc-table-group").remove();
+    $("td:first-child").each (function(i) { 
+      $(this).closest ("td").css("backgroundColor", 
+        $(this).css('backgroundColor')
+      );
+    });
+    $("td span.score").each (function(i) { 
+      $(this).closest ("td").css("backgroundColor", 
+        $(this).css('backgroundColor')
+      );
+    });
+    $("table.dc-data-grid").trigger("update");
+});
+
+  drawScore();
+  drawParty();
+  drawRange();
+  drawAge();
+
+    $(".dc-data-grid").on("click",".dc-table-row", function () {
+      var epid = $(this).find(".mep").data("epid");
+      window.location.hash = "mep"+epid;
+
+      var mep = _.find(meps,function (d) { return d.epid == epid  });
+      $("#mepdialog .modal-title").html (mep.first_name + " " + mep.last_name);
+      $("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+epid+".jpg");
+      $("#mepdialog .details").html(detailtpl (mep));
+      $("#mepdialog .side").html(sidetpl (mep));
+//      $("#debug").html(JSON.stringify(mep),undefined,2);
+      $("#mepdialog").modal();
+    });
+
+
+    dc.renderAll();
+    hashFilter();
+
+     $("table.dc-data-grid").tablesorter(
+        {theme:"bootstrap",headers: { 5: { sorter: 'amount' } }}
+     ).bind("sortEnd",function(e, table) {
+      ga && ga('send', 'event', 'sort','table');
+      var i=0;
+      $("td:first-child").each (function(){this.innerHTML=++i;});
+    });
+     
+
+function drawRange () {
+	
+	/*colors
+	"#ffffff",
+	"#f8e8e5",
+	"#f9d1c8",
+	"#f9a896",
+	"#fb8065",
+	"#f85631"
+	*/
+ 
+  function getRange (d) {
+    if (d.score === 0 ) return ". None"; 
+    if (d.min < 500 ) return "0. < 500"; 
+    if (d.min < 1001 ) return "1. < 1000"; 
+    if (d.min < 5001 ) return "2. < 5000"; 
+    if (d.min < 10001 ) return "3. < 10000"; 
+    return "4. 10000 or more";
+  };
+
+  var color = d3.scale.ordinal()
+  	  //blue->orange//.range(["#3695d8", "#5989b3", "#857c93", "#ae6e74", "#d76155", "#ff523a"]);
+      .range(["#FFFFFF", "#8ed3fb", "#68add4", "#4388ad", "#1a6287", "#003c60"]);
+        
+  var dimension = ndx.dimension(function(d) {
+    return getRange(d);
+  });
+
+  var group   = dimension.group().reduceSum(function(d) { return 1; });
+  var chart = dc.pieChart(selector +  " .range")
+    .innerRadius(50).radius(100)
+    .height(200)
+    .colors(color)
+    .colorAccessor(function (d, i){return i;})
+    .dimension(dimension)
+    .group(group);
+}
+
+function drawParty () {
+  var bubble_party = dc.bubbleChart(" .party");
+  var party = ndx.dimension(function(d) {
+      if (typeof d.party == "undefined") return "";
+      return d.party;
+      });
+   var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .html(function(p) { return '<span><h2>' +
+        p.key + "</h2><ul>" + 
+                "<li>Number of MEPs: " +p.value.count + "</li>" +
+                "<li>Average participation: " +Math.floor (p.value.effort/p.value.count) + "</li>" +
+                "<li>Average score: "+Math.floor (p.value.score/p.value.count); 
+       '</li></ul></span>' })
+    .offset([-12, 0])
+
+
+  var partyGroup   = party.group().reduce(
+      function(a,d) {a.eugroup = d.eugroup;a.count +=1; a.score +=d.score; a.effort += d.attendance.score; return a; },
+      function(a,d) {a.eugroup = d.eugroup;a.count -=1; a.score -=d.score; a.effort -= d.attendance.score; return a; },
+      function() {return {eurgroup:0,count:0,score:0,effort:0}; }
+      )
+      .order(function (p) {return p.count});
+  bubble_party
+    .colorCalculator(function(d, i) {
+      return eu_groups[d.value.eugroup];
+    })
+  .valueAccessor (
+      function(d) {
+      return d.value.count;
+      })
+  .width(660)
+    .height(300)
+    .margins({top: 20, right: 20, bottom: 20, left: 30})
+    .yAxisLabel("%Votes attended")
+    .dimension(party)
+    .group(partyGroup)
+    .keyAccessor(function (p) {
+        return p.value.score/p.value.count;
+    })
+    .valueAccessor(function (p) {
+        return p.value.effort/p.value.count;
+    })
+    .radiusValueAccessor(function (p) {
+        return p.value.count;
+    })
+    .x(d3.scale.linear().domain([0, 60]))
+    .r(d3.scale.linear().domain([0, 100]))
+    .minRadiusWithLabel(150)
+}
+
+function drawAge() {
+  //var chart_age = dc.barChart(selector + " .age");
+  var chart_age = dc.lineChart(selector + " .age");
+
+ var age = ndx.dimension(function(d) {
+      if (typeof d.age == "undefined") return "";
+      return d.age;
+      });
+
+
+  var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
+
+  chart_age
+    .height(300)
+    .width (430)
+    .margins({top: 0, right: 20, bottom: 20, left: 30})
+    .x(d3.scale.linear().domain([20,100]))
+    .brushOn(true)
+    .renderArea(true)
+    .elasticY(true)
+    .yAxisLabel("Number of MEPs")
+    .dimension(age)
+    .group(ageGroup);
+}
+
+function drawScore() {
+
+  var score = ndx.dimension (function(d) {
+      return d.score;
+      });
+  var scoreGroup   = score.group().reduce(
+      function(a,d) {a.count +=1; a.score +=d.score; a.min =d.min; a.max = d.max;return a; },
+      function(a,d) {a.count -=1; a.score -=d.score; a.min =d.min; a.max = d.max; return a; },
+      function() {return {count:0,score:0, min:0, max:0}; }
+      );
+
+  var bar_score = dc.barChart (".bar_score")   
+    .height(220)
+    .width(330)
+    .gap(0)
+    .margins({top: 10, right: 20, bottom: 20, left: 40})
+    .x(d3.scale.linear().domain([0, 70]))
+    .elasticX(true)
+    .elasticY(true)
+    .yAxisLabel("Number of MEPs")
+    .round(dc.round.floor)
+    .colorCalculator(function(d, i) {
+        return "#f85631";
+        })
+    .valueAccessor (
+      function(d) {
+      return d.value.count;
+      })
+    .dimension(score)
+    .group(scoreGroup)
+    .renderlet(function (chart) {
+//      var d = chart.group().top(Number.POSITIVE_INFINITY);
+      var total = nb = min = max = 0;
+      var d = chart.dimension().top(Number.POSITIVE_INFINITY);
+      d.forEach (function (a) {
+        if (isNaN(a.score)) return;
+        ++nb;
+        total += a.score;
+        min += a.min;
+        max += a.max;
+      });
+      if (nb) {
+        var avg= total/nb;
+        $("div#avg_score").text(Math.round(avg));
+        $("div#sum_side").html("Total "+ Math.round(min)+" &euro;");
+        $("div#avg_side").html("Average "+Math.round(min/nb)+ " &euro;");
+      } else {
+        $("div#avg_score").text("");
+      }
+    //why doesn't it work? if (chart.dimension().size() !== chart.group().value()) {
+      if (ndx.size() !== nb) {
+        $(".resetall").attr("disabled",false);
+        ga && ga('send', 'event', 'filter', 'subset', nb);
+      } else {
+        $(".resetall").attr("disabled",true);
+        ga && ga('send', 'event', 'filter', 'reset');
+      }
+      
+  });
+  bar_score.yAxis().ticks(4).tickFormat(d3.format(",.0f"));
+}
+
+
+}
+
+  function getAmountString(d) {
+          if (d.qty == 0) {
+            return "";
+          }
+          if (d.max == Number.POSITIVE_INFINITY)
+            return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
+          return d.min +" &#8605; "+d.max +"  &euro;";
+  }
+
+  function getAmount (category, field) { //field = min (default) or max or "string"
+    field = field || "min";
+    if (!category) return "?";
+    if (isNaN(category)) return category;
+    if (category < 0 && field == "min") return "0";
+    if (category < 0 && field == "max") return "499";
+    if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
+     
+    if (category >=4 && field == "max") return "or more";
+    if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
+    if (field == "string")
+      return  rangeEUR[category]["min"] + " &#8605; "+  rangeEUR[category]["max"];
+    return rangeEUR[category][field];
+  }
+
+function hashFilter () {
+  var hash = window.location.hash;
+
+   if(hash.indexOf('#mep') === 0) { 
+     MEPpopup(hash.substring(4));
+     ga && ga('send', 'event', 'urlMEP',hash.substring(4));
+   }
+}
+   
+function MEPpopup (epid) {
+      var mep = _.find(meps,function (d) { return d.epid == epid  });
+      $("#mepdialog .modal-title").html (mep.first_name + " " + mep.last_name);
+      $("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+epid+".jpg");
+      $("#mepdialog .details").html(detailtpl (mep));
+      $("#mepdialog .side").html(sidetpl (mep));
+      $("#mepdialog").modal();
+      window.location.hash = "mep"+d.epid;
+       ga && ga('send', 'event', 'clickMEP',hash.substring(4));
+      //$( "#twitter").html(tplTwitter(d));
+
+}
+
+</script>
+
+
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        		<span class="sr-only">Toggle navigation</span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+      		</button>
+	      	<div class="navbar-brand" id="ti_logo_container">
+	      		<a id="ti_logo" href="http://www.transparencyinternational.eu">Transparency International</a>
+      			<a id="page_title" href="/" target="_blank"><strong>EU</strong> Integrity<br />Watch</a>
+	     	</div>
+	    </div>
+    	<div class="collapse navbar-collapse">
+    		<ul class="nav navbar-nav">
+		        <li id="cm_tool_btn"><a href="#"><strong>EU</strong> Commission <br />meetings</a></li>
+		        <li id="bl_tool_btn"><a href="#"><strong>EU</strong> Brussels <br />lobbyist</a></li>
+		        <li class="active" id="mi_tool_btn"><a href="#"><strong>EU</strong> MEP <br />incomes</a></li>
+    		</ul>
+    		<ul class="nav navbar-nav navbar-right">
+	            <li><a href="about.html">About</a></li>
+	            <li><a href="contact.html">Contact</a></li>
+	    	</ul>
+    	</div>
+   </div><!-- container -->
+</nav>
+<div class="container_wrap mi_header" id="about_wrap_top">&nbsp;</div>
+<div class="container_wrap mi_header" id="about_wrap">
+	<div class="container">
+		<div id="about_container" class="row">
+			<div class="col-md-3 col-lg-2" id="about_content_icon">
+			</div>
+			<div class="col-md-6 col-lg-7" id="about_content">
+				<p>EU Integrity Watch is a user-friendly interactive database that provides a unique overview of the activities of members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter MEPs. Thereby the database allows to better monitor potential conflicts of interests or to identify those MEPs with more outside activities with the help of the External Activity Indicator (EAI)
+				<br/>
+				<a href="about.html" class="more">Read more</a>
+				</p>
+			</div>
+			<div class="col-md-3" id="about_social">
+
+<br/>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="TI_EU" data-text="Want to know #MEPs income & activities outside @Europarl_EN? Find out">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<br/>
+<br/>
+<div class="fb-like" data-show-faces="false"  data-href="http://www.integritywatch.eu/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+ <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+</p>
+      </div>
+		</div>
+		
+	</div><!-- container -->
+</div>
+<div class="container_wrap" id="toggle_about_wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-2 col-md-1 col-centered mi_collapse" id="collapse_about">
+				<a class="opened" href="#">collapse</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container_wrap" id="filter_wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-9 col-sm-9 col-md-4" id="filter_field_container">
+			 	<p>Search or Filter:</p>
+			 	<div class="input-group">
+			 	    <input type="text" id="search-input" class="form-control input-lg" placeholder="MEP name, national party, EP committee...">
+			 	</div>
+			</div>
+			<div class="col-sm-7 col-md-7" id="filter_numbers">
+				<div class="row">
+					<div class="col-md-2" id="currently_selected_text"><p>You have currently selected</p></div>
+					<div class="col-md-4 filter_number">
+						<div id="mep_number" class="dc-data-count">
+						<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> MEPs
+						</div>
+					</div>					
+				</div>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-1" id="resetall_container">
+				<button class="btn resetall">RESET<br />FILTERS</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="ep2014list">
+	<div class="container_wrap" id="main_charts_wrap">
+		<div class="container">
+			<h2>Charts</h2>
+			<div class="row">
+				<div class="col-md-6 chart_box">
+					<h3>Country <!--span class="info">info</span--></h3>
+					<div class="country"></div>
+					<br class="clear" />
+				</div>
+				<div class="col-md-3 chart_box" id="group_container">
+					<h3>Political Groups <!--span class="info">info</span--></h3>
+					<div class="group">
+					</div>
+					<div class="legend">
+						<div class="epp">EPP</div>
+						<div class="gue">GUE/NGL</div>
+						<div class="alde">ALDE</div>
+						<div class="ecr">ECR</div>
+						<div class="sd">S&amp;D</div>
+						<div class="greens">Greens/EFA</div>
+						<div class="efdd">EFDD</div>
+						<div class="ni">NI</div>
+					</div>
+					<br class="clear" />
+				</div>
+				<div class="col-md-3 chart_box">
+					<h3>Outside income </h3>
+
+					<div class="activities range">
+					</div>
+					
+					<div class="legend">
+						<div class="_0">None</div>
+						<div class="_1">0 - 499 &euro;</div>
+						<div class="_2">500 - 1,000 &euro;</div>
+						<div class="_3">1,001 - 5,000 &euro;</div>
+						<div class="_4">5,001 - 10,000 &euro;</div>
+						<div class="_5">10,000+ &euro;</div>
+						<br class="clear" />
+					</div>
+					
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Total monthly outside income declared by the member in the Declaration of Financial Interests (EUR)</p>
+					</div>
+					<br class="clear" />
+				</div>
+			</div>
+			<a href="#" id="view_charts" class="hiddencharts">VIEW ALL THE CHARTS</a>
+		</div>
+		
+	</div>
+	
+	<div class="container_wrap" id="hidden_charts_wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 chart_box frontpage_score">
+				    <div class="dc-data-count">
+				        <h3>External Activity Indicator</h3>
+				        <div id="avg_score_container">
+				        	<p>average score</p>
+				        	<div id="avg_score"></div>
+				        	<div id="sum_side"></div>
+				        	<div id="avg_side"></div>
+				        </div>
+				        <div class="bar_score">
+				            
+				        </div>
+				        <div class="info_chart">
+				        	<span class="info">info</span>
+				        	<p class="desc">The External Activity Indicator was developed by Transparency International EU to provide a quick overview of all outside activities of members of the European Parliament. In short, the higher the indicator the higher the outside income and number of outside activities of a member. A higher EAI is reflected in a darker shading of orange. <br /><a href="about.html#methodology">More details</a></p>
+				        </div>
+				    </div>
+				    <br class="clear" />
+				</div>
+				
+				<div class="col-md-4 chart_box">
+					<h3>Outside Activities</h3>
+					<div class="interest"></div>
+					<br class="clear" />
+				</div>
+				
+				<div class="col-md-3">
+					<h3>Gender</h3>
+					<div class="gender">
+					</div>
+					<div class="legend gender_legend hide">
+						<div class="m">M</div>
+						<div class="f">F</div>
+						<br class="clear" />
+					</div>
+					<br class="clear" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-7 chart_box">
+					<h3>National Parties</h3>
+					
+					<div class="party">
+					</div>
+					
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Each circle represents a national party ranked according to its MEP's average attendance rate and average External Activity Indicator.</p>
+					</div>
+					
+					
+					<br class="clear" />
+				</div>
+				<div class="col-md-5 chart_box">
+					<h3>Age</h3>
+					<div class="age">
+					</div>
+					<br class="clear" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container_wrap" id="list_container">
+	<div class="container">
+		<div class="row">
+			<div class="content" id="list_content">
+				<h2>MEPs</h2>
+				<div class="info_chart" id="attendance_info">
+					<span class="info">info</span>
+					<p class="desc">Participation in plenary roll-call votes</p>
+				</div>
+				
+				<div class="info_chart" id="EAI_info">
+					<span class="info">info</span>
+					<p class="desc">The External Activity Indicator was developed by Transparency International EU to provide a quick overview of all outside activities of members of the European Parliament. In short, the higher the indicator the higher the outside income and number of outside activities of a member. A higher EAI is reflected in a darker shading of orange. <br /><a href="about.html#methodology">More details</a></p>
+				</div>
+				
+				<div class="info_chart" id="OI_info">
+					<span class="info">info</span>
+					<p class="desc">Total monthly income declared by the member in the Declaration of Financial Interests</p>
+				</div>
+			</div>
+			
+			<div class="col-md-12 table-responsive">
+				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
+					<thead>
+						<tr class=header>
+							<th class="headerSortDown">Nr</th> 
+							<th>Name</th> 
+							<th>Country</th> 
+							<th>Group</th> 
+							<th class="sorter-digit">Attendance <span class="table_spacer">&nbsp;</span></th> 
+							<th class="sorter-amount">Outside income<span class="table_spacer">&nbsp;</span></th> 
+							<th title="External Activity Indicator" class="sorter-digit">EAI <span class="table_spacer">&nbsp;</span></th> 
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+		
+		<div id="last_update">Last updated: 11 March 2015</div>
+	</div>
+</div>
+
+<script>
+    var meps=[];
+    var doi=[];
+    var attendance=[];
+$(function() {
+     detailtpl =  _.template($("#detailstpl").html());
+     sidetpl =  _.template($("#sidetpl").html());
+    var renderLoaded  = _.after(3,  function () { 
+      var dateFormat = d3.time.format("%d/%m/%Y");
+      var now = Date.now();
+      var a;
+
+      _.each (meps, function (m) {
+        if (m.eugroup == "PPE") { 
+          m.eugroup = "EPP";
+        } else if (m.eugroup == "Verts/ALE") { 
+          m.eugroup = "Greens/EFA";
+        } else if (m.eugroup == "EFD") { 
+          m.eugroup = "EFDD";
+        }
+        m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
+        a = _.find(attendance,function (d) { return d.id == m.epid  });
+        if (a) {
+          m.attendance = {"total": parseInt(a.votes,10) , "attended": parseInt(a.voted,10), "score": parseFloat(a.percent)};
+        } else {
+          m.attendance = {"total": 0 , "attended": 0, "score": 0};
+        }        
+ 
+
+ 
+        setRiskScore (m);
+        if (m.birthdate) {
+          m.birthdate = dateFormat.parse(m.birthdate);
+          m.age= ~~((now - m.birthdate) / (31557600000));// 24 * 3600 * 365.25 * 1000
+        }
+ 
+      });
+      grid ("#ep2014list",meps);
+    });
+    d3.csv("mep.csv", function(d) {return d;}
+      ,function(error, rows) {
+         meps = rows;
+         renderLoaded();
+//      grid ("#ep2014list",rows);
+      });      
+    d3.csv("attendance.csv", function(d) {return d;}
+      ,function(error, rows) {
+         attendance = rows;
+         renderLoaded();
+//      grid ("#ep2014list",rows);
+      });      
+    d3.json("doi-pretty.json", function (rows) {
+         doi = rows;
+         renderLoaded();
+//      grid ("#ep2014list",rows);
+    });     
+
+  $("#search-input").keyup (function () {
+    var s = $(this ).val().toLowerCase();
+    wall.dimension().filter(function (d) { 
+      return d.indexOf (s) !== -1;} );
+    $(".resetall").attr("disabled",true);
+    dc.redrawAll();
+  });
+
+  $(".resetall").click(function() {
+    $("#search-input").val("");
+    $(".resetall").attr("disabled",false);
+    dc.filterAll();
+    dc.renderAll();
+
+  });
+
+ 
+});      
+
+</script>
+
+
+<script type="tpl" id="sidetpl">
+<h4>Declaration of Members' financial interests</h4>
+<table class="table table-condensed">
+<tr><td class="dc-table-label" colspan="2">A. Previous occupation</td></tr>
+<% _.each(doi.occupation, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="2">B. Other mandates</td></tr>
+<% _.each(doi.mandate, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="2">C. Regular outside activity</td></tr>
+<% _.each(doi.activity, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="2">D. Committee & Board memberships</td></tr>
+<% _.each(doi.membership, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="2">E. Occasional outside activity</td></tr>
+<% _.each(doi.occasional, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+<% }); %>
+
+<tr><td class="dc-table-label" colspan="2">F. Holdings</td></tr>
+<% _.each(doi.holding, function (a) { %>
+  <tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+<% }); %>
+<tr><td class="dc-table-label" colspan="2">I. Additional information</td></tr>
+<tr><td colspan="3"><%= doi.additional %></td></tr>
+
+
+</table>
+<div class="row hide">
+<div class="col-md-12">
+<%= doi.support%>
+</div>
+</div>
+</script>
+
+<script type="tpl" id="detailstpl">
+     <div class="row">
+       <div class="col-md-4">Country</div>
+       <div class="col-md-8">
+         <%= country %>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4" title="External Activity Indicator">EAI</div>
+       <div class="col-md-8 score"><%= score.toFixed(0) %></div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Outside revenues</div>
+       <div class="col-md-8 score"><%=  min %> &#8605; <%= max %> <small>&euro;</small></div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Monthly salary</div>
+       <div class="col-md-8 score"><a href="http://www.transparencyinternational.eu/2014/08/how-much-does-an-mep-make/" target="_blank">8020,53 &euro; &#8605; 19,586 &euro; depending on allowances</a></div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Attendance</div>
+       <div class="col-md-8 score" title="voted on <%= attendance.attended %> votes out of <%= attendance.total %>"><%= attendance.score.toFixed(0) %> <small>%</small></div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Group</div>
+       <div class="col-md-8"><%= eugroup %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Party</div>
+       <div class="col-md-8"><%= party %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Age</div>
+       <div class="col-md-8 score"><%= age %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Committee</div>
+       <div class="col-md-8"><%= committee %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Substitute</div>
+       <div class="col-md-8"><%= substitute %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Delegation</div>
+       <div class="col-md-8"><%= delegation %> </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Full profile</div>
+       <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= epid %>.html">European Parliament Website</a></div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Source</div>
+       <div class="col-md-8"><a target="_blank" href="<%= doi.url %>">Original declaration</a></div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">Update</div>
+       <div class="col-md-8">fetched on <%= doi.date %></div>
+     </div>
+</script>
+
+<div class="modal fade" id="mepdialog">
+	<div class="modal-dialog  modal-lg">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        	<h4 class="modal-title">Firstname <strong>Lastname</strong></h4>
+        	
+        	<div class="modal-body">
+        			<div class="row">
+        				<div class="col-md-8 details" ></div>
+        	        <div class="col-md-4">
+        	       		<img id="mepphoto" src="" />
+        	        </div>
+        			</div>
+        	</div>
+        	<div class="side">
+        	</div>
+        	<div class="modal-footer">
+        		<button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
+        		<div id="debug"></div>
+        	</div>
+      	</div>
+      	
+	</div>
+</div><!-- /.modal-dialog -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55613514-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
