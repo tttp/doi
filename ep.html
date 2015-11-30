@@ -442,8 +442,9 @@ function grid (selector,data) {
 		$("table.dc-data-grid").trigger("update");
 });
 
-	drawScore();
-  drawParty();
+	drawScore()
+       try { drawParty();} catch (e) { console.log(e);}
+       
 	drawRange();
 	drawAge();
 
@@ -1013,6 +1014,7 @@ $(function() {
 				grid ("#ep2014list",meps);
 			} catch (e) {
 				console.log (e);
+console.log(new Error().stack);
 			}
 
 		});
