@@ -1022,7 +1022,7 @@ $(function() {
 				 renderLoaded();
 //      grid ("#ep2014list",rows);
 			});      
-		d3.csv("attendance.csv", function(d) {return d;}
+		d3.csv("data/attendance.csv", function(d) {return d;}
 			,function(error, rows) {
 				 attendance = rows;
 				 renderLoaded();
