@@ -443,13 +443,9 @@ function grid (selector,data) {
 });
 
 	drawScore();
-  try {
-//    drawParty();
-	} catch (e) {
-		console.log (e);
-	}
 	drawRange();
 	drawAge();
+//  drawParty();
 
 		$(".dc-data-grid").on("click",".dc-table-row", function () {
 			var epid = $(this).find(".mep").data("epid");
@@ -518,12 +514,13 @@ function drawRange () {
 function drawParty () {
 	var bubble_party = dc.bubbleChart(" .party");
 	var party = ndx.dimension(function(d) {
+      return "?";
       if (typeof d.party == "undefined") {
-        return "";
+        return "?";
       }
 			return d.party;
 			});
-	
+/*	
 	 var tip = d3.tip()
 		.attr('class', 'd3-tip')
 		.html(function(p) { return '<span><h2>' +
@@ -534,15 +531,33 @@ function drawParty () {
 			 '</li></ul></span>' })
 		.offset([-12, 0])
 
-
 	var partyGroup   = party.group().reduce(
 			function(a,d) {a.eugroup = d.eugroup;a.count +=1; a.score +=d.score; a.effort += d.attendance.score; return a; },
 			function(a,d) {a.eugroup = d.eugroup;a.count -=1; a.score -=d.score; a.effort -= d.attendance.score; return a; },
-			function() {return {eurgroup:0,count:0,score:0,effort:0}; }
+			function() {return {eugroup:0,count:0,score:0,effort:0}; }
 			)
 			.order(function (p) {return p.count});
 
+      var xRange = [-10, d3.max(dateGroup.all(), function(d) {  return p.value.score/p.value.count | 0 }) ],
+          yRange = [-10, d3.max(dateGroup.all(), function(d) { return  return d.value.count; }) ];
+ */
 
+	var partyGroup   = party.group().reduce(
+			function(a,d) { },
+			function(a,d) { },
+			function() {return {eugroup:"ALDE",count:10,score:50,effort:50}; }
+			);
+	bubble_party
+	.width(660)
+		.height(300)
+		.margins({top: 20, right: 20, bottom: 20, left: 30})
+		.yAxisLabel("%Votes attended")
+		.dimension(party)
+		.group(partyGroup)
+		.x(d3.scale.linear().domain([0, 1000]))
+		.minRadiusWithLabel(150)
+
+/*
 	bubble_party
 		.colorCalculator(function(d, i) {
 			return eu_groups[d.value.eugroup];
@@ -559,17 +574,21 @@ function drawParty () {
 		.dimension(party)
 		.group(partyGroup)
 		.keyAccessor(function (p) {
-				return p.value.score/p.value.count;
+        
+				return p.value.score/p.value.count | 0;
 		})
 		.valueAccessor(function (p) {
-				return p.value.effort/p.value.count;
+				return p.value.effort/p.value.count | 0;
 		})
 		.radiusValueAccessor(function (p) {
 				return p.value.count;
 		})
+		.y(d3.scale.linear().domain([0, 100]))
 		.x(d3.scale.linear().domain([0, 60]))
 		.r(d3.scale.linear().domain([0, 100]))
 		.minRadiusWithLabel(150)
+*/
+
 }
 
 function drawAge() {
@@ -1032,7 +1051,7 @@ $(function() {
 				 renderLoaded();
 //      grid ("#ep2014list",rows);
 			});      
-		d3.csv("attendance.csv", function(d) {return d;}
+		d3.csv("data/attendance.csv", function(d) {return d;}
 			,function(error, rows) {
 				 attendance = rows;
 				 renderLoaded();
