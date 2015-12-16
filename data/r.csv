@@ -16,14 +16,16 @@ ff3d3f236e4747af9fc50ff58ddb4377,233,31,MEC,Middle East Concern,3,,9999,,0.25,81
 ff3855a7d5c54d27947ce7773f6b3357,82,21,EWE AG,EWE Aktiengesellschaft,2,700000,799999,,3,00741337988-18,active,3
 ff2e01dcb4264779be6aad1d601392b7,176,25,Sygnał,Stowarzyszenie Sygnał,2,,,166250,1,208598218249-90,active,
 ff2dcae924f245828146c2bb86178fde,21,13,,,1,,,,1,520259613506-88,,
+ff2c0482fa3f45f2a7f6b111849f11a9,233,13,,Somerco,1,,9999,,0.25,035508519773-34,active,
 ff1152a3aa88470388abb9d823c78a3d,234,25,NAMI,North American Meat Institute,2,,,0,0.25,863092419193-72,active,
 ff0fb4adff974d2aa5b69dae56b23639,209,11,,"Deloitte, S.L.",1,10000,24999,,1,727712916372-77,active,
-ff04fc2f7330408a9b773b91b8272c86,21,31,EFQM,EFQM European Foundation for Quality Management,3,,,3000,0.5,409256516428-39,active,
+ff04fc2f7330408a9b773b91b8272c86,21,31,EFQM,EFQM European Foundation for Quality Management,3,,,3000,0.25,409256516428-39,active,
 fefa665da246486fa7b4d6f8fd7a3c5a,234,21,,YCF Maritime LLC,2,,9999,,0.25,128313216890-32,active,
 feed2f70644144b48b258eafe5efae0c,82,25,BfT,Bundesverband fuer Tiergesundheit,2,25000,49999,,1.25,369699114231-49,active,
 feec5f95637641aa83f9fa5076cd259d,59,25,DEA,Danish Electric Vehicle Alliance,2,,9999,,0.25,583653114856-56,active,2
 fee73f7916f94c36b2f90c4e1b294a51,108,31,APK,Amigos do Protocolo de Kyoto,3,,,,2,82132839724-37,,
 fedf6bda46184c118b81b1950746a169,155,21,Pl. EDV,Platform Engbertsdijksvenen,2,,,1200,1,020890017437-27,active,
+fed17c17924045649b1e30abb8afd3f3,108,13,Studio Lettini,Lettini Giuseppe,1,,9999,,0.75,731027919621-04,active,
 fecde2aeabb843f4a8a55a4b3b92de50,155,21,HW,Hanze Wetlands,2,,,0,1.75,200438718349-72,active,
 fec76a9f6e224986b3edb9b89e8afad3,21,31,WFTO-Europe,World Fair Trade Organization - Europe,3,10000,24999,,0.5,725848610338-68,active,
 fec607c127414c259cbf2f7f86eb041c,215,25,WBCSD,World Business Council For Sustainable Development,2,,9999,,0.25,074000219282-17,active,
@@ -51,6 +53,7 @@ fe0559faf2494de08bbc429d2e41e1ad,233,25,ORA,Oil Recycling Association,2,,,150000
 fdfc986ebb3647c3ab30360671f6b7ef,21,25,Eurovent,European Committee of Air Handling and Refrigeration Equipment Industries,2,100000,199999,,1.25,89424237848-89,active,
 fdf090a61da64bca8ac790ce1f7efe03,21,25,EUF,EU Federation for the Factoring and Commercial Finance Industry,2,100000,199999,,1.5,39275004756-35,active,
 fdedb3955091443fa790a6897b9e94f8,75,26,CFDT,Confédération Française Démocratique du Travail,2,200000,299999,,10.75,584162614015-63,active,
+fde858e230ca48468456340148eff3cb,82,21,M-net,M-net Telekommunikations GmbH,2,25000,49999,,0.5,773302419738-13,active,
 fde26601135a4826b171fa06d2bd1f57,21,25,ESSA,European Salmon Smokers Association,2,,9999,,0.25,874084216961-91,active,
 fdd6215deb17408e993c629f726cba4c,177,11,GW,Guess What,1,,9999,,1.5,514234715663-46,active,3
 fdd170bcf4ec460fba3eb8600738d02f,75,31,FED,FEDERATION ENVIRONNEMENT DURABLE,3,,9999,,36.75,341668712648-90,active,
@@ -74,7 +77,7 @@ fd1ff15137a54be4b70591902ed97733,155,25,BNA,Koninklijke maatschappij tot bevorde
 fd13a7f1123a4ef08a2a5d920f219d0b,39,11,,Minoils Media Ltd.,1,25000,49999,,2.25,609871517238-89,active,
 fd12e1b910f34e8abbbb4c58e50b517c,85,31,,DORIKI ADELFOTIS,3,,9999,,0.5,281091512656-64,active,
 fcf34eadd9e2497b96cf4d2e9038b028,21,27,APEDEF,ASSOCIATION POUR L'EGALITE ET LE DEVELOPPEMENT DES FEMMES,2,,,,9.25,782556317989-55,,
-fcce98d5e8604c2d98bffb8dbc5a7f64,21,42,,Diplomatic Corps Institute,4,10000,24999,,7.5,618611119476-69,active,
+fcce98d5e8604c2d98bffb8dbc5a7f64,21,42,,Diplomatic Corps Institute,4,10000,24999,,0.5,618611119476-69,active,
 fcce76fbaf8649d8b61c745179ad8704,82,21,airberlin,Air Berlin PLC & Co. Luftverkehrs KG,2,,9999,,2.25,60772936647-87,active,3
 fccabf77a72f4d5db85f991f320a6fbc,21,25,EHPM,European Federation of Associations of Health Product Manufacturers,2,200000,299999,,1.25,65512466920-96,active,3
 fcbb55ef1f3f48ed88b8cfead45ab2f9,108,31,NRPTT,Nonviolent Radical Party Transnational Transparty,3,,9999,,5,88206897526-65,active,
@@ -269,7 +272,7 @@ f740cd875ed74eb7a987268ce31c3e11,233,31,GACC,Gatwick Area Conservation Campaign,
 f7343181586c48c5bcaadf1e057c83c0,180,31,TpT,Fundația Tineri pentru Tineri,3,50000,99999,,11.25,103073717490-24,active,
 f728b561c1444906a7ae77891ef952bf,82,25,JSM,"Verband der Hersteller von Jagd-, Sportwaffen und Munition",2,,9999,,0.5,58234931184-14,active,
 f7272c4975cb4221b641c8804b625011,85,31,RAC,Rotaract Club of Athens,3,,,0,8.75,287864019154-06,active,
-f71ec1b6a5804306941898120e8c6ae3,59,25,DBA,Danish Bankers Association,2,,9999,,12.5,20705158207-35,active,1
+f71ec1b6a5804306941898120e8c6ae3,59,25,DBA,Danish Bankers Association,2,50000,99999,,12.5,20705158207-35,active,1
 f6ffa8f85ec14902abd0ec8cecb12bae,74,25,,Paikallisvoima ry,2,10000,24999,,0.25,109601212076-63,active,
 f6f981522e2842c2aa2a8b7df24edb05,214,21,,Tele2 AB,2,,,20000,0.75,87921819473-65,active,
 f6e6911dd7da418e93db4a1e816a586c,21,25,CED,Council of European Dentists,2,300000,399999,,3,4885579968-84,active,1
@@ -295,6 +298,7 @@ f6509f658c2a40ff8ddd7d1d5170acd7,108,31,,Impronta etica,3,,9999,,0.25,3293665287
 f64c33419f624fe89470fd533fc3188a,233,21,Tate & Lyle Sugars,T&L Sugars Limited,2,500000,599999,,1.25,50465929991-70,active,3
 f649cf4004794103a0e15d43087709b3,201,26,APKT,Asociácia prevádzkovateľov káblových telekomunikácií,2,,,10000,0.5,331161818590-96,active,
 f644a3f41f5547519dcf481a24a2d27d,209,25,APROA,Asociación de Organizaciones de Productores de Frutas y Hortalizas de Andalucía,2,,9999,,0.25,00498929525-90,active,
+f63ffe09ff224a11bdc7a2f4d252e56c,111,27,JBA,Japan Bioindustry Association,2,3750000,3999999,,0.25,100735719661-52,active,
 f634c5a46d8541fda1fc8638480b0b22,21,41,EUROSIF,EUROSIF A.I.S.B.L (EUROPEAN SUSTAINABLE INVESTMENT FORUM),4,10000,24999,,3,70659452143-78,active,1
 f62be7cede6746a5b19f1335b0005560,99,31,Silvavitae,Silvavitae Természetvédelmi Egyesület,3,,,0,0.25,283035117921-39,active,
 f626dc1be05a4093bc47eef676dd56b3,14,41,FGL,Forschungsgruppe Lebensmittelsicherheit,4,,9999,,0.25,7574597868-95,active,
@@ -405,6 +409,7 @@ f3af90bc76494ed4869b5aa130839db3,21,41,FEHRL,Forum of European National Highway 
 f3a99f51ee994707a9f94b8feea60993,233,21,,Nationwide Building Society,2,,9999,,1.25,417169813927-13,active,
 f3a3532d175a4c619d94b9c6c89cf2d8,165,21,AE,Agder Energi,2,,9999,,0.5,516404410590-13,active,1
 f39e1ad050c141b3bb2252281e53bc3a,21,21,GEOS EUIR,GEOS European & International Institutions Representation,2,,9999,,0.5,70699859911-88,active,1
+f393f7c1c60f49baac5585808c946f77,233,21,,The Number,2,50000,99999,,0.25,364903919185-87,active,
 f38a79d15f064c33b23319fee3f8afcd,21,11,Voice in Europe,N Tavitian Consulting,1,25000,49999,,1.5,53389268996-54,active,1
 f38866d0e97c47d685e780268faf8d9f,108,31,C.I.C.S.,COMITATO INTERNAZIONALE COOPERAZIONE SVILUPPO,3,,9999,,0.25,842595113837-79,active,
 f37d654a71b84fb9b592f3e51fbe8823,21,25,EUSIPA,European Structured Investment Products Association,2,200000,299999,,1,37488345650-13,active,
@@ -418,12 +423,14 @@ f341b22f6ccd497287121fb616199daf,105,25,,Dublin Chamber of Commerce,2,,9999,,0.2
 f340de5f549a4d13970f76883ea05818,105,21,King,King Digital Entertainment,2,50000,99999,,1.5,872026216875-40,active,
 f3384b532208426daef259b1b5a97931,82,31,,wetransform GmbH,3,,,,0.75,329361316438-76,,
 f335122a47e54bb5b46adf30b61f0bbc,21,31,FARO,FARO Vlaams steunpunt voor cultureel erfgoed,3,,9999,,0.5,792832912709-60,active,
+f3323451476a40fc969793e0486f2290,209,31,GASNAM,Iberian Association of natural gas for mobility,3,,,255382,2,327820619585-36,active,
 f32ed03a54734b60accc5eb64d9bb085,30,25,7SEVEN,SEVEN CONDOMÍNIOS SERVIÇOS ESPECIALIZADOS LTDA ME,2,,,,14.25,903510718666-69,,
 f316189a907b4e9f8d57a7889e174114,233,25,,Scottish Salmon Producers' Organisation,2,,9999,,0.25,74337076936-42,active,
 f308203ad17748f7af3075666189f3c5,59,25,NRF,Nordic Federation of Public Accountants,2,300000,399999,,0.5,49225472560-06,active,
 f30729af13904d6f9b19baccdca2b46c,233,41,MTL,Making the Link Study Project Ltd,4,,9999,,0.25,782093612123-92,active,
 f2f23191e15a4b398f3fa4d1ebd6962a,155,21,,ITS B.V.,2,,9999,,0.25,981927319074-68,active,
 f2dee38655a646bbade96753c93ce4c9,233,25,BPC,British Poultry Council,2,100000,199999,,1.25,018721019477-84,active,
+f2deb3fb49c2496193bc7cca3900421f,215,21,u-blox,u-blox AG,2,,9999,,0.25,156780119653-79,active,
 f2d4077c704f4528805685606c74f3f6,82,21,,Verlag für die Deutsche Wirtschaft AG,2,,,5000,0.25,36390992841-07,active,
 f2d355996e1b42479d61ea38c01d32d1,233,31,NAC,The National Advisory Council to the Thalidomide Trust,3,,9999,,0.25,481428814432-64,active,5
 f2c7429d34104a138131918131f0ff60,104,66,I.C.S.R,the International Center for Strategic Studies and Human Rights,6,10000,24999,,23.5,013394611927-62,active,
@@ -487,7 +494,7 @@ f104eef68a7c4040a39574d54892b5bc,75,21,,TDF,2,50000,99999,,0.5,402017316983-27,a
 f10478819f57400ab1c676a0c787e8a5,155,21,OCI-N,OCI Nitrogen,2,10000,24999,,0.25,939698210655-66,active,
 f102a69f6d674c9bb33e4f12503b0573,21,21,PXS,Proximus,2,,,299999,4,537380918401-76,active,
 f10247dc4ef74fb48692f629c648ca37,209,27,O.P. ANACEF,Organizacion de Productores Pesqueros nº 43 ANACEF,2,,,115957,0.5,528600919264-65,active,
-f0ffa832ae734f93a81abb6d13b6c346,75,21,HI,HOLOGRAM INDUSTRIES,2,,9999,,0.25,152744418094-39,active,
+f0ffa832ae734f93a81abb6d13b6c346,75,21,Surys,SURYS,2,,9999,,0.25,152744418094-39,active,
 f0f07c3b770a40139a3452c83c6008ef,155,21,JTI,JT International Holding,2,400000,499999,,3,71175716023-03,active,5
 f0de9edd7b69457aabebed1c7880a170,233,25,ESA,Environmental Services Association,2,25000,49999,,1,74255575543-90,active,
 f0da1248a2944a50ad6789575985d0e2,108,42,L.F.S.S.T.,Libera Facoltà di Scienze Sociali e del Turismo,4,,9999,,3,011130815322-80,active,1
@@ -510,6 +517,7 @@ f067b7d97c6340189845008c865a7975,209,42,UNIR,Universidad Internacional de la Rio
 f067731cd03643128808df4d0d3e64dd,21,31,,Eurogroup for Animals,3,100000,199999,,2.75,6809935493-49,active,6
 f05ef0455e4249f88620430e33dd2d17,82,25,BVE,Bundesvereinigung der Deutschen Ernährungsindustrie e.V.,2,,9999,,0.5,52346377041-06,active,1
 f054a1cafee04cc88ec09dbec0b570c8,233,25,FSB,Federation of Small Businesses,2,,9999,,2.25,64802948320-88,active,3
+f0437fa997264bd7904224a92dd7f956,74,65,NKR,North Calotte Council,6,,,315800,5.25,645477819806-05,active,
 f0261aa0d6664b4f96ec1fad7704d86c,155,21,ECT,Europe Container Terminals B.V.,2,,9999,,0.75,342147315697-69,active,
 f01a1f75d62b424da444f462d2604812,21,27,ETTW,Europeans Throughout The World,2,,,2264,1.25,844689616084-97,active,
 f00e67d449284c35a8bcf67f11d11168,233,31,ECEAE,European Coalition to End Animal Experiments,3,25000,49999,,3.25,671746018024-61,active,
@@ -633,6 +641,7 @@ ece1d6b7c3104aae8b96779442a5b4bb,176,31,PZZL,Polski Związek Zrzeszeń Leśnych,
 ecdefc28c4024b5d9dadc15099ce4084,21,31,ELTI,European Association of Long-Term Investors,3,,9999,,1,977980112556-82,active,1
 ecdb0fb7dc234cebbdce5afaccf9c21e,108,26,EFCEM,European Federation of Catering Equipment Manufacturers,2,,9999,,0.25,070284916886-11,active,
 eccb7258ce074c09913a1dfb5335ff1d,82,21,iDS GmbH,Internationale Service und Dialog GmbH,2,50000,99999,,1.75,165753418876-08,active,
+ecca6bfa49a0480fba4e7bcf37e8c0e6,75,31,ARTF,Association Rencontres en Terres Frontalières,3,,9999,,0.25,599437119750-23,active,
 ecc3c6c97204474887ecfeef1ef2472e,234,21,MDT,Medtronic,2,300000,399999,,1.75,503957813562-10,active,2
 ecc0feef65554cffa0cac16324f85ba6,209,25,ACE,Cluster de Energía,2,,,2000,2.25,828043215254-68,active,
 ecbcb50dae0d41499e12a474ad7619af,21,25,EHP,Euroheat & Power,2,,9999,,5,88457577025-19,active,2
@@ -689,6 +698,7 @@ eb8ea52a1bb343df8927083fe184422f,75,11,,ACTION PUBLIQUE,1,,9999,,0.5,61167051481
 eb82e22a0fdf46279dd511da9d1fb5e6,75,11,,EUROTRAN Conseil,1,100000,199999,,1.5,88317675703-01,active,3
 eb81d9814bae4a379bdd663546ea3fbf,82,31,EISA,European Initiative for Sustainable Development in Agriculture e.V.,3,25000,49999,,0.75,873593417669-10,active,
 eb7a9c91b2da4c1da909d04ac1bb1466,82,25,DVTM,Deutscher Verband für Telekommunikation und Medien,2,,9999,,0.5,651322417876-95,active,
+eb7a15e692e44298ac7df66045db813c,108,41,CO.DI,Comunicare Digitale,4,25000,49999,,1,253817819711-94,active,
 eb7642a709af427badb1857131a92c16,21,25,USS,Unie van Erkende Sociale Secretariaten,2,,9999,,0.25,7076617587-16,active,
 eb6def3c51944d1d8c7b1346aa766cdd,108,31,,CENTRO C.B. "ERUCE"  -  Operatori Emergenza Radio,3,,9999,,10.25,67472335149-54,active,
 eb6c1aaa75a34813b6ea20b7b8a75c32,233,11,,Bellenden,1,25000,49999,,1,223463616831-66,active,
@@ -722,7 +732,7 @@ eadf75d139364ad0914c00c123e4fd1d,21,25,UPEI,Union Pétrolière Européenne Indé
 eadc86545b5f412ea49a47e2880e555a,74,25,,Öljy- ja biopolttoaineala ry - Finnish Petroleum and Biofuels Association,2,100000,199999,,1.5,317278216034-07,active,
 eadb9c58961346dda3716e303612c3c8,108,11,EUO,European Office,1,,,,3,446591110993-01,,
 ead2ce8a8d674dca9ab846611ee850cc,233,25,STEP,Society of Trust and Estate Practitioners,2,,9999,,1,64339983762-18,active,
-eacfa05397ed45ec853acf8c932dc6a2,14,31,ARCHE NOAH,"ARCHE NOAH, Gesellschaft für die Erhaltung der Kulturpflanzenvielfalt und ihre Entwicklung",3,50000,99999,,1,50668704394-89,active,3
+eacfa05397ed45ec853acf8c932dc6a2,14,31,ARCHE NOAH,"ARCHE NOAH, Gesellschaft für die Erhaltung der Kulturpflanzenvielfalt und ihre Entwicklung",3,50000,99999,,0.5,50668704394-89,active,3
 eac50eb0a4b6416da20dd98c07132c07,85,31,MIO-ECSDE,"Mediterranean Information Office for Environment, Culture and Sustainable Development",3,200000,299999,,7.5,24100651519-64,active,
 eac29edfab134becb5e066275e4f3f04,21,25,,European Food Emulsifiers Manufacturers Association,2,100000,199999,,0.25,61813266495-76,active,
 eabd7b83678c455f936bd0fc2aaa686f,82,25,VdeH,Verband des eZigarettenhandels,2,,9999,,1,711092410756-80,active,
@@ -766,6 +776,7 @@ ea0067df1e484b9caaf3912ccf675a87,155,11,,Narroway,1,,,,1,089229417382-63,,
 e9fc9a6bbbd5491581f2c166e4139d0d,82,21,,ThyssenKrupp,2,600000,699999,,3,721647010823-15,active,1
 e9f5ee44765d497496f694ae6e01c444,108,21,WOW,WOW società cooperativa,2,50000,99999,,3,595839514792-24,active,1
 e9ed7f9588124abd92ab83aa3d0384cb,21,31,Eurodad,European Network on Debt and Development,3,,9999,,16,09136982496-09,active,11
+e9ed399127d249b5b87c5dfea72fed41,75,21,,ESPORG / POLLEY SECURED LORRY PARK,2,,,,0.5,881383019706-60,,
 e9eaf1dd37b949f5919fcba9a1b32797,202,65,AARC,Alps-Adriatic Rectors' Conference,6,,9999,,10,354215314611-36,active,
 e9e360602ee949df94d4c63b64f6fb12,155,31,Arista Bee Research,Stichting Arista Bee Research,3,,,,0.25,130935016440-68,,
 e9dbd01b078a4a82ae589e27b3154ae0,82,21,BADK,Bundesarbeitsgemeinschaft Deutscher Kommunalversicherer,2,,,115000,1,4029997261-81,active,
@@ -820,6 +831,8 @@ e8aed3fb9a0d4ee9961827f1432ce85b,85,25,,cosmicway,2,,9999,,1,11010736156-31,acti
 e89fcdb6c2614d25879179d21495c61c,85,25,Ε.Θ.Ε.,ΕΝΩΣΗ ΘΕΣΜΙΚΩΝ ΕΠΕΝΔΥΤΩΝ - HELLENIC FUND AND ASSET MANAGEMENT ASSOCIATION,2,,,25000,1,684068617008-71,active,
 e89c5cd833f54828b1383e096548fb61,105,25,IPHA,Irish Pharmaceutical Healthcare Association,2,,,800,0.25,701937518594-20,active,
 e89a608fa95e41ff964f76b1da67cf35,21,25,CEOC International,International Confederation of Inspection and Certification Organizations,2,10000,24999,,2.5,96818506624-46,active,5
+e897b8cfdebc4ff791339d277f093f61,165,21,Lyse,Lyse Fiberinvest,2,25000,49999,,0.25,261858819666-59,active,
+e893417811ff4aa485ec6cf6b06fd2a0,14,42,ÖGVH,Österreichische Gesellschaft für Veterinärmedizinische Homöopathie,4,,,0,0.5,739295019720-91,active,
 e8904b9f68574a06908efb343937c6c1,82,25,,Genossenschaftsverband e.V.,2,,,5000,0.25,262971415265-56,active,
 e880975d89314e18a23ccf47e60f9f05,21,41,ERF-AISBL,Association of European-level Research Infrastructure Facilities,4,,9999,,1,69722087204-88,active,
 e87a01b9c5c14dc1bd8dfa0ea1648dec,155,25,,Centraal Bureau Levensmiddelenhandel (CBL),2,,9999,,0.25,71342175352-09,active,
@@ -938,7 +951,7 @@ e5210996287d4743819ab4b7e9ddcf42,180,41,ROEC,Romania Energy Center,4,,9999,,4.25
 e520b0b1d2594ca681a6c26523145f40,82,27,VDE,VDE Verband der Elektrotechnik Elektronik Informationstechnik,2,100000,199999,,1,1059364571-78,active,2
 e51bea525cf54075ae6d351ea06709e8,234,41,PIIE,Peterson Institute for International Economics,4,,9999,,0.25,513347117795-30,active,
 e51ace3dbe19456daa74c17fc758c583,234,21,PBI,Pitney Bowes Inc.,2,,,10000,0.25,733270116708-89,active,
-e50b6a667b0740f586490f96c5cb6606,155,11,S&P,Schuttelaar & Partners,1,50000,99999,,1.5,57779082499-25,active,10
+e50b6a667b0740f586490f96c5cb6606,155,11,S&P,Schuttelaar & Partners,1,50000,99999,,0.75,57779082499-25,active,10
 e50ad35c6fb0465fafffb08ded32370f,21,63,Central Sweden,Central Sweden European Office,6,,9999,,3,15210638110-88,active,4
 e4fc7c178d7e40ecbab5e3a780064bf2,209,25,FLUIDEX,"FLUIDEX, Asociación Española de Fabricantes de Equipos para la Manipulación de Fluidos",2,,,0,0.25,441280715327-11,active,
 e4fac64c9cb44584bf0a5e3df3ca210d,59,21,Coloplast,Coloplast A/S,2,100000,199999,,0.5,11862292564-53,active,
@@ -968,6 +981,7 @@ e48b1c9e621441199b8115d4a857543a,82,25,IVM,Industrie-Verband Motorrad Deutschlan
 e488bc89c6f84ef8817adc7f341b5312,233,21,,URENCO Limited,2,,,0,0.25,148242818519-17,active,
 e4818fdcd8944d9aa1ca9206cc669546,209,26,ASAJA,Asociacion Agraria Jovenes Agricultores,2,1000000,1249999,,12,875483616957-38,active,
 e481771d2835412e958f6e4dfeca64c0,58,31,DEMAS,DEMAS - Association for Democracy Assistance and Human Rights,3,10000,24999,,0.25,17112157823-45,active,
+e47f5fced1c44a17baa2f8127badc0ab,120,25,LKA,Latvijas Komercbanku asociācija,2,50000,99999,,1,481610819779-94,active,
 e47e7f83cb8f480494cc2cc2394c9611,75,21,FedEx,FEDEX EXPRESS EUROPE INC. & CO.,2,,9999,,2.25,32853368606-40,active,
 e47247431a8541e2bff5e6f8ab4c0c5a,209,13,,Sergio Cano Rueda,1,,,,0.25,313694418037-49,,
 e46e42757f0f424389f5371819bc2b2b,209,64,FCVRE,FUNDACIÓN COMUNIDAD VALENCIANA-REGIÓN EUROPEA,6,,9999,,7.5,28664854787-31,active,
@@ -1015,9 +1029,10 @@ e3a16fc838d54b43b291fde37b851086,75,25,FFSA,Fédération Française des Sociét�
 e394bfd1796448a8aadd264ca5cf4fb2,99,25,HGFA,Hungarian Grain and Feed Association,2,,9999,,0.5,78114569866-86,active,
 e38599899200479ca2b8c1e8002c386a,21,25,MNI,Medical Nutrition International Industry,2,,,50000,0.5,091449916265-96,active,
 e37c14a1bcd548d2bf4cc5b8ac65c218,82,25,VDV,Verband Deutscher Verkehrsunternehmen,2,,,400000,2,50254292140-86,active,1
-e375650bf75e4ec5b98ad2656ac5e1fa,233,31,MIE,Movimento Italiano in Europa,3,,9999,,10,832642915261-54,active,1
+e375650bf75e4ec5b98ad2656ac5e1fa,233,31,MIE,Movimento Italiano in Europa,3,,,0,10,832642915261-54,active,1
 e36a2f9a94dd49b3b29aabbb7b6e8224,59,21,,TDC,2,,9999,,1,761350312404-52,active,
 e365cf8389064f84912774b042d3162c,21,11,,EU Strategy,1,25000,49999,,2,42484704423-92,active,1
+e358d6b8a5af44299960eb06328f34c1,209,42,UdG,Universitat de Girona,4,,9999,,2.5,056411219748-59,active,
 e34d6965c76048bfb78a76d93e4085a1,209,63,JCCM,Vicepresidencia de la Junta de Comunidades de Castilla-La Mancha,6,,9999,,13.5,36564929700-77,active,
 e334e72828044a708b11bbff39d9a071,21,25,EFIEES,European Federation of Intelligent Energy Efficiency Services,2,200000,299999,,2.25,25748484862-49,active,3
 e33316856dcb45b2981feccd044cc616,82,31,RI,Refugees Integrated e.V.,3,,,,3,084871518015-35,,
@@ -1030,6 +1045,7 @@ e301364e7cdb4ad280ee6320dd0dd698,155,25,ICISA,International Credit Insurance & S
 e2fe3a604f2645c58b6c33d54667e97d,44,31,TECHO,Un Techo Para Mi País,3,,9999,,0.25,055345812366-67,active,
 e2fcf2c259ac4ec58b77500ccb62d8f8,180,31,MSC,Asociatia Meridiane Socio-Culturale,3,,9999,,4.25,200266810016-52,active,
 e2fa0760ee9a4d36968311bce948de1a,75,21,acvfit,active community for value and fit,2,,,,0.25,873461619567-82,,
+e2f24b395a9048cc8b2906d42df33f29,215,21,,Zattoo,2,50000,99999,,0.25,676298419680-70,active,
 e2e4f298cbf34c5ea549bff163b60320,82,21,VH,Vereinigte Hagelversicherung VVaG,2,,9999,,0.25,285249715473-67,active,
 e2de5955c4854559a4d1a2b5c9165750,108,27,DE.CI.S.A.,Defending Citizens - Sicilian Association / Cittadini che si difendono - Associazione Siciliana,2,,9999,,0.75,944023614252-30,active,
 e2d7e43581d34104b45bb5ac4d671df5,21,31,ACE,Association des Cinémathèques Européennes,3,10000,24999,,0.75,45960464757-14,active,
@@ -1178,6 +1194,7 @@ de9a7d6e304d4719a54c29a52a71569c,21,31,ECH,European Committee for Homeopathy,3,,
 de9722196f5e4ab790e6d61e48e698b3,233,25,IoD,Institute of Directors,2,,,10000,0.5,469253615206-77,active,
 de941f00d94646d690983d2a82ba0c80,233,21,EP,Element Power Limited,2,,9999,,1,110814319280-72,active,
 de7a8aff2d19450c9f4911671b459a1b,108,42,UNIVAQ,University of L'Aquila,4,10000000,,,21.25,71914574573-51,active,
+de6f37e5fdcb4e7a8742747f17fd4655,214,27,,Svenska Stadsnätsföreningen,2,,9999,,0.25,977983319713-44,active,
 de6ebf2bc8c445f28f2a25b03cac056b,179,21,QR,Qatar Airways,2,50000,99999,,0.5,532153117035-82,active,
 de58869324a1458abb5b0af234b76d5e,108,31,,Alkedo,3,10000,24999,,1.5,79639147194-11,active,
 de4fdde0f9bc4f0391dd819797dc9afa,75,21,Lafarge,Lafarge SA,2,,,,1.25,74190171808-22,,1
@@ -1211,6 +1228,7 @@ dd4f578883664b67a7b90c6f104ac3f6,82,25,FAMAB,FAMAB e.V.,2,,,,0.25,10294825951-14
 dd45e345bf7f48daa7314170d96ac1c0,21,25,ECTP,European Construction Technology Platform,2,50000,99999,,0.5,60598725719-66,active,
 dd40c19720cb44a68ba0308051109e33,82,42,MHH,Medizinische Hochschule Hannover,4,,9999,,0.25,861732713521-37,active,
 dd2395619bad43ebbf3170008fe33fdc,233,21,,Tata Limited,2,,9999,,0.5,732259614632-44,active,
+dd1d47a3e142465a838abbf882bb409a,214,31,,Yalla Trappan,3,,,0,0.25,300340919788-77,active,
 dd158acb1b0e44e18c8a7c381005e9ce,21,25,AFECOR,AFECOR - European Control Manufacturers Association,2,,9999,,1.25,18638678159-24,active,
 dd13f19a97594432b58acfb209b16584,21,21,EOS,European Organisation for Security,2,,9999,,8,32134385519-64,active,
 dd0ffe8ea2db410f9e4dc8789302c91d,14,25,EVME,Europäischer Verband Mittelständischer Energieunternehmen,2,,9999,,0.25,71153116524-62,active,
@@ -1413,6 +1431,7 @@ d80120e9fdb54ab083b9f35d6a66b349,74,63,,Tampereen ja Pirkanmaan EU-toimisto/Tamp
 d7f8a7f0b0934b01bc8cf738d2004ba5,37,31,NCPO-C,National Cleaner Production Office-Cambodia,3,25000,49999,,8,15656295453-19,active,
 d7e73c3678554a548ee63d063388580d,214,25,SAMI,"Svenska Artisters och Musikers Intresseorganisation, SAMI ek. för.",2,,,22600,0.75,198926413191-20,active,
 d7ddb08d92e64fd483525d7c7bcfcdfc,14,51,,Israelitische Kultusgemeinde Wien,5,,9999,,0.5,680684015088-57,active,
+d7da2bce6be749e48674759776dec901,233,42,WRUC,White Rose University Consortium,4,,9999,,1,479824719742-03,active,
 d7d91991fdd74bb19d910f746a0ee232,75,42,FX,Fondation de l'Ecole Polytechnique,4,,,,1,04011721692-71,,
 d7d1cc9edc9c4fd9b428f78de941b94f,39,41,IISD,International Institute for Sustainable Development,4,,,,0.5,737088911290-60,,
 d7cb7224e9e846b4844b4c93f344a68f,105,25,,Irish Tax Institute,2,,9999,,1,08421509356-44,active,
@@ -1501,6 +1520,7 @@ d5b39282bae540c992bc6eef3b06e821,234,25,ICGA,International Chewing Gum Associati
 d5ae90eb092e40cbb9db66b559ba892c,21,64,ECRC,European Centre for Regional Cooperation,6,50000,99999,,2.5,755683210203-84,active,
 d59e8bec231b4d408a77386692a1f340,21,25,IPEC Europe,International Pharmaceutical Excipients Council Europe,2,25000,49999,,0.25,341962119314-36,active,
 d593fb21c00f47119fbf53fe675c506e,21,63,NDEU,North Denmark EU Office,6,700000,799999,,7,415452516066-49,active,4
+d58226f816df4c38b3476d946ff9a629,108,31,EAAP,European Federation of Animal Science,3,700000,799999,,2,989108519757-22,active,
 d57c954fadd343d6a6d2ed5dc878a2e5,82,31,EAAD,European Alliance Against Depression,3,10000,24999,,1.25,98224959162-32,active,
 d57bf9a3ff73451e8dc70755482fc600,215,25,VE,Vaccines Europe,2,,,469433,1.75,53073567234-18,active,
 d574af17eb32459798d3b15e6f8692f7,108,31,M.I.C.,Museum Instrumentorum Calculi,3,,,,0.5,237704419326-86,,
@@ -1509,7 +1529,7 @@ d56f5bd006b1486e8103c20c04926969,209,25,FECOPEGUI,FEDERACION DE COFRADIAS DE PES
 d56e2ec8f2054566978e9297d29df674,21,13,,Ann Becker Consulting Sprl,1,50000,99999,,1,441941516427-70,active,
 d56cbcb3782740cfb61c3d5691464287,82,27,BGVZ,Bund Getränkeverpackungen der Zukunft GbR,2,,9999,,0.25,431222818523-35,active,
 d56aee933c59494b855a39f9e46acfd5,209,21,,Endesa,2,50000,99999,,1,47504237466-74,active,2
-d569b3d4b3544ec598ba56ab92712a03,85,31,,The Smile of the Child,3,,,238005,1,66055258617-28,active,
+d569b3d4b3544ec598ba56ab92712a03,85,31,,The Smile of the Child,3,,,238005,4,66055258617-28,active,
 d5611f10fe7c4d87ae52fe437287a396,21,25,,European Payment Institutions Federation,2,50000,99999,,1.5,461826311486-83,active,
 d5605f759d014a8bab05520c28817b09,214,27,Aktiespararna,Sveriges Aktiesparares Riksförbund,2,,,20000,0.5,60853148406-80,active,
 d55683249e084d528075eb85184707ed,180,31,provita,Asociația PRO VITA filiala București,3,,9999,,0.5,549808612528-33,active,
@@ -1576,6 +1596,7 @@ d3dc0e0788fe494689994cdcf2d30f93,233,25,UKSIF,UK Sustainable Investment and Fina
 d3d5fe4dbbf8464eb074def4d11cc0c3,75,31,ACME FRANCE,Association des couples multiethniques de France,3,,9999,,0.25,186164515720-49,active,
 d3d0f5be9f1a45bf8d919b09c2f43e1d,234,21,,News Corporation,2,25000,49999,,0.75,544873617314-08,active,
 d3c73c7ac67345ea9e70c644c7285d97,233,25,DIF,Digital Interoperability Forum,2,50000,99999,,1,77946677931-57,active,
+d3c4233552b44723ac328f01d40767e9,209,31,cGO,Fundacion CitizenGO,3,,,779000,21,986135619786-51,active,
 d3c2866752194ccbaa5bcba053f140d1,21,31,ERTRAC,European Road Transport Research Advisory Council,3,25000,49999,,1,855647016671-07,active,
 d3a4c96f32304ea1b7275b3ff86b4a3a,155,31,FKI,Free Knowledge Institute,3,,9999,,1.5,284273319262-42,active,
 d3a0455edab74f4e884391a3a2708a4c,107,31,,The Mossawa Center,3,400000,499999,,0.5,106413816989-72,active,
@@ -1584,14 +1605,15 @@ d38f1474fc694159a3457d0d15d3ff81,82,31,BAGFW,Bundesarbeitsgemeinschaft der Freie
 d38b6c4cfdcd405599034bc776a91a13,176,31,SKES,Stała Konferencja Ekonomii Społecznej,3,,,,0.5,988164216496-31,,
 d3865e2f03f543e280474056eebbe909,21,31,EMMI,European Money Markets Institute,3,500000,599999,,0.5,70092714192-21,active,3
 d381197e6080470f9f8b64c0915a09de,155,63,UvW,Bureau Brussel Vewin -Unie van Waterschappen,6,50000,99999,,52,17798717671-62,active,2
-d37e0ea8803f4ccdb5a172ee725df568,108,31,Lega del Cane,LEGA NAZIONALE PER LA DIFESA DEL CANE,3,,,25000,1,497867319465-43,active,
+d37e0ea8803f4ccdb5a172ee725df568,108,31,Lega del Cane,LEGA NAZIONALE PER LA DIFESA DEL CANE,3,,,25000,1.25,497867319465-43,active,
 d37c3cafbfb341cf8cc59559b9cdba42,57,42,EOC,EUROPEAN OFFICE OF CYPRUS,4,,9999,,1,67885098248-29,active,1
 d373270c4e624c81a5dadfc636a59f6c,21,11,COPRODES,COPRODES Comm.V,1,,9999,,1,325785410304-47,active,
 d3665c8ac0ec483b82524e45e2a2fb43,21,31,IP Europe,Coalition of European Organisations on Innovation and Industrial Property,3,,,,1,562316318576-78,,
-d34ce3b349604f54b1ac1cdfc94f31d9,75,21,,AIR FRANCE,2,,,,1.75,350652449-83,,1
+d34ce3b349604f54b1ac1cdfc94f31d9,75,21,,AIR FRANCE,2,300000,399999,,1.75,350652449-83,active,1
 d34b7cf5069443ff95c9fff3e3aa287f,21,31,ENCATC,European Network of Cultural Administration Training Centres,3,100000,199999,,4,357467010010-25,active,1
 d341ce05551443e3aae37b3172e6a0bb,108,25,ASSOGENERICI,ASSOCIAZIONE NAZIONALE INDUSTRIE FARMACI GENERICI,2,,9999,,0.25,96500235884-39,active,
 d32749240c74460fbf3368abbd135684,21,11,KDC Conseil,KDC Conseil SPRL,1,,9999,,1,898914810908-76,active,2
+d3255e3f2e014bca9b52d2e9477ecbe9,108,21,,Coop Italia,2,,,26000000,0.25,997419019812-36,active,
 d3223a389a7e4befb0ce3449d49fc321,75,41,,INERIS,4,,9999,,137.5,14356213941-17,active,
 d32178f3879f40d4a930cb63885535b7,39,31,,A.C.E. Consulting,3,,9999,,1,47268224281-35,active,
 d315a34ebb9c44918535d191b85d20c4,21,31,OXFAM INTERNATIONAL,OXFAM INTERNATIONAL EU ADVOCACY OFFICE,3,300000,399999,,12.5,46856801604-90,active,12
@@ -1686,6 +1708,7 @@ d0eb780d92814b9b873be96ccc6a8ba8,233,25,techUK,Information Technology Telecommun
 d0d9fce48a31476997575e2a43c69105,209,31,HISPACOOP,CONFEDERACION ESPAÑOLA DE COOPERATIVAS DE CONSUMIDORES Y USUARIOS,3,100000,199999,,3,307379711971-54,active,
 d0d62a2a91d14d609052e973d861aaa3,21,25,BBF - FBB,Belgische Baksteenfederatie - Fédération Belge de la Brique,2,,9999,,0.5,724788312928-45,active,
 d0d3fd3e92194f259b7ee3fac2f265a5,233,25,CIPD,Chartered Institute of Personnel and Development,2,,9999,,1.75,233003414895-73,active,6
+d0c8ca8acc1c4b14a1fa1d66f8422321,214,42,SU,Stockholms universitet,4,,,,0.25,514687319814-91,,
 d0c3b611e60a402a86f027e2fb24cf0c,234,31,CIEL,Center for International Environmental Law,3,,9999,,1.25,001245815997-85,active,
 d0bdbf4cc4824b238dc4346ec5ef3f7b,82,25,BFIF e.V.,Bundesverband für Inkasso und Forderungsmanagement e.V.,2,,,80000,1.25,598599312338-25,active,1
 d0af39d5ea6449aba20510420d96cd42,14,13,,Hoppe -  Strategia. Politica. Media,1,,,,1,753726518650-10,,
@@ -1718,7 +1741,7 @@ cfd4410dca1549149f1346bb3d11aa39,75,25,FFTélécoms,Fédération Française des 
 cfce35cbdd9448c28163c1f8af3556c4,108,26,AIM,ASSOCIAZIONE ITALIANA MASSOTERAPISTI,2,,9999,,0.25,26510874603-28,active,
 cfca409b7c8a43a998f3f6f7eb685bb1,233,21,,Dane Color UK Ltd.,2,,9999,,0.5,843258113766-77,active,
 cfb60481bcf140a4bbc204e1a1fd4880,21,11,KEA,KEA European Affairs,1,200000,299999,,5,9213770154-45,active,5
-cfb2020049a049b4ad8d334466fcb700,82,11,,Roland Berger,1,,,13409000,150,092636516471-94,active,
+cfb2020049a049b4ad8d334466fcb700,82,11,,Roland Berger,1,,,,150,092636516471-94,,
 cfa14f1193da4f549e1e05296e104917,209,31,EURALVA,The European Alliance of Listeners' and Viewers' Associations,3,,,44000,7.75,506517716918-45,active,
 cfa008a820444ecbb067174ef37a9b5e,21,26,EFFE,Fédération européenne des emplois de la famille,2,100000,199999,,2.25,716909919073-32,active,
 cf96ad19adb0489caed0d5d92b1fcd2f,21,13,,Fabien Ferasson,1,,,150000,2,751064914295-73,active,2
@@ -1730,6 +1753,7 @@ cf822cc6503242ac9c81ea0b4a141149,209,25,FEPEX,"FEDERACIÓN ESPAÑOLA DE ASOCIACI
 cf6ab8396a264a3ba67a418f9315410b,21,31,EUMETNET,GIE EUMETNET,3,,9999,,3.5,64494579178-63,active,
 cf66c964dc0148d8b7dc1969b81273b5,215,31,EULAR,European League Against Rheumatism,3,100000,199999,,1,89158218867-92,active,
 cf5e379afe52461e92b98d7b4b203d10,14,26,,Österreichische Zeitschriften- und Fachmedienverband (ÖZV),2,,9999,,0.25,528191712826-75,active,
+cf5e2adad8b748b69975ed81930bbc0e,233,64,V&A,Victoria and Albert Museum,6,,9999,,0.25,700622119730-52,active,
 cf5b555bea75447a974ff0574d7d8325,233,31,IARO,The International Air Rail Organisation,3,,9999,,0.25,81881203322-94,active,
 cf57f2d3b8b1429bb3827179dc23c382,180,31,APV,Asociația Planeta Verde,3,,9999,,4,484398612707-97,active,
 cf55e20adb2848e2805f9365f7b86e22,21,25,AESGP,Association of the European Self-Medication Industry,2,100000,199999,,3.25,99565011637-64,active,3
@@ -1762,6 +1786,7 @@ ceaded41b322446e930b6613484ac440,75,66,CNOP,Conseil national de l'Ordre des phar
 ce8ccc74650544478b28cd7300bd5706,82,31,BKJ,Bundesvereinigung Kulturelle Kinder- und Jugendbildung e.V.,3,,9999,,0.75,49019836094-43,active,
 ce879d2e6fb24594ba9f05336c7a0972,21,31,JEF,Young European Federalists | Jeunes Européens Fédéralistes,3,,9999,,5.25,22158552884-38,active,2
 ce83abd7ed4943cfa43beb3618fa6268,233,31,HAPI,Health Action Partnership International,3,,9999,,3,58883735304-60,active,
+ce7d1ef9b91d41eb88deebc801e86682,233,31,ALABC,Advanced Lead Acid Battery Consortium,3,,9999,,0.75,440735419677-58,active,
 ce73c73c868a4bed8e5c1e68e7339e5b,14,21,,Austrian Airlines,2,10000,24999,,0.75,983474516327-48,active,1
 ce71fbb480db4b488fe66ae0eaaf6b17,209,21,CLLX,Cellnex Telecom S.A.,2,25000,49999,,2.25,412366615831-33,active,2
 ce6a3a855bf34093af376855089f16a5,75,64,,Association Midi-Pyrénées Europe,6,,9999,,5,85470672196-59,active,
@@ -1794,6 +1819,7 @@ cdbec1d045d34a1e93a2d47ff75ce19e,21,25,WAPA,World Apple and Pear Association,2,,
 cdb43f79866c45ada325c8a44f8419a7,82,25,VPRT,Verband Privater Rundfunk und Telemedien e.V.,2,,,125000,1.5,27085111347-65,active,2
 cdb0ce7cce354193af1d8ef97207265e,82,21,,Kaufland,2,300000,399999,,1,13480556813-27,active,1
 cdb0bdd528e24a8aa2cc0b4b6d42307e,233,41,,The Genesis Initiative,4,,9999,,0.5,05221658419-01,active,1
+cda62d0730bd4625871b0ea9261af98e,233,21,ofs,onefinestay,2,,,50000,0.5,797200019731-91,active,
 cd8ae008d6444078bd8312b855c3c870,21,41,WMCES,Wilfried Martens Centre for European Studies,4,,9999,,0.75,865557816122-74,active,
 cd862710f0844a3bae0aa8ad61bd795a,82,51,ACN,Aid to the Church in Need,5,25000,49999,,1.25,118236613508-31,active,1
 cd834eedf92b418183b80323983524b5,75,66,ANSES,"Agence nationale de sécurité sanitaire de l'alimentation, de l'environnement et du travail",6,,9999,,2.5,118084810394-25,active,
@@ -1883,6 +1909,7 @@ cbcc6b6edec34338800cc8b8d446684d,75,11,NSC,NIVIERE SUBVENTIONS & CONSULTING,1,,9
 cbc8d7d36f0d46bf8e3ea3e2a05da9c0,82,27,,EURAMET e.V.,2,,9999,,0.25,83842168796-93,active,1
 cbc8d6ca40714ae1b7367a91a46cc8ee,101,31,IDEI,International Development Enterprises India,3,,9999,,0.25,54665015930-89,active,
 cbc1087066ab43d7bf212aa4de28d200,21,25,,Cooperatives Europe,2,100000,199999,,2,16999985032-07,active,
+cbb6e92eb8014364b062561d0a6a6eae,233,42,UoS,University of Strathclyde,4,10000,24999,,0.5,540084619691-24,active,
 cbaccfbd4cde4a3386c48b6a9212db00,21,27,Nihil,Unify Communications sa,2,,,,0.25,485880317579-75,,
 cba57f349b3142a496bebe44ca354b79,82,21,vitaphone,Vitaphone GmbH,2,10000,24999,,1,392197818556-75,active,
 cb9e4a77ae984e8fad6f783afd10d01b,108,21,,myHealthbox,2,,,0,0.25,939272313523-22,active,
@@ -1895,6 +1922,7 @@ cb76bccf965b4f9e8cc3025604e05723,177,63,CIM Ave,CIM Ave - Comunidade Intermunici
 cb719320d27a4a5695ef21b15b2668df,82,25,,"SPECTARIS Deutscher Industrieverband für optische, medizinische und mechatronische Technologien e.V.",2,,9999,,0.5,55587639351-53,active,
 cb6b451ae29a49f0a568374ef6405fb7,234,31,,Avaaz,3,100000,199999,,2.25,475565317526-24,active,
 cb68dca760044b65a530b218e60df484,201,11,,"nakupujbezpecne.sk, s.r.o.",1,10000,24999,,1.5,734531118491-50,active,
+cb67b908df5c4aac9079e6db0ca9b961,98,13,,BiodivSourcing Ltd,1,,9999,,0.25,094743219598-61,active,
 cb632094d3ca4c2b8b4963ac0dfe5107,215,21,,Syngenta International AG,2,1250000,1499999,,2.25,16822412339-79,active,5
 cb611e97697e441cba051a5ed01ac055,21,13,,Joaquín de Santos Barbosa,1,,,,0.5,369704518665-47,,
 cb5883424d0548d882b338260a4fab85,234,31,,Personal Connected Health Alliance,3,,9999,,0.25,228418013575-67,active,
@@ -1903,7 +1931,7 @@ cb53a14b89244199bab07495912991f5,21,31,ECAS,European Citizen Action Service,3,25
 cb521278ecc64641a3028d036da7e517,233,25,GBTA,Global Business Travel Association,2,25000,49999,,0.25,43871558497-67,active,
 cb51f85a9f8b4cf08e08364df8bc201c,82,31,DNR,"Deutscher Naturschutzring, Dachverband der deutschen Natur-, Tier- und Umweltschutzverbände (DNR e.V.)",3,10000,24999,,1.75,98430135820-35,active,
 cb4bf841e2694cbcbd63ec8212d9e09c,74,11,,Innovalogy,1,,,,3.75,25377989679-17,,
-cb49bb021546401591ca6941ea6e4356,85,31,Ε.Π.ΚΑ.Σ.,ENOSI PROSTASIAS KATANALOTON SERRON,3,,,,1,65810058-13,,
+cb49bb021546401591ca6941ea6e4356,85,31,Ε.Π.ΚΑ.Σ.,ENOSI PROSTASIAS KATANALOTON SERRON,3,,9999,,1,65810058-13,active,
 cb3ca75a4c83441aae0cbe4ad5ed1c68,233,25,BEAMA,BEAMA,2,,9999,,1.25,20211077852-36,active,
 cb362832dcdf4ed68baa1d53f4b83f2a,82,21,GfRS,Gesellschaft für Ressourcenschutz mbH,2,,9999,,0.5,823753815507-47,active,
 cb2c81fec0394da683a995970aa8dbec,21,11,,MSLGROUP Brussels - Division of NICEWORK SA,1,400000,499999,,2,19747905832-33,active,4
@@ -1951,10 +1979,13 @@ ca1a927fc892469ab4d792138483edac,75,31,ECTI,Echanges et Consultations Techniques
 ca172c4610504aa088b23661520d92e9,21,31,EMPA,EUROPEAN MARITIME PILOTS ASSOCIATION,3,,9999,,2,927436210905-60,active,2
 ca12a2c1f9a34a798c1cb435c27fd3c1,108,21,Engineering,Engineering Ingegneria Informatica,2,,9999,,5,113055019349-15,active,
 c9ffc2732af3404083e36bf6ceca9e5e,75,31,ERADRH,Espace de Recherche Appliquées au Développement des Ressources Humaines,3,,9999,,1.5,19883759814-17,active,
+c9f7c55f705943c69d51a2c58e9d84f4,39,31,OM,OpenMedia Engagement Network,3,,9999,,0.75,232678519050-87,active,
 c9edfd9dee7e47299d006334f47b7ea9,214,21,IQ,IQ-initiativet AB,2,,9999,,0.25,828445318915-31,active,
+c9deff542fc74ca9915253436e8375a8,21,21,BIG,Beaulieu International Group,2,100000,199999,,1,608174919777-30,active,
 c9cb35c5cf3b4f408adc99b474e471a7,21,31,IJJO,International Juvenile Justice Observatory,3,,9999,,3,47310234921-93,active,
 c9b77a69a3e1400e8c187dcdcbd2a5e3,82,31,FUEN,Federal Union of European Nationalities,3,,9999,,5.5,331310413543-50,active,7
 c9b0da8de877414a9855a852a3de464f,108,25,FIMI,FEDERAZIONE INDUSTRIA MUSICALE ITALIANA,2,,,10,0.5,238010512218-41,active,1
+c9ae30d552304d6888f862046aefdd7b,127,21,,Colt Group S.A,2,200000,299999,,1,340474419749-80,active,
 c9aa49aa5cf3483ab227280937c09374,233,11,EPA,Endeavour Public Affairs,1,,9999,,1,12252886551-76,active,
 c9a5b8ddd2df4c10a17a4378e494dd81,75,31,,La VOIX des EMPRUNTS RUSSES,3,,,1000,0.5,8418948346-53,active,
 c98277a1386748efb429364b5ab606ce,21,31,ETP SMR,European Technology Platform on Sustainable Mineral Resources,3,,,69482,1,899865419498-82,active,
@@ -1962,6 +1993,7 @@ c9826babb4544ea68cc81c6523eb36fa,21,25,IEACS,Institut Européen des Armes de Cha
 c97bc8df6b244d05969df80a36a4addc,82,11,degepol,Deutsche Gesellschaft für Politikberatung e.V. (German Association of Political Consultants),1,,,1000,1,58798766431-41,active,
 c976eab04c414838b77a41efb581df9b,21,25,EMO,European Mortar Industry Organisation,2,100000,199999,,0.5,775299618501-45,active,
 c97070d68a8e4cbbbb19186d41743b6f,74,26,TP,Teollisuuden palkansaajat TP ry,2,,9999,,0.25,979757811894-96,active,
+c96fa5b648624961a9a4d3f901d9c925,233,31,EAA,European Airsoft Association,3,,,150,0.5,162670419764-08,active,
 c96d25099fda44f0bc63bd98f57e7860,155,42,ECIU,European Consortium of Innovative Universities,4,,9999,,0.5,84640907750-09,active,
 c96a465fab6946548b75e9d48e7dfacc,75,31,LPO,Ligue pour la Protection des Oiseaux/BirdLife France,3,,9999,,0.5,943775614714-81,active,
 c96974d3d742458c83ab0d7d2e26074f,21,31,MIJARC Europe,Movement International de la Jeunesse Agricole et Rural Catholique,3,,9999,,1,65476094669-35,active,
@@ -1989,7 +2021,7 @@ c8983d0cc5a7416b9cc3cedfad0210a3,180,63,UNCJR,National Union of County Councils 
 c897e33ba7a0444e87ba2d2767dbf5ec,108,31,OS CAVALEIROS,OS CAVALEIROS DA CRUZ AZUL,3,10000,24999,,1.5,41548285433-81,active,
 c8969c1017574a32bfd52f82973b10f5,21,11,HLC,Harwood Levitt Consulting,1,25000,49999,,2.25,91450204419-60,active,10
 c889105b66cb4241a27f1925b63b4529,75,27,APCA,Assemblée permanente des Chambres d'Agriculture,2,100000,199999,,1.75,47600618458-36,active,1
-c885b28c8c564886b0f1dd6897f52272,54,66,HAVC,Hrvatski audiovizualni centar - Croatian Audiovisual Centre,6,,9999,,7,665614919043-18,active,
+c885b28c8c564886b0f1dd6897f52272,54,66,HAVC,Hrvatski audiovizualni centar - Croatian Audiovisual Centre,6,,9999,,2,665614919043-18,active,
 c88540cf30324b6eb44e5d17275d6eb7,214,11,,Intercity Consulting,1,,9999,,1,713232115488-01,active,1
 c8811549e297449b9067ad240bc1ff9b,155,25,ECF,European Coffee Federation,2,,9999,,0.5,55109801981-05,active,
 c87f07d5188f46a4a2f5f0427a5df069,14,26,ESR,European Society of Radiology,2,25000,49999,,3,478131313572-40,active,
@@ -2050,7 +2082,7 @@ c7072be2704b4cf3ad55da005b7252f8,85,11,A.T. MANAGEMENT,A.T. MANAGEMENT FUNDING A
 c6f56c9332e94f2499b3cdd5b7960fe1,108,41,,ORIENTA CONSULTING SOC COOP ARL,4,,,,0.5,325441913032-04,,
 c6eebaea5353468c8b2f8dfe649f5245,108,21,,SAVE S.p.A.,2,,9999,,0.25,760932516614-51,active,
 c6e76d610b5045e1a1f2e379a38f10c2,155,13,JongmanEcology,JongmanEcology,1,,9999,,0.75,843104517610-39,active,
-c6e3fe2a365f44d8be7ce4313ce40a65,21,31,CNUE,Conseil des Notariats de l'Union Européenne,3,,9999,,5.75,98885666486-72,active,4
+c6e3fe2a365f44d8be7ce4313ce40a65,21,31,CNUE,Conseil des Notariats de l'Union Européenne,3,1000000,1249999,,5.75,98885666486-72,active,4
 c6dee9bbfed34f049c2a7edae0ae5dc9,177,26,UGT,União Geral de Trabalhadores,2,,,150000,2,263496117721-74,active,
 c6cfeee4ec5a4d9f9e0ba7628a6f5fe9,234,25,NMPF,National Milk Producers Federation,2,,9999,,0.25,706392016842-13,active,
 c6cc18319fa2437eb66d7ea43a567542,21,13,,AliénorEU,1,100000,199999,,2.25,204793610436-15,active,4
@@ -2083,6 +2115,7 @@ c605237984fe4650a204e6c823857ac7,21,31,cread-d,Creative-District,3,,,,1.5,010872
 c602a1cf1b304160a8d504835f2efdbf,82,66,AOK-BV,Allgemeine Ortskrankenkasse-Bundesverband,6,100000,199999,,1,775903212549-24,active,1
 c5f78b8bf65c48199120f1f7912e8d86,21,31,WV EUREP,World Vision Brussels & EU Representation ivzw/aisbl,3,300000,399999,,9.75,64689102746-48,active,3
 c5f4b4dc4ac64bb9977d59d6db8569f1,75,11,,ANTHENOR Public Affairs,1,10000,24999,,0.5,66320401710-49,active,
+c5f41186b61a4c5f90b44f512df29238,108,31,FOB,EUROPEAN FEDERATION FOR FREEDOM OF BELIEF,3,,,,1,015146319708-20,,
 c5f2571270ac40b2954edeb8e08b1288,108,21,Snam S.p.A.,Snam S.p.A.,2,100000,199999,,1,284336314886-25,active,2
 c5e43a7fcf8d407599ff0dff83b9b747,82,31,DGUF,Deutsche Gesellschaft für Ur- und Frühgeschichte e.V.,3,,9999,,0.25,82277971427-06,active,
 c5e139a4efa54edd8a966e7e94438996,21,12,DB,Decker et Black,1,,,,1.75,624529319430-33,,
@@ -2115,6 +2148,7 @@ c563fafe7e6649d38f6d7c089af70e75,21,31,CSCE Asbl,Collectif Solidarité contre l'
 c55d2a642cda460dadd3160822bf99dc,21,31,ENAJ,European Network of Agricultural Journalistst,3,,,8750,0.25,464700016643-33,active,
 c55380b4b9554015b8fd358d4ee2e8d8,209,13,IESE CRHIM,Magdalene Rosenmoller,1,,9999,,1,655573518229-07,active,
 c5493be7eea64a79a0fa8dbbb0c981b1,155,25,VKP,Vereniging van Kunstmest Producenten,2,,9999,,0.25,764524716483-87,active,
+c5493896d15f4c5ab626ca8aa78ba141,176,65,ERB,Euroregion Baltic,6,,9999,,0.25,626055619655-10,active,
 c538c722995b42fcb569591f2e78e978,21,25,,European Aluminium AISBL,2,1000000,1249999,,7.75,9224280267-20,active,7
 c518ff636bb9444a889adbf3bd7798b1,21,21,,Telecom Italia,2,,,,4,36682861898-97,,5
 c50d209436924db2ac68b5b3523ab5a6,108,25,FARMINDUSTRIA,Associazione delle Imprese del farmaco,2,25000,49999,,1.25,986523914777-31,active,3
@@ -2169,6 +2203,7 @@ c3ae518373554eda95af3cefd836b068,155,21,PostNL,PostNL Holding B.V.,2,200000,2999
 c3a7543494fb405da6f683756b6b918f,75,31,FVB,France Vin Bio,3,,,1500,0.25,067437516872-83,active,
 c3a15479c001435693b4e972f9932dc4,36,31,ADISCO,Appui au Développement Intégral et la Solidarité sur les Collines,3,,,,0.5,715779017469-49,,
 c39eddab3a524b148d92eeeb63398706,82,21,,Constantin Medien AG,2,,9999,,0.25,348845016774-12,active,
+c38cde1858514823ad01d619d2a5241d,215,25,EPFL,Association of European Professional Football Leagues,2,25000,49999,,0.75,400815519771-38,active,
 c385c89b10a74128983ae2b923992662,21,25,Eurits,European Union for Responsible Incineration and Treatment of Special Waste,2,,,250000,2.5,46904231219-48,active,
 c384b63e79594cc294a260b53ea0b927,177,21,G9TELECOM,G9SA TELECOMUNICACOES SA,2,,,,0.25,64469198954-76,,
 c37c1da327544381bba0e06dca6d21e4,233,13,,Andrew Wigley,1,,,,0.25,502337113144-56,,
@@ -2328,7 +2363,7 @@ c012865409d24ee589e8a26a17e71dde,82,66,UNEP/CMS Secretariat,Secretariat of the C
 c00e0ef645ab46bf84cb4604d06baa7c,108,25,TWS,The Watson Society,2,,,0,1,001953912585-40,active,
 c00c78ae1efa46e2863cfa1551b0c142,21,26,EFOW,European Federation of Origin Wines,2,50000,99999,,1,93296213494-75,active,
 c00b89d0a216444fa459401bc1b3e042,21,25,BFG-FBEP,Belgische Federatie Groenvoorzieners,2,,9999,,0.25,982190910352-88,active,
-bff4f9d0f5504277815c59294ec5d52a,215,31,doCip,"Centre de Documentation, de Recherche et d'Information des Peuples Autochtones",3,25000,49999,,1,74246505019-84,active,4
+bff4f9d0f5504277815c59294ec5d52a,215,31,doCip,"Centre de Documentation, de Recherche et d'Information des Peuples Autochtones",3,25000,49999,,3,74246505019-84,active,4
 bfeffeafab1a455a9d2d66a247d45e67,75,66,CEDR,Conference of European Directors of Roads,6,,9999,,2.75,485630615462-79,active,
 bfe9b8dd76e548a9b3274f64e1204795,21,21,CEDEC,European Federation of Local Energy Companies,2,,9999,,2.25,54829912208-85,active,2
 bfda943df51349c9a9c08802d55027fa,215,11,,Aviation Advocacy,1,100000,199999,,1.5,004470412720-87,active,1
@@ -2427,6 +2462,7 @@ bd43e0bd52f24dcc872fa3aa96ef8f45,21,25,FEAD,European Federation of Waste Managem
 bd3da48b13c244a7b0ebb05460a456d8,39,21,IFD,International Federation Of Denturists,2,,9999,,0.5,362696619240-92,active,
 bd3d31dea1624d99a09ded9e7031526d,226,31,C@rma,CARMA DANIŞMANLIK VE TİCARET LTD.ŞTİ.,3,,9999,,0.25,057308012412-18,active,
 bd3785d849224ca6b44c3ef8e4072ff8,108,25,ASCOMAC,Federazione Nazionale Commercio Macchine,2,10000,24999,,2.5,307070286-76,active,
+bd3380e1055b4350b3dda34e431226e8,209,41,IDIBAPS,CONSORCI INSTITUT D'INVESTIGACIONS BIOMEDIQUES AUGUST PI I SUNYER,4,10000,24999,,0.5,164763519801-50,active,
 bd30f073d407485a99ffd3e46d38d7fc,21,25,UPTR,Union Professionnelle de Tranport et de la Logistique / Unie van professionele Transporteurs en Logistieke ondernemers,2,,,,0.25,456423011521-90,,
 bd2bd13f24994b0dbf03c62735d1b275,233,25,RHA,Road Haulage Association,2,,9999,,6.25,97451376935-05,active,
 bd1f1a05db9645248f475fc6a0f810a4,104,31,IAMO,International Agency for Media Organizations,3,,,10,9.25,973723612439-55,active,
@@ -2651,6 +2687,7 @@ b7914b3c5b8b4f6f84ebbb969dbee25e,21,12,P&A,Pappas & Associates,1,400000,499999,,
 b77cc1ddc8f643f08bdb150184e7b748,108,12,,Giulio Marini,1,,9999,,1,29709186366-95,active,
 b77cae9154b84e68aec7549512f16ac4,21,64,EFADS,European Film Agency Directors,6,,9999,,0.5,430805515370-85,active,
 b77b55c83e4e4b4e817db82622e5d8f1,108,25,CSIT,Confindustria Servizi Innovativi e Tecnologici,2,,9999,,0.25,591192314700-10,active,
+b776e9319470495793e053e699f02b3b,155,25,EFPRA,European Fat Processors & Renderers Association,2,,,240000,2,402216719647-87,active,
 b76286bd9f6b4b4ebe960d395b2c2810,155,25,,Energie-Nederland,2,,9999,,1.5,619995310682-09,active,
 b75f9054fcaf4f46a8d19ad062f1794f,21,41,LVMI - Europe,Ludwig von Mises Institute - Europe,4,,,9999,2.25,466137412996-88,active,1
 b75b553c3f914dabafc7aa7c6713ef86,233,11,SSR G&M,SSR General and Management Limited,1,10000000,,,26,746012015918-10,active,
@@ -2659,7 +2696,7 @@ b752c5e7def04707bcb75a1a71616a01,234,21,ICE,Intercontinental Exchange,2,500000,5
 b73a619a4ace495099091588db8c97c5,143,31,Terra,Terra-1530,3,,9999,,2,27402534747-67,active,
 b72c983b74a045439707d59f57dc46f9,233,31,IFRS Foundation,International Financial Reporting Standards (IFRS) Foundation,3,500000,599999,,15,830882416841-19,active,
 b72bfd0198ad4cb79e589598fb8250c7,82,25,VFMW,Verein zur Förderung der mittelständischen Wirtschaft e. V.,2,,,40000,2,180455012407-07,active,
-b72a75349df44f08b2a185172130701e,180,13,,Lucian Buzea,1,,,,0.25,939908510932-67,,
+b72a75349df44f08b2a185172130701e,180,13,,,1,,,,0.25,939908510932-67,,
 b72049df7daa4826a3c7981f0f03d74a,195,21,GTK,GTK INTERNATIONAL,2,,,50000,2.5,020148019508-25,active,
 b71ffc17ace943149ff9c3b3f0ab472e,209,25,PYMAR,"Pequeños y Medianos Astilleros, Sociedad de Reconversión, Sociedad Anónima",2,,,,0.25,080354916486-85,,
 b71ba9160b0d4860aae237cf0e47e2ed,209,25,aces,asociacion de cadenas españolas de supermercados (spanish association of supermarket chains),2,,9999,,0.25,83150666100-20,active,
@@ -2699,6 +2736,8 @@ b665b87d546a431481f5d85f59eb445a,58,25,KAVZ,Komora administrátorů veřejných 
 b663641d3ea84cea80b1f488532a89b8,21,41,FoE,Friends of Europe,4,,9999,,27.5,99436366768-45,active,1
 b65fc5c4a76341fa8e2c41532a4b0b44,14,31,IFG,International Forum Gastein,3,,9999,,1.5,022328713595-61,active,
 b647c7b74ef649ca9f3f753e592fa597,75,25,APFeL SO,APFeL Sud-Ouest,2,,,2000,0.25,20774009496-90,active,
+b63e15bce8514015b31552a3239ecc81,233,41,ELC,European Link Coalition,4,,,,1,997887519715-35,,
+b63ccdd3b41b474c952786e6da60b4f5,21,31,WGDO,World Green Design Organization,3,10000,24999,,7.75,175261019697-76,active,
 b63c54d0638a44878944481d647845e3,176,11,Kosmonauta.net,Kosmonauta.net sp. z o.o.,1,,9999,,0.5,01259758106-32,active,
 b63c367c222443db9efe24e8b9b80a7f,82,31,EAPSPI,European Association of Public Sector Pension Institutions,3,,9999,,1.5,0890355560-14,active,
 b636c189de5b4f7a8814947dcf5f0242,155,25,NOGEPA,Netherlands Oil and Gas Exploration and Production Association,2,,,40000,0.5,98996595810-75,active,
@@ -2716,7 +2755,7 @@ b5bf4fcb6616468c9283ce170abdb506,108,13,,RESILDA SALERNO,1,,,,1,532553618715-96,
 b5b9f01d3ad84e50a26be1f1b9cad3fc,155,31,,Stichting Lezen & Schrijven,3,,9999,,3.25,658822313443-95,active,5
 b5b4e3ab01bd43beb02ba9806ed691f2,234,42,PLI,Practising Law Institute,4,50000,99999,,0.25,173492317883-51,active,
 b5a9cfd5574e44469342f3c700f55c8d,75,26,CRPMEM,Comité Régional des Pêches Maritimes et des Elevages Marins Nord - Pas de Calais / Picardie,2,200000,299999,,6,697566218778-14,active,
-b5a5b303b4cc426c94d5c1ec2f974d7b,21,21,,ABB,2,,,599080,2.25,7790041608-14,active,2
+b5a5b303b4cc426c94d5c1ec2f974d7b,21,21,,ABB,2,,,599080,2,7790041608-14,active,2
 b5a4b6f84c76488bbf56ce3692f61213,59,25,FA,The Danish Employers’ Association for the Financial Sector (FA),2,10000,24999,,1.5,34774732119-86,active,
 b58923583f65419280c3d27143ac2ea1,14,21,ASFINAG,AUTOBAHNEN- UND SCHNELLSTRASSEN-FINANZIERUNGS- AKTIENGESELLSCHAFT,2,100000,199999,,1,306873210055-73,active,1
 b5809c7592e141989e2caa2fb1cebc0e,233,21,Prudential,Prudential plc,2,700000,799999,,1.5,65288482768-64,active,
@@ -2852,7 +2891,7 @@ b1aa41fb63844fcb9c46528fba260e60,75,11,GZ,Groupe Z,1,50000,99999,,3,633266716458
 b1a631654ca246199466bb811e8a5939,75,21,,Ligue de Football Professionnel,2,50000,99999,,0.5,380093418048-20,active,
 b1a35c933e354098afea907147965e89,209,26,ATSYPJA,Asociación de Técnicos Superiores y Peritos Judiciales de Andalucía,2,,9999,,37.5,250843310363-42,active,
 b1a09649860d4102a7e7fe3615a80d14,82,31,IFAW,IFAW Internationaler Tierschutz-Fonds gGmbH,3,600000,699999,,6,22644632329-52,active,6
-b198ef3e260d41088b90ce20a86a9e56,21,31,EEIG,"EUROPEAN ECONOMIC CHAMBER OF TRADE, COMMERCE & INDUSTRY EEIG",3,,9999,,212.25,58057919270-13,active,1
+b198ef3e260d41088b90ce20a86a9e56,21,31,EEIG,"EUROPEAN ECONOMIC CHAMBER OF TRADE, COMMERCE & INDUSTRY EEIG",3,,,,212.25,58057919270-13,,1
 b1973183291a4508b649ad9c82ad3747,21,11,Cambre,Cambre Associates,1,1500000,1749000,,19.25,23020671103-67,active,12
 b1962322854f4c1893bbe4009163ed28,108,21,A.P.C.R.,Agenzia Palazzo Commercio e Ricerca,2,,9999,,0.25,164820210035-22,active,
 b1953619fa6746889c57019558b05ea5,233,42,,University of Warwick,4,1250000,1499999,,86,536909915836-27,active,
@@ -2868,6 +2907,7 @@ b166bec3743946958c1f9208607a1428,21,25,LE,LightingEurope,2,1000000,1249999,,2.25
 b15f6eb796b54845b31bde19e746b5dc,75,31,SMS,SeaArt Mariners Supply™ since 1996,3,,,1,0.25,184441516479-73,active,
 b1556aa4aa184895966a7698a7cc5077,202,31,Združenje Manager,Združenje Manager,3,,,0,0.5,292309115403-44,active,
 b14759929eaa42f9bcfb7efbe58f29cf,196,21,NIS j.s.c. Novi Sad,NAFTNA INDUSTRIJA SRBIJE A.D. NOVI SAD,2,100000,199999,,3,170540516186-69,active,1
+b1457340311d453f96f1af94becfd110,85,27,MENDOR EDITIONS SA,KALAITZI STAVROULA EKDOTIKI METAFRASTIKI DIAFIMISTIKI AE,2,100000,199999,,3.75,197763419688-12,active,
 b14054ac046142029f9a9196241ac2c8,209,25,CICCP,"Colegio de Ingenieros de Caminos, Canales y Puertos",2,,9999,,1.5,80539345330-45,active,
 b138661611b346b6b8edd5d34de1519f,21,31,IGP,InternsGoPro,3,,,,3,838633717126-86,,
 b13757353c8744f193a5948b41b4decb,21,31,FFPI,The Free and Fair Post Initiative,3,,,55000,1.25,145982616387-18,active,
@@ -2924,6 +2964,7 @@ afe9a8f316c94f14ba33ff5db34685f4,59,26,LO,Landsorganisationen i Danmark,2,,9999,
 afe000aeb9fd4af185cc3ed35710292c,209,66,COPAC,Colegio Oficial de Pilotos de la Aviación Comercial,6,,,500000,23,021704918006-14,active,
 afda0b0223544b0b8eaebb01372fb6f5,74,25,SEOL,The Finnish Cinema Exhibitors' Association,2,,,,0.25,03775728979-11,,
 afd615e239a8447dae12cce5c852d2b4,234,21,,Citadel LLC,2,200000,299999,,0.5,836939615933-24,active,
+afcfe5df68fc4ec5847907b714dd5118,233,26,URT,URT Ltd,2,10000000,,,7.5,635509519675-51,active,
 afc54a15c9ca47b2a60cf957447d21e3,99,31,AGRYA,Fiatal Gazdák Magyarországi Szövetsége-AGRYA,3,,9999,,2,12798692504-49,active,
 afc14bbf827d4cd1a6ad4a3f40b44cf2,75,25,ADEeF,Association des Distributeurs d'Electricité en France,2,,9999,,0.25,985081713992-49,active,1
 afbadf9140e749a7a29636461fc64de6,215,31,,BioMedima,3,,9999,,0.25,36101569520-87,active,
@@ -2934,6 +2975,7 @@ af9e7e5b05ba4d3b92bb6b89c4fb8b37,105,31,EAE,Epilepsy Advocacy Europe,3,,9999,,0.
 af9302a725ed46c883eee089c6f38d51,74,25,ET,Finnish Energy Industries - Energiateollisuus ry,2,300000,399999,,4,68861821910-84,active,1
 af8e923bda4349cea6eb8ddb3a11216d,21,25,EBIC,European Biostimulants Industry Council,2,300000,399999,,3.5,034239613511-14,active,
 af841cd93d97473293bea614e6da0248,21,13,,Bartholomew  Advisors SCS,1,25000,49999,,1,237791211737-55,active,1
+af7eb07c9ca94575a4f21543a864cb16,176,26,GCPPL,Stowarzyszenie na Rzecz Dobrej Praktyki Badań Klinicznych w Polsce,2,,9999,,0.25,304723319703-40,active,
 af760de3b0f0448f8108e0c6fffef0ba,74,21,NEOT Oy,North European Oil Trade Oy,2,,9999,,0.25,967325815598-50,active,1
 af730f43987c442da4f00f6f4ecbc61e,75,41,TSP,The Shift Project,4,,9999,,0.5,793026615069-12,active,
 af686a62eda745b99ad39507868d514c,233,31,EUROALTER,European Alternatives Limited,3,,9999,,5.75,85223352533-24,active,
@@ -2984,6 +3026,7 @@ ae40528e309048b6bf422c225f493c28,82,21,adidas GROUP,adidas AG,2,400000,499999,,3
 ae3c4ac1b2f14e28be2eb3c77c5ccb0c,21,25,EREF,European Renewable Energies Federation asbl,2,100000,199999,,1.5,48677174683-66,active,
 ae3b7015ada34db3a37466075d65a860,10,25,INAI,Fundación Instituto para las negociaciones Agrícolas Internacionales,2,,,0,4,359445915577-50,active,
 ae3b6c0640a24ec1af4558ec7e511437,75,21,VEES,Veolia Environnement Europe Services,2,600000,699999,,5.25,72103751229-92,active,3
+ae2a246de17e4f418bcd88360840d1a0,21,41,GMF,The German Marshall Fund of the United States - Transatlantic Center,4,100000,199999,,11.75,823171519707-31,active,
 ae2017cd7fa34b8cb2e4473d8c7c2c13,74,25,FACG,Suomen Anti-piratismiyhdistys ry,2,,,0,0.25,064792712901-58,active,
 ae16fbe57d984abf83282b75ff719b0c,82,25,ADV,Arbeitsgemeinschaft deutscher Verkehrsflughäfen,2,100000,199999,,1,41108238259-40,active,2
 ae15a1f3882742ada57cefdb79da13cc,108,27,Asstel,Assotelecomunicazioni,2,,9999,,0.5,143477711695-75,active,
@@ -3116,11 +3159,12 @@ aaf49e052a5d4eb19bedac76723d74e8,21,25,ESF,EUROPEAN SERVICES FORUM,2,200000,2999
 aaed68cc31bd465690ea86ec23a6452f,233,25,CoGDEM,Council of Gas Detection and Environmental Monitoring,2,,9999,,0.25,91230848290-45,active,
 aaeb7e1b582c4334a2479a79cd1fc9da,234,25,GAMA,General Aviation Manufacturers Association,2,100000,199999,,2,49221685491-82,active,2
 aae96c49005f4bf0949f90d585d1beae,82,25,CEBP,Confédération Européene des Organisations Nationales de la Boulangerie et de la Patisserie,2,,9999,,2,486589010381-25,active,
+aae41cfbae8a4f5cac1e84ecd0055798,111,41,NITE,National Institute of Technology and Evaluation,4,10000,24999,,3.25,543981519791-33,active,
 aada98029f564958983b3360c3f71bd4,21,31,EBOWWN,EBO Worldwide Network ASBL,3,,9999,,1.75,941242711525-27,active,
 aad90a0ef936499c97abeab0cdf19103,209,25,ASPAPEL,"ASOCIACIÓN ESPAÑOLA DE FABRICANTES DE PASTA, PAPEL Y CARTÓN",2,,9999,,1,814014013312-48,active,
 aad6b3768d474cad8b35b15b246a3e8f,82,21,DT,Deutsche Telekom,2,,,1130000,8.75,60052162589-72,active,3
 aad48b072a704e2683c0ab2412789b08,234,21,RKT,Rock-Tenn Company,2,,9999,,0.75,324543517664-48,active,
-aad2b5ce972740079f47594bda715448,233,25,FTA,Freight Transport Association,2,100000,199999,,1.5,14799073282-84,active,1
+aad2b5ce972740079f47594bda715448,233,25,FTA,Freight Transport Association,2,100000,199999,,2.5,14799073282-84,active,1
 aacd47d39a5944348f81f76f9d6aa24e,108,41,ATIt,Associazione Teriologica Italiana (Italian Theriological Association),4,,9999,,0.25,48804488439-87,active,
 aacce891710446f3825af212218f31d0,209,31,EGEDA,Entidad de Gestión de Derechos de los Productores Audiovisuales,3,50000,99999,,6,52417673283-47,active,
 aac5ca5c751449f78d0c706904a23cd3,21,31,WWF EPO,WWF European Policy Programme,3,1000000,1249999,,12.75,1414929419-24,active,10
@@ -3174,6 +3218,7 @@ a9a73f79f12b493a958b7b29c0c875bf,209,25,ASINTRA,FEDERACIÓN ESPAÑOLA EMPRESARIA
 a9a5c18e59fc4f839c8085c2440ec2e5,21,25,,CHAMBRE DE COMMERCE D' ESPAGNE EN BELGIQUE ET AU LUXEMBOURG ASBL,2,,,15000,0.5,434877614680-77,active,
 a999d26bfd8f44f38a9820cac44b2fb5,108,21,Barilla,Barilla G. e R. Fratelli,2,,,130000,0.25,23808853344-79,active,
 a998dfb284cf4dfdb5e4348e323d1310,215,31,ICMC Europe,International Catholic Migration Commission Europe,3,,,,8,644857418898-95,,
+a9965426df18470991fec9a81aade140,209,25,AENE,ASOCIACIÓN ESPAÑOLA DE FABRICANTES Y DISTRIBUIDORES DE PRODUCTOS DE NUTRICIÓN ENTERAL,2,,9999,,1,453669119804-01,active,
 a99119ca223942a5b919152cd2653c14,82,21,,BASF SE,2,,,2300000,12.5,7410939793-88,active,10
 a98dff583e1141bd992216b7928a1356,21,25,IMPALA,IMPALA Association Internationale AISBL,2,10000,24999,,1.5,12383069253-19,active,4
 a98cf6ea4f3147dbbc98fe97c5141c47,209,31,AIE,"ARTISTAS INTÉRPRETES O EJECUTANTES, SOCIEDAD DE GESTIÓN DE ESPAÑA",3,,9999,,2.75,366404119541-66,active,
@@ -3230,10 +3275,12 @@ a7e4d9da27e6419196fa6d6bb28dec62,75,27,AFOC,association force ouvrière consomma
 a7e14b69d9074594b84612b4a99569c2,85,63,,Oulun kaupunki/ City of Oulu,6,,9999,,2.5,811074614479-83,active,
 a7df4106a5ee440bb1df7b7b65fdf427,21,31,EFIN,European Financial Inclusion Network,3,,9999,,0.25,34746653033-74,active,
 a7ddaae476094f718b8557d3a6ed3e91,82,25,FEMIB,Federation of the European Building Joinery Associations (FEMIB),2,,,21000,0.25,51745531023-40,active,
+a7d9d374c9fd48e19b320993105a24bf,21,13,,Technology Policy Advocates,1,,9999,,1,260243819561-20,active,
 a7ca925e38114bc78a8b7df068607428,233,31,,EcoNexus,3,,9999,,0.25,600698218851-84,active,
 a7b812dd95144b33b93ab644f7e62377,233,25,,The Faculty of Advocates,2,,,5000,0.5,731421013876-05,active,
 a7aacf6d897743e1a9f18a8617cf09ce,82,13,ochs25ker,Kerstin Ochs,1,,9999,,0.25,274570512914-59,active,
 a7a005f58e294911847f128a37509f9f,99,64,BBT,Budapesti Békéltető Testület,6,,9999,,23.5,147092912479-23,active,
+a79c96931cd24b8f87cf8149327a5f6d,215,31,GLEIF,Global Legal Entity Identifier Foundation,3,100000,199999,,0.5,660337819709-62,active,
 a7956ec0ddb34734ad5edf0c8704f514,75,25,URSCOP LR,UNION RÉGIONALE DES SOCIÉTÉS COOPÉRATIVES ET PARTICIPATIVES DU LANGUEDOC ROUSSILLON,2,200000,299999,,6,282030416473-51,active,
 a78d1e4daafa45d8a81059caeee43034,135,21,BOV,Bank of Valletta Group,2,50000,99999,,1.75,85472489822-85,active,
 a78ae3203d7641e88e3781a2fa198426,155,31,,Stichting Rewilding Europe,3,,9999,,0.25,203835118406-89,active,
@@ -3247,6 +3294,7 @@ a74459d94fe442a1ab309beb562fed21,155,25,,RAI Vereniging,2,,9999,,15,81447237779-
 a7419655044148ab90f2cc4547a963bc,234,21,Alexion,Alexion Pharmaceuticals,2,100000,199999,,1,611074012464-89,active,5
 a738186dc6e14fedb4ec6117cc494361,233,31,,Financial Future,3,,9999,,0.5,496002615183-27,active,1
 a736f29e66ee421aa305d6714ad559ea,234,13,,GreenOrange,1,,9999,,2,737411716060-84,active,
+a72d38e1326e49aaa89e38385e8ec682,21,11,,Peer Partners,1,,,,3,245641619704-97,,
 a7279f7d3dfe40fdac3f4a81d23d6ded,21,25,T&D Europe,European Association of the Electricity Transmission and Distribution Equipment and Services Industry,2,25000,49999,,0.25,90453504235-64,active,
 a71a3fa083564c27ac49e9c4fd11df84,155,21,TRABA,TRABA LOGISTICS,2,400000,499999,,3,144892418437-49,active,
 a711f5027e1544ab954286c576685f49,75,26,ADIV,ADIV ASSOCIATION,2,50000,99999,,0.25,179743215829-28,active,
@@ -3255,6 +3303,7 @@ a706b2a983454ff88d654a0fd45434da,82,25,BWHT,Baden-Württembergischer Handwerksta
 a6ef250672d64dfbacb8f201cb304e2d,82,41,MPG,Max-Planck-Gesellschaft zur Förderung der Wissenschaften,4,10000,24999,,4,173042412678-08,active,3
 a6ec20ef9254474fbffaae2e792a9096,75,31,EFP,European Federation of Parasitologists,3,,9999,,1,728881117653-25,active,
 a6e9bdb30d7a40edacde81ffde80577f,155,26,AEI,Aircraft Engineers International,2,,9999,,1.25,34931206489-95,active,
+a6e10fd129ff4288a850ffb93f7a70e1,180,31,ADR SM,AGENTIA PENTRU DEZVOLTARE REGIONALA SUD MUNTENIA,3,,,2794,2.5,965769519652-92,active,
 a6ce4c1bcf6343dcbd5ef8fe7d7795d5,233,41,,Autism Causes Centre,4,,9999,,0.25,847002714644-96,active,
 a6ce0395b4744c969ece97cd97dcdecd,21,11,,Rohde Public Policy,1,2250000,2499999,,9,96530144280-28,active,9
 a6cd5b4ed66440b5966995110cfdb432,59,31,,BØRNEfonden/ChildFund,3,,9999,,1,607574814476-56,active,1
@@ -3345,7 +3394,7 @@ a4d815925e2b415395603878f3e85685,82,31,EUKOBA,Europäisches Kompetenzzentrum fü
 a4c89014867b482791f6db266af76734,85,31,M.E.S.O,MESO Music Events,3,,9999,,0.5,58052308509-68,active,
 a4bedfcf150b45c2953a8fb55ff7e8a4,234,13,aahrabak,Albert A. Hrabak,1,10000,24999,,0.75,168943310007-25,active,
 a4ba7d562a554da19477bb041f1a9da9,82,31,ENSIS,European Network for Social Innovation and Solidarity,3,,,,0.25,523465116221-96,,
-a4b9696a38b24dd180bc09634c321ace,209,26,AVA-ASAJA,ASOCIACION VALENCIANA DE AGRICULTORES (AVA-ASAJA),2,1500000,1749000,,13.25,605652018775-55,active,
+a4b9696a38b24dd180bc09634c321ace,209,26,AVA-ASAJA,ASOCIACION VALENCIANA DE AGRICULTORES (AVA-ASAJA),2,,,,13.25,605652018775-55,,
 a4b8325d812145478a5f2480b5250656,75,31,MdM-F,Médecins du Monde France,3,,9999,,1.75,499860717742-29,active,
 a4b7d1c31fcc4b3e94660019988d2f1b,108,11,,Assomela,1,,9999,,0.75,15331581826-28,active,
 a4b457babfcc48a6b4a962cd36d50326,21,21,KBC AM,KBC Asset Management NV,2,,9999,,0.5,87948608746-55,active,
@@ -3391,6 +3440,7 @@ a3c1d361e40c49fabfdd1585de9c7f8b,82,25,PKV,Verband der Privaten Krankenversicher
 a3c0c6ac4a1b4c25bc9193dffe3587c9,176,25,PZPTS,Polski Związek Przetwórców Tworzyw Sztucznych,2,,9999,,0.25,555528711431-63,active,
 a3bdbe5dcc584f6bae506239fae2b9fa,180,25,,VITICOLA CORCOVA,2,,,1500000,10,886021017463-37,active,
 a3bd948b86dc4cb490f57abebb4331b7,82,21,,CURRENTA,2,,9999,,0.25,98878236492-41,active,
+a3bbdd184d114bd19a444cd72882e635,233,21,UMPG,Universal Music Publishing Group,2,,9999,,1,692236519809-55,active,
 a3b7265d78c044cbb1cd4f0a95f4cb02,21,31,KBF,King Baudouin Foundation,3,1250000,1499999,,2,759326517587-51,active,
 a3a51cf0052c4234afa88ee612a7e364,21,27,,GEODE,2,500000,599999,,3,00098856602-24,active,
 a39dd0a4e5794cb3b2e07933720c6276,82,21,,KUKA AG,2,10000,24999,,0.5,203926218805-93,active,
@@ -3478,7 +3528,9 @@ a1f2638c81034e07a2ab3ed2c54e6097,155,31,ECF,European Climate Foundation,3,300000
 a1e76401b085428cab93b31f6474930b,21,11,,Insight Consulting,1,100000,199999,,2,56335344042-83,active,2
 a1e6cd40cf6a45a29ec2d8bae3d85de1,75,25,FIF,Fédération des Industries Ferroviaires,2,,,1650000,1.75,646022113355-88,active,2
 a1e311e884ec4ab9a33545f8f66a9dbb,85,25,ΣΕΒ (SEV),SEV Hellenic Federation of Enterprises,2,100000,199999,,2,59395037733-93,active,
+a1d8cb3336404970bc3a0cc442c43acd,214,21,Stokab,AB Stokab,2,,,59687000,1.75,214524019642-47,active,
 a1d327c877ec43ff95794e727cc2d418,21,13,,Joulia-Paris Tamar,1,,9999,,0.25,84643499034-55,active,
+a1c8ca5f14594ffc8748f40609345895,176,21,Polkomtel,Polkomtel Sp.z o.o.,2,1250000,1499999,,0.25,087431619776-96,active,
 a1c3066856624d57b3b290ab3c1d1bca,233,27,SRA,Solicitors Regulation Authority,2,,9999,,0.5,47463686644-34,active,
 a1c22f54a3584a46941dd6d68bc28abd,21,31,AE,Accreditation Europe ASBL,3,,,,0.25,342325814970-01,,
 a1bebe3b2e454fa19bde1ba5912a7415,21,25,ARISE,Association for Responsible Investment Services,2,,,,0.25,70271085323-71,,
@@ -3497,6 +3549,7 @@ a1901583f9814d7cb2912676d4c41f0e,59,25,DAFC,Landbrug & Fødevarer - Danish Agric
 a1889af1fb1d4376955ad71a535694da,177,25,PMP,Plataforma de Media Privados,2,,,46934,1,104408719040-41,active,
 a1880c934fee421aa8d0e69e7b579db1,75,31,G.O.D.F.,Grand Orient de France,3,,9999,,42,618675514930-33,active,
 a186322c88d947e3972ecf746ad6d3cc,21,21,Nordic PSB,Nordic Public Service Broadcasters,2,300000,399999,,1,2296515955-67,active,1
+a15ae642cda749199acebbfaaa6c1b5a,61,41,BQS,Board of Quality Standards,4,,9999,,0.75,726510419569-85,active,
 a15a64755f4740dca74ae92cccb87be3,105,66,Teagasc,Teagasc - Agriculture and Food Development Authority,6,,9999,,5,900198315364-62,active,
 a158841e70a640c0a8864a0c3601972f,233,26,IAQM,Institute for Air Quality Management,2,,9999,,0.75,59516946438-69,active,
 a1578cf6a9964c468c324d249a15cb67,82,21,EDEKA,EDEKA Zentrale AG & Co. KG,2,100000,199999,,1,650035215812-91,active,1
@@ -3530,7 +3583,7 @@ a08839e116ac4078b95dbd30dca49db0,75,26,CNPA,Conseil National des Professions de 
 a071fe475c074520840d848d4bb206a7,202,25,ZFIS,Zdruzenje fonogramske industrije Slovenije,2,,,20000,0.5,127850617264-61,active,
 a07141f1cec04e13bb3572b777d841b3,215,31,,Golf Europe,3,,9999,,0.25,46742654343-05,active,
 a06d4ac7ff9b4854ab615981cea329b9,21,11,IANUSGROUP,IANUS,1,,9999,,0.5,340504112079-53,active,
-a05fd50837114bb6b06e50e2d6b06243,75,31,BVA,Baloch Voice Association,3,,,,27.75,665322419374-88,,
+a05fd50837114bb6b06e50e2d6b06243,75,31,BVA,Baloch Voice Association,3,,,,2,665322419374-88,,
 a0591518c20c4e399f51a98716037466,82,21,,Hubert Burda Media Holding Kommanditgesellschaft,2,400000,499999,,0.5,730036917015-61,active,
 a04541904e2e4e529c0e51b8217e4628,233,31,CCF,Cambridge Carbon Footprint,3,25000,49999,,3,877990518449-41,active,
 a042aa89e18548f5b5b4b3bfb6a11eb8,21,25,ECSA,European Community Shipowner's Associations,2,400000,499999,,8.75,59004966537-01,active,6
@@ -3551,6 +3604,8 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 9fc2b3c3d44746cfad81bec6ad35a0ae,233,11,,Social Finance Ltd,1,,,37181,0.5,57947796570-50,active,
 9fb9e6deeb0b47cfb9f45cedd2c626ef,233,31,MBA,The Marine Biolicical Association of the United Kingdom,3,25000,49999,,1.5,245453718138-48,active,
 9fb7b74366f74ef6a4daf21c9d7814db,155,27,IIR,Institute for International Research,2,,,0,1,880763115895-93,active,
+9faf4c182ae546ac98e73210b77be680,155,31,ARTEMIS-IA,ARTEMIS Industry Association,3,,,0,5.75,310026619668-24,active,
+9face155cbdd43d5a20f10d23bdc9631,202,31,ERFP,European Regional Focal Point for Animal Genetic Resources,3,,,5000,1.25,306480819667-22,active,
 9fa785f89aab455cbfc7833ca4931713,82,21,BMW Group,Bayerische Motoren Werke Aktiengesellschaft,2,1250000,1499999,,5.25,7193977808-18,active,4
 9fa6e7f92c3e435f9364657af287929c,75,26,SNPTV,Syndicat National de la Publicité Télévisée,2,,9999,,0.25,495787718702-74,active,
 9fa2e78b4d63478ca50ce1465b44f10a,82,31,,LobbyControl,3,25000,49999,,0.75,6314918394-16,active,
@@ -3577,6 +3632,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 9ef3f46496d74228986f565b5ceed827,21,25,EVERI,"European Veterinarians in Education, Research and Industry",2,,9999,,0.5,629998914866-31,active,
 9ef0766725ab4b17bc63e06fa9cc59ca,233,25,Gafta,The Grain and Feed Trade Association,2,,9999,,2,05783468694-28,active,
 9ee9e8fe8a704342bca535d4c168a711,57,25,OEB,Cyprus Employers & Industrialists Federation,2,,,,0.25,565794918292-86,,
+9ee9dc6c905e4b54991f9153b919fbaf,82,25,SGF,SGF International e.V.,2,,,0,0.75,289634819603-57,active,
 9eded3fd802a4307b141b9bd069b5ef4,155,25,VKR,NRK Recycling,2,,9999,,0.25,413650811271-68,active,
 9ed9921216b84f64bf3c15b17a7158ed,99,31,EAID,Euro-Atlanti Integrációért és Demokráciáért Alapítvány,3,,9999,,2,034022018346-45,active,
 9ed7a1b9bd854d8a89f47ef86722a620,209,21,MONDRAGON S. COOP,MONDRAGON CORPORACION COOPERATIVA S. COOP,2,,9999,,0.5,562275414876-82,active,
@@ -4108,6 +4164,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 90f78ed81248489491fb40b7e30cf5c2,82,11,,Schmid Mobility Solutions GmbH,1,,9999,,1.5,835954415408-30,active,
 90f51d2895034af5ac416449ca420235,155,31,De Faunabescherming,Stichting De Faunabescherming,3,,,34000,2.5,110451617412-88,active,
 90f07ba221004389a4a8f35a23d289b8,21,25,EDSO,EDSO for Smart Grids,2,50000,99999,,0.25,952322311484-70,active,4
+90e326f732d145c8b9edf1f4a5551051,75,31,TDIE,Transports Développement Intermodalité Environnement - Voyageurs et Marchandises,3,500000,599999,,0.25,405284919699-91,active,
 90cec5a44cd642dfa55f7f25655cd2d6,82,13,,Neumann Consulting,1,,,5000,1,673052316100-23,active,
 90c83470f84141eda789f2dbdf8759c9,21,31,CEC,Comité Européen de Coordination,3,,,145404,2,333457117059-94,active,
 90bceed51e954be3a8f711f3097721ab,14,27,,AIFM Federation Austria,2,,9999,,0.5,07879611199-77,active,
@@ -4179,7 +4236,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 8ed7709c89f944da930a02c88cc99667,82,31,BBN,Bundesverband Beruflicher Naturschutz e.V.,3,,9999,,0.25,291517414689-76,active,
 8ed398ea700c4b2eb2e898fa2504d9ba,21,66,CSWCN,Conseil supérieur wallon de la conservation de la nature,6,,,,9,640604717968-02,,
 8ecb45d70bfe431989439edd5bae3411,21,26,CESI,European Confederation of Independent Trade Unions,2,,,50000,1,32738888445-74,active,4
-8ec7014404b343b6a645f747532e0ba8,234,31,AIA,American Insurance Association,3,,,0,0.75,736852519506-74,active,
+8ec7014404b343b6a645f747532e0ba8,234,31,AIA,American Insurance Association,3,,,560000,0.75,736852519506-74,active,
 8ec5097b9155405fa6f411d25aafcf4d,75,26,GDS France,Fédération Nationale des Groupements de Défense Sanitaire,2,,9999,,0.75,626621114767-91,active,1
 8ec26dfa77784d7cafcb6c5021e05300,155,21,DocMorris,Doc Morris NV,2,50000,99999,,0.5,900719114988-22,active,2
 8eb5ab7b9ebb4966b496b949add90bd9,75,26,FEE,France Energie Eolienne,2,,9999,,2,156540112920-12,active,
@@ -4235,6 +4292,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 8d8424961cf34765b223789987345611,233,31,UKHF,UK Health Forum,3,700000,799999,,6.75,208489918954-73,active,
 8d7c7fef8a9144878abbe8c4b1502663,82,25,FSKI,Fachverband Sanitär-Keramische Industrie e.V.,2,,9999,,0.25,99756723537-03,active,
 8d75a51148ca451799d10bd0c1ad1e23,215,31,,European Academy of Dermatology and Venereology,3,50000,99999,,1.5,805497917270-42,active,
+8d71d7237c8248c9aebd2c4ad03d9b48,21,25,,Fair Standards Alliance,2,,,,1,354710219654-02,,
 8d6931b2424c43e8891712f31019d761,233,21,SKY,Sky plc,2,100000,199999,,4,62536168216-12,active,
 8d653a3995164654bad89e0405d13712,21,25,CEUBC,Croatia EU Business Council,2,,9999,,0.5,793682712217-78,active,
 8d5bb794d5df4ba99bbf749915898365,148,41,IMRSE,Institut Marocain pour la responsabilite social,4,,9999,,5,293562612917-74,active,
@@ -4296,6 +4354,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 8c2f0fda4d564a07b6c80e4d47c026b0,82,62,Bdja.eu,Bundesverband deutscher Jagdaufseher,6,,,,16,165925717588-66,,
 8c24cfaaa9474a79b4ea9ba4f16a3714,108,41,INFN,National Institute for Nuclear Physics,4,50000,99999,,2,281756113325-24,active,
 8c1fc4254c3644bebfdf4d98d9a76cb3,82,31,,Zwiebelfreunde e.V.,3,,,,2.5,50673266116-25,,
+8c192ec38873439f90c36a4f6b72ea27,82,31,,foodwatch e.V.,3,,9999,,0.5,858136219735-96,active,
 8c18a0b61eb14747b828901a6e004f18,233,21,TSCO,Tesco,2,100000,199999,,0.75,190810415919-85,active,
 8c1553c0c62d4bdf8baa193861b776a5,59,25,DM,Danske Maritime,2,,9999,,2.75,6542607659-70,active,
 8c0bed8e212344adbd57079200042853,214,21,RS,Ragn-Sells AB,2,,,200000,0.5,607821118482-62,active,
@@ -4326,6 +4385,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 8b557d64cf9348f8bcc7c52258e7cdd7,21,13,AKDI,ANTON KERN D.I.,1,,9999,,0.25,79610548238-80,active,
 8b48dec8ddec4623aa7cc55fa7699747,126,42,LPM,KELMĖS RAJONO LIOLIŲ PAGRINDINĖ MOKYKLA,4,,,,28,090245415905-80,,
 8b41c13d2938409aa99961e55369b36e,234,12,,Covington & Burling LLP,1,900000,999999,,7.25,083671317381-09,active,
+8b41982e1a5b4d7bb02a44042b6223bd,108,25,AIIP,Associazione Italiana Internet Provider,2,,,20000,0.25,255497819753-30,active,
 8b41633efa424ce487ed5bdb0b5fb5ce,21,31,EENA,European Emergency Number Association,3,25000,49999,,5.75,68057486299-01,active,9
 8b3c416a7a8b4c73924c2cf41b80c7b2,21,31,EPA,European Parents' Association,3,,9999,,3.5,052007712004-80,active,1
 8b390867355549e495b53ccf0bf33677,21,11,CPA,Community Public Affairs,1,900000,999999,,7.25,522122412613-18,active,12
@@ -4350,6 +4410,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 8a9e71989f5a4b39a03f9b52aabc69ab,155,31,,UTZ Certified,3,,9999,,0.25,60554685648-73,active,
 8a9a7f6474e84c0bb33fe0bc20e1a989,226,63,SODEM,Association of Social Democratic Municipalities,6,,9999,,2,198354815537-92,active,2
 8a89f17156dd4dfea935c48ce1475953,54,21,INsig2,INsig2 d.o.o.,2,,,500000,9,649747517707-28,active,
+8a71a30809eb44bfbe81dc842be7ea35,21,13,Anna Maria Torres,Anna Maria Torres,1,,9999,,1,271677019822-30,active,
 8a6d3688ddb0490f96059554b7a5ef0a,105,21,Irish Ferries,Irish Ferries Limited,2,,9999,,300,10930644855-47,active,
 8a6ab6e825eb483ea463c0a63488e83c,82,11,,Eo Ipso Communications,1,,9999,,0.5,383821814353-88,active,
 8a661fa8524f4a3a801a5000287c7e9a,75,11,,Ecologie Logistique,1,,,,1,511336917208-15,,
@@ -4370,6 +4431,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 89ebd3dadfb24c208e48a63ea46ee96f,82,31,DEGA,Deutsche Gesellschaft für Akustik,3,,9999,,0.25,380846911939-12,active,
 89eac75bc5cb4cba9f4e00eecf4921f9,108,21,,Ledizioni,2,,,,0.25,82152446535-27,,
 89e636fda73e44cfba3ecb3a8bab822c,176,63,,Information Office of the Kujawsko-Pomorskie Voivodeship,6,,,0,1,517480215902-39,active,
+89e01c9ec84447a3b367e27feb3a572d,21,31,WFCC,World Federation for Culture Collections,3,,9999,,2,337879819793-46,active,
 89dd601321594ab49add26502e0e36ae,21,25,R.E.FO.R.MED®,Regroupement Européen pour la FOrmation et la Reconnaissance en MEDecines non conventionnnelles,2,,9999,,1,76111217833-78,active,3
 89d8148947164b9fb547974ea27d6729,82,26,DFK,DIE FÜHRUNGSKRÄFTE - DFK,2,10000,24999,,0.5,88787562806-65,active,
 89cd3aa807544a538ccebc062d286af2,21,42,,EuroTech Universities Alliance,4,,9999,,5.25,992618013978-09,active,
@@ -4517,8 +4579,9 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 864ed5207f6a43d5a735f8699266f607,74,21,Kemira,Kemira Oyj,2,10000,24999,,0.25,893889610875-77,active,
 864d16d2db0d4ece83ed522c4d0d6990,75,11,,CABINET CAZEAU RONALD EXPERTISES,1,,,50000,2,92775088047-18,active,1
 86472a94bc51403a864998e1cb85e258,155,21,,TUI Airlines Nederland B.V.,2,,9999,,0.25,70766908291-17,active,
-863bcb2fb0ae49d3a9c8325638986d4e,82,31,,EHRENBERG Kommunikation GmbH,3,,,,1.5,10342022616-20,,1
+863bcb2fb0ae49d3a9c8325638986d4e,82,31,,EHRENBERG Kommunikation GmbH,3,10000,24999,,1.5,10342022616-20,active,1
 8630fffac9c04d0e93aabe380cf4e2c0,234,31,,The Ford Foundation,3,,,1373,1,140894518460-74,active,
+862aae1ed9554d4a84d3da18b07d5073,233,42,Kingston U,Kingston University Higher Education Corporation,4,50000,99999,,3.5,272521219783-88,active,
 862593a281784002b2bcf1d92076fe16,176,25,PIH,Polska Izba Handlu  (Polish Chamber of Trade),2,,,20000,0.25,685637510818-17,active,
 85ff1f1b97594ff5bc5cdbf3108631e2,177,25,APImprensa,Associação Portuguesa de Imprensa,2,,9999,,1,820910018647-75,active,
 85fa76aca5ab4c918269d49493572be5,34,31,BSC SME,Business Support Centre for Small and Medium Enterprises-Ruse,3,,9999,,0.25,31462594848-53,active,
@@ -4537,6 +4600,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 85a6d690a6424639b4375c2a3a57bd6d,155,51,EEA,European Evangelical Alliance,5,25000,49999,,2.5,922173318516-97,active,
 85a641415b01475bb2e0b39b6d490089,99,31,ECOVAST,ECOVAST Egyesület,3,,,1200,5.5,529315519364-04,active,
 85a4ae7047f9480285837f8227eae550,233,31,,Conciliation Resources,3,,,73773,1,084464515870-63,active,
+85a36fb70688477393992cd07d22dca7,234,31,CLASP,Collaborative Labelling and Appliance Standards Program,3,,,475000,1.75,281884219679-57,active,
 859d27545d9f43ed9088a16ca891cd07,108,11,,OCEANISSRL,1,200000,299999,,3,94577029771-59,active,
 858e58f9240e4ac9bb0f19de2bb10d45,58,26,NK ČR,Notářská komora České republiky,2,,,52232,4,501247615893-73,active,
 858aa726a04246debce53681180c5945,75,66,,Chambre de Commerce et d'Industrie de Région des Pays de la Loire,6,100000,199999,,3.5,567214616174-39,active,
@@ -4657,7 +4721,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 822c6ed80bc542f9bc36cb7a22359a04,177,25,BLC3,Associação BLC3 - Plataforma para o Desenvolvimento da Região Interior Centro,2,300000,399999,,28,072095010321-44,active,
 8229a99b0a3a47d0acfc76fa72465806,108,42,Don Tonino Bello,Centro di Formazione e Orientamento Professionale "Don Tonino Bello",4,,,,3,269861419051-33,,
 822125884cb1457db3d21edd920313d5,234,31,UNWHT,UNITED NATIONS WAR ON HUMAN TRAFFICKING ASSOCIATION,3,,9999,,5,431229513848-67,active,1
-821e5a6d877e484cb3781070905e44ae,21,41,IEB-EIB,Institut Européen de Bioéthique,4,,9999,,6.5,93555467379-80,active,2
+821e5a6d877e484cb3781070905e44ae,21,41,IEB-EIB,Institut Européen de Bioéthique,4,,9999,,7.5,93555467379-80,active,2
 8209cd385bd34943a26e75bb5d4431ef,209,27,AEF,ASOCIACIÓN ESPAÑOLA DE FACTORING,2,,,2000,1,299565514641-07,active,
 82014f7403524005a06e0ef596317dd0,109,26,OCAB-CI,Organisation Centrale des producteurs exportateurs d'Ananas et Bananes de Côte d'Ivoire,2,50000,99999,,0.75,552999119458-44,active,
 81fd7848887e463f9c978941467a5623,85,41,BREF,BRIDGING EUROPE,4,,9999,,11.25,836199714524-07,active,1
@@ -4685,6 +4749,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 814b9d542d564183baf25a250de028cd,82,25,VDMA,Verband Deutscher Maschinen- und Anlagenbau e.V.,2,4250000,4499999,,22.5,9765362691-45,active,2
 8140e8c4dd63414d82e360d92990f9c0,21,25,ESF,European Sign Federation,2,,9999,,0.25,063377615456-10,active,
 8128b441ac6d4fc8a9936cc465224670,14,41,alchemia-nova,alchemia-nova GmbH,4,,9999,,2,174549611338-89,active,
+8125f16480a2420f806266922904fcc5,21,13,PSI,Piet Steel International,1,,9999,,1,760575019682-90,active,
 8122b41abdb64466a95781d6e0a0b316,233,25,ILA,International Lead Association,2,,9999,,1,311414214793-82,active,
 811cd8c8a2e147608ca92c7048290181,85,41,ΙΝΕΡΠ,Institute for Regulatory Policy Research,4,,9999,,2.5,33104609071-28,active,
 81188640b9014634b99642450266b3aa,82,26,VAP,Vereinigung der Arbeitgeberverbände der Deutschen Papierindustrie e. V.,2,10000,24999,,0.25,009318117132-67,active,
@@ -4743,8 +4808,9 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 7f307cd3239844e6b4acf2ca606da37c,108,25,FeBAF,"Italian Banking, Insurance and Finance Federation",2,,,325180,3,15799957915-87,active,3
 7f2a8954c59d4e7e9675c61bbf5b86c0,59,25,IFPI,IFPI Danmark,2,,,2000,0.5,683912417168-75,active,1
 7f2322c7aba0455c81801003bdb59e6b,82,31,DGVWK,Deutsch-Georgischer Verein für Wirtschaft und Kultur e.V.,3,,,0,5,640609517083-28,active,
-7f1d45eac48543368ee52894c0146f07,155,21,NPO,Nederlandse Publieke Omroep,2,,,,0.5,870503037-12,,
+7f1d45eac48543368ee52894c0146f07,155,21,NPO,Nederlandse Publieke Omroep,2,,9999,,0.5,870503037-12,active,
 7f13fce97dd942349a4a4b8e02d18e35,21,41,TEPSA,Trans European Policy Studies Association,4,,9999,,1.5,366997312527-51,active,2
+7f1324784eb6473c8a60733d3847fe62,82,21,VTKE,Verbund der Telekommunikations-Endgerätehersteller,2,,,,0.25,455876019674-77,,
 7efae54407e34d16a68873c3558d3f96,75,12,,Lizop & Associés,1,,9999,,0.75,706668918059-10,active,
 7ef8c7b0b3eb4cfc8f2411b3dbcfc0ab,209,65,EIXO,Eixo Atlantico do Noroeste Peninsular,6,200000,299999,,3.75,803474019064-64,active,
 7ef318be07c8408982d9609ba99321b9,21,31,EMSA,European Medical Students’ Association,3,,9999,,1.75,631025116128-79,active,3
@@ -4780,7 +4846,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 7dfb33bae61c417f8e2bb64b6f5414b6,120,31,DOTS,Foundation for an Open Society DOTS,3,,9999,,0.5,632264216418-66,active,
 7de151d73c594a2cad7de2fd7a679307,233,25,,BPI (British Recorded Music Industry) Ltd,2,,9999,,0.25,999049212659-88,active,1
 7ddb3752dfde475d97177f426154000d,21,31,EURAD,Europe Against Drugs,3,50000,99999,,6.5,24340297158-92,active,
-7ddaaedd2c3b41c1894496ce4261b0d7,21,31,EFRAG,European Financial Reporting Advisory Group,3,,,,15,411098519407-76,,
+7ddaaedd2c3b41c1894496ce4261b0d7,21,31,EFRAG,European Financial Reporting Advisory Group,3,100000,199999,,15,411098519407-76,active,
 7dc590b45af646e991fc11ebb37c3344,21,65,REVES AISBL,European Network of Cities and Regions for the Social Economy AISBL,6,100000,199999,,2,67482205645-83,active,2
 7dc2bf6f66ad410fbb55d17348956afa,233,11,,SEPTENTRION CONSULTING Ltd,1,10000,24999,,0.25,553821416869-86,active,
 7dbe9870ec254054ba8c73ca58b198e1,233,26,ICAEW,Institute of Chartered Accountants in England and Wales,2,800000,899999,,2.5,7719382720-34,active,2
@@ -4796,6 +4862,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 7d534d607118473b9c4555a695ba384d,108,11,Gruppo Daleth,Gruppo Daleth Associazione Professionale,1,,,,1,448478516294-83,,
 7d53049cb0d94d8f998b1087408e8de3,75,27,FIA,Fédération Internationale de l'Automobile,2,500000,599999,,5,84839535366-67,active,6
 7d4efe7474c146cd9bde1ac0c8df3a3b,209,11,,SERVICIOS AVANZADOS DE CANARIAS,1,,9999,,0.25,798430110416-40,active,
+7d4e040d686e438fb73c721c6d6792a6,21,31,CJP,Commission Justice et Paix,3,,9999,,6.75,373548119543-72,active,
 7d40a6563900445aa5f0489f6f073413,21,11,EUROHUB,Eurohub Consultancy Group,1,50000,99999,,4.5,81187819992-32,active,4
 7d406ec860f645b5a6e4287519709f27,111,31,JEITA,Japan Electronics and Information Technology Industries Association,3,,9999,,150,519590015267-92,active,
 7d3f7e40830041a5b01a11806348ff8c,209,65,EuReTalent Network,European Regional Talent Mobility Network,6,,,,0.5,376215719574-10,,
@@ -4872,6 +4939,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 7b14594c04e046a492de361ceb1e7aab,233,31,EAHRNK,European Alliance for Human Rights in North Korea,3,50000,99999,,3,510112312234-63,active,3
 7b10487772174e5c86430763ab6b5c5a,215,21,MWV,MeadWestvaco Europe,2,,9999,,1,373523812662-03,active,
 7b0b04f38d5643d98914858a31192734,21,25,,Federation of European Rice Millers,2,25000,49999,,1.25,31958409365-30,active,
+7b0ab65682e44e76863ec11225bfd190,21,25,ERFMI,European Resilient Flooring Manufacturers’ Institute,2,300000,399999,,1,511480919769-31,active,
 7b096578ac5e40bf94a1b3c01231b08a,21,11,ECS-Brussels,European&Corporete Strategy,1,50000,99999,,1.75,51287485932-04,active,2
 7b071c3d87be4396a103f5e298eab6d2,177,13,,fernando luis rodrigues pereira,1,,,,3,231078315806-26,,
 7b06a6a1feb94f459af7ead6035baf36,21,25,EAEPC,European Association of Euro-Pharmaceutical Companies,2,,9999,,1.5,509882515669-01,active,
@@ -4998,7 +5066,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 784f7c7d16c94ced89a3d1c1d68fac86,233,42,ENU,Edinburgh Napier University,4,,9999,,6.5,592046119539-18,active,
 784809f3540e4278876c492e17d03dd6,214,31,Famna,Famna Riksorganisationen för idéburen vård och social omsorg,3,,9999,,0.25,07236514024-47,active,
 783a06ba43474c0484a2516573771de8,135,31,FMAP,Federation of Maltese Aquaculture Producers,3,10000,24999,,0.5,054811117574-73,active,
-7833cced9a7b4bda93fec622670c640b,155,22,EVO,EVO the Dutch Shippers's organization,2,,,,0.5,84545717-79,,
+7833cced9a7b4bda93fec622670c640b,155,25,EVO,EVO the Dutch Shippers's organization,2,,9999,,0.5,84545717-79,active,
 783089c328be45229ce5b0dedc5ad536,74,21,Pohjolan Voima Oy,Pohjolan Voima Oy,2,200000,299999,,1.25,287403519124-60,active,
 782e6f2a1b244ec39947ba7943521e2a,126,31,LMBA,Lithuanian Research Library Consortium,3,,9999,,0.5,28474126547-47,active,
 782de7ed58ae4cb586e1cc806afd59a4,209,21,La Molineta,"Gofio La Molineta, SL",2,300000,399999,,8,013867218326-18,active,
@@ -5034,7 +5102,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 777e463ce8fe4510a7c08fa46bf9261d,21,31,Forum Nord Sud,Forum pour un Contrat de Génération Nord-Sud,3,,9999,,2.25,713210510926-07,active,1
 7770d29825704d4581f9ef2c160820c9,14,27,VGR,Verwertungsgesellschaft Rundfunk GmbH,2,10000,24999,,0.25,560500419474-64,active,
 7767d797912d4f908f37048c5cab8a84,82,12,,Wirtschaftrat Recht Bremer & Heller,1,,9999,,0.75,455607615963-17,active,
-77620c815e084d09ab527f85a2901191,21,11,ICODA,ICODA European Affairs,1,50000,99999,,2,65129577364-42,active,2
+77620c815e084d09ab527f85a2901191,21,11,ICODA,ICODA European Affairs,1,50000,99999,,6.5,65129577364-42,active,2
 775f3812cb054d11a58062e0cdb67fe1,21,41,GGI,Global Governance Institute,4,,,50000,2,338061717954-22,active,
 775d642c514045b896d4a960dc170aef,234,21,,Intellectual Ventures,2,100000,199999,,0.5,510389716548-23,active,
 77598807f62d4099bb4db8c47dedcbe2,233,27,ICOMP,The Initiative for a Competitive Online Marketplace,2,300000,399999,,3.75,94410281407-45,active,
@@ -5059,7 +5127,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 76d2224ef92848e48449a843762fb6ba,21,31,Bee Life,Bee Life - European Beekeeping Coordination,3,,9999,,1,586313213546-65,active,
 76d0c14559a74c858a2141b3a1b65de6,155,26,VSenV,Vereniging van Schrijvers en Vertalers (VSenV),2,,,2500,5.25,369679213112-04,active,
 76a6e54a070a4ac58ee674e2aa691732,21,13,,Gustaaf Bos Consulting,1,10000,24999,,0.75,675936119580-53,active,
-768c93c241d64bd5a45c92e810268b98,21,25,,Cable Europe,2,,,1000000,5.5,42178977290-80,active,4
+768c93c241d64bd5a45c92e810268b98,21,25,,Cable Europe,2,,,1000000,2.75,42178977290-80,active,4
 768832bdf7a34b4595476ab3a967d1eb,234,11,,Teneo Strategy,1,100000,199999,,2.25,705615811388-66,active,5
 76862e19c06142b9bc157dfb1953c986,59,21,,Novozymes,2,200000,299999,,3,52195525403-65,active,3
 768560b481cd4e989c77dd0fc3df70dd,215,21,TE Connectivity,Tyco Electronics Belgium EC,2,,,60000,0.25,880605516866-04,active,
@@ -5116,6 +5184,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 751100779edf405d9f89c771df2d8794,209,11,,Alonso & Asociados,1,10000,24999,,3,16699959051-14,active,3
 7506a3b0616049af8446268ec22bc790,155,31,ESNO,European Specialist Nurses Organisations,3,,9999,,0.25,70183498905-52,active,
 7505df3921d84638880007848720bd66,127,25,UEL,Union des Entreprises Luxembourgeoises,2,,9999,,0.25,82936193787-44,active,
+7503bc764e9b425bb3ca2272a9ec05d8,75,31,,Fondation Danielle Mitterrand - France Libertés,3,,,,1,407646819821-78,,
 74f6d84a25724f4e9591e079a01546f8,82,41,Hahn-Schickard,Hahn-Schickard-Gesellschaft für angewandte Forschung e.V.,4,,,5000,0.25,051704717148-12,active,
 74ebed539b594eef923ad143f850a031,233,31,IIGCC,Institutional Investors Group on Climate Change,3,100000,199999,,1.25,962717910722-61,active,
 74e94a0787b7471c962b0b76ee947784,14,31,EGF,Energy Globe Foundation GmbH,3,,9999,,2.25,507002215087-61,active,
@@ -5170,6 +5239,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 73720cc3f5f840d1b13133d53b803748,82,21,DBG,Deutsche Börse AG,2,100000,199999,,0.75,20884001341-42,active,3
 7356be90cfa344269cc9144a31ad12f5,120,25,LSA,ASSOCIATION of STEVEDORECOMPANIES of LATVIA          Biedrība " Latvijas Stividorkompāniju Asociācija ",2,,,100,106.25,227730411485-31,active,
 7356ab49a8d3468888462bc969d6e4d9,21,63,FEDARENE,European Federation of Agencies and Regions for Energy and the Environment,6,200000,299999,,3,18165266149-22,active,
+7351e1634f2a4861a9e4de8b8e58284c,14,21,TMA,T-Mobile Austria GmbH,2,,,,1200,978149419739-16,,
 734d772f3b6a4ab182d4eb87f57171da,209,41,FCE,Fundació Catalunya Europa,4,,9999,,0.5,94083303830-25,active,
 734be5aa09a94a54a76c71a0a5238c78,108,21,NGI,NGI SpA,2,10000,24999,,0.75,709372119396-21,active,
 73442812dff640d892af2b3c1894d887,21,26,ENS,European Nuclear Society,2,50000,99999,,0.25,256541315882-09,active,
@@ -5330,7 +5400,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 6e1b35f9ea844a279322561a91f3ba5d,108,21,S.E.S.A. S.p.A.,Società Estense Servizi Ambientali S.p.A.,2,,,0,0.25,826089611268-65,active,
 6e0f2c259aca4eca8a27dc9e4fd75a8b,180,31,COPYRATUL,Asociația Copyratul Român,3,,9999,,20.75,939485210966-22,active,
 6e0e04c4c738499a840504f3ce32c0fb,59,63,RG,Randersgades Skole,6,,9999,,1,120528813335-10,active,
-6e0aa8ca5bb14122a216b1054e04328d,155,42,HAN,Hogeschool van Arnhem en Nijmegen,4,,9999,,1.25,07558879697-95,active,
+6e0aa8ca5bb14122a216b1054e04328d,155,42,HAN,Hogeschool van Arnhem en Nijmegen,4,,9999,,2.5,07558879697-95,active,
 6e081891851541459b314d7f1fa79c41,82,31,,Ärzte der Welt e.V.,3,,9999,,2.25,04308792739-83,active,
 6e066dfab6a34f8f98f16f6f36c988b7,233,11,Landmark Europe,Landmark Public Policy Advisers Europe Ltd,1,,,1000000,9,98945367035-89,active,5
 6e05702e38ee46d59cd4e20810516c99,155,31,Wemos,Wemos Foundation,3,100000,199999,,6.25,02070938082-23,active,
@@ -5358,7 +5428,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 6d79963c3ef842b6a04503ee077d96a1,21,25,AIBI,AIBI aisbl,2,10000,24999,,0.75,55835028654-55,active,
 6d79541a56b74465ac22313e1b737070,21,66,HRZKMO/CSIPME,Hoge Raad voor de Zelfstandigen en de KMO / Conseil Supérieur des Indépendants et des PME,6,10000,24999,,0.5,59919253482-83,active,
 6d793f7878b4480aba0583ea9e9d0f99,82,31,VKH,Verband der Kolpinghäuser eV,3,,9999,,1,12284214247-43,active,
-6d7468420aee4d5fa3c55b38f2eae3e8,108,65,PeCoE G.E.I.E,Peoples and Cities of Europe G.E.I.E.,6,,9999,,1.75,714665314149-11,active,3
+6d7468420aee4d5fa3c55b38f2eae3e8,108,65,PeCoE G.E.I.E,Peoples and Cities of Europe G.E.I.E.,6,,,,1.75,714665314149-11,,3
 6d61af632e914f6bafb332551ee1fd76,233,21,AFPO LTD,ABERDEEN FISH PRODUCERS ORGANISATION LIMITED,2,,,5000,0.5,900366517662-33,active,
 6d5d246b0fa746578c75277b11ef448c,233,27,RICS Europe,Royal Institution of Chartered Surveyors,2,10000,24999,,1,12309911354-39,active,
 6d5166698ae54cf29070f360c6aa4bb5,21,25,EHI,Association of the European Heating Industry,2,200000,299999,,2,95685068542-71,active,5
@@ -5393,7 +5463,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 6cad1b5c89814758be3e0eca507abadb,108,21,,AERO-Tec,2,,,0,2.75,939409514750-72,active,
 6cac4ab9ea68440290e265a9c2cfa94a,82,25,VCI,Verband der Chemischen Industrie e.V.,2,3750000,3999999,,26,15423437054-40,active,3
 6ca94e741a954b36b211cd9cdb795da5,39,25,IATA,International Air Transport Association,2,900000,999999,,3,1805107590-28,active,3
-6ca65f0cfbdd489d8ef6dc9c25c52a04,127,21,,Amazon Europe Core SARL,2,600000,699999,,2.75,366117914426-10,active,7
+6ca65f0cfbdd489d8ef6dc9c25c52a04,127,21,,Amazon Europe Core SARL,2,600000,699999,,3.75,366117914426-10,active,7
 6c9c60b20a8c47cd906e5098a6430e93,82,65,Climate Alliance,Climate Alliance of European cities with indigenous rainforest peoples,6,,9999,,2.25,83923664694-38,active,
 6c91c8d99edc4e2382e47dcc6fc6eaa9,209,31,ECAF,European Conservation Agriculture Federation,3,200000,299999,,2,043446618888-27,active,
 6c8088425ac943cdbddf7f24f417446b,82,25,EPA,European Parking Association,2,100000,199999,,0.25,548595616482-02,active,
@@ -5465,7 +5535,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 6a736bd4a6f24114a637c0327215d714,234,25,GFMA,Global Financial Markets Association,2,200000,299999,,0.5,898223513605-51,active,
 6a6ebdf16118458c83728a7bb6e78c06,21,25,ENPC,European Nursery Product Confederation,2,50000,99999,,1,27321257228-07,active,
 6a5e3be0436c48dea9b43ed6ea1e95ab,21,27,EURELPRO,Association Européenne des Institutions de retraite pour les professions libérales,2,10000,24999,,0.75,08248621030-13,active,
-6a585ef683624dee9160fc1ed5fcb7ab,215,31,AFI,Ariel Foundation International,3,,,,4.5,262075819307-45,,
+6a585ef683624dee9160fc1ed5fcb7ab,215,31,AFI,Ariel Foundation International,3,,9999,,4.5,262075819307-45,active,
 6a4d4bc01cee431da52e356aa9aa1b49,108,41,Euricse,European Research Institute on Cooperative and Social Enterprises,4,,9999,,7,931682314565-55,active,
 6a4590d4a6b840f8931f2cdbae02ab07,82,21,Börse Stuttgart,Baden-Württembergische Wertpapierbörse,2,,9999,,1.25,31885693900-95,active,
 6a3fd632ca124eb8be709545a6ea3289,74,25,KASTE,Kasvinsuojeluteollisuus ry KASTE,2,,9999,,0.25,871889015169-23,active,
@@ -5599,6 +5669,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 671247bb033943218f90e843d92e2b3c,234,25,ISMA,International Snowmobile Manufacturers Association,2,25000,49999,,1.25,317643716520-42,active,
 67098a3e732b4bf3b7ccfe35ef08d7d9,75,21,GrDF,Gaz Réseau Distribution France,2,100000,199999,,2,607998918721-96,active,
 670638fd120f4f619319d397380fc960,233,31,AAH,Association of Art Historians,3,,9999,,0.25,199899413067-26,active,
+6704cc1cf6ef48e6a37efb626a92e661,176,31,IMP,Inicjatywa Mobilności Pracy,3,50000,99999,,2.75,434487619737-94,active,
 66d9b251175c4feaabc9dc421351f092,234,41,WRI,World Resources Institute,4,25000,49999,,2.25,581250215524-23,active,
 66d902655f02461982eec3db47d856ab,234,31,OGP,Open Government Partnership,3,,9999,,3.25,776567719425-17,active,
 66c84647d95b4c65afa894e9cbe44191,21,11,,Bernstein Public Policy,1,50000,99999,,1.25,32689998126-75,active,2
@@ -5647,6 +5718,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 65ae4863907f4feaacb56b8b67821209,82,64,FGG Elbe,Geschäftsstelle der Flussgebietsgemeinschaft Elbe,6,,9999,,4,50691937944-15,active,
 65a398ee82ea4668834a1c2d5d8de810,75,13,,CLOCHEAU Jean-François,1,,,2000,5,468527111249-93,active,
 659a2ac4e15e4db08e535573eb2134cb,21,41,GRT,The Global Round Table,4,,9999,,3.5,346883615381-56,active,
+6594040496054633b30a207ec786316a,108,31,Cospe onlus,Cooperazione per lo sviluppo dei paesi emergenti,3,10000,24999,,1.25,098485119686-24,active,
 659332a212524281b622c74581fd5749,108,31,Real Casa,REAL CASA DE PORTUGAL,3,10000,24999,,1.5,48512405429-11,active,
 658518f615df4986a6b6ef1f28a261bd,82,42,UULM,"University of Ulm, Institute for Complex Quantum Systems",4,,,45000,0.75,975691716328-53,active,
 657fa719fdf1448db949f6289f52f313,108,25,U.CA.,UNIONE CAVATORI DI BAGNOLO PIEMONTE,2,,9999,,0.25,044462314789-46,active,
@@ -5655,6 +5727,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 6575cfef2df8401a8b1b4449b3e8fe44,39,25,Interferry,Interferry Inc.,2,,,300000,1,943498910207-51,active,
 65669ef4641c4a2299bbedfc0aa5e2b3,108,25,UB,Associazione Culturale Unionbirrai,2,,9999,,0.25,916712018901-12,active,
 6558cdd88e2e44219d244170bc561e40,75,25,EPC,European Producers Club,2,,,110000,1,344910313351-14,active,
+6555a7f1389b433cb1430d638c3e8308,82,26,IAVH,International Association for Veterinary Homeopathy,2,,9999,,2,583120519664-12,active,
 654f6d25916743ca93288447e20e9e64,21,31,LYMEC,European Liberal Youth,3,,9999,,4,51655166237-86,active,3
 6542c2498024460aa932c4e346de966c,75,31,AETF,Association des Etudiants Tamoules de France,3,10000,24999,,83.5,653356213887-97,active,
 65315573c3564ee79bb8a3ff54a7b3a8,155,21,,Buma/Stemra,2,,9999,,1.25,56091957679-64,active,1
@@ -5675,6 +5748,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 64c5a08ef693424cad11b76b5144bbfc,233,21,,Eisai Europe Ltd,2,25000,49999,,1,486226117071-45,active,
 64bdf9827c12485da8412a73d927ef73,21,31,ENTP,European New Towns & Pilot cities Platform,3,100000,199999,,3.25,17301835156-28,active,
 64bd9bc026f044c1ae09f7ca80fd9b7c,108,21,,IBI PLAST,2,,,500,0.5,05154246353-36,active,
+64a43d8c60d541feb1a10b3b84fd212a,233,31,DHACA,Digital Health & Care Alliance,3,,,,2,754850619719-08,,
 64a28017c94b4dddb3b1a5d5dbbaa7de,21,11,ZN,ZN SPRL,1,50000,99999,,1.5,529410116958-14,active,1
 649e17bab0ec42a79e10d9bf49296cbe,233,64,,ChamberLink Ltd,6,,9999,,3.75,540014112785-96,active,
 6496ecd58d474e52a5cdeb2124462744,101,21,Excelsoft,Excelsoft Technologies Pvt Ltd,2,,,,100,951655719408-78,,
@@ -5873,7 +5947,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 5ead44261ae84ef18ec7c9ba7bfd1371,108,25,ANIMA,Federazione delle associazioni nazionali dell'industria meccanica varia ed affine,2,10000,24999,,13,222607318896-47,active,
 5e9e775877924ab6903b8684a4a91d00,214,66,,Folkhälsomyndigheten,6,,9999,,1,508007119028-55,active,
 5e9c2df120b94070b42ac0ce5fe13d1c,30,25,CNA,Brazilian Confederation of Agriculture and Livestock,2,10000,24999,,0.75,686082515712-42,active,
-5e9b370777f645d2a52b867fa0afaf8a,21,25,FEBIAC,FEBIAC,2,,9999,,3,641098515046-40,active,3
+5e9b370777f645d2a52b867fa0afaf8a,21,25,FEBIAC,FEBIAC,2,100000,199999,,3,641098515046-40,active,3
 5e9909a0db59499e8fbe86d28eac6515,59,21,DANSKE,Danske Bank,2,200000,299999,,0.5,64866663811-42,active,1
 5e92a9d608214574b9d1624359982fd7,233,31,FoSHW,Friends of Storthes Hall Woods,3,,,,1.5,456033818323-36,,
 5e8e5c8441f34741a35abd7cf97fa83e,21,31,BDVA,Big Data Value AISBL,3,,,,0.25,042849916153-53,,
@@ -5905,6 +5979,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 5db640c95bda4fe5a2dc8e71155b3aec,83,31,EBO-Ghana,European Business Organisation - Ghana,3,,,,2.5,489887618180-57,,
 5db3070e24ce4caab2c193525912fb58,75,31,A.N.P.A.A.,Association Nationale de Prevention en Alcoologie et Addictologie,3,25000,49999,,0.75,53258597884-77,active,1
 5dad87725dd14f5e91bc6ca33e40df93,21,31,EFIL,European Federation for Intercultural Learning,3,,9999,,0.5,98470877752-88,active,
+5daa35a1c7c44f638149ede292236d81,209,41,AQUAS,AGENCIA DE QUALITAT I AVALUACIO SANITARIES DE CATALUNYA,4,,9999,,2.25,586089319759-61,active,
 5da5ca8ea9ae46aabd11fadb1615d6c8,155,21,FrieslandCampina,Royal FrieslandCampina,2,,9999,,1,29006196329-63,active,
 5da2ea61d5bf4208badb78ecc4805d41,21,25,ELCA,European Lift  & Lift Components Association,2,,9999,,0.5,93685904817-03,active,
 5da1ecb4d3784ff4a336285aeeea9051,201,42,FIIT STU,"Faculty of Informatics and Information Technologies, Slovak University of Technology",4,,,0,45,793299217471-34,active,
@@ -5967,6 +6042,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 5c12f0b37b484eab8a285403ba1f6f2e,108,21,,OCTA INNOVATION,2,,,,2.5,726888117805-23,,
 5c0d1522e6a046e9911c2da82e135161,233,11,,Decideum,1,,,64000,0.5,038458910546-31,active,2
 5c0888ac0d4447cd97172d103ca22260,21,31,EAEA,European Association for the Education of Adults,3,,,140000,3.5,3334854676-12,active,3
+5c070d7732344dd59f09695b8c905c01,75,41,EuroRec,The EUROREC Institute,4,,,627969,3.25,082273619751-53,active,
 5c067278951b4527ba906a894a4f72e1,108,13,F.I.S.C. A.S.D. A.P.,F.I.S.C. - Federazione Italiana Sport Cinofili A.S.D. A.P.S.,1,10000,24999,,9.75,934526112723-85,active,
 5bfe6aea852c4a21a473bbf2c883245e,59,21,Nets,Nets Holding A/S,2,25000,49999,,0.25,957544215973-15,active,
 5bdffec00ffc4c869b175f1c347ea2a8,21,25,ESA,European Sunlight Association a.s.b.l.,2,50000,99999,,1.5,725088918731-87,active,
@@ -5996,15 +6072,17 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 5b46f1ae53ce4d9894d37492d5f726cd,75,11,,CALIF,1,,9999,,0.75,783456217223-84,active,2
 5b43dc6d8b73411aade0f304d0b1cf57,82,21,,ZTE Europe,2,200000,299999,,1,861490216611-57,active,
 5b417adcfe554967aa989ce458654574,21,31,CELEP,Coalition of European Lobbies on Eastern African Pastoralism,3,25000,49999,,0.25,76932284955-08,active,1
+5b3f5e57a85e4b64aa488a5a82d2b67f,108,25,CCI,Confindustria Cultura Italia,2,,9999,,1,230476919656-55,active,
 5b3b3060ff2148ddae9d69c4cb1bc382,75,25,FEACO,European Federation of Management Consultancies Associations,2,,9999,,0.25,07824062715-47,active,
 5b35b313df2747cda00a974b3e67578e,21,25,VON,Voice on the Net Coalition Europe,2,10000,24999,,0.5,96615638697-36,active,
 5b355ab0e17d4669b72db3bb6358b394,59,31,REO,Ren Energioplysning,3,,9999,,0.75,075624711129-13,active,
 5b32864e4cbc45b28ee0bc9a206e5895,21,25,ESRA,European Sugar Refineries Association,2,10000,24999,,0.75,153540811905-01,active,1
 5b302ade5e734ce88ec0ed0be69a199c,233,26,,CFA Society of the UK,2,,9999,,0.25,817108014753-38,active,
+5b2d7ee982ae45a587b4302472a5a5cc,34,31,ADHR-BG,European association for the defence of human rights,3,,9999,,0.5,041160719803-06,active,
 5b2915fd39dd43fe8c47f34bc1761963,82,51,,Kommissariat der deutschen Bischöfe - Katholisches Büro in Berlin -,5,,9999,,0.75,524375510752-92,active,3
 5b22161dfc2048e682e5c5399a02ebc7,59,65,,IKA,6,,9999,,2,35752786566-81,active,
 5b1c1c5aa977470094a674b51c3de48c,82,31,Biotop-Fonds OL-DEL,Biotop-Fonds der Jägerschaft Oldenburg-Delmenhorst e.V.,3,,9999,,0.25,809034117826-51,active,
-5b1059ba4bf749f9a6a0bec6da09d5d9,155,21,EAFA,European Aluminium Foil Association e.V.,2,,9999,,0.25,510732619083-95,active,
+5b1059ba4bf749f9a6a0bec6da09d5d9,155,21,EAFA,European Aluminium Foil Association e.V.,2,,,,0.25,510732619083-95,,
 5b0c3466edba498d821399aa386e75c9,108,25,ASSORETI,Associazione delle Società per la Consulenza agli Investimenti,2,,9999,,1.5,43106565215-92,active,
 5b0a61784a1e48298fed2942a2952ace,82,25,MEW,MEW Mittelständische Energiewirtschaft Deutschland e.V.,2,,9999,,1,550558011475-69,active,
 5afb0d7e73f5417f8f431d68b8d7e7b9,99,31,European CSR,"Ezüstkanál Nyugdíjas Társasági, Környezet- és Természetvédelmi Egyesület/Senior Corporate Silver Spoon, Environment and Nature Association",3,,9999,,3,30399232694-16,active,
@@ -6017,7 +6095,9 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 5abaf3c78a7f49cb84978b433d0eb6a4,209,31,Antena Local,Federació de Mitjans de Comunicació Locals de Catalunya,3,,,33000,3,777596018253-80,active,
 5ab2d30fe91f42ff965139c82623ec2c,21,31,EURODOC,European Council of Doctoral Candidates and Junior Researchers,3,,9999,,1.25,832797511955-47,active,
 5aacd7046484451698d29cd825eb0f50,233,31,WCSE,WILDLIFE CONSERVATION SOCIETY-EUROPE,3,400000,499999,,1.5,96724945332-74,active,
+5aa0b1d9c9994899b4a3108408f42f71,75,11,EQY,Euroquality,1,,,389391,4,917589919725-87,active,
 5aa09c280e7e48a8a7b44bfbafe6ac2e,21,41,GOB,Grand Orient de Belgique,4,,9999,,0.25,149207115418-94,active,1
+5a9eb53f2908413fbe16441df15b1f49,135,21,Melita,Melita plc,2,,,,0.25,836225919700-55,,
 5a87631653f54b3b8249b30bc1ff3471,75,21,,GeoPost / DPDgroup,2,,9999,,2.5,501627318331-42,active,
 5a79dfb6a4cb41d4babedd62c3a1ab59,215,21,Colgate-Palmolive,Colgate-Palmolive Europe Sarl,2,25000,49999,,0.5,99833981643-28,active,
 5a792702ba494331ac3deebe3cba7b2c,82,41,TIIC,"TIIC - Technology, Innovation and Investment Council e.V.",4,,9999,,1.5,498028814976-88,active,
@@ -6113,7 +6193,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 57bb72abbfe44826803cf7bd1100d8b7,129,31,BCSDN,Balkan Civil Society Developmet Network,3,,9999,,6,63794152825-82,active,
 57b9ab82c8e74d20a3097bfe7f89e6a8,58,31,PASOS,PASOS - Policy Association for an Open Society (Legal name: Sdruzeni pro podporu otevrene spolecnosti - PASOS),3,,9999,,0.5,78899353154-36,active,
 57b20c2da6c04cc0a77df70a43e705f5,75,25,Eurospace,ASD-Eurospace,2,300000,399999,,0.75,873508417106-05,active,
-57a78062b9184408901cc0c1ffc5757f,176,41,IMN,Instytut Metali Niezelaznych,4,,,296000,1,493457617613-34,active,
+57a78062b9184408901cc0c1ffc5757f,176,41,IMN,Instytut Metali Niezelaznych,4,,,296000,2.75,493457617613-34,active,
 57a6c89b970a4792b615d273684db29c,75,11,,Havas Public Affairs Brussels,1,,9999,,3.75,85738828935-64,active,3
 57a62d8cf47b4d48b6a80d8ec1364c76,108,21,,Daikin Air Conditioning Italy SpA,2,,9999,,0.25,00224227066-78,active,
 57a059db8faf4464a077d680efab3c4a,233,21,ERA,The Educational Recording Agency Limited,2,,9999,,0.5,144760419026-31,active,
@@ -6215,12 +6295,14 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 54f1c90503bb457688c1232c9b2f46c9,209,41,RIE,Real Instituto Elcano,4,,,3357301,1.5,909187919366-18,active,
 54eacd4ae8614e318da2d3b832b87b68,155,11,Lysias,Lysias Consulting Group,1,,,450000,15,23303977645-67,active,
 54e8013f6f924684b9865f3212545346,180,31,S.R.P.R.M.P.A.V.C.,ASOCIAŢIA SOCIETATEA ROMÂNĂ PT PREVENIREA ŞI RECUPERAREA MEDICALĂ A PERSOANELOR CU ACCIDENT VASCULAR CEREBRAL,3,,,,46.5,745048317599-40,,
+54e27546c823499b809c8840bf75c63a,82,21,,Projekt MORE GmbH,2,,,,1,545812719770-47,,
 54e25b08ee08485b8bcfde58385e2d83,59,63,creoDK,Capital Region Denmark EU Office,6,,9999,,4,91139622118-45,active,
 54e149c1c43f49a0ab0e927d51eff555,234,21,,Quincy Data,2,,9999,,0.25,439159917081-17,active,
 54de3a2c2e5c469b93e94bf25e91fe6d,233,31,ECIPS,European Centre for Information Policy and Security,3,,9999,,29,547367810897-07,active,
 54d5813cc9564835ae4be389415f572a,105,31,CCL,Clann Credo - The Social Investment Fund,3,,9999,,0.25,963385516533-84,active,
 54bea5931b3144ee932d9a05c19beef0,209,63,BCN,Barcelona City Council,6,,,,50,939133114511-72,,
 54be6e74f4714c7b80ab469eaee10f49,75,13,,CAMBAZARD Pierre,1,,,5000,0.5,73990626549-80,active,1
+54bae91ae4ac49f9b1fa441e66c04442,165,63,Kraftfylka,Samarbeidande Kraftfylke,6,10000,24999,,0.25,658851819760-07,active,
 54ba386a483442aaa59833716392eb43,58,31,P3,"P3 - People, Planet, Profit, o.p.s.",3,,,3840,0.25,304944316511-25,active,
 54acc9c233534a3b873ccdd31ed76d88,105,31,,Children's Rights Alliance Ireland,3,,9999,,0.25,13019323995-97,active,
 54a567a6dd454450a5c5e6d9077f1988,21,63,FOMU,AP FotoMuseum Provincie Antwerpen,6,,9999,,22.5,353054713089-56,active,
@@ -6281,6 +6363,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 53128f007a86438191378ec1518bf91c,209,66,,COUNCIL OF CATALAN CHAMBERS OF COMMERCE,6,,9999,,9.5,785683118324-55,active,
 5311f3b62fb0405ead1e1ad748aeddbe,209,31,INCIDEM,Instituto de Cooperación Internacional y Desarrollo Municipal,3,,9999,,1,00609669640-11,active,1
 530ce28be5934230b232d671a75dee87,234,42,ACG,THE AMERICAN COLLEGE OF GREECE,4,,9999,,0.75,857319816874-60,active,
+530ba91afa304d3488aff0c80274ad59,233,27,EssexHMVA,Essex Historic Military Vehicle Association,2,,,,1,861134219716-13,,
 5309dc97534d451aa1264531ca579b89,108,31,U.B.B.,UNION - BLUE BERETS INTERNATIONAL CORPS,3,,,,2.5,15417408524-53,,
 52fdeec5a7384a6d9767616439eb9f2d,82,42,MPIL,Max-Planck-Institut für ausländisches öffentliches Recht und Völkerrecht,4,100000,199999,,3.5,862266415909-96,active,
 52f54543399c41cfa6dc4bf92d99c776,82,31,EBC,European Business Club Association,3,10000,24999,,7.5,10617254214-54,active,
@@ -6433,7 +6516,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 4ebb5689352d4569a57e9a643c103a4c,214,31,EDRIC,European Dysmelia Reference Information Centre,3,,9999,,0.25,047603512537-13,active,1
 4eb9e2c3fc6b4fd0b88fd1e00f6b192d,75,21,,EURECAT France SAS,2,10000,24999,,0.25,160274513289-43,active,
 4eb182e8b2864a239a32e11d5c59c131,82,42,EASAC,European Academies' Science Advisory Council,4,,,270159,4,133236011647-58,active,
-4ead13794bc24f2bb26e5298f1f4d1b4,209,31,,EUROSENIOR,3,,,,2.5,431774426-08,,
+4ead13794bc24f2bb26e5298f1f4d1b4,209,31,,EUROSENIOR,3,,9999,,2.5,431774426-08,active,
 4ea3fb4d32ab40a7b9071b5c3c3b36bf,209,27,Arvi,"Cooperativa de Armadores de Pesca del Puerto de Vigo, Sociedad Cooperativa Gallega",2,,9999,,0.5,30755563545-26,active,
 4ea18a946f184a329c95ae74fa6dcc15,85,42,NTUA,NATIONAL TECHNICAL UNIVERSITY OFATHENS,4,,9999,,0.25,385166117689-91,active,
 4e964c4e43c3402cb3a173df83490087,233,25,RDG,Rail Delivery Group,2,100000,199999,,1.5,330475719111-69,active,
@@ -6554,7 +6637,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 4b4d8e00fa794090a185b7f4fbd32609,209,31,FIJC,Fundacio Privada Internacional Josep Carreras,3,,9999,,0.75,09176682973-55,active,
 4b4a4e0035684525adf41a57db8182fc,209,26,UP,UNIÓN PROFESIONAL,2,,,100000,4,57238506728-24,active,
 4b44a4a33be2439fb11a32a38c3cad51,108,25,ASSOBIOPLASTICHE,associazione italiana delle bioplastiche e dei materiali biodegradabili e compostabili,2,25000,49999,,0.5,84791296291-88,active,1
-4b3d70683a24438d8cac201c4a6b18b5,75,31,ECF,European Civic Forum,3,50000,99999,,1,981872117501-10,active,
+4b3d70683a24438d8cac201c4a6b18b5,75,31,ECF,European Civic Forum,3,50000,99999,,1.5,981872117501-10,active,
 4b3c2b6c60e847df9db1ab78f194f751,21,31,FRH,Future for Religious Heritage,3,,9999,,1.25,256812113944-37,active,2
 4b381735a2714101b6f21023fac7e923,155,27,IRG-Rail,Independent Regulators' Group - Rail,2,,9999,,8.5,845563817745-89,active,
 4b21f36d5ca345c48c14516cf65f9bdb,75,31,ES,EuroScience,3,,9999,,0.75,960231515423-37,active,
@@ -6567,6 +6650,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 4afe8fdf0b7a4d44bfbf08f3c53ad702,75,31,CCE,Conseil de Coopération Economique,3,,,,3,260656615546-60,,
 4afa665b2bf24122812855f8b755283a,75,21,MEDITHAU,MEDITHAU,2,100000,199999,,0.75,481938011214-14,active,
 4aedee54d5b64297955004d4d83b54b3,21,31,YEU,Youth for Exchange and Understanding,3,,,200000,2,754859316975-45,active,
+4ae7114ae2fb49ceb470bb587b03a6f2,233,31,IIRC,International Integrated Reporting Council,3,,9999,,1,603048419639-42,active,
 4ad6826705584ac6a6d99f85fa310e1d,75,26,,Paris EUROPLACE,2,25000,49999,,1.25,523146516037-10,active,
 4ad582e80a7045f9895b164ddd74e306,108,31,APSFD,ASSOCIAZIONE DI PROMOZIONE SOCIALE FUTURO DIGITALE,3,10000,24999,,9,481940312180-28,active,
 4ad029e459e14376a6879427ea02b7eb,75,21,,TERREAL,2,,9999,,0.25,52143099760-16,active,
@@ -6584,6 +6668,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 4a54a82338ef4919be2c143440270176,21,25,ETSA,European Textile Services Association,2,,9999,,2.25,042969910219-77,active,1
 4a53de9c2f114c58b49bd5b720e5e173,54,66,ZARA,Zagorska razvojna agencija d.o.o.,6,200000,299999,,0.25,647519218473-49,active,
 4a3740752ff745ceb4b96871ac80bf3f,21,25,EUHA,Electric Underfloor Heating Alliance,2,25000,49999,,0.25,842476010102-73,active,
+4a1e390eaad24e88b39e5fe34853c3af,120,21,JSC "Latvijas Gaze",Joint Stock Company "Latvijas Gaze",2,50000,99999,,3.75,090402719722-89,active,
 4a1cb68471af4611a6f461850ab9a861,233,21,GTIL,Grant Thornton International Ltd,2,100000,199999,,1.5,32374939743-15,active,
 4a1620afd1ff4baea1aaf679c0ef150d,108,21,,Terna spa,2,25000,49999,,5.25,937812815077-68,active,
 4a092bcda8cb4ac79aa737a22d616950,21,41,,VoteWatch Europe AISBL,4,,9999,,2,963464610642-86,active,2
@@ -6632,6 +6717,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 48aa47f2326b4227a5cc9421ab45fd22,82,11,GKC,Gerd Körner Consulting KG,1,,9999,,0.25,63952227296-79,active,
 48a6d894ac8348bf83ece7e697caa6fb,59,31,,Forbrugerrådet Tænk (the Danish Consumer Council),3,,9999,,17.25,39456841401-09,active,
 48a2cd06b55542d8ab1c66f007ce3963,14,31,PDI,Pro Danube International,3,,,50000,0.5,875268617630-39,active,
+48a20df0cd4b4f80873d8764d4880e6b,21,31,i~HD,The European Institute for Innovation through Health Data,3,,,,1,957449219758-32,,
 48a05a993dc2438aa966ea17c9be2bd8,21,26,LO Norway,Landsorganisasjonen i Norge,2,,9999,,2,74723233504-91,active,
 48a03e4889b44d5bb9222df0969502b3,21,25,EUROFEMA,European Organic Fertilizers Manufacturers Association,2,,9999,,0.25,952946917159-89,active,
 48a000d747e749e0bc9145a3be0794a0,82,31,ITS Germany,ITS Germany e.V. Deutsche Gesellschaft für Intelligente Transportsysteme,3,,,,1,98679931371-12,,
@@ -6808,6 +6894,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 43d568fd21fa4defbabfc3ac5c9befb0,75,21,GET SE,Groupe EUROTUNNEL,2,100000,199999,,1.5,092337815041-92,active,
 43cea316e9e74fb798859ec72217a32f,233,25,BAPLA,British Association of Picture Libraries & Agencies,2,,,0,1.5,045004613212-61,active,
 43cc970ca7da4f5388e884f80d4503fb,233,41,OpenForum Europe,OFE Limited,4,100000,199999,,3,2702114689-05,active,4
+43cb643f37c94c91b7e74a38a79c3d74,234,25,SPI,"The Society of the Plastics Industry, Inc.",2,,9999,,1,865249219658-11,active,
 43c1ae757ac64278be2b92dc2b381b42,180,26,ANFSCR,NATIONAL ASSOCIATION OF THE ROMANIAN REGISTRARS,2,,9999,,2,81682927739-49,active,
 43b9fc6257674e09a2de938b1396a0c5,82,12,A&G,Alber & Geiger,1,50000,99999,,6.25,67820416722-09,active,2
 43b2f2a2817946c3b63e59f354bcf8ee,233,11,Aphaia,Aphaia Ltd,1,,9999,,0.25,72771575920-88,active,
@@ -6823,7 +6910,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 4368a4e96d404e76aeefabe93d631f63,21,64,VRT,Vlaamse Radio- en Televisieomroeporganisatie,6,25000,49999,,1.5,3260509286-84,active,
 4364877e68ed4d3f9208ec834d52257b,233,21,,easyJet,2,100000,199999,,0.5,291219715847-52,active,5
 4360ba2467e74cd298db7d13bc58ea12,82,11,eusg,European School of Governance,1,25000,49999,,3,777673117894-44,active,
-43578d3ab41446f8b8df04cbc3efc748,21,66,vleva,Vlaams - Europees verbindingsagentschap,6,,9999,,7,11179098153-60,active,3
+43578d3ab41446f8b8df04cbc3efc748,21,63,vleva,Vlaams - Europees verbindingsagentschap,6,,9999,,7,11179098153-60,active,3
 435007c14e6b42278fb0235ee54b2bf1,74,21,Sanasto,Finnish Authors´ Copyright Society Sanasto,2,,9999,,1.75,025938212702-61,active,
 43485fbf20d24bb887e9550478c17e65,105,31,,Turn 180,3,,9999,,0.5,75052677706-80,active,
 434704e6840d4e539f09f1d46dd600c2,209,25,Adigital,Asociación Española de la Economía Digital,2,100000,199999,,2.75,972127919039-72,active,
@@ -6895,8 +6982,8 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 41c9f97235d844f38a8917233dc4d883,21,25,SIPA,Seafood Importers and Processors Alliance,2,,9999,,0.25,451585113301-32,active,
 41ac07a8aa09464a9ec6be5baf05c1ab,234,25,CLA,CropLife America,2,,9999,,0.25,382444715442-45,active,
 41a897a8f6a84f948b3696ebf8fddbf3,21,21,,O'BROTHER DISTRIBUTION,2,10000,24999,,0.75,771168713043-32,active,
-41a6e7e7a61a4aa0ab085fc80f7cd826,209,21,,MERCADONA SA,2,,,,1.5,893936110764-91,,
-41a6a25faeb740e99d888a7e501e7008,234,21,,Microsoft Corporation,2,4250000,4499999,,7.25,0801162959-21,active,4
+41a6e7e7a61a4aa0ab085fc80f7cd826,209,21,,MERCADONA SA,2,,9999,,1.5,893936110764-91,active,
+41a6a25faeb740e99d888a7e501e7008,234,21,,Microsoft Corporation,2,4250000,4499999,,7.75,0801162959-21,active,4
 41a580adc6cc4dcda78ba6a5bef7f658,21,21,JBCE,Japan Business Council in Europe,2,400000,499999,,5.75,68368571120-55,active,
 41980180ef6346369578ac7e23124abf,155,42,DLO,Stichting Dienst Landbouwkundig Onderzoek,4,,9999,,0.5,70699309784-62,active,
 41944d0ee83d407588a43a3b3b3e0ddd,180,26,FNIFP,FEDERAȚIA NAȚIONALĂ PENTRU ÎNVĂȚĂMÂNT ȘI FORMARE PROFESIONALĂ,2,,9999,,0.25,545283317403-97,active,
@@ -6934,6 +7021,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 4092b61875a840d083a697e668ac9a9c,108,31,FBAO,Fondazione Banco Alimentare Onlus,3,,9999,,4,97769838689-79,active,8
 408e9d1828bc42f2be0fe0811a0ff3fd,108,21,Turboden,Turboden,2,,9999,,1.5,111151414941-72,active,2
 407d45466a744775836a150e6e9b9e72,105,31,,Concern Worldwide,3,10000,24999,,0.25,802660516125-83,active,
+4074fa26ccc44f16a48111732bec89a5,21,41,RAMIT,Research in Advanced Medical Informatics and Telematics (vzw - asbl),4,,,616000,2.5,409346719733-28,active,
 406f447a27d94a88bf9c2211eb483b58,209,21,,CEMENTOS COSMOS SA,2,25000,49999,,6.25,551915115710-40,active,
 40694dde06ab4b10a0062b22312d36bd,233,25,CONECTUS,CONsortium of European Companies determined To Use Superconductivity,2,,9999,,0.25,80327962885-40,active,
 4067f68a633840268f979a284b6f767e,21,31,IFBG,International Foundation for Better Governance,3,,9999,,1.5,796650412686-37,active,
@@ -7069,6 +7157,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 3d0a3488aa5542a7a5f564027c8d0f97,129,21,RA,Ramadani Abdulxhemil,2,,,0,100,576121012471-77,active,
 3d0986f618034e87a02ac60d095d1477,233,21,,American Express Corporation,2,100000,199999,,0.75,671547715580-60,active,
 3d0407c25b1d42f68b19b224586cc044,21,31,,EIT Digital,3,,9999,,1,241696917766-40,active,
+3cff32e2530e43c1949fbb496b1fa81a,75,21,,ARIANESPACE,2,,,400000,80,016461319755-04,active,
 3cff07771e57480e82fe3e70bbc59b6c,155,21,,VanDrie Group,2,,9999,,0.25,095285315431-70,active,
 3cf072596ab241e09988304c02a3e398,21,25,AICV,European Cider and Fruit Wine Association,2,,,88000,0.25,27459429876-64,active,
 3cd963c448aa4b79919ca49bf3de2600,176,25,SFP,Stowarzyszenie Filmowców Polskich,2,,9999,,0.5,122158812891-33,active,2
@@ -7082,6 +7171,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 3ca81e102ab44a868ba4b70843451d49,180,25,APAR,Asociatia pentru Promovarea Alimentului Romanesc,2,,9999,,0.5,116915712797-73,active,1
 3c9e49244b63443daf36a7b8e8e310c6,74,25,Finatex,Tekstiili- ja vaatetusteollisuus Finatex ry,2,,9999,,2.25,137654615938-64,active,
 3c9a6379479f4e10bc1f6fb097821b37,155,11,Dr2,Dröge & van Drimmelen,1,,9999,,0.25,59604949040-94,active,1
+3c8cee734af945c4a6553dcf35f2361c,3,64,IKPZH,Institute of Kosovo for Policy Development,6,,,1000,12.5,694211919114-15,active,
 3c83b1c193854ffc8d02cb17a9cfa8b4,155,25,Lira,Stichting Literaire Rechten Auteurs,2,,9999,,0.25,381918013157-40,active,
 3c82e55d53e344f59ac5a553197bb4f7,215,21,,Tetra Pak International,2,200000,299999,,1.5,7574443768-34,active,4
 3c7c019392094ada8c285c5125c7a615,155,31,NP,Nutrient Platform,3,,,160000,1,675014418515-44,active,
@@ -7099,7 +7189,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 3c38cac518f94bdfb3154943a0bb59a9,21,31,ETSC,European Transport Safety Council,3,200000,299999,,5.25,78891371297-34,active,2
 3c294d9b610f4c95a0fefaa29450f863,75,27,CNOM,Conseil National de l'Ordre des Médecins,2,200000,299999,,0.25,46314992900-82,active,2
 3c26260a38cc4b3ebcf3fc4833ad1d75,233,41,,RAND Europe,4,50000,99999,,15.75,055428317246-43,active,
-3c1ebe30464740c4a90850a3e02625be,177,31,Dianova Portugal,Associação Dianova Portugal - Intervenção em Toxicodependências e Desenvolvimento Social.,3,,,1336795,3,523238518817-56,active,
+3c1ebe30464740c4a90850a3e02625be,177,31,Dianova Portugal,Associação Dianova Portugal - Intervenção em Toxicodependências e Desenvolvimento Social.,3,,9999,,3,523238518817-56,active,
 3c16a1266e754518a271c3068be26b8a,82,25,FFII,Foundation for a Free Information Infrastructure,2,,9999,,2.5,903724910906-52,active,
 3c0d1913c1d944b1a28643d92c01b048,21,25,EMPA,European Melamine Producers Association,2,,9999,,0.5,717101617809-28,active,
 3c04cf1ebe8942f791508e145870beb9,82,11,,Maurus Consulting GmbH,1,50000,99999,,1.25,641446710469-35,active,1
@@ -7146,6 +7236,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 3b1c8d9339864c97bb98518b02fb776b,21,12,,McDermott Will & Emery Belgium LLP,1,100000,199999,,0.5,714208118291-61,active,
 3b1c7daeea9144b4b82700579e705557,209,21,ZERYA,ZERYA Producciones sin Residuos S.L.,2,25000,49999,,1,191306718204-57,active,
 3b0a565f590340f5b520399d59c940f5,21,31,mediter,EuroMediter,3,,9999,,0.25,59768738332-66,active,
+3b090625eda245248177d566d75d7ca4,233,41,BIICL,British Institute of International and Comparative Law,4,,9999,,2.25,476926019456-45,active,
 3af73919ac814277a4e32ec53e7fa0fa,75,31,FMAT,Foro Mundial sobre el Acceso a la Tierra y a los Recursos Naturales,3,,,,3,831914317017-96,,
 3af1026f68b046c7869bb53b44fdfb31,21,25,PVCMed,PVCMed Alliance,2,100000,199999,,0.25,984634610012-88,active,
 3ae7e80fa89f4d3cba21b1fa1e2ac219,82,21,,Robert Bosch GmbH,2,1000000,1249999,,6.25,8999533555-91,active,6
@@ -7269,6 +7360,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 376350713dee45799e3e462c0da017b5,199,21,SGX,Singapore Exchange Limited,2,25000,49999,,1,812438516709-37,active,
 374487b831324cfdbcdc0e6d37dd5c1c,75,31,FIM,INTERNATIONAL FEDERATION OF MUSICIANS,3,,9999,,0.5,01953872943-65,active,
 373fb11741ea470f98ff564bdb9a5452,155,31,BE,Both ENDS,3,,9999,,2,15018461696-11,active,
+371c1b0503c24f70b92e4332ee9e2ab5,21,31,,Inclusion Europe,3,400000,499999,,4.5,623548119416-97,active,
 3715aa0bd8c441e8bb8acfe2caa52080,75,21,,Groupe Auchan,2,50000,99999,,1,581002319446-05,active,
 37072d4490d9444da70f5176f1d3dfcc,14,31,,ARGE Kompost & Biogas Österreich,3,25000,49999,,0.5,480779417713-69,active,
 36fed157b0014c98816c68573dfef7b6,234,21,SPE,Sony Pictures Entertainment Inc.,2,25000,49999,,0.5,925398116167-82,active,
@@ -7277,7 +7369,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 36ea329cac9842ca81cb38e8d570397a,155,42,ACTL,Amsterdam Centre For Tax Law,4,,9999,,5,596355711098-93,active,
 36e5c6f0d30141b39959b85f74469484,74,26,JHL,Julkisten ja hyvinvointialojen liitto JHL ry,2,100000,199999,,2,425907016121-93,active,
 36e1ff00d4284922b42aeb285cf4a960,14,21,R9 Austria,R9 TV Austria,2,600000,699999,,0.75,965241818931-53,active,
-36c7946f4aae408094d4f1ddc105a9f0,209,66,LDAC - CCPL,Long Distance Advisory Council / Consejo Consultivo de Flota Comunitaria de Larga Distancia en Aguas Lejanas / Conseil Consultatif de Pêche Lointaine,6,400000,499999,,11.25,905805219213-67,active,
+36c7946f4aae408094d4f1ddc105a9f0,209,66,LDAC - CCPL,Long Distance Advisory Council / Consejo Consultivo de Flota Comunitaria de Larga Distancia en Aguas Lejanas / Conseil Consultatif de Pêche Lointaine,6,400000,499999,,2.75,905805219213-67,active,
 36c722c4dccd4f399c63e0af15927484,108,66,Unioncamere,"Unione Italiana delle Camere di Commercio, Industria, Artigianato e Agricoltura",6,600000,699999,,3,35044253457-59,active,
 36c5cee379654ac3a883c5b39344bbc3,82,11,,nuances GmbH & Co KG,1,,9999,,10,84003499963-92,active,
 36c43b529d934f21a7f6c247457a017a,233,25,NHF,National Hairdressers Federation,2,,9999,,1.75,503515715887-64,active,
@@ -7312,6 +7404,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 35f6cd35326244d09e2b0375d0565198,209,41,Connect-EU Materials,Connect-EU Materials Group,4,,9999,,0.25,99109167211-74,active,
 35dba67b439741169e38380ee88f09c2,51,31,A.S.E.M,Action Santé-Environnement et Migration,3,300000,399999,,7,197529019332-28,active,
 35be6be26f0e4497a0a3cc1297a35fbf,21,25,ECAR,Campaign for the Freedom of the Automotive Parts and Repair Market,2,,,175000,0.25,24503897827-04,active,
+35bcc5abb75143ae8a820e0d2f859b12,21,31,HL7,HL7 International Foundation,3,,,116641,2,717892419762-76,active,
 35b407e66c5245fb97f8c1397eaa2c90,196,31,,Smart Kolektiv,3,,,170000,2,585732816544-30,active,
 35af51ed7aa74d16a102a4edd4a59881,155,21,Teva,Teva Pharmaceuticals Europe BV,2,500000,599999,,2.75,27116427434-57,active,2
 35ac23aa962f4288b4741c27b42db92b,21,25,A.I.S.E.,"Association Internationale de la Savonnerie, de la Détergence et des Produits d'Entretien",2,400000,499999,,2,6168551998-60,active,
@@ -7348,7 +7441,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 349dfb6ca3af4ed595b3fee8db5ad0fa,75,31,E-MRS,European Materials Research Society,3,,9999,,1.75,477244714597-01,active,
 34974a67046a4d8fac0aacb5fc361a47,105,25,None,Chartered Accountants Ireland,2,,9999,,0.5,597774414194-08,active,
 348ca2cac7bf4e4ead066b3ab9bc1eb5,21,31,IPPF EN,International Planned Parenthood Federation European Network,3,,9999,,3.75,49806329193-46,active,3
-34886131273c4862b729117b138efaf6,54,13,IS doo,Inteligentno savjetovanje d.o.o.,1,,,0,0.25,19015326494-62,active,
+34886131273c4862b729117b138efaf6,54,13,IS doo,Inteligentno savjetovanje d.o.o.,1,,,,0.25,19015326494-62,,
 346c1713824d42ed85ae75b30742dc3a,108,25,FEDERCOOPESCA,FEDERCOOPESCA-CONFCOOPERATIVE,2,,,,0.75,64106129497-75,,
 345def1a32ef4d4ea94e0b2eaa2a314c,234,21,,Emergent BioSolutions,2,,,275000,2,946394317378-56,active,
 345d20f4c0ff42d3987f67cc89cdb0d3,21,25,INREV,European Association for Investors in Non-Listed Real Estate Vehicles,2,200000,299999,,2,47748145557-46,active,2
@@ -7432,7 +7525,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 327789740d5c4f09a38dcce5c4c85495,233,25,WMBA,Wholesale Market Brokers Association,2,50000,99999,,2.25,71374683216-48,active,
 3273b2e0f8c4489794fb7f7a8d330852,214,25,,Sveriges Bussföretag,2,,9999,,1.25,166206418739-80,active,
 3264de7f55d047a881e955f456c019b1,75,31,FEGAPEI,Fédération nationale des associations gestionnaires aus service des personnes handicapées,3,,9999,,1.75,604853910300-72,active,
-3246f1a3dc174b4fbbec9414b6efbe5a,21,42,,EDU,4,10000,24999,,3,43795106384-55,active,1
+3246f1a3dc174b4fbbec9414b6efbe5a,21,42,,EDU,4,10000,24999,,0.5,43795106384-55,active,1
 3242f1b5b3a84d7b8b4bde025dbc9caf,21,64,,Småland Blekinge South Sweden,6,,9999,,2,56268429958-30,active,
 3241f7ac18014897a312b0ad619b868a,233,21,ITV,Independent Television PLC,2,200000,299999,,1.25,978406813345-95,active,
 323a6ffbdce14104beab9948cc9ebc73,233,21,CPL,Capture Power Limited,2,,9999,,0.25,904695012954-74,active,
@@ -7555,7 +7648,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 2ecc688b69714c22a92c05f43af17880,233,31,,Global Ocean Commission,3,,,,0.5,919220015824-70,,
 2ecaa573f1ee401e9d42e028d3e17a8d,209,11,Impulso,Impulso Industrial Alternativo,1,,9999,,0.75,124208513303-77,active,1
 2ebe1242b5c34d6cbff0a21e00f6459f,155,31,SHA,Stichting Huize Aarde,3,,,20000,1.5,835328319472-27,active,
-2ebd960948e743d8bafed89d54df6b42,82,42,ERA,Academy of European Law,4,,,,73,97138128231-58,,2
+2ebd960948e743d8bafed89d54df6b42,82,42,ERA,Academy of European Law,4,,,52000,73,97138128231-58,active,2
 2ebab170c0d5458e97974d0765b8f9e6,75,64,RTES,reseau des colectivites territoriales pour une économie solidaire,6,,,10000,1,947842916358-14,active,
 2ea1e488fa4f4f1e9d457e55f0fcac09,75,25,FFPM,Federation Francaise des pilotes maritimes,2,,9999,,3,648860211069-16,active,
 2ea187af62fe4de8b5e83c77d8a5faad,99,26,MRK,Magyar Rektori Konferencia,2,,9999,,1.5,654456115787-63,active,
@@ -7607,6 +7700,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 2d8c45c6744843a78d66d5a9064ca2ea,75,26,OTRE,Organisation des Transporteurs Routiers Européens,2,,9999,,0.25,67086176889-11,active,
 2d89ad7af0194fa59a986b61fe6f4c87,21,26,YLFA International,Association des yaourts & laits fermentés vivants,2,100000,199999,,1,219068015989-38,active,
 2d88260302474579ae43d0451354e27d,155,21,APX,APX Holding B.V.,2,,9999,,0.25,174304615349-26,active,
+2d87665e45114582a782eb638fd7dff5,21,31,,Choices International Foundation,3,,,50000,1.75,129983319649-02,active,
 2d858ae5b1834eddaf8264ef34f8ffdf,209,31,PROMUSICAE,PROMUSICAE,3,10000,24999,,2.25,018304414362-83,active,1
 2d79bb48dd0042b3beaa29937f11a227,21,25,ENAEE,European Network for Accreditation of Engineering Education,2,,9999,,0.25,69063914634-64,active,
 2d7378d5ff304bb2b7c48542f5de0d7d,21,21,,HACHIKO,2,,9999,,4.75,95990808181-93,active,
@@ -7620,7 +7714,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 2d2562c7bb3f4f8e9fe16f6fbbcf90a5,99,26,VHT,Vágóállat és Hús Szakmaközi Szervezet és Terméktanács,2,200000,299999,,0.25,246873617244-60,active,
 2d24b31db59c446e9e306e1d509315ce,75,31,WIL Europe,European Network for Women in Leadership,3,,,0,1,290784516944-56,active,
 2d1a7981a27f4caeb5a8f43eeb02de47,75,21,,GROUPE CANAL+,2,100000,199999,,1,645753416723-84,active,
-2d149150b87b44c8a5c3aa0f6586c5bf,209,31,EDbN,European Deafblind Network,3,,9999,,1.5,535776713965-43,active,2
+2d149150b87b44c8a5c3aa0f6586c5bf,209,31,EDbN,European Deafblind Network,3,,,,1.5,535776713965-43,,2
 2cfb48ee30254dd795ddc96130353596,34,31,ZZ,Environmental association Za Zemiata,3,,9999,,2,802556118478-14,active,
 2cf13303b19449bf9ee995d4b3b98dfe,85,21,Prisma,Prisma Electronics SA,2,,9999,,21.75,31843962957-96,active,
 2ce3eb46ffb14f8f95bf2bb0666b73b8,155,27,LTO Nederland,Land- en Tuinbouw Organisatie Nederland,2,,9999,,4,4656646862-72,active,2
@@ -7645,7 +7739,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 2c6108945a49455aaf95129c4e006494,74,25,STYL,Association of Finnish Suppliers of Labour Safety Equipment,2,,9999,,0.25,81433676016-34,active,
 2c5f6cd64d57408aab0e828ce8a5184a,108,31,ODI-VG,Vito Grittani "Osservatorio Diplomatico Internazionale",3,,,,1.25,306381010044-20,,
 2c5c9b9b8d794898bacaa5dfd08b7b7f,233,31,,World Horizons,3,,9999,,0.25,87745127959-65,active,1
-2c55fdd1c9e84230a2770b246eed118d,180,26,PRO AGRO,"FEDERAŢIA NAŢIONALĂ A PRODUCĂTORILOR DIN AGRICULTURĂ, INDUSTRIA ALIMENTARĂ ŞI SERVICII CONEXE DIN ROMÂNIA – FEDERAŢIA NAŢIONALĂ PRO AGRO",2,,9999,,0.25,198859112992-04,active,
+2c55fdd1c9e84230a2770b246eed118d,180,31,PRO AGRO,"FEDERAŢIA NAŢIONALĂ A PRODUCĂTORILOR DIN AGRICULTURĂ, INDUSTRIA ALIMENTARĂ ŞI SERVICII CONEXE DIN ROMÂNIA – FEDERAŢIA NAŢIONALĂ PRO AGRO",3,,9999,,0.5,198859112992-04,active,
 2c4bd9f1eca646cc86dbd8a890e17c5c,234,21,,AbbVie,2,300000,399999,,1.25,934069612666-51,active,
 2c4a5c6829f94f928df602a217de92c4,234,21,,Franklin Resources Inc.,2,100000,199999,,0.25,042053818845-45,active,
 2c47afdba3a54b86bfef376e7d76f5d6,155,31,,"Partner International, Association for Dialogue and Cooperation",3,,9999,,0.75,194261715819-24,active,
@@ -7668,6 +7762,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 2b95ecc4bd3240c09ddea3dc79156d81,21,27,FEICA,FEICA,2,100000,199999,,4.5,51642763262-89,active,
 2b8ba44abac64f27a52de58dca514ae8,215,31,AIDLR,Association internationale pour la défense de la liberté religieuse,3,100000,199999,,2,68270708350-60,active,2
 2b8b438ae31f4d9a8a6fdc33e1b2e382,233,31,TJM,Trade Justice Movement,3,,9999,,0.25,068204314913-77,active,
+2b85b791144d4108b9461ae69081a359,165,42,HU-NORWAY,HAAKON UNDERVISNING,4,,,,12.5,144232719752-45,,
 2b828623ede54c1a8d6305d0e3857134,108,21,,Assicurazioni Generali S.p.A,2,100000,199999,,6.75,600525713796-88,active,5
 2b81f14c9fdb4ad784daf61589671423,108,21,Conserve Italia,Conserve Italia Soc. Coop. Agr.,2,,9999,,0.25,068727610589-10,active,
 2b76fda90a5a4249a96b01334bacc96b,14,25,VAP,Verein für Anti-Piraterie der Film- und Videobranche,2,,,9000,0.25,385134710440-04,active,
@@ -7700,10 +7795,11 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 2ac76bdb4f0a42e7963d07e2e9d338f8,21,31,,Change Partnership,3,,,42500,1,027333110679-45,active,2
 2abda89e35564d01b929a12be4cdbd6e,177,25,AEVP,Associação das Empresas de Vinho do Porto,2,,9999,,0.5,94320401142-27,active,
 2abb7e2fcac14763a14e7fbfe3c62e09,155,25,VisNed,Cooperatie Kottervisserij Nederland (VisNed),2,,9999,,7,999937013620-15,active,
-2aafb4d117294c0f82956fa7b6bf97ea,21,26,BEMEFA,Beroepsvereniging van de mengvoederfabrikanten,2,,,2084947,9,587407518852-65,active,
+2aafb4d117294c0f82956fa7b6bf97ea,21,26,BEMEFA,Beroepsvereniging van de mengvoederfabrikanten,2,,,,9,587407518852-65,,
 2aa7066eb26b4d348a6469b2228a3f2c,234,21,,SAS Institute,2,300000,399999,,1,175323916168-03,active,
 2aa610c8390744b48964c796aee2ffde,75,12,,"Taj, Société d’Avocats",1,,,,1.25,850303711081-54,,
 2a98013411054c639c2f5a45ae53369e,82,21,,Beiersdorf,2,50000,99999,,0.25,89804672520-02,active,
+2a91ea0472a94cbbad1418bf52d73073,105,42,NUID UCD,"University College Dublin – National University of Ireland, Dublin",4,,,492005000,2.5,539145619702-32,active,
 2a91aef55c72457f9d345e44ab5e9647,75,21,RTE,Réseau de transport d'électricité SA,2,,9999,,1.5,669359510572-76,active,2
 2a8da6906801483f899e71a40dd3398b,75,31,MedPAN,Mediterranean Protected Areas Network,3,,9999,,7,926930612620-12,active,
 2a8bf313b3f142f58ee4c020ddb79e33,75,31,RR,Rainbow Rose,3,,9999,,0.5,258962912667-77,active,1
@@ -7764,10 +7860,12 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 28ee1a69354546488069d23bb4103bfa,176,25,PZPRZ,Polski Związek Producentów Roślin Zbożowych,2,,9999,,1,783636115581-22,active,
 28ea77dd368a43528cd14f6e40279724,21,13,RMS,Robert VIERHOUT,1,,9999,,0.5,255547314800-97,active,1
 28d5e35dfa844ea493333d2b91ea9fb5,82,25,ZAW,Zentralverband der deutschen Werbewirtschaft (ZAW),2,,9999,,0.5,12238962750-40,active,
+28cf92a1a5814fb4802035fb6a8ea750,209,13,,RAFAEL DELGADO ROJAS,1,,,,2,647872819646-05,,
 28a7c82a969a49e79f2daa074c9df92c,34,31,UBFM,Union of Bulgarian Film Makers,3,,9999,,1.25,83382776367-13,active,
 28a47cfd0c16413bb1ae7220f673c9d6,209,63,ICAM,Ilustre Colegio de Abogados de Madrid,6,,,70000,0.25,32594378071-56,active,
 28a10c23f1974254a4b74c58c94905d5,233,13,,ESB,1,10000,24999,,1,985046516052-02,active,
 28a0d26384d34ecbb478407d54117249,34,31,BlueLink.net,BlueLink Information Network,3,,,38858,2.75,13376004824-21,active,
+289f3b905e36412d831a2352d1112ea5,234,31,WRC,"Women's Refugee Commission, Inc.",3,,9999,,0.25,800359519744-38,active,
 289691492a484a15b4121c4122050f69,233,21,,ZEAL Network,2,,,5000,2.5,274827115835-26,active,
 288f73fbf5ea4f5eb1e7d540a1e1da61,216,31,(SHRC),Syrian Human Rights Council(,3,,9999,,6.25,50469709236-30,active,
 287fb48276334ca596dcdcd639fc0553,233,41,CER,Centre for European Reform,4,,9999,,13,524976815651-12,active,
@@ -7819,6 +7917,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 271a001377324a53bb2a04784777fea4,233,27,,Forum Europe,2,,9999,,8.5,731763615450-48,active,6
 26fdc3d3a3a0448d98005a0a8530b67a,21,25,ECSPA,European Calcium Silicate Producers Association,2,100000,199999,,1.5,97717061899-40,active,
 26f4b01f9cc545b4aec03b15b3e4d772,14,63,IKW,"Institut für Kommunalwissenschaften, A 4020 Linz",6,,9999,,1,021030812588-96,active,
+26f1f7e942d54cbd856a5f1eee3cfce1,233,21,,Arqiva,2,,9999,,0.25,605581219785-82,active,
 26e44cfd523b44d3b656ca425db270e6,82,31,,Deutsche Hochschulmedizin e.V.,3,,9999,,0.25,782507313503-67,active,
 26bab36c7adc456aad9de695c2bdd252,75,31,,OLD'UP,3,,9999,,2.5,53704972068-20,active,
 26b96dfe69f9453aa4013824b9363ef9,14,25,VAM,Verwertungsgesellschaft für audiovisuelle Medien,2,,9999,,0.5,639712612740-87,active,
@@ -7841,13 +7940,14 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 2614cfcab93647b9894f191272badd52,209,27,ANEPAT,ASOCIACION NACIONAL DE EMPRESAS PESQUERAS EN PAISES TERCEROS,2,,,18422,0.5,575664819309-20,active,
 26066ce35bac4fcda4d3b788c95fb509,21,11,,Kaméléon,1,,,50000,0.25,793874918452-95,active,
 25f6435d9088421fa743e0fc84d1fba9,82,25,VDB,Verband der Deutschen Biokraftstoffindustrie,2,,9999,,0.75,01816267633-71,active,2
-25ef094919544ec3a3b0e3a69963ca9c,232,66,ADIA,Abu Dhabi Investment Authority,6,25000,49999,,0.25,013465915676-21,active,
+25ef094919544ec3a3b0e3a69963ca9c,232,21,ADIA,Abu Dhabi Investment Authority,2,25000,49999,,0.25,013465915676-21,active,
 25e9077961314ed9af0444bc94808311,21,31,,European Federation of Community of Sant'Egidio AISBL,3,,9999,,3.5,296584214860-47,active,4
 25e4ad1ea48c4463ad97c2bce8370f97,75,12,,MEHTIYEVA Kamalia,1,,,,1,274870116778-55,,
 25cf130579fe4f7aa3b8661fbe209c9f,209,27,,Club Financiero Madrid,2,,9999,,2.75,275415210345-26,active,
 25cac01b3f654748901ee2018e70e328,192,11,PRAGMATA INSTITUTE,PRAGMATA SRL,1,300000,399999,,3.25,547986912021-05,active,5
 25ca7fe11a734bb2b781a75495aaeaf6,21,31,ECN,European Crowdfunding Network,3,,9999,,0.75,563363817333-70,active,
 25ca1dd1cd914b08ac626914b4dea59b,155,11,HCGP,Horticonsult.Global Partners BV,1,,9999,,1,17379166719-13,active,
+25c8c84cf4de472c95f486de459bc536,82,25,FSM,Freiwillige Selbstkontrolle Multimedia-Diensteanbieter e.V.,2,,9999,,0.5,232488319727-68,active,
 25c6018107cd48a396ecb8111fb22d40,75,21,,ERAMET,2,200000,299999,,3.5,645370511725-71,active,
 25c5247666fe48ef934a575e4acc67b2,13,21,iSignthis,iSignthis Ltd,2,,9999,,0.25,81284438347-16,active,
 25c509e068ca4acf916c7a186befbc00,21,11,,Passerelle public affairs,1,,9999,,1,749680914888-07,active,1
@@ -7920,6 +8020,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 23e359df41a149478199db2c2cf13017,233,13,,GlobeChange Strategies Limited,1,,,,0.5,887651818606-90,,
 23e2a9d1b0e54ed69427a6db3c258463,209,12,Iurismatica,Iurismatica Abogados S.L.P.,1,,,,0.25,35977286913-44,,
 23e21126ba4c42d98bda0eb2bb989b50,54,21,,Ribnjačarstvo Poljana d.d.,2,,9999,,2.5,887074017640-47,active,
+23ddee05321641c39271c96743310f02,82,31,MIRRI,MIRRI - Microbial Resource Research Infrastructure,3,,9999,,4.25,877955919775-91,active,
 23d57a31e08e4b4f97554a546104c2a4,21,25,,EuropaBio,2,200000,299999,,1,1298286943-59,active,6
 23d3374d364540dabf83f712b3f5fe9b,209,25,AOP,Asociación Española de Operadores de Productos Petrolíferos,2,100000,199999,,1.25,032095416055-85,active,
 23baee11d5e54d359df99ca57b807aeb,108,21,,Fastweb S.p.A.,2,,9999,,2.5,58272867322-27,active,3
@@ -7933,13 +8034,14 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 233d82bbcc334c26a7bf0245bdb6774e,21,25,BEMAS,Belgian Maintenance Association,2,,,750,0.25,80937158884-09,active,
 232ea78deb3f4e5ca245d25360460521,21,51,REGUE,Representation de l' Eglise de Grece aupres d' Union Europeenne,5,,,45000,2,157868119234-20,active,
 232da96489844bce8294097a6b8e1e7e,233,21,,EuroABS Limited,2,,9999,,0.25,575317019439-02,active,
-232d28e71bf345c1a8242499fcb1f5af,82,22,VAB,Verband der Auslandsbanken in Deutschland e.V. / Association of Foreign Banks in Germany,2,,,,1,95840804-38,,
+232d28e71bf345c1a8242499fcb1f5af,82,25,VAB,Verband der Auslandsbanken in Deutschland e.V. / Association of Foreign Banks in Germany,2,10000,24999,,1,95840804-38,active,
 232a40d9c4754b6fa7afd3aaa008e574,155,63,,Stadsregio Amsterdam,6,,9999,,0.25,170867512935-96,active,
 2324d259b9c04892950c39334738bf73,21,11,,Afore Consulting,1,400000,499999,,3.75,03013154889-05,active,8
 231ee6afa97a4965af2589810c133d0f,233,21,NATS,NATS Ltd,2,300000,399999,,3.25,15257643846-58,active,1
 231d81e6b3af4504ad58c0bf95c0ad8c,75,25,IPEDA,Independent Pan-European Digital Association,2,25000,49999,,1,192164311383-44,active,
 231878be1a3649b9af62920880d5b7c5,59,25,,Danske Medier,2,50000,99999,,0.75,873181915791-38,active,
 23158a7e256b414b88eae997cb7c0747,75,26,SNEP,Syndicat National de l'Edition Phonographique,2,,9999,,0.25,966957310666-94,active,
+231551a0c26547119abe2fcd5ce9cda2,233,21,,Babcock MSS,2,,,0,0.25,821286319794-24,active,
 2310bf79b4dd4fdd9a7c5fd7e44c2aee,74,41,Tapaus,Tutkimusosuuskunta Tapaus,4,10000,24999,,0.25,937390718171-95,active,
 23069b8b05944b64a92afbbbdc6c7b0f,104,31,,Jssor Youth Organization,3,,9999,,5.5,05972865598-97,active,
 230691004c84468abd8813e20ba70a9a,82,31,MM,MedicalMountains AG,3,,9999,,1.25,197494719219-02,active,
@@ -8027,6 +8129,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 20fbc4b87b1b489f91b9248cc07b2917,177,25,ACTE,European Textile Collectivities Association,2,,9999,,6.5,877084413812-85,active,
 20fa81940c954457982089240aa2dcee,234,13,,van der Laan Consulting,1,50000,99999,,0.5,404033615691-66,active,
 20f6df8676d0447383c7e9bcc8f7f854,233,21,Uniplaces,Uniplaces,2,,,,3.25,342863716688-93,,3
+20f3041f2ad54677a44232403cfa79f2,111,41,IIES,Institute for International Economic Studies,4,,,7640000,1.25,328160319689-46,active,
 20ebe911363d4007aefd067d106edf13,21,12,DLO,Distefano Law Office,1,,9999,,0.25,867924612009-05,active,
 20e688a75ac043d185288b131dc3ea3e,21,26,FERA,Federation of European Film Directors - Fédération Européenne des Réalisateurs de l'Audiovisuel,2,50000,99999,,0.75,29280842236-21,active,1
 20d483915c504170b9728f68db1bee4e,21,11,ADS Insight,ADS Insight,1,,9999,,8.25,02762144321-07,active,13
@@ -8073,6 +8176,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 1f9d075a660140a4897142eb26d08d23,21,26,CIDE,Commission Intersydicale des Déshydrateurs Européens,2,,,80000,0.75,174907913450-05,active,
 1f92b845e6194084b7da80491783b0cb,234,21,,ZOETIS,2,500000,599999,,1.25,564451610987-33,active,1
 1f87f9a965bc47b199240a37566feba2,155,66,KvK,Netherlands Chamber of Commerce (Kamer van Koophandel),6,100000,199999,,2.5,64945441527-14,active,1
+1f87f997fbd749e487bd962f37a9178a,108,21,,METROWEB ITALIA,2,25000,49999,,0.5,738100219743-96,active,
 1f87a4d78b7748babb05f33f14a0e29f,209,65,Arco Latino,ARCO LATINO,6,10000,24999,,0.5,93500235229-95,active,
 1f80432845c54012b7bf7d54151b8694,202,26,KSS,Konfederacija slovenskih sindikatov,2,,,,3,981136516833-85,,
 1f7feeedd11d4b6d922c7cffaee01b82,176,31,FROB,Foundation for non-cash development,3,,9999,,1,28466028563-43,active,
@@ -8109,6 +8213,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 1e824bfe22584d90921758f78a403292,74,25,CIFF,Chemical Industry Federation of Finland,2,10000,24999,,0.25,07682415745-25,active,
 1e79b589f7cf49afa1903aa09e558bfb,21,13,,LMCL,1,,9999,,0.25,402173017136-94,active,
 1e5e149d7934440da3f82d5dc1459f00,82,31,FPL e.V.,Forschungsgesellschaft für Pigmente und Lacke e.V.,3,,,5000,0.25,993836517376-92,active,
+1e572332d5ce4afcbb91e3901b694d28,176,21,ITTI,ITTI Sp. z o.o.,2,10000,24999,,1.5,409040419797-14,active,
 1e5268a641674fa0b7ce3d6d45e2aa1a,105,21,,Shire,2,,,700000,2,60329985751-43,active,3
 1e48d3cbb8264de6945be7a6d8bbbae4,234,41,,CableLabs,4,,9999,,0.25,144415615716-17,active,
 1e3c02081ba74ca68e07c8c6421bd819,75,12,AAC,"Alinea, Avocats à la Cour, SELARL",1,,9999,,1.25,82064709791-43,active,2
@@ -8126,6 +8231,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 1df303ae31094be595923cb1b667528e,233,41,,Ellen MacArthur Foundation,4,,,3229080,3.75,389996116741-55,active,
 1df1ed88e7894cb18b70e3b7a06586cf,21,31,ESPA,European Spas Association,3,100000,199999,,2.5,8396633235-24,active,
 1dec58fe15be4617a67c643ba0034324,214,26,LO,The Swedish Trade Union Confederation,2,,,577500,5.5,673091017982-82,active,
+1de9963095514846bff9fd84364b9c8e,75,13,,Piton-Gillespie-Berne,1,25000,49999,,8.5,119395119726-21,active,
 1de6f9472abb445f94212b9763c1641e,233,25,,Scottish Land & Estates,2,10000,24999,,0.5,596130217231-71,active,
 1ddcd31d3a5c4ec4a12265be9e0f92f0,21,25,ETRMA,European Tyre & Rubber Manufacturers' Association,2,,9999,,3,6025320863-10,active,4
 1dd9f3a3c1d745abb0dcfc3383c2540f,21,25,ERA,European Rental Association,2,10000,24999,,0.25,163373217053-39,active,
@@ -8187,6 +8293,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 1c32912b38b5430886de2b5932375d50,105,31,Grupa BBM,Grupa BB Media Ltd.,3,,,20000,4.5,944156919009-93,active,
 1c3083d49ea844c8a803e5ff92da02d8,75,26,UTP,Union des Transports Publics et ferroviaires,2,400000,499999,,2,50629161801-61,active,2
 1c304dd00ac942ca8672e566a0800cf0,233,51,AAII,Ahmadiyya Association for Propagation of Islam,5,,9999,,8.5,517167416850-66,active,
+1c2a1d8cf1bd4363aacd7f6b105adb49,21,31,,YouSpace,3,,,,3,575842119687-41,,
 1c228277acab4efeb458e9d4a51c2a02,75,21,,Diffusion Gilles Régnier,2,,9999,,1,837982712869-85,active,
 1c2109f129ad41768db3bfd375f52617,14,21,ÖBf AG,Österreichische Bundesforste AG,2,,9999,,0.25,80344854371-08,active,
 1c1d8c47c1dd4a23b39d799a5580b5d3,214,64,,Business Sweden,6,,9999,,1,644818814992-69,active,2
@@ -8203,6 +8310,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 1bc9481dac5e46e58cb1fda25382235d,155,42,TU Delft,Technische Universiteit Delft,4,,,,10,738898210156-56,,
 1bc6af7667a746a49417fb42ab2507be,233,13,,Tim Wilson Associates,1,,9999,,1,484220118947-77,active,
 1bc54b92c1124104a2ea9ddcf5a11eb1,75,26,,Gimélec,2,,9999,,0.5,05289925824-73,active,
+1bbea061e81b49af8f3ad75bd6db76c4,105,21,,eircom Ltd t/a eir,2,,9999,,0.5,193497219648-69,active,
 1bb9bc632ae7478eb6f16cb03873424e,209,31,HE,Helsinki España - Dimensión Humana,3,,9999,,8,31801637703-44,active,
 1bb882d9962d4ab3bf392889bd8740e6,82,25,ZVEI,Zentralverband Elektrotechnik- und Elektronikindustrie e.V.,2,2500000,2749000,,8.5,94770746469-09,active,6
 1bb0274c90244ca5bc0294c0b82da35a,209,63,ACC,AGENCIA CATALANA DEL CONSUM,6,,,,180,187512918635-38,,
@@ -8300,6 +8408,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 1919c69abf91410fb7296f21fdf128fe,234,21,,"VMware, Inc. and VMware Intl, Ltd.",2,100000,199999,,0.25,732651516846-01,active,
 191773962af14329a95869def680cbbb,34,31,CA_RF,Civil Association "Regional future",3,,9999,,7.5,60129672848-81,active,
 19145aeffe774c10a0e54776bfd828c5,82,25,BDZV,Bundesverband Deutscher Zeitungsverleger,2,,,100000,1,201132116888-24,active,1
+19114c051925455cb57cd6fd29a9fbb0,21,25,GOF,GSM Operators' Forum,2,,9999,,0.25,989832719756-26,active,
 19086db3c02a439e9adfea130be6a0e6,155,31,BlenderFoundation,Blender Foundation,3,,9999,,0.25,539687912504-26,active,
 19037d9d84d744ccbbd54aafc9c88a9f,82,11,VDI ZRE,VDI Zentrum Ressourceneffizienz GmbH,1,,9999,,0.25,020913814813-03,active,
 1901ce0e8a604eda9f71a144eea07a6c,21,31,YPA,YouthProAktiv,3,,9999,,2,317788314928-23,active,4
@@ -8343,6 +8452,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 17f49e13d394472aa8bf7a2f8d424675,21,25,ECSDA,European Central Securities Depositories Association,2,400000,499999,,2,92773882668-44,active,1
 17f480823c6e4de7b6c1f6624754c744,155,25,ECMA,European Carton Makers Association,2,,9999,,1,948591610750-02,active,
 17f03ff5d29a491aa13795c592519674,75,66,,ECOFOR,6,,,,0.25,58533918860-59,,
+17e95a66372144c1b609df4f930a089f,21,31,EPN,European Professionals Network,3,,9999,,3,412795119651-67,active,
 17e8980cd66144c5a73ff6650989859b,21,66,IOM,International Organization for Migration,6,200000,299999,,38.5,14074813668-09,active,2
 17de0c94ca8147b88c9ed11f7d371aaa,75,41,IFREMER,Institut français de recherche pour l'exploitation de la mer,4,1250000,1499999,,15,496822013474-60,active,
 17dc91d8e4ae4f1cbf5cd1a1eb13ed0d,21,31,ATA,Atlantic Treaty Association,3,,,100,4,617991119244-37,active,
@@ -8406,11 +8516,14 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 162a18142c5f4d0baffa6abb6e05c067,233,27,,Society for Endocrinology,2,,9999,,0.5,106133515597-82,active,
 1629aa5463a04a76aad25b38ecc96c31,21,21,CMB NV,Compagnie Maritime Belge SA/NV,2,,,1000,0.5,997090517082-89,active,
 16222e50591c4d989b9c5d7d3b9b60c9,155,31,CNME,CNME Maastricht en regio,3,,,1200500,14.75,772452117652-25,active,
+161c429b47854cd5add65cee06e26111,180,13,,Lucian Buzea,1,,,,0.75,472753319816-12,,
+15ff85a9c90349bc986abbb462fbd78e,234,31,ICTJ Brussels,International Center for Transitional Justice Brussels,3,,,54735,15,839855419588-94,active,
 15fba5986f674b1384766bfb640c5daf,21,31,EuroFinuse,The European Federation of Financial Services Users,3,200000,299999,,1,24633926420-79,active,3
 15fb3ebf00ed464488dde07d424878e5,209,31,CEJE,Confederación Española de Junior Empresas,3,,,24515,4,732175313772-76,active,
 15f7c591e43a4d42b3a14e67ac35a0ea,108,27,,AGENZIA EUROPEA DEL MEDITERRANEO "ASSOCIAZIONE PROFESSIONALE",2,,9999,,1.5,72667557535-72,active,
 15f7a569de7c42ceb2c77330d3014499,75,41,CEC,Climate Economics Chair (Paris-Dauphine University -  Europlace Institute of Finance),4,,9999,,2.5,937742510518-22,active,
 15f12b2f0add4dae8bba33e86b1a5622,75,31,AVICENN VeilleNanos,Association de veille et d'information civique sur les enjeux des nanosciences et des nanotechnologies,3,,,74000,1,905394213999-33,active,
+15ecd113a896421da25dcfea597d9f8c,209,11,,Intelligence & Public Affairs,1,10000,24999,,1,554883119802-22,active,
 15e9c6aa932e41988a50acdc8b52e4db,233,31,MCS,Marine Conservation Society,3,25000,49999,,4.5,832756518540-09,active,
 15e73df36c8b4ea2baf8eac88b532410,21,31,WF,WeForest (asbl),3,,,600269,10,908906317875-81,active,
 15d833843bfd49c694e9241e63d7480e,75,31,,CD2E,3,2750000,2999999,,20,996042918513-54,active,
@@ -8418,6 +8531,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 15d281b1f2ff472f826597ecdea8224b,214,31,,Hyresgastforeningen,3,,9999,,0.25,268508011364-70,active,
 15cc58dc11194dbbb58156a73499a9da,82,25,BWE,Bundesverband Windenergie e.V.,2,,,20000,0.75,952632114087-19,active,
 15c89637522f45c281d429ff212b1a58,75,31,Euromontana,Euromontana,3,100000,199999,,2.75,5446623780-39,active,
+15b90d5c3d0a483fb01d44b484d1d2a8,58,21,,Zettabox Czech s.r.o.,2,,,,0.25,854340519657-46,,
 15b5a16ebe664c76be3b1967fc603c28,21,27,,European Tech Alliance,2,,,,1.25,189607519323-76,,
 15af1a154f6e4536820f88f42d1d9313,21,31,EDS,European Democrat Students,3,,9999,,12.5,386764114050-51,active,
 15a7fdb9c8b34931aa75530edca1bb1e,75,41,,Comité Colbert,4,25000,49999,,0.75,62379572263-63,active,
@@ -8466,6 +8580,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 14c1c0da8e2d460d8e84215568708585,209,25,Asedie,Asociación Multisectorial de la Información,2,25000,49999,,4.25,6439238521-03,active,1
 14c0bc35c29746a98cd46b89876a03ee,233,21,,Somerco Research Ltd,2,,,,1,053203217565-11,,
 14bd959a699f4c558561dadbea800269,108,12,Fratini,Fratini&Associati,1,,9999,,0.5,530810514265-64,active,2
+14b1cd1f5fc94632bbe6197baa197572,215,31,ICoCA,International Code of Conduct for Private Security Service Providers Association,3,,,0,0.75,366427819671-47,active,
 14b104a43fa741c7bd15e7ffbbe75bbe,54,41,,Energy Institute Hrvoje Požar,4,,,3233766,78,302000016109-10,active,
 14a9143a16fb4c15a68f9c13ddff1ee2,14,21,,Wienerberger AG,2,,,350000,1.75,82041746393-10,active,
 14a1bd5b697b435ab1910ad113cd5303,108,51,EML,EUROPEAN MUSLIMS LEAGUE,5,,,40000,21.25,11906217607-26,active,
@@ -8552,7 +8667,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 127d117e744a44af8c6cfcdf73f04465,21,31,CIDSE,CIDSE - International Alliance of Catholic development agencies,3,,9999,,1.75,61263518557-92,active,8
 1275927a68104b3db5887eae89959bd1,21,25,CBBVB,Confederation of Construction Brussel Vlaams-Brabant,2,,,1,0.25,49512124922-49,active,
 1272d7fac22f42428c24c1d2487abfd5,74,25,Teleforum,Teleforum association,2,,9999,,0.75,96013076605-54,active,
-12713a0fdb754586a2356080adb8eb99,233,21,,K Hughes & Co Ltd,2,,,11500000,1.25,933604118733-13,active,
+12713a0fdb754586a2356080adb8eb99,233,21,,K Hughes & Co Ltd,2,,,,1.25,933604118733-13,,
 1267835f112740789aab5e775ae5edae,127,12,Red Bridge,Red Bridge Law SArL,1,,,,0.25,661642916159-79,,
 123ec65e9efd410aa32b30b10f9ba551,209,21,,CAELISHOP,2,,9999,,1,386625819179-26,active,
 123aad050b4b48aab57a66c20f5bea25,21,25,Federgon,Federgon,2,,9999,,0.75,88965566995-19,active,
@@ -8641,6 +8756,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 10255634eaec4db1a3749b76a5fcb53e,214,25,STIF,Transportindustriförbundet,2,,,25000,0.25,833861512085-74,active,1
 10255288101f4c478952b83959c937dc,127,21,,Conntrack Technologies,2,100000,199999,,1,193775116156-20,active,
 10149a0fccc54650b15ca22166268b15,233,21,,British American Tobacco,2,1500000,1749000,,7,2427500988-58,active,7
+1010c9a63e8c4d659f1f330395ec9516,21,42,UHasselt,Universiteit Hasselt,4,25000,49999,,0.75,673411519547-48,active,
 10030cfa52404a80bcb45c39e2d058a7,105,21,,Kerry,2,,9999,,3.75,252763414780-84,active,
 0fea8af8355b4a8abd1a3aa99d2092fa,75,26,FECD,Fédération des Entreprises du Commerce et de la Distribution,2,50000,99999,,2.75,312806014237-16,active,1
 0fe8e82e79694d1daa70d613290eb3d8,21,31,EECA,EUROPEAN ELECTRONIC COMPONENT MANUFACTURERS ASSOCIATION,3,50000,99999,,0.75,22092908193-23,active,
@@ -8702,7 +8818,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 0e372c436dbc48f4a3ec385277319279,233,31,EDF,Emergent Disease Foundation,3,,9999,,0.25,49747768572-38,active,
 0e3662d3a46846b9ab85378947cd540d,233,31,Sparta,Sparta Technologies Ltd,3,,9999,,1,227420211515-22,active,
 0e362292a9ad48338eee5adbeeca0dcd,14,42,,Media Governance and Industries Research Lab of the University of Vienna,4,,,,1.5,241165719061-69,,
-0e2e876f90934144bcc7a05ee1612c43,21,11,,Miltton Brussels,1,,,,2,245377319023-40,,
+0e2e876f90934144bcc7a05ee1612c43,21,11,,Miltton Brussels,1,,,,3,245377319023-40,,
 0e2df8f09a5c4d289ab271fabee85292,34,31,DEN,Dvigenie s ekologichna nasochenost,3,,9999,,21,785346710263-19,active,
 0e2b17e9b36243f9a8fc57174f4e96ef,75,66,Eurocorps,Corps de réaction rapide européen,6,,,,1.25,626089616773-72,,
 0e26fff08d924bcbb8f8d365c11c1f62,21,31,EP,Eri-Platform,3,,,,2.25,450784410871-08,,1
@@ -8711,6 +8827,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 0e113eac1ce64fd995c4ef29c5900417,108,64,CNGeGL,CONSIGLIO NAZIONALE GEOMETRI E GEOMETRI LAUREATI,6,,9999,,0.5,138377813717-77,active,
 0e0d7f731ec04f98a8c924102bb418ae,82,25,SRIW,Selbstregulierung Informationswirtschaft e.V.,2,10000,24999,,3,618569919406-26,active,
 0df7b99a9bb44060b877e121f9a9cf36,82,21,IDaMa GmbH,Individuelle Datenmanagement GmbH,2,100000,199999,,2,418886018230-87,active,
+0df2088e317f47b99be31f2d7edb63b8,226,25,SOSOFT,Sosoft Information Technologies,2,,9999,,0.25,462678219650-01,active,
 0ddff08b59554f6da2a951c64b73a04f,105,21,EML,EchoStar Mobile Limited,2,,,200000,2,465382915337-30,active,
 0dda9635f6124246adc72696303fa058,155,21,,EXIN,2,,9999,,0.5,76294086139-27,active,
 0dd5fcae474a4d0e9564c82560117e65,14,12,AS,Rechtsanwalt Dr. Anton Schaefer,1,,9999,,1,46864329475-46,active,
@@ -8738,6 +8855,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 0d4574b69f5848798c444460ca9d8cb7,82,21,,TÜV SÜD AG,2,,9999,,0.25,433521917360-12,active,
 0d4224c7fde24e5bbbd8a1010b52792e,21,21,STJ,St. Jude Medical,2,,,30000,0.5,182773014960-02,active,
 0d4033fb7b704ca2a42ae19e854fc364,82,13,Commentum,Commentum political communication,1,10000,24999,,0.75,774129110547-74,active,
+0d3ff0cafcf64919aacc02aac3362912,155,31,ELF,Stichting European Lawyers Foundation,3,,9999,,2.75,245121919701-54,active,
 0d3e6f37fdf74a91a9768e1f4615a03b,82,25,DDV,Deutscher Derivate Verband,2,,,126000,4.5,377055313623-72,active,
 0d37012ff9d84dc8b3896341f7bc27f5,108,13,,Enrico Vellante,1,,,20000,0.25,689776814608-38,active,
 0d31e01f870e4412bc198bdd55eea75f,155,21,,Yamaha Motor Europe N.V.,2,,,95000,1,776179117284-64,active,
@@ -8865,7 +8983,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 0963b57e4d6f482eaf5158219efa9a21,75,21,EDF,ELECTRICITE DE FRANCE,2,2500000,2999999,,14,39966101835-69,active,7
 0953ee0069084fd8977032f8d0a769fe,21,31,HOPE,European Hospital and Healthcare Federation,3,,9999,,1,73872883198-91,active,3
 09505ee27e2546d9b4057af7d0c454d4,75,13,,Paris-Euro,1,,9999,,1.25,54350227971-60,active,
-093b03a9a8ac40cdaa051c029979326b,82,22,SEMI Europe,Semiconductor Equipment and Materials International,2,,,,1,671799223-02,,1
+093b03a9a8ac40cdaa051c029979326b,82,25,SEMI Europe,Semiconductor Equipment and Materials International,2,100000,199999,,1,671799223-02,active,1
 0936bfb0554b4305b5674a582446a551,14,25,FG FDL/WKW,Wirtschaftskammer Wien/Fachgruppe Finanzdienstleister,2,,,45000,0.25,4607967111-17,active,
 0932f444506f47ffba1e9c48556759d8,21,41,EGMONT,Egmont Institute,4,,,1300000,14,531633416247-38,active,
 0926fb7c5f2542d88073f6cb75bc80bf,201,24,BU obce Dolný Kubín,"Bývalí urbarialisti obce Dolný Kubín, pozemkové spoločenstvo",2,,,,0.25,920150017824-86,,
@@ -8916,11 +9034,13 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 0830c6bcb9fe4a25ae57382c480f373e,21,31,,Pay-Able,3,,,,1.25,204292818153-90,,
 08301b7b7c4b445195cb7687dd04aa06,233,31,,Pig Shed Trust,3,,9999,,0.25,954209215458-30,active,
 082fb79f9a0f4a0c846c727e543f2ca1,21,31,EAPM,European Alliance for Personalised Medicine,3,,9999,,5,594468910180-73,active,3
+082f6d1979704fd380422983eba9304a,155,31,EFAA,European Football Agents Association,3,,,,1.5,840919418941-67,,
 082b35014a864d6990a535dd7f55bd04,21,13,PHP BVBA,Philippe Putman BVBA,1,,9999,,1,56432866966-18,active,
 08282ec28a4b4ac58471d73f758994da,21,31,ECTA,European Communities Trade Mark Association,3,,9999,,1,932781112187-50,active,
 082742cec5464fa0a8b11b428b857465,82,25,VDS,Verband Deutscher Sektkellereien e.V.,2,,9999,,0.5,418578218362-06,active,
 082546f8733d4279be929fb1a0a14cf8,209,11,DATO CAPITAL,NETAMO SYSTEMS SL,1,25000,49999,,0.25,494490715486-29,active,
 08194f11489c489d9a9fd0d77894ce44,233,31,BBCT,Bumblebee Conservation Trust,3,,,,0.25,47516354216-95,,
+08188d7bcded418f8b6b8821e21d813e,233,25,HAE,Hire Association Europe,2,25000,49999,,3.75,717877719694-75,active,
 08174943412549dc8bf0453dc94c37d2,21,25,EFFCA,European Food & Feed Cultures Association,2,10000,24999,,0.25,829186414110-38,active,
 080e88d6277d418889d93e0b2b0faece,82,21,MENTO,MENTO-LIU,2,,9999,,40,639961112460-20,active,
 0809631e0c6b415f9ad344692e72aef3,233,25,CIfA,Chartered Institute for Archaeologists,2,,9999,,0.25,750280510123-52,active,
@@ -8943,7 +9063,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 07a0cb44b24c457fa9234b1b1dbe4028,82,25,,Gütegemeinschaft PCM e.V.,2,25000,49999,,1,466636718942-77,active,
 07a0737c98d14a3588d17d9eec677d67,21,11,NineSigma Europe,NineSigma Europe BVBA,1,,9999,,0.25,07807936046-22,active,
 079622b0a46e415e8f0cc454a513451a,82,42,FAU,Friedrich-Alexander-Universität Erlangen-Nürnberg,4,,9999,,0.25,141655216024-84,active,
-07950c3667eb490790c90e0cd8ef378d,135,21,PRN,Paragon Europe,2,50000,99999,,1.5,222573916729-66,active,
+07950c3667eb490790c90e0cd8ef378d,135,21,PRN,Paragon Europe,2,50000,99999,,3.75,222573916729-66,active,
 07924f623dc54834b2b04d24af76dee4,21,41,MEDEA,European Research Institute For Mediterranean and Euro-Arab Cooperation,4,,9999,,1,557161910311-83,active,
 078f2d981bb2410dae1c356db05c1757,74,25,Arvo,Yhteiskunnallisten yritysten liitto Arvo ry,2,,,,0.25,973734416514-25,,
 078a6b08ae404c45bf86201a8dcdd6d2,75,21,,CASINO GUICHARD PERRACHON,2,,9999,,1,700118911756-62,active,
@@ -8958,6 +9078,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 07286ac78e154a0cadf1891026d00144,75,26,,GUIZARD,2,,9999,,0.25,524795314690-02,active,
 07283b4b80c6423fb53308b4d0ff8c00,214,21,Scania,Scania AB (publ),2,400000,499999,,3,3305029916-47,active,
 070d82784ec44929a5745ab1c7dc838d,108,63,,Comitato Regionale Sicilia Sport Nazionale,6,,,,1125,563910216777-48,,
+07032b89fd014eaaa4781acbdc1b7719,201,25,SAPIE,Slovenska aliancia pre internetovu ekonomiku,2,25000,49999,,1.25,152725719644-01,active,
 06f75dac27194d65ab3e3c5b9b68ac50,75,21,SAIF,Société des Auteurs des arts visuel et de l'Image Fixe,2,10000,24999,,0.5,888704217543-10,active,
 06eb734372d64017b7e0d1543c60808e,75,31,AIFM,Association Internationale Forêts Méditerranéennes,3,,9999,,0.25,13362983294-04,active,
 06e8a51ae4c74ca39c0c1146fac0df9e,233,11,TLM,The Learning Machine Ltd,1,200000,299999,,4.5,791499712871-36,active,
@@ -8970,15 +9091,18 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 06b5f035237f4aa1aa14a4d3186f41ce,75,13,FKGC,FON KUM GILBERT CONSULTING,1,10000,24999,,1,799194810892-73,active,1
 06ac692b443d4ec9b67ad110493a00cd,82,21,Hager,Hager Group,2,100000,199999,,2,53349753503-84,active,
 06a70edea3a24c47a5701f52a0751a37,233,21,,Samsung Electronics Europe,2,900000,999999,,5.5,40471017282-57,active,9
+069cdee3eee44887a54211d97accb751,34,42,UCTM,University of Chemical Technology and Metallurgy,4,,,250000,39.75,584210219795-44,active,
 069b38bf57dc44649a87c3f55a53af63,233,31,,Blue Cross,3,25000,49999,,0.5,477391118070-35,active,
 068704977ffd45b48ffd75bd74f20f71,177,26,CNA,Confederação Nacional da Agricultura,2,50000,99999,,2.25,154635219576-69,active,
 06746f727c224e6aa94bf0fc43a37bb9,21,25,ESTOC,European Smokeless Tobacco Council,2,,9999,,0.25,76631212796-76,active,1
 0671f51958694bf7ae6678f714ab650c,108,26,IRECOOP VENETO,Istituto Regionale per l'educazione e gli studi cooperativi,2,,9999,,0.5,903488216508-15,active,
 0666fef505cc485281b8ebff29d0594f,148,31,FIFEL,Fédération interprofessionnelle marocaine de production et d'exportation de fruits et légumes,3,,,,0.5,135210218828-51,,
+06652fc87ec34e11a8beb755fda090eb,155,11,ProductIP,ProductIP BV,1,,9999,,1.5,490961919746-88,active,
 06643fcd9c714bcbb78d22acf4e8178c,233,21,,The Kraft Heinz Company,2,,,,1,010822218390-62,,
 0663fa8e58ae452bb2b0f5046594bf95,82,64,HWK Ulm,Handwerkskammer Ulm,6,,9999,,1.25,948172716862-70,active,
 0655055cd2c54acf83a06e137687f5a0,176,25,ZBP,Związek Banków Polskich,2,300000,399999,,8.25,01623802004-63,active,2
 06541a325a24462a85de6e1cdac4bdc4,233,21,JLR,Jaguar Land Rover Limited,2,50000,99999,,1,08618215943-22,active,2
+06531b3b7eb24d5c9eff69a4a674caca,155,26,,HollandBIO,2,,9999,,0.25,776438619820-95,active,
 064fd343e3834d2c9363b3ed25151b81,75,41,BRGM,Bureau de Recherches Géologiques et Minières,4,,9999,,1,871949811746-32,active,
 064d5cea1d4243b1ae683ac23acadbc4,155,63,,Regio Randstad,6,200000,299999,,3.25,12486737199-59,active,
 06443f2603ed4d2183536b9a04d34728,21,31,,The Secretariat of the Steering Committee of the Eastern Partnership Civil Society Forum,3,,9999,,3,112703312593-49,active,6
@@ -8988,6 +9112,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 063dba293d2745b38b4030f78065445a,82,11,KKUB,KARL KRONER KG,1,,9999,,0.25,217065513622-24,active,
 063d636b191c4429a13f808abb028207,82,31,VENRO e.V.,Verband Entwicklungspolitik und Humanitäre Hilfe deutscher Nichtregierungsorganisationen e.V.,3,,9999,,4.5,44781354710-39,active,
 0638ec7ce3f24636863e1d6f839b5548,155,13,,X-Media Strategies,1,,9999,,1,593078914656-54,active,
+062a67e8c62740fca32f2aec97940cc6,234,21,,TripAdvisor LLC,2,10000,24999,,0.75,948122819643-45,active,
 0623ba08c0524825bf8da4fd68ed1993,108,41,,Fondazione Giorgio Fuà,4,,,,0.25,55207659572-82,,
 0621482a6779465da31f41c12f885c01,108,25,IBAN,Associazione IBAN,2,,9999,,0.25,794687614143-96,active,
 061dfc2515a248019caefc93cdb90f61,155,25,VVT,Vereniging Verticaal Transport,2,,,15000,0.25,68334768334-73,active,
@@ -9198,7 +9323,7 @@ a00cf23f13d44a9f8f72345b672e73ec,21,11,50P,Cinquantenaire Partners,1,,9999,,3,13
 0066e2f4068a4fbeb6a2a5c5b35d9a26,74,21,DNA,DNA Oy,2,25000,49999,,1,215050018674-84,active,
 0051c422629b4b5786a4b32897de00ec,155,25,CRO Forum,Chief Risk Officers' Forum,2,,,,3.25,18352999806-60,,
 0050e87eb3e94df7ae7a85ffd4c809df,82,11,,LNE Group,1,50000,99999,,1.25,985391413349-80,active,1
-0049c37552ce43538368b08e2b103f0f,155,31,IEA,International Association for the Evaluation of Educational Achievement,3,,9999,,140,557820217302-40,active,
+0049c37552ce43538368b08e2b103f0f,155,31,IEA,International Association for the Evaluation of Educational Achievement,3,,9999,,9.25,557820217302-40,active,
 00412f00a65344c4beb238357f70bb2b,21,11,,Kontou Associates,1,,,0,2,717277515479-50,active,2
 002f111071ce43b787917d408174b527,21,25,CEEP,Central Europe Energy Partners,2,300000,399999,,22.5,87738563745-94,active,4
 002d2938cafa44dc8b28ae531b5c8f76,233,25,CFA,Consumer Finance Association,2,,9999,,4,24843495531-93,active,

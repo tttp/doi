@@ -33,7 +33,7 @@ csvcut -c id,status,guest,host,cabinet,date,guestid,title,unregistered,participa
 #jq -r ".[]|[.id,.contact_country,.acronym,.name,.main_category,.sub_category,.status]|@csv" representative.json >> representative.csv
 
 #debug version
-echo 'id,contact_country,sub_category,sub_category_title,acronym,name,main_category,main_category_title,code,fte' >  full_representative.csv
+echo 'id,contact_country,sub_category,sub_category_title,acronym,name,main_category,main_category_title,code,fte,status' >  full_representative.csv
 #only active jq -r '.[]|select(.status=="active")|[.id,.contact_country,.sub_category,.sub_category_title,.acronym,.name,.main_category,.main_category_title,.identification_code,.members_fte]|@csv' representative.json >> representative.csv
 jq -r '.[]|select(.)|[.id,.contact_country,.sub_category,.sub_category_title,.acronym,.name,.main_category,.main_category_title,.identification_code,.members_fte,.status]|@csv' representative.json >> full_representative.csv
 
@@ -55,7 +55,7 @@ jq -r '.[]|select(.)|[.id,.contact_country,.sub_category,.sub_category_title,.ac
 #csvjoin   --left -c id,representative representative.csv financial_data.csv  > representative-financial.csv
 #csvcut representative-financial.csv -c id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code > representative-finance-light.csv
 
-q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code,status from full_representative.csv r left join financial_data.csv f on (r.id=f.representative) and f.status='active' where r.contact_country is not null and r.sub_category_title!=''" -d, -H -O > representative-finance-light.csv
+q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code,f.status from full_representative.csv r left join financial_data.csv f on (r.id=f.representative) and f.status='active' where r.contact_country is not null and r.sub_category_title!=''" -d, -H -O > representative-finance-light.csv
 
 
 #curl -O http://api.lobbyfacts.eu/api/1/accreditation.csv > accreditation.csv
