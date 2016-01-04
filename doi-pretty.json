@@ -67,35 +67,25 @@
         ]
     },
     {
-        "additional": "Kreisrat im Landkreis Augsburg, pauschal 250,00 Euro pro Monat sowie 80,00 Euro pro Sitzung",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/1917_DFI_rev0_DE.pdf",
-        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124995_DFI_rev0_SV.pdf",
+        "support": "1. ekonomiskt bidrag:\n(*)    från\n2. i form av personal:\n(*)    från\n3. i form av materiel:\n(*)    från\n(*) Givarens identitet.",
         "mandate": [],
         "occasional": [],
-        "mep_id": 1917,
-        "membership": [
-            [
-                "Sparkassenverband Bayern (Beirat für  sparkassenpolitische Grundsatzfragen)",
-                1
-            ],
-            [
-                "Verwaltungsrat      der      Kreissparkasse Augsburg",
-                -1
-            ]
-        ],
-        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
+        "mep_id": 124995,
+        "membership": [],
+        "other": "Ekonomiska intressen:\n1.\n2.\n3.",
         "holding": [],
-        "activity": [
-            [
-                "Berätungstätigkeit für K&S Consultants  AG",
-                2
-            ]
-        ],
-        "date": "03\/06\/2014",
+        "activity": [],
+        "date": "10\/06\/2014",
         "occupation": [
             [
-                "Mitglied des Europäischen Parlaments",
-                3
+                "vårdbiträde",
+                2
+            ],
+            [
+                "Resebyrå",
+                2
             ]
         ]
     },
@@ -124,47 +114,69 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124886_DFI_rev0_PL.pdf",
-        "support": "1. finansowe:\n(*)    przyznane przez:\n2. kadrowe:\n(*)    przyznane przez:\n3. w formie sprzętu:\n(*)    przyznane przez:\n(*) W przypadku wsparcia udzielonego przez osoby trzecie, proszę podać ich dane.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 124886,
-        "membership": [],
-        "other": "Interesy finansowe:\n1.\n2.\n4\/6                                       PL\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "11\/06\/2014",
-        "occupation": [
-            [
-                "Działalność gospodarcza \/ firma 'Biuro transferu technologii Robert Iwaszkiewicz' we Wrocławiu",
-                -1
-            ],
-            [
-                "Cavere Sp. z oo. w Brzegu Dolnym",
-                -1
-            ],
-            [
-                "Volenti Sp. z oo. we Wrocławiu",
-                -1
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96761_DFI_rev0_DE.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/1849_DFI_rev1_DE.pdf",
         "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
         "mandate": [],
         "occasional": [],
-        "mep_id": 96761,
-        "membership": [],
-        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
+        "mep_id": 1849,
+        "membership": [
+            [
+                "Geschäftsführender Landesvorstand SPD Berlin (keine Vergütung)",
+                -1
+            ],
+            [
+                "VER.DI (keine Vergütung)",
+                -1
+            ],
+            [
+                "Arbeiterwohlfahrt (keine Vergütung)",
+                -1
+            ],
+            [
+                "Deutsche Gesellschaft für Auswärtige Politik (keine Vergütung)",
+                -1
+            ],
+            [
+                "Verein für Europäisches Verfassungsrecht (keine Vergütung)",
+                -1
+            ],
+            [
+                "Europa-Union Deutschland \/ Europa- Union Berlin e.V. (keine Vergütung)",
+                -1
+            ],
+            [
+                "Verein für Freunde und Förderer von Theresienstadt\/Terezin e.V. (keine Vergütung)",
+                -1
+            ]
+        ],
+        "other": "Finanzielle Interessen:\n1.\n2.\n5\/7                                            DE\n3.",
         "holding": [],
         "activity": [],
-        "date": "27\/05\/2014",
+        "date": "13\/10\/2014",
         "occupation": [
             [
-                "Europaabgeordneter",
-                3
+                "Mitglied des Präsidiums der Europa-Union Deutschland (keine Vergütung)",
+                -1
+            ],
+            [
+                "Landesvorsitzende Europa-Union Berlin e.V. (keine Vergütung)",
+                -1
+            ],
+            [
+                "Mitglied bei ver.di (keine Vergütung)",
+                -1
+            ],
+            [
+                "Mitglied der Deutsche Gesellschaft für Auswärtige Politik (keine Vergütung)",
+                -1
+            ],
+            [
+                "Mitglied des Vereins für Europäisches Verfassungsrecht (keine Vergütung)",
+                -1
+            ],
+            [
+                "Mitglied des Vereins der Freunde und Förderer von Theresienstadt\/Terezin e.V. (keine Vergütung)",
+                -1
             ]
         ]
     },
@@ -259,74 +271,6 @@
             [
                 "Mitglied des Europäischen Parlaments",
                 3
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/1849_DFI_rev1_DE.pdf",
-        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 1849,
-        "membership": [
-            [
-                "Geschäftsführender Landesvorstand SPD Berlin (keine Vergütung)",
-                -1
-            ],
-            [
-                "VER.DI (keine Vergütung)",
-                -1
-            ],
-            [
-                "Arbeiterwohlfahrt (keine Vergütung)",
-                -1
-            ],
-            [
-                "Deutsche Gesellschaft für Auswärtige Politik (keine Vergütung)",
-                -1
-            ],
-            [
-                "Verein für Europäisches Verfassungsrecht (keine Vergütung)",
-                -1
-            ],
-            [
-                "Europa-Union Deutschland \/ Europa- Union Berlin e.V. (keine Vergütung)",
-                -1
-            ],
-            [
-                "Verein für Freunde und Förderer von Theresienstadt\/Terezin e.V. (keine Vergütung)",
-                -1
-            ]
-        ],
-        "other": "Finanzielle Interessen:\n1.\n2.\n5\/7                                            DE\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "13\/10\/2014",
-        "occupation": [
-            [
-                "Mitglied des Präsidiums der Europa-Union Deutschland (keine Vergütung)",
-                -1
-            ],
-            [
-                "Landesvorsitzende Europa-Union Berlin e.V. (keine Vergütung)",
-                -1
-            ],
-            [
-                "Mitglied bei ver.di (keine Vergütung)",
-                -1
-            ],
-            [
-                "Mitglied der Deutsche Gesellschaft für Auswärtige Politik (keine Vergütung)",
-                -1
-            ],
-            [
-                "Mitglied des Vereins für Europäisches Verfassungsrecht (keine Vergütung)",
-                -1
-            ],
-            [
-                "Mitglied des Vereins der Freunde und Förderer von Theresienstadt\/Terezin e.V. (keine Vergütung)",
-                -1
             ]
         ]
     },
@@ -919,6 +863,25 @@
     },
     {
         "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96761_DFI_rev0_DE.pdf",
+        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 96761,
+        "membership": [],
+        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "27\/05\/2014",
+        "occupation": [
+            [
+                "Europaabgeordneter",
+                3
+            ]
+        ]
+    },
+    {
+        "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124837_DFI_rev0_DE.pdf",
         "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
         "mandate": [],
@@ -1332,7 +1295,7 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124872_DFI_rev0_DA.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124872_DFI_LEG8_rev1_DA.pdf",
         "support": "1. penge:\n(*)    fra\n2. personale:\n(*)    fra\n3. materiale:\n(*)    fra\n(*) De(n) pågældende tredjepart(er)s identitet.",
         "mandate": [],
         "occasional": [],
@@ -1341,18 +1304,22 @@
         "other": "Økonomisk interesse:\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "05\/06\/2014",
+        "date": "09\/12\/2015",
         "occupation": [
             [
                 "Direktør i Danske Medier",
                 4
             ],
             [
-                "Bestyrelsesmedlem i Danske Medier Trafikmåling, ulønnet",
-                -1
+                "Bestyrelsesmedlem i Danske  Medier Trafikmåling, ulønnet",
+                0
             ],
             [
-                "Bestyrelsesmedlem i IAB Europe, ulønnet",
+                "Bestyrelsesmedlem          i   IAB  Europe, ulønnet",
+                0
+            ],
+            [
+                "Intet erhvervsarbejde i de tre år forud for det nuværende mandat",
                 -1
             ]
         ]
@@ -1564,52 +1531,56 @@
     },
     {
         "additional": "Law Society of England and Wales - Solicitor of the Supreme Court",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28481_DFI_rev1_EN.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28481_DFI_LEG8_rev2_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
         "mandate": [],
         "occasional": [],
         "mep_id": 28481,
         "membership": [
             [
-                "World Congress of Overseas Pakistanis - Chairman Board of Governors (no income)",
-                -1
+                "World Congress of Overseas  Pakistanis - Chairman Board of Governors (no income)",
+                0
             ]
         ],
         "other": "Financial interest:\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "04\/11\/2014",
+        "date": "07\/12\/2015",
         "occupation": [
             [
                 "Member of European Parliament",
                 3
+            ],
+            [
+                "No occupation held during the three years preceding the current mandate",
+                -1
             ]
         ]
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124788_DFI_rev1_IT.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124788_DFI_LEG8_rev2_IT.pdf",
         "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
         "mandate": [],
         "occasional": [],
         "mep_id": 124788,
         "membership": [
             [
-                "Federazione FISM - Federazione Italiana Scuola Materna - Segretario Nazionale e Legale Rappresentante",
-                -1
+                "Federazione FISM - Federazione  Italiana Scuola Materna - Segretar Nazionale e Legale Rappresentante",
+                0
             ]
         ],
         "other": "Interessi finanziari\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "17\/07\/2014",
+        "date": "08\/12\/2015",
         "occupation": [
             [
-                "Università Cattolica del Sacro Cuore di  Milano - Direttore della Sede di Brescia",
+                "Università Cattolica del Sacro  Cuore di Milano - Direttore della Sede di Brescia",
                 4
             ],
             [
-                "Autostrade lombarde S.P.A. - Membro del  Consiglio di Amministrazione",
+                "Autostrade lombarde S.P.A.  - Membro del Consiglio di Amministrazione",
                 1
             ],
             [
@@ -1625,19 +1596,23 @@
                 -1
             ],
             [
-                "Editoriale Teletutto Bresciasette S.R.L. Brescia - Consigliere",
-                -1
+                "Editoriale Teletutto Bresciasette  S.R.L. Brescia - Consigliere",
+                0
             ],
             [
-                "Consorzio PAN - Progetto Asili Nido e Servizi per l'Infanzia - Membro Consiglio Direttivo",
-                -1
+                "Consorzio PAN - Progetto Asili  Nido e Servizi per l'Infanzia - Membro Consiglio Direttivo",
+                0
             ],
             [
-                "SOCIALIS - Centro Studi in Imprese Coperative, Sociali ed Enti non Profit - Impresa Sociale - Consigliere (Dimissioni date in racc. AR il 16 giugno 2014)",
-                -1
+                "SOCIALIS - Centro Studi in  Imprese Coperative, Sociali ed non Profit - Impresa Sociale - Consigliere (Dimissioni date i racc. AR il 16 giugno 2014)",
+                0
             ],
             [
-                "Fondazione Nazionale Cinzia Dabrassi - Consigliere (Dimissioni date con racc. AR il 16 giugno 2014)",
+                "Fondazione Nazionale Cinzia  Dabrassi - Consigliere (Dimissi date con racc. AR il 16 giugno 2014)",
+                0
+            ],
+            [
+                "Nessuna attività svolta durante i tre anni precedenti l'attuale mandato",
                 -1
             ]
         ]
@@ -1717,46 +1692,6 @@
             [
                 "direktorica javnega sklada",
                 2
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28316_DFI_LEG8_rev0_FI.pdf",
-        "support": "1. Taloudellinen tuki:\n(*)   Tuen myöntäjä:\n2. Työvoiman muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n3. Materiaalin muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n(*) Tukea myöntäneiden kolmansien osapuolten nimet.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 28316,
-        "membership": [
-            [
-                "TEOSTO RY",
-                2
-            ],
-            [
-                "SUOMEN          LENTOPALLO-LIITTO (PALKATON)",
-                -1
-            ],
-            [
-                "VIRPINIEMEN LIIKUNTAOPISTON HALLITUS (PALKATON)",
-                -1
-            ]
-        ],
-        "other": "Taloudelliset edut:\n1.\n2.\n4\/6                                        FI\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "24\/04\/2015",
-        "occupation": [
-            [
-                "TEOSTO ry",
-                2
-            ],
-            [
-                "Euroopan parlamentin jäsen",
-                3
-            ],
-            [
-                "Oulun Palloseura ry (palkaton)",
-                -1
             ]
         ]
     },
@@ -1868,78 +1803,122 @@
         ]
     },
     {
-        "additional": "Pension from the European Commission",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96779_DFI_rev2_EN.pdf",
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96779_DFI_LEG8_rev3_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
         "mandate": [],
         "occasional": [],
         "mep_id": 96779,
         "membership": [
             [
-                "Member of the Advisory Board of the European Policy Center (no income)",
-                -1
+                "Member of the Advisory Board of the  European Policy Center",
+                0
             ],
             [
-                "Member of the Advisory Board of the Institute of Public Affairs (no income)",
-                -1
+                "Member of the Advisory Board of the  Institute of Public Affairs",
+                0
             ],
             [
-                "Member of the European Council on Foreign Relations (ECFR) (no income)",
-                -1
+                "Member of the European Council on  Foreign Relations (ECFR)",
+                0
             ],
             [
-                "Member of the Board of Directors of the Center for European Policy Studies (no income)",
-                -1
+                "Member of the Board of Directors of  the Center for European Policy Studies",
+                0
             ],
             [
-                "Member of the Board of the European Financial Services Forum (no income)",
-                -1
+                "Member of the Board of the European  Financial Services Forum in the EP",
+                0
             ],
             [
-                "Member of the Board of the Knowledge for innovation forum (no income)",
-                -1
+                "Member of the Knowledge for  innovation forum in the EP",
+                0
             ],
             [
-                "Member of the European Internet Foundation (EFI) (no income)",
-                -1
+                "Member of the European Internet  Foundation (EFI)",
+                0
             ],
             [
-                "Member of the Programming Board of the European Forum of New Ideas (no income)",
-                -1
+                "Member of the Programming Board  of the European Forum of New Ideas",
+                0
             ],
             [
-                "Member of the Board of Making the Most of EU Funds for Roma (no income)",
-                -1
+                "Member of the Steering Committee of  the Spinelli Group",
+                0
             ],
             [
-                "Member of the Steering Committee of the Spinelli Group (no income)",
-                -1
+                "Member of the Programming Board  of the Women's Congress",
+                0
             ],
             [
-                "Member of the Group of Eminent Persons (no income)",
-                -1
+                "Member of the Advisory Council of  BELA Foundation (Broader European Leadership Agenda)",
+                0
             ],
             [
-                "Member of the Programming Board of the Women's Congress (no income)",
-                -1
+                "Member of the Transatlantic Policy  Network",
+                0
             ],
             [
-                "Member of the Commission on Growth and Development, under the auspices of the Word Bank (no income)",
-                -1
-            ],
-            [
-                "Member of the Economic Sciences Committee of the Polish Academy of Sciences (no income)",
-                -1
+                "Chair of the European Forum for  Manufacturing",
+                0
             ]
         ],
         "other": "Financial interest:\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "16\/09\/2014",
+        "date": "08\/12\/2015",
         "occupation": [
             [
-                "Member of the European Parliament",
-                -1
+                "Member of the European  Parliament",
+                3
+            ],
+            [
+                "Member of the Advisory Board  of the European Policy Center",
+                0
+            ],
+            [
+                "Member of the Advisory Board  of the Institute of Public Affai",
+                0
+            ],
+            [
+                "Member of the European  Council on Foreign Relatio (ECFR)",
+                0
+            ],
+            [
+                "Member of the Board of  Directors of the Center fo European Policy Studies",
+                0
+            ],
+            [
+                "Member of the Board of  the European Financial Ser Forum in the EP",
+                0
+            ],
+            [
+                "Member of the Knowledge for  innovation forum in the EP",
+                0
+            ],
+            [
+                "Member of the European Internet  Foundation (EIF)",
+                0
+            ],
+            [
+                "Member of the Programming  Board of the European Forum o New Ideas",
+                0
+            ],
+            [
+                "Member of the Board of  Making the Most of EU Funds Roma",
+                0
+            ],
+            [
+                "Member of the Steering  Committee of the Spinelli G",
+                0
+            ],
+            [
+                "Member of the Group of  Eminent Persons",
+                0
+            ],
+            [
+                "Member of the Programming  Board of the Women's Congress",
+                0
             ]
         ]
     },
@@ -3060,59 +3039,59 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96920_DFI_LEG8_rev1_EN.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96920_DFI_LEG8_rev2_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:              Parking pass\n(*)    granted by                            Birmingham Airport\n(*) Identity of the third party or parties concerned.",
         "mandate": [],
         "occasional": [],
         "mep_id": 96920,
         "membership": [
             [
-                "WELSH CONSERVATIVE PARTY (NON PAID)",
-                -1
+                "WELSH CONSERVATIVE PARTY",
+                0
             ],
             [
-                "CARDIFF UNIVERSITY COURT (NON PAID)",
-                -1
+                "CARDIFF UNIVERSITY COURT",
+                0
             ],
             [
-                "EUROPEAN      PARLIAMENT FINANCIAL SERVICES FORUM (NON PAID)",
-                -1
+                "EUROPEAN     PARLIAMENT  FINANCIAL SERVICES FORUM",
+                0
             ],
             [
-                "MEP GROUP FOR KIDNEY HEALTH (NON PAID)",
-                -1
+                "MEP GROUP FOR KIDNEY  HEALTH",
+                0
             ],
             [
-                "KANGAROO GROUP (NON PAID)",
-                -1
+                "KANGAROO GROUP",
+                0
             ],
             [
-                "EUROPEAN PARLIAMENT RUGBY INTERGROUP (NON PAID)",
-                -1
+                "EUROPEAN   PARLIAMENT  RUGBY INTERGROUP",
+                0
             ],
             [
-                "SME INTERGROUP (NON PAID)",
-                -1
+                "SME INTERGROUP",
+                0
             ],
             [
-                "TRADITIONAL     NATIONAL MINORITIES,     CONSTITUTIONAL REGIONS      AND      REGIONAL LANGUAGES INTERGROUP (NON PAID)",
-                -1
+                "TRADITIONAL   NATIONAL  MINORITIES, CONSTITUTIONAL REGIONS    AND    REGIONAL LANGUAGES INTERGROUP",
+                0
             ],
             [
-                "SCIENCE – BUSINESS INNOVATION BOARD (NON PAID)",
-                -1
+                "SCIENCE   –            BUSINESS  INNOVATION BOARD",
+                0
             ],
             [
-                "KNOWLEDGE4INNOVATION FORUM (NON PAID)",
-                -1
+                "KNOWLEDGE4INNOVATION  FORUM",
+                0
             ],
             [
-                "HEALTH FIRST INTEREST GROUP ON INNOVATION IN HEALTH AND SOCIAL CARE (NON PAID)",
-                -1
+                "HEALTH FIRST INTEREST  GROUP ON INNOVATION IN HEALTH AND SOCIAL CARE",
+                0
             ],
             [
-                "EUROPEAN EMERGENCY NUMBER ASSOCIATION 112 MEPS CHAMPION NETWORK (NON PAID)",
-                -1
+                "EUROPEAN    EMERGENCY  NUMBER ASSOCIATION 112 MEP CHAMPION NETWORK",
+                0
             ]
         ],
         "other": "Financial interest:\n1.\n2.\n3.",
@@ -3124,15 +3103,19 @@
             ]
         ],
         "activity": [],
-        "date": "18\/03\/2015",
+        "date": "08\/12\/2015",
         "occupation": [
             [
-                "Merewood Ltd (non paid)",
-                -1
+                "Merewood Ltd",
+                0
             ],
             [
                 "MEP",
                 3
+            ],
+            [
+                "No occupation held during the three years preceding the current mandate",
+                -1
             ]
         ]
     },
@@ -3924,7 +3907,7 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96756_DFI_rev0_DE.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96756_DFI_LEG8_rev1_DE.pdf",
         "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
         "mandate": [],
         "occasional": [],
@@ -3935,26 +3918,26 @@
                 1
             ],
             [
-                "Treuhänderische Gesellschafterin beim Einhard Verlag",
-                -1
+                "Treuhänderische     Gesellschafterin  beim Einhard Verlag",
+                0
             ],
             [
-                "Vorsitzende Beirat Senologie        des Fördervereins Marienhospital Aachen",
-                -1
-            ],
-            [
-                "Mitglied im Stiftungsrat der Caritas Gemeinschaftsstiftung für das Bistum Aachen",
-                -1
+                "Vorsitzende Beirat Senologie des  Fördervereins Marienhospital Aachen",
+                0
             ]
         ],
-        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
+        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                       DE\n3.",
         "holding": [],
         "activity": [],
-        "date": "27\/05\/2014",
+        "date": "09\/12\/2015",
         "occupation": [
             [
                 "Europa-Abgeordnete",
                 3
+            ],
+            [
+                "Keine Berufstätigkeit während des Dreijahreszeitraums vor der laufenden Wahlperiode",
+                -1
             ]
         ]
     },
@@ -4376,29 +4359,6 @@
             ],
             [
                 "1er Adjoint au Maire de Saint Jean de Luz  (jusqu'en mars 2014)",
-                2
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124995_DFI_rev0_SV.pdf",
-        "support": "1. ekonomiskt bidrag:\n(*)    från\n2. i form av personal:\n(*)    från\n3. i form av materiel:\n(*)    från\n(*) Givarens identitet.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 124995,
-        "membership": [],
-        "other": "Ekonomiska intressen:\n1.\n2.\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "10\/06\/2014",
-        "occupation": [
-            [
-                "vårdbiträde",
-                2
-            ],
-            [
-                "Resebyrå",
                 2
             ]
         ]
@@ -5415,7 +5375,7 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124893_DFI_rev0_PL.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124893_DFI_LEG8_rev1_PL.pdf",
         "support": "1. finansowe:\n(*)    przyznane przez:\n2. kadrowe:\n(*)    przyznane przez:\n3. w formie sprzętu:\n(*)    przyznane przez:\n(*) W przypadku wsparcia udzielonego przez osoby trzecie, proszę podać ich dane.",
         "mandate": [],
         "occasional": [],
@@ -5424,14 +5384,18 @@
         "other": "Interesy finansowe:\n1.\n2.\n4\/6                                       PL\n3.",
         "holding": [],
         "activity": [],
-        "date": "30\/06\/2014",
+        "date": "08\/12\/2015",
         "occupation": [
             [
                 "Minister Kultury i Dziedzictwa  Narodowego od 2007 do 2014 roku",
                 2
             ],
             [
-                "Poseł do Sejmu RP od 2001 do 2014 roku",
+                "Poseł do Sejmu RP od 2001 do  2014 roku",
+                1
+            ],
+            [
+                "Brak działalności zawodowej w okresie trzech lat poprzedzających obecną kadencję",
                 -1
             ]
         ]
@@ -5476,6 +5440,73 @@
             ],
             [
                 "Nicio activitate profesională în ultimii trei ani dinaintea preluării mandatului actual",
+                -1
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124886_DFI_rev0_PL.pdf",
+        "support": "1. finansowe:\n(*)    przyznane przez:\n2. kadrowe:\n(*)    przyznane przez:\n3. w formie sprzętu:\n(*)    przyznane przez:\n(*) W przypadku wsparcia udzielonego przez osoby trzecie, proszę podać ich dane.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 124886,
+        "membership": [],
+        "other": "Interesy finansowe:\n1.\n2.\n4\/6                                       PL\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "11\/06\/2014",
+        "occupation": [
+            [
+                "Działalność gospodarcza \/ firma 'Biuro transferu technologii Robert Iwaszkiewicz' we Wrocławiu",
+                -1
+            ],
+            [
+                "Cavere Sp. z oo. w Brzegu Dolnym",
+                -1
+            ],
+            [
+                "Volenti Sp. z oo. we Wrocławiu",
+                -1
+            ]
+        ]
+    },
+    {
+        "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28316_DFI_LEG8_rev0_FI.pdf",
+        "support": "1. Taloudellinen tuki:\n(*)   Tuen myöntäjä:\n2. Työvoiman muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n3. Materiaalin muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n(*) Tukea myöntäneiden kolmansien osapuolten nimet.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 28316,
+        "membership": [
+            [
+                "TEOSTO RY",
+                2
+            ],
+            [
+                "SUOMEN          LENTOPALLO-LIITTO (PALKATON)",
+                -1
+            ],
+            [
+                "VIRPINIEMEN LIIKUNTAOPISTON HALLITUS (PALKATON)",
+                -1
+            ]
+        ],
+        "other": "Taloudelliset edut:\n1.\n2.\n4\/6                                        FI\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "24\/04\/2015",
+        "occupation": [
+            [
+                "TEOSTO ry",
+                2
+            ],
+            [
+                "Euroopan parlamentin jäsen",
+                3
+            ],
+            [
+                "Oulun Palloseura ry (palkaton)",
                 -1
             ]
         ]
@@ -6108,60 +6139,64 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/37324_DFI_rev0_RO.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/37324_DFI_LEG8_rev1_RO.pdf",
         "support": "1. susținere financiară:\n(*)     acordată de\n2. susținere sub formă de\npersonal:\n(*)     acordată de\n3. susținere sub formă de\nmateriale:\n(*)     acordată de\n(*) Identitatea terților părți în cauză.",
         "mandate": [],
         "occasional": [],
         "mep_id": 37324,
         "membership": [
             [
-                "PNL, Membru al Delegatiei Permanente",
-                -1
+                "PNL, Membru           al    Delegatiei  Permanente",
+                0
             ],
             [
-                "Forum for Automotive and Society, co- președinte",
-                -1
+                "Forum for Automotive and Society,  co-președinte",
+                0
             ],
             [
-                "European Internet Foundation, Membru",
-                -1
+                "European      Internet     Foundation,  Membru",
+                0
             ],
             [
                 "EU-Ukraine Forum, Board Member",
-                -1
+                0
             ],
             [
-                "Institutul pentru libera ințiativă, Membru",
-                -1
+                "Institutul pentru libera ințiativă,  Membru",
+                0
             ]
         ],
-        "other": "Interese financiare:\n1.\n2.\n4\/6                                             RO\n3.",
+        "other": "Interese financiare:\n1.\n2.\n5\/7                                     RO\n3.",
         "holding": [],
         "activity": [],
-        "date": "10\/06\/2014",
+        "date": "08\/12\/2015",
         "occupation": [
             [
-                "Membru al Parlamentului European  2009-2014",
+                "Membru al Parlamentului  European 2009-2014",
                 3
             ],
             [
-                "PNL, Membru al Delegatiei Permanente",
-                -1
+                "PNL, Membru al Delegatiei  Permanente",
+                0
             ],
             [
-                "Forum for Automotive and Society, co- președinte",
-                -1
+                "Forum for Automotive and  Society, co-președinte",
+                0
             ],
             [
-                "European Internet Foundation, Membru",
-                -1
+                "European Internet Foundation,  Membru",
+                0
             ],
             [
-                "EU-Ukraine Forum, Board Member",
-                -1
+                "EU-Ukraine        Forum,       Board  Member",
+                0
             ],
             [
-                "Institutul pentru libera ințiativă, Membru",
+                "Institutul pentru libera ințiativă,  Membru",
+                0
+            ],
+            [
+                "Nicio activitate profesională în ultimii trei ani dinaintea preluării mandatului actual",
                 -1
             ]
         ]
@@ -6451,7 +6486,7 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124800_DFI_rev0_IT.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124800_DFI_LEG8_rev1_IT.pdf",
         "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
         "mandate": [],
         "occasional": [],
@@ -6459,13 +6494,13 @@
         "membership": [
             [
                 "A.N.C.I. - non retribuita",
-                -1
+                0
             ]
         ],
         "other": "Interessi finanziari\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "17\/06\/2014",
+        "date": "07\/12\/2015",
         "occupation": [
             [
                 "Sindaco di Padova",
@@ -6478,6 +6513,10 @@
             [
                 "Regione Veneto",
                 2
+            ],
+            [
+                "Nessuna attività svolta durante i tre anni precedenti l'attuale mandato",
+                -1
             ]
         ]
     },
@@ -7508,7 +7547,7 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124860_DFI_LEG8_rev2_IT.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124860_DFI_LEG8_rev3_IT.pdf",
         "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
         "mandate": [],
         "occasional": [],
@@ -7519,24 +7558,28 @@
                 4
             ],
             [
-                "Membro del Board di European Internet Forum",
-                -1
+                "Membro del Board di European  Internet Forum",
+                0
             ]
         ],
-        "other": "Interessi finanziari\n1. Partecipazione in Tiscali SPA\n2.\n4\/6                                              IT\n3.",
+        "other": "Interessi finanziari\n1. Partecipazione in Tiscali SPA\n2.\n4\/6                                           IT\n3.",
         "holding": [
             [
                 "1.",
-                "Partecipazione   in TISCALI SPA",
+                "Partecipazione       in TISCALI SPA",
                 1
             ]
         ],
         "activity": [],
-        "date": "08\/04\/2015",
+        "date": "07\/12\/2015",
         "occupation": [
             [
                 "Presidente e CEO Tiscali SPA",
                 4
+            ],
+            [
+                "Nessuna attività svolta durante i tre anni precedenti l'attuale mandato",
+                -1
             ]
         ]
     },
@@ -7625,44 +7668,48 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/39725_DFI_rev1_RO.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/39725_DFI_LEG8_rev2_RO.pdf",
         "support": "1. susținere financiară:\n(*)     acordată de\n2. susținere sub formă de\npersonal:\n(*)     acordată de\n3. susținere sub formă de\nmateriale:\n(*)     acordată de\n(*) Identitatea terților părți în cauză.",
         "mandate": [],
         "occasional": [],
         "mep_id": 39725,
         "membership": [
             [
-                "Presedinte UDMR filiala jud. HD - RO",
-                -1
+                "Preşedinte UDMR, filiala jud.  Hunedoara, România",
+                0
             ],
             [
-                "Vicepresedinte SME Europe Associaton - BE",
-                -1
+                "Prim-vicepreşedinte SME Europe  Association, Belgia",
+                0
             ],
             [
-                "Membru CCF,          Comisia     pt.   probl. profesionale - RO",
-                -1
+                "Membru CCF, Comisia pentru  probleme profesionale, România",
+                0
             ]
         ],
-        "other": "Interese financiare:\n1.\n2.\n4\/6                                             RO\n3.",
+        "other": "Interese financiare:\n1.\n2.\n4\/6                                     RO\n3.",
         "holding": [],
         "activity": [],
-        "date": "09\/12\/2014",
+        "date": "09\/12\/2015",
         "occupation": [
             [
-                "Activitate de membru al PE",
+                "Membru al PE",
                 3
             ],
             [
-                "Presedinte UDMR filiala jud HD - RO",
-                -1
+                "Preşedinte UDMR, filiala jud.  Hunedoara, România",
+                0
             ],
             [
-                "Vicepresedinte SME Europe Associaton - BE",
-                -1
+                "Prim-vicepreşedinte   SME  Europe Association, Belgia",
+                0
             ],
             [
-                "Membru CCF,              Comisia      pt.   probl. profesionale - RO",
+                "Membru CCF, Comisia pentru  probleme profesionale, România",
+                0
+            ],
+            [
+                "Nicio activitate profesională în ultimii trei ani dinaintea preluării mandatului actual",
                 -1
             ]
         ]
@@ -9041,8 +9088,8 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124739_DFI_rev1_PT.pdf",
-        "support": "1. Financeiros:\n(*)    concedidos por\n2. Em pessoal:\n(*)    concedidos por\n3. Em material:\n(*)    concedidos por\n(*) Identidade dos terceiros em causa.",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124739_DFI_LEG8_rev2_PT.pdf",
+        "support": "1. Financeiros:\n(*)    concedidos por\n2. De pessoal:\n(*)    concedidos por\n3. De material:\n(*)    concedidos por\n(*) Identidade dos terceiros em causa.",
         "mandate": [],
         "occasional": [],
         "mep_id": 124739,
@@ -9050,7 +9097,7 @@
         "other": "Interesse financeiro:\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "17\/12\/2014",
+        "date": "10\/12\/2015",
         "occupation": [
             [
                 "Deputado nacional",
@@ -9058,6 +9105,10 @@
             ],
             [
                 "Membro Ass. Municipal",
+                0
+            ],
+            [
+                "Sem atividade profissional durante os três anos que precederam o atual mandato",
                 -1
             ]
         ]
@@ -9508,25 +9559,29 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96836_DFI_rev0_DE.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/96836_DFI_LEG8_rev1_DE.pdf",
         "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
         "mandate": [],
         "occasional": [],
         "mep_id": 96836,
         "membership": [
             [
-                "Kooptiertes Mitglied des Präsidiums des Deutschen Städte- und Gemeindebundes (DStGB)",
-                -1
+                "Kooptiertes   Mitglied    des  Präsidiums des Deutschen Städte- und Gemeindebundes (DStGB)",
+                0
             ]
         ],
-        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
+        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                       DE\n3.",
         "holding": [],
         "activity": [],
-        "date": "03\/06\/2014",
+        "date": "07\/12\/2015",
         "occupation": [
             [
-                "Mitglied des Europäischen Parlaments",
+                "Mitglied     des    Europäischen  Parlaments",
                 3
+            ],
+            [
+                "Keine Berufstätigkeit während des Dreijahreszeitraums vor der laufenden Wahlperiode",
+                -1
             ]
         ]
     },
@@ -10953,6 +11008,30 @@
     },
     {
         "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124815_DFI_rev0_DE.pdf",
+        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 124815,
+        "membership": [
+            [
+                "stellvertretender Bundesvorsitzender der      Familien-Partei     Deutschlands Landesvorsitzender der Familien-Partei Deutschlands in Mecklenburg-Vorpommern",
+                -1
+            ]
+        ],
+        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "25\/06\/2014",
+        "occupation": [
+            [
+                "selbständiger Redner und Berater",
+                2
+            ]
+        ]
+    },
+    {
+        "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124856_DFI_rev0_IT.pdf",
         "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
         "mandate": [],
@@ -11955,7 +12034,7 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124868_DFI_rev2_IT.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124868_DFI_LEG8_rev3_IT.pdf",
         "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
         "mandate": [],
         "occasional": [],
@@ -11963,25 +12042,29 @@
         "membership": [
             [
                 "Vice-Presidente Cancro Primo Aiuto",
-                -1
+                0
             ],
             [
-                "Membro del Direttivo di AREL - Agenzia di Ricerche e Legislazione",
-                -1
+                "Membro del Direttivo di AREL -  Agenzia di Ricerche e Legislazione",
+                0
             ],
             [
-                "Presidente della Fondazione Culturale Fonderia dei Talenti",
-                -1
+                "Presidente della Fondazione Culturale  Fonderia dei Talenti",
+                0
             ]
         ],
         "other": "Interessi finanziari\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "06\/10\/2014",
+        "date": "10\/12\/2015",
         "occupation": [
             [
-                "Deputato della Repubblica Italiana",
+                "Deputato        della    Repubblica  Italiana",
                 3
+            ],
+            [
+                "Nessuna attività svolta durante i tre anni precedenti l'attuale mandato",
+                -1
             ]
         ]
     },
@@ -12878,29 +12961,33 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124844_DFI_rev0_IT.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124844_DFI_LEG8_rev1_IT.pdf",
         "support": "1. in denaro:\n(*)     conferito\/i: da\n2. in personale:\n(*)     conferito\/i: da\n3. in materiale:\n(*)     conferito\/i: da\n(*) Identità dei terzi in questione.",
         "mandate": [],
         "occasional": [],
         "mep_id": 124844,
         "membership": [
             [
-                "Socio Associazione Italiana Fisica Medica",
-                -1
+                "Socio Associazione Italiana Fisica  Medica",
+                0
             ]
         ],
         "other": "Interessi finanziari\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "10\/06\/2014",
+        "date": "09\/12\/2015",
         "occupation": [
             [
                 "DIRIGENTE FISICO MEDICO",
                 2
             ],
             [
-                "ESPERTO RADIOPROTEZIONE",
+                "ESPERTO  RADIOPROTEZIONE",
                 1
+            ],
+            [
+                "Nessuna attività svolta durante i tre anni precedenti l'attuale mandato",
+                -1
             ]
         ]
     },
@@ -14551,36 +14638,40 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124793_DFI_rev0_RO.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124793_DFI_LEG8_rev1_RO.pdf",
         "support": "1. susținere financiară:\n(*)     acordată de\n2. susținere sub formă de\npersonal:\n(*)     acordată de\n3. susținere sub formă de\nmateriale:\n(*)     acordată de\n(*) Identitatea terților părți în cauză.",
         "mandate": [],
         "occasional": [],
         "mep_id": 124793,
         "membership": [],
-        "other": "Interese financiare:\n1.\n2.\n4\/6                                             RO\n3.",
+        "other": "Interese financiare:\n1.\n2.\n5\/7                                     RO\n3.",
         "holding": [],
         "activity": [],
-        "date": "17\/06\/2014",
+        "date": "07\/12\/2015",
         "occupation": [
             [
-                "Consilier General Mun. București (iulie  2008-iunie 2013)",
+                "Consilier General Mun.  București (iulie 2008-iuni",
                 1
             ],
             [
-                "Director Marketing (nov 2013-iunie 2014)  SC Administrație Active Sector 3",
+                "Director Marketing (nov 2013-  iunie 2014) SC Administrație Active Sector 3",
                 2
             ],
             [
-                "Director Marketing (iulie 2007- nov.2013)  SC Economat Sector 5",
+                "Director Marketing (iulie 2007-  nov.2013) SC Economat Sector 5",
                 2
             ],
             [
-                "Cadru Didactic Colaborator                  A.S.E (febr.2011-iunie 2013)",
+                "Cadru Didactic Colaborator  A.S.E (febr.2011-iunie 2013)",
+                0
+            ],
+            [
+                "Director Resurse Umane (22  noiembrie 2013 - 15 ianuarie 2 - Direcția generală de asisten socială si protecția copilului Sector 3, București",
+                1
+            ],
+            [
+                "Nicio activitate profesională în ultimii trei ani dinaintea preluării mandatului actual",
                 -1
-            ],
-            [
-                "Director Resurse Umane (22 noiembrie  2013 - 15 ianuarie 2014) - Direcția gene de asistență socială si protecția copilu Sector 3, București",
-                1
             ]
         ]
     },
@@ -15225,6 +15316,39 @@
             [
                 "Assessore Comunale Scandicci - Firenze",
                 2
+            ]
+        ]
+    },
+    {
+        "additional": "Kreisrat im Landkreis Augsburg, pauschal 250,00 Euro pro Monat sowie 80,00 Euro pro Sitzung",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/1917_DFI_rev0_DE.pdf",
+        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 1917,
+        "membership": [
+            [
+                "Sparkassenverband Bayern (Beirat für  sparkassenpolitische Grundsatzfragen)",
+                1
+            ],
+            [
+                "Verwaltungsrat      der      Kreissparkasse Augsburg",
+                -1
+            ]
+        ],
+        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
+        "holding": [],
+        "activity": [
+            [
+                "Berätungstätigkeit für K&S Consultants  AG",
+                2
+            ]
+        ],
+        "date": "03\/06\/2014",
+        "occupation": [
+            [
+                "Mitglied des Europäischen Parlaments",
+                3
             ]
         ]
     },
@@ -16284,49 +16408,57 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28400_DFI_rev0_ES.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/28400_DFI_LEG8_rev1_ES.pdf",
         "support": "1. financieras:\n(*)    concedidas por\n2. de personal:\n(*)    concedidas por\n3. materiales:\n(*)    concedidas por\n(*) Identidad del\/de los tercero(s) de que se trate.",
         "mandate": [],
         "occasional": [],
         "mep_id": 28400,
         "membership": [
             [
-                "Miembro del Comité Ejecutivo Nacional del Partido Popular",
-                -1
+                "Miembro del Comité Ejecutivo  Nacional del Partido Popular",
+                0
             ]
         ],
         "other": "Intereses económicos:\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "05\/06\/2014",
+        "date": "10\/12\/2015",
         "occupation": [
             [
                 "Diputado al Parlamento Europeo",
                 3
+            ],
+            [
+                "Sin ocupación durante los tres años anteriores al actual mandato",
+                -1
             ]
         ]
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124889_DFI_rev0_EN.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124889_DFI_LEG8_rev1_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
         "mandate": [],
         "occasional": [],
         "mep_id": 124889,
         "membership": [
             [
-                "Member of Programme Board of the Congress of Women.",
-                -1
+                "Member of Programme Board of the  Congress of Women.",
+                0
             ]
         ],
         "other": "Financial interest:\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "04\/06\/2014",
+        "date": "11\/12\/2015",
         "occupation": [
             [
-                "Secretary of State 2011-14. Member of  Polish Parliament 2007-2014.",
+                "Secretary of State 2011-14.  Member of Polish Parliament 2007-2014.",
                 2
+            ],
+            [
+                "No occupation held during the three years preceding the current mandate",
+                -1
             ]
         ]
     },
@@ -19941,36 +20073,40 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/38601_DFI_rev0_BG.pdf",
-        "support": "1. във вид на финансови\nсредства:\n(*)   предоставена от\n2. във вид на персонал:\n(*)   предоставена от\n3. във вид на материали:\n(*)   предоставена от\n(*) Самоличност на съответното(ите) трето(и) лице(а).",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/38601_DFI_LEG8_rev1_BG.pdf",
+        "support": "1. във вид на финансови\nсредства:\n(*)   предоставена от\n2. във вид на персонал:\n(*)   предоставена от\n3. във вид на материали:\n(*)   предоставена от\n(*) Самоличност на съответното(ите) трето(и) лице(а)",
         "mandate": [],
         "occasional": [],
         "mep_id": 38601,
         "membership": [
             [
-                "1. Член на Борда на директорите на ЕЕФ (Европейски Енергиен Форум) - \/2009-\/ (без възнаграждение)",
-                -1
+                "1. Член на Борда на директорите на  ЕЕФ (Европейски Енергиен Форум) - \/2009-\/ (без възнаграждение)",
+                0
             ]
         ],
-        "other": "Финансов интерес:\n1.\n5\/7                           BG\n2.\n3.",
+        "other": "Финансов интерес:\n1.\n5\/7                            BG\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "23\/06\/2014",
+        "date": "09\/12\/2015",
         "occupation": [
             [
-                "1.     Член    на         Европейския  Парламент \/2009-2014\/",
+                "1. Член на Европейския  Парламент \/2009-2014\/",
                 3
             ],
             [
-                "2. Член на Борда на Директорите на АЕЦ \"Козлодуй\" ЕАД, от 05.2012 - 04.2013 (без възнаграждение)",
-                -1
+                "2. Член на Борда на  Директорите на АЕЦ \"Коз ЕАД, от 05.2012 - 04.20 възнаграждение)",
+                0
             ],
             [
-                "3. Член на Управителния съвет на държавно предприятие \"Радиоактивни отпадъци\" от 06.2012 - 04.2013 (без възнаграждение)",
-                -1
+                "3. Член на Управителния  съвет на държавно предприят \"Радиоактивни отпадъци\" от 06.2012    -    04.2013  (б възнаграждение)",
+                0
             ],
             [
-                "4. Член на Борда на Директорите на ЕЕФ (Европейски Енергиен Форум) \/2009-\/ (без възнаграждение)",
+                "4.   Член     на    Борда  на   Директорите     на   ЕЕФ (Европейски           Енергиен Форум)       \/2009-\/       (без възнаграждение)",
+                0
+            ],
+            [
+                "Без професионална дейност по време на трите години, предшестващи текущия мандат",
                 -1
             ]
         ]
@@ -21188,30 +21324,6 @@
             [
                 "Mitglied des Europäischen Parlaments",
                 3
-            ]
-        ]
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124815_DFI_rev0_DE.pdf",
-        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 124815,
-        "membership": [
-            [
-                "stellvertretender Bundesvorsitzender der      Familien-Partei     Deutschlands Landesvorsitzender der Familien-Partei Deutschlands in Mecklenburg-Vorpommern",
-                -1
-            ]
-        ],
-        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "25\/06\/2014",
-        "occupation": [
-            [
-                "selbständiger Redner und Berater",
-                2
             ]
         ]
     },
