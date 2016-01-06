@@ -422,7 +422,8 @@ function grid (selector,data) {
 				},
 				function(d) {  return d.attendance.score +"%"; },
 				function(d) {  return getAmountString(d); },
-				function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
+				function(d) {  return d.qty; },
+				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
 	.size(1000)
 	.sortBy(function (d) {return d.last_name})
@@ -771,7 +772,7 @@ function MEPpopup (epid) {
 			</div>
 			<div class="col-md-6 col-lg-6" id="about_content">
 				<p>
-					This is a user-friendly interactive database that provides a unique overview of the activities of members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter MEPs. Thereby the database allows to better monitor potential conflicts of interests or to identify those MEPs with more outside activities with the help of the External Activity Indicator (EAI)
+					This is a user-friendly interactive database that provides a unique overview of the activities of members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter MEPs. Thereby the database allows to better monitor potential conflicts of interests or to identify those MEPs with more outside activities.
 					<br/>
 					<a href="about.html" class="more">Read more</a>
 				</p>
@@ -991,7 +992,7 @@ function MEPpopup (epid) {
 							<th class="header">Group</th> 
 							<th class="header sorter-digit">Attendance <span class="table_spacer">&nbsp;</span></th> 
 							<th class="header sorter-amount">Outside income<span class="table_spacer">&nbsp;</span></th> 
-							<th title="External Activity Indicator" class="header sorter-digit">EAI <span class="table_spacer">&nbsp;</span></th> 
+							<th title="External Activities" class="header sorter-digit">External Activities <span class="table_spacer">&nbsp;</span></th> 
 						</tr>
 					</thead>
 				</table>
