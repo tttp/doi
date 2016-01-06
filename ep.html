@@ -693,7 +693,7 @@ function drawScore() {
 
 	function getAmount (category, field) { //field = min (default) or max or "string"
 		field = field || "min";
-		if (!category) return "?";
+		if (!category) return "0";
 		if (isNaN(category)) return category;
 		if (category < 0 && field == "min") return "0";
 		if (category < 0 && field == "max") return "499";
@@ -701,8 +701,8 @@ function drawScore() {
 		 
 		if (category >=4 && field == "max") return "or more";
 		if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
-		if (field == "string")
 			return  rangeEUR[category]["min"] + " &#8605; "+  rangeEUR[category]["max"];
+
 		return rangeEUR[category][field];
 	}
 
