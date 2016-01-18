@@ -1184,6 +1184,7 @@ function eventpopup (epid) {
 	$(".resetall").click(function() {
 		$("#search-input").val("");
 		$(".resetall").attr("disabled",true);
+		rep.filter(null);
 		dc.filterAll();
 		dc.renderAll();
 

@@ -1672,6 +1672,7 @@ function eventpopup (epid) {
 	});
 
 	$(".resetall").click(function() {
+		nameEvent.filter(null);
 		dc.filterAll();
 		dc.renderAll();
 		$("#search-input").val("");
