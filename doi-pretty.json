@@ -11049,34 +11049,6 @@
         "events": []
     },
     {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/125052_DFI_rev0_FR.pdf",
-        "support": "1. financiers :\n(*)    alloués par\n2. en personnel :\n(*)    alloués par\n3. en matériel :\n(*)    alloués par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 125052,
-        "membership": [],
-        "other": "Intérêt financier :\n1.\n2.\n4\/6                                 FR\n3.",
-        "holding": [],
-        "activity": [
-            [
-                "Periodista - colaboracion con varios medios",
-                2
-            ]
-        ],
-        "date": "02\/07\/2014",
-        "occupation": [
-            [
-                "Escritor y periodista.",
-                3
-            ]
-        ],
-        "events": [
-            "http:\/\/www.europarl.europa.eu\/ep-dat\/125052_05-11-2015.pdf",
-            "http:\/\/www.europarl.europa.eu\/ep-dat\/125052_02-09-2015.pdf"
-        ]
-    },
-    {
         "additional": "Car park pass at Birmingham Airport\nOccasional Cricket Coaching work\nSmall royalties from continued sales of previous written work for educational musicals",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/35135_DFI_LEG8_rev1_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
@@ -11498,6 +11470,31 @@
     },
     {
         "additional": "",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124815_DFI_rev0_DE.pdf",
+        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
+        "mandate": [],
+        "occasional": [],
+        "mep_id": 124815,
+        "membership": [
+            [
+                "stellvertretender Bundesvorsitzender der      Familien-Partei     Deutschlands Landesvorsitzender der Familien-Partei Deutschlands in Mecklenburg-Vorpommern",
+                -1
+            ]
+        ],
+        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
+        "holding": [],
+        "activity": [],
+        "date": "25\/06\/2014",
+        "occupation": [
+            [
+                "selbständiger Redner und Berater",
+                2
+            ]
+        ],
+        "events": []
+    },
+    {
+        "additional": "",
         "url": "http:\/\/www.europarl.europa.eu\/mepdif\/135490_DFI_LEG8_rev0_ES.pdf",
         "support": "1. financieras:\n(*)    concedidas por\n2. de personal:\n(*)    concedidas por\n3. materiales:\n(*)    concedidas por\n(*) Identidad del\/de los tercero(s) de que se trate.",
         "mandate": [],
@@ -11528,31 +11525,6 @@
             [
                 "Sin ocupación durante los tres años anteriores al actual mandato",
                 -1
-            ]
-        ],
-        "events": []
-    },
-    {
-        "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124815_DFI_rev0_DE.pdf",
-        "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses\/dieser Dritten.",
-        "mandate": [],
-        "occasional": [],
-        "mep_id": 124815,
-        "membership": [
-            [
-                "stellvertretender Bundesvorsitzender der      Familien-Partei     Deutschlands Landesvorsitzender der Familien-Partei Deutschlands in Mecklenburg-Vorpommern",
-                -1
-            ]
-        ],
-        "other": "Finanzielle Interessen:\n1.\n2.\n4\/6                                            DE\n3.",
-        "holding": [],
-        "activity": [],
-        "date": "25\/06\/2014",
-        "occupation": [
-            [
-                "selbständiger Redner und Berater",
-                2
             ]
         ],
         "events": []
@@ -21683,19 +21655,28 @@
     },
     {
         "additional": "",
-        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124964_DFI_rev0_EN.pdf",
+        "url": "http:\/\/www.europarl.europa.eu\/mepdif\/124964_DFI_LEG8_rev1_EN.pdf",
         "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
         "mandate": [],
         "occasional": [],
         "mep_id": 124964,
-        "membership": [],
+        "membership": [
+            [
+                "Youth theatre musical director",
+                0
+            ]
+        ],
         "other": "Financial interest:\n1.\n2.\n3.",
         "holding": [],
         "activity": [],
-        "date": "10\/06\/2014",
+        "date": "12\/01\/2016",
         "occupation": [
             [
-                "student UCBC",
+                "Student UCBC",
+                -1
+            ],
+            [
+                "No occupation held during the three years preceding the current mandate",
                 -1
             ]
         ],
