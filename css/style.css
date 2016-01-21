@@ -1373,3 +1373,11 @@ td.number{
 	left: 20px;
 	position: absolute;
 }
+
+.centered-align {
+	text-align: center;
+}
+
+.table_spacer_small {
+	padding: 0 5px;
+}

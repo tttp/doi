@@ -44578,7 +44578,7 @@ dc.dataTable = function (parent, chartGroup) {
             .key(_chart.group())
             .sortKeys(_order)
             .entries(entries.sort(function (a, b) {
-                return _order(_sortBy(a), _sortBy(b));
+                return _order(_sortBy(b), _sortBy(a));
             }));
     }
 

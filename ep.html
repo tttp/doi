@@ -406,17 +406,22 @@ function grid (selector,data) {
 		.columns([
 				function(d) { i=i+1; return i; },
 				function(d) { return "<span class='mep' data-epid='"+d.epid+"'>"+d.first_name +" <b>"+ d.last_name +"</b></span>"; },
-				function(d) {  return d.country; },
+				function(d) {  
+					if(d.country == "United Kingdom"){
+						return "UK";
+					}
+					return d.country; 
+					},
 				function(d) {
 						return d.eugroup;
 				},
-				function(d) {  return d.attendance.score +"%"; },
-				function(d) {  return getAmountString(d); },
-				function(d) {  return d.qty; },
+				function(d) {  return "<div class='centered-align'>"+d.attendance.score +"%</div>"; },
+				function(d) {  return "<div class='centered-align'>"+d.qty+"%</div>"; },
+				function(d) { return "<div class='centered-align'>"+getAmountString(d)+"</div>"; },
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
 	.size(1000)
-	.sortBy(function (d) {return d.last_name})
+	.sortBy(function (d) {return d.max})
 	.renderlet(function (chart) {
 		i = 0;
 		$(".dc-table-group").remove();
@@ -980,9 +985,9 @@ function MEPpopup (epid) {
 							<th class="header">Name</th> 
 							<th class="header">Country</th> 
 							<th class="header">Group</th> 
-							<th class="header sorter-digit">Attendance <span class="table_spacer">&nbsp;</span></th> 
-							<th class="header sorter-amount">Outside income<span class="table_spacer">&nbsp;</span></th> 
-							<th title="Number of external activities declared by the member in their declaration of financial interest. These activities can be paid or unpaid." class="header sorter-digit">Ext. Activities <span class="table_spacer">&nbsp;</span></th> 
+							<th class="header sorter-digit centered-align"><span class="table_spacer_small">&nbsp;</span>Attendance<span class="table_spacer_small">&nbsp;</span></th> 
+							<th title="Number of external activities declared by the member in their declaration of financial interest. These activities can be paid or unpaid." class="header sorter-digit centered-align"><span class="table_spacer_small">&nbsp;</span>Ext. Activities<span class="table_spacer_small">&nbsp;</span></th> 
+							<th class="header sorter-amount centered-align"><span class="table_spacer_small">&nbsp;</span>Outside income<span class="table_spacer_small">&nbsp;</span></th> 
 						</tr>
 					</thead>
 				</table>

@@ -998,7 +998,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             tr.addClass('shown');
         }
     } );
-        datatable.DataTable().on( 'order.dt search.dt', function () {
+        datatable.DataTable().on( 'order.dt search.dt page.dt draw.dt', function () {
           datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
             cell.innerHTML = i+1;
           } );
@@ -1582,7 +1582,7 @@ function eventpopup (epid) {
 						<p class="desc">Click on any meeting for additional information.
 						</p>
 					</div>
-				</h2><div id="last_update">Last updated: 15 Nov 2015</div>
+				</h2><div id="last_update">Last updated: 18 January 2016</div>
 			</div>
 			
 			<div class="col-md-12 table-responsive">

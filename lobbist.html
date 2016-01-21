@@ -615,7 +615,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 
 	function drawTable () {
-		var count=0;
+		var count1 = 0;
     //id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute
 
     datatable = $(".table").dataTable({
@@ -623,15 +623,17 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "defaultContent":"",
               "orderable": false,
               "targets": 0,   
-              data: function ( row, type, val, meta ) {
-                count++;
-                return count;
+              data: function ( row, type, val, meta, i ) {
+                count1 ++;
+				//if(count > 100){alert(count + ' ' + val)};
+                return count1;
               }
               },{
               "searchable": false,
               "orderable": true,
               "targets": 1,
               data: function (row, type, val, meta) {
+			    if(row.name == "" || !row.name){alert(row.toSource());}
                 if (row.acronym) 
                   return row.name+" ("+row.acronym +" )";
                 return row.name;
@@ -684,6 +686,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             "aaData": rep.top(Infinity),
             "bDestroy": true,
         });
+
 	
     function format (d) {
     	var initiatives;
@@ -787,12 +790,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             tr.addClass('shown');
         }
     } );
-        datatable.on( 'order.dt search.dt', function () {
+	
+        datatable.on( 'order.dt search.dt page.dt draw.dt', function () {
           datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
             cell.innerHTML = i+1;
           } );
-
         });
+		
 
 	}
 
@@ -803,6 +807,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
                 datatable.fnAddData(alldata);
                 datatable.fnDraw();
             });
+
         }
 
 		dc.renderAll();
@@ -1066,7 +1071,7 @@ function eventpopup (epid) {
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">Registered Lobby Organisations</h2><div id="last_update">Last updated: 3 July 2015</div>
+				<h2 class="table_title">Registered Lobby Organisations</h2><div id="last_update">Last updated: 18 January 2016</div>
 				<div id="info_table_container">
 					<div class="info_chart info_table" id="meetings_info">
 						<span class="info">info</span>
