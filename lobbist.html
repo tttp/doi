@@ -633,7 +633,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "orderable": true,
               "targets": 1,
               data: function (row, type, val, meta) {
-			    if(row.name == "" || !row.name){alert(row.toSource());}
                 if (row.acronym) 
                   return row.name+" ("+row.acronym +" )";
                 return row.name;
