@@ -48697,7 +48697,7 @@ function cloud(d3) {
         }
 
         function drawWords(data, bounds) {
-            // Adapted from Jason Davies' demo app
+            // Adapted from Jason Davies' demo app;
             if(_g) {
                 var scale = bounds ? Math.min(
                     _size[0] / Math.abs(bounds[1].x - _size[0] / 2),
@@ -48785,28 +48785,48 @@ function cloud(d3) {
 
         function parseText(text) {
             // Thanks to Jason Davies. Stores word counts in `tags`
+			
             tags = {};
             var cases = {};
 
+			var test = "Testing a digital market today";
+			
+			test.split(_wordSeparators).forEach(function(word) {
+				//alert(word);
+			});
+			
             text.split(_wordSeparators).forEach(function(word) {
+				
                 if (discard.test(word)) {
                     return;
                 }
 
-                word = _normalize(word);
+                word = _normalize(word);				
+
+				
+				//If there is a comma revert words
+				if(word.indexOf(',') > 0){
+					var commaword = word.split(',');
+					word = commaword[1]+' '+commaword[0];
+				}
+				
 
                 word = word.replace(_punctuation, "");
+				
 
                 if (_stopWords.test(word.toLowerCase())) {
                     return;
                 }
 
                 word = word.substr(0, maxLength);
-
+				
                 if(!word.length) {
                     return;
                 }
-
+				
+				
+				
+				
                 cases[word.toLowerCase()] = word;
                 tags[word = word.toLowerCase()] = (tags[word] || 0) + 1;
             });
@@ -48815,7 +48835,7 @@ function cloud(d3) {
                 return b.value - a.value;
             });
 
-            tags.forEach(function(d) { d.key = cases[d.key]; });
+            tags.forEach(function(d) {d.key = cases[d.key]; });
         }
 
 
