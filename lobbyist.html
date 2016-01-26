@@ -167,6 +167,20 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			.attr("transform", function(d) { return "rotate(-45, -4, 9) "; });
 
 	}
+	
+	function getNum(nn,d){
+		if(nn == ''){
+		return 0;
+		}
+		nn = parseInt(nn);
+		if (isNaN(nn)){
+			return 0;
+		}
+		if(nn > 9999){
+			return 0;
+		}
+		return nn;
+	}
 
   function drawCounter (){
 		var dim = ndx.dimension (function(d) {
@@ -177,15 +191,15 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       function(p,d) {  
         p.nb +=1;
         p.fte = +d.fte;
-        p.accredited = +d.accredited;
+        p.accredited = +getNum(d.accredited);
         p.cost = +getCost(d);
         return p;
       },
       function(p,d) {  
         p.nb -=1;
-        p.fte = d.fte;
-        p.accredited = +d.accredited;
-        p.cost = +getCost(d);
+        p.fte -= d.fte;
+        p.accredited -= +getNum(d.accredited);
+        p.cost -= +getCost(d);
         return p;
       },
       function(p,d) {  
@@ -210,6 +224,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 				return kv.value.nb>0; 
 			}).length;
 		}})
+		.on("preRedraw",function(c) {
+			var fte= cost = accredited = 0;
+			})
 	  .on("renderlet.all", function(c) {
         $(".nbfte").html(fte);
         $(".nbaccredited").html(accredited);
@@ -643,6 +660,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "orderable": true,
               "type":"num-fmt",
               "targets": 5,
+			  "sClass": "right-align",
               "className": "number",
               "render": function ( data, type, row ) { 
                 if (data == "")
@@ -656,6 +674,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "searchable": false,
               "orderable": true,
               "targets": 2,
+			  "sClass": "right-align",
               data: "meetings",  
               },{
               "defaultContent":"No data",
@@ -663,6 +682,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "orderable": true,
               "type":"num-fmt",
               "targets": 4,
+			  "sClass": "right-align",
               "data": function (row, type, val, meta) { if (!row) {return "";}; return (+row.fte).toFixed();}
               },{
               "defaultContent":"No data",
@@ -670,6 +690,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "orderable": true,
               "type":"num-fmt",
               "targets": 3,
+			  "sClass": "right-align",
               data: "accredited",  
               } 
             ],
