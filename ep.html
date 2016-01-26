@@ -270,7 +270,7 @@ function grid (selector,data) {
 	data.forEach(function (d) {
 		var minnum = parsemin(d.min);
 		totalmin += minnum;
-		totalact += d.attendance.attended;
+		totalact += d.qty;
 	});
     $(".nbaccredited").html(addcommas(totalact));
 	$(".nbcost").html(addcommas(totalmin.toFixed(0))+"€");
@@ -437,7 +437,7 @@ function grid (selector,data) {
 						return d.eugroup;
 				},
 				function(d) {  return "<div class='centered-align'>"+d.attendance.score +"%</div>"; },
-				function(d) {  return "<div class='centered-align'>"+d.qty+"%</div>"; },
+				function(d) {  return "<div class='centered-align'>"+d.qty+"</div>"; },
 				function(d) { return "<div class='centered-align'>"+getAmountString(d)+"</div>"; },
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
@@ -481,7 +481,7 @@ function drawCounter (){
       function(p,d) { 	  
         p.nb +=1;
         p.fte = +d.fte;
-        p.accredited += +d.attendance.attended;
+        p.accredited += +d.qty;
         p.cost += +parsemin(d.min);
 		if(d.min > 0){
 		}
@@ -490,7 +490,7 @@ function drawCounter (){
       function(p,d) {  
         p.nb -=1;
         p.fte = d.fte;
-        p.accredited -= +d.attendance.attended;
+        p.accredited -= +d.qty;
         p.cost -= +parsemin(d.min);
         return p;
       },
