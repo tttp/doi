@@ -436,9 +436,9 @@ function grid (selector,data) {
 				function(d) {
 						return d.eugroup;
 				},
-				function(d) {  return "<div class='centered-align'>"+d.attendance.score +"%</div>"; },
-				function(d) {  return "<div class='centered-align'>"+d.qty+"</div>"; },
-				function(d) { return "<div class='centered-align'>"+getAmountString(d)+"</div>"; },
+				function(d) {  return "<div class='right-align'>"+d.attendance.score +"%</div>"; },
+				function(d) {  return "<div class='right-align'>"+d.qty+"</div>"; },
+				function(d) { return "<div class='right-align'>"+getAmountString(d)+"</div>"; },
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
 	.size(1000)
@@ -849,7 +849,7 @@ function MEPpopup (epid) {
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li id="cm_tool_btn"><a href="ec.html"><strong>Commission</strong> <br />meetings</a></li>
-					<li id="bl_tool_btn"><a href="lobbist.html"><strong>EU</strong><br />Lobbyists</a></li>
+					<li id="bl_tool_btn"><a href="lobbyist.html"><strong>EU</strong><br />Lobbyists</a></li>
 					<li class="active" id="mi_tool_btn"><a href="ep.html"><strong>MEP</strong> <br />incomes</a></li>
           <li class="dropdown">
             <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">National versions<span class="caret"></span></a>

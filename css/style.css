@@ -1377,7 +1377,9 @@ td.number{
 .centered-align {
 	text-align: center;
 }
-
+.right-align {
+	text-align: right;
+}
 .table_spacer_small {
 	padding: 0 5px;
 }
