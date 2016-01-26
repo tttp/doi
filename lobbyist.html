@@ -300,12 +300,15 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         console.log ("filtered");
         return "";
       }
-*/
-        return getCost(d);
+*/		return d.minrange;
+        //return getCost(d);
 //      return d.id;
 	});
   
-    var group   = dim.group().reduceSum( function(d) {return +d.meetings;});
+    var group   = dim.group().reduceSum( function(d) {
+	//return +d.meetings;
+	return 1;
+	});
 
     /*
   var group   = dim.group().reduce(
@@ -374,12 +377,14 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     .on("preRender",(function(chart,filter){
     }))
 		.margins({top: 0, right: 10, bottom: 20, left: 40})
-		.x(d3.scale.sqrt().domain([0, maxBudget]))
+		//.x(d3.scale.sqrt().domain([0, maxBudget]))
+		.x(d3.scale.ordinal().domain(["0", "1 - 50K", "50K - 100K", "100K - 500K", "500K - 1M", "1M - 2M", "2M - 5M", "> 5M"]))
+		.xUnits(dc.units.ordinal)
  //   .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
 //		.elasticX(true)
 		.elasticY(true)
-				.brushOn(true)
+		//.brushOn(true)
 		//.yAxisLabel("Lobbying expense")
 		.colorCalculator(function(d, i) {
 			return "#f1ca58";
@@ -387,9 +392,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.dimension(dim)
 		.group(group);
 		//graph.xAxis().ticks(5).tickFormat(d3.format(",.0f"));
-    graph.xAxis().ticks(5).tickFormat(function(d) {return formatInteger(d / 1e6) + "M";});
+    //graph.xAxis().ticks(5).tickFormat(function(d) {return formatInteger(d / 1e6) + "M";});
 
-		graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
+		//graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
 	}
 
 	
@@ -1184,6 +1189,28 @@ function eventpopup (epid) {
             d.costbyfte = (+getCost(d)/+d.fte).toFixed();
             ridx[d.id]=i;
 						d.meetings=0;
+			var rangeval = getCost(d);
+			//Get cost range
+			d.minrange = 0;
+			if(rangeval == 0 || !$.isNumeric(rangeval)){
+				d.minrange = '0';
+			} else if(rangeval <= 50000){
+				d.minrange = '1 - 50K';
+			} else if(rangeval <= 100000){
+				d.minrange = '50K - 100K';
+			} else if(rangeval <= 500000){
+				d.minrange = '100K - 500K';
+			} else if(rangeval <= 1000000){
+				d.minrange = '500K - 1M';
+			} else if(rangeval <= 2000000){
+				d.minrange = '1M - 2M';
+			} else if(rangeval <= 5000000){
+				d.minrange = '2M - 5M';
+			} else if(rangeval > 5000000){
+				d.minrange = '> 5M';
+			}
+			
+			
            //if (d.status!="active") delete representatives[i];
 			});
 				 renderLoaded();
