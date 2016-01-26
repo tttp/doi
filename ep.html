@@ -785,7 +785,7 @@ function drawScore() {
 
 	function getAmountString(d) {
 					if (d.qty == 0) {
-						return "";
+						return "0";
 					}
 					if (d.max == Number.POSITIVE_INFINITY)
 						return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
