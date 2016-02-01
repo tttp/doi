@@ -29,7 +29,11 @@
 <meta property="og:description" content="Interactive database that provides a unique overview of the activities and outside income for the members of the European Parliament and Commission" />
 <meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
 <meta property="fb:app_id" content="1611680135716224" />
-
+<style>
+#lobbying_expense label {
+	top: 39px;
+}
+</style>
 </head>
 <body>
 
@@ -40,6 +44,15 @@ function getCost (d) {
     return +d.cost_absolute;
   return +d.cost_min;
 } 
+
+function getCostB (d) { 
+  if(d.cost_absolute == "" && d.cost_min == ""){
+	return 'N/A';
+  }
+  if (d.cost_absolute > 0)
+    return +d.cost_absolute;
+  return +d.cost_min;
+}
 
 $( document ).ready(function() {
 	$('#view_charts').click(function(ev) {
@@ -378,7 +391,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     }))
 		.margins({top: 0, right: 10, bottom: 20, left: 40})
 		//.x(d3.scale.sqrt().domain([0, maxBudget]))
-		.x(d3.scale.ordinal().domain(["0", "1 - 50K", "50K - 100K", "100K - 500K", "500K - 1M", "1M - 2M", "2M - 5M", "> 5M"]))
+		.x(d3.scale.ordinal().domain(["N/A","< 10K", "10K - 50K", "50K - 100K", "100K - 500K", "500K - 1M", "1M - 2M", "2M - 5M", "> 5M"]))
 		.xUnits(dc.units.ordinal)
  //   .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
@@ -648,7 +661,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               data: function ( row, type, val, meta, i ) {
                 count1 ++;
 				//if(count > 100){alert(count + ' ' + val)};
-                return count1;
+                //return count1 - totpeople*2 - 100;
               }
               },{
               "searchable": false,
@@ -817,8 +830,19 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     } );
 	
         datatable.on( 'order.dt search.dt page.dt draw.dt', function () {
+			var thispage = $('.paginate_button.current').html();
+			
+			var rowi = 0;
           datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-            cell.innerHTML = i+1;
+			if(rowi >= 100){
+				rowi = 0;
+			}
+			rowi ++;
+			if(thispage > 1){
+				cell.innerHTML = (rowi) + (100*(thispage-1));
+			} else {
+				cell.innerHTML = (rowi);
+			}
           } );
         });
 		
@@ -963,7 +987,7 @@ function eventpopup (epid) {
             			<div title="full time equivalent"><span class="big_number afilter_long nbcost"></span> Lobby budget</div>
             		</div-->
             		<div class="col-md-4 filter_number">
-            			<div class="dc-data-count org-count"><span class="big_number afilter_long nbaccredited"></span> out of <strong>6,053</strong> Lobbyists accredited with the European Parliament</div>
+            			<div class="dc-data-count org-count"><span class="big_number afilter_long nbaccredited"></span> out of <strong class="lobbyist-total-count"></strong> Lobbyists accredited with the European Parliament</div>
             		</div>
 				</div>
 			</div>
@@ -1096,29 +1120,26 @@ function eventpopup (epid) {
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">Registered Lobby Organisations</h2><div id="last_update">Last updated: 18 January 2016</div>
+				<h2 class="table_title">Registered Lobby Organisations
+				<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Meetings:<br />
+						Number of high-level meetings the organisation has had with the European Commission since December 2014.
+						<br/><br />
+						Lobby Expense:<br />
+						Lobby budget as declared by the organisation in the EU Transparency Register under “estimate of the annual costs related to activities covered by the register”. According to the official guidelines estimates should include staff costs, office, administrative and operational expenses, outsourced activities, memberships and other relevant costs.
+						<br/><br />
+						Lobbyists:<br />
+						Number of lobbyists (in full-time equivalent) as declared by the organisation on the EU Transparency Register.
+						<br/><br />
+						EP Badges:
+						<br />
+						Number of access badges to the European Parliament that the organisation holds for the lobbyists. Information published on the EU Transparency Register.
+						</p>
+					</div>
+					</h2><div id="last_update">Last updated: 18 January 2016</div>
 				<div id="info_table_container">
-					<div class="info_chart info_table" id="meetings_info">
-						<span class="info">info</span>
-						<p class="desc">Number of high-level meetings the organisation has had with the European Commission since December 2014.
-						</p>
-					</div>
-					
-					<div class="info_chart info_table" id="budget_info">
-						<span class="info">info</span>
-						<p class="desc">Lobby budget as declared by the organisation in the EU Transparency Register under “estimate of the annual costs related to activities covered by the register”. According to the official guidelines estimates should include staff costs, office, administrative and operational expenses, outsourced activities, memberships and other relevant costs.</p>
-					</div>
-					
-					<div class="info_chart info_table" id="lobbyist_info">
-						<span class="info">info</span>
-						<p class="desc">Number of lobbyists (in full-time equivalent) as declared by the organisation on the EU Transparency Register.</p>
-					</div>
-					
-					<div class="info_chart info_table" id="badges_info">
-						<span class="info">info</span>
-						<p class="desc">Number of access badges to the European Parliament that the organisation holds for the lobbyists. Information published on the EU Transparency Register.
-						</p>
-					</div>
+
 				</div>
 			</div>
 			
@@ -1145,6 +1166,8 @@ function eventpopup (epid) {
 	var events=[];
 	var representatives={};
   var countries={};
+  var totalaccredited = 0;
+  var totpeople = 0;
 
 	$(function() {
 		var renderLoaded  = _.after(3,  function () { 
@@ -1189,13 +1212,15 @@ function eventpopup (epid) {
             d.costbyfte = (+getCost(d)/+d.fte).toFixed();
             ridx[d.id]=i;
 						d.meetings=0;
-			var rangeval = getCost(d);
+			var rangeval = getCostB(d);
 			//Get cost range
 			d.minrange = 0;
-			if(rangeval == 0 || !$.isNumeric(rangeval)){
-				d.minrange = '0';
+			if(!$.isNumeric(rangeval)){
+				d.minrange = 'N/A';
+			} else if(rangeval <= 10000){
+				d.minrange = '< 10K';
 			} else if(rangeval <= 50000){
-				d.minrange = '1 - 50K';
+				d.minrange = '10K - 50K';
 			} else if(rangeval <= 100000){
 				d.minrange = '50K - 100K';
 			} else if(rangeval <= 500000){
@@ -1210,9 +1235,16 @@ function eventpopup (epid) {
 				d.minrange = '> 5M';
 			}
 			
+			if($.isNumeric(d.accredited)){
+				totalaccredited += parseInt(d.accredited);
+			}
+			
+			totpeople ++;
+			
 			
            //if (d.status!="active") delete representatives[i];
 			});
+				$('.lobbyist-total-count').html(totalaccredited);
 				 renderLoaded();
 		});     
 
