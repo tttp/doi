@@ -226,6 +226,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawMainCategory();
 	drawExpense();
 	drawNbParticipants();
+	
   /*
 	drawEFT();
 */
@@ -277,6 +278,25 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 		graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
 	}
+	
+	function setword(wd) {
+		$("#search-input").val(wd);
+		var s = wd.toLowerCase();
+		nameEvent.filter(function (d) { 
+			return d.indexOf (s) !== -1;} );
+		$(".resetall").attr("disabled",false);
+		throttle();
+//        dc.redrawAll();
+
+		var throttleTimer;
+		function throttle() {
+			window.clearTimeout(throttleTimer);
+			throttleTimer = window.setTimeout(function() {
+				console.log ("redraw");
+					dc.redrawAll();
+			}, 250);
+		}
+	}
 
   function drawCloud() {
      var dim = ndx.dimension(function(d) {
@@ -294,7 +314,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       .group(group)
 //      .fontSize(d3.scale.linear().domain([0,100]).range([6,80]).clamp(true))
       .textAccessor(function(d) {return d.title;})
-      .stopWords (/^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|i'll|you'll|he'll|she'll|we'll|they'll|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't|doesn't|don't|didn't|won't|wouldn't|shan't|shouldn't|can't|cannot|couldn't|mustn't|let's|that's|who's|what's|here's|there's|when's|where's|why's|how's|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall|la|du|mr|commissioner|et|des|dg|commission|de|pour|en|les|le|meeting)$/);
+	  .onClick(function(d){setword(d.key);})
+      .stopWords (/^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|i'll|you'll|he'll|she'll|we'll|they'll|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't|doesn't|don't|didn't|won't|wouldn't|shan't|shouldn't|can't|cannot|couldn't|mustn't|let's|that's|who's|what's|here's|there's|when's|where's|why's|how's|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall|la|du|mr|commissioner|et|des|dg|commission|de|pour|en|les|le|meeting|eu|new|priorities|presentation|preparation|issues|meetings|representatives|work|implementation|general|future|challenge|challenge|skey|role|exchange|views|discuss|discussion|various director|talks|position|global|field|level|initiative|company|state|aspects|context|current|change|european|potential|including|dans|within|developments|play|present|Päris|Enegry|deep|Susan|Danger|Managing|Director|AmCham|Karl|Cox|Vice|President|Oracle| Bert|Boers|SAS|Marco|Comastri|EMEA|CA|Patrick|Deconinck|Senior|Western|3M|Harry|van| Dorenmalen|Chairman|IBM|Aongus|Hegarty|Dell|Cindy|Miller|UPS|Christian|Morales|Manager|Intel| |Julián|Nebreda|AES|Peter|Ryan|VP|HP|Nigel|Lewis|Caterpillar|Dirk|Ostijn|Head|&| Chief|Executive |Officer|MetLife|CA|flagship|related|portfolio|Cssr|Jourova|(| voting|all|expats|as|part|)|,|Year)$/);
 
   }
 
@@ -1680,6 +1701,7 @@ function eventpopup (epid) {
 			}, 250);
 		}
 	});
+	
 
 	$(".resetall").click(function() {
 		nameEvent.filter(null);

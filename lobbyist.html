@@ -454,6 +454,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	function drawNbBadges () {
 		var dim = ndx.dimension (function(d) {
+		if(d.accredited == ''){
+				//return "N/A";
+			}
         if (!d.accredited) return 0;
         if (d.accredited>4)
           return 5;
@@ -498,6 +501,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var color = d3.scale.ordinal()
 		    .range(["#f9e5ad", "#f1ca58","#ecb007","#e7960e","#e37e17","#de631f"]);
 		var dim = ndx.dimension (function(d) {
+			
         if (d.fte>4)
           return 5;
 			  return (+d.fte).toFixed();
@@ -515,15 +519,16 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	          return d.key })
 				.title (function(d){ 
 	         switch(d.key) {
-	           case 0:
-	             return "no staff";
-	           case 1:
+	           case "0":
+	             return "no staff: "+ d.value;
+	           case "1":
 	             return d.key + " staff: " + d.value;
 	             break;
 	           case 5:
 	             return ">5 staff: " + d.value;
 	             break;
 	           default:
+					//alert(d.toSource());
 	             return d.key + " staffs: " + d.value;
 	         }
 	       })
