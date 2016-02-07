@@ -33,12 +33,28 @@
 #lobbying_expense label {
 	top: 39px;
 }
+.infolobby {
+	left: 420px !important;
+}
+.detailspanel {
+	background-color: #8e1556;
+	padding: 4px !important;
+}
+.detailspanel label {
+	font-weight: bold;
+	color: #8e1556;
+}
 </style>
 </head>
 <body>
 
 
 <script>
+
+function addcommas(x){
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+	
 function getCost (d) { 
   if (d.cost_absolute > 0)
     return +d.cost_absolute;
@@ -155,6 +171,11 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	rep = ndx.dimension(function(d) {
       return d.acronym.toLowerCase()+ " " + d.name.toLowerCase()+ " ";
 	});
+	
+	repSearch = ndx.dimension(function(d) {
+      return d.acronym.toLowerCase()+ " " + d.name.toLowerCase()+ " "+countries[d.contact_country][1];
+	});
+	
 
 	drawTable();
 	drawMainCategory();
@@ -391,8 +412,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     }))
 		.margins({top: 0, right: 10, bottom: 20, left: 40})
 		//.x(d3.scale.sqrt().domain([0, maxBudget]))
-		.x(d3.scale.ordinal().domain(["N/A","< 10K", "10K - 50K", "50K - 100K", "100K - 500K", "500K - 1M", "1M - 2M", "2M - 5M", "> 5M"]))
+		.x(d3.scale.ordinal().domain(["N/A","< 10K", "10-50K", "50-100K", "100-500K", "500K-1M", "1-2M", "2-5M", "> 5M"]))
 		.xUnits(dc.units.ordinal)
+		.gap(2)
  //   .x(d3.scale.ordinal())
 //    .xUnits(dc.units.ordinal)
 //		.elasticX(true)
@@ -750,9 +772,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     	s += "<div class='l_country'><label>Country</label> "+countries[d.contact_country][1]+"</div>"
     	s += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
 	    	if (d.cost_absolute == "") {
-	    		s += "min "+d.cost_min+" / max "+d.cost_max
+	    		s += "min "+addcommas(d.cost_min)+" / max "+addcommas(d.cost_max)
 	    	}else {
-	    		s += d.cost_absolute
+	    		s += addcommas(d.cost_absolute)
 	    	}
     	s += "</div>";
     	s += "<div class='l_fte'><label>Total Lobbyist</label> "+d.fte+"</div>";
@@ -829,7 +851,10 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
         }
         else {
             // Open this row
-            row.child( format(row.data()) ).show();
+			var thischild = row.child( format(row.data()) );
+			thischild.show();
+            //row.child( format(row.data()) ).show();
+			$('.l_data_container').parent().addClass('detailspanel');			
             tr.addClass('shown');
         }
     } );
@@ -975,7 +1000,7 @@ function eventpopup (epid) {
 			<div class="col-xs-9 col-sm-9 col-md-4" id="filter_field_container">
 				<p>Search or filter:</p>
 				<div class="input-group">
-					<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by Lobbyist, Host, Subject">
+					<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by Lobbyist or Country">
 				</div>
 			</div>
 			<div class="col-sm-7 col-md-7" id="filter_numbers">
@@ -1127,7 +1152,7 @@ function eventpopup (epid) {
 			<div class="content" id="list_content">
 				<h2 class="table_title">Registered Lobby Organisations
 				<div class="info_chart">
-						<span class="info">info</span>
+						<span class="info infolobby">info</span>
 						<p class="desc">Meetings:<br />
 						Number of high-level meetings the organisation has had with the European Commission since December 2014.
 						<br/><br />
@@ -1225,17 +1250,17 @@ function eventpopup (epid) {
 			} else if(rangeval <= 10000){
 				d.minrange = '< 10K';
 			} else if(rangeval <= 50000){
-				d.minrange = '10K - 50K';
+				d.minrange = '10-50K';
 			} else if(rangeval <= 100000){
-				d.minrange = '50K - 100K';
+				d.minrange = '50-100K';
 			} else if(rangeval <= 500000){
-				d.minrange = '100K - 500K';
+				d.minrange = '100-500K';
 			} else if(rangeval <= 1000000){
-				d.minrange = '500K - 1M';
+				d.minrange = '500K-1M';
 			} else if(rangeval <= 2000000){
-				d.minrange = '1M - 2M';
+				d.minrange = '1-2M';
 			} else if(rangeval <= 5000000){
-				d.minrange = '2M - 5M';
+				d.minrange = '2-5M';
 			} else if(rangeval > 5000000){
 				d.minrange = '> 5M';
 			}
@@ -1255,7 +1280,8 @@ function eventpopup (epid) {
 
 	$("#search-input").keyup (function () {
 		var s = $(this ).val().toLowerCase();
-		rep.filter(function (d) { 
+		//rep.filter(function (d) { 
+		repSearch.filter(function (d) { 
 			return d.indexOf (s) !== -1;} );
 		$(".resetall").attr("disabled",false);
 		throttle();
@@ -1274,6 +1300,7 @@ function eventpopup (epid) {
 		$("#search-input").val("");
 		$(".resetall").attr("disabled",true);
 		rep.filter(null);
+		repSearch.filter(null);
 		dc.filterAll();
 		dc.renderAll();
 
