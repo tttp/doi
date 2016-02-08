@@ -474,7 +474,7 @@ function grid (selector,data) {
 		$("table.dc-data-grid").trigger("update");
 });
 
-	drawScore();
+	//drawScore();
 	drawRange();
 	drawAge();
 	drawCounter();
@@ -737,9 +737,9 @@ function drawAge() {
 	var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
 
 	chart_age
-		.height(300)
+		.height(220)
 		.width (430)
-		.margins({top: 0, right: 20, bottom: 20, left: 30})
+		.margins({top: 20, right: 20, bottom: 20, left: 30})
 		//.x(d3.scale.linear().domain([20,100]))
 		.x(d3.scale.ordinal().domain(["N/A","< 20", "20-29", "30-39", "40-49", "50-59", "60-69", "70-79", "80+"]))
 		.xUnits(dc.units.ordinal)
@@ -1068,6 +1068,7 @@ function MEPpopup (epid) {
 	<div class="container_wrap" id="hidden_charts_wrap">
 		<div class="container">
 			<div class="row">
+				<!--
 				<div class="col-md-5 chart_box frontpage_score">
 						<div class="dc-data-count">
 								<h3>External Activity Indicator</h3>
@@ -1087,14 +1088,14 @@ function MEPpopup (epid) {
 						</div>
 						<br class="clear" />
 				</div>
-				
+				-->
 				<div class="col-md-4 chart_box">
 					<h3>Outside Activities</h3>
 					<div class="interest"></div>
 					<br class="clear" />
 				</div>
 				
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<h3>Gender</h3>
 					<div class="gender">
 					</div>
@@ -1105,8 +1106,17 @@ function MEPpopup (epid) {
 					</div>
 					<br class="clear" />
 				</div>
+				
+				<div class="col-md-4 chart_box">
+					<h3>Age</h3>
+					<div class="age">
+					</div>
+					<br class="clear" />
+				</div>
+				
 			</div>
 			<div class="row">
+				<!--
 				<div class="col-md-7 chart_box">
 					<h3>National Parties</h3>
 					
@@ -1121,12 +1131,14 @@ function MEPpopup (epid) {
 					
 					<br class="clear" />
 				</div>
+				
 				<div class="col-md-5 chart_box">
 					<h3>Age</h3>
 					<div class="age">
 					</div>
 					<br class="clear" />
 				</div>
+				-->
 			</div>
 		</div>
 	</div>
@@ -1236,11 +1248,13 @@ $(function() {
 				
  
 			});
+			
 			try {
 				grid ("#ep2014list",meps);
 			} catch (e) {
 				console.log (e);
 			}
+			
 
 		});
 		d3.csv("mep.csv", function(d) {return d;}
