@@ -253,12 +253,23 @@ function setRiskScore (d) {
 }
 
 var totalmin = 0;
+var totalmax = 0;
 var totalact = 0;
 
 function parsemin(minc) {
 	if(isNaN(minc)){
 		return 0;
 	} else {
+		return minc;
+	}
+}
+
+function parsemax(minc) {
+	if(isNaN(minc)){
+		return 0;
+	} else if(minc == 'Infinity'){
+		return 120000;
+	}else {
 		return minc;
 	}
 }
@@ -270,10 +281,12 @@ function grid (selector,data) {
 	data.forEach(function (d) {
 		var minnum = parsemin(d.min);
 		totalmin += minnum;
+		totalmax += parsemax(d.max);
 		totalact += d.qty;
 	});
     $(".nbaccredited").html(addcommas(totalact));
 	$(".nbcost").html(addcommas(totalmin.toFixed(0)*12)+" €");
+	$(".nbcostmax").html(addcommas(totalmax.toFixed(0)*12)+" €");
 
 	var ndx = crossfilter(data),
 			all = ndx.groupAll();
@@ -440,7 +453,7 @@ function grid (selector,data) {
 				function(d) {  return "<div class='right-align'>"+d.qty+"</div>"; },
 				//function(d) { return "<div class='right-align'>"+getAmountStringYear(d)+"</div>"; },
 				function(d) { return "<div class='right-align'>"+addcommasAmounts(getAmountMin(d)*12)+"</div>"; },
-				function(d) { return "<div class='right-align'>"+addcommasAmounts(getAmountMax(d)*12)+"</div>"; },
+				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>120,000 +</div>";}else{return "<div class='right-align'>"+addcommasAmounts(getAmountMax(d)*12)+"</div>";} },
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
 	.size(1000)
@@ -485,6 +498,7 @@ function drawCounter (){
         p.fte = +d.fte;
         p.accredited += +d.qty;
         p.cost += +parsemin(d.min);
+		p.costmax += +parsemax(d.max);
 		if(d.min > 0){
 		}
         return p;
@@ -494,16 +508,18 @@ function drawCounter (){
         p.fte = d.fte;
         p.accredited -= +d.qty;
         p.cost -= +parsemin(d.min);
+		p.costmax -= +parsemax(d.max);
         return p;
       },
       function(p,d) {  
-        return {nb:0,fte:0,accredited:0,cost:0}; 
+        return {nb:0,fte:0,accredited:0,cost:0,costmax:0}; 
       }
     );
 
     group.order (function(p){return p.nb});
     var fte=0;
     var cost=0;
+	var costmax=0;
     var accredited=0;
   	var count = dc.dataCount(".org-count")
 		.dimension(group)
@@ -511,11 +527,13 @@ function drawCounter (){
 			fte = 0;
 			accredited = 0;
 			cost = 0;
+			costmax = 0;
 			return group.all().filter(function(kv) {
         if (kv.value.nb >0) {
           fte += +kv.value.fte;
           accredited += +kv.value.accredited;
           cost += +kv.value.cost;
+		  costmax += +kv.value.costmax;
         }
 
 				return kv.value.nb>0; 
@@ -523,12 +541,14 @@ function drawCounter (){
 		}})
 	  .on("preRedraw",function(c) {
 			fte= revenue= activities = 0;
+			fte= accredited= cost= costmax = 0;
 			})
 	  .on("renderlet.all", function(c) {
 		//alert(c.group().value());
         $(".nbfte").html(fte);
         $(".nbaccredited").html(addcommas(accredited));
         $(".nbcost").html(addcommas(cost.toFixed(0)*12)+" €");
+		$(".nbcostmax").html(addcommas(costmax.toFixed(0)*12)+" €");
         cost=0;
         fte=0;
         accredited=0;
@@ -598,10 +618,10 @@ function drawRange () {
 		return "4. 10000 or more";
 		*/
 		if (d.score === 0 ) return ". None"; 
-		if (d.min < 500 ) return "0. < 6000"; 
-		if (d.min < 1001 ) return "1. < 12000"; 
-		if (d.min < 5001 ) return "2. < 60000"; 
-		if (d.min < 10001 ) return "3. < 120000"; 
+		if (d.min < 500 ) return "0. < 6,000"; 
+		if (d.min < 1001 ) return "1. < 12,000"; 
+		if (d.min < 5001 ) return "2. < 60,000"; 
+		if (d.min < 10001 ) return "3. < 120,000"; 
 		return "4. 120000 or more";
 	};
 
@@ -967,16 +987,19 @@ function MEPpopup (epid) {
 			<div class="col-sm-7 col-md-7" id="filter_numbers">
 				<div class="row">
 					<div class="col-md-2" id="currently_selected_text"><p>You have currently selected</p></div>
-					<div class="col-md-4 filter_number">
+					<div class="col-md-2 filter_number">
 						<div id="mep_number" class="dc-data-count">
 						<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> MEPs
 						</div>
 					</div>  
-					<div class="col-md-3 filter_number">
+					<div class="col-md-2 filter_number">
             			<div><span class="big_number afilter_long nbaccredited"></span>Total: activities</div>
             		</div>
             		<div class="col-md-3 filter_number">
-            			<div class="dc-data-count org-count"><span class="big_number afilter_long nbcost">?</span>Total: income (p.a.)</div>
+            			<div class="dc-data-count org-count"><span class="big_number afilter_long nbcost">?</span>Total: income min (p.a.)</div>
+            		</div>
+					<div class="col-md-3 filter_number">
+            			<div class="dc-data-count org-count"><span class="big_number afilter_long nbcostmax">?</span>Total: income max (p.a.)</div>
             		</div>
 				</div>
 			</div>
@@ -1022,8 +1045,8 @@ function MEPpopup (epid) {
 					
 					<div class="legend">
 						<div class="_0">None</div>
-						<div class="_1">0-5999 &euro;</div>
-						<div class="_2">6000-12,000 &euro;</div>
+						<div class="_1">0-5,999 &euro;</div>
+						<div class="_2">6,000-12,000 &euro;</div>
 						<div class="_3">12,001-60,000 &euro;</div>
 						<div class="_4">60,001-120,000 &euro;</div>
 						<div class="_5">120,000+ &euro;</div>
