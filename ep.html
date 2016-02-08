@@ -40,6 +40,12 @@
 <meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
 <meta property="fb:app_id" content="1611680135716224" />
 
+<style>
+.incomearea .big_number {
+	display: inline-block !important;
+}
+</style>
+
 </head>
 <body>
 
@@ -264,11 +270,11 @@ function parsemin(minc) {
 	}
 }
 
-function parsemax(minc) {
+function parsemax(minc,min) {
 	if(isNaN(minc)){
 		return 0;
 	} else if(minc == 'Infinity'){
-		return 120000;
+		return min;
 	}else {
 		return minc;
 	}
@@ -281,12 +287,12 @@ function grid (selector,data) {
 	data.forEach(function (d) {
 		var minnum = parsemin(d.min);
 		totalmin += minnum;
-		totalmax += parsemax(d.max);
+		totalmax += parsemax(d.max,d.min);
 		totalact += d.qty;
 	});
     $(".nbaccredited").html(addcommas(totalact));
 	$(".nbcost").html(addcommas(totalmin.toFixed(0)*12)+" €");
-	$(".nbcostmax").html(addcommas(totalmax.toFixed(0)*12)+" €");
+	$(".nbcostmax").html(addcommas(totalmax.toFixed(0)*12)+"+ €");
 
 	var ndx = crossfilter(data),
 			all = ndx.groupAll();
@@ -453,7 +459,7 @@ function grid (selector,data) {
 				function(d) {  return "<div class='right-align'>"+d.qty+"</div>"; },
 				//function(d) { return "<div class='right-align'>"+getAmountStringYear(d)+"</div>"; },
 				function(d) { return "<div class='right-align'>"+addcommasAmounts(getAmountMin(d)*12)+"</div>"; },
-				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>120,000 +</div>";}else{return "<div class='right-align'>"+addcommasAmounts(getAmountMax(d)*12)+"</div>";} },
+				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>"+addcommasAmounts(d.min*12)+" +</div>";}else{return "<div class='right-align'>"+addcommasAmounts(getAmountMax(d)*12)+"</div>";} },
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
 	.size(1000)
@@ -498,7 +504,7 @@ function drawCounter (){
         p.fte = +d.fte;
         p.accredited += +d.qty;
         p.cost += +parsemin(d.min);
-		p.costmax += +parsemax(d.max);
+		p.costmax += +parsemax(d.max,d.min);
 		if(d.min > 0){
 		}
         return p;
@@ -508,7 +514,7 @@ function drawCounter (){
         p.fte = d.fte;
         p.accredited -= +d.qty;
         p.cost -= +parsemin(d.min);
-		p.costmax -= +parsemax(d.max);
+		p.costmax -= +parsemax(d.max,d.min);
         return p;
       },
       function(p,d) {  
@@ -548,7 +554,7 @@ function drawCounter (){
         $(".nbfte").html(fte);
         $(".nbaccredited").html(addcommas(accredited));
         $(".nbcost").html(addcommas(cost.toFixed(0)*12)+" €");
-		$(".nbcostmax").html(addcommas(costmax.toFixed(0)*12)+" €");
+		$(".nbcostmax").html(addcommas(costmax.toFixed(0)*12)+"+ €");
         cost=0;
         fte=0;
         accredited=0;
@@ -995,11 +1001,8 @@ function MEPpopup (epid) {
 					<div class="col-md-2 filter_number">
             			<div><span class="big_number afilter_long nbaccredited"></span>Total: activities</div>
             		</div>
-            		<div class="col-md-3 filter_number">
-            			<div class="dc-data-count org-count"><span class="big_number afilter_long nbcost">?</span>Total: income min (p.a.)</div>
-            		</div>
-					<div class="col-md-3 filter_number">
-            			<div class="dc-data-count org-count"><span class="big_number afilter_long nbcostmax">?</span>Total: income max (p.a.)</div>
+            		<div class="col-md-6 filter_number">
+            			<div class="dc-data-count org-count incomearea"><span class="big_number afilter_long nbcost" style="display:inline-block;">?</span> <span class="big_number"> - </span> <span class="big_number afilter_long nbcostmax" style="display:inline-block;">?</span><br />Total: annual outside income (min – max)</div>
             		</div>
 				</div>
 			</div>
