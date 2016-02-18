@@ -44,6 +44,12 @@
 	font-weight: bold;
 	color: #8e1556;
 }
+.selectcountrydiv {
+	max-width: 90%;
+}
+#countryselect {
+	width: 100%;
+}
 </style>
 </head>
 <body>
@@ -286,14 +292,33 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	});
 
   }
-
+  
 	function drawCountry () {
+	var circ = ndx.dimension(function (d) {return d.contact_country;});
+	var circGroup = circ.group().reduceSum(function(d) {return 1;});
+	
 	var dim = ndx.dimension (function(d) {
 			c = countries[d.contact_country][1];
 			if(c == "Belgium"){
 				c = "Belgium / EU"
 			};
 			return c;
+	});
+	
+	$("#countryselect").change(function () {
+        var selcountry = this.value;
+		//alert(selcountry);
+		circ.filter(function (d) { 
+			return d == selcountry;
+		});
+		dc.renderAll();
+		$(".resetall").attr("disabled",false);
+    });
+	
+	$(".resetall").click(function() {
+		circ.filter(null);
+		dc.filterAll();
+		dc.renderAll();
 	});
 
 	var group   = dim.group().reduceSum(function(d) {   
@@ -310,8 +335,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       })(dim.group().reduceSum(function(d) {return 1; }));
 
 		var graph = dc.rowChart(".country")   
-			.margins({top: 0, right: 3, bottom: 20, left: 3})
-			.height(340)
+			.margins({top: 20, right: 3, bottom: 20, left: 3})
+			.height(320)
 			.gap(2)
 			.x(d3.scale.ordinal())
 			.elasticX(true)
@@ -751,7 +776,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             "aaData": rep.top(Infinity),
             "bDestroy": true,
         });
-
+	$.fn.dataTableExt.sErrMode = 'console';
 	
     function format (d) {
     	var initiatives;
@@ -1039,6 +1064,10 @@ function eventpopup (epid) {
 						<p class="desc">Countries where organisations are headquartered according to their filings with the EU Transparency Register. Graph indicates the number of organisations headquartered in each country.
 						</p>
 					</div>
+					<div class="selectcountrydiv">
+						<select id="countryselect">
+						</select>
+					</div>
 					<div class="country">
 					</div>
 					<br class="clear" />
@@ -1224,6 +1253,7 @@ function eventpopup (epid) {
 			,function(error, rows) {
          _.each(rows, function(d) {
            countries[d["id"]] = [d["code"],d["name"]];
+		   $('#countryselect').append('<option value="'+d["id"]+'">'+d["name"]+'</option>');
          });
 				 renderLoaded();
 			});      
