@@ -480,6 +480,8 @@ function grid (selector,data) {
 		$("table.dc-data-grid").trigger("update");
 });
 
+	$.fn.dataTableExt.sErrMode = 'console';
+
 	//drawScore();
 	drawRange();
 	drawAge();
