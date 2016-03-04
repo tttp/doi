@@ -1,0 +1,1357 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EU Integrity Watch</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link href="css/bower.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/dc.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the pdate via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="text/javascript" src="js/bower.js"></script>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@TI_EU" />
+<meta name="twitter:creator" content="@eucampaign" />
+
+<meta property="og:url" content="http://www.integritywatch.eu" />
+<meta property="og:title" content="EU Integrity Watch: monitor potential conflicts of interests" />
+<meta property="og:description" content="Interactive database that provides a unique overview of the activities and outside income for the members of the European Parliament and Commission" />
+<meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
+<meta property="fb:app_id" content="1611680135716224" />
+<style>
+#lobbying_expense label {
+	top: 39px;
+}
+.infolobby {
+	left: 420px !important;
+}
+.detailspanel {
+	background-color: #8e1556;
+	padding: 4px !important;
+}
+.detailspanel label {
+	font-weight: bold;
+	color: #8e1556;
+}
+.selectcountrydiv {
+	max-width: 90%;
+}
+#countryselect {
+	width: 100%;
+}
+</style>
+</head>
+<body>
+
+
+<script>
+
+function addcommas(x){
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+	
+function getCost (d) { 
+  if (d.cost_absolute > 0)
+    return +d.cost_absolute;
+  return +d.cost_min;
+} 
+
+function getCostB (d) { 
+  if(d.cost_absolute == "" && d.cost_min == ""){
+	return 'N/A';
+  }
+  if (d.cost_absolute > 0)
+    return +d.cost_absolute;
+  return +d.cost_min;
+}
+
+$( document ).ready(function() {
+	$('#view_charts').click(function(ev) {
+		ev.preventDefault();
+		$('#hidden_charts_wrap').slideToggle('slow', function () {
+			changeLinkStatus();
+		})
+	})
+	
+	function changeLinkStatus() {
+		if($('#hidden_charts_wrap').css('display') == 'none'){
+			$('#view_charts').text('VIEW ALL THE CHARTS')
+		}else {
+			$('#view_charts').text('HIDE CHARTS')
+		}
+		$('#view_charts').toggleClass('hiddencharts');
+	}
+	
+	$('#collapse_about a').click(function(ev) {
+		ev.preventDefault();
+		$('#collapse_about a').toggleClass('opened');
+		$('#collapse_about a').toggleClass('closed');
+		$('#about_wrap').slideToggle('slow', function () {
+			$('#about_wrap_top').slideToggle('fast')
+		})
+		
+	})
+	
+	$('.info').click(function(ev) {
+		ev.preventDefault();
+		if($(this).hasClass('opened')){
+			$(this).removeClass('opened');
+			$(this).parents('.info_chart').find('p.desc').slideUp('fast')
+		}else{
+			closeAllInfos();
+			$(this).addClass('opened');
+			$(this).parents('.info_chart').find('p.desc').slideDown('fast')
+		}
+	});
+	
+	function closeAllInfos() {
+		$('.info').removeClass('opened');
+		$('p.desc').slideUp('fast');
+	}
+	
+});
+
+var detailtpl = sidetpl = null ;
+var datatable = null;
+var rep = null;
+
+var representatives = events = [];
+var ridx ={};
+
+function grid (selector,data) {
+
+	var ndx = crossfilter(data),
+			all = ndx.groupAll();
+
+	var color = d3.scale.linear()
+				.clamp(true)
+				.domain([0,1, 70])
+				.range(["white","#ffc7b6", "#f85631"])
+				.interpolate(d3.interpolateHcl);
+
+		var lobby_category_colors = { 
+			"Corporate":"#cf270e",
+			"Consultants":"#d74517",
+			"Think tanks":"#de6320",
+			"Municipal":"#e58a13",
+			"NGOs":"#ecb005",
+			"Churches":"#f6d882",
+			"Not mentioned":"#cccccc",
+			"Not registered":"#cccccc",
+			"Unknown":"#cccccc",
+			"Deregistered":"#cccccc"
+		}
+		
+
+var mainCategories = {"1":"Consultants","2":"Corporate","3":"NGOs","4":"Think tanks","5":"Churches","6":"Municipal"};
+
+var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Self-employed consultants","21":"Companies & groups","22":"Trade and business associations",
+"24":"Other organisations",
+"25":"Trade and business organisations",
+"26":"Trade unions",
+"27":"Other in house lobbyists",  
+"31":"Non-governmental organisations, platforms and networks and similar","41":"Think tanks and research institutions","42":"Academic institutions","51":"Churches & religious communities","61":"Local, regional and municipal authorities (at sub-national level)","62":"Other public or mixed entities, etc.","444":"Trade unions and professional associations","446":"Trade unions and professional associations","450":"Regional structures","66":"Other public or mixed entities, etc","466":"Trade unions and professional associations","469":"Trade unions and professional associations","477":"Other public or mixed entities, created by law whose purpose is to act in the public interest","480":"Trade unions and professional associations","501":"Trade unions and professional associations","504":"Other public or mixed entities, created by law whose purpose is to act in the public interest","506":"Trade unions and professional associations","508":"Trade unions and professional associations","5055":"Trade unions and professional associations","5060":"Trade unions and professional associations","5062":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5065":"Trade unions and professional associations","5073":"Trade unions and professional associations","5074":"Regional structures","5075":"Trade unions and professional associations","5085":"Regional structures","5087":"Trade unions and professional associations","5089":"Trade unions and professional associations","5095":"Trade unions and professional associations","5099":"Transnational associations and networks of public regional or other sub-national authorities","5105":"Trade unions and professional associations","5110":"Trade unions and professional associations","5115":"Trade unions and professional associations","5130":"Trade unions and professional associations","5133":"Regional structures","5141":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5157":"Transnational associations and networks of public regional or other sub-national authorities","5159":"Trade unions and professional associations","5171":"Trade unions and professional associations","5172":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5197":"Regional structures","5205":"Trade unions and professional associations","5226":"Trade unions and professional associations","5227":"Trade unions and professional associations","5230":"Trade unions and professional associations","5256":"Trade unions and professional associations","5262":"Regional structures","5356":"Trade unions and professional associations","5371":"Trade unions and professional associations","5374":"Trade unions and professional associations","5390":"Regional structures","5400":"Trade unions and professional associations",
+"62": "Other public or mixed",
+"63": "Regional structures",
+"64": "Other sub-national public authorities",
+"65": "Transnational public networks",
+"66": "Other public or mixed entities", 
+
+};
+
+
+
+
+
+	rep = ndx.dimension(function(d) {
+      return d.acronym.toLowerCase()+ " " + d.name.toLowerCase()+ " ";
+	});
+	
+	repSearch = ndx.dimension(function(d) {
+      return d.acronym.toLowerCase()+ " " + d.name.toLowerCase()+ " "+countries[d.contact_country][1];
+	});
+	
+
+	drawTable();
+	drawMainCategory();
+	drawSector();
+	drawExpense();
+	drawNbMeetings();
+	drawNbLobbyists();
+  	drawNbBadges();
+    drawCostByFTE();
+  	drawCounter();
+	drawCountry();
+/*	drawDate();
+	drawMeetings();
+	drawWeekDay();
+	drawHost();
+	drawHostType();
+	drawRange();
+*/
+
+	function rotateBarChartLabels(chart) {
+		chart.svg().selectAll('.axis.x text')
+			.style("text-anchor", "end" )
+			.attr("transform", function(d) { return "rotate(-45, -4, 9) "; });
+
+	}
+	
+	function getNum(nn,d){
+		if(nn == ''){
+		return 0;
+		}
+		nn = parseInt(nn);
+		if (isNaN(nn)){
+			return 0;
+		}
+		if(nn > 9999){
+			return 0;
+		}
+		return nn;
+	}
+
+  function drawCounter (){
+		var dim = ndx.dimension (function(d) {
+      return d.id;
+		});
+
+    var group   = dim.group().reduce(
+      function(p,d) {  
+        p.nb +=1;
+        p.fte = +d.fte;
+        p.accredited = +getNum(d.accredited);
+        p.cost = +getCost(d);
+        return p;
+      },
+      function(p,d) {  
+        p.nb -=1;
+        p.fte -= d.fte;
+        p.accredited -= +getNum(d.accredited);
+        p.cost -= +getCost(d);
+        return p;
+      },
+      function(p,d) {  
+        return {nb:0,fte:0,accredited:0,cost:0}; 
+      }
+    );
+
+    group.order (function(p){return p.nb});
+    var fte=0;
+    var cost=0;
+    var accredited=0;
+  	var count = dc.dataCount(".org-count")
+		.dimension(group)
+		.group({value: function() {
+			return group.all().filter(function(kv) {
+        if (kv.value.nb >0) {
+          fte += +kv.value.fte;
+          accredited += +kv.value.accredited;
+          cost += +kv.value.cost;
+        }
+
+				return kv.value.nb>0; 
+			}).length;
+		}})
+		.on("preRedraw",function(c) {
+			var fte= cost = accredited = 0;
+			})
+	  .on("renderlet.all", function(c) {
+        $(".nbfte").html(fte);
+        $(".nbaccredited").html(accredited);
+        $(".nbcost").html(cost);
+        cost=0;
+        fte=0;
+        accredited=0;
+			var total=c.dimension().size();
+			var filtered= c.group().value();
+			var disabled= (total == filtered);
+
+      RefreshTable();
+
+			$(".resetall").attr("disabled",disabled);
+			ga && ga('send', 'event', 'filter', 'subset', filtered);
+
+			if (filtered >=0) {
+				var one2one=0;
+//				eventgroup.all().forEach(function(d) { if(d.value ==1) one2one ++;});
+//				var ratio=Math.round(100-one2one/filtered*100);
+//$(".one2one").html( ratio + "% collective meetings");
+			}
+	});
+
+  }
+  
+	function drawCountry () {
+	var circ = ndx.dimension(function (d) {return d.contact_country;});
+	var circGroup = circ.group().reduceSum(function(d) {return 1;});
+	
+	var dim = ndx.dimension (function(d) {
+			c = countries[d.contact_country][1];
+			if(c == "Belgium"){
+				c = "Belgium / EU"
+			};
+			return c;
+	});
+	
+	$("#countryselect").change(function () {
+        var selcountry = this.value;
+		//alert(selcountry);
+		circ.filter(function (d) { 
+			return d == selcountry;
+		});
+		dc.renderAll();
+		$(".resetall").attr("disabled",false);
+    });
+	
+	$(".resetall").click(function() {
+		circ.filter(null);
+		dc.filterAll();
+		dc.renderAll();
+	});
+
+	var group   = dim.group().reduceSum(function(d) {   
+			return 1; });
+
+		var filteredGroup = (function(source_group) {
+			return {
+				all: function() {
+					return source_group.top(10).filter(function(d) {
+						return (d.key != "Not mentioned" && d.value != 0);
+					});
+				}
+			};
+      })(dim.group().reduceSum(function(d) {return 1; }));
+
+		var graph = dc.rowChart(".country")   
+			.margins({top: 20, right: 3, bottom: 20, left: 3})
+			.height(320)
+			.gap(2)
+			.x(d3.scale.ordinal())
+			.elasticX(true)
+			.colorCalculator(function(d, i) {
+				return "#ecb005";
+			})
+			.ordering(function(d){return -d.value})
+			.dimension(dim)
+			.group(filteredGroup);
+
+	}
+
+
+
+
+	function drawExpense () {
+		var dim = ndx.dimension (function(d) {
+
+/*      if ((+d.meetings + +d.accredited + +d.cost_min +d.cost_absolute) == 0){
+        console.log ("filtered");
+        return "";
+      }
+*/		return d.minrange;
+        //return getCost(d);
+//      return d.id;
+	});
+  
+    var group   = dim.group().reduceSum( function(d) {
+	//return +d.meetings;
+	return 1;
+	});
+
+    /*
+  var group   = dim.group().reduce(
+      function(p,d) {  
+        p.nb +=1;
+        p.fte += +d.fte;
+        p.accredited += +d.accredited;
+        p.cost += +getCost(d);
+        p.meetings += +d.meetings;
+        return p;
+      },
+      function(p,d) {  
+        p.nb -=1;
+        p.fte += d.fte;
+        p.accredited += +d.accredited;
+        p.cost-= +getCost(d);
+        p.meetings -= +d.meetings;
+        return p;
+      },
+      function(p,d) {  
+        return {nb:0,fte:0,accredited:0,cost:0, meetings:0}; 
+      }
+    )
+    .order(function (p) {return p.nb});
+
+		var filteredGroup = (function(source_group) {
+			return {
+				top: function() {
+					return source_group.top(Infinity).filter(function(d) {
+						return (d.key != "");
+					});
+				}
+			};
+      })(group);
+
+	var graph = dc.bubbleChart (".expense")   
+//		.colorCalculator(function(d, i) { return blue;})
+		.width(750)
+		.height(250)
+		.margins({top: 20, right: 20, bottom: 20, left: 30})
+		.yAxisLabel("Nb Meetings")
+		.dimension(dim)
+		.group(filteredGroup)
+		.keyAccessor(function (d) {
+        return d.value.cost;
+		})
+		.valueAccessor(function (d) {
+				return d.value.meetings;
+		})
+		.radiusValueAccessor(function (d) {
+        if (d.value.fte  > 40) return 40;
+				return d.value.fte;
+		})
+		.x(d3.scale.linear().domain([0, 10000000]))
+		.y(d3.scale.linear().domain([0, 40]))
+		.r(d3.scale.linear().domain([0, 1000]))
+		.minRadiusWithLabel(5000)
+*/
+
+  var formatInteger = d3.format(".0f");
+  var maxBudget=20000000;
+	var graph = dc.barChart (".expense")   
+		.height(340)
+		.width(530)
+		.gap(0)
+    .on("preRender",(function(chart,filter){
+    }))
+		.margins({top: 0, right: 10, bottom: 20, left: 40})
+		//.x(d3.scale.sqrt().domain([0, maxBudget]))
+		.x(d3.scale.ordinal().domain(["N/A","< 10K", "10-50K", "50-100K", "100-500K", "500K-1M", "1-2M", "2-5M", "> 5M"]))
+		.xUnits(dc.units.ordinal)
+		.gap(2)
+ //   .x(d3.scale.ordinal())
+//    .xUnits(dc.units.ordinal)
+//		.elasticX(true)
+		.elasticY(true)
+		//.brushOn(true)
+		//.yAxisLabel("Lobbying expense")
+		.colorCalculator(function(d, i) {
+			return "#f1ca58";
+		})
+		.dimension(dim)
+		.group(group);
+		//graph.xAxis().ticks(5).tickFormat(d3.format(",.0f"));
+    //graph.xAxis().ticks(5).tickFormat(function(d) {return formatInteger(d / 1e6) + "M";});
+
+		//graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
+	}
+
+	
+	function drawNbMeetings () {
+		var dim = ndx.dimension (function(d) {
+        if (d.meetings>4)
+          return 5;
+			  return d.meetings;
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+		
+		var color = d3.scale.ordinal()
+		    .range(["#f9e5ad", "#f1ca58","#ecb007","#e7960e","#e37e17","#de631f"]);
+		
+		var chart = dc.pieChart(".meetings")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.minAngleForLabel(.2)
+			.label(function(d){ 
+          	if (d.key == 5)
+            	return ">5";
+          	return d.key })
+			.title (function(d){ 
+         		switch(d.key) {
+           			case 0:
+             			return "no meeting";
+           			case 1:
+             			return d.key + " meeting: " + d.value;
+            	 	break;
+           			case 5:
+             			return ">5 meetings: " + d.value;
+             		break;
+           				default:
+             		return d.key + " meetings: " + d.value;
+         		}
+       		})
+			.dimension(dim)
+			.colorCalculator(function(d, i) {
+				return color(d.key);
+			})
+			.group(group);
+	}
+
+	function drawNbBadges () {
+		var dim = ndx.dimension (function(d) {
+		if(d.accredited == ''){
+				//return "N/A";
+			}
+        if (!d.accredited) return 0;
+        if (d.accredited>4)
+          return 5;
+			  return d.accredited;
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+		
+		var color = d3.scale.ordinal()
+		    .range(["#f9e5ad", "#f1ca58","#ecb007","#e7960e","#e37e17","#de631f"]);
+					
+		var chart = dc.pieChart(".accreditations")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.minAngleForLabel(.2)
+			.label(function(d){ 
+	          if (d.key == 5)
+	            return ">5";
+	          return d.key })
+				.title (function(d){ 
+	         switch(d.key) {
+	           case 0:
+	             return "no accreditation";
+	           case 1:
+	             return d.key + " accreditation: " + d.value;
+	             break;
+	           case 5:
+	             return ">5 accreditations: " + d.value;
+	             break;
+	           default:
+	             return d.key + " accreditations: " + d.value;
+	         }
+       })
+			.dimension(dim)
+			.colorCalculator(function(d, i) {
+				return color(d.key);
+			})
+			.group(group);
+	}
+
+	function drawNbLobbyists () {
+		var color = d3.scale.ordinal()
+		    .range(["#f9e5ad", "#f1ca58","#ecb007","#e7960e","#e37e17","#de631f"]);
+		var dim = ndx.dimension (function(d) {
+			
+        if (d.fte>4)
+          return 5;
+			  return (+d.fte).toFixed();
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+		var chart = dc.pieChart(".nblobbyists")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.width(220)
+			.label(function(d){ 
+	          if (d.key == 5)
+	            return ">5";
+	          return d.key })
+				.title (function(d){ 
+	         switch(d.key) {
+	           case "0":
+	             return "no staff: "+ d.value;
+	           case "1":
+	             return d.key + " staff: " + d.value;
+	             break;
+	           case 5:
+	             return ">5 staff: " + d.value;
+	             break;
+	           default:
+					//alert(d.toSource());
+	             return d.key + " staffs: " + d.value;
+	         }
+	       })
+			.dimension(dim)
+			.group(group)
+			.colorCalculator(function(d, i) {
+				return color(d.key);
+			});
+	}
+
+	function drawCostByFTE () {
+		var dim = ndx.dimension (function(d) {
+        if (d.costbyfte>=500000)
+          return 500000;
+        if (d.costbyfte == 0 && (+d.fte)<1)
+          return "-1";
+        if (d.costbyfte == 0)
+          return 0;
+        return 1;
+			  return d.fte;
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+    var nameRange = function (d) {
+      var names={
+      "-1":"no cost & < 1 fte",
+      0:"some lobbyist but no cost",
+      1:"some cost",
+      500000:">500k by lobbyist"
+      }
+      return names[d.key];
+    }
+		var chart = dc.pieChart(".costbyfte")
+			.innerRadius(0).radius(80)
+			.height(200)
+			.label(function(d){ 
+          return nameRange(d);
+      })
+			.title (function(d){ 
+          return nameRange(d) + ": "+d.value;
+       })
+			.dimension(dim)
+			.group(group);
+	}
+
+	function drawMainCategory () {
+		var dim = ndx.dimension (function(d) {
+			  return d.main_category;
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+		
+		var chart = dc.pieChart(".main_category")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.label(function(d){ return mainCategories[d.key] })
+			.title (function(d){ return mainCategories[d.key] +" "+d.value })
+			.colorCalculator(function(d, i) {
+				//console.log(d)
+				return lobby_category_colors[mainCategories[d.key]];
+			})
+			.dimension(dim)
+			.group(group);
+	}
+
+	function drawSector () {
+	var dim = ndx.dimension (function(d) {
+			return d.sub_category;
+	});
+
+	var group   = dim.group().reduceSum(function(d) {   return 1; });
+		/*
+			 //return [representatives[d.guestid].main_category,representatives[d.guestid].main_category_title];
+			 var t={};
+			 group.all().forEach (function (d) {if (d.key[0]) t[d.key[0]]=d.key[1]})
+			 JSON.stringify(t);
+		*/
+		
+	var lobby_sector_colors = {	
+		"Companies & groups":"#cf270e",//Corporate
+		"Trade and business organisations":"#cf270e",//Corporate
+		"Other Business organisations":"#cf270e",//Corporate
+		"Trade unions":"#cf270e",//Corporate
+		"Other in house lobbyists":"#cf270e",//Corporate
+		"Law firms":"#d74517",//Consultants
+		"Professional consultancies":"#d74517",//Consultants
+		"Self-employed consultants":"#d74517",//Consultants
+		"Non-governmental organisations, platforms and networks and similar":"#ecb005",//NGOs
+		"Think tanks and research institutions":"#de6320",//Think tanks
+		"Academic institutions":"#de6320",//Think tanks
+		"Churches & religious communities":"#f6d882",//Churches
+		"Local, regional and municipal authorities (at sub-national level)":"#e58a13",//Municipal
+		"Regional structures":"#e58a13",//Municipal
+		"Other sub-national public authorities":"#e58a13",//Municipal
+		"Transnational public networks":"#e58a13",//Municipal
+		"Other public or mixed entities":"#e58a13",//Municipal
+
+		"Unknown":"#cccccc"
+	}
+
+	var graph = dc.rowChart (".sector")   
+		.height(380)
+		//.width(350)
+		.gap(1)
+		.margins({top: 0, right: 0, bottom: 0, left: 0})
+		.x(d3.scale.ordinal())
+		.label(function(d){ return subCategories[d.key] || d.key })
+		.title (function(d){ return subCategories[d.key] +" "+d.value })
+		.elasticX(true)
+		.colorCalculator(function(d, i) {
+			if (d.key == "Not mentioned" || d.key == "Unknown" || d.key == "Not registered")
+				return "#cccccc";
+			return lobby_sector_colors[subCategories[d.key]]
+			//return "#ecb005";
+		})
+		.dimension(dim)
+		.group(group)
+		.xAxis().ticks(4).tickFormat(d3.format(",.0f"));
+
+	}
+
+
+
+
+	function drawTable () {
+		var count1 = 0;
+    //id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute
+
+    datatable = $(".table").dataTable({
+            "columnDefs": [ {
+              "defaultContent":"",
+              "orderable": false,
+              "targets": 0,   
+              data: function ( row, type, val, meta, i ) {
+                count1 ++;
+				//if(count > 100){alert(count + ' ' + val)};
+                //return count1 - totpeople*2 - 100;
+              }
+              },{
+              "searchable": false,
+              "orderable": true,
+              "targets": 1,
+              data: function (row, type, val, meta) {
+                if (row.acronym) 
+                  return row.name+" ("+row.acronym +" )";
+                return row.name;
+                }
+              //data: "name",  
+              },{
+              "searchable": false,
+              "orderable": true,
+              "type":"num-fmt",
+              "targets": 5,
+			  "sClass": "right-align",
+              "className": "number",
+              "render": function ( data, type, row ) { 
+                if (data == "")
+                  return 0;
+                  //return "<10k";
+                return d3.format(",g")(data);
+              },
+              data: function (row, type, val, meta) { if (!row) {return "";} ;return getCost(row);}
+              },{
+              "defaultContent":"No data",
+              "searchable": false,
+              "orderable": true,
+              "targets": 2,
+			  "sClass": "right-align",
+              data: "meetings",  
+              },{
+              "defaultContent":"No data",
+              "searchable": false,
+              "orderable": true,
+              "type":"num-fmt",
+              "targets": 4,
+			  "sClass": "right-align",
+              "data": function (row, type, val, meta) { if (!row) {return "";}; return (+row.fte).toFixed();}
+              },{
+              "defaultContent":"No data",
+              "searchable": false,
+              "orderable": true,
+              "type":"num-fmt",
+              "targets": 3,
+			  "sClass": "right-align",
+              data: "accredited",  
+              } 
+            ],
+            "iDisplayLength" : 100,
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": false,
+            "order": [[ 2, "desc" ]],
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "bDeferRender": true,
+            "aaData": rep.top(Infinity),
+            "bDestroy": true,
+        });
+	$.fn.dataTableExt.sErrMode = 'console';
+	
+    function format (d) {
+    	var initiatives;
+    	
+    	url="http://api.lobbyfacts.eu/api/1/representative/"+d.id+"?callback=?";
+    	$.getJSON( url, function( data ) {
+    		$('#initiatives'+d.id).text(data.activity_eu_legislative)
+    	});          
+    	//activity_eu_legislative
+    	
+    	s  = "<div class='l_data_container'>";
+    	acr = "";
+    	if (d.acronym != "") {
+    		acr = "("+d.acronym+")"
+    	}
+    	s += "<div class='l_name'><label>Name</label> "+d.name+" "+acr+"</div>";
+    	s += "<div class='l_category'><label>Type</label> "+mainCategories[d.main_category]+": "+subCategories[d.sub_category]+"</div>";
+    	s += "<div class='l_country'><label>Country</label> "+countries[d.contact_country][1]+"</div>"
+    	s += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
+	    	if (d.cost_absolute == "") {
+	    		s += "min "+addcommas(d.cost_min)+" / max "+addcommas(d.cost_max)
+	    	}else {
+	    		s += addcommas(d.cost_absolute)
+	    	}
+    	s += "</div>";
+    	s += "<div class='l_fte'><label>Total Lobbyist</label> "+d.fte+"</div>";
+    	s += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+d.accredited+"</div>";
+    	s += "<div class='l_meetings'><label>Reported Meetings</label> "+d.meetings+"</div>";
+    	s += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' target='_blank'>Transparency registry</a></div>";
+    	s += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> <span id='initiatives"+d.id+"'></span></div>";
+    	s += "</div>";
+    	return s;
+      /*var s="<div>More details on:";
+      if (!d.code)
+        return "Data missing to display";
+      
+      s += '<div class="btn-group" qdata-toggle="buttons">';
+      s += "<button class='btn btn-sm btn-primary' data-type='event'>Events</button>";
+      s += "<button class='btn btn-sm btn-primary' data-type='accreditation'>Accreditations</button>";
+      s += "<button class='btn btn-sm btn-primary' data-type='financial_data'>Financial declarations</button>";
+      s += "<button class='btn btn-sm btn-primary' data-type='representative'>Details</button>";
+      s += "<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+d.code+"' class='btn btn-sm' target='_blank'>Transparency registry</a>";
+      return s+"</div></div>"+"<pre>"+JSON.stringify(d,null,2)+"</pre>";*/
+    }
+
+    datatable.on('click', 'button', function () {
+        var tr = $(this).closest('tr');
+        var type=$(this).data("type");
+        var pre=$(this).parent().parent().next("pre");
+        var row = datatable.DataTable().row( tr.prev()[0] );
+        var d=row.data();
+     	
+        if (type == "event") {
+            var sevents =[];
+            _.each(events,function (e){
+            if (e.guestid == d.id)
+              sevents.push(e);
+            });
+            pre.html(JSON.stringify(sevents,null,2));
+            return;
+        }
+
+        var r = (tr.data("representative"));
+        if (!r) {
+          url="http://api.lobbyfacts.eu/api/1/representative/"+d.id+"?callback=?";
+          $.getJSON( url, function( data ) {
+            tr.data("representative",data);            
+            display (data);
+          });          
+          return;
+        }
+        display(r,type);
+
+        function display (data) {
+          switch (type) {
+            case "financial_data":
+             pre.html(JSON.stringify(data["financial_data"],null,2));
+              break;
+            case "accreditation":
+             pre.html(JSON.stringify(data["accreditations"],null,2));
+              break;
+            default:
+              pre.html(JSON.stringify(data,null,2));
+          }
+        }
+        
+    } );
+    
+    datatable.on('click', 'tr[role="row"]', function () {
+        var tr = $(this);
+        var row = datatable.DataTable().row( tr );
+ 
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+			var thischild = row.child( format(row.data()) );
+			thischild.show();
+            //row.child( format(row.data()) ).show();
+			$('.l_data_container').parent().addClass('detailspanel');			
+            tr.addClass('shown');
+        }
+    } );
+	
+        datatable.on( 'order.dt search.dt page.dt draw.dt', function () {
+			var thispage = $('.paginate_button.current').html();
+			
+			var rowi = 0;
+          datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+			if(rowi >= 100){
+				rowi = 0;
+			}
+			rowi ++;
+			if(thispage > 1){
+				cell.innerHTML = (rowi) + (100*(thispage-1));
+			} else {
+				cell.innerHTML = (rowi);
+			}
+          } );
+        });
+		
+
+	}
+
+       function RefreshTable() {
+            dc.events.trigger(function () {
+                alldata = rep.top(Infinity);
+                datatable.fnClearTable();
+                datatable.fnAddData(alldata);
+                datatable.fnDraw();
+            });
+
+        }
+
+		dc.renderAll();
+		hashFilter();
+
+
+
+}
+
+
+function hashFilter () {
+	var hash = window.location.hash;
+
+	 if(hash.indexOf('#mep') === 0) { 
+		 eventpopup(hash.substring(4));
+		 ga && ga('send', 'event', 'urlevent',hash.substring(4));
+	 }
+}
+	 
+function eventpopup (epid) {
+			window.location.hash = "event"+d.epid;
+			 ga && ga('send', 'event', 'clickevent',hash.substring(4));
+			//$( "#twitter").html(tplTwitter(d));
+
+}
+
+</script>
+
+
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand" id="ti_logo_container">
+						<a id="ti_logo" href="http://www.transparencyinternational.eu">Transparency International</a>
+						<a id="page_title" href="/" target="_blank"><strong>EU</strong> Integrity<br />Watch</a>
+				</div>
+			</div>
+		
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li id="cm_tool_btn"><a href="ec.html"><strong>Commission</strong> <br />meetings</a></li>
+					<li class="active" id="bl_tool_btn"><a href="lobbyist.html"><strong>EU</strong><br />Lobbyists</a></li>
+					<li id="mi_tool_btn"><a href="ep.html"><strong>MEP</strong> <br />incomes</a></li>
+          <li class="dropdown">
+            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">National versions<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li><a href="http://www.integritywatch.fr">France</a></li>
+            </ul>
+          </li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+	 </div><!-- container -->
+</nav>
+<div class="container_wrap bl_header" id="about_wrap_top">&nbsp;</div>
+<div class="container_wrap bl_header" id="about_wrap">
+	<div class="container">
+		<div id="about_container" class="row">
+			<div class="col-md-3 col-lg-3" id="about_content_icon">
+			</div>
+			<div class="col-md-6 col-lg-6" id="about_content">
+				<p>This is a user-friendly interactive database that provides a unique overview of the lobby organisations registered in the EU Transparency Register – the register of Brussels lobbyists.
+				<br /><a href="about.html" class="more">Read more</a></p>
+				<p>By simply clicking on the graph or list below users can rank, sort and filter the EU lobby organisations.</p>
+			</div>
+			<div class="col-md-3" id="about_social">
+				<br/>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-via="TI_EU" data-text="Who’s #lobbying the @EU_Commission and how much are they spending? Check #integritywatch #transparency">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				<br/>
+				<br/>
+				<div class="fb-like" data-show-faces="false"  data-href="http://www.integritywatch.eu/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+				<div id="fb-root"></div>
+				<script>(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+
+			</div>
+		</div>
+		
+	</div><!-- container -->
+</div>
+
+<div class="container_wrap" id="toggle_about_wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-2 col-md-1 col-centered bl_collapse" id="collapse_about">
+				<a class="opened" href="#">collapse</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container_wrap filter_bl" id="filter_wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-9 col-sm-9 col-md-4" id="filter_field_container">
+				<p>Search or filter:</p>
+				<div class="input-group">
+					<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by Lobbyist or Country">
+				</div>
+			</div>
+			<div class="col-sm-7 col-md-7" id="filter_numbers">
+				<div class="row">
+					<div class="col-md-2" id="currently_selected_text"><p>Currently selected:</p></div>
+					<div class="col-md-2 filter_number">
+						<div id="mep_number" class="dc-data-count org-count">
+							<span id="abig_number" class="big_number filter-count"></span>out of <strong class="total-count"></strong> organisations
+						</div>
+					</div>
+					
+					
+            		<!--div class="col-md-2 filter_number">
+            			<div title="full time equivalent"><span class="big_number afilter_long nbcost"></span> Lobby budget</div>
+            		</div-->
+            		<div class="col-md-4 filter_number">
+            			<div class="dc-data-count org-count"><span class="big_number afilter_long nbaccredited"></span> out of <strong class="lobbyist-total-count"></strong> Lobbyists accredited with the European Parliament</div>
+            		</div>
+				</div>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-1" id="resetall_container">
+				<button class="btn resetall">RESET<br />FILTERS</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="ec">
+	<div class="container_wrap" id="main_charts_wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 chart_box">
+					<h3>Top 10 Countries</h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Countries where organisations are headquartered according to their filings with the EU Transparency Register. Graph indicates the number of organisations headquartered in each country.
+						</p>
+					</div>
+					<div class="selectcountrydiv">
+						<select id="countryselect">
+						</select>
+					</div>
+					<div class="country">
+					</div>
+					<br class="clear" />
+					<div class="label">Number of organisations</div>
+				</div>
+				<div class="col-md-6 chart_box" id="lobbying_expense">
+					<h3>Lobbying expense</h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Lobby budget as declared by the organisation in the EU Transparency Register under estimate of the annual costs related to activities covered by the register. According to the official guidelines estimates should include staff costs, office, administrative and operational expenses, outsourced activities, memberships and other relevant costs.
+						</p>
+					</div>
+					<div class="expense">
+					</div>
+					<label>Nb Organisations</label>
+				</div>
+				
+				<div class="col-md-3 chart_box">
+					<h3>Category of Lobby organisation</h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">The classifications in this graph reflect the categories established by the EU Transparency Register. Names have been shortened. The shares of the pie reflect the number of registered organisations per category.
+						</p>
+					</div>
+					<div class="main_category"></div>
+					<div class="legend">
+						<div class="corporate">Corporate</div>
+						<div class="consultants">Consultants</div>
+						<div class="think">Think Tanks</div>
+						<div class="municipal">Municipal</div>
+						<div class="ngos">NGOs</div>
+						<div class="churches">Churches</div>
+						<div class="unknown">Unknown</div>
+						<!--div class="not_mentioned">Not mentioned</div>
+						<div class="not_registered">Not registered</div>
+						
+						<div class="deregistered">Deregistered</div-->
+						<br class="clear" />
+					</div>
+					<br class="clear" />
+				</div>
+			</div>
+			<div class="row">
+				<!--<div class="col-md-3 chart_box">
+					<h3>Portfolio</h3>
+					<div class="host range chart-full"></div>
+					<br class="clear" />
+				</div>-->
+				<!--div class="col-md-6 chart_box">
+					<h3>Cost by lobbyist</h3>
+				  	<div class="costbyfte">
+		   			</div>
+          		</div-->
+          		<div class="col-md-8">
+          			<div class="row">
+	          			<div class="col-md-4 chart_box" id="hosttype">
+	          					<h3>Parliament accreditations<!--span class="info">info</span--></h3>
+	          					<div class="info_chart">
+	          						<span class="info">info</span>
+	          						<p class="desc">Number of access badges to the European Parliament per lobby organisation. All registered lobby organisations can obtain access badges to the European Parliament – numbers are not caped. Share of the pie indicates the number of organisations that have this many badges.
+	          						</p>
+	          					</div>
+	          					<div class="accreditations"></div>
+	          					<br class="clear" />
+	          				</div>
+	      				<div class="col-md-4 chart_box">
+	      					<h3>Number of meetings</h3>
+	      					<div class="info_chart">
+	      						<span class="info">info</span>
+	      						<p class="desc">Number of high-level lobby meetings with the European Commission per lobby organisation. Share of pie indicates the number of organisations that have this many meetings.
+	      						</p>
+	      					</div>
+	      					<div class="meetings">
+	      					</div>
+	      				</div>
+	      				<div class="col-md-4 chart_box">
+	      					<h3>Lobbyists</h3>
+	      					<div class="nblobbyists"></div>
+	      				</div>
+      				</div>
+          		</div>
+          		<div class="col-md-4">
+          			<div class="chart_box">
+          				<h3>Sub-Category of lobby organisation<!--span class="info">info</span--></h3>
+          				<div class="info_chart">
+          					<span class="info">info</span>
+          					<p class="desc">The classifications in this graph reflect the sub-categories established by the EU Transparency Register. Some names have been shortened. Graph indicates the number of registered lobby organisations per sub-category.
+          					</p>
+          				</div>
+          				<div class="sector range chart-full"></div>
+          				<br class="clear" />
+          			</div>
+			  	</div>
+				
+			</div>
+			<!--div class="row">
+				<div class="col-md-12 chart_box">
+					<h3>Date</h3>
+					<div class="date">
+					</div>
+				</div>
+			</div-->
+		</div>
+	</div>	
+</div>
+
+
+<div class="container_wrap" id="list_container">
+	<div class="container">
+		<div class="row">
+			<div class="content" id="list_content">
+				<h2 class="table_title">Registered Lobby Organisations
+				<div class="info_chart">
+						<span class="info infolobby">info</span>
+						<p class="desc">Meetings:<br />
+						Number of high-level meetings the organisation has had with the European Commission since December 2014.
+						<br/><br />
+						Lobby Expense:<br />
+						Lobby budget as declared by the organisation in the EU Transparency Register under “estimate of the annual costs related to activities covered by the register”. According to the official guidelines estimates should include staff costs, office, administrative and operational expenses, outsourced activities, memberships and other relevant costs.
+						<br/><br />
+						Lobbyists:<br />
+						Number of lobbyists (in full-time equivalent) as declared by the organisation on the EU Transparency Register.
+						<br/><br />
+						EP Badges:
+						<br />
+						Number of access badges to the European Parliament that the organisation holds for the lobbyists. Information published on the EU Transparency Register.
+						</p>
+					</div>
+					</h2><div id="last_update">Last updated: 18 January 2016</div>
+				<div id="info_table_container">
+
+				</div>
+			</div>
+			
+			<div class="col-md-12 table-responsive">
+				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
+					<thead>
+						<tr class=header>
+							<th class="header col-md-1">Nr</th> 
+							<th class="header col-md-5">Name </th> 
+							<th class="header">Meetings</th>
+							<th class="header">EP badges</th>
+							<th class="header">Lobbyists</th> 
+							<th class="header">Lobby Expense</th> 							
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+'use strict';
+	var events=[];
+	var representatives={};
+  var countries={};
+  var totalaccredited = 0;
+  var totpeople = 0;
+
+	$(function() {
+		var renderLoaded  = _.after(3,  function () { 
+			//var dateFormat = d3.time.format("%d/%m/%Y");
+			var dateFormat = d3.time.format("%Y-%m-%d");
+			var now = Date.now();
+			var a;
+
+			_.each (events, function (d) {
+        if (!d.guestid)
+          return;
+        if (ridx[d.guestid] && representatives[ridx[d.guestid]]) {
+          representatives[ridx[d.guestid]].meetings +=1;
+        }
+				d.date=dateFormat.parse(d.date);
+				if (!d.cabinet) 
+					return;
+				if (d.cabinet.substr(19)=="Cabinet member of ")
+					d.cabinet = d.cabinet.substr(19);
+			});
+			grid ("#ec",representatives);
+		});
+		d3.csv("data/country.csv", function(d) {return d;}
+			,function(error, rows) {
+         _.each(rows, function(d) {
+           countries[d["id"]] = [d["code"],d["name"]];
+		   $('#countryselect').append('<option value="'+d["id"]+'">'+d["name"]+'</option>');
+         });
+				 renderLoaded();
+			});      
+		d3.csv("data/meeting_flat.csv", function(d) {return d;}
+			,function(error, rows) {
+				 events = rows;
+				 renderLoaded();
+			});      
+		//d3.json("data/representative-light.json", function (rows) {
+		//d3.csv("data/representative.csv", function (rows) {
+    d3.csv("data/r.active.csv", function(d) {return d;}
+      ,function (rows) {
+        representatives = rows;
+				 _.each (representatives, function (d,i) {
+						//representatives[d.identification_code]=d;
+            d.costbyfte = (+getCost(d)/+d.fte).toFixed();
+            ridx[d.id]=i;
+						d.meetings=0;
+			var rangeval = getCostB(d);
+			//Get cost range
+			d.minrange = 0;
+			if(!$.isNumeric(rangeval)){
+				d.minrange = 'N/A';
+			} else if(rangeval <= 10000){
+				d.minrange = '< 10K';
+			} else if(rangeval <= 50000){
+				d.minrange = '10-50K';
+			} else if(rangeval <= 100000){
+				d.minrange = '50-100K';
+			} else if(rangeval <= 500000){
+				d.minrange = '100-500K';
+			} else if(rangeval <= 1000000){
+				d.minrange = '500K-1M';
+			} else if(rangeval <= 2000000){
+				d.minrange = '1-2M';
+			} else if(rangeval <= 5000000){
+				d.minrange = '2-5M';
+			} else if(rangeval > 5000000){
+				d.minrange = '> 5M';
+			}
+			
+			if($.isNumeric(d.accredited)){
+				totalaccredited += parseInt(d.accredited);
+			}
+			
+			totpeople ++;
+			
+			
+           //if (d.status!="active") delete representatives[i];
+			});
+				$('.lobbyist-total-count').html(totalaccredited);
+				 renderLoaded();
+		});     
+
+	$("#search-input").keyup (function () {
+		var s = $(this ).val().toLowerCase();
+		//rep.filter(function (d) { 
+		repSearch.filter(function (d) { 
+			return d.indexOf (s) !== -1;} );
+		$(".resetall").attr("disabled",false);
+		throttle();
+//        dc.redrawAll();
+
+		var throttleTimer;
+		function throttle() {
+			window.clearTimeout(throttleTimer);
+			throttleTimer = window.setTimeout(function() {
+					dc.redrawAll();
+			}, 250);
+		}
+	});
+
+	$(".resetall").click(function() {
+		$("#search-input").val("");
+		$(".resetall").attr("disabled",true);
+		rep.filter(null);
+		repSearch.filter(null);
+		dc.filterAll();
+		dc.renderAll();
+
+	});
+
+ 
+});      
+
+</script>
+
+
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-55613514-1', 'auto');
+	ga('send', 'pdateview');
+
+</script>
+</body>
+</html>

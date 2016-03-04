@@ -226,6 +226,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	drawMainCategory();
 	drawExpense();
 	drawNbParticipants();
+	
   /*
 	drawEFT();
 */
@@ -277,6 +278,25 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 		graph.yAxis().ticks(3).tickFormat(d3.format(",.0f"));
 	}
+	
+	function setword(wd) {
+		$("#search-input").val(wd);
+		var s = wd.toLowerCase();
+		nameEvent.filter(function (d) { 
+			return d.indexOf (s) !== -1;} );
+		$(".resetall").attr("disabled",false);
+		throttle();
+//        dc.redrawAll();
+
+		var throttleTimer;
+		function throttle() {
+			window.clearTimeout(throttleTimer);
+			throttleTimer = window.setTimeout(function() {
+				console.log ("redraw");
+					dc.redrawAll();
+			}, 250);
+		}
+	}
 
   function drawCloud() {
      var dim = ndx.dimension(function(d) {
@@ -290,11 +310,14 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       .rotate(function() { return ~~(Math.random() * 2) * 90; })
       .size([520,600])
       .dimension(dim)
+	  .maxWords(50)
+	  .padding(5)
       .ordinalColors(['#133d82', '#2163ad', '#3893d1', '#84c0e8', '#cfecff'])
       .group(group)
 //      .fontSize(d3.scale.linear().domain([0,100]).range([6,80]).clamp(true))
       .textAccessor(function(d) {return d.title;})
-      .stopWords (/^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|i'll|you'll|he'll|she'll|we'll|they'll|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't|doesn't|don't|didn't|won't|wouldn't|shan't|shouldn't|can't|cannot|couldn't|mustn't|let's|that's|who's|what's|here's|there's|when's|where's|why's|how's|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall|la|du|mr|commissioner|et|des|dg|commission|de|pour|en|les|le|meeting)$/);
+	  .onClick(function(d){setword(d.key);})
+      .stopWords (/^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|i'll|you'll|he'll|she'll|we'll|they'll|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't|doesn't|don't|didn't|won't|wouldn't|shan't|shouldn't|can't|cannot|couldn't|mustn't|let's|that's|who's|what's|here's|there's|when's|where's|why's|how's|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall|la|du|mr|commissioner|et|des|dg|commission|de|pour|en|les|le|meeting|eu|new|priorities|presentation|preparation|issues|meetings|representatives|work|implementation|general|future|challenge|challenge|skey|role|exchange|views|discuss|discussion|various director|talks|position|global|field|level|initiative|company|state|aspects|context|current|change|european|potential|including|dans|within|developments|play|present|Päris|Enegry|deep|Susan|Danger|Managing|Director|AmCham|Karl|Cox|Vice|President|Oracle| Bert|Boers|SAS|Marco|Comastri|EMEA|CA|Patrick|Deconinck|Senior|Western|3M|Harry|van| Dorenmalen|Chairman|IBM|Aongus|Hegarty|Dell|Cindy|Miller|UPS|Christian|Morales|Manager|Intel| |Julián|Nebreda|AES|Peter|Ryan|VP|HP|Nigel|Lewis|Caterpillar|Dirk|Ostijn|Head|&| Chief|Executive |Officer|MetLife|CA|flagship|related|portfolio|Cssr|Jourova|(| voting|all|expats|as|part|)|,|Year)$/);
 
   }
 
@@ -998,9 +1021,19 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             tr.addClass('shown');
         }
     } );
-        datatable.DataTable().on( 'order.dt search.dt', function () {
+        datatable.DataTable().on( 'order.dt search.dt page.dt draw.dt', function () {
+			var thispage = $('.paginate_button.current').html();			
+			var rowi = 0;
           datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-            cell.innerHTML = i+1;
+            if(rowi >= 100){
+				rowi = 0;
+			}
+			rowi ++;
+			if(thispage > 1){
+				cell.innerHTML = (rowi) + (100*(thispage-1));
+			} else {
+				cell.innerHTML = (rowi);
+			}
           } );
 
         });
@@ -1321,7 +1354,7 @@ function eventpopup (epid) {
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active" id="cm_tool_btn"><a href="ec.html"><strong>Commission</strong> <br />meetings</a></li>
-					<li id="bl_tool_btn"><a href="lobbist.html"><strong>EU</strong><br />Lobbyists</a></li>
+					<li id="bl_tool_btn"><a href="lobbyist.html"><strong>EU</strong><br />Lobbyists</a></li>
 					<li id="mi_tool_btn"><a href="ep.html"><strong>MEP</strong> <br />incomes</a></li>
           <li class="dropdown">
             <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">National versions<span class="caret"></span></a>
@@ -1582,7 +1615,7 @@ function eventpopup (epid) {
 						<p class="desc">Click on any meeting for additional information.
 						</p>
 					</div>
-				</h2><div id="last_update">Last updated: 15 Nov 2015</div>
+				</h2><div id="last_update">Last updated: 18 January 2016</div>
 			</div>
 			
 			<div class="col-md-12 table-responsive">
@@ -1670,8 +1703,10 @@ function eventpopup (epid) {
 			}, 250);
 		}
 	});
+	
 
 	$(".resetall").click(function() {
+		nameEvent.filter(null);
 		dc.filterAll();
 		dc.renderAll();
 		$("#search-input").val("");

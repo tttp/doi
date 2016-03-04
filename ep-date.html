@@ -40,12 +40,6 @@
 <meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
 <meta property="fb:app_id" content="1611680135716224" />
 
-<style>
-.incomearea .big_number {
-	display: inline-block !important;
-}
-</style>
-
 </head>
 <body>
 
@@ -259,23 +253,12 @@ function setRiskScore (d) {
 }
 
 var totalmin = 0;
-var totalmax = 0;
 var totalact = 0;
 
 function parsemin(minc) {
 	if(isNaN(minc)){
 		return 0;
 	} else {
-		return minc;
-	}
-}
-
-function parsemax(minc,min) {
-	if(isNaN(minc)){
-		return 0;
-	} else if(minc == 'Infinity'){
-		return min;
-	}else {
 		return minc;
 	}
 }
@@ -287,12 +270,10 @@ function grid (selector,data) {
 	data.forEach(function (d) {
 		var minnum = parsemin(d.min);
 		totalmin += minnum;
-		totalmax += parsemax(d.max,d.min);
 		totalact += d.qty;
 	});
     $(".nbaccredited").html(addcommas(totalact));
 	$(".nbcost").html(addcommas(totalmin.toFixed(0)*12)+" €");
-	$(".nbcostmax").html(addcommas(totalmax.toFixed(0)*12)+"+ €");
 
 	var ndx = crossfilter(data),
 			all = ndx.groupAll();
@@ -351,7 +332,7 @@ function grid (selector,data) {
 		.gap(1)
 		.margins({top: 10, right: 10, bottom: 20, left: 40})
 		.colorCalculator(function(d, i) {
-				return "#3a94d1";
+				return "#f85631";
 				})
 		.x(d3.scale.ordinal())
 		.xUnits(dc.units.ordinal)
@@ -423,6 +404,25 @@ function grid (selector,data) {
 			.style("text-anchor", "end" )
 			.attr("transform", function(d) { return "rotate(-90, -4, 9) "; });
 	}
+	function getParsedDate(d){
+		if(d.doi){
+			if(d.doi.date){
+				return d.doi.date;
+			}
+		}
+		return '';
+	}
+	
+	function datenumber(d){
+		if(d.doi){
+			if(d.doi.date){
+				var strdate = d.doi.date.split('/');
+				var str = strdate[2]+strdate[1]+strdate[0];
+				return parseInt(str);
+			}
+		}
+		return 0;
+	}
 
 
 	dc.dataCount(".dc-data-count")
@@ -457,13 +457,12 @@ function grid (selector,data) {
 				},
 				function(d) {  return "<div class='right-align'>"+d.attendance.score +"%</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.qty+"</div>"; },
-				//function(d) { return "<div class='right-align'>"+getAmountStringYear(d)+"</div>"; },
-				function(d) { return "<div class='right-align'>"+addcommasAmounts(getAmountMin(d)*12)+"</div>"; },
-				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>"+addcommasAmounts(d.min*12)+" +</div>";}else{return "<div class='right-align'>"+addcommasAmounts(getAmountMax(d)*12)+"</div>";} },
+				function(d) { return "<div class='right-align'>"+getAmountStringYear(d)+"</div>"; },
+				function(d) { return "<div>"+getParsedDate(d)+"</div>"},
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
 	.size(1000)
-	.sortBy(function (d) {return d.max})
+	.sortBy(function (d) {return datenumber(d)})
 	.renderlet(function (chart) {
 		i = 0;
 		$(".dc-table-group").remove();
@@ -480,9 +479,7 @@ function grid (selector,data) {
 		$("table.dc-data-grid").trigger("update");
 });
 
-	$.fn.dataTableExt.sErrMode = 'console';
-
-	//drawScore();
+	drawScore();
 	drawRange();
 	drawAge();
 	drawCounter();
@@ -506,7 +503,6 @@ function drawCounter (){
         p.fte = +d.fte;
         p.accredited += +d.qty;
         p.cost += +parsemin(d.min);
-		p.costmax += +parsemax(d.max,d.min);
 		if(d.min > 0){
 		}
         return p;
@@ -516,18 +512,16 @@ function drawCounter (){
         p.fte = d.fte;
         p.accredited -= +d.qty;
         p.cost -= +parsemin(d.min);
-		p.costmax -= +parsemax(d.max,d.min);
         return p;
       },
       function(p,d) {  
-        return {nb:0,fte:0,accredited:0,cost:0,costmax:0}; 
+        return {nb:0,fte:0,accredited:0,cost:0}; 
       }
     );
 
     group.order (function(p){return p.nb});
     var fte=0;
     var cost=0;
-	var costmax=0;
     var accredited=0;
   	var count = dc.dataCount(".org-count")
 		.dimension(group)
@@ -535,13 +529,11 @@ function drawCounter (){
 			fte = 0;
 			accredited = 0;
 			cost = 0;
-			costmax = 0;
 			return group.all().filter(function(kv) {
         if (kv.value.nb >0) {
           fte += +kv.value.fte;
           accredited += +kv.value.accredited;
           cost += +kv.value.cost;
-		  costmax += +kv.value.costmax;
         }
 
 				return kv.value.nb>0; 
@@ -549,14 +541,12 @@ function drawCounter (){
 		}})
 	  .on("preRedraw",function(c) {
 			fte= revenue= activities = 0;
-			fte= accredited= cost= costmax = 0;
 			})
 	  .on("renderlet.all", function(c) {
 		//alert(c.group().value());
         $(".nbfte").html(fte);
         $(".nbaccredited").html(addcommas(accredited));
         $(".nbcost").html(addcommas(cost.toFixed(0)*12)+" €");
-		$(".nbcostmax").html(addcommas(costmax.toFixed(0)*12)+"+ €");
         cost=0;
         fte=0;
         accredited=0;
@@ -617,20 +607,12 @@ function drawRange () {
 	*/
  
 	function getRange (d) {
-		/*
 		if (d.score === 0 ) return ". None"; 
 		if (d.min < 500 ) return "0. < 500"; 
 		if (d.min < 1001 ) return "1. < 1000"; 
 		if (d.min < 5001 ) return "2. < 5000"; 
 		if (d.min < 10001 ) return "3. < 10000"; 
 		return "4. 10000 or more";
-		*/
-		if (d.score === 0 ) return ". None"; 
-		if (d.min < 500 ) return "0. < 6,000"; 
-		if (d.min < 1001 ) return "1. < 12,000"; 
-		if (d.min < 5001 ) return "2. < 60,000"; 
-		if (d.min < 10001 ) return "3. < 120,000"; 
-		return "4. 120000 or more";
 	};
 
 	var color = d3.scale.ordinal()
@@ -733,26 +715,23 @@ function drawParty () {
 
 function drawAge() {
 	//var chart_age = dc.barChart(selector + " .age");
-	var chart_age = dc.barChart(selector + " .age");
+	var chart_age = dc.lineChart(selector + " .age");
 
  var age = ndx.dimension(function(d) {
-			//if (typeof d.age == "undefined") return "";
-			//return d.age;
-			return d.agerange
+			if (typeof d.age == "undefined") return "";
+			return d.age;
 			});
 
 
 	var ageGroup   = age.group().reduceSum(function(d) {   return 1; });
 
 	chart_age
-		.height(220)
+		.height(300)
 		.width (430)
-		.margins({top: 20, right: 20, bottom: 20, left: 30})
-		//.x(d3.scale.linear().domain([20,100]))
-		.x(d3.scale.ordinal().domain(["N/A","< 20", "20-29", "30-39", "40-49", "50-59", "60-69", "70-79", "80+"]))
-		.xUnits(dc.units.ordinal)
-		.brushOn(false)
-		//.renderArea(false)
+		.margins({top: 0, right: 20, bottom: 20, left: 30})
+		.x(d3.scale.linear().domain([20,100]))
+		.brushOn(true)
+		.renderArea(true)
 		.elasticY(true)
 		.yAxisLabel("Number of MEPs")
 		.dimension(age)
@@ -840,29 +819,6 @@ function drawScore() {
 					if (d.max == Number.POSITIVE_INFINITY)
 						return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+(d.min*12)+" &euro; or more</span>";
 					return (d.min*12) +" &#8605; "+(d.max*12) +"  &euro;";
-	}
-	
-	function addcommasAmounts(x){
-			if(parseInt(x)){
-				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			}
-			return x;
-	}
-	
-	function getAmountMin(d) {
-		if(isNaN(d.min)){
-			return 0;
-		}
-		return d.min;
-	}
-	
-	function getAmountMax(d) {
-		if (d.max == Number.POSITIVE_INFINITY){
-		}
-		if(isNaN(d.max)){
-			return 0;
-		}
-		return d.max;
 	}
 
 	function getAmount (category, field) { //field = min (default) or max or "string"
@@ -995,16 +951,16 @@ function MEPpopup (epid) {
 			<div class="col-sm-7 col-md-7" id="filter_numbers">
 				<div class="row">
 					<div class="col-md-2" id="currently_selected_text"><p>You have currently selected</p></div>
-					<div class="col-md-2 filter_number">
+					<div class="col-md-4 filter_number">
 						<div id="mep_number" class="dc-data-count">
 						<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> MEPs
 						</div>
 					</div>  
-					<div class="col-md-2 filter_number">
+					<div class="col-md-3 filter_number">
             			<div><span class="big_number afilter_long nbaccredited"></span>Total: activities</div>
             		</div>
-            		<div class="col-md-6 filter_number">
-            			<div class="dc-data-count org-count incomearea"><span class="big_number afilter_long nbcost" style="display:inline-block;">?</span> <span class="big_number"> - </span> <span class="big_number afilter_long nbcostmax" style="display:inline-block;">?</span><br />Total: annual outside income (min – max)</div>
+            		<div class="col-md-3 filter_number">
+            			<div class="dc-data-count org-count"><span class="big_number afilter_long nbcost">?</span>Total: income (p.a.)</div>
             		</div>
 				</div>
 			</div>
@@ -1043,18 +999,18 @@ function MEPpopup (epid) {
 					<br class="clear" />
 				</div>
 				<div class="col-md-3 chart_box">
-					<h3>Outside income (p.a.)</h3>
+					<h3>Outside income </h3>
 
 					<div class="activities range">
 					</div>
 					
 					<div class="legend">
 						<div class="_0">None</div>
-						<div class="_1">0-5,999 &euro;</div>
-						<div class="_2">6,000-12,000 &euro;</div>
-						<div class="_3">12,001-60,000 &euro;</div>
-						<div class="_4">60,001-120,000 &euro;</div>
-						<div class="_5">120,000+ &euro;</div>
+						<div class="_1">0 - 499 &euro;</div>
+						<div class="_2">500 - 1,000 &euro;</div>
+						<div class="_3">1,001 - 5,000 &euro;</div>
+						<div class="_4">5,001 - 10,000 &euro;</div>
+						<div class="_5">10,000+ &euro;</div>
 						<br class="clear" />
 					</div>
 					
@@ -1073,7 +1029,6 @@ function MEPpopup (epid) {
 	<div class="container_wrap" id="hidden_charts_wrap">
 		<div class="container">
 			<div class="row">
-				<!--
 				<div class="col-md-5 chart_box frontpage_score">
 						<div class="dc-data-count">
 								<h3>External Activity Indicator</h3>
@@ -1093,14 +1048,14 @@ function MEPpopup (epid) {
 						</div>
 						<br class="clear" />
 				</div>
-				-->
+				
 				<div class="col-md-4 chart_box">
 					<h3>Outside Activities</h3>
 					<div class="interest"></div>
 					<br class="clear" />
 				</div>
 				
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<h3>Gender</h3>
 					<div class="gender">
 					</div>
@@ -1111,17 +1066,8 @@ function MEPpopup (epid) {
 					</div>
 					<br class="clear" />
 				</div>
-				
-				<div class="col-md-4 chart_box">
-					<h3>Age</h3>
-					<div class="age">
-					</div>
-					<br class="clear" />
-				</div>
-				
 			</div>
 			<div class="row">
-				<!--
 				<div class="col-md-7 chart_box">
 					<h3>National Parties</h3>
 					
@@ -1136,14 +1082,12 @@ function MEPpopup (epid) {
 					
 					<br class="clear" />
 				</div>
-				
 				<div class="col-md-5 chart_box">
 					<h3>Age</h3>
 					<div class="age">
 					</div>
 					<br class="clear" />
 				</div>
-				-->
 			</div>
 		</div>
 	</div>
@@ -1184,8 +1128,8 @@ function MEPpopup (epid) {
 							<th class="header">Group</th> 
 							<th class="header sorter-digit right-align"><span class="table_spacer_small">&nbsp;</span>Attendance</th> 
 							<th title="Number of external activities declared by the member in their declaration of financial interest. These activities can be paid or unpaid." class="header sorter-digit right-align"><span class="table_spacer_small">&nbsp;</span>Ext. Activities</th> 
-							<th class="header sorter-commanumber right-align"><span class="table_spacer_small">&nbsp;</span>Outside income min (p.a.)</th>
-							<th class="header sorter-commanumber right-align"><span class="table_spacer_small">&nbsp;</span>Outside income max (p.a.)</th>
+							<th class="header sorter-amount right-align"><span class="table_spacer_small">&nbsp;</span>Outside income (p.a.)</th> 
+							<th class="header sorter-date"><span class="table_spacer_small">&nbsp;</span>DOI Date</th>
 						</tr>
 					</thead>
 				</table>
@@ -1230,36 +1174,13 @@ $(function() {
 					m.birthdate = dateFormat.parse(m.birthdate);
 					m.age= ~~((now - m.birthdate) / (31557600000));// 24 * 3600 * 365.25 * 1000
 				}
-				m.agerange = 0;
-				if(m.age < 20){
-					m.agerange = "< 20";
-				} else if(m.age < 30){
-					m.agerange = "20-29";
-				} else if(m.age < 40){
-					m.agerange = "30-39";
-				} else if(m.age < 50){
-					m.agerange = "40-49";
-				} else if(m.age < 60){
-					m.agerange = "50-59";
-				} else if(m.age < 70){
-					m.agerange = "60-69";
-				} else if(m.age < 80){
-					m.agerange = "70-79";
-				} else if(m.age >= 80){
-					m.agerange = "80+";
-				} else {
-					m.agerange = "N/A";
-				}
-				
  
 			});
-			
 			try {
 				grid ("#ep2014list",meps);
 			} catch (e) {
 				console.log (e);
 			}
-			
 
 		});
 		d3.csv("mep.csv", function(d) {return d;}
