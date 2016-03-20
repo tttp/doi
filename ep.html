@@ -44,6 +44,31 @@
 .incomearea .big_number {
 	display: inline-block !important;
 }
+.legend div {
+	width: 50%;
+	margin-left: 0;
+}
+.legend {
+	margin-left: 0;
+}
+#filter_wrap {
+min-height: 90px;
+}
+#filter_wrap .medium_number {
+	color: #fff;
+    display: block;
+    font-family: "Helvetica W02 Bd Cn","Neue Helvetica 57 Condensed","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 1.3em;
+    font-weight: normal;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+.incomearea {
+	padding-top: 10px;
+}
+#filter_numbers p {
+	margin-top: -5px;
+}
 </style>
 
 </head>
@@ -291,7 +316,7 @@ function grid (selector,data) {
 		totalact += d.qty;
 	});
     $(".nbaccredited").html(addcommas(totalact));
-	$(".nbcost").html(addcommas(totalmin.toFixed(0)*12)+" €");
+	$(".nbcost").html(addcommas(totalmin.toFixed(0)*12)+"");
 	$(".nbcostmax").html(addcommas(totalmax.toFixed(0)*12)+"+ €");
 
 	var ndx = crossfilter(data),
@@ -341,10 +366,14 @@ function grid (selector,data) {
 					 
 					sum += declarations.qty;
 			});
-			return sum;
+			d.sumrange = sum;
+			if(sum > 10){
+				d.sumrange = '> 10';
+			}
+			return d.sumrange.toString();
 	});
 
-	var interestGroup   = interest.group().reduceSum(function(d) {   return 1; });
+	var interestGroup   = interest.group().reduceSum(function(d) { return 1; });
 	var chart_interest = dc.barChart(selector +  " .interest")
 		.height(220)
 		.width(360)
@@ -353,8 +382,9 @@ function grid (selector,data) {
 		.colorCalculator(function(d, i) {
 				return "#3a94d1";
 				})
-		.x(d3.scale.ordinal())
+		.x(d3.scale.ordinal().domain([0,1,2,3,4,5,6,7,8,9,10,"> 10"]))
 		.xUnits(dc.units.ordinal)
+		//.x(d3.scale.ordinal())
 		.brushOn(false)
 		.elasticY(true)
 		.yAxisLabel("Number of MEPs")
@@ -458,8 +488,8 @@ function grid (selector,data) {
 				function(d) {  return "<div class='right-align'>"+d.attendance.score +"%</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.qty+"</div>"; },
 				//function(d) { return "<div class='right-align'>"+getAmountStringYear(d)+"</div>"; },
-				function(d) { return "<div class='right-align'>"+addcommasAmounts(getAmountMin(d)*12)+"</div>"; },
-				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>"+addcommasAmounts(d.min*12)+" +</div>";}else{return "<div class='right-align'>"+addcommasAmounts(getAmountMax(d)*12)+"</div>";} },
+				function(d) { return "<div class='right-align'>"+addcommasAmounts(getAmountMin(d)*12)+" €</div>"; },
+				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>"+addcommasAmounts(d.min*12)+" + €</div>";}else{return "<div class='right-align'>"+addcommasAmounts(getAmountMax(d)*12)+" €</div>";} },
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
 	.size(1000)
@@ -555,7 +585,7 @@ function drawCounter (){
 		//alert(c.group().value());
         $(".nbfte").html(fte);
         $(".nbaccredited").html(addcommas(accredited));
-        $(".nbcost").html(addcommas(cost.toFixed(0)*12)+" €");
+        $(".nbcost").html(addcommas(cost.toFixed(0)*12)+"");
 		$(".nbcostmax").html(addcommas(costmax.toFixed(0)*12)+"+ €");
         cost=0;
         fte=0;
@@ -1004,7 +1034,9 @@ function MEPpopup (epid) {
             			<div><span class="big_number afilter_long nbaccredited"></span>Total: activities</div>
             		</div>
             		<div class="col-md-6 filter_number">
-            			<div class="dc-data-count org-count incomearea"><span class="big_number afilter_long nbcost" style="display:inline-block;">?</span> <span class="big_number"> - </span> <span class="big_number afilter_long nbcostmax" style="display:inline-block;">?</span><br />Total: annual outside income (min – max)</div>
+            			<div class="dc-data-count org-count incomearea">Min: <span class="medium_number afilter_long nbcost" style="display:inline-block;">?</span>
+						<br />
+						Max: <span class="medium_number afilter_long nbcostmax" style="display:inline-block;">?</span><br />Total: annual outside income (min – max)</div>
             		</div>
 				</div>
 			</div>
@@ -1183,7 +1215,7 @@ function MEPpopup (epid) {
 							<th class="header">Country</th> 
 							<th class="header">Group</th> 
 							<th class="header sorter-digit right-align"><span class="table_spacer_small">&nbsp;</span>Attendance</th> 
-							<th title="Number of external activities declared by the member in their declaration of financial interest. These activities can be paid or unpaid." class="header sorter-digit right-align"><span class="table_spacer_small">&nbsp;</span>Ext. Activities</th> 
+							<th title="Number of external activities declared by the member in their declaration of financial interest. These activities can be paid or unpaid." class="header sorter-digit right-align"><span class="table_spacer_small">&nbsp;</span>Activities</th> 
 							<th class="header sorter-commanumber right-align"><span class="table_spacer_small">&nbsp;</span>Outside income min (p.a.)</th>
 							<th class="header sorter-commanumber right-align"><span class="table_spacer_small">&nbsp;</span>Outside income max (p.a.)</th>
 						</tr>
@@ -1361,8 +1393,8 @@ $(function() {
 			 </div>
 		 </div>
 		 <div class="row">
-			 <div class="col-md-4" title="External Activity Indicator">EAI</div>
-			 <div class="col-md-8 score"><%= score.toFixed(0) %></div>
+			 <div class="col-md-4" title="Activities">Activities</div>
+			 <div class="col-md-8 score"><%= qty %></div>
 		 </div>
 		 <div class="row">
 			 <div class="col-md-4">Outside revenues</div>
