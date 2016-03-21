@@ -69,6 +69,9 @@ min-height: 90px;
 #filter_numbers p {
 	margin-top: -5px;
 }
+.popup-value-td {
+	min-width: 100px;
+}
 </style>
 
 </head>
@@ -1346,32 +1349,32 @@ $(function() {
 <table class="table table-condensed">
 <tr><td class="dc-table-label" colspan="2">A. Previous occupation</td></tr>
 <% _.each(doi.occupation, function (a) { %>
-	<tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">B. Other mandates</td></tr>
 <% _.each(doi.mandate, function (a) { %>
-	<tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">C. Regular outside activity</td></tr>
 <% _.each(doi.activity, function (a) { %>
-	<tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">D. Committee & Board memberships</td></tr>
 <% _.each(doi.membership, function (a) { %>
-	<tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">E. Occasional outside activity</td></tr>
 <% _.each(doi.occasional, function (a) { %>
-	<tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">F. Holdings</td></tr>
 <% _.each(doi.holding, function (a) { %>
-	<tr><td><%= a[0] %></td><td><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
 <% }); %>
 <tr><td class="dc-table-label" colspan="2">I. Additional information</td></tr>
 <tr><td colspan="3"><%= doi.additional %></td></tr>
