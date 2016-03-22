@@ -220,8 +220,13 @@ var eu_groups = {
 			 }
 		 if (isNaN(i)) {
 			 if (i.slice(-3)  == "EUR") {
+				if(i.substring(0, 1).match("\\d.*")){
 				 min += i.substr(0,i.length - 4) * 1;
 				 max += i.substr(0,i.length - 4) * 1;
+				 } else {
+				 min += parseInt(i.replace(/[^0-9\.]/g, ''), 10);
+				 max += parseInt(i.replace(/[^0-9\.]/g, ''), 10);
+				 }
 			 } else {
 				 min += Math.round(convert (i));
 				 max += Math.round(convert (i));
@@ -510,8 +515,8 @@ function grid (selector,data) {
 				function(d) {  return "<div class='right-align'>"+d.attendance.score +"%</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.qty+"</div>"; },
 				//function(d) { return "<div class='right-align'>"+getAmountStringYear(d)+"</div>"; },
-				function(d) { return "<div class='right-align'>"+addcommasAmounts(getAmountMin(d)*12)+" €</div>"; },
-				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>"+addcommasAmounts(d.min*12)+" + €</div>";}else{return "<div class='right-align'>"+addcommasAmounts(getAmountMax(d)*12)+" €</div>";} },
+				function(d) { return "<div class='right-align'>"+addcommasAmounts((getAmountMin(d)*12).toFixed(2))+" €</div>"; },
+				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>"+addcommasAmounts((d.min*12).toFixed(2))+" + €</div>";}else{return "<div class='right-align'>"+addcommasAmounts((getAmountMax(d)*12).toFixed(2))+" €</div>";} },
 				function(d) { return "<div>"+getParsedDate(d)+"</div>"},
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
