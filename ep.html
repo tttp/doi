@@ -498,8 +498,8 @@ function grid (selector,data) {
 				function(d) {  return "<div class='right-align'>"+d.attendance.score +"%</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.qty+"</div>"; },
 				//function(d) { return "<div class='right-align'>"+getAmountStringYear(d)+"</div>"; },
-				function(d) { return "<div class='right-align'>"+addcommasAmounts((getAmountMin(d)*12).toFixed(2))+" €</div>"; },
-				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>"+addcommasAmounts((d.min*12).toFixed(2))+" + €</div>";}else{return "<div class='right-align'>"+addcommasAmounts((getAmountMax(d)*12).toFixed(2))+" €</div>";} },
+				function(d) { return "<div class='right-align'>"+addcommasAmounts((getAmountMin(d)*12).toFixed(0))+" €</div>"; },
+				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>"+addcommasAmounts((d.min*12).toFixed(0))+" + €</div>";}else{return "<div class='right-align'>"+addcommasAmounts((getAmountMax(d)*12).toFixed(0))+" €</div>";} },
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
 	.size(1000)
@@ -665,12 +665,12 @@ function drawRange () {
 		if (d.min < 10001 ) return "3. < 10000"; 
 		return "4. 10000 or more";
 		*/
-		if (d.score === 0 ) return ". None"; 
-		if (d.min < 500 ) return "0. < 6,000"; 
-		if (d.min < 1001 ) return "1. < 12,000"; 
-		if (d.min < 5001 ) return "2. < 60,000"; 
-		if (d.min < 10001 ) return "3. < 120,000"; 
-		return "4. 120000 or more";
+		if (d.score === 0 ) return "None"; 
+		if (d.min < 500 ) return "< 6,000"; 
+		if (d.min < 1001 ) return "< 12,000"; 
+		if (d.min < 5001 ) return "< 60,000"; 
+		if (d.min < 10001 ) return "< 120,000"; 
+		return "120,000 or more";
 	};
 
 	var color = d3.scale.ordinal()
@@ -689,6 +689,34 @@ function drawRange () {
 		.colorAccessor(function (d, i){return i;})
 		.dimension(dimension)
 		.group(group);
+		
+	
+	function rangeorder(d){
+		switch(d.key) {
+			case 'None':
+				return 0;
+				break;
+			case '< 6,000':
+				return 1;
+				break;
+			case '< 12,000':
+				return 2;
+				break;
+			case '< 60,000':
+				return 3;
+				break;
+			case '< 120,000':
+				return 4;
+				break;
+			case '120,000 or more':
+				return 5;
+				break;
+			default:
+				return 6;
+		}
+	}
+	
+	chart.ordering(function(d) { return rangeorder(d); });
 }
 
 function drawParty () {

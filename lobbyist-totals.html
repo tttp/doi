@@ -50,6 +50,12 @@
 #filter_wrap{
 	min-height: 90px;
 }
+.selectcountrydiv {
+	max-width: 90%;
+}
+#countryselect {
+	width: 100%;
+}
 </style>
 </head>
 <body>
@@ -312,12 +318,32 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
   }
 
 	function drawCountry () {
+	
+	var circ = ndx.dimension(function (d) {return d.contact_country;});
+	var circGroup = circ.group().reduceSum(function(d) {return 1;});
+	
 	var dim = ndx.dimension (function(d) {
 			c = countries[d.contact_country][1];
 			if(c == "Belgium"){
 				c = "Belgium / EU"
 			};
 			return c;
+	});
+	
+	$("#countryselect").change(function () {
+        var selcountry = this.value;
+		//alert(selcountry);
+		circ.filter(function (d) { 
+			return d == selcountry;
+		});
+		dc.renderAll();
+		$(".resetall").attr("disabled",false);
+    });
+	
+	$(".resetall").click(function() {
+		circ.filter(null);
+		dc.filterAll();
+		dc.renderAll();
 	});
 
 	var group   = dim.group().reduceSum(function(d) {   
@@ -334,8 +360,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
       })(dim.group().reduceSum(function(d) {return 1; }));
 
 		var graph = dc.rowChart(".country")   
-			.margins({top: 0, right: 3, bottom: 20, left: 3})
-			.height(340)
+			.margins({top: 20, right: 3, bottom: 20, left: 3})
+			.height(320)
 			.gap(2)
 			.x(d3.scale.ordinal())
 			.elasticX(true)
@@ -720,7 +746,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "targets": 1,
               data: function (row, type, val, meta) {
                 if (row.acronym) 
-                  return row.name+" ("+row.acronym +" )";
+                  return row.name+" ("+row.acronym +")";
                 return row.name;
                 }
               //data: "name",  
@@ -733,9 +759,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "className": "number",
               "render": function ( data, type, row ) { 
                 if (data == "")
-                  return 0;
+                  return 0 + ' €';
                   //return "<10k";
-                return d3.format(",g")(data);
+                return d3.format(",g")(data) + ' €';
               },
               data: function (row, type, val, meta) { if (!row) {return "";} ;return getCost(row);}
               },{
@@ -1072,6 +1098,10 @@ function eventpopup (epid) {
 						<p class="desc">Countries where organisations are headquartered according to their filings with the EU Transparency Register. Graph indicates the number of organisations headquartered in each country.
 						</p>
 					</div>
+					<div class="selectcountrydiv">
+						<select id="countryselect">
+						</select>
+					</div>
 					<div class="country">
 					</div>
 					<br class="clear" />
@@ -1234,6 +1264,7 @@ function eventpopup (epid) {
   var totalmeetings = 0;
   var totallobbyists = 0;
   var totpeople = 0;
+  var activecountries = [];
 
 	$(function() {
 		var renderLoaded  = _.after(3,  function () { 
@@ -1277,6 +1308,11 @@ function eventpopup (epid) {
         representatives = rows;
 				 _.each (representatives, function (d,i) {
 						//representatives[d.identification_code]=d;
+			//Add country to active countries list if it's not in there already
+			if(activecountries.indexOf(d.contact_country) == -1){
+				activecountries.push(d.contact_country);
+				$('#countryselect').append('<option value="'+d.contact_country+'">'+countries[d.contact_country][1]+'</option>');
+			}
             d.costbyfte = (+getCost(d)/+d.fte).toFixed();
             ridx[d.id]=i;
 						d.meetings=0;

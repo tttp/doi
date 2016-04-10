@@ -721,7 +721,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "targets": 1,
               data: function (row, type, val, meta) {
                 if (row.acronym) 
-                  return row.name+" ("+row.acronym +" )";
+                  return row.name+" ("+row.acronym +")";
                 return row.name;
                 }
               //data: "name",  
@@ -734,9 +734,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "className": "number",
               "render": function ( data, type, row ) { 
                 if (data == "")
-                  return 0;
+                  return 0 + ' €';
                   //return "<10k";
-                return d3.format(",g")(data);
+                return d3.format(",g")(data) + ' €';
               },
               data: function (row, type, val, meta) { if (!row) {return "";} ;return getCost(row);}
               },{
@@ -1227,6 +1227,7 @@ function eventpopup (epid) {
   var countries={};
   var totalaccredited = 0;
   var totpeople = 0;
+  var activecountries = [];
 
 	$(function() {
 		var renderLoaded  = _.after(3,  function () { 
@@ -1253,7 +1254,7 @@ function eventpopup (epid) {
 			,function(error, rows) {
          _.each(rows, function(d) {
            countries[d["id"]] = [d["code"],d["name"]];
-		   $('#countryselect').append('<option value="'+d["id"]+'">'+d["name"]+'</option>');
+		   //$('#countryselect').append('<option value="'+d["id"]+'">'+d["name"]+'</option>');
          });
 				 renderLoaded();
 			});      
@@ -1269,6 +1270,13 @@ function eventpopup (epid) {
         representatives = rows;
 				 _.each (representatives, function (d,i) {
 						//representatives[d.identification_code]=d;
+						//alert(d.toSource());
+			//Add country to active countries list if it's not in there already
+			if(activecountries.indexOf(d.contact_country) == -1){
+				activecountries.push(d.contact_country);
+				$('#countryselect').append('<option value="'+d.contact_country+'">'+countries[d.contact_country][1]+'</option>');
+			}
+			
             d.costbyfte = (+getCost(d)/+d.fte).toFixed();
             ridx[d.id]=i;
 						d.meetings=0;
