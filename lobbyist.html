@@ -1228,6 +1228,10 @@ function eventpopup (epid) {
   var totalaccredited = 0;
   var totpeople = 0;
   var activecountries = [];
+  
+  function sortNumber(a,b) {
+    return a - b;
+  }
 
 	$(function() {
 		var renderLoaded  = _.after(3,  function () { 
@@ -1272,9 +1276,9 @@ function eventpopup (epid) {
 						//representatives[d.identification_code]=d;
 						//alert(d.toSource());
 			//Add country to active countries list if it's not in there already
-			if(activecountries.indexOf(d.contact_country) == -1){
-				activecountries.push(d.contact_country);
-				$('#countryselect').append('<option value="'+d.contact_country+'">'+countries[d.contact_country][1]+'</option>');
+			if(activecountries.indexOf(parseInt(d.contact_country)) == -1){
+				activecountries.push(parseInt(d.contact_country));
+				//$('#countryselect').append('<option value="'+d.contact_country+'">'+countries[d.contact_country][1]+'</option>');
 			}
 			
             d.costbyfte = (+getCost(d)/+d.fte).toFixed();
@@ -1312,6 +1316,10 @@ function eventpopup (epid) {
 			
            //if (d.status!="active") delete representatives[i];
 			});
+			activecountries.sort(sortNumber);
+			for (var i = 0; i < activecountries.length; i++) {
+				$('#countryselect').append('<option value="'+activecountries[i]+'">'+countries[activecountries[i]][1]+'</option>');
+			}
 				$('.lobbyist-total-count').html(totalaccredited);
 				 renderLoaded();
 		});     
