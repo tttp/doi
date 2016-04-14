@@ -433,7 +433,7 @@ name,id,voted,votes,percent,active
 "Renate WEBER",39713,1868,2058,90.77,True
 "Silvia COSTA",96917,1867,2058,90.72,True
 "Karol KARSKI",124887,1865,2058,90.62,True
-"Inês Cristina ZUBER",111589,1865,2058,90.62,True
+"Inês Cristina ZUBER",111589,1865,2058,90.62,False
 "Goffredo Maria BETTINI",124819,1864,2058,90.57,True
 "Paavo VÄYRYNEN",2128,1863,2058,90.52,True
 "Gerolf ANNEMANS",124973,1862,2058,90.48,True
@@ -562,7 +562,7 @@ name,id,voted,votes,percent,active
 "Rina Ronja KARI",122885,1760,2058,85.52,True
 "Liadh NÍ RIADA",124987,1758,2058,85.42,True
 "Jean-Luc SCHAFFHAUSER",124755,1756,2058,85.33,True
-"Glenis WILLMOTT",35743,1756,2058,85.33,True
+"Dame Glenis WILLMOTT",35743,1756,2058,85.33,True
 "Gabriele PREUSS",124888,1753,2058,85.18,True
 "Aymeric CHAUPRADE",124752,1752,2058,85.13,True
 "Nils TORVALDS",114268,1749,2058,84.99,True
@@ -681,7 +681,7 @@ name,id,voted,votes,percent,active
 "Esther HERRANZ GARCÍA",22418,1541,2058,74.88,True
 "Michał BONI",124896,1539,2058,74.78,True
 "Ian HUDGHTON",2338,1533,2058,74.49,True
-"Ulla TØRNÆS",124880,1531,2058,74.39,True
+"Ulla TØRNÆS",124880,1531,2058,74.39,False
 "Antonio TAJANI",2187,1530,2058,74.34,True
 "Nuno MELO",96978,1528,2058,74.25,True
 "Frank ENGEL",96876,1524,2058,74.05,True
@@ -728,7 +728,7 @@ name,id,voted,votes,percent,active
 "Aldo PATRICIELLO",36392,1404,2058,68.22,True
 "Daniel HANNAN",4555,1402,2058,68.12,True
 "Sergei STANISHEV",124852,1395,2058,67.78,True
-"Miloslav RANSDORF",23706,1390,2058,67.54,True
+"Miloslav RANSDORF",23706,1390,2058,67.54,False
 "Adina-Ioana VĂLEAN",37324,1384,2058,67.25,True
 "Helga TRÜPEL",28240,1376,2058,66.86,True
 "Cristian-Silviu BUŞOI",38420,1372,2058,66.67,True
@@ -772,4 +772,6 @@ name,id,voted,votes,percent,active
 "Martin SCHULZ",1911,88,2058,4.28,True
 "Philip BRADBOURN",4540,0,203,0.00,False
 "Brian CROWLEY",2109,0,2058,0.00,True
+"Jaromír KOHLÍČEK",28331,0,2058,0.00,True
+"Morten LØKKEGAARD",96709,0,2058,0.00,True
 "Marianne THYSSEN",1832,0,58,0.00,False
