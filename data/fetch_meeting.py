@@ -5,6 +5,7 @@ limit=500
 offset=0
 # Set the request URL
 url = 'http://api.lobbyfacts.eu/api/1/meeting?limit='+`limit`+'&offset='+`offset`
+print url
 u = urllib.urlopen(url)
 print u
 result = json.load(u) 
