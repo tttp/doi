@@ -177,6 +177,7 @@ var eu_groups = {
 
 
 	function sumDOI (mep,field, returnData) {
+		
 		function convert (i) {
 			if (i.slice(-3)  == "EUR") return i.substr(0,i.length - 4) * 1;
 			if (i.slice(-3)  == "GBP") return i.substr(0,i.length - 4) * 1.25;
@@ -203,7 +204,7 @@ var eu_groups = {
 		var min = max= qty = 0;
 		var openscale = false;
 		_.each(mep.doi[field], function (d) {
-			
+
 			 var i = d[1];
 			 qty +=1;
 			 if (d.length == 3) { //F: Holding
@@ -234,11 +235,17 @@ var eu_groups = {
 				 max += Math.round(convert (i));
 			 } 
 		 } else {
+			if(i == 0){
+			 min += rangeEUR[i].min;
+			 max += 0;
+			} else {
 			 min += rangeEUR[i].min;
 			 max += rangeEUR[i].max;
+			}
 		 }
 
 		});
+		
 		if (returnData) {
 			return {min:min, max:max,qty:qty, openscale:openscale};
 		}
@@ -1319,6 +1326,7 @@ $(function() {
 					m.agerange = "80+";
 				} else {
 					m.agerange = "N/A";
+					m.age = "N/A";
 				}
 				
  
