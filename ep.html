@@ -1293,6 +1293,7 @@ $(function() {
 					m.eugroup = "EFDD";
 				}
 				m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
+				
 				a = _.find(attendance,function (d) { return d.id == m.epid  });
 				if (a) {
 					m.attendance = {"total": parseInt(a.votes,10) , "attended": parseInt(a.voted,10), "score": parseFloat(a.percent)};
@@ -1327,6 +1328,29 @@ $(function() {
 				} else {
 					m.agerange = "N/A";
 					m.age = "N/A";
+				}
+				//alert(m.doi.toSource());
+				if(!m.doi){
+					//alert(m.toSource());
+					m.doi = ({additional:"", url:"", support:"", mandate:[], occasional:[], mep_id:0, membership:[], other:"", holding:[], activity:[], date:"", occupation:[], events:[]})
+					//m.doi.url = "";
+					//m.doi.date = "";
+				}
+				//alert(m.doi.toSource());
+				if(m.last_name == "WIERINCK"){
+					//alert(m.toSource());
+					//alert(m.doi.toSource());
+				}
+				
+				
+				
+				//Gender fix
+				if(m.gender == ""){
+					if(m.last_name == "PUNSET" || m.last_name == "WIERINCK"){
+						m.gender = "F";
+					} else if(m.last_name == "PIMENTA LOPES") {
+						m.gender = "M";
+					}			
 				}
 				
  
