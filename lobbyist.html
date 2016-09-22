@@ -1257,7 +1257,8 @@ function eventpopup (epid) {
 		d3.csv("data/country.csv", function(d) {return d;}
 			,function(error, rows) {
          _.each(rows, function(d) {
-           countries[d["id"]] = [d["code"],d["name"]];
+           //countries[d["id"]] = [d["code"],d["name"]];
+		   countries[d["code"]] = [d["code"],d["name"]];
 		   //$('#countryselect').append('<option value="'+d["id"]+'">'+d["name"]+'</option>');
          });
 				 renderLoaded();
