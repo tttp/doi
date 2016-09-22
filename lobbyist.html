@@ -1286,7 +1286,7 @@ function eventpopup (epid) {
 			if(activecountries.indexOf(d.contact_country) == -1){
 				activecountries.push(d.contact_country);
 			}
-			alert(activecountries.toSource());
+			alert(activecountries);
 			
             d.costbyfte = (+getCost(d)/+d.fte).toFixed();
             ridx[d.id]=i;
