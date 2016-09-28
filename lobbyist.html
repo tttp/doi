@@ -179,7 +179,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	});
 	
 	repSearch = ndx.dimension(function(d) {
-      return d.acronym.toLowerCase()+ " " + d.name.toLowerCase()+ " "+countries[d.contact_country][1];
+      return d.acronym.toLowerCase()+ " " + d.name.toLowerCase()+ " "+countriesISO[d.contact_country][1];
 	});
 	
 
@@ -298,7 +298,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	var circGroup = circ.group().reduceSum(function(d) {return 1;});
 	
 	var dim = ndx.dimension (function(d) {
-			c = countries[d.contact_country][1];
+			c = countriesISO[d.contact_country][1];
 			if(c == "Belgium"){
 				c = "Belgium / EU"
 			};
@@ -794,7 +794,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     	}
     	s += "<div class='l_name'><label>Name</label> "+d.name+" "+acr+"</div>";
     	s += "<div class='l_category'><label>Type</label> "+mainCategories[d.main_category]+": "+subCategories[d.sub_category]+"</div>";
-    	s += "<div class='l_country'><label>Country</label> "+countries[d.contact_country][1]+"</div>"
+    	s += "<div class='l_country'><label>Country</label> "+countriesISO[d.contact_country][1]+"</div>"
     	s += "<div class='l_cost'><label>Lobby Budget (&euro;)</label> "
 	    	if (d.cost_absolute == "") {
 	    		s += "min "+addcommas(d.cost_min)+" / max "+addcommas(d.cost_max)
@@ -1278,16 +1278,16 @@ function eventpopup (epid) {
 						//representatives[d.identification_code]=d;
 						//alert(d.toSource());
 			//Add country to active countries list if it's not in there already
-			
+			/*
 			if(activecountries.indexOf(parseInt(d.contact_country)) == -1){
 				activecountries.push(parseInt(d.contact_country));
 			}
-			
-			/*
+			*/
+			//alert(d.contact_country);
 			if(activecountries.indexOf(d.contact_country) == -1){
 				activecountries.push(d.contact_country);
 			}
-			*/
+			
 			//alert(activecountries);
 			
             d.costbyfte = (+getCost(d)/+d.fte).toFixed();
@@ -1325,9 +1325,11 @@ function eventpopup (epid) {
 			
            //if (d.status!="active") delete representatives[i];
 			});
-			activecountries.sort(sortNumber);
+			//activecountries.sort(sortNumber);
+			activecountries.sort();
+			
 			for (var i = 0; i < activecountries.length; i++) {
-				$('#countryselect').append('<option value="'+activecountries[i]+'">'+countries[activecountries[i]][1]+'</option>');
+				$('#countryselect').append('<option value="'+activecountries[i]+'">'+countriesISO[activecountries[i]][1]+'</option>');
 			}
 				$('.lobbyist-total-count').html(totalaccredited);
 				 renderLoaded();
