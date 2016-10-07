@@ -16,6 +16,6 @@ curl -O http://parltrack.euwiki.org/dumps/attendance.csv
 
 #curl -O http://api.lobbyfacts.eu/api/1/meeting_deregistered.csv 
 #curl -O http://api.lobbyfacts.eu/api/1/meeting_participants.csv 
-curl -O http://api.lobbyfacts.eu/static/meeting.csv
+#curl -O http://api.lobbyfacts.eu/static/meeting.csv
 #curl -O http://api.lobbyfacts.eu/api/1/meeting.csv 
 
