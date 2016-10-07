@@ -37,9 +37,9 @@ csvcut -c id,status,guest,host,cabinet,date,guestid,title,unregistered,participa
 #jq -r ".[]|[.id,.contact_country,.acronym,.name,.main_category,.sub_category,.status]|@csv" representative.json >> representative.csv
 
 #debug version
-echo 'id,contact_country,sub_category,sub_category_title,acronym,name,main_category,main_category_title,code,fte,status' >  full_representative.csv
+#echo 'id,contact_country,sub_category,sub_category_title,acronym,name,main_category,main_category_title,code,fte,status' >  full_representative.csv
 #only active jq -r '.[]|select(.status=="active")|[.id,.contact_country,.sub_category,.sub_category_title,.acronym,.name,.main_category,.main_category_title,.identification_code,.members_fte]|@csv' representative.json >> representative.csv
-jq -r '.[]|select(.)|[.id,.contact_country,.sub_category,.sub_category_title,.acronym,.name,.main_category,.main_category_title,.identification_code,.members_fte,.status]|@csv' representative.json >> full_representative.csv
+#jq -r '.[]|select(.)|[.id,.contact_country,.sub_category,.sub_category_title,.acronym,.name,.main_category,.main_category_title,.identification_code,.members_fte,.status]|@csv' representative.json >> full_representative.csv
 
 #exit
 
@@ -59,14 +59,15 @@ jq -r '.[]|select(.)|[.id,.contact_country,.sub_category,.sub_category_title,.ac
 #csvjoin   --left -c id,representative representative.csv financial_data.csv  > representative-financial.csv
 #csvcut representative-financial.csv -c id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code > representative-finance-light.csv
 
-q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code,f.status from full_representative.csv r left join financial_data.csv f on (r.id=f.representative) and f.status='active' where r.contact_country is not null and r.sub_category_title!=''" -d, -H -O > representative-finance-light.csv
-
+#q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code,f.status from full_representative.csv r" -d, -H -O > representative-finance-light.csv
+q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code,'1' as status from transparency.csv r" -d, -H -O  > representative-finance-light.csv
 
 #curl -O http://api.lobbyfacts.eu/api/1/accreditation.csv > accreditation.csv
 #echo 'id,accredited' > representative_count.csv
 q "select representative_id id,count(*) accredited FROM accreditation.csv where status='active' group by representative_id"  -d, -H -O > representative_count.csv;
 
 #csvjoin --left -c id,id  representative-finance-light.csv representative_count.csv  > r.csv
-q "select r.*, accredited FROM representative-finance-light.csv r left join representative_count.csv a on (r.id=a.id)" -d, -H -O > r.csv
+q "select r.*,c.id as country, accredited FROM representative-finance-light.csv r left join representative_count.csv a on (r.id=a.id) left join country.csv c on r.contact_country=c.code" -d, -H -O > r.csv
 
-q 'select * from r.csv where status="active"' -d, -H -O > r.active.csv
+cp r.csv r.active.csv
+#q 'select * from r.csv where status="active"' -d, -H -O > r.active.csv
