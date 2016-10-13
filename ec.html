@@ -1651,6 +1651,7 @@ function eventpopup (epid) {
 			var a;
 
 			_.each (events, function (d) {
+				d.date = d.date.replace(" ","T");
 				d.date=dateFormat.parse(d.date);
         if(d.host == "Claus Sørensen")
           d.host="Director-General "+d.host;
