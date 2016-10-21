@@ -1683,6 +1683,7 @@ function eventpopup (epid) {
 				 _.each (rows, function (d) {
 						//representatives[d.identification_code]=d;
 						representatives[d.id]=d;
+						representatives[d.id].accredited = d.acc_count;
 			});
 				 renderLoaded();
 		});     
