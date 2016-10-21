@@ -1277,6 +1277,7 @@ function eventpopup (epid) {
 				 _.each (representatives, function (d,i) {
 						//representatives[d.identification_code]=d;
 						//alert(d.toSource());
+						d.accredited = d.acc_count;
 			//Add country to active countries list if it's not in there already
 			/*
 			if(activecountries.indexOf(parseInt(d.contact_country)) == -1){
