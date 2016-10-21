@@ -2,7 +2,8 @@ export PYENV_ROOT="/home/xavier/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-curl http://stage.lobbyfacts.nestor.coop/transparency_csv > transparency.csv
+#curl http://stage.lobbyfacts.nestor.coop/transparency_csv > transparency.csv
+curl https://lobbyfacts.eu/transparency_csv > transparency.csv
 curl -O http://api.lobbyfacts.nestor.coop/api/1/meeting_deregistered.csv 
 curl -O http://api.lobbyfacts.nestor.coop/api/1/meeting_participants.csv 
 #curl -O http://api.lobbyfacts.eu/static/meeting.csv
