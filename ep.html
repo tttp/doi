@@ -1231,7 +1231,7 @@ function MEPpopup (epid) {
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">MEPs</h2><div id="last_update">Last updated: 16 Sept 2016</div>
+				<h2 class="table_title">MEPs</h2><div id="last_update">Last updated: 21 October 2016</div>
 				
 				<div id="info_table_container" class="hidden">
 					<div class="info_chart info_table" id="attendance_info">
@@ -1335,6 +1335,9 @@ $(function() {
 					m.doi = ({additional:"", url:"", support:"", mandate:[], occasional:[], mep_id:0, membership:[], other:"", holding:[], activity:[], date:"", occupation:[], events:[]})
 					//m.doi.url = "";
 					//m.doi.date = "";
+				}
+				if(m.first_name == "Angelo" && m.last_name == "CIOCCA"){
+					m.doi.url = "http://www.europarl.europa.eu/mepdif/183793_DFI_LEG8_rev0_IT.pdf";
 				}
 				//alert(m.doi.toSource());
 				if(m.last_name == "WIERINCK"){
