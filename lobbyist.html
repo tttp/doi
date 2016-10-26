@@ -1280,6 +1280,20 @@ function eventpopup (epid) {
 						//representatives[d.identification_code]=d;
 						//alert(d.toSource());
 						d.accredited = d.acc_count;
+						//Temporary fix for Vigilare
+						if(d.id == "323cbde1d7bd4cf6acbe4a7b0a147801"){
+							d.main_category = 3;
+							d.cost_min = "";
+							d.cost_max = "";
+							d.cost_absolute = 40000;
+							d.fte = 2;
+							d.acc_count = 0;
+							d.code = "410303617760-40";
+							d.status = 1;
+							d.country = 54;
+							d.accredited = 0;
+						}
+						
 			//Add country to active countries list if it's not in there already
 			/*
 			if(activecountries.indexOf(parseInt(d.contact_country)) == -1){
