@@ -1198,7 +1198,7 @@ function eventpopup (epid) {
 						Number of access badges to the European Parliament that the organisation holds for the lobbyists. Information published on the EU Transparency Register.
 						</p>
 					</div>
-					</h2><div id="last_update">Last updated: 21 October 2016</div>
+					</h2><div id="last_update">Last updated: <span id="updatedate"></span></div>
 				<div id="info_table_container">
 
 				</div>
@@ -1231,6 +1231,14 @@ function eventpopup (epid) {
   var totalaccredited = 0;
   var totpeople = 0;
   var activecountries = [];
+  
+  //Set last updates as yesterday's date
+  var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+  var updatedate = new Date();
+  updatedate.setDate(updatedate.getDate() - 1);
+  $('#updatedate').html(updatedate.getDate() + ' ' + monthNames[updatedate.getMonth()] + ' ' + updatedate.getFullYear());
+  
+  
   
   function sortNumber(a,b) {
     return a - b;
