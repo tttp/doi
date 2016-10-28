@@ -1663,7 +1663,14 @@ function eventpopup (epid) {
 			var now = Date.now();
 			var a;
 
+			//Filter out duplicate meetings of Hill with no name
+			events = _.filter(events, function(d) {
+				return d.host != 'Commissioner';
+			});
+						
 			_.each (events, function (d) {
+				//</a>ttttt ttttttttttttt rntttt
+				d.guest = d.guest.replace("</a>ttttt ttttttttttttt rntttt","");
 				d.date = d.date.replace(" ","T");
 				d.date=dateFormat.parse(d.date);
         if(d.host == "Claus Sørensen")
