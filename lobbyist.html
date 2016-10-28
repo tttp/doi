@@ -783,7 +783,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     function format (d) {
     	var initiatives;
     	
-    	url="http://api.lobbyfacts.eu/api/1/representative/"+d.id+"?callback=?";
+    	url="http://api.lobbyfacts.nestor.coop/api/1/representative/"+d.id+"?callback=?";
     	$.getJSON( url, function( data ) {
     		$('#initiatives'+d.id).text(data.activity_eu_legislative)
     	});          
