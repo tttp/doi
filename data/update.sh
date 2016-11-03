@@ -60,7 +60,7 @@ csvcut -c id,status,guest,host,cabinet,date,guestid,title,unregistered,participa
 #csvcut representative-financial.csv -c id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code > representative-finance-light.csv
 
 #q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code,f.status from full_representative.csv r" -d, -H -O > representative-finance-light.csv
-q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,acc_count,code, status from transparency.csv r" -d, -H -O  > representative-finance-light.csv
+q "select r.id,contact_country,sub_category,sub_category_title,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,acc_count,code, status from transparency.csv r" -d, -H -O  > representative-finance-light.csv
 
 #curl -O http://api.lobbyfacts.eu/api/1/accreditation.csv > accreditation.csv
 #echo 'id,accredited' > representative_count.csv
