@@ -60,7 +60,7 @@ csvcut -c id,status,guest,host,cabinet,date,guestid,title,unregistered,participa
 #csvcut representative-financial.csv -c id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code > representative-finance-light.csv
 
 #q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,code,f.status from full_representative.csv r" -d, -H -O > representative-finance-light.csv
-q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,acc_count,code,'1' as status from transparency.csv r" -d, -H -O  > representative-finance-light.csv
+q "select r.id,contact_country,sub_category,acronym,name,main_category,cost_min,cost_max,cost_absolute,fte,acc_count,code, status from transparency.csv r" -d, -H -O  > representative-finance-light.csv
 
 #curl -O http://api.lobbyfacts.eu/api/1/accreditation.csv > accreditation.csv
 #echo 'id,accredited' > representative_count.csv
@@ -69,5 +69,5 @@ q "select representative_id id,count(*) accredited FROM accreditation.csv where 
 #csvjoin --left -c id,id  representative-finance-light.csv representative_count.csv  > r.csv
 q "select r.*,c.id as country, accredited FROM representative-finance-light.csv r left join representative_count.csv a on (r.id=a.id) left join country.csv c on r.contact_country=c.code" -d, -H -O > r.csv
 
-cp r.csv r.active.csv
-#q 'select * from r.csv where status="active"' -d, -H -O > r.active.csv
+#cp r.csv r.active.csv
+q 'select * from r.csv where status="active"' -d, -H -O > r.active.csv
