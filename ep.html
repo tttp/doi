@@ -510,7 +510,7 @@ function grid (selector,data) {
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
 		])
 	.size(1000)
-	.sortBy(function (d) {return d.max})
+	.sortBy(function (d) {return d.min})
 	.renderlet(function (chart) {
 		i = 0;
 		$(".dc-table-group").remove();
@@ -1300,6 +1300,21 @@ $(function() {
 					m.eugroup = "EFDD";
 				}
 				m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
+				if(m.epid == 124753){
+					m.doi.mandate[0][0] = "Conseillère municipale (sans indemnité)";
+					m.doi.mandate[0][1] = 0;
+				}
+				if(m.epid == 124760){
+					m.doi.mandate[0][0] = "Conseiller régional de Haute Normandie";
+					m.doi.mandate[0][1] = 2;
+				}
+				if(m.epid == 124951){
+					m.doi.mandate[0][0]  = "County Councillor";
+					m.doi.mandate[0][1] = 1;
+				}
+				if(m.epid == 124965){
+					m.doi.mandate[0][1] = 3;
+				}
 				
 				a = _.find(attendance,function (d) { return d.id == m.epid  });
 				if (a) {
