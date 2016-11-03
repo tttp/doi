@@ -409,7 +409,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			if (!representatives[d.guestid])
 				return "Unknown";
 			sub=representatives[d.guestid].sub_category;
-			return [representatives[d.guestid].main_category,subCategories[sub]];
+			//return [representatives[d.guestid].main_category,subCategories[sub]];
+			//return [representatives[d.guestid].main_category,representatives[d.guestid].sub_category_title];
+			if(representatives[d.guestid].sub_category_title == "Unknown"){
+				return representatives[d.guestid].sub_category_title;
+			} else {
+				return [representatives[d.guestid].main_category,representatives[d.guestid].sub_category_title];
+			}
 	});
 
 	var group   = dim.group().reduceSum(function(d) {   return 1; });
@@ -1647,6 +1653,9 @@ function eventpopup (epid) {
 <script>
 'use strict';
 
+//New subategories
+var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professional consultancies","Self-employed consultants":"Self-employed consultants","Companies & groups":"Companies & groups","Other in house lobbyists":"Other in house lobbyists","Trade and business organisations":"Trade and business organisations","Trade unions":"Trade unions","Trade unions and professional associations":"Trade unions","Trade, business & professional associations":"Unknown","Non-governmental organisations, platforms and networks and similar":"Non-governmental organisations, platforms and networks and similar","Academic institutions":"Academic institutions","Think tanks and research institutions":"Think tanks and research institutions","Organisations representing churches and religious communities":"Churches & religious communities","Local, regional and municipal authorities (at sub-national level)":"Unknown","Other public or mixed entities, created by law whose purpose is to act in the public interest":"Other public or mixed entities","Other public or mixed entities, etc.":"Other public or mixed entities","Other sub-national public authorities":"Other sub-national public authorities","Regional structures":"Regional structures","Transnational associations and networks of public regional or other sub-national authorities":"Transnational public networks","Unknown":"Unknown"};
+
 //Set last updates as yesterday's date
   var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
   var updatedate = new Date();
@@ -1708,6 +1717,7 @@ function eventpopup (epid) {
 						//representatives[d.identification_code]=d;
 						representatives[d.id]=d;
 						representatives[d.id].accredited = d.acc_count;
+						representatives[d.id].sub_category_title = newSubcat[representatives[d.id].sub_category_title];
 			});
 				 renderLoaded();
 		});     
