@@ -1251,6 +1251,10 @@ function eventpopup (epid) {
 			var now = Date.now();
 			var a;
 
+			//Remove duplicate events with unknown commissioner (duplicates of Hill)
+			events = _.filter(events, function(d) {
+				return d.host != 'Commissioner';
+			});
 			_.each (events, function (d) {
         if (!d.guestid)
           return;
