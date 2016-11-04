@@ -954,6 +954,24 @@ function drawScore() {
 
 		return rangeEUR[category][field];
 	}
+	
+	function getAmountMandates (category, field) { //field = min (default) or max or "string"
+		field = field || "min";
+		if(field == 'string' && category.length > 0){
+			return category;
+		}
+		if (!category) return "0";
+		if (isNaN(category)) return category;
+		if (category < 0 && field == "min") return "0";
+		if (category < 0 && field == "max") return "499";
+		if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
+		 
+		if (category >=4 && field == "max") return "or more";
+		if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
+			return  rangeEUR[category]["min"] + " &#8605; "+  rangeEUR[category]["max"];
+
+		return rangeEUR[category][field];
+	}
 
 function hashFilter () {
 	var hash = window.location.hash;
@@ -1302,18 +1320,21 @@ $(function() {
 				m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
 				if(m.epid == 124753){
 					m.doi.mandate[0][0] = "Conseillère municipale (sans indemnité)";
-					m.doi.mandate[0][1] = 0;
+					m.doi.mandate[0][1] = "0";
 				}
 				if(m.epid == 124760){
 					m.doi.mandate[0][0] = "Conseiller régional de Haute Normandie";
-					m.doi.mandate[0][1] = 2;
+					//m.doi.mandate[0][1] = 2;
+					m.doi.mandate[0][1] = "2000";
 				}
 				if(m.epid == 124951){
 					m.doi.mandate[0][0]  = "County Councillor";
-					m.doi.mandate[0][1] = 1;
+					//m.doi.mandate[0][1] = 1;
+					m.doi.mandate[0][1] = "937.18 EUR (833,33 GBP)";
 				}
 				if(m.epid == 124965){
-					m.doi.mandate[0][1] = 3;
+					//m.doi.mandate[0][1] = 3;
+					m.doi.mandate[0][1] = "5997,95 EUR (5333,33 GBP)";
 				}
 				
 				a = _.find(attendance,function (d) { return d.id == m.epid  });
@@ -1446,7 +1467,7 @@ $(function() {
 
 <tr><td class="dc-table-label" colspan="2">B. Other mandates</td></tr>
 <% _.each(doi.mandate, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmountMandates(a[1],"string") %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">C. Regular outside activity</td></tr>
