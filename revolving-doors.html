@@ -191,14 +191,20 @@ function grid(selector,data) {
 			if (typeof d.Category_activity == "undefined") return "";
 			return d.Category_activity;
 			});
-	var actcategoryGroup   = actcategory.group().reduceSum(function(d) { return 1; });
+	var actcategoryGroup   = actcategory.group().reduceSum(function(d) { 
+		//return 1;
+		return d.allactivities.length;
+	});
 	
 	//MEP/Commission
 	var row_prevtype = dc.rowChart(".nactivities");
 	var prevtype  = ndx.dimension(function(d) {
 			return d.prevType;
 			});
-	var prevtypeGroup = prevtype.group().reduceSum(function(d) { return 1; });
+	var prevtypeGroup = prevtype.group().reduceSum(function(d) { 
+		//return 1;
+		return d.allactivities.length;
+	});
 
 	//Country
 	var bar_country = dc.barChart(selector + " .country");
@@ -421,11 +427,13 @@ function grid(selector,data) {
 		$(".dc-data-grid").on("click",".dc-table-row", function () {
 			var pname = $(this).find(".mep").data("pname");
 			var pdata = _.find(tool_people,function (d) { return d.Name == pname  });
+			$("#mepdialog #mepphoto").attr("src","");
 			if(pdata.ID && pdata.ID.length > 0){
 				$("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+pdata.ID+".jpg");
 			}
 			$("#mepdialog .modal-title").html (pdata.Name);
 			$("#mepdialog .details").html(detailtpl(pdata));
+			$("#mepdialog .details").append(sidetpl(pdata));
 			/*
 			var epid = $(this).find(".mep").data("epid");
 			window.location.hash = "mep"+epid;
@@ -788,6 +796,7 @@ var tool_ids = [];
 
 $(function() {
 	detailtpl =  _.template($("#detailstpl2").html());
+	sidetpl =  _.template($("#sidetpl").html());
 });
 
 //Render
@@ -817,6 +826,10 @@ var fixdataset = function(){
 		if(identry){
 			m.ID = identry.ID;
 		}
+		
+		//Assign activities
+		m.allactivities = [];
+		m.allactivities = _.filter(tool_activities,function (a) { return a.Name == m.Name  });
 		
 		//Assign MEP or Commission
 		m.prevType = "";
@@ -870,14 +883,15 @@ $(function() {
 		,function(error, rows) {
 			tool_ids = rows;			 
 	}); 
-	d3.csv("data/tool_people.csv", function(d) {return d;}
+	d3.csv("data/tool_activities.csv", function(d) {return d;}
 		,function(error, rows) {
 			//tool_people = rows;
 			//fixdataset();
 			//grid("#ep2014list",tool_people);			 
 			//renderLoaded();
+			tool_activities = rows;
 	}); 
-	d3.csv("data/tool_activities.csv", function(d) {return d;}
+	d3.csv("data/tool_people.csv", function(d) {return d;}
 		,function(error, rows) {
 			 //tool_activities = rows;
 			 //renderLoaded();
@@ -900,47 +914,13 @@ $(function() {
 
 
 <script type="tpl" id="sidetpl">
-<h4>Declaration of Members' financial interests</h4>
+<h4>Activities</h4>
 <table class="table table-condensed">
-<tr><td class="dc-table-label" colspan="2">A. Previous occupation</td></tr>
-<% _.each(doi.occupation, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
+<tr><td class="dc-table-label">Previous position</td><td class="dc-table-label" >New position</td></tr>
+<% _.each(allactivities, function (a) { %>
+	<tr><td><%= a.Previous_position %></td><td><%= a.New_position %></td></tr>
 <% }); %>
-
-<tr><td class="dc-table-label" colspan="2">B. Other mandates</td></tr>
-<% _.each(doi.mandate, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmountMandates(a[1],"string") %></td></tr>
-<% }); %>
-
-<tr><td class="dc-table-label" colspan="2">C. Regular outside activity</td></tr>
-<% _.each(doi.activity, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
-<% }); %>
-
-<tr><td class="dc-table-label" colspan="2">D. Committee & Board memberships</td></tr>
-<% _.each(doi.membership, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
-<% }); %>
-
-<tr><td class="dc-table-label" colspan="2">E. Occasional outside activity</td></tr>
-<% _.each(doi.occasional, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
-<% }); %>
-
-<tr><td class="dc-table-label" colspan="2">F. Holdings</td></tr>
-<% _.each(doi.holding, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
-<% }); %>
-<tr><td class="dc-table-label" colspan="2">I. Additional information</td></tr>
-<tr><td colspan="3"><%= doi.additional %></td></tr>
-
-
 </table>
-<div class="row hide">
-<div class="col-md-12">
-<%= doi.support%>
-</div>
-</div>
 </script>
 
 <script type="tpl" id="detailstpl">
@@ -1020,9 +1000,20 @@ $(function() {
 			 <div class="col-md-8"><%= Party %> </div>
 		 </div>
 		 <div class="row">
+			 <div class="col-md-4">Institution</div>
+			 <div class="col-md-8"><%= Institution %> </div>
+		 </div>
+		 <div class="row">
 			 <div class="col-md-4">Previous Position</div>
 			 <div class="col-md-8"><%= Previous_position %> </div>
 		 </div>
+		 <% if(Institution == "European Parliament") { %>
+			<div class="row">
+			 <div class="col-md-4">Full profile</div>
+			 <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= ID %>.html">European Parliament Website</a></div>
+			</div>
+		 <% }; %>
+		 
 </script>
 
 <div class="modal fade" id="mepdialog">
