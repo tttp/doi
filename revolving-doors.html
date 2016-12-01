@@ -219,8 +219,8 @@ function grid(selector,data) {
 			return d.Category_activity;
 			});
 	var actcategoryGroup   = actcategory.group().reduceSum(function(d) { 
-		//return 1;
-		return d.allactivities.length;
+		return 1;
+		//return d.allactivities.length;
 	});
 	
 	//MEP/Commission
@@ -229,8 +229,8 @@ function grid(selector,data) {
 			return d.prevType;
 			});
 	var prevtypeGroup = prevtype.group().reduceSum(function(d) { 
-		//return 1;
-		return d.allactivities.length;
+		return 1;
+		//return d.allactivities.length;
 	});
 
 	//Country
@@ -859,17 +859,21 @@ var fixdataset = function(){
 		
 		//Assign activities
 		m.allactivities = [];
+		/*
 		m.allactivities = _.filter(tool_activities,function (a) { return a.Name == m.Name  });
 		m.comm_link = m.allactivities[0].Link_source;
+		*/
 		
 		//Assign MEP or Commission
-		m.prevType = "";
+		m.prevType = m.Institution;
+		/*
 		if(m.Previous_position == "MEP"){
 			m.prevType = "European Parliament";
 		} else {
 			m.prevType = "European Commission";
 		}
-		
+		*/
+		m.Category_activity = m.category_pie;
 		if(m.Category_activity == ''){
 			m.Category_activity = 'Unknown';
 		}
@@ -914,6 +918,7 @@ $(function() {
 		,function(error, rows) {
 			tool_ids = rows;			 
 	}); 
+	/*
 	d3.csv("data/tool_activities.csv", function(d) {return d;}
 		,function(error, rows) {
 			//tool_people = rows;
@@ -923,6 +928,15 @@ $(function() {
 			tool_activities = rows;
 	}); 
 	d3.csv("data/tool_people.csv", function(d) {return d;}
+		,function(error, rows) {
+			 //tool_activities = rows;
+			 //renderLoaded();
+			 tool_people = rows;
+			 fixdataset();
+			 grid("#ep2014list",tool_people);	
+	});
+	*/
+	d3.csv("data/tool_total.csv", function(d) {return d;}
 		,function(error, rows) {
 			 //tool_activities = rows;
 			 //renderLoaded();
@@ -948,6 +962,7 @@ $(function() {
 <h4>Activities</h4>
 <table class="table table-condensed">
 <tr><td class="dc-table-label">New position</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td></tr>
+<% allactivities = _.filter(tool_people,function (a) { return a.Name == Name  }); %>
 <% _.each(allactivities, function (a) { %>
 	<tr><td><%= a.New_position %></td><td><%= a.Category_activity %></td><td><%= a.Paid_unpaid %></td></tr>
 <% }); %>
@@ -1047,7 +1062,7 @@ $(function() {
 		 <% if(Institution == "European Commission") { %>
 			<div class="row">
 			 <div class="col-md-4">Source</div>
-			 <div class="col-md-8"><a target="_blank" href="<%= comm_link %>"><%= comm_link %></a></div>
+			 <div class="col-md-8"><a target="_blank" href="<%= Link_source %>"><%= Link_source %></a></div>
 			</div>
 		 <% }; %>
 		 
