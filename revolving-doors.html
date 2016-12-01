@@ -193,6 +193,7 @@ var eu_groups = {
 };
 
 
+
 function grid(selector,data) {
 	var ndx = crossfilter(data),
 			all = ndx.groupAll();
@@ -223,6 +224,15 @@ function grid(selector,data) {
 		//return d.allactivities.length;
 	});
 	
+	//Activity subcategory subcat
+	var bar_subcat = dc.barChart(selector + " .subcat");
+	var asubcategory = ndx.dimension(function(d) {
+			return d.category_bar;
+	});
+	var asubcategoryGroup   = asubcategory.group().reduceSum(function(d) { 
+		return 1;
+	});
+	
 	//MEP/Commission
 	var row_prevtype = dc.rowChart(".nactivities");
 	var prevtype  = ndx.dimension(function(d) {
@@ -245,10 +255,27 @@ function grid(selector,data) {
 		function() {return {count:0,score:0}; }
 	);
 	
+	var countOfficials = function() {
+		var thesepeople = [];
+		var officialscount = 0;
+		var thisdataset = actcategory.top(Infinity);
+		//Count people
+		_.each (thisdataset, function (m) {
+		if(thesepeople.indexOf(m.Name) == -1){
+			officialscount  ++;
+			thesepeople.push(m.Name);
+		} 
+		});
+		$('.filter-pcount').html(officialscount);
+	}
+	
 	row_prevtype
 		.margins({top: 0, right: 5, bottom: 20, left: 5})
 		.height(100)
 		.gap(2)
+		.on("filtered", function (chart) {
+			 countOfficials();
+		})
 		.x(d3.scale.ordinal())
 		.elasticX(true)
 		/*
@@ -268,6 +295,9 @@ function grid(selector,data) {
 	pie_actcategory
 		.dimension(actcategory)
 		.group(actcategoryGroup)
+		.on("filtered", function (chart) {
+			 countOfficials();
+		})
 		.legend(dc.legend().x(30).y(220).itemHeight(13).gap(5))
 		.renderlet(function (chart) {
 				});
@@ -279,6 +309,9 @@ function grid(selector,data) {
 			return eu_groups[d.key];
 		})
 		.group(groupGroup)
+		.on("filtered", function (chart) {
+			 countOfficials();
+		})
 		.renderlet(function (chart) {
 				});
 
@@ -359,6 +392,9 @@ function grid(selector,data) {
 		.brushOn(false)
 		.elasticY(true)
 		.yAxisLabel("#Activities")
+		.on("filtered", function (chart) {
+			 countOfficials();
+		})
 		.dimension(country)
 		.group(countryGroup);
 
@@ -367,6 +403,41 @@ function grid(selector,data) {
 
 	function rotateBarChartLabels() {
 		d3.selectAll(selector+ ' .country .axis.x text')
+			.style("text-anchor", "end" )
+			.attr("transform", function(d) { return "rotate(-90, -4, 9) "; });
+	}
+	
+	bar_subcat
+		.height(340)
+		.outerPadding(0)
+		.gap(1)
+		.margins({top: 0, right: 30, bottom: 95, left: 30})
+		.colorCalculator(function(d, i) {
+				//return color(d.value.score/d.value.count);
+				return "#3695d8";
+		})
+		/*
+		.valueAccessor (
+			function(d) {
+			return d.value.count;
+			})
+			*/
+		.on("postRender", function( chart ){
+				adjustBarChartLabels(chart);
+		 })
+		 .on("filtered", function (chart) {
+			 countOfficials();
+		})
+		.x(d3.scale.ordinal())
+		.xUnits(dc.units.ordinal)
+		.brushOn(false)
+		.elasticY(true)
+		.yAxisLabel("#Activities")
+		.dimension(asubcategory)
+		.group(asubcategoryGroup);
+		
+	function rotateBarChartLabels2() {
+		d3.selectAll(selector+ ' .subcat .axis.x text')
 			.style("text-anchor", "end" )
 			.attr("transform", function(d) { return "rotate(-90, -4, 9) "; });
 	}
@@ -405,6 +476,9 @@ function grid(selector,data) {
 	wall=dc.dataTable(".dc-data-grid")
 	 .dimension(name)
 		.group(function (d) { return "";return d.Country; })
+		.on("filtered", function (chart) {
+			 countOfficials();
+		})
 		.columns([
 				function(d) { i=i+1; return i; },
 				function(d) { return "<span class='mep' data-epid='"+d.ID+"' data-pname='"+d.Name+"'>"+d.Name +"</b></span>"; },
@@ -688,7 +762,12 @@ function hashFilter () {
 						<div id="mep_number" class="dc-data-count">
 						<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> Activities
 						</div>
-					</div>  
+					</div> 
+					<div class="col-md-2 filter_number">
+						<div id="mep_number2" class="dc-data-count">
+						<span class="big_number filter-pcount"></span>out of <strong class="total-pcount"></strong> Officials
+						</div>
+					</div> 
 					<!--
 					<div class="col-md-2 filter_number">
             			<div><span class="big_number afilter_long nbaccredited"></span>Total: activities</div>
@@ -713,12 +792,7 @@ function hashFilter () {
 		<div class="container">
 			<h2>Charts</h2>
 			<div class="row">
-				<div class="col-md-6 chart_box">
-					<h3>Country <!--span class="info">info</span--></h3>
-					<div class="country chart-full"></div>
-					<br class="clear" />
-				</div>
-				<div class="col-md-3 chart_box" id="group_container">
+				<div class="col-md-6 chart_box" id="group_container" style="margin-bottom: 80px;">
 					<h3>Political Groups <!--span class="info">info</span--></h3>
 					<div class="group">
 					</div>
@@ -735,7 +809,7 @@ function hashFilter () {
 					</div>
 					<br class="clear" />
 				</div>
-				<div class="col-md-3 chart_box">
+				<div class="col-md-6 chart_box">
 					<h3>Category of new position</h3>
 
 					<div class="actcategory activities range">
@@ -753,6 +827,18 @@ function hashFilter () {
 						-->
 					</div>
 
+					<br class="clear" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 chart_box">
+					<h3>Country <!--span class="info">info</span--></h3>
+					<div class="country chart-full"></div>
+					<br class="clear" />
+				</div>
+				<div class="col-sm-6 chart_box">
+					<h3>Subcategory of activities <!--span class="info">info</span--></h3>
+					<div class="subcat chart-full"></div>
 					<br class="clear" />
 				</div>
 			</div>
@@ -849,7 +935,16 @@ var renderLoaded  = _.after(3,  function () {
 });
 
 var fixdataset = function(){
+	var peoplenum = 0;
+	var countedpeople = [];
 	_.each (tool_people, function (m) {
+	
+		//Count people
+		if(countedpeople.indexOf(m.Name) == -1){
+			peoplenum ++;
+			countedpeople.push(m.Name);
+		} 
+		
 	
 		//Assign ID
 		var identry = _.find(tool_ids,function (d) { return d.Name == m.Name  });
@@ -895,6 +990,8 @@ var fixdataset = function(){
 			m.Political_group = "EFDD";
 		}
 	});
+	$('.total-pcount').html(peoplenum);
+	$('.filter-pcount').html(peoplenum);
 }
 /*
 var eu_groups = {
@@ -945,10 +1042,24 @@ $(function() {
 			 grid("#ep2014list",tool_people);	
 	});
 	
+	var countOfficialsWall = function(thisdataset) {
+		var thesepeople = [];
+		var officialscount = 0;
+		//Count people
+		_.each (thisdataset, function (m) {
+		if(thesepeople.indexOf(m.Name) == -1){
+			officialscount  ++;
+			thesepeople.push(m.Name);
+		} 
+		});
+		$('.filter-pcount').html(officialscount);
+	}
+	
 	$("#search-input").keyup (function () {
 		var s = $(this ).val().toLowerCase();
 		wall.dimension().filter(function (d) { 
 			return d.indexOf (s) !== -1;} );
+		countOfficialsWall(wall.dimension().top(Infinity));
 		$(".resetall").attr("disabled",true);
 		dc.redrawAll();
 	});
@@ -1059,12 +1170,11 @@ $(function() {
 			 <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= ID %>.html">European Parliament Website</a></div>
 			</div>
 		 <% }; %>
-		 <% if(Institution == "European Commission") { %>
-			<div class="row">
-			 <div class="col-md-4">Source</div>
-			 <div class="col-md-8"><a target="_blank" href="<%= Link_source %>"><%= Link_source %></a></div>
-			</div>
-		 <% }; %>
+		<div class="row">
+		 <div class="col-md-4">Source</div>
+		 <div class="col-md-8"><a target="_blank" href="<%= Link_source %>"><%= Link_source %></a></div>
+		</div>
+
 		 
 		 
 </script>
