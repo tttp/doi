@@ -89,6 +89,33 @@ min-height: 90px;
     margin-bottom: 0;
 	height: 18px;
 }
+.feedback-btn {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+.feedback-btn a {
+	display: inline-block;
+	background: #2180c2;
+	border-radius: 3px;
+	color: #fff !important;
+	padding: 7px 30px;
+	text-align: center;
+	width: auto;
+	text-decoration: none;
+}
+.feedback-btn a:hover {
+	background: #1170a2;
+}
+.navbar-collapse ul.navbar-right li a {
+	padding: 0 10px !important;
+}
+.navbar-collapse ul.navbar-right li a {
+	line-height: 80px !important;
+}
+.dc-table-label {
+	padding: 5px 10px;
+}
 </style>
 
 </head>
@@ -598,7 +625,7 @@ function hashFilter () {
 	 </div><!-- container -->
 </nav>
 <div class="container_wrap mi_header" id="about_wrap_top">&nbsp;</div>
-<div class="container_wrap mi_header" id="about_wrap">
+<div class="container_wrap mi_header" id="about_wrap" style="position: relative;">
 	<div class="container">
 		<div id="about_container" class="row">
 			<div class="col-md-3 col-lg-3" id="about_content_icon">
@@ -631,6 +658,9 @@ function hashFilter () {
 		</div>
 		
 	</div><!-- container -->
+	<div class="feedback-btn">
+		<a href="https://goo.gl/forms/OXYhE5lpOnve1Btw2" target="_blank">FEEDBACK</a>
+	</div>
 </div>
 <div class="container_wrap" id="toggle_about_wrap">
 	<div class="container">
@@ -830,6 +860,7 @@ var fixdataset = function(){
 		//Assign activities
 		m.allactivities = [];
 		m.allactivities = _.filter(tool_activities,function (a) { return a.Name == m.Name  });
+		m.comm_link = m.allactivities[0].Link_source;
 		
 		//Assign MEP or Commission
 		m.prevType = "";
@@ -916,9 +947,9 @@ $(function() {
 <script type="tpl" id="sidetpl">
 <h4>Activities</h4>
 <table class="table table-condensed">
-<tr><td class="dc-table-label">Previous position</td><td class="dc-table-label" >New position</td></tr>
+<tr><td class="dc-table-label">New position</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td></tr>
 <% _.each(allactivities, function (a) { %>
-	<tr><td><%= a.Previous_position %></td><td><%= a.New_position %></td></tr>
+	<tr><td><%= a.New_position %></td><td><%= a.Category_activity %></td><td><%= a.Paid_unpaid %></td></tr>
 <% }); %>
 </table>
 </script>
@@ -1013,6 +1044,13 @@ $(function() {
 			 <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= ID %>.html">European Parliament Website</a></div>
 			</div>
 		 <% }; %>
+		 <% if(Institution == "European Commission") { %>
+			<div class="row">
+			 <div class="col-md-4">Source</div>
+			 <div class="col-md-8"><a target="_blank" href="<%= comm_link %>"><%= comm_link %></a></div>
+			</div>
+		 <% }; %>
+		 
 		 
 </script>
 
