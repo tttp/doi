@@ -90,13 +90,16 @@ min-height: 90px;
 	height: 18px;
 }
 .feedback-btn {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
+	//position: absolute;
+	//bottom: 20px;
+	//right: 20px;
+	position: relative;
+	top: 30px;
+	left: 30px;
 }
 .feedback-btn a {
 	display: inline-block;
-	background: #2180c2;
+	background: #de3e3e;
 	border-radius: 3px;
 	color: #fff !important;
 	padding: 7px 30px;
@@ -105,7 +108,7 @@ min-height: 90px;
 	text-decoration: none;
 }
 .feedback-btn a:hover {
-	background: #1170a2;
+	background: #ce2e2e;
 }
 .navbar-collapse ul.navbar-right li a {
 	padding: 0 10px !important;
@@ -115,6 +118,9 @@ min-height: 90px;
 }
 .dc-table-label {
 	padding: 5px 10px;
+}
+.political-legend {
+	padding-left: 25%;
 }
 </style>
 
@@ -157,6 +163,7 @@ $( document ).ready(function() {
 	
 });
 
+
 $.tablesorter.addParser({
 	// use a unique id
 	id: 'amount',
@@ -174,6 +181,7 @@ $.tablesorter.addParser({
 	// so it will work for everything, but numeric is faster for numbers
 	type: 'numeric'
 });
+
 
 var detailtpl = sidetpl = null ;
 var wall = null;
@@ -469,7 +477,8 @@ function grid(selector,data) {
 							<th class="header">Category of Activity</th>
 							*/
 	var name = ndx.dimension(function(d) {
-			return d.Name.toLowerCase() + " "+ d.Political_group.toLowerCase() + " " + d.Previous_position.toLowerCase() +" " + d.New_position.toLowerCase() + d.Category_activity.toLowerCase();
+			//return d.Name.toLowerCase() + " "+ d.Political_group.toLowerCase() + " " + d.Previous_position.toLowerCase() +" " + d.New_position.toLowerCase() + d.Category_activity.toLowerCase();
+			return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country;
 			});
 	
 	var i = 0;	
@@ -483,7 +492,7 @@ function grid(selector,data) {
 				function(d) { i=i+1; return i; },
 				function(d) { return "<span class='mep' data-epid='"+d.ID+"' data-pname='"+d.Name+"'>"+d.Name +"</b></span>"; },
 				function(d) {  
-					if(d.country == "United Kingdom"){
+					if(d.Country == "United Kingdom"){
 						return "UK";
 					}
 					return d.Country; 
@@ -493,7 +502,7 @@ function grid(selector,data) {
 				},
 				function(d) {  return "<div class='right-align'>"+d.Previous_position +"</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.New_position+"</div>"; },
-				function(d) {  return "<div class='right-align'>"+d.Category_activity+"</div>"; }
+				function(d) {  return "<div class='right-align'>"+d.Category_activity+"</div>"; }			
 		])
 	.size(1000)
 	.sortBy(function (d) {return d.Name})
@@ -534,7 +543,7 @@ function grid(selector,data) {
 			}
 			$("#mepdialog .modal-title").html (pdata.Name);
 			$("#mepdialog .details").html(detailtpl(pdata));
-			$("#mepdialog .details").append(sidetpl(pdata));
+			$("#mepdialog .detailstable").html(sidetpl(pdata));
 			/*
 			var epid = $(this).find(".mep").data("epid");
 			window.location.hash = "mep"+epid;
@@ -553,18 +562,18 @@ function grid(selector,data) {
 		dc.renderAll();
 		hashFilter();
 		
-		/*
-
+		
+	
 		 $("table.dc-data-grid").tablesorter(
-				{theme:"bootstrap",headers: { 5: { sorter: 'amount' } }}
+				{theme:"bootstrap",headers: { 7: { sorter: 'amount' } }}
 		 ).bind("sortEnd",function(e, table) {
 			ga && ga('send', 'event', 'sort','table');
 			var i=0;
 			$("td:first-child").each (function(){this.innerHTML=++i;});
 		});
+	
 		
-		*/
-		 
+		
 
 
 
@@ -732,9 +741,6 @@ function hashFilter () {
 		</div>
 		
 	</div><!-- container -->
-	<div class="feedback-btn">
-		<a href="https://goo.gl/forms/OXYhE5lpOnve1Btw2" target="_blank">FEEDBACK</a>
-	</div>
 </div>
 <div class="container_wrap" id="toggle_about_wrap">
 	<div class="container">
@@ -752,7 +758,7 @@ function hashFilter () {
 			<div class="col-xs-9 col-sm-9 col-md-4" id="filter_field_container">
 				<p>Search or Filter:</p>
 				<div class="input-group">
-						<input type="text" id="search-input" class="form-control input-lg" placeholder="MEP name, national party, EP committee...">
+						<input type="text" id="search-input" class="form-control input-lg" placeholder="Name, new position, country...">
 				</div>
 			</div>
 			<div class="col-sm-7 col-md-7" id="filter_numbers">
@@ -768,6 +774,11 @@ function hashFilter () {
 						<span class="big_number filter-pcount"></span>out of <strong class="total-pcount"></strong> Officials
 						</div>
 					</div> 
+					<div class="col-md-4 filter_number">
+					<div class="feedback-btn">
+						<a href="https://goo.gl/forms/OXYhE5lpOnve1Btw2" target="_blank">Spotted a mistake?</a>
+					</div>
+					</div>
 					<!--
 					<div class="col-md-2 filter_number">
             			<div><span class="big_number afilter_long nbaccredited"></span>Total: activities</div>
@@ -792,11 +803,11 @@ function hashFilter () {
 		<div class="container">
 			<h2>Charts</h2>
 			<div class="row">
-				<div class="col-md-6 chart_box" id="group_container" style="margin-bottom: 80px;">
+				<div class="col-md-6 chart_box" id="group_container" style="margin-bottom: 0px;">
 					<h3>Political Groups <!--span class="info">info</span--></h3>
 					<div class="group">
 					</div>
-					<div class="legend">
+					<div class="legend political-legend">
 						<div class="epp">EPP</div>
 						<div class="gue">GUE/NGL</div>
 						<div class="alde">ALDE</div>
@@ -805,12 +816,19 @@ function hashFilter () {
 						<div class="greens">Greens/EFA</div>
 						<div class="efdd">EFDD</div>
 						<div class="ni">NI</div>
-            <div class="enf">ENF</div>
+						<div class="enf">ENF</div>
 					</div>
 					<br class="clear" />
 				</div>
 				<div class="col-md-6 chart_box">
-					<h3>Category of new position</h3>
+					<h3>Country <!--span class="info">info</span--></h3>
+					<div class="country chart-full"></div>
+					<br class="clear" />
+				</div>
+			</div>
+			<div class="row" style="margin-bottom: 40px;">
+				<div class="col-md-6 chart_box">
+					<h3>Category of activities</h3>
 
 					<div class="actcategory activities range">
 					</div>
@@ -829,13 +847,6 @@ function hashFilter () {
 
 					<br class="clear" />
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 chart_box">
-					<h3>Country <!--span class="info">info</span--></h3>
-					<div class="country chart-full"></div>
-					<br class="clear" />
-				</div>
 				<div class="col-sm-6 chart_box">
 					<h3>Subcategory of activities <!--span class="info">info</span--></h3>
 					<div class="subcat chart-full"></div>
@@ -844,7 +855,7 @@ function hashFilter () {
 			</div>
 			<div class="row">
 				<div class="col-sm-12 chart_box">
-					<h3>Number of Activities <!--span class="info">info</span--></h3>
+					<h3>Number of new positions <!--span class="info">info</span--></h3>
 					<div class="nactivities chart-full"></div>
 					<br class="clear" />
 				</div>
@@ -862,7 +873,7 @@ function hashFilter () {
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">POST MANDATE ACTIVITY</h2><div id="last_update">Last updated: <span id="updatedate"></span></div>
+				<h2 class="table_title">POST-MANDATE ACTIVITIES</h2><div id="last_update">Last updated: <span id="updatedate"></span></div>
 				
 				<div id="info_table_container" class="hidden">
 					<div class="info_chart info_table" id="attendance_info">
@@ -934,9 +945,14 @@ var renderLoaded  = _.after(3,  function () {
 	}
 });
 
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 var fixdataset = function(){
 	var peoplenum = 0;
 	var countedpeople = [];
+	var cats = [];
 	_.each (tool_people, function (m) {
 	
 		//Count people
@@ -945,9 +961,18 @@ var fixdataset = function(){
 			countedpeople.push(m.Name);
 		} 
 		
+		m.category_bar = m.category_bar.trim().toLowerCase().capitalize();
+		m.category_pie = m.category_pie.trim().toLowerCase().capitalize();
+		
+		//List categories
+		if(cats.indexOf(m.category_pie) == -1){
+			cats.push(m.category_pie);
+		} 
+		
 	
 		//Assign ID
 		var identry = _.find(tool_ids,function (d) { return d.Name == m.Name  });
+		m.ID = "";
 		if(identry){
 			m.ID = identry.ID;
 		}
@@ -980,7 +1005,7 @@ var fixdataset = function(){
 		if(m.Political_group == "Greens-EFA"){
 			m.Political_group = "Greens/EFA";
 		}
-		if(m.Political_group == "NI" || m.Political_group == ""){
+		if(m.Political_group == "NI" || m.Political_group == "NI " || m.Political_group == ""){
 			m.Political_group = "NA/NI";
 		}
 		if (m.Political_group == "PPE") { 
@@ -1060,8 +1085,18 @@ $(function() {
 		wall.dimension().filter(function (d) { 
 			return d.indexOf (s) !== -1;} );
 		countOfficialsWall(wall.dimension().top(Infinity));
-		$(".resetall").attr("disabled",true);
+		//$(".resetall").attr("disabled",true);
 		dc.redrawAll();
+	});
+	$(".resetall").attr("disabled",false);
+	$(".resetall").click(function() {
+		$("#search-input").val("");
+		//$(".resetall").attr("disabled",true);	
+		wall.filter(null);
+		dc.filterAll();
+		dc.filterAll(null);
+		dc.renderAll();
+
 	});
 	
 });  
@@ -1072,10 +1107,10 @@ $(function() {
 <script type="tpl" id="sidetpl">
 <h4>Activities</h4>
 <table class="table table-condensed">
-<tr><td class="dc-table-label">New position</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td></tr>
+<tr><td class="dc-table-label">New position</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td><td class="dc-table-label" >Source</td></tr>
 <% allactivities = _.filter(tool_people,function (a) { return a.Name == Name  }); %>
 <% _.each(allactivities, function (a) { %>
-	<tr><td><%= a.New_position %></td><td><%= a.Category_activity %></td><td><%= a.Paid_unpaid %></td></tr>
+	<tr><td><%= a.New_position %></td><td><%= a.Category_activity %></td><td><%= a.Paid_unpaid %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
 <% }); %>
 </table>
 </script>
@@ -1170,10 +1205,6 @@ $(function() {
 			 <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= ID %>.html">European Parliament Website</a></div>
 			</div>
 		 <% }; %>
-		<div class="row">
-		 <div class="col-md-4">Source</div>
-		 <div class="col-md-8"><a target="_blank" href="<%= Link_source %>"><%= Link_source %></a></div>
-		</div>
 
 		 
 		 
@@ -1192,6 +1223,9 @@ $(function() {
 									<div class="col-md-4">
 										<img id="mepphoto" src="" />
 									</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 detailstable" ></div>
 							</div>
 					</div>
 					<div class="side">
