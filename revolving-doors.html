@@ -1041,6 +1041,12 @@ $(function() {
 			tool_ids = rows;			 
 	}); 
 	/*
+	d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRvSooLjJgpUdvT89edrsYFuC3La6ed8x-U9nRbP00XJKR8uHFz4ibBksAooYO1PnzmbGNwcMJ3RXML/pub?gid=1723379779&single=true&output=csv", function(d) {return d;}
+		,function(error, rows) {
+			alert(rows.toSource());			 
+	}); 
+	*/
+	/*
 	d3.csv("data/tool_activities.csv", function(d) {return d;}
 		,function(error, rows) {
 			//tool_people = rows;
@@ -1058,7 +1064,8 @@ $(function() {
 			 grid("#ep2014list",tool_people);	
 	});
 	*/
-	d3.csv("data/tool_total.csv", function(d) {return d;}
+	//d3.csv("data/tool_total.csv", function(d) {return d;}
+	d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRvSooLjJgpUdvT89edrsYFuC3La6ed8x-U9nRbP00XJKR8uHFz4ibBksAooYO1PnzmbGNwcMJ3RXML/pub?gid=1723379779&single=true&output=csv", function(d) {return d;}
 		,function(error, rows) {
 			 //tool_activities = rows;
 			 //renderLoaded();
