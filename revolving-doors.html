@@ -122,6 +122,9 @@ min-height: 90px;
 .political-legend {
 	padding-left: 25%;
 }
+#mepphoto {
+	max-width: 100%;
+}
 </style>
 
 </head>
@@ -552,6 +555,12 @@ function grid(selector,data) {
 			$("#mepdialog #mepphoto").attr("src","");
 			if(pdata.ID && pdata.ID.length > 0){
 				$("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+pdata.ID+".jpg");
+			} 
+			if(pdata.Institution == "European Commission" && pdata.Link_image.length > 1){
+				//alert(pdata.toSource());
+				//Find photo
+				var thisphoto = pdata.Link_image;
+				$("#mepdialog #mepphoto").attr("src",thisphoto);
 			}
 			$("#mepdialog .modal-title").html (pdata.Name);
 			$("#mepdialog .details").html(detailtpl(pdata));
