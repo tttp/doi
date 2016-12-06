@@ -200,6 +200,15 @@ var eu_groups = {
 "Array":"pink"
 };
 
+var catscolor = {
+	"Elected office & public sector":"#3182bd",
+	"Non-governmental organisations, platforms and networks and similar":"#6baed6",
+	"Others":"#9ecae1",
+	"Private sector":"#d02e14",
+	"Think tanks, research and academic institutions":"#e6550d",
+	"Unknown":"#fd8d3c"
+}
+
 
 
 function grid(selector,data) {
@@ -303,6 +312,9 @@ function grid(selector,data) {
 	pie_actcategory
 		.dimension(actcategory)
 		.group(actcategoryGroup)
+		.colorCalculator(function(d, i) {
+			return catscolor[d.key];
+		})
 		.on("filtered", function (chart) {
 			 countOfficials();
 		})
