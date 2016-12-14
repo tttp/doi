@@ -47,6 +47,27 @@ td.dc-table-column._6
 
 #mep_number {
 		margin-top: 0.1em;}
+.l_data_container {
+	padding: 0 15px;
+}
+.l_data_container div {
+	border: none;
+}
+.l_data_container_main {
+	background: #d4eaf6;
+}
+.l_data_container_host {
+	border: 4px solid #0f4c79 !important;
+	border-right: 3px solid #0f4c79 !important;
+	margin-top: 0 !important;
+	height: 230px;
+}
+.l_data_container_guest {
+	border: 4px solid #8e1556 !important;
+	border-left: 3px solid #8e1556 !important;
+	margin-top: 0 !important;
+	height: 230px;
+}
 </style>
 
 <meta name="twitter:card" content="summary" />
@@ -936,6 +957,17 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             "aaData": nameEvent.top(Infinity),
             "bDestroy": true,
         });
+		
+	function addcommas(x){
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+	
+	function countmeetings(who){
+		var countedmeetings = _.filter(events, function(event, index) {
+		  return event.host == who || event.guest == who;
+		});
+		return countedmeetings.length;
+	}
         	
     function format (d) {
     	//TODO: display lobby infos
@@ -963,14 +995,29 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     	            	
       if (!d)
         return "no data";
-    	s  = "<div class='l_data_container'>";
-    	s += "<div class='l_name'><label>Title</label> "+d.title+"</div>";
+		var thishost = _.find(meetingspages, function (x) { return x.name == d.host });
+    	s  = "<div class='l_data_container row'>";
+		s += "<div class='col-md-12 l_data_container_main'>";
+		s += "<div class='l_name'><label>Subject</label> "+d.title+"</div>";
     	s += "<div class='l_name'><label>Date</label> "+d.date+"</div>";
+		s += "</div>";
+		s += "<div class='col-md-6 l_data_container_host'>";
+		s += "<div class='l_name'><label>Host</label> "+d.host+"</div>";
+		s += "<div class='l_name'><label>Total meetings</label> "+countmeetings(d.host)+"</div>";
     	s += "<div class='l_name'><label>Cabinet</label> "+d.cabinet+"</div>";
-    	s += "<div class='l_name'><label>Host</label> "+d.host+"</div>";
-    	s += "<div class='l_category'><label>Guest</label> "+representatives[d.guestid].name+"</div>";
     	s += "<div class='l_category'><label>Nb Participants</label> "+d.participants+"</div>";
+		if(thishost){
+			s += "<div class='l_category'><label>Link to meeting page</label> <a target='_blank' href='"+thishost.url+"'>"+thishost.url+"</a></div>";
+		}
 //    	s += "<span class='lobbyist_info_container' id='lobbyist"+d.guestid+"'></span>"
+		s += "</div>";
+		s += "<div class='col-md-6 l_data_container_guest'>";
+		s += "<div class='l_category'><label>Guest</label> "+representatives[d.guestid].name+"</div>";
+		s += "<div class='l_name'><label>Total meetings</label> "+countmeetings(d.guest)+"</div>";
+		s += "<div class='l_category'><label>Country</label> "+representatives[d.guestid].contact_country+"</div>";
+		s += "<div class='l_category'><label>Category</label> "+representatives[d.guestid].sub_category_title+"</div>";
+		s += "<div class='l_category'><label>Lobby budget</label> "+addcommas(representatives[d.guestid].cost_min)+" - "+addcommas(representatives[d.guestid].cost_max)+"</div>";
+		s += "</div>";
     	s += "</div>";
     	return s;
      
@@ -1663,6 +1710,7 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
   $('#updatedate').html(updatedate.getDate() + ' ' + monthNames[updatedate.getMonth()] + ' ' + updatedate.getFullYear());
 
 	var events=[];
+	var meetingspages;
   var evt=null;
   var nameEvent=null;
 	var representatives={};
@@ -1708,7 +1756,11 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 			,function(error, rows) {
 				 events = rows;
 				 renderLoaded();
-			});      
+			});  
+		d3.csv("data/meetings_links.csv", function(d) {return d;}
+			,function(error, rows) {
+				 meetingspages = rows;
+			});   
 		//d3.json("data/representative-light.json", function (rows) {
 		//d3.csv("data/representative.csv", function (rows) {
 		//d3.csv("data/representative-finance-light.csv", function (rows) {
