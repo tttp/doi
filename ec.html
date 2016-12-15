@@ -48,25 +48,55 @@ td.dc-table-column._6
 #mep_number {
 		margin-top: 0.1em;}
 .l_data_container {
-	padding: 0 15px;
+	padding: 10px 15px;
+	margin: -10px;
+	background: #d4eaf6;
 }
 .l_data_container div {
 	border: none;
+	margin-top: 0;
+	padding-bottom: 0;
+	margin: 5px 0 5px 0;
 }
 .l_data_container_main {
 	background: #d4eaf6;
+	margin-bottom: 20 !important;
+	font-size: 18px;
+	text-align: center;
+}
+.l_data_container label {
+	font-weight: 600;
+}
+.l_data_container_main label {
+	color: #333;
 }
 .l_data_container_host {
 	border: 4px solid #0f4c79 !important;
 	border-right: 3px solid #0f4c79 !important;
 	margin-top: 0 !important;
-	height: 230px;
+	//height: 230px;
+	padding: 10px 15px !important;
+	background: #fff;
 }
 .l_data_container_guest {
 	border: 4px solid #8e1556 !important;
 	border-left: 3px solid #8e1556 !important;
 	margin-top: 0 !important;
-	height: 230px;
+	//height: 230px;
+	padding: 10px 15px !important;
+	background: #fff;
+}
+.l_data_container_guest label, .l_data_container_guest .data_container_title {
+	color: #8e1556 !important;
+}
+.l_data_container_host label, .l_data_container_host .data_container_title {
+	color: #0f4c79 !important;
+}
+.data_container_title {
+	font-size: 15px;
+	font-weight: 800;
+	text-transform: uppercase;
+	
 }
 </style>
 
@@ -995,32 +1025,69 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     	            	
       if (!d)
         return "no data";
+		
+		var monthNames = [
+		  "January", "February", "March",
+		  "April", "May", "June", "July",
+		  "August", "September", "October",
+		  "November", "December"
+		];
+
+		var day = d.date.getDate();
+		var monthIndex = d.date.getMonth();
+		var year = d.date.getFullYear();
+
+		var thisdate = day + ' ' + monthNames[monthIndex] + ' ' + year;
+		
 		var thishost = _.find(meetingspages, function (x) { return x.name == d.host });
     	s  = "<div class='l_data_container row'>";
 		s += "<div class='col-md-12 l_data_container_main'>";
 		s += "<div class='l_name'><label>Subject</label> "+d.title+"</div>";
-    	s += "<div class='l_name'><label>Date</label> "+d.date+"</div>";
+    	s += "<div class='l_name'><label>Date</label> "+thisdate+"</div>";
 		s += "</div>";
 		s += "<div class='col-md-6 l_data_container_host'>";
-		s += "<div class='l_name'><label>Host</label> "+d.host+"</div>";
+		s += "<div class='data_container_title'>European Commission Host(s)</div>";
+		s += "<div class='l_name'><label>Host name</label> "+d.host+"</div>";
 		s += "<div class='l_name'><label>Total meetings</label> "+countmeetings(d.host)+"</div>";
-    	s += "<div class='l_name'><label>Cabinet</label> "+d.cabinet+"</div>";
+    	s += "<div class='l_name'><label>Portfolio</label> "+d.cabinet+"</div>";
     	s += "<div class='l_category'><label>Nb Participants</label> "+d.participants+"</div>";
 		if(thishost){
 			s += "<div class='l_category'><label>Link to meeting page</label> <a target='_blank' href='"+thishost.url+"'>"+thishost.url+"</a></div>";
 		}
+		//alert(representatives[d.guestid].toSource());
+		var thisrep = representatives[d.guestid];
+		
+		var initiatives;
+    	
+    	url="http://api.lobbyfacts.nestor.coop/api/1/representative/"+thisrep .id+"?callback=?";
+    	$.getJSON( url, function( data ) {
+    		$('#initiatives'+thisrep .id).text(data.activity_eu_legislative);
+			var height1 = $('.l_data_container_host').height();
+			var height2 = $('.l_data_container_guest').height();
+			if(height1 > height2){
+				$('.l_data_container_guest').height(height1);
+			} else {
+				$('.l_data_container_host').height(height2);
+			}
+    	});   
+		
 //    	s += "<span class='lobbyist_info_container' id='lobbyist"+d.guestid+"'></span>"
 		s += "</div>";
 		s += "<div class='col-md-6 l_data_container_guest'>";
-		s += "<div class='l_category'><label>Guest</label> "+representatives[d.guestid].name+"</div>";
-		s += "<div class='l_name'><label>Total meetings</label> "+countmeetings(d.guest)+"</div>";
-		s += "<div class='l_category'><label>Country</label> "+representatives[d.guestid].contact_country+"</div>";
-		s += "<div class='l_category'><label>Category</label> "+representatives[d.guestid].sub_category_title+"</div>";
-		s += "<div class='l_category'><label>Lobby budget</label> "+addcommas(representatives[d.guestid].cost_min)+" - "+addcommas(representatives[d.guestid].cost_max)+"</div>";
+		s += "<div class='data_container_title'>Lobby Organisation</div>";
+		s += "<div class='l_category'><label>Guest</label> "+thisrep.name+"</div>";
+		s += "<div class='l_name'><label>Reported meetings</label> "+countmeetings(d.guest)+"</div>";
+		s += "<div class='l_category'><label>Country</label> "+countriesISO[thisrep.contact_country][1]+"</div>";
+		s += "<div class='l_category'><label>Category</label> "+thisrep.sub_category_title+"</div>";
+		s += "<div class='l_category'><label>Lobby budget</label> min "+addcommas(thisrep.cost_min)+" / max "+addcommas(thisrep.cost_max)+"</div>";
+		s += "<div class='l_fte'><label>Total Lobbyist</label> "+thisrep.fte+"</div>";
+    	s += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+thisrep.accredited+"</div>";
+		s += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+thisrep.code+"' target='_blank'>Transparency registry</a></div>";
+		s += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> <span id='initiatives"+thisrep.id+"'></span></div>";
 		s += "</div>";
     	s += "</div>";
     	return s;
-     
+	 
     }
 
     datatable.on('click', 'button', function () {
@@ -1069,7 +1136,6 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
     datatable.DataTable().on('click', 'tr[role="row"]', function () {
         var tr = $(this);
         var row = datatable.DataTable().row( tr );
- 
         if ( row.child.isShown() ) {
             // This row is already open - close it
             row.child.hide();
@@ -1079,6 +1145,13 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
             // Open this row
             row.child( format(row.data()) ).show();
             tr.addClass('shown');
+			var height1 = $('.l_data_container_host').height();
+			var height2 = $('.l_data_container_guest').height();
+			if(height1 > height2){
+				$('.l_data_container_guest').height(height1);
+			} else {
+				$('.l_data_container_host').height(height2);
+			}
         }
     } );
         datatable.DataTable().on( 'order.dt search.dt page.dt draw.dt', function () {
@@ -1714,6 +1787,8 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
   var evt=null;
   var nameEvent=null;
 	var representatives={};
+	var countriesISO={};
+	
 	$(function() {
 		var renderLoaded  = _.after(2,  function () { 
 			//var dateFormat = d3.time.format("%d/%m/%Y");
@@ -1772,7 +1847,13 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 						representatives[d.id].sub_category_title = newSubcat[representatives[d.id].sub_category_title];
 			});
 				 renderLoaded();
-		});     
+		}); 
+		d3.csv("data/country.csv", function(d) {return d;}
+			,function(error, rows) {
+         _.each(rows, function(d) {
+		   countriesISO[d["code"]] = [d["id"],d["name"]];
+         });
+		 });
 
 	$("#search-input").keyup (function () {
 		var s = $(this ).val().toLowerCase();
