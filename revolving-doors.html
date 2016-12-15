@@ -125,6 +125,12 @@ min-height: 90px;
 #mepphoto {
 	max-width: 100%;
 }
+#filter_wrap, .nav li#mi_tool_btn.active a {
+	background: #db6a1f !important;
+}
+#about_wrap.mi_header {
+    background: #db6a1f url("../img/bg_money-01.png") repeat-y scroll -40% top / 45% auto !important;
+}
 </style>
 
 </head>
@@ -298,6 +304,13 @@ function grid(selector,data) {
 		})
 		.x(d3.scale.ordinal())
 		.elasticX(true)
+		.colorCalculator(function(d, i) {
+			if(d.key == "European Commission"){
+				return "#db6a1f";
+			} else {
+				return "#ebab80";
+			}
+		})
 		/*
 		.colorCalculator(function(d, i) {
 			if(portfolio_type.indexOf(d.key) > -1){
@@ -401,7 +414,8 @@ function grid(selector,data) {
 		.margins({top: 0, right: 30, bottom: 95, left: 30})
 		.colorCalculator(function(d, i) {
 				//return color(d.value.score/d.value.count);
-				return "#3695d8";
+				//return "#3695d8";
+				return "#db6a1f";
 		})
 		.valueAccessor (
 			function(d) {
@@ -437,7 +451,8 @@ function grid(selector,data) {
 		.margins({top: 0, right: 30, bottom: 95, left: 30})
 		.colorCalculator(function(d, i) {
 				//return color(d.value.score/d.value.count);
-				return "#3695d8";
+				//return "#3695d8";
+				return "#db6a1f";
 		})
 		/*
 		.valueAccessor (
