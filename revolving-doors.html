@@ -517,10 +517,11 @@ function grid(selector,data) {
 				},
 				function(d) {  return "<div class='right-align'>"+d.Previous_position +"</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.New_position+"</div>"; },
-				function(d) {  return "<div class='right-align'>"+d.Category_activity+"</div>"; }			
+				function(d) {  return "<div class='right-align'>"+d.Category_activity+"</div>"; },
+				function(d) {  return "<div class='right-align'>"+d.actnum+"</div>"; }					
 		])
 	.size(1000)
-	.sortBy(function (d) {return d.Name})
+	.sortBy(function (d) {return d.actnum})
 	.renderlet(function (chart) {
 		i = 0;
 		$(".dc-table-group").remove();
@@ -925,6 +926,7 @@ function hashFilter () {
 							<th class="header">Previous Position</th>
 							<th class="header">New Position</th>
 							<th class="header">Category of Activity</th>
+							<th class="header">Activities Count</th>
 						</tr>
 					</thead>
 				</table>
@@ -1000,6 +1002,10 @@ var fixdataset = function(){
 		
 		//Assign activities
 		m.allactivities = [];
+		m.actnum = 0;
+		var this_allactivities = _.filter(tool_people,function (a) { return a.Name == m.Name  });
+		m.actnum = this_allactivities.length;
+		//alert(m.actnum);
 		/*
 		m.allactivities = _.filter(tool_activities,function (a) { return a.Name == m.Name  });
 		m.comm_link = m.allactivities[0].Link_source;
@@ -1135,76 +1141,23 @@ $(function() {
 <script type="tpl" id="sidetpl">
 <h4>Activities</h4>
 <table class="table table-condensed">
-<tr><td class="dc-table-label">New position</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td><td class="dc-table-label" >Source</td></tr>
+<tr><td class="dc-table-label">Post-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td><td class="dc-table-label" >Source</td></tr>
 <% allactivities = _.filter(tool_people,function (a) { return a.Name == Name  }); %>
 <% _.each(allactivities, function (a) { %>
-	<tr><td><%= a.New_position %></td><td><%= a.Category_activity %></td><td><%= a.Paid_unpaid %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
+	<tr><td><%= a.New_position %></td><td><%= a.category_bar %></td><td><%= a.Paid_unpaid %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
 <% }); %>
 </table>
 </script>
 
-<script type="tpl" id="detailstpl">
-		 <div class="row">
-			 <div class="col-md-4">Country</div>
-			 <div class="col-md-8">
-				 <%= Country %>
-			 </div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4" title="Activities">Activities</div>
-			 <div class="col-md-8 score"><%= qty %></div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Outside revenues</div>
-			 <div class="col-md-8 score"><%=  min %> &#8605; <%= max %> <small>&euro;</small> (monthly)</div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Monthly salary</div>
-			 <div class="col-md-8 score"><a href="http://www.transparencyinternational.eu/2014/08/how-much-does-an-mep-make/" target="_blank">8020,53 &euro; &#8605; 19,586 &euro; depending on allowances</a></div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Attendance</div>
-			 <div class="col-md-8 score" title="voted on <%= attendance.attended %> votes out of <%= attendance.total %>"><%= attendance.score.toFixed(0) %> <small>%</small></div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Group</div>
-			 <div class="col-md-8"><%= eugroup %> </div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Party</div>
-			 <div class="col-md-8"><%= party %> </div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Age</div>
-			 <div class="col-md-8 score"><%= age %> </div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Committee</div>
-			 <div class="col-md-8"><%= committee %> </div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Substitute</div>
-			 <div class="col-md-8"><%= substitute %> </div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Delegation</div>
-			 <div class="col-md-8"><%= delegation %> </div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Full profile</div>
-			 <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= epid %>.html">European Parliament Website</a></div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Source</div>
-			 <div class="col-md-8"><a target="_blank" href="<%= doi.url %>">Original declaration</a></div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Update</div>
-			 <div class="col-md-8">fetched on <%= doi.date %></div>
-		 </div>
-</script>
-
 <script type="tpl" id="detailstpl2">
+		<div class="row">
+			 <div class="col-md-4">Institution</div>
+			 <div class="col-md-8"><%= Institution %> </div>
+		 </div>
+		 <div class="row">
+			 <div class="col-md-4">Mandate</div>
+			 <div class="col-md-8"><%= Previous_position %> </div>
+		 </div>
 		<div class="row">
 			 <div class="col-md-4">Country</div>
 			 <div class="col-md-8">
@@ -1219,17 +1172,9 @@ $(function() {
 			 <div class="col-md-4">Party</div>
 			 <div class="col-md-8"><%= Party %> </div>
 		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Institution</div>
-			 <div class="col-md-8"><%= Institution %> </div>
-		 </div>
-		 <div class="row">
-			 <div class="col-md-4">Previous Position</div>
-			 <div class="col-md-8"><%= Previous_position %> </div>
-		 </div>
 		 <% if(Institution == "European Parliament") { %>
 			<div class="row">
-			 <div class="col-md-4">Full profile</div>
+			 <div class="col-md-4">Profile Link</div>
 			 <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= ID %>.html">European Parliament Website</a></div>
 			</div>
 		 <% }; %>
