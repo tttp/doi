@@ -1050,6 +1050,7 @@ var fixdataset = function(){
 			peoplenum ++;
 			countedpeople.push(m.Name);
 		}*/
+		m.Country = $.trim(m.Country);
 		peoplenum += parseInt(m.total_activities);
 		
 		m.category_bar = m.category_bar.trim().toLowerCase().capitalize();
