@@ -126,10 +126,11 @@ min-height: 90px;
 	max-width: 100%;
 }
 #filter_wrap, .nav li#mi_tool_btn.active a {
-	background: #db6a1f !important;
+	background: #C12E41 !important;
 }
 #about_wrap.mi_header {
-    background: #db6a1f url("../img/bg_money-01.png") repeat-y scroll -40% top / 45% auto !important;
+    //background: #db6a1f url("../img/bg_money-01.png") repeat-y scroll -40% top / 45% auto !important;
+	background: #C12E41 url("../img/bg_money-01.png") repeat-y scroll -40% top / 45% auto !important;
 }
 </style>
 
@@ -306,9 +307,9 @@ function grid(selector,data) {
 		.elasticX(true)
 		.colorCalculator(function(d, i) {
 			if(d.key == "European Commission"){
-				return "#db6a1f";
+				return "#C12E41";
 			} else {
-				return "#ebab80";
+				return "#f15E71";
 			}
 		})
 		/*
@@ -415,7 +416,7 @@ function grid(selector,data) {
 		.colorCalculator(function(d, i) {
 				//return color(d.value.score/d.value.count);
 				//return "#3695d8";
-				return "#db6a1f";
+				return "#C12E41";
 		})
 		.valueAccessor (
 			function(d) {
@@ -452,7 +453,7 @@ function grid(selector,data) {
 		.colorCalculator(function(d, i) {
 				//return color(d.value.score/d.value.count);
 				//return "#3695d8";
-				return "#db6a1f";
+				return "#C12E41";
 		})
 		/*
 		.valueAccessor (
@@ -508,13 +509,55 @@ function grid(selector,data) {
 							*/
 	var name = ndx.dimension(function(d) {
 			//return d.Name.toLowerCase() + " "+ d.Political_group.toLowerCase() + " " + d.Previous_position.toLowerCase() +" " + d.New_position.toLowerCase() + d.Category_activity.toLowerCase();
+			//if(d.Country == "Lithuania"){alert(d.toSource());}
 			return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country;
 			});
 	
+	var name2 = ndx.dimension(function(d) {	
+		return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country;
+	});
+	var namegroup = name2.group().reduceSum(function(d) { 
+		return 1;
+	});
+
+	var pseudoDimension = {
+	  top: function (x) {
+		return namegroup.top(x)
+				.map(function (grp) {return grp.key});
+		}
+	};
+	
+	groupedDimension = name2.group().reduce(
+          function (p, v) {
+              return p;
+          },
+          function (p, v) {
+              return p;
+          },
+          function () {
+              return {number: 0, total: 0, avg: 0}
+      });
+	  
+	 function reversible_group(group) {
+		return {
+			top: function(N) {
+				return group.top(N);
+			},
+			bottom: function(N) {
+				return group.top(Infinity).slice(-N).reverse();
+			}
+		};
+	}
+	
+	
+	
+	//alert(pseudoDimension.top(Infinity)[0].Name);
+
+
 	var i = 0;	
 	wall=dc.dataTable(".dc-data-grid")
 	 .dimension(name)
-		.group(function (d) { return "";return d.Country; })
+	 .group(function(d){return "";})
 		.on("filtered", function (chart) {
 			 countOfficials();
 		})
@@ -533,7 +576,8 @@ function grid(selector,data) {
 				function(d) {  return "<div class='right-align'>"+d.Previous_position +"</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.New_position+"</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.Category_activity+"</div>"; },
-				function(d) {  return "<div class='right-align'>"+d.actnum+"</div>"; }					
+				function(d) {  return "<div class='right-align'>"+d.actnum+"</div>"; }		
+		
 		])
 	.size(1000)
 	.sortBy(function (d) {return d.actnum})
@@ -971,7 +1015,7 @@ var renderLoaded  = _.after(3,  function () {
 	var now = Date.now();
 	var a;
 	
-	alert(tool_people);
+	//alert(tool_people);
 
 	//Loop and fix
 	
@@ -1057,6 +1101,7 @@ var fixdataset = function(){
 			m.Political_group = "EFDD";
 		}
 	});
+
 	$('.total-pcount').html(peoplenum);
 	$('.filter-pcount').html(peoplenum);
 }
@@ -1115,6 +1160,13 @@ $(function() {
 			 fixdataset();
 			 grid("#ep2014list",tool_people);	
 	});
+	
+	/*
+	var reduceTableData = function(){
+		wall.group().reduce();
+		alert(wall.group());
+	}
+	*/
 	
 	var countOfficialsWall = function(thisdataset) {
 		var thesepeople = [];
