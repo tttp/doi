@@ -289,10 +289,13 @@ function grid(selector,data) {
 		var thisdataset = actcategory.top(Infinity);
 		//Count people
 		_.each (thisdataset, function (m) {
+		/*
 		if(thesepeople.indexOf(m.Name) == -1){
 			officialscount  ++;
 			thesepeople.push(m.Name);
 		} 
+		*/ 
+		officialscount  += parseInt(m.total_activities);
 		});
 		$('.filter-pcount').html(officialscount);
 	}
@@ -849,12 +852,12 @@ function hashFilter () {
 					<div class="col-md-2" id="currently_selected_text"><p>You have currently selected</p></div>
 					<div class="col-md-2 filter_number">
 						<div id="mep_number" class="dc-data-count">
-						<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> Activities
+						<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> Officials
 						</div>
 					</div> 
 					<div class="col-md-2 filter_number">
 						<div id="mep_number2" class="dc-data-count">
-						<span class="big_number filter-pcount"></span>out of <strong class="total-pcount"></strong> Officials
+						<span class="big_number filter-pcount"></span>out of <strong class="total-pcount"></strong> Activities
 						</div>
 					</div> 
 					<div class="col-md-4 filter_number">
@@ -1042,10 +1045,12 @@ var fixdataset = function(){
 	_.each (tool_people, function (m) {
 	
 		//Count people
+		/*
 		if(countedpeople.indexOf(m.Name) == -1){
 			peoplenum ++;
 			countedpeople.push(m.Name);
-		} 
+		}*/
+		peoplenum += parseInt(m.total_activities);
 		
 		m.category_bar = m.category_bar.trim().toLowerCase().capitalize();
 		m.category_pie = m.category_pie.trim().toLowerCase().capitalize();
@@ -1138,10 +1143,13 @@ $(function() {
 		var officialscount = 0;
 		//Count people
 		_.each (thisdataset, function (m) {
+		/*
 		if(thesepeople.indexOf(m.Name) == -1){
 			officialscount  ++;
 			thesepeople.push(m.Name);
 		} 
+		*/
+			officialscount  += parseInt(m.total_activities);
 		});
 		$('.filter-pcount').html(officialscount);
 	}
