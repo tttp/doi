@@ -706,7 +706,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		function getType (d) {
 			if (d.host.indexOf ("Director-General") !== -1 || d.host.indexOf("Secretary-General") !== -1) 
 				return "Directors";
-      if ( d.host.indexOf ("Commissioner") !== -1 || d.host.indexOf("President") !== -1)
+			if ( d.host.indexOf ("Commissioner") !== -1 || d.host.indexOf("President") !== -1)
 			  return "Commissioners";
 
 			return "Cabinet Members";
@@ -1040,6 +1040,11 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		var thisdate = day + ' ' + monthNames[monthIndex] + ' ' + year;
 		
 		var thishost = _.find(meetingspages, function (x) { return x.name == d.host });
+		
+		if(d.host.indexOf ("Director-General") == -1 && d.host.indexOf("Secretary-General") == -1 && d.host.indexOf ("Commissioner") == -1 && d.host.indexOf("President") == -1){
+			thishost = _.find(meetingspages, function (x) { return x.cabinet == d.cabinet });
+		}
+		
     	s  = "<div class='l_data_container row'>";
 		s += "<div class='col-md-12 l_data_container_main'>";
 		s += "<div class='l_name'><label>Subject</label> "+d.title+"</div>";
