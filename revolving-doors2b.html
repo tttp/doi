@@ -215,12 +215,25 @@ var eu_groups = {
 "Array":"pink"
 };
 
-var catscolor = {
+var catscolor_old = {
 	"Elected office & public sector":"#3182bd",
+	"Public sector":"#3182bd",
 	"Non-governmental organisations, platforms and networks and similar":"#6baed6",
+	"Ngo":"#6baed6",
 	"Others":"#9ecae1",
+	"Other":"#9ecae1",
 	"Private sector":"#d02e14",
 	"Think tanks, research and academic institutions":"#e6550d",
+	"Academia":"#e6550d",
+	"Unknown":"#fd8d3c"
+}
+
+var catscolor = {
+	"Public sector":"#e6550d",
+	"Ngo":"#6baed6",
+	"Other":"#9ecae1",
+	"Private sector":"#d02e14",
+	"Academia":"#3182bd",
 	"Unknown":"#fd8d3c"
 }
 
@@ -731,7 +744,7 @@ function hashFilter () {
 					<span class="icon-bar"></span>
 				</button>
 				<div class="navbar-brand" id="ti_logo_container">
-						<a id="ti_logo" href="http://www.transparencyinternational.eu">Transparency International</a>
+						<a id="ti_logo" href="http://transparency.eu">Transparency International</a>
 						<a id="page_title" href="/" target="_blank"><strong>EU</strong> Integrity<br />Watch</a>
 				</div>
 			</div>
@@ -975,6 +988,7 @@ var tool_people = [];
 var tool_activities = [];
 var tool_ids = [];
 var tool_fullact = [];
+var tool_fullact_pre = [];
 var tool_photos = [];
 
 //sidetpl =  _.template($("#sidetpl").html());
@@ -1024,7 +1038,7 @@ var fixdataset = function(){
 		peoplenum += parseInt(m.total_activities);
 		
 		m.category_bar = m.category_bar.trim().toLowerCase().capitalize();
-		m.category_pie = m.category_pie.trim().toLowerCase().capitalize();
+		m.category_pie = m.category_new_position.trim().toLowerCase().capitalize();
 		
 		//List categories
 		if(cats.indexOf(m.category_pie) == -1){
@@ -1092,9 +1106,13 @@ $(function() {
 		,function(error, rows) {
 			tool_ids = rows;			 
 	}); 
-	d3.csv("data/tool_activities_new.csv", function(d) {return d;}
+	d3.csv("data/tool_activities_post.csv", function(d) {return d;}
 		,function(error, rows) {
 			tool_fullact = rows;		
+	}); 
+	d3.csv("data/tool_activities_pre.csv", function(d) {return d;}
+		,function(error, rows) {
+			tool_fullact_pre = rows;		
 	}); 
 	d3.csv("data/tool_photos.csv", function(d) {return d;}
 		,function(error, rows) {
@@ -1132,6 +1150,7 @@ $(function() {
 		});
 		$("#commission_btn").css("opacity",1);
 		$("#parliament_btn").css("opacity",0.4);
+		countOfficialsWall(wall.dimension().top(Infinity));
 		dc.redrawAll();
 	});
 	$("#parliament_btn").click(function() {
@@ -1140,6 +1159,7 @@ $(function() {
 		});
 		$("#commission_btn").css("opacity",0.4);
 		$("#parliament_btn").css("opacity",1);
+		countOfficialsWall(wall.dimension().top(Infinity));
 		dc.redrawAll();
 	});
 	
@@ -1174,18 +1194,19 @@ $(function() {
 <h4>Activities</h4>
 <table class="table table-condensed">
 <tr><td class="dc-table-label">Post-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td><td class="dc-table-label" >Source</td></tr>
-<% allactivities = _.filter(tool_fullact,function (a) { return  $.trim(a.Name) == $.trim(Name) && a.post_mandate_activities != ""  }); %>
+<% allactivities = _.filter(tool_fullact,function (a) { return  $.trim(a.Name) == $.trim(Name) }); %>
 <% _.each(allactivities, function (a) { %>
 	<tr><td><%= a.post_mandate_activities %></td><td><%= a.category_bar %></td><td><%= a.Paid_unpaid %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
 <% }); %>
 </table>
 
-<% allactivities2 = _.filter(tool_fullact,function (a) { return  $.trim(a.Name) == $.trim(Name) && a.pre_mandate_activity != ""  }); %>
+<% allactivities2 = _.filter(tool_fullact_pre,function (a) { return  $.trim(a.Name) == $.trim(Name) }); %>
 <% if(allactivities2.length > 0){ %>
 <table class="table table-condensed">
 <tr><td class="dc-table-label">Pre-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td><td class="dc-table-label" >Source</td></tr>
-<% var a = allactivities2[0]; %>
-	<tr><td><%= a.pre_mandate_activity %></td><td><%= a.category_bar2 %></td><td></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
+<% _.each(allactivities2, function (a) {  %>
+	<tr><td><%= a.pre_mandate_activities %></td><td><%= a.category_bar %></td><td><%= a.Paid_unpaid %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
+<% }); %>
 </table>
 <% } %>
 </script>
