@@ -1156,7 +1156,7 @@ $(function() {
 	});
 	$("#parliament_btn").click(function() {
 		wall.dimension().filter(function (d) { 
-			return d.indexOf("EuropeanParliament") !== -1;
+			return d.indexOf("EuropeanParliament") !== -1 || d.indexOf("Europeanparliament") !== -1;
 		});
 		$("#commission_btn").css("opacity",0.4);
 		$("#parliament_btn").css("opacity",1);
