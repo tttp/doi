@@ -1172,7 +1172,7 @@ $(function() {
 <tr><td class="dc-table-label">Post-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >On the Transparency Register</td><td class="dc-table-label" >Source</td></tr>
 <% allactivities = _.filter(tool_fullact,function (a) { return  $.trim(a.Name) == $.trim(Name) }); %>
 <% _.each(allactivities, function (a) { %>
-	<tr><td><%= a.post_mandate_activities %></td><td><%= a.category_bar %></td><td><% if(a.On_JTR.toLowerCase().trim() == "yes"){ %> Yes (<a href="<%= a.Link_JTR %>">Link</a>) <% } %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
+	<tr><td><%= a.post_mandate_activities %></td><td><%= a.category_bar %></td><td><% if(a.On_JTR.toLowerCase().trim() == "yes"){ %> <a href="<%= a.Link_JTR %>">Yes</a> <% } %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
 <% }); %>
 </table>
 
