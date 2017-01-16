@@ -136,7 +136,7 @@ min-height: 90px;
     background: rgba(0, 0, 0, 0) url("img/icon_chair.png") no-repeat scroll left center / 25% auto;
 }
 .ecep-logo-btn img {
-	width: 160px;
+	width: 180px;
 	cursor: pointer;
 	margin: 0 30px;
 }
@@ -147,32 +147,73 @@ min-height: 90px;
 	position: absolute;
 	top: 130px;
 	left: 0;
-	font-size: 1.7em;
+	font-size: 1.5em;
 	font-family: "Helvetica W02 Bd Cn"
 }
 
 .cat_0::before {
-	background: #d02e14;
-}
-.cat_1::before {
-	background: #e6550d;
-}
-.cat_2::before {
-	background: #fd8d3c;
-}
-.cat_3::before {
 	background: #045b5c;
 }
-.cat_4::before {
+.cat_1::before {
 	background: #348b8c;
 }
-.cat_5::before {
+.cat_2::before {
 	background: #64bbbc;
+}
+.cat_3::before {
+	background: #eee;
+}
+.cat_4::before {
+	background: #ccc;
+}
+.cat_5::before {
+	background: #aaa;
 }
 
 .actcat_legend {
     padding-left: 25%;
 }
+.registerfilter-box {
+	position: absolute;
+	top: 65px;
+}
+.registerfilter-box button {
+    border-radius: 3px;
+    color: #fff !important;
+    display: inline-block;
+    padding: 3px 15px;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+	border: none;
+	background: #ccc;
+}
+.registerfilter-box button:first-child {
+	margin-left: 10px;
+}
+.registerfilter-box button:hover, .registerfilter-box button.active {
+	background: #045b5c;
+}
+.lobbyreg_btn {
+	font-family: "Helvetica W02 Bd Cn","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-weight: normal;
+	font-size: 1.3em;
+	color: #116061;
+	text-align:center;
+	position: relative;
+	top: -25px;
+	left: 20px;
+}
+.lobbyreg_img {
+	width: 140px;
+	opacity: 0.6;
+}	
+#registry_yes_btn {
+	text-align: center;
+}
+#registry_yes_btn.active .lobbyreg_img {
+	opacity: 1;
+}	
 
 </style>
 
@@ -253,12 +294,12 @@ var eu_groups = {
 };
 
 var catscolor = {
-	"Public sector":"#045b5c",
-	"NGO":"#fd8d3c",
-	"Other":"#64bbbc",
-	"Private sector":"#d02e14",
-	"Academia":"#348b8c",
-	"Unknown":"#e6550d"
+	"Public sector":"#eee",
+	"NGO":"#64bbbc",
+	"Other":"#aaa",
+	"Private sector":"#045b5c",
+	"Academia":"#ccc",
+	"Unknown":"#348b8c"
 }
 
 
@@ -375,7 +416,10 @@ function grid(selector,data) {
 	
 	pie_actcategory
 		.dimension(actcategory)
+		.externalLabels(35)
 		.group(actcategoryGroup)
+		.label(function(d){return d.key})
+		.minAngleForLabel(0)
 		.colorCalculator(function(d, i) {
 			return catscolor[d.key];
 		})
@@ -540,8 +584,13 @@ function grid(selector,data) {
 	var name = ndx.dimension(function(d) {
 			//return d.Name.toLowerCase() + " "+ d.Political_group.toLowerCase() + " " + d.Previous_position.toLowerCase() +" " + d.New_position.toLowerCase() + d.Category_activity.toLowerCase();
 			//if(d.Country == "Lithuania"){alert(d.toSource());}
-			return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country + " " + d.Institution.replace(" ", "");
+			if(d.on_JTR.trim() == "Yes" || d.on_JTR.trim() == "yes"){
+				return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country + " " + d.Institution.replace(" ", "") + " on_JTR " + " " + d.fullsearch.toLowerCase();
+			} else {
+				return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country + " " + d.Institution.replace(" ", "") + " " + d.fullsearch.toLowerCase();
+			}
 			});
+			
 	
 	var name2 = ndx.dimension(function(d) {	
 		return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country;
@@ -602,7 +651,7 @@ function grid(selector,data) {
 				function(d) {
 						return d.Political_group;
 				},
-				function(d) {  return "<div class='right-align'>"+d.Previous_position +"</div>"; },
+				function(d) {  return "<div class='left-align'>"+d.Previous_position +"</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.New_position+"</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.Category_activity+"</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.total_activities +"</div>"; }		
@@ -875,7 +924,7 @@ function hashFilter () {
 				<div class="col-md-6 chart_box">
 					<h3>Category of activities</h3>
 
-					<div class="actcategory activities range">
+					<div class="actcategory activities range" style="margin-top: 20px; margin-bottom: 30px;">
 					</div>
 					
 					<div class="legend actcat_legend">
@@ -896,15 +945,32 @@ function hashFilter () {
 					<br class="clear" />
 				</div>
 			</div>
-			<div class="row chart_box institutions-container" style="margin-bottom: 30px;">
-				<h3 style="margin-bottom:20px;">EU INSTITUTIONS <!--span class="info">info</span--></h3>
-				<div class="filterbyinstitutions">FILTER BY INSTITUTION</div>
-				<div class="col-sm-6" style="text-align:right;">
-					<div class="ecep-logo-btn"><img id="commission_btn" src="img/EC1.png" /></div>
+			<div class="row">
+			<div class="col-sm-8">
+				<div class="row chart_box institutions-container" style="margin-bottom: 30px;padding-right: 30px;">
+					<h3 style="margin-bottom:20px;">EU INSTITUTIONS <!--span class="info">info</span--></h3>
+					<div class="filterbyinstitutions">FILTER BY INSTITUTION</div>
+					<div class="col-sm-3"></div>
+					<div class="col-sm-5" style="text-align:right;">
+						<div class="ecep-logo-btn"><img id="commission_btn" src="img/EC1.png" /></div>
+					</div>
+					<div class="col-sm-4">
+						<div class="ecep-logo-btn"><img id="parliament_btn" src="img/EP1.png" /></div>
+					</div>
 				</div>
-				<div class="col-sm-6">
-					<div class="ecep-logo-btn"><img id="parliament_btn" src="img/EP1.png" /></div>
+			</div>
+			<div class="col-sm-4">
+				<div class="row chart_box institutions-container" style="margin-bottom: 30px;">
+					<h3 style="margin-bottom:20px;">NEW EMPLOYER</h3>
+					<div class="ecep-logo-btn" id="registry_yes_btn"><img class="lobbyreg_img" src="img/icon_hands.png" /><br /><div class="lobbyreg_btn">EU Lobby Register</dib></div>
+					<!--
+					<div class="registerfilter-box">
+						On the lobby register
+						<button id="registry_yes_btn3">Yes</button> <button id="registry_no_btn">No</button>
+					</div>
+					-->
 				</div>
+			</div>
 			</div>
 			
 		</div>
@@ -944,13 +1010,13 @@ function hashFilter () {
 					<thead>
 						<tr class=header>
 							<!-- <th class="header headerSortDown">Nr</th> -->
-							<th class="header">Name</th>
-							<th class="header">Country</th>
-							<th class="header">Group</th>
-							<th class="header">Previous Position</th>
-							<th class="header">New Position</th>
-							<th class="header">Category of Activity</th>
-							<th class="header">Activities Count</th>
+							<th class="header" style="width:15%;">Name</th>
+							<th class="header" style="width:10%;">Country</th>
+							<th class="header" style="width:10%;">Group</th>
+							<th class="header" style="width:20%;">Previous Position</th>
+							<th class="header" style="width:25%;">New Position</th>
+							<th class="header" style="width:15%;">Category of Activity</th>
+							<th class="header" style="width:5%;">Activities Count</th>
 						</tr>
 					</thead>
 				</table>
@@ -1005,6 +1071,17 @@ var fixdataset = function(){
 	var cats = [];
 	_.each (tool_people, function (m) {
 	
+		//Assign all activities field for search tool_fullact_pre
+		m.fullsearch = "";
+		var thisacts = _.filter(tool_fullact,function (a) { return a.Name.trim() == m.Name.trim()  });
+		var thisacts2 = _.filter(tool_fullact_pre,function (a) { return a.Name.trim() == m.Name.trim()  });
+		_.each (thisacts, function (f) {
+			m.fullsearch += f.post_mandate_activities + " ";
+		});
+		_.each (thisacts2, function (f) {
+			m.fullsearch += f.pre_mandate_activities + " ";
+		});
+	
 		//Count people
 		/*
 		if(countedpeople.indexOf(m.Name) == -1){
@@ -1030,7 +1107,7 @@ var fixdataset = function(){
 		
 	
 		//Assign ID
-		var identry = _.find(tool_ids,function (d) { return d.Name == m.Name  });
+		var identry = _.find(tool_ids,function (d) { return d.Name.trim().toLowerCase() == m.Name.trim().toLowerCase()  });
 		m.ID = "";
 		if(identry){
 			m.ID = identry.ID;
@@ -1140,6 +1217,26 @@ $(function() {
 		dc.redrawAll();
 	});
 	
+	//Registry filter
+	$("#registry_yes_btn").click(function() {
+		wall.dimension().filter(function (d) { 
+			return d.indexOf("on_JTR") !== -1 ;
+		});
+		$("#registry_yes_btn").addClass("active");
+		$("#registry_no_btn").removeClass("active");
+		countOfficialsWall(wall.dimension().top(Infinity));
+		dc.redrawAll();
+	});
+	$("#registry_no_btn").click(function() {
+		wall.dimension().filter(function (d) { 
+			return d.indexOf("on_JTR") == -1;
+		});
+		$("#registry_yes_btn").removeClass("active");
+		$("#registry_no_btn").addClass("active");
+		countOfficialsWall(wall.dimension().top(Infinity));
+		dc.redrawAll();
+	});
+	
 	$("#search-input").keyup (function () {
 		var s = $(this ).val().toLowerCase();
 		wall.dimension().filter(function (d) { 
@@ -1147,6 +1244,8 @@ $(function() {
 		countOfficialsWall(wall.dimension().top(Infinity));
 		$("#commission_btn").attr("src", "img/EC1.png");
 		$("#parliament_btn").attr("src", "img/EP1.png");
+		$("#registry_yes_btn").removeClass("active");
+		$("#registry_no_btn").removeClass("active");
 		dc.redrawAll();
 	});
 	$(".resetall").attr("disabled",false);
@@ -1159,6 +1258,8 @@ $(function() {
 		dc.renderAll();
 		$("#commission_btn").attr("src", "img/EC1.png");
 		$("#parliament_btn").attr("src", "img/EP1.png");
+		$("#registry_yes_btn").removeClass("active");
+		$("#registry_no_btn").removeClass("active");
 	});
 	
 });  
@@ -1169,10 +1270,10 @@ $(function() {
 <script type="tpl" id="sidetpl">
 <h4>Activities</h4>
 <table class="table table-condensed">
-<tr><td class="dc-table-label">Post-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >On the Transparency Register</td><td class="dc-table-label" >Source</td></tr>
+<tr><td class="dc-table-label">Post-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >On Lobby Register</td><td class="dc-table-label" >Source</td></tr>
 <% allactivities = _.filter(tool_fullact,function (a) { return  $.trim(a.Name) == $.trim(Name) }); %>
 <% _.each(allactivities, function (a) { %>
-	<tr><td><%= a.post_mandate_activities %></td><td><%= a.category_bar %></td><td><% if(a.On_JTR.toLowerCase().trim() == "yes"){ %> <a href="<%= a.Link_JTR %>">Yes</a> <% } %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
+	<tr><td><%= a.post_mandate_activities %></td><td><%= a.category_bar %></td><td style="text-align:center;"><% if(a.On_JTR.toLowerCase().trim() == "yes"){ %> <a href="<%= a.Link_JTR %>">Yes</a> <% } %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
 <% }); %>
 </table>
 
