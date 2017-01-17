@@ -819,7 +819,7 @@ function hashFilter () {
 			</div>
 			<div class="col-md-6 col-lg-6" id="about_content">
 				<p>
-					This is a user-friendly interactive database that provides a unique overview of the activities of members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter MEPs. Thereby the database allows to better monitor potential conflicts of interests or to identify those MEPs with more outside activities.
+					This is a user-friendly interactive database that provides an overview of post-mandate activities of former Commissioners and Members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter former Commissioners and MEPs. The database thus allows users to monitor potential revolving door cases and conflicts of interest.  
 					<br/>
 					<a href="about.html" class="more">Read more</a>
 				</p>
@@ -961,7 +961,7 @@ function hashFilter () {
 			</div>
 			<div class="col-sm-4">
 				<div class="row chart_box institutions-container" style="margin-bottom: 30px;">
-					<h3 style="margin-bottom:20px;">NEW EMPLOYER</h3>
+					<h3 style="margin-bottom:20px;">NEW EMPLOYER ON</h3>
 					<div class="ecep-logo-btn" id="registry_yes_btn"><img class="lobbyreg_img" src="img/icon_hands.png" /><br /><div class="lobbyreg_btn">EU Lobby Register</dib></div>
 					<!--
 					<div class="registerfilter-box">
@@ -1204,6 +1204,7 @@ $(function() {
 		});
 		$("#commission_btn").attr("src", "img/EC1.png");
 		$("#parliament_btn").attr("src", "img/EP2.png");
+		$("#registry_yes_btn").removeClass("active");
 		countOfficialsWall(wall.dimension().top(Infinity));
 		dc.redrawAll();
 	});
@@ -1213,6 +1214,7 @@ $(function() {
 		});
 		$("#commission_btn").attr("src", "img/EC2.png");
 		$("#parliament_btn").attr("src", "img/EP1.png");
+		$("#registry_yes_btn").removeClass("active");
 		countOfficialsWall(wall.dimension().top(Infinity));
 		dc.redrawAll();
 	});
@@ -1224,6 +1226,8 @@ $(function() {
 		});
 		$("#registry_yes_btn").addClass("active");
 		$("#registry_no_btn").removeClass("active");
+		$("#commission_btn").attr("src", "img/EC1.png");
+		$("#parliament_btn").attr("src", "img/EP1.png");
 		countOfficialsWall(wall.dimension().top(Infinity));
 		dc.redrawAll();
 	});
@@ -1273,7 +1277,7 @@ $(function() {
 <tr><td class="dc-table-label">Post-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >On Lobby Register</td><td class="dc-table-label" >Source</td></tr>
 <% allactivities = _.filter(tool_fullact,function (a) { return  $.trim(a.Name) == $.trim(Name) }); %>
 <% _.each(allactivities, function (a) { %>
-	<tr><td><%= a.post_mandate_activities %></td><td><%= a.category_bar %></td><td style="text-align:center;"><% if(a.On_JTR.toLowerCase().trim() == "yes"){ %> <a href="<%= a.Link_JTR %>">Yes</a> <% } %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
+	<tr><td><%= a.post_mandate_activities %></td><td><%= a.category_bar %></td><td style="text-align:center;"><% if(a.On_JTR.toLowerCase().trim() == "yes"){ %> <a href="<%= a.Link_JTR %>" target="_blank">Yes</a> <% } %></td><td><a href="<%= a.Link_source%>" target="_blank">Link</a></td></tr>
 <% }); %>
 </table>
 
@@ -1282,7 +1286,7 @@ $(function() {
 <table class="table table-condensed">
 <tr><td class="dc-table-label">Pre-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td><td class="dc-table-label" >Source</td></tr>
 <% _.each(allactivities2, function (a) {  %>
-	<tr><td><%= a.pre_mandate_activities %></td><td><%= a.category_bar %></td><td><%= a.Paid_unpaid %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
+	<tr><td><%= a.pre_mandate_activities %></td><td><%= a.category_bar %></td><td><%= a.Paid_unpaid %></td><td><a href="<%= a.Link_source%>" target="_blank">Link</a></td></tr>
 <% }); %>
 </table>
 <% } %>
