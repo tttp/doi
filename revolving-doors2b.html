@@ -1040,6 +1040,8 @@ var tool_photos = [];
 
 var jtrfilter = false;
 
+var allLoaded = false;
+
 //sidetpl =  _.template($("#sidetpl").html());
 //detailtpl =  _.template($("#detailtpl").html());
 
@@ -1091,6 +1093,7 @@ var fixdataset = function(){
 			if(f.On_JTR.trim().toLowerCase() == "yes"){
 				m.jtract_count ++;
 			}
+			allLoaded = true;
 		});
 		_.each (thisacts2, function (f) {
 			m.fullsearch += f.pre_mandate_activities + " ";
@@ -1182,7 +1185,10 @@ $(function() {
 	}); 
 	d3.csv("data/tool_activities_post.csv", function(d) {return d;}
 		,function(error, rows) {
-			tool_fullact = rows;		
+			tool_fullact = rows;	
+			if(allLoaded == false){
+				fixdataset();
+			}			
 	}); 
 	d3.csv("data/tool_activities_pre.csv", function(d) {return d;}
 		,function(error, rows) {
@@ -1197,7 +1203,9 @@ $(function() {
 			 //tool_activities = rows;
 			 //renderLoaded();
 			 tool_people = rows;
-			 fixdataset();
+			 if(allLoaded == false){
+				fixdataset();
+			 }
 			 grid("#ep2014list",tool_people);	
 	});
 	
