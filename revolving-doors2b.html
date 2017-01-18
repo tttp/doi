@@ -1087,7 +1087,6 @@ var fixdataset = function(){
 		var thisacts2 = _.filter(tool_fullact_pre,function (a) { return a.Name.trim() == m.Name.trim()  });
 		alert(m.Name.trim());
 		_.each (thisacts, function (f) {
-			alert(f.toSource());
 			m.fullsearch += f.post_mandate_activities + " ";
 			alert(f.On_JTR);
 			if(f.On_JTR.trim().toLowerCase() == "yes"){
