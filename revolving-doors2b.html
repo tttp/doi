@@ -1183,31 +1183,31 @@ $(function() {
 		,function(error, rows) {
 			tool_ids = rows;			 
 	}); 
-	d3.csv("data/tool_activities_post.csv", function(d) {return d;}
-		,function(error, rows) {
-			tool_fullact = rows;	
-			if(allLoaded == false){
-				fixdataset();
-			}			
-	}); 
-	d3.csv("data/tool_activities_pre.csv", function(d) {return d;}
-		,function(error, rows) {
-			tool_fullact_pre = rows;		
-	}); 
-	d3.csv("data/tool_photos.csv", function(d) {return d;}
-		,function(error, rows) {
-			tool_photos = rows;			 
-	}); 
 	d3.csv("data/tool_total_unique.csv", function(d) {return d;}
 		,function(error, rows) {
 			 //tool_activities = rows;
 			 //renderLoaded();
 			 tool_people = rows;
 			 if(allLoaded == false){
-				fixdataset();
+				//fixdataset();
 			 }
-			 grid("#ep2014list",tool_people);	
+			 	
 	});
+	d3.csv("data/tool_activities_pre.csv", function(d) {return d;}
+		,function(error, rows) {
+			tool_fullact_pre = rows;		
+	}); 
+	d3.csv("data/tool_activities_post.csv", function(d) {return d;}
+		,function(error, rows) {
+			tool_fullact = rows;	
+			fixdataset();	
+			grid("#ep2014list",tool_people);
+	}); 
+	d3.csv("data/tool_photos.csv", function(d) {return d;}
+		,function(error, rows) {
+			tool_photos = rows;				
+	}); 
+	
 	
 	var countOfficialsWall = function(thisdataset) {
 		var thesepeople = [];
