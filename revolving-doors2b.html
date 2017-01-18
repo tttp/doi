@@ -388,7 +388,11 @@ function grid(selector,data) {
 			thesepeople.push(m.Name);
 		} 
 		*/ 
-		officialscount  += parseInt(m.total_activities);
+			if(jtrfilter == true){
+				officialscount += parseInt(m.jtract_count);
+			} else {
+				officialscount  += parseInt(m.total_activities);
+			}
 		});
 		$('.filter-pcount').html(officialscount);
 	}
@@ -1034,6 +1038,8 @@ var tool_fullact = [];
 var tool_fullact_pre = [];
 var tool_photos = [];
 
+var jtrfilter = false;
+
 //sidetpl =  _.template($("#sidetpl").html());
 //detailtpl =  _.template($("#detailtpl").html());
 
@@ -1071,12 +1077,17 @@ var fixdataset = function(){
 	var cats = [];
 	_.each (tool_people, function (m) {
 	
+		//jtr activities count
+		m.jtract_count = 0;
 		//Assign all activities field for search tool_fullact_pre
 		m.fullsearch = "";
 		var thisacts = _.filter(tool_fullact,function (a) { return a.Name.trim() == m.Name.trim()  });
 		var thisacts2 = _.filter(tool_fullact_pre,function (a) { return a.Name.trim() == m.Name.trim()  });
 		_.each (thisacts, function (f) {
 			m.fullsearch += f.post_mandate_activities + " ";
+			if(f.On_JTR.trim().toLowerCase() == "yes"){
+				m.jtract_count ++;
+			}
 		});
 		_.each (thisacts2, function (f) {
 			m.fullsearch += f.pre_mandate_activities + " ";
@@ -1192,16 +1203,25 @@ $(function() {
 		var officialscount = 0;
 		//Count people
 		_.each (thisdataset, function (m) {
-			officialscount  += parseInt(m.total_activities);
+			if(jtrfilter == true){
+				officialscount += parseInt(m.jtract_count);
+			} else {
+				officialscount  += parseInt(m.total_activities);
+			}
 		});
 		$('.filter-pcount').html(officialscount);
 	}
 	
 	//Logos filter
 	$("#commission_btn").click(function() {
+		if($("#parliament_btn").attr("src") == "img/EP2.png"){
+			$(".resetall").click();
+			return;
+		}
 		wall.dimension().filter(function (d) { 
 			return d.indexOf("EuropeanCommission") !== -1;
 		});
+		jtrfilter = false;
 		$("#commission_btn").attr("src", "img/EC1.png");
 		$("#parliament_btn").attr("src", "img/EP2.png");
 		$("#registry_yes_btn").removeClass("active");
@@ -1209,6 +1229,11 @@ $(function() {
 		dc.redrawAll();
 	});
 	$("#parliament_btn").click(function() {
+		if($("#commission_btn").attr("src") == "img/EC2.png"){
+			$(".resetall").click();
+			return;
+		}
+		jtrfilter = false;
 		wall.dimension().filter(function (d) { 
 			return d.indexOf("EuropeanParliament") !== -1 || d.indexOf("Europeanparliament") !== -1;
 		});
@@ -1221,6 +1246,11 @@ $(function() {
 	
 	//Registry filter
 	$("#registry_yes_btn").click(function() {
+		if($(this).hasClass('active')){
+			$(".resetall").click();
+			return;
+		}
+		jtrfilter = true;
 		wall.dimension().filter(function (d) { 
 			return d.indexOf("on_JTR") !== -1 ;
 		});
@@ -1231,6 +1261,7 @@ $(function() {
 		countOfficialsWall(wall.dimension().top(Infinity));
 		dc.redrawAll();
 	});
+	/*
 	$("#registry_no_btn").click(function() {
 		wall.dimension().filter(function (d) { 
 			return d.indexOf("on_JTR") == -1;
@@ -1240,7 +1271,7 @@ $(function() {
 		countOfficialsWall(wall.dimension().top(Infinity));
 		dc.redrawAll();
 	});
-	
+	*/
 	$("#search-input").keyup (function () {
 		var s = $(this ).val().toLowerCase();
 		wall.dimension().filter(function (d) { 
@@ -1255,6 +1286,7 @@ $(function() {
 	$(".resetall").attr("disabled",false);
 	$(".resetall").click(function() {
 		$("#search-input").val("");
+		jtrfilter = false;
 		//$(".resetall").attr("disabled",true);	
 		wall.filter(null);
 		dc.filterAll();
