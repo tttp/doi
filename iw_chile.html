@@ -1,0 +1,1668 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CL Integrity Watch</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link href="css/bower.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/dc.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+
+
+
+<script type="text/javascript" src="js/bower.js"></script>
+<script type="text/javascript">
+var dmy = d3.time.format("%d/%m/%Y");
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+    "date-eu-pre": function ( date ) {
+				return dmy.parse(date);
+    },
+ 
+    "date-eu-asc": function ( a, b ) {
+        return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+    },
+ 
+    "date-eu-desc": function ( a, b ) {
+        return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+    }
+} );
+
+
+</script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the pdate via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+<style>
+td.dc-table-column._4,
+td.dc-table-column._5,
+td.dc-table-column._6
+{text-align:left;}
+
+#mep_number {
+		margin-top: 0.1em;}
+.l_data_container {
+	padding: 10px 15px;
+	margin: -10px;
+	background: #d4eaf6;
+}
+.l_data_container div {
+	border: none;
+	margin-top: 0;
+	padding-bottom: 0;
+	margin: 5px 0 5px 0;
+}
+.l_data_container_main {
+	background: #d4eaf6;
+	margin-bottom: 20 !important;
+	font-size: 18px;
+	text-align: center;
+}
+.l_data_container label {
+	font-weight: 600;
+}
+.l_data_container_main label {
+	color: #333;
+}
+.l_data_container_host {
+	border: 4px solid #0f4c79 !important;
+	border-right: 3px solid #0f4c79 !important;
+	margin-top: 0 !important;
+	//height: 230px;
+	padding: 10px 15px !important;
+	background: #fff;
+}
+.l_data_container_guest {
+	border: 4px solid #8e1556 !important;
+	border-left: 3px solid #8e1556 !important;
+	margin-top: 0 !important;
+	//height: 230px;
+	padding: 10px 15px !important;
+	background: #fff;
+}
+.l_data_container_guest label, .l_data_container_guest .data_container_title {
+	color: #8e1556 !important;
+}
+.l_data_container_host label, .l_data_container_host .data_container_title {
+	color: #0f4c79 !important;
+}
+.data_container_title {
+	font-size: 15px;
+	font-weight: 800;
+	text-transform: uppercase;
+	
+}
+.legend div.individual::before {
+    background: #af0700 none repeat scroll 0 0;
+}
+.legend div.tradeunion::before {
+    background: #f6b862 none repeat scroll 0 0;
+}
+.legend div.companies::before {
+    background: #fcb000 none repeat scroll 0 0;
+}
+.otro::before {
+	background: #bbb;
+}
+.main_category svg, .hosttype svg {
+	overflow: visible !important;
+}
+</style>
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@TI_EU" />
+<meta name="twitter:creator" content="@eucampaign" />
+
+<meta property="og:url" content="http://www.integritywatch.eu" />
+<meta property="og:title" content="EU Integrity Watch: monitor potential conflicts of interests" />
+<meta property="og:description" content="Who’s #lobbying the EU Commission and how much are they spending? Check Integrity Watch" />
+<meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
+<meta property="fb:app_id" content="1611680135716224" />
+
+</head>
+<body>
+
+
+<script>
+$( document ).ready(function() {
+	$('#view_charts').click(function(ev) {
+		ev.preventDefault();
+		$('#hidden_charts_wrap').slideToggle('slow', function () {
+			changeLinkStatus();
+		})
+	})
+	
+	function changeLinkStatus() {
+		if($('#hidden_charts_wrap').css('display') == 'none'){
+			$('#view_charts').text('VIEW ALL THE CHARTS')
+		}else {
+			$('#view_charts').text('HIDE CHARTS')
+		}
+		$('#view_charts').toggleClass('hiddencharts');
+	}
+	
+	$('#collapse_about a').click(function(ev) {
+		ev.preventDefault();
+		$('#collapse_about a').toggleClass('opened');
+		$('#collapse_about a').toggleClass('closed');
+		$('#about_wrap').slideToggle('slow', function () {
+			$('#about_wrap_top').slideToggle('fast')
+		})
+		
+	})
+	
+	$('.info').click(function(ev) {
+		ev.preventDefault();
+		if($(this).hasClass('opened')){
+			$(this).removeClass('opened');
+			$(this).parents('.info_chart').find('p.desc').slideUp('fast')
+		}else{
+			closeAllInfos();
+			$(this).addClass('opened');
+			$(this).parents('.info_chart').find('p.desc').slideDown('fast')
+		}
+	});
+	
+	function closeAllInfos() {
+		$('.info').removeClass('opened');
+		$('p.desc').slideUp('fast');
+	}
+	
+});
+
+var detailtpl = sidetpl = null ;
+
+var wall = null;
+
+
+function grid (selector,data) {
+
+	
+	var ndx = crossfilter(data),
+			all = ndx.groupAll();
+
+	var color = d3.scale.linear()
+				.clamp(true)
+				.domain([0,1, 70])
+				.range(["white","#ffc7b6", "#f85631"])
+				.interpolate(d3.interpolateHcl);
+
+var mainCategories = {"1":"Consultants","2":"Corporate","3":"NGOs","4":"Think tanks","5":"Churches","6":"Municipal"};
+
+var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Self-employed consultants","21":"Companies & groups","22":"Trade and business associations",
+"24":"Other organisations",
+"25":"Trade and business organisations",
+"26":"Trade unions",
+"27":"Other in house lobbyists",  
+"31":"Non-governmental organisations, platforms and networks and similar","41":"Think tanks and research institutions","42":"Academic institutions","51":"Churches & religious communities","61":"Local, regional and municipal authorities (at sub-national level)","62":"Other public or mixed entities, etc.","444":"Trade unions and professional associations","446":"Trade unions and professional associations","450":"Regional structures","66":"Other public or mixed entities, etc","466":"Trade unions and professional associations","469":"Trade unions and professional associations","477":"Other public or mixed entities, created by law whose purpose is to act in the public interest","480":"Trade unions and professional associations","501":"Trade unions and professional associations","504":"Other public or mixed entities, created by law whose purpose is to act in the public interest","506":"Trade unions and professional associations","508":"Trade unions and professional associations","5055":"Trade unions and professional associations","5060":"Trade unions and professional associations","5062":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5065":"Trade unions and professional associations","5073":"Trade unions and professional associations","5074":"Regional structures","5075":"Trade unions and professional associations","5085":"Regional structures","5087":"Trade unions and professional associations","5089":"Trade unions and professional associations","5095":"Trade unions and professional associations","5099":"Transnational associations and networks of public regional or other sub-national authorities","5105":"Trade unions and professional associations","5110":"Trade unions and professional associations","5115":"Trade unions and professional associations","5130":"Trade unions and professional associations","5133":"Regional structures","5141":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5157":"Transnational associations and networks of public regional or other sub-national authorities","5159":"Trade unions and professional associations","5171":"Trade unions and professional associations","5172":"Other public or mixed entities, created by law whose purpose is to act in the public interest","5197":"Regional structures","5205":"Trade unions and professional associations","5226":"Trade unions and professional associations","5227":"Trade unions and professional associations","5230":"Trade unions and professional associations","5256":"Trade unions and professional associations","5262":"Regional structures","5356":"Trade unions and professional associations","5371":"Trade unions and professional associations","5374":"Trade unions and professional associations","5390":"Regional structures","5400":"Trade unions and professional associations",
+"62": "Other public or mixed",
+"63": "Regional structures",
+"64": "Other sub-national public authorities",
+"65": "Transnational public networks",
+"66": "Other public or mixed entities", 
+
+};
+
+
+
+	evt = ndx.dimension(function(d) {
+		//alert(d.toSource());
+		//return d.id;  
+		//return d.MeetingId;	
+		return d.id;		
+	})
+  var eventgroup   = evt.group().reduce(
+      function(p,d) {  
+        p.nb +=1;
+        if (!d.organisation)
+          return p;
+        p.fte += d.fte;
+        p.accredited += d.accredited;
+        return p;
+      },
+      function(p,d) {  
+        p.nb -=1;
+         if (!d.organisation)
+           return p;
+        p.fte -= d.fte;
+        p.accredited -= d.accredited;
+        return p;
+      },
+      function(p,d) {  
+        return {nb:0,fte:0,accredited:0}; 
+      }
+
+  );
+
+	var count=dc.dataCount(".dc-data-count")
+		.dimension(eventgroup)
+		.group({value: function() {
+						return eventgroup.all().filter(function(kv) { return kv.value.nb>0; }).length;
+			}});
+		//.dimension(ndx)
+		//.group(all);
+
+	count.on("renderlet.resetall", function(c) {
+			var total=c.dimension().size();
+			var filtered= c.group().value();
+			var disabled= (total == filtered);
+
+			$(".resetall").attr("disabled",disabled);
+			ga && ga('send', 'event', 'filter', 'subset', filtered);
+
+			if (filtered >=0) {
+				var one2one=0;
+				eventgroup.all().forEach(function(d) { if(d.value ==1) one2one ++;});
+				var ratio=Math.round(100-one2one/filtered*100);
+				$(".one2one").html( ratio + "% collective meetings");
+			}
+      RefreshTable();
+	});
+
+	dc.dataCount(".dc-data-count2")
+		.dimension(ndx)
+		.group(all);
+
+
+	nameEvent = ndx.dimension(function(d) {
+		if (d.nombrePasivo) {
+				return d.nombrePasivo.toLowerCase()+" "+d.apellidosPasivo.toLowerCase()+" "+d.nombreInstitucion.toLowerCase()+" "+d.observacionesMateriaAudiencia.toLowerCase()+ " ";   
+		}
+		return d.nombrePasivo.toLowerCase()+" "+d.apellidosPasivo.toLowerCase()+" "+d.nombreInstitucion.toLowerCase()+" "+d.observacionesMateriaAudiencia.toLowerCase()+ " ";
+	});
+
+	drawTable();
+	drawCloud();
+	//drawHost();
+	drawHostType();
+	drawTopGuest();
+	drawTopHost();
+    //drawGuestCounter();
+	drawMainCategory();
+	drawTopComunes();
+	
+	//drawSector();
+	//drawNbParticipants();
+	
+  /*
+	drawEFT();
+*/
+
+/*  drawScore();
+	drawParty();
+	drawRange();
+*/
+
+		function rotateBarChartLabels(chart) {
+			chart.svg().selectAll('.axis.x text')
+				.style("text-anchor", "end" )
+				.attr("transform", function(d) { return "rotate(-45, -4, 9) "; });
+
+		}
+	
+	function setword(wd) {
+		$("#search-input").val(wd);
+		var s = wd.toLowerCase();
+		nameEvent.filter(function (d) { 
+			return d.indexOf (s) !== -1;} );
+		$(".resetall").attr("disabled",false);
+		throttle();
+//        dc.redrawAll();
+
+		var throttleTimer;
+		function throttle() {
+			window.clearTimeout(throttleTimer);
+			throttleTimer = window.setTimeout(function() {
+				console.log ("redraw");
+					dc.redrawAll();
+			}, 250);
+		}
+	}
+
+  function drawCloud() {
+     var dim = ndx.dimension(function(d) {
+      return d.observacionesMateriaAudiencia || "";
+     })
+
+     var group   = dim.group().reduceSum(function(d) { return 1; });
+
+
+     var graph =  dc.wordCloud(".wordcloud")
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .size([520,600])
+      .dimension(dim)
+	  .maxWords(50)
+	  .padding(5)
+      .ordinalColors(['#133d82', '#2163ad', '#3893d1', '#84c0e8', '#cfecff'])
+      .group(group)
+//      .fontSize(d3.scale.linear().domain([0,100]).range([6,80]).clamp(true))
+      .textAccessor(function(d) {return d.observacionesMateriaAudiencia;})
+	  .onClick(function(d){setword(d.key);})
+      .stopWords (/^(una|lo|es|este|sus|e|ya|el|del|que|las|los|al|un|su|para|por|se|con|sobre|y|i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|i'll|you'll|he'll|she'll|we'll|they'll|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't|doesn't|don't|didn't|won't|wouldn't|shan't|shouldn't|can't|cannot|couldn't|mustn't|let's|that's|who's|what's|here's|there's|when's|where's|why's|how's|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall|la|du|mr|commissioner|et|des|dg|commission|de|pour|en|les|le|meeting|eu|new|priorities|presentation|preparation|issues|meetings|representatives|work|implementation|general|future|challenge|challenge|skey|role|exchange|views|discuss|discussion|various director|talks|position|global|field|level|initiative|company|state|aspects|context|current|change|european|potential|including|dans|within|developments|play|present|Päris|Enegry|deep|Susan|Danger|Managing|Director|AmCham|Karl|Cox|Vice|President|Oracle| Bert|Boers|SAS|Marco|Comastri|EMEA|CA|Patrick|Deconinck|Senior|Western|3M|Harry|van| Dorenmalen|Chairman|IBM|Aongus|Hegarty|Dell|Cindy|Miller|UPS|Christian|Morales|Manager|Intel| |Julián|Nebreda|AES|Peter|Ryan|VP|HP|Nigel|Lewis|Caterpillar|Dirk|Ostijn|Head|&| Chief|Executive |Officer|MetLife|CA|flagship|related|portfolio|Cssr|Jourova|(| voting|all|expats|as|part|)|,|Year)$/);
+
+  }
+
+  function drawEFT(){
+  	var dim = ndx.dimension(function(d) {
+
+      if (!d.guestid)
+        return -1;
+  		if (!representatives[d.guestid])
+        return -1;
+      return +representatives[d.guestid].fte;
+  	});
+	var group   = event.group().reduceSum(function(d) {  return d.fte; });
+
+	var count=dc.dataCount(".fte")
+		.dimension(group)
+		.group({value: function() {
+						return group.all().filter(function(kv) { return kv.value>0; }).length;
+			}});
+		//.dimension(ndx)
+		//.group(all);
+
+	};
+  
+	function drawMainCategory () {
+
+		var dim = ndx.dimension (function(d) {
+				return d.giroActivo;
+		});
+
+		var group   = dim.group().reduceSum(function(d) { return 1; });
+		
+
+		var chart = dc.pieChart(".main_category")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.label(function(d){ return d.key })
+			.dimension(dim)
+			.group(group)
+			.cap(7)
+			.minAngleForLabel(.2);
+			/*
+			.colorCalculator(function(d, i) {
+				//return lobby_category_colors[d.key[1]];
+				return lobby_category_colors[d.key];
+			})
+			*/
+		chart.legend(dc.legend().x(30).y(220).itemHeight(13).gap(5))
+			
+	}
+
+	function drawSector () {
+	var dim = ndx.dimension (function(d) {
+			if (!d.guestid){
+				if (d.unregistered == "")
+					return "Not mentioned";
+
+				return "Not registered";
+			}
+			if (d.status=="dereg")
+				return "Unknown";
+			if (!representatives[d.guestid])
+				return "Unknown";
+			sub=representatives[d.guestid].sub_category;
+			//return [representatives[d.guestid].main_category,subCategories[sub]];
+			//return [representatives[d.guestid].main_category,representatives[d.guestid].sub_category_title];
+			if(representatives[d.guestid].sub_category_title == "Unknown"){
+				return representatives[d.guestid].sub_category_title;
+			} else {
+				return [representatives[d.guestid].main_category,representatives[d.guestid].sub_category_title];
+			}
+	});
+
+	var group   = dim.group().reduceSum(function(d) {   return 1; });
+		/*
+			 //return [representatives[d.guestid].main_category,representatives[d.guestid].main_category_title];
+			 var t={};
+			 group.all().forEach (function (d) {if (d.key[0]) t[d.key[0]]=d.key[1]})
+			 JSON.stringify(t);
+		*/
+	var lobby_sector_colors = {	
+		"Companies & groups":"#cf270e",//Corporate
+		"Trade and business organisations":"#cf270e",//Corporate
+		"Other Business organisations":"#cf270e",//Corporate
+		"Trade unions":"#cf270e",//Corporate
+		"Other in house lobbyists":"#cf270e",//Corporate
+		"Law firms":"#d74517",//Consultants
+		"Professional consultancies":"#d74517",//Consultants
+		"Self-employed consultants":"#d74517",//Consultants
+		"Non-governmental organisations, platforms and networks and similar":"#ecb005",//NGOs
+		"Think tanks and research institutions":"#de6320",//Think tanks
+		"Academic institutions":"#de6320",//Think tanks
+		"Churches & religious communities":"#f6d882",//Churches
+		"Local, regional and municipal authorities (at sub-national level)":"#e58a13",//Municipal
+		"Regional structures":"#e58a13",//Municipal
+		"Other sub-national public authorities":"#e58a13",//Municipal
+		"Transnational public networks":"#e58a13",//Municipal
+		"Other public or mixed entities":"#e58a13",//Municipal
+
+		"Unknown":"#cccccc",
+		"Deregistered":"#cccccc"
+	}
+
+	var graph = dc.rowChart (".sector")   
+		.height(500)
+		//.width(350)
+		.gap(2)
+		.margins({top: 0, right: 5, bottom: 20, left: 5})
+		.x(d3.scale.ordinal())
+		.label(function(d){
+			 if (typeof d.key == "string")
+				 return d.key;
+			 return d.key[1]; 
+		})
+		.elasticX(true)
+		.colorCalculator(function(d, i) {
+			var k;
+			if (typeof d.key == "string"){
+				 k = d.key;
+			}else{
+				k = d.key[1];
+			} 
+			return lobby_sector_colors[k];
+		})
+		.dimension(dim)
+		.group(group)
+		.xAxis().ticks(4).tickFormat(d3.format(",.0f"));
+
+	}
+
+
+	function getPortfolio (d) {
+    var shortenName =
+    {
+      "Agriculture and Rural Development": "Agriculture",
+      "Communications Networks, Content and Technology": "Digital Economy",
+      "Economic and Financial Affairs": "Economics & Tax",
+      "Education and Culture": "Education",
+      "Employment, Social Affairs and Inclusion": "Employment",
+      "Climate Action": "Climate & Energy",
+      "Energy": "Energy Union",
+      "EuropeAid Development & Cooperation": "Development",
+      "European Neighbourhood Policy and Enlargement Negotiations": "Neighbourhood",
+      "European Political Strategy Centre": "Presidency",
+      "Eurostat": "Employment",
+      //"Financial Stability, Financial Services and Capital Markets Union": "Financial Markets",
+	  "Financial Stability, Financial Services and Capital Markets Union": "Euro & Financial Markets",
+      "Health and Food Safety": "Health",
+      "Human Resources and Security": "Budget",
+      "Humanitarian Aid and Civil Protection": "Humanitarian Aid",
+      "Informatics": "Digital Economy",
+      "Internal Market, Industry, Entrepreneurship and SMEs": "Internal Market",
+      "Joint Research Centre": "Education",
+      "Maritime Affairs and Fisheries": "Environment",
+      "Mobility and Transport": "Transport",
+      "Office for Administration and Payment of individual entitlements ": "Budget",
+      "Publications Office": "Education",
+      "Research and Innovation": "Research",
+      "Secretariat-General": "Presidency",
+      "Taxation and Customs Union": "Economics & Tax",
+	  "Euro": "Euro & Financial Markets",
+	  "Financial Markets": "Euro & Financial Markets",
+	  "Legal Service": "Presidency",
+	  "Communication": "Presidency",
+	  "European Anti-Fraud Office": "Budget",
+	  "Translation": "Budget"
+    };
+
+    return shortenName[d.cabinet] || d.cabinet;
+
+		if (d.cabinet) {
+      return d.cabinet;
+    }
+
+		var host2portfolio = {
+			"President Jean-Claude Juncker" : "Presidency",
+			"Secretary-General Catherine Day": "Presidency",
+	"Director-General Ann Mettler": "Presidency",
+"Martine Reicherts": "Presidency",
+			"Director-General Robert Madelin":"Digital Economy",
+	"Commissioner Günther Oettinger":"Digital Economy",
+	"Director-General Stephen Quest":"Digital Economy",
+
+	"Commissioner Miguel Arias Cañete":"Climate & Energy",
+	"Director-General Dominique Ristori":"Climate & Energy",
+	"Director-General Jos Delbeke": "Climate & Energy",
+
+	"Commissioner Cecilia Malmström":"Trade",
+	"Director-General Jean-Luc Demarty":"Trade",
+
+	"Commissioner Jonathan Hill":"Financial Markets",
+	"Director-General Jonathan Faull":"Financial Markets",
+
+	"Commissioner Johannes Hahn":"Neighbourhood",
+	"Director-General Christian Danielsson":"Neighbourhood",
+
+			"Vice-President Jyrki Katainen" : "Jobs & Growth",
+
+	"Director-General Claus Sørensen":"Humanitarian Aid",
+	"Commissioner Christos Stylianides":"Humanitarian Aid",
+
+	"Commissioner Corina Crețu":"Regional Policy",
+	"Director-General Walter Deffaa":"Regional Policy",
+
+	"Commissioner Dimitris Avramopoulos":"Home Affairs",
+	"Director-General Alfred Matthias Ruete":"Home Affairs",
+
+	"First Vice-President Frans Timmermans":"Better Regulation",
+
+	"Commissioner Phil Hogan":"Agriculture",
+	"Director-General Jerzy Bogdan Plewa":"Agriculture",
+
+	"Commissioner Violeta Bulc":"Transport",
+	"Director-General Joao Aguiar Machado":"Transport",
+
+  "Commissioner Elżbieta Bieńkowska": "Internal Market",
+	"Director-General Daniel Calleja Crespo":"Internal Market",
+
+	"Vice-President Kristalina Georgieva": "Budget",
+	"Director-General Nadia Maria Calvino Santamaria":"Budget",
+	"Director-General Irene Souka":"Budget",
+
+	"Vice-President Andrus Ansip":"Digital Single Market",
+
+	"Vice-President Maroš Šefčovič":"Energy Union",
+
+	"Commissioner Tibor Navracsics":"Education",
+	"Director-General Xavier Prats Monné": "Education",
+	"Director-General Vladimir Šucha":"Education",
+
+	"Commissioner Karmenu Vella":"Environment",
+	"Director-General Lowri Evans":"Environment",
+	"Director-General Karl-Friedrich Falkenberg":"Environment",
+
+	"High Representative/Vice-President Federica Mogherini":"External Action",
+
+	"Commissioner Vytenis Andriukaitis":"Health",
+	"Director-General Ladislav Miko":"Health",
+	"Ladislav Miko":"Health",
+
+	"Director-General Fernando Frutuoso de Melo":"Development",
+	"Commissioner Neven Mimica":"Development",
+
+	"Vice-President Valdis Dombrovskis":"Euro",
+
+	"Commissioner Pierre Moscovici":"Economics & Tax",
+	"Director-General Heinz Zourek":"Economics & Tax",
+	"Director-General Marco Buti":"Economics & Tax",
+
+	"Commissioner Věra Jourová":"Justice",
+	"Director-General Paraskevi MICHOU":"Justice",
+
+	"Commissioner Marianne Thyssen":"Employment",
+	"Director-General Michel Servoz":"Employment",
+	"Director-General Walter Radermacher":"Employment",
+
+	"Director-General Robert-Jan Smits":"Research",
+	"Commissioner Carlos Moedas":"Research",
+
+	"Commissioner Margrethe Vestager":"Competition",
+	"Director-General Alexander Italianer":"Competition",
+
+
+		};
+
+			if (d.cabinet) {
+				return host2portfolio[d.cabinet.substr(19)] || d.cabinet.substr(19);//remove Cabinet member of...
+				//return cabinet2Topic[d.cabinet] || d.cabinet.substr(19); //remove Cabinet member of...
+			}
+			return host2portfolio[d.host] || d.host;
+	}
+
+	function drawNbParticipants () {
+
+		var dim = ndx.dimension (function(d) {
+        if (!d.participants || d.participants ==0)
+          return 1;
+        if (d.participants>4)
+          return 5;
+				return d.participants;   
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+		var chart = dc.pieChart(".nbparticipants")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.label(function(d){ 
+          if (d.key == 5)
+            return ">5";
+          return d.key })
+			.title (function(d){ 
+         switch(d.key) {
+           case 1:
+             return "one on one" + d.value;
+             break;
+           case 5:
+             return ">5 participants: " + d.value;
+             break;
+           default:
+             return d.key + " participants: " + d.value;
+         }
+       })
+			.dimension(dim)
+			.group(group);
+	
+	}
+	function drawHostType () {
+
+		var dim = ndx.dimension (function(d) {
+				return d.cargoNombrePasivo;   
+				//return d.nombrePasivoInstitucion;
+		});
+
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+		var hosttypecolor = {			
+			"Senador":"#2163ad",
+			"Otro":"#bbbbbb",
+			"Diputado":"#84c0e8"
+		};
+		
+		var chart = dc.pieChart(".hosttype")
+			.innerRadius(50).radius(100)
+			.height(200)
+			.dimension(dim)
+			.cap(7)
+			.group(group);
+			//.legend(dc.legend().x(0).y(190).gap(10)) TODO: use dc.legend		
+			/*
+			.colorCalculator(function(d, i) {
+				return hosttypecolor[d.key];
+			});
+			*/
+			chart.legend(dc.legend().x(30).y(220).itemHeight(13).gap(5))
+	
+	}
+
+	function drawHost () {
+
+	var dim = ndx.dimension (function(d) {
+		//return getPortfolio(d);
+		return d.portfolio;
+
+	});
+
+	var group   = dim.group().reduceSum(function(d) {   return 1; });
+	
+	var portfolio_type = [
+		"Better Regulation",
+		"External Action",
+		"Presidency",
+		"Digital Single Market",
+		"Jobs & Growth",
+		"Budget",
+		"Energy Union",
+		"Euro"
+	];
+	
+	var graph = dc.rowChart (".host")   
+		.margins({top: 0, right: 5, bottom: 20, left: 5})
+		.height(520)
+		.gap(2)
+		.x(d3.scale.ordinal())
+		.elasticX(true)
+		.colorCalculator(function(d, i) {
+			if(portfolio_type.indexOf(d.key) > -1){
+				return "#2063ad";
+			} else {
+				return "#84c0e9";
+			}
+		})
+		.dimension(dim)
+		.group(group);
+
+		graph.xAxis().ticks(5).tickFormat(d3.format("d"));
+		//.xAxis().ticks(4);
+
+	}
+	function drawTopHost () {
+		var dim = ndx.dimension (function(d) {
+			return d.nombrePasivo + d.apellidosPasivo;
+		});
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+		var filteredGroup = (function(source_group) {
+			return {
+				all: function() {
+					return source_group.top(10).filter(function(d) {
+						return (d.key != "Not mentioned" && d.value != 0);
+					});
+				}
+			};
+		})(group);
+
+		var graph = dc.rowChart(".tophost")   
+			.margins({top: 0, right: 3, bottom: 20, left: 3})
+			.height(340)
+			//.width(360)
+			.gap(1)
+      		//.fixedBarHeight(20)
+			.x(d3.scale.ordinal())
+			.elasticX(true)
+			.colorCalculator(function(d, i) {
+				return "#84c0e9";
+			})
+			.ordering(function(d){return -d.value})
+			.dimension(dim)
+			.group(filteredGroup);
+
+
+	};
+	
+	function drawTopComunes() {
+		var dim = ndx.dimension (function(d) {
+			return d.nombreComuna;
+		});
+		var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+		var filteredGroup = (function(source_group) {
+			return {
+				all: function() {
+					return source_group.top(20).filter(function(d) {
+						return (d.key != "Not mentioned" && d.value != 0);
+					});
+				}
+			};
+		})(group);
+
+		var graph = dc.rowChart(".topcomunes")   
+			.margins({top: 0, right: 3, bottom: 20, left: 3})
+			.height(550)
+			//.width(360)
+			.gap(1)
+      		//.fixedBarHeight(20)
+			.x(d3.scale.ordinal())
+			.elasticX(true)
+			.colorCalculator(function(d, i) {
+				return "#84c0e9";
+			})
+			.ordering(function(d){return -d.value})
+			.dimension(dim)
+			.group(filteredGroup);
+
+
+	};
+
+  function drawGuestCounter (){
+	var dim = ndx.dimension (function(d) {
+		if (!d.organisation) {
+			return "";
+		}
+		return d.organisation;
+	});
+    var group   = dim.group().reduce(
+      function(p,d) {  
+        p.nb +=1;
+        if (!d.organisation)
+          return p;
+        p.fte = 0;
+        p.accredited = 0;
+        return p;
+      },
+      function(p,d) {  
+        p.nb -=1;
+         if (!d.organisation)
+           return p;
+        p.fte = +0;
+        p.accredited = +0;
+        return p;
+      },
+      function(p,d) {  
+        return {nb:0,fte:0,accredited:0}; 
+      }
+    );
+    group.order (function(p){return p.nb});
+    var fte=0;
+    var accredited=0;
+	var count = dc.dataCount(".org-count")
+		.dimension(group)
+		.group({value: function() {
+			return group.all().filter(function(kv) {
+        if (kv.value.nb >0) {
+          fte += +kv.value.fte;
+          accredited += +kv.value.accredited;
+        }
+
+				return kv.value.nb>0; 
+			}).length;
+		}})
+		.renderlet(function (chart) {
+        $(".nbfte").text(fte);
+        $(".nbfte").text(d3.format(",f")(fte));
+        $(".nbaccredited").text(d3.format(",f")(accredited));
+        fte=0;
+        accredited=0;
+		});
+  }
+
+	function drawTopGuest () {
+		var dim = ndx.dimension (function(d) {
+			//return d.nombreActivoFull;
+			return d.nombreEntidadActivo;
+		});
+			
+		var group = dim.group().reduceSum(function(d) {   return 1; });
+		
+
+		var filteredGroup = (function(source_group) {
+			return {
+				all: function() {
+					return source_group.top(11).filter(function(d) {
+					return (d.key != "" && d.key != "Unknown" && d.key != "Not mentioned" && d.value != 0);
+				});
+			}
+		};
+	})(group);
+
+	var graph = dc.rowChart(".guest")   
+		.margins({top: 0, right: 3, bottom: 20, left: 3})
+		.height(340)
+		//.width(360)
+		.gap(3)
+		.x(d3.scale.ordinal())
+		.elasticX(true)
+		.colorCalculator(function(d, i) {
+			return "#ecb005";
+		})
+		.ordering(function(d){return -d.value})
+		.dimension(dim)
+		.group(filteredGroup);
+
+		graph.xAxis().ticks(10).tickFormat(d3.format("d"));
+		
+	};
+
+	function drawTable () {
+		var count=0;
+    //id,status,guest,host,cabinet,date,guestid,title,unregistered,participants
+
+    datatable = $(".table").dataTable({
+            "columnDefs": [ {
+              "searchable": false,
+              "orderable": false,
+              "targets": 0,   
+              data: function ( row, type, val, meta ) {
+                count++;
+                return count;
+              }
+              },{
+              "searchable": false,
+              "orderable": true,
+              "targets": 1,
+              "defaultContent":"N/A",
+              "data":"nombreInstitucion",
+              },{
+              "searchable": false,
+              "orderable": true,
+              "targets": 2,
+              "defaultContent":"N/A",
+			  "data": function (d, type, val, meta) {
+                 if (!d) return "";
+                 return d.nombrePasivo + " " + d.apellidosPasivo; 
+                },
+			  /*
+              data: function (row, type, val, meta) { 
+                if (!row) return "";
+                return getPortfolio(row)}
+				*/
+              },{
+              "defaultContent":"N/A",
+              "searchable": false,
+              "orderable": true,
+              "type":"date-eu",
+              "targets": 3,
+              "data": function(d) {
+                 if (!d) return "";
+                 if (!d.date) return "";
+                   return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
+                   //return d.date.getFullYear()+"-"+(1+d.date.getMonth())+"-"+d.date.getDate();
+                },
+              },
+			   {
+              "defaultContent":"N/A",
+              "searchable": false,
+              "orderable": true,
+              "targets": 4,
+              "data": function (d, type, val, meta) {
+                 if (!d) return "";
+                 return d.observacionesMateriaAudiencia; 
+                }
+              }, 
+			  {
+              "defaultContent":"N/A",
+              "searchable": false,
+              "orderable": true,
+              "targets": 5,
+              "data": function (d, type, val, meta) {
+                 if (!d) return "";
+                 return d.nombreComuna; 
+                }
+              },{
+              "defaultContent":"N/A",
+              "searchable": false,
+              "orderable": true,
+              "targets": 6,
+					"data": function(d) { 
+						if (!d) return "";
+       					if (!d.duracionMinutoAudiencia) {
+			      			return "N/A";
+					     }
+					    return d.duracionMinutoAudiencia;
+
+					     }
+              } 
+            ],
+            "iDisplayLength" : 100,
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": false,
+            "order": [[ 3, "desc" ]],
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "bDeferRender": true,
+            "aaData": nameEvent.top(Infinity),
+            "bDestroy": true,
+        });
+		
+	function addcommas(x){
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+	
+	function countmeetings(who){
+		var countedmeetings = _.filter(events, function(event, index) {
+		  return event.host == who || event.guest == who;
+		});
+		return countedmeetings.length;
+	}
+        	
+    function format (d) {
+    	            	
+      if (!d)
+        return "no data";
+		
+		var monthNames = [
+		  "January", "February", "March",
+		  "April", "May", "June", "July",
+		  "August", "September", "October",
+		  "November", "December"
+		];
+
+		var day = d.date.getDate();
+		var monthIndex = d.date.getMonth();
+		var year = d.date.getFullYear();
+
+		var thisdate = day + ' ' + monthNames[monthIndex] + ' ' + year;
+		
+		var thishost = _.find(meetingspages, function (x) { return x.name == d.host });
+    	s  = "<div class='l_data_container row'>";
+		s += "<div class='col-md-12 l_data_container_main'>";
+		s += "<div class='l_name'><label>Subject</label> "+d.title+"</div>";
+    	s += "<div class='l_name'><label>Date</label> "+thisdate+"</div>";
+		s += "</div>";
+		s += "<div class='col-md-6 l_data_container_host'>";
+		s += "<div class='data_container_title'>European Commission Host(s)</div>";
+		s += "<div class='l_name'><label>Host name</label> "+d.host+"</div>";
+		s += "<div class='l_name'><label>Total meetings</label> "+countmeetings(d.host)+"</div>";
+    	s += "<div class='l_name'><label>Portfolio</label> "+d.cabinet+"</div>";
+    	s += "<div class='l_category'><label>Nb Participants</label> "+d.participants+"</div>";
+		if(thishost){
+			s += "<div class='l_category'><label>Link to meeting page</label> <a target='_blank' href='"+thishost.url+"'>"+thishost.url+"</a></div>";
+		}
+		//alert(representatives[d.guestid].toSource());
+		var thisrep = representatives[d.guestid];
+		
+		var initiatives;
+    	
+    	url="http://api.lobbyfacts.nestor.coop/api/1/representative/"+thisrep .id+"?callback=?";
+    	$.getJSON( url, function( data ) {
+    		$('#initiatives'+thisrep .id).text(data.activity_eu_legislative);
+			var height1 = $('.l_data_container_host').height();
+			var height2 = $('.l_data_container_guest').height();
+			if(height1 > height2){
+				$('.l_data_container_guest').height(height1);
+			} else {
+				$('.l_data_container_host').height(height2);
+			}
+    	});   
+		
+//    	s += "<span class='lobbyist_info_container' id='lobbyist"+d.guestid+"'></span>"
+		s += "</div>";
+		s += "<div class='col-md-6 l_data_container_guest'>";
+		s += "<div class='data_container_title'>Lobby Organisation</div>";
+		s += "<div class='l_category'><label>Guest</label> "+thisrep.name+"</div>";
+		s += "<div class='l_name'><label>Reported meetings</label> "+countmeetings(d.guest)+"</div>";
+		s += "<div class='l_category'><label>Country</label> "+countriesISO[thisrep.contact_country][1]+"</div>";
+		s += "<div class='l_category'><label>Category</label> "+thisrep.sub_category_title+"</div>";
+		s += "<div class='l_category'><label>Lobby budget</label> min "+addcommas(thisrep.cost_min)+" / max "+addcommas(thisrep.cost_max)+"</div>";
+		s += "<div class='l_fte'><label>Total Lobbyist</label> "+thisrep.fte+"</div>";
+    	s += "<div class='l_accredited'><label>Accredited Lobbyist</label> "+thisrep.accredited+"</div>";
+		s += "<div class='l_declaration'><label>Transparency Register Declaration</label> "+"<a href='http://ec.europa.eu/transparencyregister/public/consultation/displaylobbyist.do?id="+thisrep.code+"' target='_blank'>Transparency registry</a></div>";
+		s += "<div class='l_initiatives'><label>Main EU initiatives, policies and legislative files followed by the organisation</label> <span id='initiatives"+thisrep.id+"'></span></div>";
+		s += "</div>";
+    	s += "</div>";
+    	return s;
+	 
+    }
+
+    datatable.on('click', 'button', function () {
+        var tr = $(this).closest('tr');
+        var type=$(this).data("type");
+        var pre=$(this).parent().parent().next("pre");
+        var row = datatable.DataTable().row( tr.prev()[0] );
+        var d=row.data();
+     
+        if (type == "event") {
+            var sevents =[];
+            _.each(events,function (e){
+            if (e.guestid == d.id)
+              sevents.push(e);
+            });
+            pre.html(JSON.stringify(sevents,null,2));
+            return;
+        }
+
+        var r = (tr.data("representative"));
+        if (!r) {
+          url="http://api.lobbyfacts.eu/api/1/representative/"+d.id+"?callback=?";
+          $.getJSON( url, function( data ) {
+            tr.data("representative",data);
+            display (data);
+          });
+          return;
+        }
+        display(r,type);
+
+        function display (data) {
+          switch (type) {
+            case "financial_data":
+             pre.html(JSON.stringify(data["financial_data"],null,2));
+              break;
+            case "accreditation":
+             pre.html(JSON.stringify(data["accreditations"],null,2));
+              break;
+            default:
+              pre.html(JSON.stringify(data,null,2));
+          }
+        }
+        
+    } );
+    
+    datatable.DataTable().on('click', 'tr[role="row"]', function () {
+        var tr = $(this);
+        var row = datatable.DataTable().row( tr );
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()) ).show();
+            tr.addClass('shown');
+			var height1 = $('.l_data_container_host').height();
+			var height2 = $('.l_data_container_guest').height();
+			if(height1 > height2){
+				$('.l_data_container_guest').height(height1);
+			} else {
+				$('.l_data_container_host').height(height2);
+			}
+        }
+    } );
+        datatable.DataTable().on( 'order.dt search.dt page.dt draw.dt', function () {
+			var thispage = $('.paginate_button.current').html();			
+			var rowi = 0;
+          datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            if(rowi >= 100){
+				rowi = 0;
+			}
+			rowi ++;
+			if(thispage > 1){
+				cell.innerHTML = (rowi) + (100*(thispage-1));
+			} else {
+				cell.innerHTML = (rowi);
+			}
+          } );
+
+        });
+
+	}
+
+       function RefreshTable() {
+            dc.events.trigger(function () {
+                alldata = evt.top(Infinity);
+                datatable.fnClearTable();
+                datatable.fnAddData(alldata);
+                datatable.fnDraw();
+            });
+        }
+
+        /*
+$.tablesorter.addParser({
+	// use a unique id
+	id: 'amount',
+	is: function(s, table, cell) {
+		return false;
+	},
+	format: function(s, table, cell, cellIndex) {
+		var v = s.split(' ')[0];
+		if (v === "") return -1;
+		return v;
+	},
+	// flag for filter widget (true = ALWAYS search parsed values; false = search cell text)
+	parsed: false,
+	// set the type to either numeric or text (text uses a natural sort function
+	// so it will work for everything, but numeric is faster for numbers
+	type: 'numeric'
+});
+
+	function drawTable () {
+		var i=0;
+		wall=dc.dataTable(".dc-data-grid")
+		 .dimension(name)
+			.group(function (d) { return "";return d.country; })
+			.columns([
+					function(d) { i=i+1; return i; },
+					function(d) {  return d.host; },
+					function(d) {  return getPortfolio(d); },
+					function(d) {
+							if (d.date == null) return "canceled";
+							return "<span title='"+d.id+"'>"+d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear()+"</span>";
+					},
+					function(d) {  return d.title; },
+					function(d) {  
+					if (!d.guestid) {
+						return "<span class='unregistered'>"+d.unregistered+"</span>";
+					}
+					if (representatives[d.guestid] && representatives[d.guestid].acronym )
+  					return "<span title='"+d.cost_absolute+"'>"+representatives[d.guestid].name + " ("+representatives[d.guestid].acronym +")</span>";
+            if (!d.guest && d.guestid && representatives[d.guestid])
+              return "<span title='"+d.cost_absolute+"'>"+representatives[d.guestid].name +"</span>";
+            return "<span title='"+d.cost_absolute+"'>"+d.guest +"</span>";
+
+					},
+					function(d) {  return d.participants; },
+			])
+		.size(100)
+		.sortBy(function (d) {return -d.date})
+		.renderlet(function (chart) {
+			i = 0;
+			$(".dc-table-group").remove();
+			$("td:first-child").each (function(i) { 
+				$(this).closest ("td").css("backgroundColor", 
+					$(this).css('backgroundColor')
+				);
+			});
+			$("td span.score").each (function(i) { 
+				$(this).closest ("td").css("backgroundColor", 
+					$(this).css('backgroundColor')
+				);
+			});
+			$("table.dc-data-grid").trigger("update");
+		});
+	}
+*/
+		dc.renderAll();
+		hashFilter();
+
+/*
+    $("table.dc-data-grid").tablesorter(
+				{theme:"bootstrap",headers: {}}
+		 ).bind("sortEnd",function(e, table) {
+			ga && ga('send', 'event', 'sort','table');
+			var i=0;
+			$("td:first-child").each (function(){this.innerHTML=++i;});
+		});
+*/    
+
+function drawRange () {
+	
+	/*colors
+	"#ffffff",
+	"#f8e8e5",
+	"#f9d1c8",
+	"#f9a896",
+	"#fb8065",
+	"#f85631"
+	*/
+ 
+	function getRange (d) {
+		if (d.score === 0 ) return ". None"; 
+		if (d.min < 500 ) return "0. < 500"; 
+		if (d.min < 1001 ) return "1. < 1000"; 
+		if (d.min < 5001 ) return "2. < 5000"; 
+		if (d.min < 10001 ) return "3. < 10000"; 
+		return "4. 10000 or more";
+	};
+
+	var color = d3.scale.ordinal()
+			//blue->orange//.range(["#3695d8", "#5989b3", "#857c93", "#ae6e74", "#d76155", "#ff523a"]);
+			.range(["#FFFFFF", "#8ed3fb", "#68add4", "#4388ad", "#1a6287", "#003c60"]);
+				
+	var dimension = ndx.dimension(function(d) {
+		return getRange(d);
+	});
+
+	var group   = dimension.group().reduceSum(function(d) { return 1; });
+	var chart = dc.pieChart(selector +  " .range")
+		.innerRadius(50).radius(100)
+		.height(200)
+		.colors(color)
+		.colorAccessor(function (d, i){return i;})
+		.dimension(dimension)
+		.group(group);
+}
+
+
+}
+
+	function getAmountString(d) {
+					if (d.qty == 0) {
+						return "";
+					}
+					if (d.max == Number.POSITIVE_INFINITY)
+						return "<span class='q"+d.qty+"' title='"+d.qty.length+" different occupations'>"+d.min+" &euro; or more</span>";
+					return d.min +" &#8605; "+d.max +"  &euro;";
+	}
+
+	function getAmount (category, field) { //field = min (default) or max or "string"
+		field = field || "min";
+		if (!category) return "?";
+		if (isNaN(category)) return category;
+		if (category < 0 && field == "min") return "0";
+		if (category < 0 && field == "max") return "499";
+		if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
+		 
+		if (category >=4 && field == "max") return "or more";
+		if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
+		if (field == "string")
+			return  rangeEUR[category]["min"] + " &#8605; "+  rangeEUR[category]["max"];
+		return rangeEUR[category][field];
+	}
+
+function hashFilter () {
+	var hash = window.location.hash;
+
+	if(hash.indexOf('#mep') === 0) { 
+		eventpopup(hash.substring(4));
+		ga && ga('send', 'event', 'urlevent',hash.substring(4));
+	}
+}
+	 
+function eventpopup (epid) {
+	window.location.hash = "event"+d.epid;
+	ga && ga('send', 'event', 'clickevent',hash.substring(4));
+}
+
+</script>
+
+
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand" id="ti_logo_container">
+						<a id="ti_logo" href="http://transparency.eu">Transparency International</a>
+						<a id="page_title" href="/" target="_blank"><strong>CL</strong> Integrity<br />Watch</a>
+				</div>
+			</div>
+		
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active" id="cm_tool_btn"><a href="ec.html"><strong>Commission</strong> <br />meetings</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+	 </div><!-- container -->
+</nav>
+<div class="container_wrap cm_header" id="about_wrap_top">&nbsp;</div>
+
+
+
+<div class="container_wrap filter_cm" id="filter_wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4" id="filter_field_container">
+				<p>Search or filter:</p>
+				<div class="input-group">
+						<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by Lobbyist, Host, Subject…">
+				</div>
+			</div>
+			<div class="col-md-7" id="filter_numbers">
+				<div class="row">
+					<div class="col-md-2" id="currently_selected_text"><p>Currently selected:</p></div>
+					
+					<div class="col-md-2 filter_number">
+						<div id="mep_number" class="dc-data-count">
+							<span id="abig_number" class="big_number filter-count"></span>out of <strong class="total-count"></strong><br /> meetings
+						</div>
+					</div>
+					<div class="col-md-2 filter_number">
+						<div id="org_number" class="org-count">
+							<span class="big_number filter-count"></span>out of <strong class="total-count"></strong><br />organisations
+						</div>
+					</div>
+
+					</div>
+				</div>
+			<div class="col-md-1" id="resetall_container">
+				<button class="btn resetall">RESET<br />FILTERS</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="ec">
+	<div class="container_wrap" id="main_charts_wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6" id="ec_chart_container">
+					<h2>Pasivos</h2>
+					<div class="row">
+						<div class="col-md-6 chart_box" id="hosttype">
+							<h3>Policy Level<!--span class="info">info</span--></h3>
+							<div class="info_chart">
+							</div>
+							
+							<div class="hosttype"></div>
+							<div class="legend">
+								<!--
+								<div class="directors">Senador</div>
+								<div class="commissioner">Diputado</div>	
+								<div class="otro">Otro</div>									
+								<br class="clear" />
+								-->
+							</div>
+							<br class="clear" />
+						</div>
+						
+						<div class="col-md-6 chart_box">
+							<h3>Top 10<!--span class="info">info</span--></h3>
+							<div class="info_chart">
+								<span class="info">info</span>
+								<p class="desc">Individuals from the European Commission with most contacts with lobbyists. When individuals meet several lobby organisations in a single meeting, the tool counts each contact separately. The number of contacts can thus be higher than the number of meetings.
+								</p>
+							</div>
+							<div class="tophost chart-full"></div>
+							<div class="label">Number of contacts</div>
+							<br class="clear" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-6" id="lobbyist_chart_container">
+					<h2>Activos</h2>
+					<div class="row">
+						<div class="col-md-6 chart_box" id="group_container">
+							<h3>Top 10 Entidades</h3>
+							<div class="info_chart">
+								<span class="info">info</span>
+								<p class="desc">Lobby organisations with the most high-level meetings at the European Commission.</p>
+							</div>
+								<div class="guest chart-full"></div>
+								<div class="label">Number of contacts</div>
+							<br class="clear" />
+						</div>
+						
+						<div class="col-md-6 chart_box" id="main_category">
+							<h3>Giro</h3>
+							<div class="info_chart">
+								<span class="info">info</span>
+								<p class="desc">The classifications in this graph reflect the categories established by the EU Transparency Register. Names have been shortened. The shares of the pie reflect the number of registered organisations per category.
+								</p>
+							</div>
+							<div class="main_category"></div>
+							<div class="legend">
+								<!--
+								<div class="individual">Individual</div>
+								<div class="corporate">Academic</div>
+								<div class="consultants">Professional consultants</div>
+								<div class="think">Think Tanks</div>
+								<div class="municipal">Municipal</div>
+								<div class="ngos">NGOs</div>
+								<div class="churches">Trade</div>
+								<div class="tradeunion">Trade union</div>
+								<div class="companies">Companies</div>
+								<div class="unknown">Unknown</div>
+								<br class="clear" />
+								-->
+							</div>
+							<br class="clear" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!--
+				<div class="col-md-3 chart_box">
+					<h3>Portfolio</h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">The 28 portfolios of the European Commissioners by the number of lobby contacts they have had. Titles have been shortened. Directors-Generals have been included in the portfolios of their Commissioners according to the organisational chart of the European Commission. Full detail in the About section.
+						</p>
+					</div>
+					<div class="host chart-full"></div>
+					<div class="label">Number of contacts</div>
+				</div>
+				-->
+				<div class="col-md-7 chart_box">
+					<h3>Subjects of lobby meetings<!--span class="info">info</span--></h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">This word cloud provides an overview of the most common terms that appear in the meeting subjects. The more meetings on a given subject the bigger it appears in the word cloud.
+						</p>
+					</div>
+            		<div class="wordcloud"></div>
+				</div>
+				<div class="col-md-5 chart_box">
+					<h3>Top Comuna</h3>
+					<div class="info_chart">
+					</div>
+					<div class="topcomunes chart-full"></div>
+					<div class="label">Number of contacts</div>
+				</div>
+				<!--
+				<div class="col-md-3 chart_box">
+					<h3>Sub-Category of lobby organisation</h3>
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">The classifications in this graph reflect the sub-categories established by the EU Transparency Register. Some names have been shortened. Graph indicates the number of lobby meetings by sub-category of lobby organisation.</p>
+					</div>
+					<div class="sector range chart-full"></div>
+					<div class="label">Number of contacts</div>
+					<br class="clear" />
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<div class="container_wrap" id="list_container">
+	<div class="container">
+		<div class="row">
+			<div class="content" id="list_content">
+				<h2 class="table_title">Meetings 
+					<!--
+					<div class="info_chart">
+						<span class="info">info</span>
+						<p class="desc">Click on any meeting for additional information.
+						</p>
+					</div>
+					-->
+				</h2><div id="last_update">Last updated: <span id="updatedate"></span></div>
+			</div>
+			
+			<div class="col-md-12 table-responsive">
+				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
+					<thead>
+						<tr class="header">
+							<th class="header">Nr</th> 
+							<th class="header">Institucion</th> 
+							<th class="header">Pasivos</th> 
+							<th class="header">Fecha</th> 
+							<th class="header">Materia</th> 
+							<th class="header">Comuna</th> 
+							<th class="header">Duracion (minuto)</th> 
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<script>
+'use strict';
+
+//New subategories
+var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professional consultancies","Self-employed consultants":"Self-employed consultants","Companies & groups":"Companies & groups","Other in house lobbyists":"Other in house lobbyists","Trade and business organisations":"Trade and business organisations","Trade unions":"Trade unions","Trade unions and professional associations":"Trade unions","Trade, business & professional associations":"Unknown","Non-governmental organisations, platforms and networks and similar":"Non-governmental organisations, platforms and networks and similar","Academic institutions":"Academic institutions","Think tanks and research institutions":"Think tanks and research institutions","Organisations representing churches and religious communities":"Churches & religious communities","Local, regional and municipal authorities (at sub-national level)":"Unknown","Other public or mixed entities, created by law whose purpose is to act in the public interest":"Other public or mixed entities","Other public or mixed entities, etc.":"Other public or mixed entities","Other sub-national public authorities":"Other sub-national public authorities","Regional structures":"Regional structures","Transnational associations and networks of public regional or other sub-national authorities":"Transnational public networks","Unknown":"Unknown"};
+
+//Set last updates as yesterday's date
+  var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+  var updatedate = new Date();
+  updatedate.setDate(updatedate.getDate() - 1);
+  $('#updatedate').html(updatedate.getDate() + ' ' + monthNames[updatedate.getMonth()] + ' ' + updatedate.getFullYear());
+
+	var events=[];
+	var meetingspages;
+    var evt=null;
+    var nameEvent=null;
+	var representatives={};
+	var countriesISO={};
+	
+	String.prototype.capitalize = function() {
+		return this.charAt(0).toUpperCase() + this.slice(1);
+	}
+	
+	$(function() {
+		var renderLoaded  = _.after(2,  function () { 
+			var dateFormat = d3.time.format("%Y-%m-%d %H:%M:%S");
+			var now = Date.now();
+			var a;
+						
+			_.each (events, function (d) {
+				//d.date = d.date.replace(" ","T");
+				d.date=dateFormat.parse(d.fechainicioAudienca);
+				
+				//d.giroActivo = d.giroActivo.trim().toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); } );
+				
+				
+				if(d.giroActivo.trim().toLowerCase() == "" || d.giroActivo.trim() == "." || d.giroActivo.trim() == "...." || d.giroActivo.trim() == "---" || d.giroActivo.trim() == "S/I"){
+					d.giroActivo = "S/I, Unknown";
+				}
+				
+				d.giroActivo = d.giroActivo.trim().toLowerCase().capitalize();
+				
+				if(d.giroActivo == "Construccion"){
+					d.giroActivo = "Construcción";
+				}
+				if(d.giroActivo == "Educacion"){
+					d.giroActivo = "Educación";
+				}
+				
+				if( d.nombreActivo.trim() == "" || d.nombreActivo.trim().toLowerCase() == "información en proceso de recepción conforme a convenio" || d.nombreActivo.trim() == "Información en proceso de recepción Conforme a convenio"){
+					d.nombreActivoFull = "";
+				} else {
+					d.nombreActivoFull = d.nombreActivo.trim() + " " + d.apellidosActivo;
+					//alert(d.nombreActivoFull);
+				}
+			});
+			grid ("#ec",events);
+		});
+		d3.csv("data/meeting_flat.csv", function(d) {return d;}
+			,function(error, rows) {
+				 //events = rows;
+				 //renderLoaded();
+			});  
+		d3.csv("data/iw-chile.csv", function(d) {return d;}
+			,function(error, rows) {
+				 events = rows;
+				 renderLoaded();
+			});  
+		d3.csv("data/meetings_links.csv", function(d) {return d;}
+			,function(error, rows) {
+				 meetingspages = rows;
+			});   
+		d3.csv("data/r.csv", function (rows) {
+				 _.each (rows, function (d) {
+						representatives[d.id]=d;
+						representatives[d.id].accredited = d.acc_count;
+						representatives[d.id].sub_category_title = newSubcat[representatives[d.id].sub_category_title];
+			});
+				 renderLoaded();
+		}); 
+		d3.csv("data/country.csv", function(d) {return d;}
+			,function(error, rows) {
+         _.each(rows, function(d) {
+		   countriesISO[d["code"]] = [d["id"],d["name"]];
+         });
+		 });
+
+	$("#search-input").keyup (function () {
+		var s = $(this ).val().toLowerCase();
+		nameEvent.filter(function (d) { 
+			return d.indexOf (s) !== -1;} );
+		$(".resetall").attr("disabled",false);
+		throttle();
+		//dc.redrawAll();
+
+		var throttleTimer;
+		function throttle() {
+			window.clearTimeout(throttleTimer);
+			throttleTimer = window.setTimeout(function() {
+				console.log ("redraw");
+					dc.redrawAll();
+			}, 250);
+		}
+	});
+	
+
+	$(".resetall").click(function() {
+		nameEvent.filter(null);
+		dc.filterAll();
+		dc.renderAll();
+		$("#search-input").val("");
+		$(".resetall").attr("disabled",true);
+
+	});
+
+ 
+});      
+
+</script>
+
+
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-55613514-1', 'auto');
+	ga('send', 'pdateview');
+
+
+
+</script>
+</body>
+</html>
