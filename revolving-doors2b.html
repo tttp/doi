@@ -321,9 +321,12 @@ function grid(selector,data) {
 			if (typeof d.Political_group == "undefined") return "";
 			return d.Political_group;
 			});
-	var groupGroup   = group.group().reduceSum(function(d) { 
+	var groupGroup  = group.group().reduceSum(function(d) { 
 		//return 1; 
 		return d.total_activities;
+	});
+	var groupGroupJTR  = group.group().reduceSum(function(d) { 
+		return d.jtract_count;
 	});
 	
 	//Activity category group
@@ -333,7 +336,7 @@ function grid(selector,data) {
 			return d.Category_activity;
 			});
 	var actcategoryGroup   = actcategory.group().reduceSum(function(d) { 
-		return 1;
+		//return 1;
 		return d.total_activities;
 	});
 	
