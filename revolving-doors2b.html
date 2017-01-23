@@ -322,9 +322,9 @@ function grid(selector,data) {
 	var pie_group = dc.pieChart(selector +  " .group").innerRadius(50).radius(100);
 	var group = ndx.dimension(function(d) {
 			if (typeof d.Political_group == "undefined") return "";
-			if(d.Category_activity != 'Unknown'){
+			//if(d.Category_activity != 'Unknown'){
 				return d.Political_group;
-			}
+			//}
 			});
 	var groupGroup  = group.group().reduceSum(function(d) { 
 		//return 1; 
@@ -338,9 +338,9 @@ function grid(selector,data) {
 	var pie_actcategory = dc.pieChart(selector +  " .actcategory").innerRadius(50).radius(100);
 	var actcategory = ndx.dimension(function(d) {
 			if (typeof d.Category_activity == "undefined") return "";
-			if(d.Category_activity != 'Unknown'){
+			//if(d.Category_activity != 'Unknown'){
 				return d.Category_activity;
-			}
+			//}
 			});
 	var actcategoryGroup   = actcategory.group().reduceSum(function(d) { 
 		//return 1;
@@ -350,9 +350,9 @@ function grid(selector,data) {
 	//Activity subcategory subcat
 	var bar_subcat = dc.barChart(selector + " .subcat");
 	var asubcategory = ndx.dimension(function(d) {
-			if(d.Category_activity != 'Unknown'){
+			//if(d.Category_activity != 'Unknown'){
 				return d.category_bar;
-			}
+			//}
 	});
 	var asubcategoryGroup   = asubcategory.group().reduceSum(function(d) { 
 		//return 1;
@@ -373,9 +373,9 @@ function grid(selector,data) {
 	var bar_country = dc.barChart(selector + " .country");
 	var country = ndx.dimension(function(d) {
 		if (typeof d.Country == "undefined") return "";
-		if(d.Category_activity != 'Unknown'){
+		//if(d.Category_activity != 'Unknown'){
 			return d.Country;
-		}
+		//}
 	});
 
 	/*
@@ -480,7 +480,8 @@ function grid(selector,data) {
 
 	pie_group
 		.dimension(group)
-		.externalLabels(30)
+		.externalLabels(35)
+		.height(250)
 		.minAngleForLabel(0)
 		.colorCalculator(function(d, i) {
 			return eu_groups[d.key];
@@ -1377,7 +1378,7 @@ $(function() {
 <script type="tpl" id="sidetpl">
 <h4>Activities</h4>
 <table class="table table-condensed">
-<tr><td class="dc-table-label">Post-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >On Lobby Register</td><td class="dc-table-label" >Source</td></tr>
+<tr><td class="dc-table-label" style="width:60%;">Post-mandate activities</td><td class="dc-table-label" style="width:20%;">Category</td><td class="dc-table-label" style="width:10%;">On Lobby Register</td><td class="dc-table-label" style="width:10%;">Source</td></tr>
 <% allactivities = _.filter(tool_fullact,function (a) { return  $.trim(a.Name) == $.trim(Name) }); %>
 <% _.each(allactivities, function (a) { %>
 	<tr><td><%= a.post_mandate_activities %></td><td><%= a.category_bar %></td><td style="text-align:center;"><% if(a.On_JTR.toLowerCase().trim() == "yes"){ %> <a href="<%= a.Link_JTR %>" target="_blank">Yes</a> <% } %></td><td><a href="<%= a.Link_source%>" target="_blank">Link</a></td></tr>
@@ -1387,7 +1388,7 @@ $(function() {
 <% allactivities2 = _.filter(tool_fullact_pre,function (a) { return  $.trim(a.Name).toLowerCase() == $.trim(Name).toLowerCase() }); %>
 <% if(allactivities2.length > 0){ %>
 <table class="table table-condensed">
-<tr><td class="dc-table-label">Pre-mandate activities (before 2009)</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Source</td></tr>
+<tr><td class="dc-table-label" style="width:60%;">Pre-mandate activities (before 2009)</td><td class="dc-table-label" style="width:30%;">Category</td><td class="dc-table-label" style="width:10%;">Source</td></tr>
 <% _.each(allactivities2, function (a) {  %>
 	<tr><td><%= a.pre_mandate_activities %></td><td><%= a.category_bar %></td><td><a href="<%= a.Link_source%>" target="_blank">Link</a></td></tr>
 <% }); %>
