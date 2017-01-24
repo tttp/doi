@@ -328,6 +328,9 @@ function grid(selector,data) {
 			});
 	var groupGroup  = group.group().reduceSum(function(d) { 
 		//return 1; 
+		if(d.total_activities == 0){
+			return 1;
+		}
 		return d.total_activities;
 	});
 	var groupGroupJTR  = group.group().reduceSum(function(d) { 
@@ -344,6 +347,9 @@ function grid(selector,data) {
 			});
 	var actcategoryGroup   = actcategory.group().reduceSum(function(d) { 
 		//return 1;
+		if(d.total_activities == 0){
+			return 1;
+		}
 		return d.total_activities;
 	});
 	
@@ -356,6 +362,9 @@ function grid(selector,data) {
 	});
 	var asubcategoryGroup   = asubcategory.group().reduceSum(function(d) { 
 		//return 1;
+		if(d.total_activities == 0){
+			return 1;
+		}
 		return d.total_activities;
 	});
 	
@@ -366,6 +375,9 @@ function grid(selector,data) {
 			});
 	var prevtypeGroup = prevtype.group().reduceSum(function(d) { 
 		//return 1;
+		if(d.total_activities == 0){
+			return 1;
+		}
 		return d.total_activities;
 	});
 
@@ -387,6 +399,9 @@ function grid(selector,data) {
 	*/
 	
 	var countryGroup = country.group().reduceSum(function(d) {
+		if(d.total_activities == 0){
+			return 1;
+		}
 		return d.total_activities;	
 	});
 	
