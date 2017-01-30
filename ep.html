@@ -41,6 +41,12 @@
 <meta property="fb:app_id" content="1611680135716224" />
 
 <style>
+.navbar-collapse ul.navbar-right li a {
+	padding: 0 10px !important;
+}
+.navbar-collapse ul.navbar-right li a {
+	line-height: 80px !important;
+}
 .incomearea .big_number {
 	display: inline-block !important;
 }
@@ -177,6 +183,11 @@ var eu_groups = {
 
 
 	function sumDOI (mep,field, returnData) {
+		/*
+		if(mep.epid == 124766){
+			alert(field + ' ' + returnData + mep.doi[field]);
+		}
+		*/
 		
 		function convert (i) {
 			if (i.slice(-3)  == "EUR") return i.substr(0,i.length - 4) * 1;
@@ -213,7 +224,10 @@ var eu_groups = {
 			 if (d.length != 2) {
 				 return;
 			 }
-			 if (i < 0) i=0;
+			 if (i < 0) {
+				//i=0;
+				
+			}
 			 if (i >= 4) {
 				 openscale = true;
 				 if (i > 4) {
@@ -235,7 +249,10 @@ var eu_groups = {
 				 max += Math.round(convert (i));
 			 } 
 		 } else {
-			if(i == 0){
+			if(i < 0){
+				min += 0;
+				max += 499;
+			} else if(i == 0){
 			 min += rangeEUR[i].min;
 			 max += 0;
 			} else {
@@ -256,14 +273,21 @@ var eu_groups = {
 	};
 
 function setRiskScore (d) {
+	
 	function setMinMax(d, t) {
 		d.min += t.min;
 		d.max += t.max;
 		d.qty += t.qty;
+		
+		/*
+		if(d.epid == 124766){
+			alert(d.min + ' ' + d.max);
+		}
+		*/
 	}
 	var score= d.min= d.max = d.qty = 0;
 	var openscale =false;
-//      var fields = ["activity","holding","mandate","occasional","membership"];
+	//var fields = ["activity","holding","mandate","occasional","membership"];
 	var t =  sumDOI(d,"activity",true);
 	if (t.qty) {
 		score += 2*t.qty + t.min/500;
@@ -278,6 +302,11 @@ function setRiskScore (d) {
 	}
 
 	t =  sumDOI(d,"membership",true);
+	/*
+	if(d.epid == 124766){
+		alert(t.toSource());
+	}
+	*/
 	if (t.qty) {
 		score += t.qty + t.min/500;
 		openscale = openscale || t.openscale;
@@ -1014,11 +1043,12 @@ function MEPpopup (epid) {
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li id="cm_tool_btn"><a href="ec.html"><strong>Commission</strong> <br />meetings</a></li>
-					<li id="bl_tool_btn"><a href="lobbyist.html"><strong>EU</strong><br />Lobbyists</a></li>
-					<li class="active" id="mi_tool_btn"><a href="ep.html"><strong>MEP</strong> <br />incomes</a></li>
+					<li id="cm_tool_btn"><a href="ec.html" style="width: 120px;"><strong>Commission</strong> <br />meetings</a></li>
+					<li id="bl_tool_btn"><a href="lobbyist.html" style="width: 120px;"><strong>EU</strong><br />Lobbyists</a></li>
+					<li class="active" id="mi_tool_btn"><a href="ep.html" style="width: 120px;"><strong>MEP</strong> <br />incomes</a></li>
+					<li id="mi_tool_btn"><a href="revolving-doors.html" style="width: 120px;">Revolving<br />Doors</a></li>
           <li class="dropdown">
-            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">National versions<span class="caret"></span></a>
+            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 160px;">National versions<span class="caret"></span></a>
              <ul class="dropdown-menu">
                <li><a href="http://www.integritywatch.fr">France</a></li>
             </ul>

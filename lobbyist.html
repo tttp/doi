@@ -30,6 +30,12 @@
 <meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
 <meta property="fb:app_id" content="1611680135716224" />
 <style>
+.navbar-collapse ul.navbar-right li a {
+	padding: 0 10px !important;
+}
+.navbar-collapse ul.navbar-right li a {
+	line-height: 80px !important;
+}
 #lobbying_expense label {
 	top: 110px;
 	left: -52px;
@@ -960,11 +966,12 @@ function eventpopup (epid) {
 		
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li id="cm_tool_btn"><a href="ec.html"><strong>Commission</strong> <br />meetings</a></li>
-					<li class="active" id="bl_tool_btn"><a href="lobbyist.html"><strong>EU</strong><br />Lobbyists</a></li>
-					<li id="mi_tool_btn"><a href="ep.html"><strong>MEP</strong> <br />incomes</a></li>
+					<li id="cm_tool_btn"><a href="ec.html" style="width: 120px;"><strong>Commission</strong> <br />meetings</a></li>
+					<li class="active" id="bl_tool_btn"><a href="lobbyist.html" style="width: 120px;"><strong>EU</strong><br />Lobbyists</a></li>
+					<li id="mi_tool_btn"><a href="ep.html" style="width: 120px;"><strong>MEP</strong> <br />incomes</a></li>
+					<li id="mi_tool_btn"><a href="revolving-doors.html" style="width: 120px;">Revolving<br />Doors</a></li>
           <li class="dropdown">
-            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">National versions<span class="caret"></span></a>
+            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 160px;">National versions<span class="caret"></span></a>
              <ul class="dropdown-menu">
                <li><a href="http://www.integritywatch.fr">France</a></li>
             </ul>
@@ -1408,7 +1415,8 @@ function eventpopup (epid) {
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 	ga('create', 'UA-55613514-1', 'auto');
-	ga('send', 'pdateview');
+	//ga('send', 'pdateview');
+	ga('send', 'pageview');
 
 </script>
 </body>

@@ -123,15 +123,101 @@ min-height: 90px;
 	padding-left: 25%;
 }
 #mepphoto {
-	max-width: 100%;
+	//max-width: 100%;
+	max-width: 160px;
 }
 #filter_wrap, .nav li#mi_tool_btn.active a {
-	background: #C12E41 !important;
+	background: #045b5c !important;
 }
 #about_wrap.mi_header {
-    //background: #db6a1f url("../img/bg_money-01.png") repeat-y scroll -40% top / 45% auto !important;
-	background: #C12E41 url("../img/bg_money-01.png") repeat-y scroll -40% top / 45% auto !important;
+	background: #045b5c url("./img/bg_chair.png") repeat-y scroll 0% top / 90% auto !important;
 }
+#about_wrap.mi_header #about_container {
+    background: rgba(0, 0, 0, 0) url("img/icon_chair.png") no-repeat scroll left center / 25% auto;
+}
+.ecep-logo-btn img {
+	width: 180px;
+	cursor: pointer;
+	margin: 0 30px;
+}
+.institutions-container {
+	position: relative;
+}
+.institutions-container .filterbyinstitutions {
+	position: absolute;
+	top: 130px;
+	left: 0;
+	font-size: 1.5em;
+	font-family: "Helvetica W02 Bd Cn"
+}
+
+.cat_0::before {
+	background: #045b5c;
+}
+.cat_1::before {
+	background: #348b8c;
+}
+.cat_2::before {
+	background: #64bbbc;
+}
+.cat_3::before {
+	background: #eee;
+}
+.cat_4::before {
+	background: #ccc;
+}
+.cat_5::before {
+	background: #aaa;
+}
+
+.actcat_legend {
+    padding-left: 25%;
+}
+.registerfilter-box {
+	position: absolute;
+	top: 65px;
+}
+.registerfilter-box button {
+    border-radius: 3px;
+    color: #fff !important;
+    display: inline-block;
+    padding: 3px 15px;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+	border: none;
+	background: #ccc;
+}
+.registerfilter-box button:first-child {
+	margin-left: 10px;
+}
+.registerfilter-box button:hover, .registerfilter-box button.active {
+	background: #045b5c;
+}
+.lobbyreg_btn {
+	font-family: "Helvetica W02 Bd Cn","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-weight: normal;
+	font-size: 1.3em;
+	color: #116061;
+	text-align:center;
+	position: relative;
+	top: -25px;
+	left: 20px;
+}
+.lobbyreg_img {
+	width: 140px;
+	opacity: 0.6;
+}	
+#registry_yes_btn {
+	text-align: center;
+}
+#registry_yes_btn.active .lobbyreg_img {
+	opacity: 1;
+}	
+.subcat svg, .group svg {
+	overflow: visible !important;
+}
+
 </style>
 
 </head>
@@ -192,7 +278,6 @@ $.tablesorter.addParser({
 	type: 'numeric'
 });
 
-
 var detailtpl = sidetpl = null ;
 var wall = null;
 
@@ -211,17 +296,17 @@ var eu_groups = {
 };
 
 var catscolor = {
-	"Elected office & public sector":"#3182bd",
-	"Non-governmental organisations, platforms and networks and similar":"#6baed6",
-	"Others":"#9ecae1",
-	"Private sector":"#d02e14",
-	"Think tanks, research and academic institutions":"#e6550d",
-	"Unknown":"#fd8d3c"
+	"Public service":"#eee",
+	"NGO":"#64bbbc",
+	"Other":"#aaa",
+	"Private sector":"#045b5c",
+	"Academia":"#ccc",
+	"Unknown":"#348b8c"
 }
 
-
-
+//GRAPHS AND TABLE
 function grid(selector,data) {
+
 	var ndx = crossfilter(data),
 			all = ndx.groupAll();
 
@@ -232,116 +317,141 @@ function grid(selector,data) {
 				.interpolate(d3.interpolateHcl);
 
 
-	//Political group
+	//PARTY GROUP DIMENSION
 	var pie_group = dc.pieChart(selector +  " .group").innerRadius(50).radius(100);
 	var group = ndx.dimension(function(d) {
 			if (typeof d.Political_group == "undefined") return "";
-			return d.Political_group;
+				return d.Political_group;
 			});
-	var groupGroup   = group.group().reduceSum(function(d) { return 1; });
+	var groupGroup  = group.group().reduceSum(function(d) { 
+		if(d.total_activities == 0){
+			return 1;
+		}
+		return d.total_activities;
+	});
+	var groupGroupJTR  = group.group().reduceSum(function(d) { 
+		return d.jtract_count;
+	});
 	
-	//Activity category group
+	//CATEGORY DIMENSION
 	var pie_actcategory = dc.pieChart(selector +  " .actcategory").innerRadius(50).radius(100);
 	var actcategory = ndx.dimension(function(d) {
 			if (typeof d.Category_activity == "undefined") return "";
-			return d.Category_activity;
+				return d.Category_activity;
 			});
 	var actcategoryGroup   = actcategory.group().reduceSum(function(d) { 
-		return 1;
-		//return d.allactivities.length;
+		if(d.total_activities == 0){
+			return 1;
+		}
+		return d.total_activities;
+	});
+	var actcategoryGroupJTR   = actcategory.group().reduceSum(function(d) { 
+		return d.jtract_count;	
 	});
 	
-	//Activity subcategory subcat
+	//SUBCATEGORY DIMENSION
 	var bar_subcat = dc.barChart(selector + " .subcat");
 	var asubcategory = ndx.dimension(function(d) {
-			return d.category_bar;
+		return d.category_bar;
 	});
-	var asubcategoryGroup   = asubcategory.group().reduceSum(function(d) { 
-		return 1;
+	var asubcategoryGroupJTR = asubcategory.group().reduceSum(function(d) { 
+		return d.jtract_count;	
 	});
 	
-	//MEP/Commission
-	var row_prevtype = dc.rowChart(".nactivities");
-	var prevtype  = ndx.dimension(function(d) {
-			return d.prevType;
-			});
-	var prevtypeGroup = prevtype.group().reduceSum(function(d) { 
-		return 1;
-		//return d.allactivities.length;
+	var asubcategoryGroup = asubcategory.group().reduceSum(function(d) { 
+		if(d.total_activities == 0){
+			return 1;
+		}
+		return d.total_activities;
 	});
 
-	//Country
+	//COUNTRY DIMENSION
 	var bar_country = dc.barChart(selector + " .country");
 	var country = ndx.dimension(function(d) {
 		if (typeof d.Country == "undefined") return "";
 		return d.Country;
 	});
-	var countryGroup   = country.group().reduce(
-		function(a,d) {a.count +=1; a.score +=d.score; return a; },
-		function(a,d) {a.count -=1; a.score -=d.score; return a; },
-		function() {return {count:0,score:0}; }
-	);
+
+	var countryGroup = country.group().reduceSum(function(d) {
+		if(d.total_activities == 0){
+			return 1;
+		}
+		return d.total_activities;	
+	});
 	
+	var countryGroupJTR = country.group().reduceSum(function(d) {
+		return d.jtract_count;	
+	});
+	
+	//COUNT TOTALS
 	var countOfficials = function() {
 		var thesepeople = [];
 		var officialscount = 0;
 		var thisdataset = actcategory.top(Infinity);
 		//Count people
 		_.each (thisdataset, function (m) {
-		if(thesepeople.indexOf(m.Name) == -1){
-			officialscount  ++;
-			thesepeople.push(m.Name);
-		} 
+			if(m.Category_activity != 'Unknown'){
+				if(jtrfilter == true){
+					officialscount += parseInt(m.jtract_count);
+				} else {
+					officialscount  += parseInt(m.total_activities);
+				}
+			}
 		});
 		$('.filter-pcount').html(officialscount);
 	}
 	
-	row_prevtype
-		.margins({top: 0, right: 5, bottom: 20, left: 5})
-		.height(100)
-		.gap(2)
-		.on("filtered", function (chart) {
-			 countOfficials();
-		})
-		.x(d3.scale.ordinal())
-		.elasticX(true)
-		.colorCalculator(function(d, i) {
-			if(d.key == "European Commission"){
-				return "#C12E41";
-			} else {
-				return "#f15E71";
-			}
-		})
-		/*
-		.colorCalculator(function(d, i) {
-			if(portfolio_type.indexOf(d.key) > -1){
-				return "#2063ad";
-			} else {
-				return "#84c0e9";
-			}
-		})
-		*/
-		.dimension(prevtype)
-		.group(prevtypeGroup);
-
-	row_prevtype.xAxis().ticks(5).tickFormat(d3.format("d"));
-	
+	//CATEGORY PIE
 	pie_actcategory
 		.dimension(actcategory)
+		.externalLabels(35)
+		.height(250)
 		.group(actcategoryGroup)
+		.label(function(d){return d.key})
+		.minAngleForLabel(0)
 		.colorCalculator(function(d, i) {
 			return catscolor[d.key];
 		})
 		.on("filtered", function (chart) {
 			 countOfficials();
 		})
-		.legend(dc.legend().x(30).y(220).itemHeight(13).gap(5))
 		.renderlet(function (chart) {
-				});
+		});
 	pie_actcategory.cap(7);
+	
+	function rangeorder(d){
+		switch(d.key) {
+			case 'Private sector':
+				return 0;
+				break;
+			case 'Unknown':
+				return 1;
+				break;
+			case 'NGO':
+				return 2;
+				break;
+			case 'Other':
+				return 3;
+				break;
+			case 'Academia':
+				return 4;
+				break;
+			case 'Public service':
+				return 5;
+				break;
+			default:
+				return 6;
+		}
+	}
+	
+	pie_actcategory.ordering(function(d) { return rangeorder(d); });
 
+	//PARTY PIE
 	pie_group
 		.dimension(group)
+		.externalLabels(35)
+		.height(250)
+		.minAngleForLabel(0)
 		.colorCalculator(function(d, i) {
 			return eu_groups[d.key];
 		})
@@ -362,68 +472,22 @@ function grid(selector,data) {
 			.style("text-anchor", "end" )
 			.attr("transform", function(d) { return "rotate(-45, -4, 9) "; });
 	}
-	
-	/*
-	
-	function drawHost () {
 
-	var dim = ndx.dimension (function(d) {
-		return getPortfolio(d);
-
-	});
-
-	var group   = dim.group().reduceSum(function(d) {   return 1; });
-	
-	var portfolio_type = [
-		"Better Regulation",
-		"External Action",
-		"Presidency",
-		"Digital Single Market",
-		"Jobs & Growth",
-		"Budget",
-		"Energy Union",
-		"Euro"
-	];
-	
-	var graph = dc.rowChart (".host")   
-		.margins({top: 0, right: 5, bottom: 20, left: 5})
-		.height(520)
-		.gap(2)
-		.x(d3.scale.ordinal())
-		.elasticX(true)
-		.colorCalculator(function(d, i) {
-			if(portfolio_type.indexOf(d.key) > -1){
-				return "#2063ad";
-			} else {
-				return "#84c0e9";
-			}
-		})
-		.dimension(dim)
-		.group(group);
-
-		graph.xAxis().ticks(5).tickFormat(d3.format("d"));
-		//.xAxis().ticks(4);
-
-	}
-	*/
-
-
+	//COUNTRY BARCHART
 	bar_country
-		.height(340)
+		.height(320)
 		.outerPadding(0)
 		.gap(1)
 		.margins({top: 0, right: 30, bottom: 95, left: 30})
 		.colorCalculator(function(d, i) {
-				//return color(d.value.score/d.value.count);
-				//return "#3695d8";
-				return "#C12E41";
+			return "#045b5c";
 		})
 		.valueAccessor (
 			function(d) {
-			return d.value.count;
+			return d.value;
 			})
 		.on("postRender", function( chart ){
-				adjustBarChartLabels(chart);
+			adjustBarChartLabels(chart);
 		 }) 
 		.x(d3.scale.ordinal())
 		.xUnits(dc.units.ordinal)
@@ -436,31 +500,21 @@ function grid(selector,data) {
 		.dimension(country)
 		.group(countryGroup);
 
-//  bar_country.on("postRender", function(c) {rotateBarChartLabels();} );
-
-
 	function rotateBarChartLabels() {
 		d3.selectAll(selector+ ' .country .axis.x text')
 			.style("text-anchor", "end" )
 			.attr("transform", function(d) { return "rotate(-90, -4, 9) "; });
 	}
 	
+	//SUBCATEGORY BARCHART
 	bar_subcat
-		.height(340)
+		.height(320)
 		.outerPadding(0)
 		.gap(1)
 		.margins({top: 0, right: 30, bottom: 95, left: 30})
 		.colorCalculator(function(d, i) {
-				//return color(d.value.score/d.value.count);
-				//return "#3695d8";
-				return "#C12E41";
+				return "#045b5c";
 		})
-		/*
-		.valueAccessor (
-			function(d) {
-			return d.value.count;
-			})
-			*/
 		.on("postRender", function( chart ){
 				adjustBarChartLabels(chart);
 		 })
@@ -490,28 +544,18 @@ function grid(selector,data) {
 		.dimension(ndx)
 		.group(all);
 
-	/*
-	var name = ndx.dimension(function(d) {
-			return d.last_name.toLowerCase() + " "+ d.first_name.toLowerCase() + " " + d.party.toLowerCase() +" " + d.committee.toLowerCase() + d.substitute.toLowerCase();
-			});
-*/
 
 	var i=0;
 	
-	/*
-	<th class="header headerSortDown">Nr</th>
-							<th class="header">Name</th>
-							<th class="header">Country</th>
-							<th class="header">Group</th>
-							<th class="header">Previous Position</th>
-							<th class="header">New Position</th>
-							<th class="header">Category of Activity</th>
-							*/
+	//NAME STRING
 	var name = ndx.dimension(function(d) {
-			//return d.Name.toLowerCase() + " "+ d.Political_group.toLowerCase() + " " + d.Previous_position.toLowerCase() +" " + d.New_position.toLowerCase() + d.Category_activity.toLowerCase();
-			//if(d.Country == "Lithuania"){alert(d.toSource());}
-			return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country;
-			});
+		if(d.on_JTR.trim() == "Yes" || d.on_JTR.trim() == "yes"){
+			return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country + " " + d.Institution.replace(" ", "") + " on_JTR " + " " + d.fullsearch.toLowerCase();
+		} else {
+			return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country + " " + d.Institution.replace(" ", "") + " " + d.fullsearch.toLowerCase();
+		}
+	});
+			
 	
 	var name2 = ndx.dimension(function(d) {	
 		return d.Name.toLowerCase() + " " + d.New_position.toLowerCase() + " " + d.Country;
@@ -536,9 +580,9 @@ function grid(selector,data) {
           },
           function () {
               return {number: 0, total: 0, avg: 0}
-      });
+    });
 	  
-	 function reversible_group(group) {
+	function reversible_group(group) {
 		return {
 			top: function(N) {
 				return group.top(N);
@@ -548,12 +592,8 @@ function grid(selector,data) {
 			}
 		};
 	}
-	
-	
-	
-	//alert(pseudoDimension.top(Infinity)[0].Name);
 
-
+	//WALL TABLE
 	var i = 0;	
 	wall=dc.dataTable(".dc-data-grid")
 	 .dimension(name)
@@ -562,7 +602,6 @@ function grid(selector,data) {
 			 countOfficials();
 		})
 		.columns([
-				function(d) { i=i+1; return i; },
 				function(d) { return "<span class='mep' data-epid='"+d.ID+"' data-pname='"+d.Name+"'>"+d.Name +"</b></span>"; },
 				function(d) {  
 					if(d.Country == "United Kingdom"){
@@ -573,172 +612,113 @@ function grid(selector,data) {
 				function(d) {
 						return d.Political_group;
 				},
-				function(d) {  return "<div class='right-align'>"+d.Previous_position +"</div>"; },
+				function(d) {  return "<div class='left-align'>"+d.Previous_position +"</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.New_position+"</div>"; },
 				function(d) {  return "<div class='right-align'>"+d.Category_activity+"</div>"; },
-				function(d) {  return "<div class='right-align'>"+d.actnum+"</div>"; }		
+				function(d) {  return "<div class='right-align'>"+d.total_activities +"</div>"; }		
 		
 		])
 	.size(1000)
-	.sortBy(function (d) {return d.actnum})
+	.sortBy(function (d) {return parseInt(d.total_activities) })
 	.renderlet(function (chart) {
 		i = 0;
 		$(".dc-table-group").remove();
 		$("td:first-child").each (function(i) { 
-			$(this).closest ("td").css("backgroundColor", 
-				$(this).css('backgroundColor')
-			);
+			//$(this).closest ("td").css("backgroundColor", $(this).css('backgroundColor'));
 		});
 		$("td span.score").each (function(i) { 
-			$(this).closest ("td").css("backgroundColor", 
-				$(this).css('backgroundColor')
-			);
+			//$(this).closest ("td").css("backgroundColor", $(this).css('backgroundColor'));
 		});
 		$("table.dc-data-grid").trigger("update");
 	});
 
 	$.fn.dataTableExt.sErrMode = 'console';
-	
-	
 
-	//drawScore();
-	//drawRange();
-	//drawAge();
-	//drawCounter();
-	//drawParty();
-
-
-		
-		$(".dc-data-grid").on("click",".dc-table-row", function () {
-			var pname = $(this).find(".mep").data("pname");
-			var pdata = _.find(tool_people,function (d) { return d.Name == pname  });
-			$("#mepdialog #mepphoto").attr("src","");
-			if(pdata.ID && pdata.ID.length > 0){
-				$("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+pdata.ID+".jpg");
-			} 
-			if(pdata.Institution == "European Commission" && pdata.Link_image.length > 1){
-				//alert(pdata.toSource());
-				//Find photo
-				var thisphoto = pdata.Link_image;
-				$("#mepdialog #mepphoto").attr("src",thisphoto);
+	//GRID CLICK
+	$(".dc-data-grid").on("click",".dc-table-row", function () {
+		var pname = $(this).find(".mep").data("pname");
+		var pdata = _.find(tool_people,function (d) { return d.Name == pname  });
+		$("#mepdialog #mepphoto").attr("src","");
+		if(pdata.ID && pdata.ID.length > 0){
+			$("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+pdata.ID+".jpg");
+		} 
+		if(pdata.Institution == "European Commission"){
+			var thisphoto = _.find(tool_photos,function (d) { return d.Name == pname  });
+			if(thisphoto){
+				$("#mepdialog #mepphoto").attr("src",thisphoto.Link_image);
 			}
-			$("#mepdialog .modal-title").html (pdata.Name);
-			$("#mepdialog .details").html(detailtpl(pdata));
-			$("#mepdialog .detailstable").html(sidetpl(pdata));
-			/*
-			var epid = $(this).find(".mep").data("epid");
-			window.location.hash = "mep"+epid;
+		}
+		$("#mepdialog .modal-title").html (pdata.Name);
+		$("#mepdialog .details").html(detailtpl(pdata));
+		$("#mepdialog .detailstable").html(sidetpl(pdata));
+		$("#mepdialog").modal();
+	});
 
-			var mep = _.find(meps,function (d) { return d.epid == epid  });
-			$("#mepdialog .modal-title").html (mep.first_name + " " + mep.last_name);
-			$("#mepdialog #mepphoto").attr("src","http://www.europarl.europa.eu/mepphoto/"+epid+".jpg");
-			$("#mepdialog .details").html(detailtpl (mep));
-			$("#mepdialog .side").html(sidetpl (mep));
-			//$("#debug").html(JSON.stringify(mep),undefined,2);
-			*/
-			$("#mepdialog").modal();
-		});
-
-
-		dc.renderAll();
-		hashFilter();
-		
-		
+	dc.renderAll();
+	hashFilter();
 	
-		 $("table.dc-data-grid").tablesorter(
-				{theme:"bootstrap",headers: { 7: { sorter: 'amount' } }}
-		 ).bind("sortEnd",function(e, table) {
-			ga && ga('send', 'event', 'sort','table');
-			var i=0;
-			$("td:first-child").each (function(){this.innerHTML=++i;});
-		});
+	 $("table.dc-data-grid").tablesorter(
+			{theme:"bootstrap",headers: { 7: { sorter: 'amount' } }}
+	 ).bind("sortEnd",function(e, table) {
+		ga && ga('send', 'event', 'sort','table');
+		var i=0;
+	});
 	
+	//JTR FILTER CLICK
+	$("#registry_yes_btn").click(function() {
+		if($(this).hasClass('active')){
+			$(".resetall").click();
+			return;
+		}
 		
+		jtrfilter = true;
 		
-
-
-
-function drawParty () {
-	var bubble_party = dc.bubbleChart(" .party");
-	var party = ndx.dimension(function(d) {
-      return "?";
-      if (typeof d.party == "undefined") {
-        return "?";
-      }
-			return d.party;
+		pie_actcategory.group(actcategoryGroupJTR);
+		pie_group.group(groupGroupJTR);
+		bar_country.group(countryGroupJTR);
+		bar_subcat.group(asubcategoryGroupJTR);
+		
+		if(parliamentfilter == true){
+			wall.dimension().filter(function (d) { 
+				return (d.indexOf("on_JTR") !== -1 && (d.indexOf("EuropeanParliament") !== -1 || d.indexOf("Europeanparliament") !== -1));
 			});
-/*	
-	 var tip = d3.tip()
-		.attr('class', 'd3-tip')
-		.html(function(p) { return '<span><h2>' +
-				p.key + "</h2><ul>" + 
-								"<li>Number of MEPs: " +p.value.count + "</li>" +
-								"<li>Average participation: " +Math.floor (p.value.effort/p.value.count) + "</li>" +
-								"<li>Average score: "+Math.floor (p.value.score/p.value.count); 
-			 '</li></ul></span>' })
-		.offset([-12, 0])
-
-	var partyGroup   = party.group().reduce(
-			function(a,d) {a.eugroup = d.eugroup;a.count +=1; a.score +=d.score; a.effort += d.attendance.score; return a; },
-			function(a,d) {a.eugroup = d.eugroup;a.count -=1; a.score -=d.score; a.effort -= d.attendance.score; return a; },
-			function() {return {eugroup:0,count:0,score:0,effort:0}; }
-			)
-			.order(function (p) {return p.count});
-
-      var xRange = [-10, d3.max(dateGroup.all(), function(d) {  return p.value.score/p.value.count | 0 }) ],
-          yRange = [-10, d3.max(dateGroup.all(), function(d) { return  return d.value.count; }) ];
- */
-
-	var partyGroup   = party.group().reduce(
-			function(a,d) { },
-			function(a,d) { },
-			function() {return {eugroup:"ALDE",count:10,score:50,effort:50}; }
-			);
-	bubble_party
-	.width(660)
-		.height(300)
-		.margins({top: 20, right: 20, bottom: 20, left: 30})
-		.yAxisLabel("%Votes attended")
-		.dimension(party)
-		.group(partyGroup)
-		.x(d3.scale.linear().domain([0, 1000]))
-		.minRadiusWithLabel(150)
-
-/*
-	bubble_party
-		.colorCalculator(function(d, i) {
-			return eu_groups[d.value.eugroup];
-		})
-	.valueAccessor (
-			function(d) {
-
-				return d.value.count;
-			})
-	.width(660)
-		.height(300)
-		.margins({top: 20, right: 20, bottom: 20, left: 30})
-		.yAxisLabel("%Votes attended")
-		.dimension(party)
-		.group(partyGroup)
-		.keyAccessor(function (p) {
-        
-				return p.value.score/p.value.count | 0;
-		})
-		.valueAccessor(function (p) {
-				return p.value.effort/p.value.count | 0;
-		})
-		.radiusValueAccessor(function (p) {
-				return p.value.count;
-		})
-		.y(d3.scale.linear().domain([0, 100]))
-		.x(d3.scale.linear().domain([0, 60]))
-		.r(d3.scale.linear().domain([0, 100]))
-		.minRadiusWithLabel(150)
-*/
-
+		} else if(commissionfilter == true){
+			wall.dimension().filter(function (d) { 
+				return (d.indexOf("EuropeanCommission") !== -1 && d.indexOf("on_JTR") !== -1);
+			});
+		} else {
+			wall.dimension().filter(function (d) { 
+				return d.indexOf("on_JTR") !== -1 ;
+			});
+		}
+		$("#registry_yes_btn").addClass("active");
+		$("#registry_no_btn").removeClass("active");
+		
+		countOfficials();
+		dc.redrawAll();
+	});
+	
+	$(".resetall").click(function() {
+		$("#search-input").val("");
+		jtrfilter = false;
+		pie_actcategory.group(actcategoryGroup);
+		pie_group.group(groupGroup);
+		bar_country.group(countryGroup);
+		bar_subcat.group(asubcategoryGroup);
+		parliamentfilter = false;
+		commissionfilter = false;
+		wall.filter(null);
+		dc.filterAll();
+		dc.filterAll(null);
+		dc.renderAll();
+		$("#commission_btn").attr("src", "img/EC1.png");
+		$("#parliament_btn").attr("src", "img/EP1.png");
+		$("#registry_yes_btn").removeClass("active");
+		$("#registry_no_btn").removeClass("active");
+	});
+	
 }
-
-}
+//END GRAPHS AND TABLE
 
 function hashFilter () {
 	var hash = window.location.hash;
@@ -748,8 +728,6 @@ function hashFilter () {
 		 ga && ga('send', 'event', 'urlMEP',hash.substring(4));
 	 }
 }
-
-
 
 </script>
 
@@ -764,18 +742,18 @@ function hashFilter () {
 					<span class="icon-bar"></span>
 				</button>
 				<div class="navbar-brand" id="ti_logo_container">
-						<a id="ti_logo" href="http://www.transparencyinternational.eu">Transparency International</a>
+						<a id="ti_logo" href="http://transparency.eu">Transparency International</a>
 						<a id="page_title" href="/" target="_blank"><strong>EU</strong> Integrity<br />Watch</a>
 				</div>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li id="cm_tool_btn"><a href="ec.html"><strong>Commission</strong> <br />meetings</a></li>
-					<li id="bl_tool_btn"><a href="lobbyist.html"><strong>EU</strong><br />Lobbyists</a></li>
-					<li id="mi_tool_btn"><a href="ep.html"><strong>MEP</strong> <br />incomes</a></li>
-					<li class="active" id="mi_tool_btn"><a href="revolving-doors.html">Revolving<br />Doors</a></li>
+					<li id="cm_tool_btn"><a href="ec.html" style="width: 120px;"><strong>Commission</strong> <br />meetings</a></li>
+					<li id="bl_tool_btn"><a href="lobbyist.html" style="width: 120px;"><strong>EU</strong><br />Lobbyists</a></li>
+					<li id="mi_tool_btn"><a href="ep.html" style="width: 120px;"><strong>MEP</strong> <br />incomes</a></li>
+					<li class="active" id="mi_tool_btn"><a href="revolving-doors.html" style="width: 120px;">Revolving<br />Doors</a></li>
           <li class="dropdown">
-            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">National versions<span class="caret"></span></a>
+            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 160px;">National versions<span class="caret"></span></a>
              <ul class="dropdown-menu">
                <li><a href="http://www.integritywatch.fr">France</a></li>
             </ul>
@@ -796,7 +774,7 @@ function hashFilter () {
 			</div>
 			<div class="col-md-6 col-lg-6" id="about_content">
 				<p>
-					This is a user-friendly interactive database that provides a unique overview of the activities of members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter MEPs. Thereby the database allows to better monitor potential conflicts of interests or to identify those MEPs with more outside activities.
+					This is a user-friendly interactive database that provides an overview of post-mandate activities of former Commissioners and Members of the European Parliament. By simply clicking on the graphs or the list below users can rank, sort and filter former Commissioners and MEPs. The database thus allows users to monitor potential revolving door cases and conflicts of interest.  
 					<br/>
 					<a href="about.html" class="more">Read more</a>
 				</p>
@@ -817,11 +795,9 @@ function hashFilter () {
 					js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
 					fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script', 'facebook-jssdk'));</script>
-
 			</div>
 		</div>
-		
-	</div><!-- container -->
+	</div>
 </div>
 <div class="container_wrap" id="toggle_about_wrap">
 	<div class="container">
@@ -847,12 +823,12 @@ function hashFilter () {
 					<div class="col-md-2" id="currently_selected_text"><p>You have currently selected</p></div>
 					<div class="col-md-2 filter_number">
 						<div id="mep_number" class="dc-data-count">
-						<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> Activities
+						<span class="big_number filter-count"></span>out of <strong class="total-count"></strong> Officials
 						</div>
 					</div> 
 					<div class="col-md-2 filter_number">
 						<div id="mep_number2" class="dc-data-count">
-						<span class="big_number filter-pcount"></span>out of <strong class="total-pcount"></strong> Officials
+						<span class="big_number filter-pcount"></span>out of <strong class="total-pcount"></strong> Activities
 						</div>
 					</div> 
 					<div class="col-md-4 filter_number">
@@ -860,16 +836,6 @@ function hashFilter () {
 						<a href="https://goo.gl/forms/OXYhE5lpOnve1Btw2" target="_blank">Spotted a mistake?</a>
 					</div>
 					</div>
-					<!--
-					<div class="col-md-2 filter_number">
-            			<div><span class="big_number afilter_long nbaccredited"></span>Total: activities</div>
-            		</div>
-            		<div class="col-md-6 filter_number">
-            			<div class="dc-data-count org-count incomearea">Min: <span class="medium_number afilter_long nbcost" style="display:inline-block;">?</span>
-						<br />
-						Max: <span class="medium_number afilter_long nbcostmax" style="display:inline-block;">?</span><br />Total: annual outside income (min – max)</div>
-            		</div>
-					-->
 				</div>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-1" id="resetall_container">
@@ -882,22 +848,33 @@ function hashFilter () {
 <div id="ep2014list">
 	<div class="container_wrap" id="main_charts_wrap">
 		<div class="container">
-			<h2>Charts</h2>
+			<h2>Filter by</h2>
+			<div class="row" style="padding: 0 15px;">
+			<div class="col-sm-8">
+				<div class="row chart_box institutions-container" style="margin-bottom: 30px;padding-right: 30px;">
+					<h3 style="margin-bottom:20px;">EU INSTITUTIONS <!--span class="info">info</span--></h3>
+					<div class="filterbyinstitutions">FILTER BY</div>
+					<div class="col-sm-3"></div>
+					<div class="col-sm-5" style="text-align:right;">
+						<div class="ecep-logo-btn"><img id="commission_btn" src="img/EC1.png" /></div>
+					</div>
+					<div class="col-sm-4">
+						<div class="ecep-logo-btn"><img id="parliament_btn" src="img/EP1.png" /></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="row chart_box institutions-container" style="margin-bottom: 30px;">
+					<h3 style="margin-bottom:20px;">NEW EMPLOYER ON</h3>
+					<div class="ecep-logo-btn" id="registry_yes_btn"><img class="lobbyreg_img" src="img/icon_hands.png" /><br /><div class="lobbyreg_btn">EU Lobby Register</dib></div>
+				</div>
+			</div>
+			</div>
+		</div>
 			<div class="row">
 				<div class="col-md-6 chart_box" id="group_container" style="margin-bottom: 0px;">
 					<h3>Political Groups <!--span class="info">info</span--></h3>
-					<div class="group">
-					</div>
-					<div class="legend political-legend">
-						<div class="epp">EPP</div>
-						<div class="gue">GUE/NGL</div>
-						<div class="alde">ALDE</div>
-						<div class="ecr">ECR</div>
-						<div class="sd">S&amp;D</div>
-						<div class="greens">Greens/EFA</div>
-						<div class="efdd">EFDD</div>
-						<div class="ni">NI</div>
-						<div class="enf">ENF</div>
+					<div class="group" style="margin-top: 30px;">
 					</div>
 					<br class="clear" />
 				</div>
@@ -907,25 +884,12 @@ function hashFilter () {
 					<br class="clear" />
 				</div>
 			</div>
-			<div class="row" style="margin-bottom: 40px;">
+			<div class="row" style="margin-bottom: -20px;margin-top: -20px;">
 				<div class="col-md-6 chart_box">
 					<h3>Category of activities</h3>
 
-					<div class="actcategory activities range">
+					<div class="actcategory activities range" style="margin-top: 20px; margin-bottom: 30px;">
 					</div>
-					
-					<div class="legend">
-						<!--
-						<div class="_0">None</div>
-						<div class="_1">0-5,999 &euro;</div>
-						<div class="_2">6,000-12,000 &euro;</div>
-						<div class="_3">12,001-60,000 &euro;</div>
-						<div class="_4">60,001-120,000 &euro;</div>
-						<div class="_5">120,000+ &euro;</div>
-						<br class="clear" />
-						-->
-					</div>
-
 					<br class="clear" />
 				</div>
 				<div class="col-sm-6 chart_box">
@@ -934,19 +898,7 @@ function hashFilter () {
 					<br class="clear" />
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-12 chart_box">
-					<h3>Number of new positions <!--span class="info">info</span--></h3>
-					<div class="nactivities chart-full"></div>
-					<br class="clear" />
-				</div>
-			</div>
-			
-		</div>
-		
 	</div>
-	
-
 </div>
 
 
@@ -978,14 +930,14 @@ function hashFilter () {
 				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
 					<thead>
 						<tr class=header>
-							<th class="header headerSortDown">Nr</th>
-							<th class="header">Name</th>
-							<th class="header">Country</th>
-							<th class="header">Group</th>
-							<th class="header">Previous Position</th>
-							<th class="header">New Position</th>
-							<th class="header">Category of Activity</th>
-							<th class="header">Activities Count</th>
+							<!-- <th class="header headerSortDown">Nr</th> -->
+							<th class="header" style="width:15%;">Name</th>
+							<th class="header" style="width:10%;">Country</th>
+							<th class="header" style="width:10%;">Group</th>
+							<th class="header" style="width:20%;">Previous Position</th>
+							<th class="header" style="width:25%;">New Position</th>
+							<th class="header" style="width:15%;">Category of Activity</th>
+							<th class="header" style="width:5%;">Activities Count</th>
 						</tr>
 					</thead>
 				</table>
@@ -996,98 +948,106 @@ function hashFilter () {
 
 <script>
 
+//GLOBAL VARIABLES
 var tool_people = [];
 var tool_activities = [];
 var tool_ids = [];
+var tool_fullact = [];
+var tool_fullact_pre = [];
+var tool_photos = [];
+var jtrfilter = false;
+var parliamentfilter = false;
+var commissionfilter = false;
+var allLoaded = false;
 
-//sidetpl =  _.template($("#sidetpl").html());
-//detailtpl =  _.template($("#detailtpl").html());
-
+//HTML TEMPLATES
 $(function() {
 	detailtpl =  _.template($("#detailstpl2").html());
 	sidetpl =  _.template($("#sidetpl").html());
 });
 
-//Render
+//RENDER
 var renderLoaded  = _.after(3,  function () { 
-	//var dateFormat = d3.time.format("%d/%m/%Y");
 	var dateFormat = d3.time.format("%Y-%m-%d");
 	var now = Date.now();
 	var a;
-	
-	//alert(tool_people);
-
 	//Loop and fix
-	
-	
 	try {
 		grid("#ep2014list",tool_people);
 	} catch (e) {
 		console.log (e);
 	}
 });
+//END RENDER
 
+//CAPITALIZE
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
+//HANDLE INITIAL DATA
 var fixdataset = function(){
 	var peoplenum = 0;
 	var countedpeople = [];
 	var cats = [];
 	_.each (tool_people, function (m) {
-	
-		//Count people
-		if(countedpeople.indexOf(m.Name) == -1){
-			peoplenum ++;
-			countedpeople.push(m.Name);
-		} 
-		
+		//Activities count for graphs.
+		m.currentActivitiesCount = m.total_activities;
+		//jtr activities count
+		m.jtract_count = 0;
+		//Assign all activities field for search tool_fullact_pre
+		m.fullsearch = "";
+		var thisacts = _.filter(tool_fullact,function (a) { return a.Name.trim() == m.Name.trim()  });
+		var thisacts2 = _.filter(tool_fullact_pre,function (a) { return a.Name.trim() == m.Name.trim()  });
+		_.each (thisacts, function (f) {
+			m.fullsearch += f.post_mandate_activities + " ";
+			if(f.On_JTR.trim().toLowerCase() == "yes"){
+				m.jtract_count ++;
+			}
+			allLoaded = true;
+		});
+		_.each (thisacts2, function (f) {
+			m.fullsearch += f.pre_mandate_activities + " ";
+		});
+		m.Country = $.trim(m.Country);
 		m.category_bar = m.category_bar.trim().toLowerCase().capitalize();
-		m.category_pie = m.category_pie.trim().toLowerCase().capitalize();
-		
+		m.category_pie = m.category_new_position.trim().toLowerCase().capitalize();
+		if(m.category_pie == "Public sector"){
+			m.category_pie = "Public service";
+		}
+		if(m.category_pie == "Ngo"){
+			m.category_pie = "NGO";
+		}
+		if(m.category_bar == "Ngo"){
+			m.category_bar = "NGO";
+		}
 		//List categories
 		if(cats.indexOf(m.category_pie) == -1){
 			cats.push(m.category_pie);
 		} 
-		
-	
 		//Assign ID
-		var identry = _.find(tool_ids,function (d) { return d.Name == m.Name  });
+		var identry = _.find(tool_ids,function (d) { return d.Name.trim().toLowerCase() == m.Name.trim().toLowerCase()  });
 		m.ID = "";
 		if(identry){
 			m.ID = identry.ID;
 		}
-		
 		//Assign activities
 		m.allactivities = [];
 		m.actnum = 0;
 		var this_allactivities = _.filter(tool_people,function (a) { return a.Name == m.Name  });
 		m.actnum = this_allactivities.length;
-		//alert(m.actnum);
-		/*
-		m.allactivities = _.filter(tool_activities,function (a) { return a.Name == m.Name  });
-		m.comm_link = m.allactivities[0].Link_source;
-		*/
-		
 		//Assign MEP or Commission
 		m.prevType = m.Institution;
-		/*
-		if(m.Previous_position == "MEP"){
-			m.prevType = "European Parliament";
-		} else {
-			m.prevType = "European Commission";
-		}
-		*/
 		m.Category_activity = m.category_pie;
 		if(m.Category_activity == ''){
 			m.Category_activity = 'Unknown';
 		}
-		
+		if(m.Category_activity != 'Unknown'){
+		peoplenum += parseInt(m.total_activities);
+		}
 		if(m.Country == "UK"){
 			m.Country = "United Kingdom";
 		}
-		//m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
 		if(m.Political_group == "Greens-EFA"){
 			m.Political_group = "Greens/EFA";
 		}
@@ -1101,106 +1061,169 @@ var fixdataset = function(){
 			m.Political_group = "EFDD";
 		}
 	});
-
 	$('.total-pcount').html(peoplenum);
 	$('.filter-pcount').html(peoplenum);
 }
-/*
-var eu_groups = {
-"GUE/NGL":"#800c00",
-"S&D":"#c21200",
-"Greens/EFA":"#05a61e",
-"ALDE":"#ffc200",
-"EFDD":"#5eced6",
-"PPE":"#0a3e63",
-"EPP":"#0a3e63",
-"ECR":"#3086c2",
-"NA/NI":"#cccccc",
-"ENF":"#A1480D",
-"Array":"pink"
-};
-*/
+//END HANDLE INITIAL DATA
 
+//LOAD FILES AND FILTER FUNCTIONS
 $(function() {
-	window.googleDocCallback = function () { return true; };
+
+	window.googleDocCallback = function () {return true;};
+	
+	//LOAD FILES
 	d3.csv("data/tool_ids.csv", function(d) {return d;}
 		,function(error, rows) {
 			tool_ids = rows;			 
 	}); 
-	/*
-	d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRvSooLjJgpUdvT89edrsYFuC3La6ed8x-U9nRbP00XJKR8uHFz4ibBksAooYO1PnzmbGNwcMJ3RXML/pub?gid=1723379779&single=true&output=csv", function(d) {return d;}
+	d3.csv("data/tool_total_unique.csv", function(d) {return d;}
 		,function(error, rows) {
-			alert(rows.toSource());			 
-	}); 
-	*/
-	/*
-	d3.csv("data/tool_activities.csv", function(d) {return d;}
-		,function(error, rows) {
-			//tool_people = rows;
-			//fixdataset();
-			//grid("#ep2014list",tool_people);			 
-			//renderLoaded();
-			tool_activities = rows;
-	}); 
-	d3.csv("data/tool_people.csv", function(d) {return d;}
-		,function(error, rows) {
-			 //tool_activities = rows;
-			 //renderLoaded();
 			 tool_people = rows;
-			 fixdataset();
-			 grid("#ep2014list",tool_people);	
+			 if(allLoaded == false){
+			 }	 	
 	});
-	*/
-	d3.csv("data/tool_total.csv", function(d) {return d;}
-	//d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRvSooLjJgpUdvT89edrsYFuC3La6ed8x-U9nRbP00XJKR8uHFz4ibBksAooYO1PnzmbGNwcMJ3RXML/pub?gid=1723379779&single=true&output=csv&callback=googleDocCallback", function(d) {return d;}
+	d3.csv("data/tool_activities_pre.csv", function(d) {return d;}
 		,function(error, rows) {
-			 //tool_activities = rows;
-			 //renderLoaded();
-			 tool_people = rows;
-			 fixdataset();
-			 grid("#ep2014list",tool_people);	
-	});
+			tool_fullact_pre = rows;		
+	}); 
+	d3.csv("data/tool_activities_post.csv", function(d) {return d;}
+		,function(error, rows) {
+			tool_fullact = rows;	
+			fixdataset();	
+			grid("#ep2014list",tool_people);
+	}); 
+	d3.csv("data/tool_photos.csv", function(d) {return d;}
+		,function(error, rows) {
+			tool_photos = rows;				
+	}); 
 	
-	/*
-	var reduceTableData = function(){
-		wall.group().reduce();
-		alert(wall.group());
-	}
-	*/
-	
+	//COUNT OFFICIALS
 	var countOfficialsWall = function(thisdataset) {
 		var thesepeople = [];
 		var officialscount = 0;
 		//Count people
 		_.each (thisdataset, function (m) {
-		if(thesepeople.indexOf(m.Name) == -1){
-			officialscount  ++;
-			thesepeople.push(m.Name);
-		} 
+			if(m.Category_activity != 'Unknown'){
+			if(jtrfilter == true){
+				officialscount += parseInt(m.jtract_count);
+			} else {
+				officialscount  += parseInt(m.total_activities);
+			}
+			}
 		});
 		$('.filter-pcount').html(officialscount);
 	}
 	
+	//COMMISSION FILTER
+	$("#commission_btn").click(function() {
+		if($("#parliament_btn").attr("src") == "img/EP2.png"){
+			$(".resetall").click();
+			return;
+		}
+		commissionfilter = true;
+		parliamentfilter = false;
+		if(jtrfilter == true){
+			wall.dimension().filter(function (d) { 
+				return (d.indexOf("EuropeanCommission") !== -1 && d.indexOf("on_JTR") !== -1);
+			});
+		} else {
+			wall.dimension().filter(function (d) { 
+				return d.indexOf("EuropeanCommission") !== -1;
+			});
+		}
+		$("#commission_btn").attr("src", "img/EC1.png");
+		$("#parliament_btn").attr("src", "img/EP2.png");
+		
+		countOfficialsWall(wall.dimension().top(Infinity));
+		dc.redrawAll();
+	});
+	
+	//PARLIAMENT FILTER
+	$("#parliament_btn").click(function() {
+		if($("#commission_btn").attr("src") == "img/EC2.png"){
+			$(".resetall").click();
+			return;
+		}
+		parliamentfilter = true;
+		commissionfilter = false;
+		if(jtrfilter == true){
+			wall.dimension().filter(function (d) { 
+				return ((d.indexOf("EuropeanParliament") !== -1 || d.indexOf("Europeanparliament") !== -1) && d.indexOf("on_JTR") !== -1);
+			});
+		} else {
+			wall.dimension().filter(function (d) { 
+				return d.indexOf("EuropeanParliament") !== -1 || d.indexOf("Europeanparliament") !== -1;
+			});
+		}
+		$("#commission_btn").attr("src", "img/EC2.png");
+		$("#parliament_btn").attr("src", "img/EP1.png");
+		countOfficialsWall(wall.dimension().top(Infinity));
+		dc.redrawAll();
+	});
+	
+	//REGISTRY FILTER CLICK
+	/*
+	$("#registry_yes_btn").click(function() {
+		if($(this).hasClass('active')){
+			$(".resetall").click();
+			return;
+		}
+		
+		jtrfilter = true;
+		
+		if(parliamentfilter == true){
+			wall.dimension().filter(function (d) { 
+				return (d.indexOf("on_JTR") !== -1 && (d.indexOf("EuropeanParliament") !== -1 || d.indexOf("Europeanparliament") !== -1));
+			});
+		} else if(commissionfilter == true){
+			wall.dimension().filter(function (d) { 
+				return (d.indexOf("EuropeanCommission") !== -1 && d.indexOf("on_JTR") !== -1);
+			});
+		} else {
+			wall.dimension().filter(function (d) { 
+				return d.indexOf("on_JTR") !== -1 ;
+			});
+		}
+		$("#registry_yes_btn").addClass("active");
+		$("#registry_no_btn").removeClass("active");
+		
+		countOfficialsWall(wall.dimension().top(Infinity));
+		dc.redrawAll();
+	});
+	*/
+	
+	
+	//SEARCH
 	$("#search-input").keyup (function () {
 		var s = $(this ).val().toLowerCase();
 		wall.dimension().filter(function (d) { 
 			return d.indexOf (s) !== -1;} );
 		countOfficialsWall(wall.dimension().top(Infinity));
-		//$(".resetall").attr("disabled",true);
+		$("#commission_btn").attr("src", "img/EC1.png");
+		$("#parliament_btn").attr("src", "img/EP1.png");
+		$("#registry_yes_btn").removeClass("active");
+		$("#registry_no_btn").removeClass("active");
 		dc.redrawAll();
 	});
 	$(".resetall").attr("disabled",false);
+	/*
 	$(".resetall").click(function() {
 		$("#search-input").val("");
-		//$(".resetall").attr("disabled",true);	
+		jtrfilter = false;
+		parliamentfilter = false;
+		commissionfilter = false;
 		wall.filter(null);
 		dc.filterAll();
 		dc.filterAll(null);
 		dc.renderAll();
-
+		$("#commission_btn").attr("src", "img/EC1.png");
+		$("#parliament_btn").attr("src", "img/EP1.png");
+		$("#registry_yes_btn").removeClass("active");
+		$("#registry_no_btn").removeClass("active");
 	});
-	
+	*/
 });  
+//END LOAD FILES AND FILTER FUNCTIONS
 
 </script>
 
@@ -1208,12 +1231,22 @@ $(function() {
 <script type="tpl" id="sidetpl">
 <h4>Activities</h4>
 <table class="table table-condensed">
-<tr><td class="dc-table-label">Post-mandate activities</td><td class="dc-table-label" >Category</td><td class="dc-table-label" >Paid/Unpaid</td><td class="dc-table-label" >Source</td></tr>
-<% allactivities = _.filter(tool_people,function (a) { return a.Name == Name  }); %>
+<tr><td class="dc-table-label" style="width:60%;">Post-mandate activities</td><td class="dc-table-label" style="width:20%;">Category</td><td class="dc-table-label" style="width:10%;">On Lobby Register</td><td class="dc-table-label" style="width:10%;">Source</td></tr>
+<% allactivities = _.filter(tool_fullact,function (a) { return  $.trim(a.Name) == $.trim(Name) && a.Nr != 72776 }); %>
 <% _.each(allactivities, function (a) { %>
-	<tr><td><%= a.New_position %></td><td><%= a.category_bar %></td><td><%= a.Paid_unpaid %></td><td><a href="<%= a.Link_source%>">Link</a></td></tr>
+	<tr><td><%= a.post_mandate_activities %></td><td><%= a.category_bar %></td><td style="text-align:center;"><% if(a.On_JTR.toLowerCase().trim() == "yes"){ %> <a href="<%= a.Link_JTR %>" target="_blank">Yes</a> <% } %></td><td><a href="<%= a.Link_source%>" target="_blank">Link</a></td></tr>
 <% }); %>
 </table>
+
+<% allactivities2 = _.filter(tool_fullact_pre,function (a) { return  $.trim(a.Name).toLowerCase() == $.trim(Name).toLowerCase() }); %>
+<% if(allactivities2.length > 0){ %>
+<table class="table table-condensed">
+<tr><td class="dc-table-label" style="width:60%;">Pre-mandate activities (before 2009)</td><td class="dc-table-label" style="width:30%;">Category</td><td class="dc-table-label" style="width:10%;">Source</td></tr>
+<% _.each(allactivities2, function (a) {  %>
+	<tr><td><%= a.pre_mandate_activities %></td><td><%= a.category_bar %></td><td><a href="<%= a.Link_source%>" target="_blank">Link</a></td></tr>
+<% }); %>
+</table>
+<% } %>
 </script>
 
 <script type="tpl" id="detailstpl2">
@@ -1239,15 +1272,12 @@ $(function() {
 			 <div class="col-md-4">Party</div>
 			 <div class="col-md-8"><%= Party %> </div>
 		 </div>
-		 <% if(Institution == "European Parliament") { %>
+		 <% if(Institution == "European Parliament" || Institution == "European parliament") { %>
 			<div class="row">
 			 <div class="col-md-4">Profile Link</div>
 			 <div class="col-md-8"><a target="_blank" href="http://www.europarl.europa.eu/meps/en/<%= ID %>.html">European Parliament Website</a></div>
 			</div>
-		 <% }; %>
-
-		 
-		 
+		 <% }; %>		 	 
 </script>
 
 <div class="modal fade" id="mepdialog">
