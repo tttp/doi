@@ -41,6 +41,12 @@
 <meta property="fb:app_id" content="1611680135716224" />
 
 <style>
+.navbar-collapse ul.navbar-right li a {
+	padding: 0 10px !important;
+}
+.navbar-collapse ul.navbar-right li a {
+	line-height: 80px !important;
+}
 .incomearea .big_number {
 	display: inline-block !important;
 }
@@ -177,6 +183,12 @@ var eu_groups = {
 
 
 	function sumDOI (mep,field, returnData) {
+		/*
+		if(mep.epid == 124766){
+			alert(field + ' ' + returnData + mep.doi[field]);
+		}
+		*/
+		
 		function convert (i) {
 			if (i.slice(-3)  == "EUR") return i.substr(0,i.length - 4) * 1;
 			if (i.slice(-3)  == "GBP") return i.substr(0,i.length - 4) * 1.25;
@@ -203,6 +215,7 @@ var eu_groups = {
 		var min = max= qty = 0;
 		var openscale = false;
 		_.each(mep.doi[field], function (d) {
+
 			 var i = d[1];
 			 qty +=1;
 			 if (d.length == 3) { //F: Holding
@@ -211,13 +224,17 @@ var eu_groups = {
 			 if (d.length != 2) {
 				 return;
 			 }
-			 if (i < 0) i=0;
+			 if (i < 0) {
+				//i=0;
+				
+			}
 			 if (i >= 4) {
 				 openscale = true;
 				 if (i > 4) {
 					 i = 4;
 				 }
 			 }
+			
 		 if (isNaN(i)) {
 			 if (i.slice(-3)  == "EUR") {
 				if(i.substring(0, 1).match("\\d.*")){
@@ -232,11 +249,20 @@ var eu_groups = {
 				 max += Math.round(convert (i));
 			 } 
 		 } else {
+			if(i < 0){
+				min += 0;
+				max += 499;
+			} else if(i == 0){
+			 min += rangeEUR[i].min;
+			 max += 0;
+			} else {
 			 min += rangeEUR[i].min;
 			 max += rangeEUR[i].max;
+			}
 		 }
 
 		});
+		
 		if (returnData) {
 			return {min:min, max:max,qty:qty, openscale:openscale};
 		}
@@ -247,14 +273,21 @@ var eu_groups = {
 	};
 
 function setRiskScore (d) {
+	
 	function setMinMax(d, t) {
 		d.min += t.min;
 		d.max += t.max;
 		d.qty += t.qty;
+		
+		/*
+		if(d.epid == 124766){
+			alert(d.min + ' ' + d.max);
+		}
+		*/
 	}
 	var score= d.min= d.max = d.qty = 0;
 	var openscale =false;
-//      var fields = ["activity","holding","mandate","occasional","membership"];
+	//var fields = ["activity","holding","mandate","occasional","membership"];
 	var t =  sumDOI(d,"activity",true);
 	if (t.qty) {
 		score += 2*t.qty + t.min/500;
@@ -269,6 +302,11 @@ function setRiskScore (d) {
 	}
 
 	t =  sumDOI(d,"membership",true);
+	/*
+	if(d.epid == 124766){
+		alert(t.toSource());
+	}
+	*/
 	if (t.qty) {
 		score += t.qty + t.min/500;
 		openscale = openscale || t.openscale;
@@ -461,6 +499,17 @@ function grid (selector,data) {
 			.style("text-anchor", "end" )
 			.attr("transform", function(d) { return "rotate(-90, -4, 9) "; });
 	}
+
+
+	dc.dataCount(".dc-data-count")
+		.dimension(ndx)
+		.group(all);
+
+	dc.dataCount(".dc-data-count2")
+		.dimension(ndx)
+		.group(all);
+
+
 	function getParsedDate(d){
 		if(d.doi){
 			if(d.doi.date){
@@ -480,17 +529,7 @@ function grid (selector,data) {
 		}
 		return 0;
 	}
-
-
-	dc.dataCount(".dc-data-count")
-		.dimension(ndx)
-		.group(all);
-
-	dc.dataCount(".dc-data-count2")
-		.dimension(ndx)
-		.group(all);
-
-
+		
 	var name = ndx.dimension(function(d) {
 			return d.last_name.toLowerCase() + " "+ d.first_name.toLowerCase() + " " + d.party.toLowerCase() +" " + d.committee.toLowerCase() + d.substitute.toLowerCase();
 			});
@@ -517,8 +556,8 @@ function grid (selector,data) {
 				//function(d) { return "<div class='right-align'>"+getAmountStringYear(d)+"</div>"; },
 				function(d) { return "<div class='right-align'>"+addcommasAmounts((getAmountMin(d)*12).toFixed(0))+" €</div>"; },
 				function(d) { if (d.max == Number.POSITIVE_INFINITY){ return "<div class='right-align'>"+addcommasAmounts((d.min*12).toFixed(0))+" + €</div>";}else{return "<div class='right-align'>"+addcommasAmounts((getAmountMax(d)*12).toFixed(0))+" €</div>";} },
-				function(d) { return "<div>"+getParsedDate(d)+"</div>"},
 				//function(d) { return ("<span class='score' style='background:" + color(d.score) +"'>"+d.score.toFixed(0))+"</span>";},
+				function(d) { return "<div>"+getParsedDate(d)+"</div>"},
 		])
 	.size(1000)
 	.sortBy(function (d) {return datenumber(d)})
@@ -707,6 +746,7 @@ function drawRange () {
 		.colorAccessor(function (d, i){return i;})
 		.dimension(dimension)
 		.group(group);
+		
 	
 	function rangeorder(d){
 		switch(d.key) {
@@ -964,6 +1004,24 @@ function drawScore() {
 
 		return rangeEUR[category][field];
 	}
+	
+	function getAmountMandates (category, field) { //field = min (default) or max or "string"
+		field = field || "min";
+		if(field == 'string' && category.length > 0){
+			return category;
+		}
+		if (!category) return "0";
+		if (isNaN(category)) return category;
+		if (category < 0 && field == "min") return "0";
+		if (category < 0 && field == "max") return "499";
+		if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
+		 
+		if (category >=4 && field == "max") return "or more";
+		if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
+			return  rangeEUR[category]["min"] + " &#8605; "+  rangeEUR[category]["max"];
+
+		return rangeEUR[category][field];
+	}
 
 function hashFilter () {
 	var hash = window.location.hash;
@@ -1006,11 +1064,12 @@ function MEPpopup (epid) {
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li id="cm_tool_btn"><a href="ec.html"><strong>Commission</strong> <br />meetings</a></li>
-					<li id="bl_tool_btn"><a href="lobbyist.html"><strong>EU</strong><br />Lobbyists</a></li>
-					<li class="active" id="mi_tool_btn"><a href="ep.html"><strong>MEP</strong> <br />incomes</a></li>
+					<li id="cm_tool_btn"><a href="ec.html" style="width: 120px;"><strong>Commission</strong> <br />meetings</a></li>
+					<li id="bl_tool_btn"><a href="lobbyist.html" style="width: 120px;"><strong>EU</strong><br />Lobbyists</a></li>
+					<li class="active" id="mi_tool_btn"><a href="ep.html" style="width: 120px;"><strong>MEP</strong> <br />incomes</a></li>
+					<li id="mi_tool_btn"><a href="revolvingdoor.html" style="width: 120px;">Revolving<br />Doors</a></li>
           <li class="dropdown">
-            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">National versions<span class="caret"></span></a>
+            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 160px;">National versions<span class="caret"></span></a>
              <ul class="dropdown-menu">
                <li><a href="http://www.integritywatch.fr">France</a></li>
             </ul>
@@ -1241,7 +1300,7 @@ function MEPpopup (epid) {
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">MEPs</h2><div id="last_update">Last updated: 4 Jan 2016</div>
+				<h2 class="table_title">MEPs</h2><div id="last_update">Last updated: <span id="updatedate"></span></div>
 				
 				<div id="info_table_container" class="hidden">
 					<div class="info_chart info_table" id="attendance_info">
@@ -1283,6 +1342,13 @@ function MEPpopup (epid) {
 </div>
 
 <script>
+
+//Set last updates as yesterday's date
+  var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+  var updatedate = new Date();
+  updatedate.setDate(updatedate.getDate() - 1);
+  $('#updatedate').html(updatedate.getDate() + ' ' + monthNames[updatedate.getMonth()] + ' ' + updatedate.getFullYear());
+
 		var meps=[];
 		var doi=[];
 		var attendance=[];
@@ -1304,6 +1370,25 @@ $(function() {
 					m.eugroup = "EFDD";
 				}
 				m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
+				if(m.epid == 124753){
+					m.doi.mandate[0][0] = "Conseillère municipale (sans indemnité)";
+					m.doi.mandate[0][1] = "0";
+				}
+				if(m.epid == 124760){
+					m.doi.mandate[0][0] = "Conseiller régional de Haute Normandie";
+					//m.doi.mandate[0][1] = 2;
+					m.doi.mandate[0][1] = "2000";
+				}
+				if(m.epid == 124951){
+					m.doi.mandate[0][0]  = "County Councillor";
+					//m.doi.mandate[0][1] = 1;
+					m.doi.mandate[0][1] = "937.18 EUR (833,33 GBP)";
+				}
+				if(m.epid == 124965){
+					//m.doi.mandate[0][1] = 3;
+					m.doi.mandate[0][1] = "5997,95 EUR (5333,33 GBP)";
+				}
+				
 				a = _.find(attendance,function (d) { return d.id == m.epid  });
 				if (a) {
 					m.attendance = {"total": parseInt(a.votes,10) , "attended": parseInt(a.voted,10), "score": parseFloat(a.percent)};
@@ -1337,6 +1422,33 @@ $(function() {
 					m.agerange = "80+";
 				} else {
 					m.agerange = "N/A";
+					m.age = "N/A";
+				}
+				//alert(m.doi.toSource());
+				if(!m.doi){
+					//alert(m.toSource());
+					m.doi = ({additional:"", url:"", support:"", mandate:[], occasional:[], mep_id:0, membership:[], other:"", holding:[], activity:[], date:"", occupation:[], events:[]})
+					//m.doi.url = "";
+					//m.doi.date = "";
+				}
+				if(m.first_name == "Angelo" && m.last_name == "CIOCCA"){
+					m.doi.url = "http://www.europarl.europa.eu/mepdif/183793_DFI_LEG8_rev0_IT.pdf";
+				}
+				//alert(m.doi.toSource());
+				if(m.last_name == "WIERINCK"){
+					//alert(m.toSource());
+					//alert(m.doi.toSource());
+				}
+				
+				
+				
+				//Gender fix
+				if(m.gender == ""){
+					if(m.last_name == "PUNSET" || m.last_name == "WIERINCK"){
+						m.gender = "F";
+					} else if(m.last_name == "PIMENTA LOPES") {
+						m.gender = "M";
+					}			
 				}
 				
  
@@ -1407,7 +1519,7 @@ $(function() {
 
 <tr><td class="dc-table-label" colspan="2">B. Other mandates</td></tr>
 <% _.each(doi.mandate, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmountMandates(a[1],"string") %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">C. Regular outside activity</td></tr>
@@ -1458,7 +1570,7 @@ $(function() {
 		 </div>
 		 <div class="row">
 			 <div class="col-md-4">Monthly salary</div>
-			 <div class="col-md-8 score"><a href="http://www.transparencyinternational.eu/2014/08/how-much-does-an-mep-make/" target="_blank">8020,53 &euro; &#8605; 19,586 &euro; depending on allowances</a></div>
+			 <div class="col-md-8 score"><!-- <a href="http://www.transparencyinternational.eu/2014/08/how-much-does-an-mep-make/" target="_blank"> -->8020,53 &euro; &#8605; 19,586 &euro; depending on allowances<!-- </a> --></div>
 		 </div>
 		 <div class="row">
 			 <div class="col-md-4">Attendance</div>
