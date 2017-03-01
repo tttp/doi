@@ -195,8 +195,10 @@ var eu_groups = {
 			if (i.slice(-3)  == "SEK") return i.substr(0,i.length - 4) * 0.11;
 			if (i.slice(-3)  == "HRK") return i.substr(0,i.length - 4) * 0.13;
 			if (i.slice(-3)  == "CZK") return i.substr(0,i.length - 4) * 0.035;
-
-			return 0;
+			if(isNaN(parseInt(i))){
+				return 0;
+			}
+			return parseInt(i);
 		}
 
 		returnData = returnData || false;
@@ -228,14 +230,14 @@ var eu_groups = {
 				//i=0;
 				
 			}
-			 if (i >= 4) {
+			 if (i >= 4 && i < 100) {
 				 openscale = true;
 				 if (i > 4) {
 					 i = 4;
 				 }
 			 }
 			
-		 if (isNaN(i)) {
+		 if (isNaN(i) || i >= 100) {
 			 if (i.slice(-3)  == "EUR") {
 				if(i.substring(0, 1).match("\\d.*")){
 				 min += i.substr(0,i.length - 4) * 1;
@@ -262,6 +264,7 @@ var eu_groups = {
 		 }
 
 		});
+		
 		
 		if (returnData) {
 			return {min:min, max:max,qty:qty, openscale:openscale};
