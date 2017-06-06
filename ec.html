@@ -1811,9 +1811,11 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 			var a;
 
 			//Filter out duplicate meetings of Hill with no name
+			/*
 			events = _.filter(events, function(d) {
 				return d.host != 'Commissioner';
 			});
+			*/
 						
 			_.each (events, function (d) {
 				d.guest = d.guest.replace("</a>ttttt ttttttttttttt rntttt","");
