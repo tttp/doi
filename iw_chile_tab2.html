@@ -277,7 +277,7 @@
 			 var group   = dim.group().reduceSum(function(d) { return 1; });
 			 var graph =  dc.wordCloud(".wordcloud")
 			  .rotate(function() { return ~~(Math.random() * 2) * 90; })
-			  .size([320,380])
+			  .size([420,480])
 			  .dimension(dim)
 			  .maxWords(50)
 			  .padding(5)
@@ -293,7 +293,7 @@
 		//Host Type Chart
 		function drawHostType () {
 			var dim = ndx.dimension (function(d) {
-					return d.cargoNombrePasivoType;   
+					return d.nombreInstitucion;   
 			});
 			var group   = dim.group().reduceSum(function(d) {   return 1; });
 			var hosttypecolor = {			
@@ -307,11 +307,13 @@
 				.height(250)
 				.dimension(dim)
 				.cap(7)
-				.group(group)				
+				.group(group)	
+				/*				
 				.colorCalculator(function(d, i) {
 					return hosttypecolor[d.key];
 				});
-				chart.legend(dc.legend().x(30).y(220).itemHeight(13).gap(5))
+				*/
+				chart.legend(dc.legend().x(30).y(240).itemHeight(13).gap(5))
 		}
 		
 		//Category Chart (Lobbyist or gestores de intereses)
@@ -374,7 +376,7 @@
 		//Top Institutions Chart
 		function drawTopIstitucion() {
 			var dim = ndx.dimension (function(d) {
-				return d.nombreInstitucion;
+				return d.party;
 			});
 			var group   = dim.group().reduceSum(function(d) {   return 1; });
 
@@ -389,7 +391,7 @@
 			})(group);
 			var graph = dc.rowChart(".topistitucion")   
 				.margins({top: 0, right: 3, bottom: 20, left: 3})
-				.height(730)
+				.height(530)
 				//.width(360)
 				.gap(1)
 				//.fixedBarHeight(20)
@@ -748,8 +750,8 @@
 		
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active" id="cm_tool_btn"><a href="iw_chile.html"><strong>Audiencias</strong> <br />Gobierno Central</a></li>
-					<li class="" id="cm_tool_btn"><a href="iw_chile_tab2.html"><strong>Audiencias</strong> <br />Congreso Nacional</a></li>
+					<li class="" id="cm_tool_btn"><a href="iw_chile.html"><strong>Audiencias</strong> <br />Gobierno Central</a></li>
+					<li class="active" id="cm_tool_btn"><a href="iw_chile_tab2.html"><strong>Audiencias</strong> <br />Congreso Nacional</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="about.html">About</a></li>
@@ -804,8 +806,19 @@
 			<div class="row">
 				<!-- COL1 -->
 				<div class="col-md-4">
+					<!-- CARGO -->
+					<div class="chart_box" id="hosttype">
+						<h3>Poder Legislativo<!--span class="info">info</span--></h3>
+						<div class="info_chart">
+						</div>
+						
+						<div class="hosttype"></div>
+						<div class="legend">
+						</div>
+						<br class="clear" />
+					</div>
 					<div class="chart_box">
-						<h3>Nombre istitucion<!--span class="info">info</span--></h3>
+						<h3>Partidos politicos<!--span class="info">info</span--></h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc">
@@ -817,49 +830,7 @@
 					</div>
 				</div>
 				<!-- COL2 -->
-				<div class="col-md-4">
-					<!-- CARGO -->
-					<div class="chart_box" id="hosttype">
-						<h3>Cargo<!--span class="info">info</span--></h3>
-						<div class="info_chart">
-						</div>
-						
-						<div class="hosttype"></div>
-						<div class="legend">
-						</div>
-						<br class="clear" />
-					</div>
-					<!-- TOP10 -->
-					<div class="row">
-						<div class="col-md-6">
-							<div class="chart_box">
-								<h3>Top 10 pasivos<!--span class="info">info</span--></h3>
-								<div class="info_chart">
-									<span class="info">info</span>
-									<p class="desc">Individuals from the European Commission with most contacts with lobbyists. When individuals meet several lobby organisations in a single meeting, the tool counts each contact separately. The number of contacts can thus be higher than the number of meetings.
-									</p>
-								</div>
-								<div class="tophost chart-full"></div>
-								<div class="label">Number of contacts</div>
-								<br class="clear" />
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="chart_box" id="group_container">
-								<h3>Top 10 activos</h3>
-								<div class="info_chart">
-									<span class="info">info</span>
-									<p class="desc">Lobby organisations with the most high-level meetings at the European Commission.</p>
-								</div>
-									<div class="guest chart-full"></div>
-									<div class="label">Number of contacts</div>
-								<br class="clear" />
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- COL3 -->
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<!-- CATEGORIA -->
 					<div class="chart_box" id="categoria">
 						<h3>Categoria<!--span class="info">info</span--></h3>
@@ -880,6 +851,30 @@
 							</p>
 						</div>
 						<div class="wordcloud"></div>
+					</div>
+				</div>
+				<!-- COL3 -->
+				<div class="col-md-3">
+					<div class="chart_box">
+						<h3>Top 10 pasivos<!--span class="info">info</span--></h3>
+						<div class="info_chart">
+							<span class="info">info</span>
+							<p class="desc">Individuals from the European Commission with most contacts with lobbyists. When individuals meet several lobby organisations in a single meeting, the tool counts each contact separately. The number of contacts can thus be higher than the number of meetings.
+							</p>
+						</div>
+						<div class="tophost chart-full"></div>
+						<div class="label">Number of contacts</div>
+						<br class="clear" />
+					</div>
+					<div class="chart_box" id="group_container">
+						<h3>Top 10 activos</h3>
+						<div class="info_chart">
+							<span class="info">info</span>
+							<p class="desc">Lobby organisations with the most high-level meetings at the European Commission.</p>
+						</div>
+							<div class="guest chart-full"></div>
+							<div class="label">Number of contacts</div>
+						<br class="clear" />
 					</div>
 				</div>
 			</div>
@@ -933,8 +928,9 @@
 	updatedate.setDate(updatedate.getDate() - 1);
 	$('#updatedate').html(updatedate.getDate() + ' ' + monthNames[updatedate.getMonth()] + ' ' + updatedate.getFullYear());
 
-	var eventsRaw=[];
 	var events=[];
+	var parties=[];
+	var partiesSenate=[];
 	var meetingspages;
 	var evt=null;
 	var nameEvent=null;
@@ -952,7 +948,24 @@
 			var a;
 			
 			//Loop through dataset and fix/adjust data
-			_.each (eventsRaw, function (d) {
+			_.each (events, function (d) {
+			
+				//Set party
+				d.fullname = (d.nombrePasivo.trim() + ' ' + d.apellidosPasivo.trim()).toLowerCase();
+				d.party = "";
+				d.party = _.find(parties,function (m) { return m.Diputado.toLowerCase() == d.fullname });
+				
+				if(d.party){
+					d.party = d.party.Partido;
+				} else {
+					var thisPartySenate = _.find(partiesSenate,function (m) { return (m.Firstname.trim() + ' ' + m.Lastname.trim()).toLowerCase() == d.fullname });
+					if(thisPartySenate){
+						d.party = thisPartySenate.Partido.trim();
+					} else {
+						//alert(d.fullname);
+						d.party = "N/A";
+					}
+				}
 
 				d.date=dateFormat.parse(d.fechainicioAudienca);
 				d.categoriaA = 'Unknown';
@@ -991,10 +1004,6 @@
 					d.nombreActivoFull = d.nombreActivo.trim() + " " + d.apellidosActivo;
 					//alert(d.nombreActivoFull);
 				}
-				//Filter data keeping only meetings with these pasivo types
-				if(d.cargoNombrePasivoType == "Subsecretarios" || d.cargoNombrePasivoType == "Intendente" || d.cargoNombrePasivoType == "Gobernador"){
-					events.push(d);
-				}
 			});
 			//End loop through dataset
 			
@@ -1005,13 +1014,18 @@
 		
 		//Load datasets
 		
-		d3.csv("data/iw-chile.csv", function(rows) {
-			eventsRaw = rows;
+		d3.csv("data/iw-chile-tab2.csv", function(rows) {
+			events = rows;
 			renderLoaded();
 		});   
 		
-		d3.csv("data/iw-chile.csv", function (rows) {
-			eventsRaw = rows;
+		d3.csv("data/iw-chile-party.csv", function (rows) {
+			parties = rows;
+			renderLoaded();
+		}); 
+		
+		d3.csv("data/iw-chile-party-senate.csv", function (rows) {
+			partiesSenate = rows;
 			renderLoaded();
 		}); 
 		
