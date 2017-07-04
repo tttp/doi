@@ -160,7 +160,7 @@ var wall = null;
 4. plus de 10 000 EUR brut par mois.
 */
 	var rangeEUR = [
-		{min:0,max:499},
+		{min:1,max:499},
 		{min:500,max:1000},
 		{min:1001,max:5000},
 		{min:5001,max:10000},
@@ -217,8 +217,9 @@ var eu_groups = {
 		var min = max= qty = 0;
 		var openscale = false;
 		_.each(mep.doi[field], function (d) {
-
+			
 			 var i = d[1];
+			
 			 qty +=1;
 			 if (d.length == 3) { //F: Holding
 				 i = d[2];
@@ -228,7 +229,6 @@ var eu_groups = {
 			 }
 			 if (i < 0) {
 				//i=0;
-				
 			}
 			 if (i >= 4 && i < 100) {
 				 openscale = true;
@@ -253,10 +253,12 @@ var eu_groups = {
 		 } else {
 			if(i < 0){
 				min += 0;
-				max += 499;
+				//max += 499;
+				max += 0;
 			} else if(i == 0){
 			 min += rangeEUR[i].min;
-			 max += 0;
+			 //max += 0;
+			 max += rangeEUR[i].max;
 			} else {
 			 min += rangeEUR[i].min;
 			 max += rangeEUR[i].max;
@@ -973,12 +975,17 @@ function drawScore() {
 	}
 
 	function getAmount (category, field) { //field = min (default) or max or "string"
+		if(category == 0) return "1 - 499 €";
 		field = field || "min";
 		if (!category) return "0";
 		if (isNaN(category)) return category;
 		if (category < 0 && field == "min") return "0";
-		if (category < 0 && field == "max") return "499";
-		if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
+		//if (category < 0 && field == "max") return "499";
+		if (category < 0 && field == "max") return "0";
+		//if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
+		if (category < 0 && field == "string") return "0";
+		
+		if(category == 0) return "1 - 499 €";
 		 
 		if (category >=4 && field == "max") return "or more";
 		if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
@@ -995,8 +1002,12 @@ function drawScore() {
 		if (!category) return "0";
 		if (isNaN(category)) return category;
 		if (category < 0 && field == "min") return "0";
-		if (category < 0 && field == "max") return "499";
-		if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
+		//if (category < 0 && field == "max") return "499";
+		if (category < 0 && field == "max") return "0";
+		//if (category < 0 && field == "string") return "0  &#8605; 499 &euro;";
+		if (category < 0 && field == "string") return "0";
+		
+		if(category == 0) return "1 - 499 €";
 		 
 		if (category >=4 && field == "max") return "or more";
 		if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
