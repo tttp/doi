@@ -1752,8 +1752,8 @@
     "date": "15/06/2017",
     "occupation": [
       [
-        "Università Cattolica del Sacro                                                                           10000 Cuore di Milano - Direttore della Sede di Brescia (La decina di migliaia più prossima è: 10)",
-        -1
+        "Università Cattolica del Sacro                                                                           Cuore di Milano - Direttore della Sede di Brescia (La decina di migliaia più prossima è: 10)",
+        "10000 EUR"
       ],
       [
         "Autostrade lombarde S.P.A.  - Membro del Consiglio di Amministrazione",
@@ -2796,8 +2796,8 @@
         1
       ],
       [
-        "2.No (ca 2,8%)                   X",
-        -1
+        "2.No (ca 2,8%)",
+        0
       ]
     ],
     "activity": [],
@@ -3328,8 +3328,8 @@
     "other": "Financiële belangen:\n1.\n2.\n3.",
     "holding": [
       [
-        "Maatschap W. en J.F. en J. Huitema- Aalberts (melkveebedrijf)X",
-        -1
+        "Maatschap W. en J.F. en J. Huitema- Aalberts (melkveebedrijf)",
+        0
       ]
     ],
     "activity": [],
@@ -3459,8 +3459,8 @@
     "date": "27/06/2017",
     "occupation": [
       [
-        "07/2010–02/2013                                                                       10000 Niedersächsischer Ministerpräsident",
-        -1
+        "07/2010–02/2013                                                                       Niedersächsischer Ministerpräsident",
+        "10000 EUR"
       ],
       [
         "1998 bis 26/03/2014 Mitglied  des Niedersächsischen Landtags",
@@ -3576,12 +3576,12 @@
     "other": "Financial interest:\n1.\n2.\n4/6                                          EN\n3.",
     "holding": [
       [
-        "Partner        in                X Wythall Estate",
-        -1
+        "Partner in Wythall Estate",
+        0
       ],
       [
-        "Director, MCP                    X Systems Consultants Ltd.",
-        -1
+        "Director, MCP Systems Consultants Ltd.",
+        0
       ]
     ],
     "activity": [],
@@ -3678,8 +3678,8 @@
     "date": "23/02/2017",
     "occupation": [
       [
-        "2010-2014 : Vice-présidente de                                                                           20000 la Commission européenne",
-        -1
+        "2010-2014 : Vice-présidente de la Commission européenne",
+        "20000 EUR"
       ]
     ],
     "events": []
@@ -4181,8 +4181,8 @@
     "other": "Intérêt financier:\n1.\n2.\n3.",
     "holding": [
       [
-        "Energiepark Réiden SA (pas de paiements de     dividendes   et participation minoritaire)X",
-        -1
+        "Energiepark Réiden SA (pas de paiements de     dividendes   et participation minoritaire)",
+        0
       ]
     ],
     "activity": [],
@@ -4669,8 +4669,8 @@
     "date": "21/06/2017",
     "occupation": [
       [
-        "Giornalista                                                                                                20000",
-        -1
+        "Giornalista",
+        "20000 EUR"
       ]
     ],
     "events": []
@@ -4689,8 +4689,8 @@
     "date": "29/05/2017",
     "occupation": [
       [
-        "liikenneministeri                                                                                       10000",
-        -1
+        "liikenneministeri",
+        "10000 EUR"
       ],
       [
         "kansanedustaja",
@@ -5838,8 +5838,8 @@
     "other": "Intérêt financier:\n1.\n4/6                                           FR\n2.\n3.",
     "holding": [
       [
-        "Comité régional                    X du     tourisme Occitanie",
-        -1
+        "Comité régional du tourisme Occitanie",
+        0
       ]
     ],
     "activity": [],
@@ -5867,8 +5867,8 @@
     "other": "Finanční zájem:\n1.\n2.\n3.",
     "holding": [
       [
-        "European                           X Universal SE",
-        -1
+        "European Universal SE",
+        0
       ]
     ],
     "activity": [],
@@ -6371,8 +6371,8 @@
     "date": "29/06/2017",
     "occupation": [
       [
-        "Consigliere regionale Campania                                                                           10000",
-        -1
+        "Consigliere regionale Campania",
+        "10000 EUR"
       ],
       [
         "Consigliere Automobile Club  Italia Caserta",
@@ -7352,8 +7352,8 @@
         4
       ],
       [
-        "Ministro della Repubblica (EUR                                                                             10000 11.000)",
-        -1
+        "Ministro della Repubblica",
+        "11000 EUR"
       ],
       [
         "Regione Veneto",
@@ -7472,8 +7472,8 @@
     "other": "Finanzielle Interessen:\n1.\n5/7                                          DE\n2.\n3.",
     "holding": [
       [
-        "Gesellschafterin von         Südwind EntwicklungspolitikX",
-        -1
+        "Gesellschafterin von         Südwind Entwicklungspolitik",
+        0
       ]
     ],
     "activity": [],
@@ -8026,16 +8026,16 @@
     "other": "Interesy finansowe:\n1.\n2.\n3.",
     "holding": [
       [
-        "EUROPEJSKI KONGRES GOSPODARCZYX",
-        -1
+        "EUROPEJSKI KONGRES GOSPODARCZY",
+        0
       ],
       [
-        "EUROPEJSKIE FORUM NOWYCH IDEIX",
-        -1
+        "EUROPEJSKIE FORUM NOWYCH IDEI",
+        0
       ],
       [
-        "EUROPEJSKI KONGRES MŚPX",
-        -1
+        "EUROPEJSKI KONGRES MŚP",
+        0
       ]
     ],
     "activity": [],
@@ -9086,12 +9086,12 @@
     "other": "Financial interest:\n1.\n2.\n3.",
     "holding": [
       [
-        "SHAREHOLDER IN      FARMING BUSINESS      IN RECEIPT OF EU SUBSIDY UNDER CAPX",
-        -1
+        "SHAREHOLDER IN FARMING BUSINESS IN RECEIPT OF EU SUBSIDY UNDER CAP",
+        0
       ],
       [
-        "SHAREHOLDING                      X IN   FAMILY PROPERTY COMPANY",
-        -1
+        "SHAREHOLDING IN FAMILY PROPERTY COMPANY",
+        0
       ]
     ],
     "activity": [],
@@ -12057,8 +12057,8 @@
     "date": "08/06/2017",
     "occupation": [
       [
-        "Consigliere Regionale                                                                                      10000",
-        -1
+        "Consigliere Regionale",
+        "10000 EUR"
       ],
       [
         "Socio della stC Srl e Soc. Agr.  Cornalba Srl",
@@ -13423,8 +13423,8 @@
     "other": "Finanzielle Interessen:\n1.\n2.\n3.",
     "holding": [
       [
-        "INHABER EINES 500 EURO ANTEILS DER GENOSSENSCHAFT LPG JUNGE WELT MIT EINFACHEM STIMMRECHT UND OHNE DIVIDENDENANSPRUCHX",
-        -1
+        "INHABER EINES 500 EURO ANTEILS DER GENOSSENSCHAFT LPG JUNGE WELT MIT EINFACHEM STIMMRECHT UND OHNE DIVIDENDENANSPRUCH",
+        0
       ]
     ],
     "activity": [],
@@ -14127,8 +14127,8 @@
     "date": "24/05/2017",
     "occupation": [
       [
-        "Assessore Regione Piemonte                                                                                 10000",
-        -1
+        "Assessore Regione Piemonte",
+        "10000 EUR"
       ]
     ],
     "events": [
@@ -14283,8 +14283,8 @@
     "date": "31/05/2017",
     "occupation": [
       [
-        "People Designers SRL                                                                                       80000",
-        -1
+        "People Designers SRL",
+        "80000 EUR"
       ]
     ],
     "events": []
@@ -14402,8 +14402,8 @@
     "date": "28/03/2017",
     "occupation": [
       [
-        "Landtag Steiermark                                                                                  10000",
-        -1
+        "Landtag Steiermark",
+        "10000 EUR"
       ]
     ],
     "events": []
@@ -16341,8 +16341,8 @@
     "date": "26/04/2017",
     "occupation": [
       [
-        "Ministre                                                                                                 10000",
-        -1
+        "Ministre",
+        "10000 EUR"
       ]
     ],
     "events": [
@@ -19308,7 +19308,7 @@
     "mandate": [
       [
         "Conseiller municipal et eurométropole (1500 Euros/mois)",
-        "1500 EUR"
+        "1500 €"
       ]
     ],
     "occasional": [
@@ -19328,19 +19328,19 @@
     "holding": [],
     "activity": [
       [
-        "Consultant Losberger                                                                                     10000",
-        -1
+        "Consultant Losberger",
+        "10000 EUR"
       ],
       [
-        "Consultant Académie européenne                                                                           10000",
-        -1
+        "Consultant Académie européenne",
+        "10000 EUR"
       ]
     ],
     "date": "03/05/2017",
     "occupation": [
       [
-        "Consultant international                                                                                 10000",
-        -1
+        "Consultant international",
+        "10000 EUR"
       ],
       [
         "Indemnité pré-retraite CAPEC",
@@ -23317,8 +23317,8 @@
     "date": "31/05/2017",
     "occupation": [
       [
-        "Assessore Regione Liguria                                                                                  10000",
-        -1
+        "Assessore Regione Liguria",
+      "10000 EUR"
       ],
       [
         "Fondazione CIMA",
@@ -23395,8 +23395,8 @@
         0
       ],
       [
-        "Venit brut din activități notariale                                                                        10000 (10.990, 4136 EUR)",
-        -1
+        "Venit brut din activități notariale (10.990, 4136 EUR)",
+      "10990 EUR"
       ]
     ],
     "events": []
