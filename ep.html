@@ -239,7 +239,8 @@ var eu_groups = {
 				//i=0;
 				
 			}
-			 if (i >= 4 && i < 100) {
+			
+			 if ((i >= 4 && i < 100 && !mep.doi.isNewDoi) || (i > 4 && i < 100 && mep.doi.isNewDoi)) {
 				 openscale = true;
 				 if (i > 4) {
 					 i = 4;
@@ -260,15 +261,28 @@ var eu_groups = {
 				 max += Math.round(convert (i));
 			 } 
 		 } else {
-			if(i < 0){
-				min += 0;
-				max += 499;
-			} else if(i == 0){
-			 min += rangeEUR[i].min;
-			 max += 0;
+			if(mep.doi.isNewDoi){
+				if(i < 0){
+					min += 0;
+					max += 0;
+				} else if(i == 0){
+				 min += rangeEURnew[i].min;
+				 max += 0;
+				} else {
+				 min += rangeEURnew[i].min;
+				 max += rangeEURnew[i].max;
+				}
 			} else {
-			 min += rangeEUR[i].min;
-			 max += rangeEUR[i].max;
+				if(i < 0){
+					min += 0;
+					max += 499;
+				} else if(i == 0){
+				 min += rangeEUR[i].min;
+				 max += 0;
+				} else {
+				 min += rangeEUR[i].min;
+				 max += rangeEUR[i].max;
+				}
 			}
 		 }
 
@@ -991,8 +1005,8 @@ function drawScore() {
 			if (category < 0 && field == "max") return "0";
 			if (category < 0 && field == "string") return "0";
 			 
-			if (category >=4 && field == "max") return "or more";
-			if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
+			if (category > 4 && field == "max") return "or more";
+			if (category > 4 && field == "string") return rangeEUR[category]["min"] + " or more";
 				return  rangeEURnew[category]["min"] + " &#8605; "+  rangeEURnew[category]["max"];
 
 			return rangeEURnew[category][field];
@@ -1419,7 +1433,24 @@ $(function() {
 					m.attendance = {"total": 0 , "attended": 0, "score": 0};
 				}        
  
-
+				if(!m.doi){
+					//alert(m.toSource());
+					m.doi = ({additional:"", url:"", support:"", mandate:[], occasional:[], mep_id:0, membership:[], other:"", holding:[], activity:[], date:"", occupation:[], events:[]})
+					//m.doi.url = "";
+					//m.doi.date = "";
+				}
+				
+				m.doi.isNewDoi = false;
+				var ddate = m.doi.date;
+				//Doi old or new
+				if(ddate != ""){
+					var dparts = ddate.split('/');
+					var ddate2 = new Date(dparts[2],dparts[1]-1,dparts[0]);
+					var ddate3 = new Date('2017','2','1');
+					if(ddate2.getTime() >= ddate3.getTime()){
+						m.doi.isNewDoi = true;
+					}
+				}
  
 				setRiskScore (m);
 				if (m.birthdate) {
@@ -1448,12 +1479,8 @@ $(function() {
 					m.age = "N/A";
 				}
 				//alert(m.doi.toSource());
-				if(!m.doi){
-					//alert(m.toSource());
-					m.doi = ({additional:"", url:"", support:"", mandate:[], occasional:[], mep_id:0, membership:[], other:"", holding:[], activity:[], date:"", occupation:[], events:[]})
-					//m.doi.url = "";
-					//m.doi.date = "";
-				}
+				
+				
 				if(m.first_name == "Angelo" && m.last_name == "CIOCCA"){
 					m.doi.url = "http://www.europarl.europa.eu/mepdif/183793_DFI_LEG8_rev0_IT.pdf";
 				}
@@ -1474,17 +1501,7 @@ $(function() {
 					}			
 				}
 				
-				m.doi.isNewDoi = false;
-				var ddate = m.doi.date;
-				//Doi old or new
-				if(ddate != ""){
-					var dparts = ddate.split('/');
-					var ddate2 = new Date(dparts[2],dparts[1]-1,dparts[0]);
-					var ddate3 = new Date('2017','2','1');
-					if(ddate2.getTime() >= ddate3.getTime()){
-						m.doi.isNewDoi = true;
-					}
-				}
+				
 				
  
 			});
