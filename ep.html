@@ -166,6 +166,15 @@ var wall = null;
 		{min:5001,max:10000},
 		{min:10001,max:Number.POSITIVE_INFINITY},
 	]; 
+	
+	var rangeEURnew = [
+		{min:0,max:0},
+		{min:1,max:499},
+		{min:500,max:1000},
+		{min:1001,max:5000},
+		{min:5001,max:10000},
+		{min:10001,max:Number.POSITIVE_INFINITY},
+	]; 
 
 var eu_groups = {
 "GUE/NGL":"#800c00",
@@ -971,8 +980,23 @@ function drawScore() {
 		}
 		return d.max;
 	}
+	
 
-	function getAmount (category, field) { //field = min (default) or max or "string"
+	function getAmount (category, field, newdoi) { //field = min (default) or max or "string"
+		if(newdoi){
+			field = field || "min";
+			if (!category) return "0";
+			if (isNaN(category)) return category;
+			if (category < 0 && field == "min") return "0";
+			if (category < 0 && field == "max") return "0";
+			if (category < 0 && field == "string") return "0";
+			 
+			if (category >=4 && field == "max") return "or more";
+			if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
+				return  rangeEURnew[category]["min"] + " &#8605; "+  rangeEURnew[category]["max"];
+
+			return rangeEURnew[category][field];
+		}
 		field = field || "min";
 		if (!category) return "0";
 		if (isNaN(category)) return category;
@@ -987,7 +1011,25 @@ function drawScore() {
 		return rangeEUR[category][field];
 	}
 	
-	function getAmountMandates (category, field) { //field = min (default) or max or "string"
+	function getAmountMandates (category, field, newdoi) { //field = min (default) or max or "string"
+		if(newdoi){
+			field = field || "min";
+			if(field == 'string' && category.length > 0){
+				return category;
+			}
+			if (!category) return "0";
+			if (isNaN(category)) return category;
+			if (category < 0 && field == "min") return "0";
+			if (category < 0 && field == "max") return "0";
+			if (category < 0 && field == "string") return "0";
+			 
+			if (category >=4 && field == "max") return "or more";
+			if (category >=4 && field == "string") return rangeEUR[category]["min"] + " or more";
+				return  rangeEURnew[category]["min"] + " &#8605; "+  rangeEURnew[category]["max"];
+
+			return rangeEURnew[category][field];
+		}
+		
 		field = field || "min";
 		if(field == 'string' && category.length > 0){
 			return category;
@@ -1432,6 +1474,18 @@ $(function() {
 					}			
 				}
 				
+				m.doi.isNewDoi = false;
+				var ddate = m.doi.date;
+				//Doi old or new
+				if(ddate != ""){
+					var dparts = ddate.split('/');
+					var ddate2 = new Date(dparts[2],dparts[1]-1,dparts[0]);
+					var ddate3 = new Date('2017','2','1');
+					if(ddate2.getTime() >= ddate3.getTime()){
+						m.doi.isNewDoi = true;
+					}
+				}
+				
  
 			});
 			
@@ -1495,32 +1549,32 @@ $(function() {
 <table class="table table-condensed">
 <tr><td class="dc-table-label" colspan="2">A. Previous occupation</td></tr>
 <% _.each(doi.occupation, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string",doi.isNewDoi) %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">B. Other mandates</td></tr>
 <% _.each(doi.mandate, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmountMandates(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmountMandates(a[1],"string",doi.isNewDoi) %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">C. Regular outside activity</td></tr>
 <% _.each(doi.activity, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string",doi.isNewDoi) %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">D. Committee & Board memberships</td></tr>
 <% _.each(doi.membership, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string",doi.isNewDoi) %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">E. Occasional outside activity</td></tr>
 <% _.each(doi.occasional, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string",doi.isNewDoi) %></td></tr>
 <% }); %>
 
 <tr><td class="dc-table-label" colspan="2">F. Holdings</td></tr>
 <% _.each(doi.holding, function (a) { %>
-	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string") %></td></tr>
+	<tr><td><%= a[0] %></td><td class="popup-value-td"><%= getAmount(a[1],"string",doi.isNewDoi) %></td></tr>
 <% }); %>
 <tr><td class="dc-table-label" colspan="2">I. Additional information</td></tr>
 <tr><td colspan="3"><%= doi.additional %></td></tr>
