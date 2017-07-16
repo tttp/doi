@@ -1389,6 +1389,7 @@ function MEPpopup (epid) {
 		var meps=[];
 		var doi=[];
 		var attendance=[];
+		var doifix=[];
 $(function() {
 		 detailtpl =  _.template($("#detailstpl").html());
 		 sidetpl =  _.template($("#sidetpl").html());
@@ -1490,8 +1491,6 @@ $(function() {
 					//alert(m.doi.toSource());
 				}
 				
-				
-				
 				//Gender fix
 				if(m.gender == ""){
 					if(m.last_name == "PUNSET" || m.last_name == "WIERINCK"){
@@ -1501,7 +1500,26 @@ $(function() {
 					}			
 				}
 				
+				//Fix new category dois
 				
+				var tofix = _.filter(doifix,function (d) { return d.mep_id == m.epid  });
+				var acttypes = ['mandate','occasional','membership','holding','activity','occupation','events'];
+				if(tofix.length > 0){
+					if(tofix[0].date == m.doi.date){
+						_.each(tofix, function (tf) {
+							acttypes.forEach(function(type) {
+								for (var i = 0; i < m.doi[type].length; i++) {
+									if (m.doi[type][i][0] === tf.activities) {
+										m.doi[type][i][1] = tf.income + ' EUR';
+										//alert(m.doi[type][i][0] + ' ' + m.doi[type][i][1]);
+										break;
+									}
+								}
+							});
+							
+						});	
+					}
+				}
 				
  
 			});
@@ -1518,14 +1536,17 @@ $(function() {
 			,function(error, rows) {
 				 meps = rows;
 				 renderLoaded();
-//      grid ("#ep2014list",rows);
 			});      
 		d3.csv("data/attendance.csv", function(d) {return d;}
 			,function(error, rows) {
 				 attendance = rows;
 				 renderLoaded();
-//      grid ("#ep2014list",rows);
-			});      
+			});   
+		
+		d3.csv("data/doifix.csv", function (rows) {
+				 doifix = rows;
+				 //renderLoaded();
+		});  		
 		d3.json("doi-pretty.json", function (rows) {
 				 doi = rows;
 				 renderLoaded();
