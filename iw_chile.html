@@ -11,7 +11,7 @@
 	<meta property="og:description" content="Who’s #lobbying the EU Commission and how much are they spending? Check Integrity Watch" />
 	<meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
 	<meta property="fb:app_id" content="1611680135716224" />
-	<title>CL Integrity Watch</title>
+	<title>Integrity Watch Chile</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<link href="css/bower.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/dc.css"/>
@@ -101,6 +101,12 @@
 		}
 		.navbar .navbar-nav > li > a {
 			width: 160px;
+		}
+		.topistitucion {
+			text-transform: capitalize;
+		}
+		#filter_wrap #currently_selected_text {
+			width: 150px;
 		}
 	</style>
 </head>
@@ -245,6 +251,57 @@
 		drawTopGuest();
 		drawTopHost();
 		drawTopIstitucion();
+		drawOrgCounter();
+		
+		function drawOrgCounter (){
+			var dim = ndx.dimension (function(d) {
+				if (!d.nombreActivoFull || d.nombreActivoFull == " ") {
+					return "";
+				}
+				if (d.nombreActivoFull)
+					return d.nombreActivoFull;
+				return d.nombreActivoFull;
+			});
+			var group   = dim.group().reduce(
+			  function(p,d) {  
+				p.nb +=1;
+				if (!d.nombreEntidadActivo || d.nombreEntidadActivo == "")
+				  return p;
+				p.entidad = +1;
+				return p;
+			  },
+			  function(p,d) {  
+				p.nb -=1;
+				 if (!d.nombreEntidadActivo || d.nombreEntidadActivo == "")
+				   return p;
+				p.entidad = +1;
+				return p;
+			  },
+			  function(p,d) {  
+				return {nb:0,entidad:0}; 
+			  }
+			);
+			group.order (function(p){return p.nb});
+			var entidad=0;
+			
+			var count = dc.dataCount(".org-count")
+				.dimension(group)
+				.group({value: function() {
+					return group.all().filter(function(kv) {
+						if (kv.value.nb >0) {
+						  entidad += +kv.value.entidad;
+						}
+						return kv.value.nb>0; 
+					}).length;
+				}})
+				.renderlet(function (chart) {
+				$(".nbfte").text(entidad);
+				$(".nbfte").text(d3.format(",f")(entidad));
+				//$(".nbaccredited").text(d3.format(",f")(accredited));
+				entidad=0;
+				accredited=0;
+				});
+		}
 
 		function rotateBarChartLabels(chart) {
 			chart.svg().selectAll('.axis.x text')
@@ -277,7 +334,7 @@
 			 var group   = dim.group().reduceSum(function(d) { return 1; });
 			 var graph =  dc.wordCloud(".wordcloud")
 			  .rotate(function() { return ~~(Math.random() * 2) * 90; })
-			  .size([320,380])
+			  .size([600,700])
 			  .dimension(dim)
 			  .maxWords(50)
 			  .padding(5)
@@ -297,9 +354,10 @@
 			});
 			var group   = dim.group().reduceSum(function(d) {   return 1; });
 			var hosttypecolor = {			
-				"Subsecretarios":"#8da9db",
+				"Subsecretario":"#8da9db",
 				"Intendente":"#a8d08c",
 				"Gobernador":"#f4b081",
+				"Ministro":"#0099cc",
 				"Otro":"#bbbbbb",
 			};
 			var chart = dc.pieChart(".hosttype")
@@ -311,7 +369,7 @@
 				.colorCalculator(function(d, i) {
 					return hosttypecolor[d.key];
 				});
-				chart.legend(dc.legend().x(30).y(220).itemHeight(13).gap(5))
+				chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5))
 		}
 		
 		//Category Chart (Lobbyist or gestores de intereses)
@@ -335,7 +393,7 @@
 				.colorCalculator(function(d, i) {
 					return hosttypecolor[d.key];
 				});
-				chart.legend(dc.legend().x(30).y(240).itemHeight(13).gap(5))
+				chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5))
 		}
 
 		//Top 10 hosts chart
@@ -357,7 +415,7 @@
 			var graph = dc.rowChart(".tophost")   
 				.margins({top: 0, right: 3, bottom: 20, left: 3})
 				.height(370)
-				.width(165)
+				//.width(165)
 				.gap(1)
 				.x(d3.scale.ordinal())
 				.elasticX(true)
@@ -371,10 +429,13 @@
 			graph.xAxis().ticks(5).tickFormat(d3.format("d"));
 		};
 		
+		function capitalize(string) {
+			return string.charAt(0).toUpperCase() + string.slice(1);
+		}
 		//Top Institutions Chart
 		function drawTopIstitucion() {
 			var dim = ndx.dimension (function(d) {
-				return d.nombreInstitucion;
+				return d.nombreInstitucion.toLowerCase();
 			});
 			var group   = dim.group().reduceSum(function(d) {   return 1; });
 
@@ -421,7 +482,7 @@
 		var graph = dc.rowChart(".guest")   
 			.margins({top: 0, right: 3, bottom: 20, left: 3})
 			.height(370)
-			.width(165)
+			//.width(165)
 			.gap(3)
 			.x(d3.scale.ordinal())
 			.elasticX(true)
@@ -467,8 +528,17 @@
 				  "defaultContent":"N/A",
 				  "searchable": false,
 				  "orderable": true,
-				  "type":"date-eu",
 				  "targets": 3,
+				  "data": function (d, type, val, meta) {
+					 if (!d) return "";
+					 return d.shortCargo; 
+					}
+				  },{
+				  "defaultContent":"N/A",
+				  "searchable": false,
+				  "orderable": true,
+				  "type":"date-eu",
+				  "targets": 4,
 				  "data": function(d) {
 					 if (!d) return "";
 					 if (!d.date) return "";
@@ -480,7 +550,7 @@
 				  "defaultContent":"N/A",
 				  "searchable": false,
 				  "orderable": true,
-				  "targets": 4,
+				  "targets": 5,
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
 					 return d.observacionesMateriaAudiencia; 
@@ -490,16 +560,16 @@
 				  "defaultContent":"N/A",
 				  "searchable": false,
 				  "orderable": true,
-				  "targets": 5,
+				  "targets": 6,
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.nombreComuna; 
+					 return d.nombreEntidadActivo; 
 					}
 				  },{
 				  "defaultContent":"N/A",
 				  "searchable": false,
 				  "orderable": true,
-				  "targets": 6,
+				  "targets": 7,
 						"data": function(d) { 
 							if (!d) return "";
 							if (!d.duracionMinutoAudiencia) {
@@ -550,18 +620,19 @@
 				//var thishost = _.find(meetingspages, function (x) { return x.name == d.host });
 				s  = "<div class='l_data_container row'>";
 				s += "<div class='col-md-12 l_data_container_main'>";
-				s += "<div class='l_name'><label>Materia</label> "+d.observacionesMateriaAudiencia+"</div>";
-				s += "<div class='l_name'><label>Date</label> "+thisdate+"</div>";
+				s += "<div class='l_name'><label>Materia</label><br />"+d.observacionesMateriaAudiencia+"</div>";
+				s += "<div class='l_name'><label>Fecha</label> "+thisdate+"</div>";
+				s += "<div class='l_name'><label>Duracion</label> "+d.duracionMinutoAudiencia+" min.</div>";
 				s += "</div>";
 				s += "<div class='col-md-6 l_data_container_host'>";
-				s += "<div class='data_container_title'>Pasivo</div>";
+				s += "<div class='data_container_title' style='text-align:center;'>Pasivo</div>";
 				s += "<div class='l_name'><label>Nombre</label> "+d.nombrePasivoFull+"</div>";
-				s += "<div class='l_name'><label>Total audiencias</label> "+countmeetings(d.nombrePasivoFull)+"</div>";
+				s += "<div class='l_category'><label>Total participantes</label> "+d.participants+"</div>";
 				s += "<div class='l_name'><label>Cargo</label> "+d.cargoFuncionPasivo+"</div>";
 				s += "<div class='l_name'><label>Institucion</label> "+d.nombrePasivoInstitucion+"</div>";
-				s += "<div class='l_category'><label>Total participantes</label> "+d.participants+"</div>";
-				s += "<div class='l_category'><label>Link audiencia</label> "+d.linkAudienciaReunionPasivo+"</div>";
-				s += "<div class='l_category'><label>Link todas audiencias</label></div>";
+				s += "<div class='l_name'><label>Total audiencias</label> "+countmeetings(d.nombrePasivoFull)+"</div>";
+				s += "<br /><div class='l_category'><label>Link audiencia</label><br />"+d.linkAudienciaReunionPasivo+"</div>";
+				s += "<div class='l_category'><label>Link todas audiencias</label><br /></div>";
 				/*
 				if(thishost){
 					s += "<div class='l_category'><label>Link to meeting page</label> <a target='_blank' href='"+thishost.url+"'>"+thishost.url+"</a></div>";
@@ -585,15 +656,15 @@
 				//s += "<span class='lobbyist_info_container' id='lobbyist"+d.guestid+"'></span>"
 				s += "</div>";
 				s += "<div class='col-md-6 l_data_container_guest'>";
-				s += "<div class='data_container_title'>Activo</div>";
+				s += "<div class='data_container_title' style='text-align:center;'>Activo</div>";
 				s += "<div class='l_category'><label>Nombre</label> "+d.nombreActivoFull+"</div>";
-				s += "<div class='l_name'><label>Total audiencias</label> "+countmeetings(d.nombreActivoFull)+"</div>";
-				s += "<div class='l_name'><label>Nombre entidad</label> "+d.nombreEntidadActivo+"</div>";
-				s += "<div class='l_category'><label>Pais</label> "+d.documentoPaisActivo+"</div>";
-				s += "<div class='l_category'><label>Giro</label> "+d.giroActivo+"</div>";
-				s += "<div class='l_category'><label>Representante</label> "+d.representanteActivo+"</div>";
+				s += "<div class='l_name'><label>Entidad or Persona</label> "+d.nombreEntidadActivo+"</div>";
+				s += "<div class='l_category'><label>Categoria</label> "+d.categoriaA+"</div>";
 				s += "<div class='l_category'><label>Naturaleza</label> "+d.naturalezaActivo+"</div>";
-				s += "<div class='l_category'><label>Tipo entidad</label> "+d.tipoEntidadActivo+"</div>";
+				s += "<div class='l_category'><label>Giro</label> "+d.giroActivo+"</div>";
+				s += "<div class='l_name'><label>Total audiencias</label> "+countmeetings(d.nombreActivoFull)+"</div>";
+				s += "<br /><div class='l_category'><label>Link audiencia</label><br /></div>";
+				s += "<div class='l_category'><label>Link todas audiencias</label><br /></div>";
 				s += "</div>";
 				s += "</div>";
 				return s;
@@ -749,7 +820,7 @@
 				</button>
 				<div class="navbar-brand" id="ti_logo_container">
 						<a id="ti_logo" href="http://transparency.eu">Transparency International</a>
-						<a id="page_title" href="/" target="_blank"><strong>CL</strong> Integrity<br />Watch</a>
+						<a id="page_title" href="/" target="_blank">Integrity<br />Watch <strong>Chile</strong></a>
 				</div>
 			</div>
 		
@@ -757,10 +828,17 @@
 				<ul class="nav navbar-nav">
 					<li class="active" id="cm_tool_btn"><a href="iw_chile.html"><strong>Audiencias</strong> <br />Gobierno Central</a></li>
 					<li class="" id="cm_tool_btn"><a href="iw_chile_tab2.html"><strong>Audiencias</strong> <br />Congreso Nacional</a></li>
+					<li class="dropdown">
+						<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 160px;">Otras versiones<span class="caret"></span></a>
+						 <ul class="dropdown-menu">
+							<li><a href="http://www.integritywatch.eu">IW EU</a></li>
+						    <li><a href="http://www.integritywatch.fr">IW France</a></li>
+						</ul>
+					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="about.html">¿Qué es integrity watch?</a></li>
+					<li><a href="contact.html">Contacto</a></li>
 				</ul>
 			</div>
 	 </div><!-- container -->
@@ -771,28 +849,27 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4" id="filter_field_container">
-				<p>Search or filter:</p>
+				<p>Buscar o Filtrar:</p>
 				<div class="input-group">
 						<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by Lobbyist, Host, Subject…">
 				</div>
 			</div>
 			<div class="col-md-7" id="filter_numbers">
 				<div class="row">
-					<div class="col-md-2" id="currently_selected_text"><p>Currently selected:</p></div>
+					<div class="col-md-5" id="currently_selected_text"><p>Actualmente seleccionado:</p></div>
 					
-					<div class="col-md-2 filter_number">
+					<div class="col-md-3 filter_number">
 						<div id="mep_number" class="dc-data-count">
-							<span id="abig_number" class="big_number filter-count"></span>out of <strong class="total-count"></strong><br /> meetings
+							<span id="abig_number" class="big_number filter-count"></span>de cada <strong class="total-count"></strong><br /> audiencias
 						</div>
 					</div>
-					<div class="col-md-2 filter_number">
+					<div class="col-md-3 filter_number">
 						<div id="org_number" class="org-count">
-							<span class="big_number filter-count"></span>out of <strong class="total-count"></strong><br />organisations
+							<span class="big_number filter-count"></span>de cada <strong class="total-count"></strong><br />activos
 						</div>
-					</div>
-
 					</div>
 				</div>
+			</div>
 			<div class="col-md-1" id="resetall_container">
 				<button class="btn resetall">RESET<br />FILTERS</button>
 			</div>
@@ -809,25 +886,10 @@
 	<div class="container_wrap" id="main_charts_wrap">
 		<div class="container">
 			<div class="row">
-				<!-- COL1 -->
-				<div class="col-md-4">
-					<div class="chart_box">
-						<h3>Nombre istitucion<!--span class="info">info</span--></h3>
-						<div class="info_chart">
-							<span class="info">info</span>
-							<p class="desc">
-							</p>
-						</div>
-						<div class="topistitucion chart-full"></div>
-						<div class="label">Contacts</div>
-						<br class="clear" />
-					</div>
-				</div>
-				<!-- COL2 -->
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<!-- CARGO -->
 					<div class="chart_box" id="hosttype">
-						<h3>Cargo<!--span class="info">info</span--></h3>
+						<h3>Cargo</h3>
 						<div class="info_chart">
 						</div>
 						
@@ -836,37 +898,35 @@
 						</div>
 						<br class="clear" />
 					</div>
-					<!-- TOP10 -->
-					<div class="row">
-						<div class="col-md-6">
-							<div class="chart_box">
-								<h3>Top 10 pasivos<!--span class="info">info</span--></h3>
-								<div class="info_chart">
-									<span class="info">info</span>
-									<p class="desc">Individuals from the European Commission with most contacts with lobbyists. When individuals meet several lobby organisations in a single meeting, the tool counts each contact separately. The number of contacts can thus be higher than the number of meetings.
-									</p>
-								</div>
-								<div class="tophost chart-full"></div>
-								<div class="label">Number of contacts</div>
-								<br class="clear" />
-							</div>
+				</div>
+				<div class="col-md-3">
+					<!-- TOP 10 PASIVOS -->
+					<div class="chart_box">
+						<h3>Top 10 pasivos<!--span class="info">info</span--></h3>
+						<div class="info_chart">
+							<span class="info">info</span>
+							<p class="desc">
+							</p>
 						</div>
-						<div class="col-md-6">
-							<div class="chart_box" id="group_container">
-								<h3>Top 10 activos</h3>
-								<div class="info_chart">
-									<span class="info">info</span>
-									<p class="desc">Lobby organisations with the most high-level meetings at the European Commission.</p>
-								</div>
-									<div class="guest chart-full"></div>
-									<div class="label">Number of contacts</div>
-								<br class="clear" />
-							</div>
-						</div>
+						<div class="tophost chart-full"></div>
+						<div class="label">Número de contactos</div>
+						<br class="clear" />
 					</div>
 				</div>
-				<!-- COL3 -->
-				<div class="col-md-4">
+				<div class="col-md-3">
+					<!-- TOP 10 ACTIVOS -->
+					<div class="chart_box" id="group_container">
+						<h3>Top 10 activos</h3>
+						<div class="info_chart">
+							<span class="info">info</span>
+							<p class="desc">Lobby organisations with the most high-level meetings at the European Commission.</p>
+						</div>
+						<div class="guest chart-full"></div>
+						<div class="label">Número de contactos</div>
+						<br class="clear" />
+					</div>
+				</div>
+				<div class="col-md-3">
 					<!-- CATEGORIA -->
 					<div class="chart_box" id="categoria">
 						<h3>Categoria<!--span class="info">info</span--></h3>
@@ -878,9 +938,27 @@
 						</div>
 						<br class="clear" />
 					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<!-- INSTITUCION -->
+					<div class="chart_box">
+						<h3>Institución</h3>
+						<div class="info_chart">
+							<span class="info">info</span>
+							<p class="desc">
+							</p>
+						</div>
+						<div class="topistitucion chart-full"></div>
+						<div class="label">Contacts</div>
+						<br class="clear" />
+					</div>
+				</div>
+				<div class="col-md-6">
 					<!-- WORDCLOUD -->
 					<div class="chart_box">
-						<h3>Subjects of lobby meetings<!--span class="info">info</span--></h3>
+						<h3>Tema de las audiencias</h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc">This word cloud provides an overview of the most common terms that appear in the meeting subjects. The more meetings on a given subject the bigger it appears in the word cloud.
@@ -898,7 +976,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">Meetings 
+				<h2 class="table_title">Audiencias
 					<!--
 					<div class="info_chart">
 						<span class="info">info</span>
@@ -914,12 +992,13 @@
 					<thead>
 						<tr class="header">
 							<th class="header">Nr</th> 
-							<th class="header">Institucion</th> 
-							<th class="header">Pasivos</th> 
+							<th class="header">Institución</th> 
+							<th class="header">Pasivo</th>
+							<th class="header">Cargo</th> 
 							<th class="header">Fecha</th> 
 							<th class="header">Materia</th> 
-							<th class="header">Comuna</th> 
-							<th class="header">Duracion (minuto)</th> 
+							<th class="header">Entidad a la que representa</th> 
+							<th class="header">Duracion (minutos)</th> 
 						</tr>
 					</thead>
 				</table>
@@ -958,6 +1037,13 @@
 			var now = Date.now();
 			var a;
 			
+			var shortCargo = {
+				"Ministro":"M",
+				"Subsecretario":"S",
+				"Intendente": "I",
+				"Gobernador": "Goberador"
+			}
+			
 			//Loop through dataset and fix/adjust data
 			_.each (eventsRaw, function (d) {
 
@@ -970,14 +1056,9 @@
 				}
 				
 				d.cargoNombrePasivoType = 'Otro';
-				var thisnombretype = d.nombrePasivoInstitucion.trim().split(" ")[0].toLowerCase();
-				if(thisnombretype == 'subsecretaria'){
-					d.cargoNombrePasivoType = 'Subsecretarios';
-				} else if(thisnombretype == 'intendencia' || thisnombretype == 'superintendencia'){
-					d.cargoNombrePasivoType = 'Intendente';
-				} else if(thisnombretype == 'gobernación' || thisnombretype == 'gobierno'){
-					d.cargoNombrePasivoType = 'Gobernador';
-				}
+				d.cargoNombrePasivoType  = d.cargoNombrePasivo;
+				d.shortCargo = shortCargo[d.cargoNombrePasivo];
+
 				
 				if(d.giroActivo.trim().toLowerCase() == "" || d.giroActivo.trim() == "." || d.giroActivo.trim() == "...." || d.giroActivo.trim() == "---" || d.giroActivo.trim() == "S/I"){
 					d.giroActivo = "S/I, Unknown";
@@ -999,8 +1080,8 @@
 					//alert(d.nombreActivoFull);
 				}
 				d.nombrePasivoFull = d.nombrePasivo + " " + d.apellidosPasivo;
-				//Filter data keeping only meetings with these pasivo types
-				if(d.cargoNombrePasivoType == "Subsecretarios" || d.cargoNombrePasivoType == "Intendente" || d.cargoNombrePasivoType == "Gobernador"){
+				var allowedCargos = ["ministro","subsecretario","intendente","gobernador"];
+				if($.inArray(d.cargoNombrePasivoType.toLowerCase().trim(), allowedCargos) > -1){
 					events.push(d);
 				}
 			});
