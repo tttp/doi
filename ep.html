@@ -196,6 +196,10 @@ var eu_groups = {
 		if(mep.epid == 124766){
 			alert(field + ' ' + returnData + mep.doi[field]);
 		}
+		if(mep.epid == 72775){
+			alert(field + ' ' + returnData + mep.doi[field]);
+		}
+		
 		*/
 		
 		function convert (i) {
@@ -302,7 +306,6 @@ var eu_groups = {
 	};
 
 function setRiskScore (d) {
-	
 	function setMinMax(d, t) {
 		d.min += t.min;
 		d.max += t.max;
@@ -1455,6 +1458,26 @@ $(function() {
 						m.doi.isNewDoi = true;
 					}
 				}
+				
+				//Fix new category dois
+				var tofix = _.filter(doifix,function (d) { return d.mep_id == m.epid  });
+				var acttypes = ['mandate','occasional','membership','holding','activity','occupation','events'];
+				if(tofix.length > 0){
+					if(tofix[0].date == m.doi.date){
+						_.each(tofix, function (tf) {
+							acttypes.forEach(function(type) {
+								for (var i = 0; i < m.doi[type].length; i++) {
+									if (m.doi[type][i][0] === tf.activities) {
+										m.doi[type][i][1] = tf.income + ' EUR';
+										//alert(m.doi[type][i][0] + ' ' + m.doi[type][i][1]);
+										break;
+									}
+								}
+							});
+							
+						});	
+					}
+				}
  
 				setRiskScore (m);
 				if (m.birthdate) {
@@ -1501,27 +1524,6 @@ $(function() {
 					} else if(m.last_name == "PIMENTA LOPES") {
 						m.gender = "M";
 					}			
-				}
-				
-				//Fix new category dois
-				
-				var tofix = _.filter(doifix,function (d) { return d.mep_id == m.epid  });
-				var acttypes = ['mandate','occasional','membership','holding','activity','occupation','events'];
-				if(tofix.length > 0){
-					if(tofix[0].date == m.doi.date){
-						_.each(tofix, function (tf) {
-							acttypes.forEach(function(type) {
-								for (var i = 0; i < m.doi[type].length; i++) {
-									if (m.doi[type][i][0] === tf.activities) {
-										m.doi[type][i][1] = tf.income + ' EUR';
-										//alert(m.doi[type][i][0] + ' ' + m.doi[type][i][1]);
-										break;
-									}
-								}
-							});
-							
-						});	
-					}
 				}
 				
  
