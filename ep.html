@@ -242,8 +242,11 @@ var eu_groups = {
 			
 			 if ((i >= 4 && i < 100 && !mep.doi.isNewDoi) || (i > 4 && i < 100 && mep.doi.isNewDoi)) {
 				 openscale = true;
-				 if (i > 4) {
+				 if (i > 4 && !mep.doi.isNewDoi) {
 					 i = 4;
+				 }
+				 if ((i > 5 && mep.doi.isNewDoi)) {
+					 i = 5;
 				 }
 			 }
 			
@@ -1006,7 +1009,7 @@ function drawScore() {
 			if (category < 0 && field == "string") return "0";
 			 
 			if (category > 4 && field == "max") return "or more";
-			if (category > 4 && field == "string") return rangeEUR[category]["min"] + " or more";
+			if (category > 4 && field == "string") return rangeEURnew[category]["min"] + " or more";
 				return  rangeEURnew[category]["min"] + " &#8605; "+  rangeEURnew[category]["max"];
 
 			return rangeEURnew[category][field];
