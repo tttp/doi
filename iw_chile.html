@@ -108,6 +108,9 @@
 		#filter_wrap #currently_selected_text {
 			width: 150px;
 		}
+		.capitalize {
+			text-transform: capitalize;
+		}
 	</style>
 </head>
 
@@ -365,11 +368,33 @@
 				.height(250)
 				.dimension(dim)
 				.cap(7)
-				.group(group)				
+				.group(group)
+				.externalLabels(-40)				
 				.colorCalculator(function(d, i) {
 					return hosttypecolor[d.key];
 				});
-				chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5))
+				chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5));
+				
+			function rangeorder(d){
+				switch(d.key) {
+					case 'Ministro':
+						return 0;
+						break;
+					case 'Subsecretario':
+						return 1;
+						break;
+					case 'Intendente':
+						return 2;
+						break;
+					case 'Gobernador':
+						return 3;
+						break;
+					default:
+						return 4;
+				}
+			}
+			
+			chart.ordering(function(d) { return rangeorder(d); });
 		}
 		
 		//Category Chart (Lobbyist or gestores de intereses)
@@ -514,7 +539,11 @@
 				  "orderable": true,
 				  "targets": 1,
 				  "defaultContent":"N/A",
-				  "data":"nombreInstitucion",
+				  "className":"capitalize",
+				  "data": function (d, type, val, meta) {
+					 if (!d) return "";
+					 return d.nombreInstitucion.toLowerCase(); 
+					},
 				  },{
 				  "searchable": false,
 				  "orderable": true,

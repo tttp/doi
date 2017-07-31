@@ -111,6 +111,9 @@
 		#filter_wrap #currently_selected_text {
 			width: 150px;
 		}
+		.capitalize {
+			text-transform: capitalize;
+		}
 	</style>
 </head>
 
@@ -517,7 +520,11 @@
 				  "orderable": true,
 				  "targets": 1,
 				  "defaultContent":"N/A",
-				  "data":"nombreInstitucion",
+				  "className":"capitalize",
+				  "data": function (d, type, val, meta) {
+					 if (!d) return "";
+					 return d.nombreInstitucion.toLowerCase(); 
+					},
 				  },{
 				  "searchable": false,
 				  "orderable": true,
