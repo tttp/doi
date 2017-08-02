@@ -114,6 +114,20 @@
 		.filter_btn_container {
 			padding: 40px 0 50px 0;
 		}
+		.salario-box-1 {
+			border: 2px solid #5b9bd5 !important;
+			padding: 10px 20px !important;
+			text-align: center;
+		}
+		.salario-box-2 {
+			border: 2px solid #f68d47 !important;
+			padding: 10px 20px !important;
+			text-align: center;
+		}
+		.infobox-divider {
+			height: 2px;
+			background: #5b9bd5;
+		}
 	</style>
 </head>
 
@@ -721,61 +735,78 @@
 				  "defaultContent":"N/A",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.Tipo; 
+					 return d.Cargo; 
 					},
 				  },{
-				  "defaultContent":"N/A",
 				  "searchable": false,
 				  "orderable": true,
-				  "type":"date-eu",
 				  "targets": 3,
-				  "data": function(d) {
-					 if (!d) return "";
-					 if (!d.FDeclaracion) return "";
-					   //return d.FDeclaracion.getDate()+"/"+(1+d.FDeclaracion.getMonth())+"/"+d.FDeclaracion.getFullYear();
-					   //return d.date.getFullYear()+"-"+(1+d.date.getMonth())+"-"+d.date.getDate();
-					   return d.FDeclaracion;
-					},
-				  },
-				   {
 				  "defaultContent":"N/A",
+				  "data": function (d, type, val, meta) {
+					 if (!d) return "";
+					 return d.Partido; 
+					},
+				  },{
 				  "searchable": false,
 				  "orderable": true,
 				  "targets": 4,
+				  "defaultContent":"0",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.Cargo; 
-					}
-				  }, 
-				  {
-				  "defaultContent":"N/A",
+					 return d.activity.length; 
+					},
+				  },{
 				  "searchable": false,
 				  "orderable": true,
 				  "targets": 5,
+				  "defaultContent":"0",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.Comuna; 
-					}
+					 return d.inmueble.length; 
+					},
 				  },{
-				  "defaultContent":"N/A",
 				  "searchable": false,
 				  "orderable": true,
 				  "targets": 6,
-						"data": function(d) { 
-							if (!d) return "";
-							if (!d.Grado) {
-								return "N/A";
-							 }
-							return d.Grado;
-
-							 }
-				  } 
+				  "defaultContent":"0",
+				  "data": function (d, type, val, meta) {
+					 if (!d) return "";
+					 return d.mueble.length; 
+					},
+				  },{
+				  "searchable": false,
+				  "orderable": true,
+				  "targets": 7,
+				  "defaultContent":"N/A",
+				  "data": function (d, type, val, meta) {
+					 if (!d) return "";
+					 return d.Grado; 
+					},
+				  },{
+				  "searchable": false,
+				  "orderable": true,
+				  "targets": 8,
+				  "defaultContent":"N/A",
+				  "data": function (d, type, val, meta) {
+					 if (!d) return "";
+					 return "valor total activos"; 
+					},
+				  },{
+				  "searchable": false,
+				  "orderable": true,
+				  "targets": 9,
+				  "defaultContent":"N/A",
+				  "data": function (d, type, val, meta) {
+					 if (!d) return "";
+					 return "activos adicionales"; 
+					},
+				  }
 				],
 				"iDisplayLength" : 100,
 				"bPaginate": true,
 				"bLengthChange": false,
 				"bFilter": false,
-				"order": [[ 3, "desc" ]],
+				"order": [[ 1, "desc" ]],
 				"bSort": true,
 				"bInfo": false,
 				"bAutoWidth": false,
@@ -794,6 +825,15 @@
 				});
 				return countedmeetings.length;
 			}
+			
+			function renumeradoToText(ren){
+				if(ren == 1){
+					return "Si";
+				} else if(ren == 0){
+					return "No";
+				}
+				return "N/A";
+			}
 				
 			function format (d) {				
 				if (!d) return "no data";
@@ -809,14 +849,102 @@
 				var year = d.date.getFullYear();
 				var thisdate = day + ' ' + monthNames[monthIndex] + ' ' + year;
 				//var thishost = _.find(meetingspages, function (x) { return x.name == d.host });
-				s  = "<div class='l_data_container row'>";
-				s += "<div class='col-md-12 l_data_container_main'>";
-				s += "<div class='l_name'><label>Nombre declarante</label> "+d.fullName+"</div>";
-				s += "<div class='l_name'><label>Fecha</label> "+thisdate+"</div>";
-				s += "</div>";
-				s += "<div class='col-md-6 l_data_container_host'>";
-				s += "<div class='data_container_title'>Pasivo</div>";
+				s = "<div class='l_data_container'>";
+				s += "<div class='row'>";
+				s += "<div class='col-md-6'>";
 				s += "<div class='l_name'><label>Nombre</label> "+d.fullName+"</div>";
+				s += "<div class='l_name'><label>Cargo</label> "+d.Cargo+"</div>";
+				s += "<div class='l_name'><label>Partido</label> "+d.party+"</div>";
+				s += "<div class='l_name'><label>Fecha assume el cargo</label> "+d.FAsuncion+"</div>";
+				s += "</div><div class='col-md-6'><div class='row'><div class='col-md-6'>";
+				s += "<div class='salario-box-1'><strong>Salario Bruto</strong><br />"+d.Grado+"</div>";
+				s += "</div><div class='col-md-6'>";
+				s += "<div class='salario-box-2'><strong>Valor Total Activos</strong><br />"+d.Grado+"</div>";
+				s += "</div></div></div></div><div class='infobox-divider'></div>";
+				
+				s += "<div class='row'><div class='col-md-12'>";
+				
+				s += "<div class='l_name'><label>Actividades que realiza</label> "+d.activity.length+"</div>";
+				if(d.activity.length > 0){
+					s += "<table style='width:100%;'><thead><tr><th>Tipo de actividad</th><th>Objeto</th><th>Vinculo</th><th>Realizada Para</th><th>Renumerada</th><th>Fecha inicio</th></tr></thead><tbody>";
+				}
+				_.each(d.activity, function (a) {
+					//s += a.toSource();
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.TipoActividad+"</td><td>"+a.Objeto+"</td><td>"+a.Vinculo+"</td><td>"+a.RealizadaPara+"</td><td>"+renumeradoToText(a.Remunerado)+"</td><td>"+a.FechaInicio+"</td></tr>";
+				});
+				if(d.activity.length > 0){
+					s += "</tbody></table>";
+				}
+				
+				s += "<div class='l_name'><label>Empresas (acciones)</label> "+d.acciones.length+"</div>";
+				if(d.acciones.length > 0){
+					s += "<table style='width:100%;'><thead><tr><th>Titulo</th><th>Entidad</th><th>Cantidad</th><th>Fecha</th><th>Controlador</th></tr></thead><tbody>";
+				}
+				_.each(d.acciones, function (a) {
+					//s += a.toSource();
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.GravamenAccion+"</td><td>"+a.EntidadAccion+"</td><td>"+a.Cantidad+"</td><td>"+a.FechaAdquisicion+"</td><td>"+renumeradoToText(a.Controlador)+"</tr>";
+				});
+				if(d.acciones.length > 0){
+					s += "</tbody></table>";
+				}
+				
+				s += "<div class='l_name'><label>Propriedades</label> "+d.inmueble.length+"</div>";
+				if(d.inmueble.length > 0){
+					s += "<table style='width:100%;'><thead><tr><th>Region</th><th>Fecha de adquisición</th><th>Forma</th><th>Domicilio</th><th>Avalúo Fiscal</th></tr></thead><tbody>";
+				}
+				_.each(d.inmueble, function (a) {
+					//s += a.toSource();
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.NombreLugar+"</td><td>"+a.FechaAdquisicion+"</td><td>"+a.TipoPropiedad+"</td><td>"+renumeradoToText(a.EsSuDomicilio)+"</td><td>"+""+"</td></tr>";
+				});
+				if(d.inmueble.length > 0){
+					s += "</tbody></table>";
+				}
+				
+				s += "<div class='l_name'><label>Vehiculos</label> "+d.mueble.length+"</div>";
+				if(d.mueble.length > 0){
+					s += "<table style='width:100%;'><thead><tr><th>Typo</th><th>Marca</th><th>Modelo</th><th>Año de fabricación</th><th>Avalúo Fiscal</th></tr></thead><tbody>";
+				}
+				_.each(d.mueble, function (a) {
+					//s += a.toSource();
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Tipo+"</td><td>"+a.Marca+"</td><td>"+a.Modelo+"</td><td>"+a.AnioFabricacion+"</td><td>"+a.Avaluo+"</td></tr>";
+				});
+				if(d.mueble.length > 0){
+					s += "</tbody></table>";
+				}
+				
+				s += "<div class='l_name'><label>Instrumento o valor transable</label> "+d.valores.length+"</div>";
+				if(d.valores.length > 0){
+					s += "<table style='width:100%;'><thead><tr><th>Titulo</th><th>Emissor</th><th>Fecha de adquisición</th><th>Pais</th><th>Valor</th></tr></thead><tbody>";
+				}
+				_.each(d.valores, function (a) {
+					//s += a.toSource();
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.TipoValor+"</td><td>"+a.EntidadQueEmite+"</td><td>"+a.FechaAdquisicion+"</td><td>"+a.PaisQueEmite+"</td><td>"+a.ValorPlaza+"</td></tr>";
+				});
+				if(d.valores.length > 0){
+					s += "</tbody></table>";
+				}
+				
+				s += "<div class='l_name'><label>Contratos y administracion de valores</label> /</div>";
+				s += "No tiene información declarada en esta sección";
+				
+				s += "<div class='l_name'><label>Aguas Concesiones</label> /</div>";
+				
+				s += "<div class='l_name'><label>Pasivos</label> "+d.pasivos.length+"</div>";
+				if(d.pasivos.length > 0){
+					s += "<table style='width:100%;'><thead><tr><th>Tipo</th><th>Acreedor</th><th>Monto adeuado</th></tr></thead><tbody>";
+				}
+				_.each(d.pasivos, function (a) {
+					//s += a.toSource();
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.TipoPasivo+"</td><td>"+a.Acreedor+"</td><td>"+a.MontoPasivo+"</td></tr>";
+				});
+				if(d.pasivos.length > 0){
+					s += "</tbody></table>";
+				}
+				
+				s += "<div class='l_name'><label>Otras Fuentes de conflicto de intereses</label> /</div>";
+				s += "No tiene información declarada en esta sección";
+				
+				s  += "</div></div>";
 				/*
 				s += "<div class='l_name'><label>Total audiencias</label> "+countmeetings(d.nombrePasivoFull)+"</div>";
 				s += "<div class='l_name'><label>Cargo</label> "+d.cargoFuncionPasivo+"</div>";
@@ -1254,11 +1382,14 @@
 						<tr class="header">
 							<th class="header">Nr</th> 
 							<th class="header">Nombre</th> 
-							<th class="header">Tipo</th> 
-							<th class="header">Data</th> 
 							<th class="header">Cargo</th> 
-							<th class="header">Comuna</th> 
-							<th class="header">Grado</th> 
+							<th class="header">Partido</th> 
+							<th class="header">Actividades</th> 
+							<th class="header">Propriedades</th> 
+							<th class="header">Vehiculos</th>
+							<th class="header">Salario Bruto</th> 
+							<th class="header">Valor total activos</th> 
+							<th class="header">Activos adicionales</th> 
 						</tr>
 					</thead>
 				</table>
@@ -1285,6 +1416,10 @@
 	var mueble=[];
 	var acciones=[];
 	var valores=[];
+	var pasivos=[];
+	
+	var partiesSenate = [];
+	var parties = [];
 	
 	var meetingspages;
 	var evt=null;
@@ -1313,6 +1448,24 @@
 				d.date = dateFormat.parse(d.FDeclaracion);
 				d.fullName = getFullName(d);
 				
+				
+				//Party
+				
+				d.party = "";
+				d.party = _.find(parties,function (m) { return m.Diputado.toLowerCase() == d.fullname });
+				
+				if(d.party){
+					d.party = d.party.Partido;
+				} else {
+					var thisPartySenate = _.find(partiesSenate,function (m) { return m.Name.toLowerCase() == d.fullname });
+					if(thisPartySenate){
+						d.party = thisPartySenate.Partido.trim();
+					} else {
+						//alert(d.fullname);
+						d.party = "N/A";
+					}
+				}
+				
 				//alert(d.fullName);
 				
 				var thisActivity = _.filter(activity, function(a) {
@@ -1333,6 +1486,9 @@
 				var thisValores = _.filter(valores, function(a) {
 					return getFullName(a) == getFullName(d);
 				});
+				var thisPasivos = _.filter(pasivos, function(a) {
+					return getFullName(a) == getFullName(d);
+				});
 				
 				d.activity = thisActivity;
 				d.activityPro = thisActivityProf;
@@ -1340,6 +1496,7 @@
 				d.mueble = thisMueble;
 				d.acciones = thisAcciones;
 				d.valores = thisValores;
+				d.pasivos = thisPasivos
 				
 				d.accionestot = 0;
 				_.each (d.acciones, function (t) {
@@ -1379,6 +1536,15 @@
 		d3.csv("data/chileassets/valores.csv", function (rows) {
 			valores = rows;
 		}); 
+		d3.csv("data/chileassets/pasivos.csv", function (rows) {
+			pasivos = rows;
+		}); 
+		d3.csv("data/iw-chile-party.csv", function (rows) {
+			parties = rows;
+		});
+		d3.csv("data/iw-chile-party-senate.csv", function (rows) {
+			partiesSenate = rows;
+		});
 		d3.csv("data/chileassets/acciones.csv", function (rows) {
 			acciones = rows;
 			renderLoaded();
