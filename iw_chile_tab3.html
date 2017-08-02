@@ -789,7 +789,7 @@
 				  "defaultContent":"N/A",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return "valor total activos"; 
+					 return d.activotot; 
 					},
 				  },{
 				  "searchable": false,
@@ -859,7 +859,7 @@
 				s += "</div><div class='col-md-6'><div class='row'><div class='col-md-6'>";
 				s += "<div class='salario-box-1'><strong>Salario Bruto</strong><br />"+d.Grado+"</div>";
 				s += "</div><div class='col-md-6'>";
-				s += "<div class='salario-box-2'><strong>Valor Total Activos</strong><br />"+d.Grado+"</div>";
+				s += "<div class='salario-box-2'><strong>Valor Total Activos</strong><br />"+d.activotot+"</div>";
 				s += "</div></div></div></div><div class='infobox-divider'></div>";
 				
 				s += "<div class='row'><div class='col-md-12'>";
@@ -1507,6 +1507,15 @@
 				_.each (d.valores, function (t) {
 					d.valorestot += parseInt(t.ValorPlaza);
 				});
+				
+				d.mueblestot = 0;
+				_.each (d.mueble, function (t) {
+					d.mueblestot += parseInt(t.Avaluo);
+				});
+				
+				d.inmueblestot = 0;
+				
+				d.activotot = d.accionestot + d.valorestot + d.mueblestot + d.inmueblestot;
 				
 				//alert(d.toSource());
 				
