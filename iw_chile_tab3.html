@@ -108,9 +108,6 @@
 		.dectype text.pie-slice, .topprofessions text.pie-slice {
 			display: none !important;
 		}
-		#gobierno_btn {
-			height: 100px;
-		}
 		.filter_btn_container {
 			padding: 40px 0 50px 0;
 		}
@@ -127,6 +124,38 @@
 		.infobox-divider {
 			height: 2px;
 			background: #5b9bd5;
+		}
+		#candidates_btn {
+			width: 110px;
+			padding: 15px 10px;
+			background: #fff;
+			border: 2px solid #0f69b4;
+			color: #0f69b4;
+			vertical-align: middle;
+			font-weight: 700;
+			font-size: 11px;
+			text-transform: uppercase;
+		}
+		#candidates_btn.unactive {
+			color: #666;
+			background: #eee;
+			border: 2px solid #eee;
+		}
+		#gobierno_btn, #diputados_btn, #senado_btn {
+			height: 80px;
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+		.moregraphs {
+			border-bottom: 1px solid #0f69b4;
+			font-family: "Helvetica W02 Bd Cn","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+			color: #0f69b4;
+			font-size: 20px;
+			text-align: center;
+			padding: 10px;
+			margin-bottom: 30px;
+			margin-top: 30px;
+			cursor: pointer;
 		}
 	</style>
 </head>
@@ -206,7 +235,7 @@
 					.interpolate(d3.interpolateHcl);
 
 		evt = ndx.dimension(function(d) {
-			return d.id;		
+			return d.Id_Declaracion;		
 		})
 		var eventgroup   = evt.group().reduce(
 			function(p,d) {  
@@ -263,7 +292,7 @@
 			}
 			return d.nombrePasivo.toLowerCase()+" "+d.apellidosPasivo.toLowerCase()+" "+d.nombreInstitucion.toLowerCase()+" "+d.observacionesMateriaAudiencia.toLowerCase()+ " ";
 			*/
-			return d.fullName + " cargo:" + d.Cargo.toLowerCase();
+			return d.fullName.toLowerCase() + " cargo:" + d.Cargo.toLowerCase();
 		});
 
 		//Draw graphs
@@ -280,6 +309,7 @@
 		drawInmuebles();
 		drawAcciones();
 		drawAccionesVal();
+		drawTotVal();
 		drawProfessions();
 		drawIncome();
 
@@ -351,7 +381,7 @@
 			};
 			*/
 			var chart = dc.pieChart(".dectype")
-				.innerRadius(0).radius(130)
+				.innerRadius(90).radius(130)
 				//.margins({top: 0, right: 3, bottom: 20, left: 3})
 				.cy(150)
 				.height(420)
@@ -363,7 +393,7 @@
 					return typecolor[d.key];
 				});
 				*/
-				chart.legend(dc.legend().x(30).y(320).itemHeight(13).gap(5))
+				chart.legend(dc.legend().x(30).y(310).itemHeight(13).gap(5))
 		}
 		
 		//Activities
@@ -634,7 +664,45 @@
 				.margins({top: 10, right: 3, bottom: 20, left: 30})
 				.height(300)
 				//.width(165)
-				.gap(8)
+				.gap(18)
+				.x(d3.scale.ordinal().domain(["0", "1 - 10M", "10M - 50M", "50M - 100M", "100M - 1B", "> 1 Billion"])) // Need empty val to offset first value
+				.xUnits(dc.units.ordinal)
+				.elasticY(true)
+				.colorCalculator(function(d, i) {
+					return "#84c0e9";
+				})
+				//.ordering(function(d){return -d.value})
+				.dimension(dim)
+				.group(group);
+				
+			//graph.yAxis().ticks(5).tickFormat(d3.format("d"));
+		};
+		
+		function totRange (valor) {
+			valor = parseInt(valor);
+			if (valor <= 50000 ) return "<= MM$50"; 
+			if (valor < 100000 ) return "MM$50 - MM$100"; 
+			if (valor < 500000 ) return "MM$100 - MM$500"; 
+			if (valor < 1000000 ) return "MM$500 - MM$1000"; 
+			if (valor < 5000000 ) return "MM$1000 - MM$5000"; 
+			if (valor < 10000000 ) return "MM$5000 - MM$10000"; 
+			return "> MM$10000";
+		}
+		
+		function drawTotVal () {
+			var dim = ndx.dimension (function(d) {
+			//alert(d.toSource());
+				//return accionesRange(d.accionestot);
+				return accionesRange(d.activotot);
+			});
+			var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+			var graph = dc.barChart(".totval")   
+				.margins({top: 10, right: 3, bottom: 20, left: 30})
+				.height(300)
+				//.width(165)
+				.gap(18)
+				//.x(d3.scale.ordinal().domain(["", "<= MM$50", "MM$50 - MM$100", "MM$100 - MM$500", "MM$500 - MM$1000", "MM$1000 - MM$5000", "MM$5000 - MM$10000", "> MM$10000"]))
 				.x(d3.scale.ordinal().domain(["0", "1 - 10M", "10M - 50M", "50M - 100M", "100M - 1B", "> 1 Billion"])) // Need empty val to offset first value
 				.xUnits(dc.units.ordinal)
 				.elasticY(true)
@@ -651,7 +719,7 @@
 		//topprofessions
 		function drawProfessions() {
 			var dim = ndx.dimension (function(d) {
-					return d.Profesion;   
+					return d.Profesion;  
 			});
 			var group   = dim.group().reduceSum(function(d) {   return 1; });
 			/*
@@ -667,7 +735,7 @@
 				.cy(130)
 				.height(370)
 				.dimension(dim)
-				.cap(10)
+				.cap(9)
 				.group(group)	
 				/*				
 				.colorCalculator(function(d, i) {
@@ -744,7 +812,7 @@
 				  "defaultContent":"N/A",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.Partido; 
+					 return d.party; 
 					},
 				  },{
 				  "searchable": false,
@@ -780,7 +848,8 @@
 				  "defaultContent":"N/A",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.Grado; 
+					 //return d.Grado; 
+					 return d.Datos_Entidad_Por_La_Que_Declara.Grado_Renta_Mensual;
 					},
 				  },{
 				  "searchable": false,
@@ -798,7 +867,10 @@
 				  "defaultContent":"N/A",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return "activos adicionales"; 
+					 if(d.valores.length > 0 || d.agua.length > 0){
+						return "SI";
+					 }
+					 return ""; 
 					},
 				  }
 				],
@@ -855,9 +927,9 @@
 				s += "<div class='l_name'><label>Nombre</label> "+d.fullName+"</div>";
 				s += "<div class='l_name'><label>Cargo</label> "+d.Cargo+"</div>";
 				s += "<div class='l_name'><label>Partido</label> "+d.party+"</div>";
-				s += "<div class='l_name'><label>Fecha assume el cargo</label> "+d.FAsuncion+"</div>";
+				s += "<div class='l_name'><label>Fecha assume el cargo</label> "+d.Datos_Entidad_Por_La_Que_Declara.Fecha_Asuncion_Cargo+"</div>";
 				s += "</div><div class='col-md-6'><div class='row'><div class='col-md-6'>";
-				s += "<div class='salario-box-1'><strong>Salario Bruto</strong><br />"+d.Grado+"</div>";
+				s += "<div class='salario-box-1'><strong>Salario Bruto</strong><br />"+d.Datos_Entidad_Por_La_Que_Declara.Grado_Renta_Mensual+"</div>";
 				s += "</div><div class='col-md-6'>";
 				s += "<div class='salario-box-2'><strong>Valor Total Activos</strong><br />"+d.activotot+"</div>";
 				s += "</div></div></div></div><div class='infobox-divider'></div>";
@@ -866,11 +938,11 @@
 				
 				s += "<div class='l_name'><label>Actividades que realiza</label> "+d.activity.length+"</div>";
 				if(d.activity.length > 0){
-					s += "<table style='width:100%;'><thead><tr><th>Tipo de actividad</th><th>Objeto</th><th>Vinculo</th><th>Realizada Para</th><th>Renumerada</th><th>Fecha inicio</th></tr></thead><tbody>";
+					s += "<table style='width:100%;'><thead><tr><th>Tipo de actividad</th><th>Rubro</th><th>Realizada Para</th><th>Renumerada</th><th>Fecha inicio</th></tr></thead><tbody>";
 				}
 				_.each(d.activity, function (a) {
-					//s += a.toSource();
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.TipoActividad+"</td><td>"+a.Objeto+"</td><td>"+a.Vinculo+"</td><td>"+a.RealizadaPara+"</td><td>"+renumeradoToText(a.Remunerado)+"</td><td>"+a.FechaInicio+"</td></tr>";
+					
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Tipo_Actividad.nombre+"</td><td>"+a.Rubro.nombre+"</td><td>"+a.Nombre_Razon_Social+"</td><td>"+a.Clasificacion.nombre+"</td><td>"+a.Fecha_Inicio+"</td></tr>";
 				});
 				if(d.activity.length > 0){
 					s += "</tbody></table>";
@@ -881,8 +953,7 @@
 					s += "<table style='width:100%;'><thead><tr><th>Titulo</th><th>Entidad</th><th>Cantidad</th><th>Fecha</th><th>Controlador</th></tr></thead><tbody>";
 				}
 				_.each(d.acciones, function (a) {
-					//s += a.toSource();
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.GravamenAccion+"</td><td>"+a.EntidadAccion+"</td><td>"+a.Cantidad+"</td><td>"+a.FechaAdquisicion+"</td><td>"+renumeradoToText(a.Controlador)+"</tr>";
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Titulo_Derecho_Accion.nombre+"</td><td>"+a.Nombre_Razon_Social+"</td><td>"+a.Cantidad_Porcentaje+"</td><td>"+a.Fecha_Adquisicion+"</td><td>"+a.Tiene_Calidad_Controlador+"</tr>";
 				});
 				if(d.acciones.length > 0){
 					s += "</tbody></table>";
@@ -893,8 +964,7 @@
 					s += "<table style='width:100%;'><thead><tr><th>Region</th><th>Fecha de adquisición</th><th>Forma</th><th>Domicilio</th><th>Avalúo Fiscal</th></tr></thead><tbody>";
 				}
 				_.each(d.inmueble, function (a) {
-					//s += a.toSource();
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.NombreLugar+"</td><td>"+a.FechaAdquisicion+"</td><td>"+a.TipoPropiedad+"</td><td>"+renumeradoToText(a.EsSuDomicilio)+"</td><td>"+""+"</td></tr>";
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Region.nombre+"</td><td>"+a.Fecha_Adquisicion+"</td><td>"+a.Forma_Propiedad.nombre+"</td><td>"+a.Es_Su_Domicilio+"</td><td>"+a.Avaluo_Fiscal+"</td></tr>";
 				});
 				if(d.inmueble.length > 0){
 					s += "</tbody></table>";
@@ -905,8 +975,7 @@
 					s += "<table style='width:100%;'><thead><tr><th>Typo</th><th>Marca</th><th>Modelo</th><th>Año de fabricación</th><th>Avalúo Fiscal</th></tr></thead><tbody>";
 				}
 				_.each(d.mueble, function (a) {
-					//s += a.toSource();
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Tipo+"</td><td>"+a.Marca+"</td><td>"+a.Modelo+"</td><td>"+a.AnioFabricacion+"</td><td>"+a.Avaluo+"</td></tr>";
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Tipo_Vehiculo.nombre+"</td><td>"+a.Marca.nombre+"</td><td>"+a.Modelo+"</td><td>"+a.Annio_Fabricacion+"</td><td>"+a.Avaluo_Fiscal+"</td></tr>";
 				});
 				if(d.mueble.length > 0){
 					s += "</tbody></table>";
@@ -917,8 +986,7 @@
 					s += "<table style='width:100%;'><thead><tr><th>Titulo</th><th>Emissor</th><th>Fecha de adquisición</th><th>Pais</th><th>Valor</th></tr></thead><tbody>";
 				}
 				_.each(d.valores, function (a) {
-					//s += a.toSource();
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.TipoValor+"</td><td>"+a.EntidadQueEmite+"</td><td>"+a.FechaAdquisicion+"</td><td>"+a.PaisQueEmite+"</td><td>"+a.ValorPlaza+"</td></tr>";
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Titulo_Documento.nombre+"</td><td>"+a.Nombre_Razon_SocialEmisor+"</td><td>"+a.Fecha_Adquisicion+"</td><td>"+a.Pais_Emision_Valores.nombre+"</td><td>"+a.Valor_Corriente_Plaza+"</td></tr>";
 				});
 				if(d.valores.length > 0){
 					s += "</tbody></table>";
@@ -927,68 +995,36 @@
 				s += "<div class='l_name'><label>Contratos y administracion de valores</label> /</div>";
 				s += "No tiene información declarada en esta sección";
 				
-				s += "<div class='l_name'><label>Aguas Concesiones</label> /</div>";
-				
+				s += "<div class='l_name'><label>Aguas Concesiones</label> "+d.agua.length+"</div>";
+				if(d.agua.length > 0){
+					s += "<table style='width:100%;'><thead><tr><th>Region</th><th>Emisora</th><th>Año de resolución</th><th>Tipo</th><th>Naturaleza del agua</th></tr></thead><tbody>";
+				}
+				_.each(d.agua, function (a) {
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Region.nombre+"</td><td>"+a.Entidad_Emisora.nombre+"</td><td>"+a.Annio_Resolucion+"</td><td>"+a.Tipo_Derecho.nombre+"</td><td>"+a.Naturaleza_Agua.nombre+"</td></tr>";
+				});
+				if(d.agua.length > 0){
+					s += "</tbody></table>";
+				}
+
 				s += "<div class='l_name'><label>Pasivos</label> "+d.pasivos.length+"</div>";
 				if(d.pasivos.length > 0){
 					s += "<table style='width:100%;'><thead><tr><th>Tipo</th><th>Acreedor</th><th>Monto adeuado</th></tr></thead><tbody>";
 				}
 				_.each(d.pasivos, function (a) {
-					//s += a.toSource();
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.TipoPasivo+"</td><td>"+a.Acreedor+"</td><td>"+a.MontoPasivo+"</td></tr>";
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Tipo_Obligacion_Deuda.nombre+"</td><td>"+a.Nombre_Razon_Social_Acreedor+"</td><td>"+a.Monto_Adeudado_Pesos+"</td></tr>";
 				});
 				if(d.pasivos.length > 0){
 					s += "</tbody></table>";
 				}
+
 				
 				s += "<div class='l_name'><label>Otras Fuentes de conflicto de intereses</label> /</div>";
 				s += "No tiene información declarada en esta sección";
 				
+				s += "<div><label>Link declaracion completa:</label><br /><a href='http://www.infoprobidad.cl/Declaracion/Declaracion?ID="+d.Id_Declaracion+"' target='_blank'>http://www.infoprobidad.cl/Declaracion/Declaracion?ID="+d.Id_Declaracion+"</a></div>";
+				
 				s  += "</div></div>";
-				/*
-				s += "<div class='l_name'><label>Total audiencias</label> "+countmeetings(d.nombrePasivoFull)+"</div>";
-				s += "<div class='l_name'><label>Cargo</label> "+d.cargoFuncionPasivo+"</div>";
-				s += "<div class='l_name'><label>Institucion</label> "+d.nombrePasivoInstitucion+"</div>";
-				s += "<div class='l_category'><label>Total participantes</label> "+d.participants+"</div>";
-				s += "<div class='l_category'><label>Link audiencia</label> "+d.linkAudienciaReunionPasivo+"</div>";
-				s += "<div class='l_category'><label>Link todas audiencias</label></div>";
-				*/
-				/*
-				if(thishost){
-					s += "<div class='l_category'><label>Link to meeting page</label> <a target='_blank' href='"+thishost.url+"'>"+thishost.url+"</a></div>";
-				}
-				*/
-				/*
-				var thisrep = representatives[d.guestid];
-				var initiatives;
-				url="http://api.lobbyfacts.nestor.coop/api/1/representative/"+thisrep .id+"?callback=?";
-				$.getJSON( url, function( data ) {
-					$('#initiatives'+thisrep .id).text(data.activity_eu_legislative);
-					var height1 = $('.l_data_container_host').height();
-					var height2 = $('.l_data_container_guest').height();
-					if(height1 > height2){
-						$('.l_data_container_guest').height(height1);
-					} else {
-						$('.l_data_container_host').height(height2);
-					}
-				}); 
-				*/				
-				//s += "<span class='lobbyist_info_container' id='lobbyist"+d.guestid+"'></span>"
-				/*
-				s += "</div>";
-				s += "<div class='col-md-6 l_data_container_guest'>";
-				s += "<div class='data_container_title'>Activo</div>";
-				s += "<div class='l_category'><label>Nombre</label> "+d.nombreActivoFull+"</div>";
-				s += "<div class='l_name'><label>Total audiencias</label> "+countmeetings(d.nombreActivoFull)+"</div>";
-				s += "<div class='l_name'><label>Nombre entidad</label> "+d.nombreEntidadActivo+"</div>";
-				s += "<div class='l_category'><label>Pais</label> "+d.documentoPaisActivo+"</div>";
-				s += "<div class='l_category'><label>Giro</label> "+d.giroActivo+"</div>";
-				s += "<div class='l_category'><label>Representante</label> "+d.representanteActivo+"</div>";
-				s += "<div class='l_category'><label>Naturaleza</label> "+d.naturalezaActivo+"</div>";
-				s += "<div class='l_category'><label>Tipo entidad</label> "+d.tipoEntidadActivo+"</div>";
-				s += "</div>";
-				s += "</div>";
-				*/
+				
 				return s;
 			}	
 			//Datatables click function
@@ -1221,7 +1257,7 @@
 							</p>
 						</div>
 						<div class="filter_btn_container">
-							<img src="./img/G1.png" id="gobierno_btn" /><img src="./img/C1.png" id="diputados_btn" /><img src="./img/S1.png" id="senado_btn" />
+							<img src="./img/G1.png" id="gobierno_btn" /><img src="./img/C1.png" id="diputados_btn" /><img src="./img/S1.png" id="senado_btn" /><button id="candidates_btn">Presidencial candidates</button>
 						</div>
 						<!--
 						<div class="topistitucion chart-full"></div>
@@ -1244,12 +1280,12 @@
 				<div class="col-md-7">
 					<!-- CARGO -->
 					<div class="chart_box" id="hosttype">
-						<h3>Derechos o Acciones<!--span class="info">info</span--></h3>
+						<h3>Valor total activos<!--span class="info">info</span--></h3>
 						<div class="info_chart">
 						</div>
 						
 						<!-- <div class="income"></div> -->
-						<div class="accionesval chart-full"></div>
+						<div class="totval chart-full"></div>
 						<div class="legend">
 						</div>
 						<br class="clear" />
@@ -1284,6 +1320,8 @@
 					</div>
 				</div>
 			</div>
+			<!-- ADDITIONAL GRAPHS DIVIDER -->
+			<div class="moregraphs">VIEW MORE CHARTS</div>
 			<!-- ADDITIONAL GRAPHS -->
 			<div id="detailCharts">
 				<div class="row">
@@ -1330,7 +1368,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="chart_box">
-							<h3>Top 10<br />professions<!--span class="info">info</span--></h3>
+							<h3>Top 10 professions<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
 								<p class="desc">
@@ -1342,6 +1380,17 @@
 						</div>
 					</div>
 					<div class="col-md-6">
+						<div class="chart_box" id="hosttype">
+							<h3>Derechos o Acciones<!--span class="info">info</span--></h3>
+							<div class="info_chart">
+							</div>
+							
+							<!-- <div class="income"></div> -->
+							<div class="accionesval chart-full"></div>
+							<div class="legend">
+							</div>
+							<br class="clear" />
+						</div>
 						<!--
 						<div class="chart_box" id="group_container">
 							<h3>Acciones</h3>
@@ -1410,6 +1459,7 @@
 	updatedate.setDate(updatedate.getDate() - 1);
 	$('#updatedate').html(updatedate.getDate() + ' ' + monthNames[updatedate.getMonth()] + ' ' + updatedate.getFullYear());
 
+	var decl = [];
 	var events=[];
 	var activity=[];
 	var inmueble=[];
@@ -1435,12 +1485,133 @@
 		return d.NombreDeclarante + ' ' + d.ApellidoPaternoDeclarante + ' ' + d.ApellidoMaternoDeclarante;
 	}
 	
+	function getFullNameJson(d){
+		return d.nombre + ' ' + d.Apellido_Paterno + ' ' + d.Apellido_Materno;
+	}
+	
 	$(function() {
 		var renderLoaded  = _.after(2,  function () { 
 			//var dateFormat = d3.time.format("%Y-%m-%d %H:%M:%S");
 			var dateFormat = d3.time.format("%d/%m/%Y");
+			var dateFormatJson = d3.time.format("%Y/%m/%d");
 			var now = Date.now();
 			var a;
+			
+			_.each (decl, function (d) {
+				//alert(d.Datos_del_Declarante.toSource());
+				d.date = d.Fecha_de_la_Declaracion.split(" ")[0];
+				d.date = dateFormatJson.parse(d.date);
+				d.fullName = getFullNameJson(d.Datos_del_Declarante);
+				//alert(d.date + ' ' + d.fullName);
+				
+				//PARTY
+				d.party = "";
+				d.party = _.find(parties,function (m) { return m.Diputado.toLowerCase() == d.fullName.toLowerCase() });
+				if(d.party){
+					d.party = d.party.Partido;
+				} else {
+					var thisPartySenate = _.find(partiesSenate,function (m) { return m.Name.toLowerCase() == d.fullName.toLowerCase() });
+					if(thisPartySenate){
+						d.party = thisPartySenate.Partido.trim();
+					} else {
+						d.party = "N/A";
+					}
+				}
+				
+				d.activity = [];
+				d.activityPro = [];
+				d.mueble = [];
+				d.inmueble = [];
+				d.pasivos = [];
+				d.valores = [];
+				d.acciones = [];
+				d.agua = [];
+				
+				if(d.Actividades_Profesionales_A_La_Fecha){
+					d.activity = d.Actividades_Profesionales_A_La_Fecha;
+				}
+				if(d.Actividades_Profesionales_Ultimos_12_Meses){
+					d.activityPro = d.Actividades_Profesionales_Ultimos_12_Meses;
+				}
+				if(d.Vehiculos_Motorizados){
+					d.mueble = d.Vehiculos_Motorizados;
+				}
+				if(d.Bienes_Inmuebles_Situados_En_Chile){
+					d.inmueble = d.Bienes_Inmuebles_Situados_En_Chile;
+				}
+				if(d.Pasivos){
+					d.pasivos = d.Pasivos.Individualiza_Deudas;
+				}
+				//d.Pasivos.Individualiza_Deudas;
+				if(d.Instrumentos_Valor_TransableChile){
+					d.valores = d.Instrumentos_Valor_TransableChile;
+				}
+				if(d.Derechos_Acciones_Chile){
+					d.acciones = d.Derechos_Acciones_Chile;
+				}
+				if(d.Derecho_Aprovechamiento_De_Aguas){
+					d.agua = d.Derecho_Aprovechamiento_De_Aguas;
+				}
+				
+				
+				//CALCULATE AMOUNTS
+				d.accionestot = 0;
+				_.each (d.acciones, function (t) {
+					if(t.Valor_Corriente_Plazo_Valor_Libro){
+					 d.accionestot += parseInt(t.Valor_Corriente_Plazo_Valor_Libro);
+					}
+				});
+				
+				d.valorestot = 0;
+				_.each (d.valores, function (t) {
+					if(t.Valor_Corriente_Plaza){
+					 d.valorestot += parseInt(t.Valor_Corriente_Plaza);
+					}
+				});
+				
+				d.mueblestot = 0;
+				_.each (d.mueble, function (t) {
+					if(t.Avaluo_Fiscal){
+					 d.mueblestot += parseInt(t.Avaluo_Fiscal);
+					}
+				});
+				
+				d.inmueblestot = 0;
+				_.each (d.inmueble, function (t) {
+					if(t.Avaluo_Fiscal){
+					 d.inmueblestot += parseInt(t.Avaluo_Fiscal);
+					}
+				});
+				
+				d.activotot = d.accionestot + d.valorestot + d.mueblestot + d.inmueblestot;
+				
+				//alert(d.activotot);
+				
+				//CARGO
+				d.Cargo = "";
+				if(d.Datos_Entidad_Por_La_Que_Declara.Cargo_Funcion.nombre){
+					d.Cargo = d.Datos_Entidad_Por_La_Que_Declara.Cargo_Funcion.nombre;
+				}
+				//PROFESSION
+				d.Profesion = "";
+				if(d.Datos_del_Declarante.Profesion_Oficio.nombre){
+					d.Profesion = d.Datos_del_Declarante.Profesion_Oficio.nombre;
+				}
+				//TIPO DECLARACIONES
+				d.Tipo = d.Tipo_Declaracion.nombre;
+				if(d.Tipo == "PRIMERA DECLARACION (POR ASUNCION DE CARGO)"){
+					d.Tipo = "PRIMERA DECLARACIÓN (POR ASUNCIÓN DE CARGO)";
+				}
+				if(d.Tipo == "PRESENTACION A REQUERIMIENTO DE ORGANO FISCALIZADOR" || d.Tipo == "PRESENTACIÓN A REQUERIMIENTO  DE ORGANO FISCALIZADOR"){
+					d.Tipo = "PRESENTACIÓN A REQUERIMIENTO DE ORGANO FISCALIZADOR";
+				}
+				
+				
+				
+
+			});
+			grid ("#ec",decl);
+			$('#detailCharts').hide();
 			
 			//Loop through dataset and fix/adjust data
 			_.each (events, function (d) {
@@ -1496,7 +1667,7 @@
 				d.mueble = thisMueble;
 				d.acciones = thisAcciones;
 				d.valores = thisValores;
-				d.pasivos = thisPasivos
+				d.pasivos = thisPasivos;
 				
 				d.accionestot = 0;
 				_.each (d.acciones, function (t) {
@@ -1523,39 +1694,23 @@
 			//End loop through dataset
 			
 			//Call grid function to create and display charts
-			grid ("#ec",events);
+			//grid ("#ec",events);
 		});
 		//End RenderLoaded
 		
 		//Load datasets
 		  
-		d3.csv("data/chileassets/declaration.csv", function(rows) {
-			events = rows;
-			renderLoaded();
-		});  
-		d3.csv("data/chileassets/activity.csv", function (rows) {
-			activity = rows;
-		}); 
-		d3.csv("data/chileassets/inmueble.csv", function (rows) {
-			inmueble = rows;
-		});
-		d3.csv("data/chileassets/mueble.csv", function (rows) {
-			mueble = rows;
-		}); 
-		d3.csv("data/chileassets/valores.csv", function (rows) {
-			valores = rows;
-		}); 
-		d3.csv("data/chileassets/pasivos.csv", function (rows) {
-			pasivos = rows;
-		}); 
+		
+
 		d3.csv("data/iw-chile-party.csv", function (rows) {
 			parties = rows;
 		});
 		d3.csv("data/iw-chile-party-senate.csv", function (rows) {
 			partiesSenate = rows;
+			renderLoaded();
 		});
-		d3.csv("data/chileassets/acciones.csv", function (rows) {
-			acciones = rows;
+		d3.json("data/chileassets/declaraciones.json", function (rows) {
+			decl = rows;
 			renderLoaded();
 		}); 
 		
@@ -1565,16 +1720,18 @@
 		var diputadosfilter = false;
 		var senadofilter = false;
 		var gobiernofilter = false;
+		var candidatofilter = false;
 
 		//Diputados filter
 		$("#gobierno_btn").click(function() {
-			if($("#senado_btn").attr("src") == "img/S2.png" && $("#diputados_btn").attr("src") == "img/C2.png"){
+			if($("#senado_btn").attr("src") == "img/S2.png" && $("#diputados_btn").attr("src") == "img/C2.png" && $("#candidates_btn").hasClass('unactive')){
 				$(".resetall").click();
 				return;
 			}
 			gobiernofilter = true;
 			diputadosfilter = false;
 			senadofilter = false;
+			candidatofilter = false;
 			nameEvent.filter(function (d) { 
 				//alert(d);
 				return d.indexOf("cargo:gobernador") !== -1 || d.indexOf("cargo:intendente") !== -1 || d.indexOf("cargo:ministro") !== -1 || d.indexOf("cargo:subsecretario") !== -1;
@@ -1582,36 +1739,40 @@
 			$("#gobierno_btn").attr("src", "img/G1.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
 			$("#senado_btn").attr("src", "img/S2.png");
+			$("#candidates_btn").addClass('unactive');
 			//countOfficialsWall(wall.dimension().top(Infinity));
 			dc.redrawAll();
 		});
 		//Diputados filter
 		$("#diputados_btn").click(function() {
-			if($("#senado_btn").attr("src") == "img/S2.png" && $("#gobierno_btn").attr("src") == "img/G2.png"){
+			if($("#senado_btn").attr("src") == "img/S2.png" && $("#gobierno_btn").attr("src") == "img/G2.png" && $("#candidates_btn").hasClass('unactive')){
 				$(".resetall").click();
 				return;
 			}
 			gobiernofilter = false;
 			diputadosfilter = true;
 			senadofilter = false;
+			candidatofilter = false;
 			nameEvent.filter(function (d) { 
 				//alert(d);
-				return d.indexOf("cargo:camara") !== -1;
+				return d.indexOf("cargo:diputado") !== -1;
 			});
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C1.png");
 			$("#senado_btn").attr("src", "img/S2.png");
+			$("#candidates_btn").addClass('unactive');
 			//countOfficialsWall(wall.dimension().top(Infinity));
 			dc.redrawAll();
 		});
 		$("#senado_btn").click(function() {
-			if($("#diputados_btn").attr("src") == "img/C2.png" && $("#gobierno_btn").attr("src") == "img/G2.png"){
+			if($("#diputados_btn").attr("src") == "img/C2.png" && $("#gobierno_btn").attr("src") == "img/G2.png" && $("#candidates_btn").hasClass('unactive')){
 				$(".resetall").click();
 				return;
 			}
 			gobiernofilter = false;
 			diputadosfilter = false;
 			senadofilter = true;
+			candidatofilter = false;
 			nameEvent.filter(function (d) { 
 				//alert(d);
 				return d.indexOf("cargo:senador") !== -1;
@@ -1619,6 +1780,27 @@
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
 			$("#senado_btn").attr("src", "img/S1.png");
+			$("#candidates_btn").addClass('unactive');
+			//countOfficialsWall(wall.dimension().top(Infinity));
+			dc.redrawAll();
+		});
+		$("#candidates_btn").click(function() {
+			if($("#diputados_btn").attr("src") == "img/C2.png" && $("#gobierno_btn").attr("src") == "img/G2.png" && $("#senado_btn").attr("src") == "img/S2.png"){
+				$(".resetall").click();
+				return;
+			}
+			gobiernofilter = false;
+			diputadosfilter = false;
+			senadofilter = false;
+			candidatofilter = true;
+			nameEvent.filter(function (d) { 
+				//alert(d);
+				return d.indexOf("cargo:candidato") !== -1;
+			});
+			$("#gobierno_btn").attr("src", "img/G2.png");
+			$("#diputados_btn").attr("src", "img/C2.png");
+			$("#senado_btn").attr("src", "img/S2.png");
+			$("#candidates_btn").removeClass('unactive');
 			//countOfficialsWall(wall.dimension().top(Infinity));
 			dc.redrawAll();
 		});
@@ -1652,10 +1834,17 @@
 			$("#gobierno_btn").attr("src", "img/G1.png");
 			$("#diputados_btn").attr("src", "img/C1.png");
 			$("#senado_btn").attr("src", "img/S1.png");
+			$("#candidates_btn").removeClass('unactive');
 			diputadosfilter = false;
 			senadofilter = false;
 			gobiernofilter = false;
+			candidatofilter = false;
 		}); 
+		
+		$(".moregraphs").click(function() {
+			$('#detailCharts').toggle();
+			$(".resetall").click();
+		});
 	});      
 
 </script>
