@@ -125,6 +125,7 @@
 			height: 2px;
 			background: #5b9bd5;
 		}
+		/*
 		#candidates_btn {
 			width: 110px;
 			padding: 15px 10px;
@@ -141,7 +142,8 @@
 			background: #eee;
 			border: 2px solid #eee;
 		}
-		#gobierno_btn, #diputados_btn, #senado_btn {
+		*/
+		#gobierno_btn, #diputados_btn, #senado_btn, #candidates_btn {
 			height: 80px;
 			vertical-align: middle;
 			margin-right: 10px;
@@ -156,6 +158,16 @@
 			margin-bottom: 30px;
 			margin-top: 30px;
 			cursor: pointer;
+		}
+		div#ti_logo_container a#ti_logo {
+			background-image: url("./img/logo_TI-Chile-white.png");
+			height: 60px;
+			width: 56%;
+		}
+		.navbar .navbar-nav > li > a {
+			width: 130px;
+			padding-top: 12px;
+			padding-bottom: 12px;
 		}
 	</style>
 </head>
@@ -849,7 +861,7 @@
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
 					 //return d.Grado; 
-					 return d.Datos_Entidad_Por_La_Que_Declara.Grado_Renta_Mensual;
+					 return d.gradoNum;
 					},
 				  },{
 				  "searchable": false,
@@ -929,7 +941,7 @@
 				s += "<div class='l_name'><label>Partido</label> "+d.party+"</div>";
 				s += "<div class='l_name'><label>Fecha assume el cargo</label> "+d.Datos_Entidad_Por_La_Que_Declara.Fecha_Asuncion_Cargo+"</div>";
 				s += "</div><div class='col-md-6'><div class='row'><div class='col-md-6'>";
-				s += "<div class='salario-box-1'><strong>Salario Bruto</strong><br />"+d.Datos_Entidad_Por_La_Que_Declara.Grado_Renta_Mensual+"</div>";
+				s += "<div class='salario-box-1'><strong>Salario Bruto</strong><br />"+d.gradoNum+"</div>";
 				s += "</div><div class='col-md-6'>";
 				s += "<div class='salario-box-2'><strong>Valor Total Activos</strong><br />"+d.activotot+"</div>";
 				s += "</div></div></div></div><div class='infobox-divider'></div>";
@@ -1184,10 +1196,11 @@
 		
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active" id="cm_tool_btn"><a href="iw_chile.html"><strong>Audiencias</strong> <br />Gobierno Central</a></li>
+					<li id="cm_tool_btn"><a href="iw_chile.html"><strong>Audiencias</strong> <br />Gobierno Central</a></li>
 					<li class="" id="cm_tool_btn"><a href="iw_chile_tab2.html"><strong>Audiencias</strong> <br />Congreso Nacional</a></li>
+					<li class="active" id="cm_tool_btn"><a href="iw_chile_tab3.html"><strong>Declaraciones</strong> <br />de Interès y Patrimonio</a></li>
 					<li class="dropdown">
-						<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 160px;">Otras versiones<span class="caret"></span></a>
+						<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 120px;">Otras versiones<span class="caret"></span></a>
 						 <ul class="dropdown-menu">
 							<li><a href="http://www.integritywatch.eu">IW EU</a></li>
 						    <li><a href="http://www.integritywatch.fr">IW France</a></li>
@@ -1257,7 +1270,7 @@
 							</p>
 						</div>
 						<div class="filter_btn_container">
-							<img src="./img/G1.png" id="gobierno_btn" /><img src="./img/C1.png" id="diputados_btn" /><img src="./img/S1.png" id="senado_btn" /><button id="candidates_btn">Presidencial candidates</button>
+							<img src="./img/G1.png" id="gobierno_btn" /><img src="./img/C1.png" id="diputados_btn" /><img src="./img/S1.png" id="senado_btn" /><img src="./img/EL1.png" id="candidates_btn" />
 						</div>
 						<!--
 						<div class="topistitucion chart-full"></div>
@@ -1321,7 +1334,7 @@
 				</div>
 			</div>
 			<!-- ADDITIONAL GRAPHS DIVIDER -->
-			<div class="moregraphs">VIEW MORE CHARTS</div>
+			<div class="moregraphs">Ver más gráficos</div>
 			<!-- ADDITIONAL GRAPHS -->
 			<div id="detailCharts">
 				<div class="row">
@@ -1414,7 +1427,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">Meetings 
+				<h2 class="table_title">FUNCIONARIOS PUBLICOS 
 					<!--
 					<div class="info_chart">
 						<span class="info">info</span>
@@ -1471,6 +1484,8 @@
 	var partiesSenate = [];
 	var parties = [];
 	
+	var moreinfo = [];
+	
 	var meetingspages;
 	var evt=null;
 	var nameEvent=null;
@@ -1488,6 +1503,9 @@
 	function getFullNameJson(d){
 		return d.nombre + ' ' + d.Apellido_Paterno + ' ' + d.Apellido_Materno;
 	}
+	function getFullNameJson2(d){
+		return d.nombre.split(" ")[0] + ' ' + d.Apellido_Paterno + ' ' + d.Apellido_Materno;
+	}
 	
 	$(function() {
 		var renderLoaded  = _.after(2,  function () { 
@@ -1502,6 +1520,7 @@
 				d.date = d.Fecha_de_la_Declaracion.split(" ")[0];
 				d.date = dateFormatJson.parse(d.date);
 				d.fullName = getFullNameJson(d.Datos_del_Declarante);
+				d.fullName2 = getFullNameJson2(d.Datos_del_Declarante);
 				//alert(d.date + ' ' + d.fullName);
 				
 				//PARTY
@@ -1516,6 +1535,30 @@
 					} else {
 						d.party = "N/A";
 					}
+				}
+				
+				d.grado = d.Datos_Entidad_Por_La_Que_Declara.Grado_Renta_Mensual;
+				
+				//More data
+				d.moreinfo = _.find(moreinfo,function (m) { return m.Nombre.toLowerCase() == d.fullName2.toLowerCase() });
+				if(!d.moreinfo){
+					d.moreinfo = _.find(moreinfo,function (m) { return m.Nombre.toLowerCase() == d.fullName.toLowerCase() });
+				}
+				//alert(d.fullName + ' ' +d.moreinfo);
+				if(d.moreinfo){
+					d.party = d.moreinfo.Partido;
+					d.grado = d.moreinfo.Grado;
+				}
+				
+				d.gradoNum = d.grado;
+				if(d.grado == "DIETA PARLEMENTARIA" || d.grado == "DIETA"){
+					d.gradoNum = "9.121.809 CLP";
+				} else if(d.grado == "A" || d.grado == "GRADO A"){
+					d.gradoNum = "9.904.720 CLP";
+				} else if(d.grado == "B" || d.grado == "GRADO B" || d.grado == "1-B" || d.grado == "1B"){
+					d.gradoNum = "9.121.809 CLP";
+				} else if(d.grado == "C" || d.grado == "GRADO C" || d.grado == "1C"){
+					d.gradoNum = "8.393.125 CLP";
 				}
 				
 				d.activity = [];
@@ -1707,6 +1750,10 @@
 		});
 		d3.csv("data/iw-chile-party-senate.csv", function (rows) {
 			partiesSenate = rows;
+			//renderLoaded();
+		});
+		d3.csv("data/chileassets/partidos-grados.csv", function (rows) {
+			moreinfo = rows;
 			renderLoaded();
 		});
 		d3.json("data/chileassets/declaraciones.json", function (rows) {
@@ -1724,7 +1771,7 @@
 
 		//Diputados filter
 		$("#gobierno_btn").click(function() {
-			if($("#senado_btn").attr("src") == "img/S2.png" && $("#diputados_btn").attr("src") == "img/C2.png" && $("#candidates_btn").hasClass('unactive')){
+			if($("#senado_btn").attr("src") == "img/S2.png" && $("#diputados_btn").attr("src") == "img/C2.png" && $("#candidates_btn").attr("src") == "img/EL2.png"){
 				$(".resetall").click();
 				return;
 			}
@@ -1739,13 +1786,13 @@
 			$("#gobierno_btn").attr("src", "img/G1.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
 			$("#senado_btn").attr("src", "img/S2.png");
-			$("#candidates_btn").addClass('unactive');
+			$("#candidates_btn").attr("src", "img/EL2.png");
 			//countOfficialsWall(wall.dimension().top(Infinity));
 			dc.redrawAll();
 		});
 		//Diputados filter
 		$("#diputados_btn").click(function() {
-			if($("#senado_btn").attr("src") == "img/S2.png" && $("#gobierno_btn").attr("src") == "img/G2.png" && $("#candidates_btn").hasClass('unactive')){
+			if($("#senado_btn").attr("src") == "img/S2.png" && $("#gobierno_btn").attr("src") == "img/G2.png" && $("#candidates_btn").attr("src") == "img/EL2.png"){
 				$(".resetall").click();
 				return;
 			}
@@ -1760,12 +1807,12 @@
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C1.png");
 			$("#senado_btn").attr("src", "img/S2.png");
-			$("#candidates_btn").addClass('unactive');
+			$("#candidates_btn").attr("src", "img/EL2.png");
 			//countOfficialsWall(wall.dimension().top(Infinity));
 			dc.redrawAll();
 		});
 		$("#senado_btn").click(function() {
-			if($("#diputados_btn").attr("src") == "img/C2.png" && $("#gobierno_btn").attr("src") == "img/G2.png" && $("#candidates_btn").hasClass('unactive')){
+			if($("#diputados_btn").attr("src") == "img/C2.png" && $("#gobierno_btn").attr("src") == "img/G2.png" && $("#candidates_btn").attr("src") == "img/EL2.png"){
 				$(".resetall").click();
 				return;
 			}
@@ -1780,7 +1827,7 @@
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
 			$("#senado_btn").attr("src", "img/S1.png");
-			$("#candidates_btn").addClass('unactive');
+			$("#candidates_btn").attr("src", "img/EL2.png");
 			//countOfficialsWall(wall.dimension().top(Infinity));
 			dc.redrawAll();
 		});
@@ -1800,7 +1847,7 @@
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
 			$("#senado_btn").attr("src", "img/S2.png");
-			$("#candidates_btn").removeClass('unactive');
+			$("#candidates_btn").attr("src", "img/EL1.png");
 			//countOfficialsWall(wall.dimension().top(Infinity));
 			dc.redrawAll();
 		});
@@ -1834,7 +1881,7 @@
 			$("#gobierno_btn").attr("src", "img/G1.png");
 			$("#diputados_btn").attr("src", "img/C1.png");
 			$("#senado_btn").attr("src", "img/S1.png");
-			$("#candidates_btn").removeClass('unactive');
+			$("#candidates_btn").attr("src", "img/EL1.png");
 			diputadosfilter = false;
 			senadofilter = false;
 			gobiernofilter = false;
