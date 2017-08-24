@@ -169,6 +169,16 @@
 			padding-top: 12px;
 			padding-bottom: 12px;
 		}
+		.topprofessions .dc-legend-item {
+		    overflow: hidden;
+		}
+		.infofix {
+			position: relative;
+		}
+		.infofix .info_chart {
+			top: -40px;
+			right: 0;
+		}
 	</style>
 </head>
 
@@ -396,7 +406,7 @@
 				.innerRadius(90).radius(130)
 				//.margins({top: 0, right: 3, bottom: 20, left: 3})
 				.cy(150)
-				.height(420)
+				.height(440)
 				.dimension(dim)
 				.cap(7)
 				.group(group)	
@@ -405,7 +415,7 @@
 					return typecolor[d.key];
 				});
 				*/
-				chart.legend(dc.legend().x(30).y(310).itemHeight(13).gap(5))
+				chart.legend(dc.legend().x(30).y(320).itemHeight(13).gap(5))
 		}
 		
 		//Activities
@@ -421,14 +431,15 @@
 			};
 			var chart = dc.pieChart(".nactividades")
 				.innerRadius(0).radius(100)
-				.height(250)
+				.height(280)
 				.dimension(dim)
+				.cy(110)
 				.cap(7)
 				.group(group)				
 				.colorCalculator(function(d, i) {
 					return typecolor[d.key];
 				});
-				chart.legend(dc.legend().x(30).y(220).itemHeight(13).gap(5))
+				chart.legend(dc.legend().x(30).y(200).itemHeight(13).gap(5))
 		}
 		
 		//Professional Activities
@@ -444,14 +455,15 @@
 			};
 			var chart = dc.pieChart(".nproactividades")
 				.innerRadius(0).radius(100)
-				.height(250)
+				.height(280)
 				.dimension(dim)
+				.cy(110)
 				.cap(7)
 				.group(group)				
 				.colorCalculator(function(d, i) {
 					return typecolor[d.key];
 				});
-				chart.legend(dc.legend().x(30).y(220).itemHeight(13).gap(5))
+				chart.legend(dc.legend().x(30).y(200).itemHeight(13).gap(5))
 		}
 		
 		//Category Chart (Lobbyist or gestores de intereses)
@@ -754,7 +766,7 @@
 					return typecolor[d.key];
 				});
 				*/
-				chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5))
+				chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5).horizontal(true).itemWidth(290))
 		}
 
 		//Top 10 guests chart
@@ -1189,7 +1201,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<div class="navbar-brand" id="ti_logo_container">
-						<a id="ti_logo" href="http://transparency.eu">Transparency International</a>
+						<a id="ti_logo" href="http://www.chiletransparente.cl/">Transparency International</a>
 						<a id="page_title" href="/" target="_blank">Integrity<br />Watch <strong>Chile</strong></a>
 				</div>
 			</div>
@@ -1245,7 +1257,7 @@
 					</div>
 				</div>
 			<div class="col-md-1" id="resetall_container">
-				<button class="btn resetall">RESET<br />FILTERS</button>
+				<button class="btn resetall">RESTABLECER<br />FILTROS</button>
 			</div>
 		</div>
 	</div>
@@ -1263,11 +1275,10 @@
 				<!-- COL1 -->
 				<div class="col-md-5">
 					<div class="chart_box">
-						<h3>Nombre istitucion<!--span class="info">info</span--></h3>
+						<h3>Nombre institucion<!--span class="info">info</span--></h3>
 						<div class="info_chart">
 							<span class="info">info</span>
-							<p class="desc">
-							</p>
+							<p class="desc">Filtrar los declaraciones de declaraciones de Interés y Patrimonio por la institucion de la Republica de Chile.</p>
 						</div>
 						<div class="filter_btn_container">
 							<img src="./img/G1.png" id="gobierno_btn" /><img src="./img/C1.png" id="diputados_btn" /><img src="./img/S1.png" id="senado_btn" /><img src="./img/EL1.png" id="candidates_btn" />
@@ -1279,9 +1290,11 @@
 						<br class="clear" />
 					</div>
 					<!-- TIPO -->
-					<div class="chart_box" id="dectype">
+					<div class="chart_box infofix" id="dectype">
 						<h3>Tipo de declaraciones<!--span class="info">info</span--></h3>
 						<div class="info_chart">
+							<span class="info">info</span>
+							<p class="desc">La ley de Probidad en la Función Pública y Prevención de los Conflictos de Intereses define tres momentos para declarar: cuando asumen el cargo, anualmente en marzo de cada año (actualización) y cuando concluí sus funciones. Las proporciones del gráfico circular refleja el nombre de declaraciones por tipo.</p>
 						</div>
 						<div class="dectype"></div>
 						<div class="legend">
@@ -1295,8 +1308,9 @@
 					<div class="chart_box" id="hosttype">
 						<h3>Valor total activos<!--span class="info">info</span--></h3>
 						<div class="info_chart">
+							<span class="info">info</span>
+							<p class="desc">Valor total de todos los activos declarados por los funcionarios públicos</p>
 						</div>
-						
 						<!-- <div class="income"></div> -->
 						<div class="totval chart-full"></div>
 						<div class="legend">
@@ -1310,8 +1324,7 @@
 								<h3>Proporcion nombre de<br />actividades<!--span class="info">info</span--></h3>
 								<div class="info_chart">
 									<span class="info">info</span>
-									<p class="desc">
-									</p>
+									<p class="desc">El gráfico circular refleja la proporcione de funcionarios por nombre de actividades profesionales.</p>
 								</div>
 								<div class="nactividades chart-full"></div>
 								<div class="label"></div>
@@ -1320,10 +1333,10 @@
 						</div>
 						<div class="col-md-6">
 							<div class="chart_box" id="group_container">
-								<h3>Proporcion de actividades professionales</h3>
+								<h3>Proporcion de actividades professionales (ultimos 12 meses)</h3>
 								<div class="info_chart">
 									<span class="info">info</span>
-									<p class="desc"></p>
+									<p class="desc">El gráfico circular refleja la proporcione de funcionarios por nombre de actividades profesionales.</p>
 								</div>
 									<div class="nproactividades chart-full"></div>
 									<div class="label"></div>
@@ -1343,8 +1356,7 @@
 							<h3>Nombre de<br />veiculos<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
-								<p class="desc">
-								</p>
+								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por nombre de vehículos declarados</p>
 							</div>
 							<div class="vehicles chart-full"></div>
 							<div class="label"></div>
@@ -1356,8 +1368,7 @@
 							<h3>Nombre de<br />comunidades, sociedades, empresas<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
-								<p class="desc">
-								</p>
+								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por nombre de sociedades, comunidades y empresas declarados.</p>
 							</div>
 							<div class="empresas chart-full"></div>
 							<div class="label"></div>
@@ -1369,8 +1380,7 @@
 							<h3>Nombre de<br />bienes inmuebles<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
-								<p class="desc">
-								</p>
+								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por nombre de bienes inmuebles declarados</p>
 							</div>
 							<div class="inmuebles chart-full"></div>
 							<div class="label"></div>
@@ -1381,11 +1391,10 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="chart_box">
-							<h3>Top 10 professions<!--span class="info">info</span--></h3>
+							<h3>TOP 10 ACTIVIDADES PROFESSIONALES<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
-								<p class="desc">
-								</p>
+								<p class="desc">Las proporciones del gráfico circular refleja las 10 actividades profesionales más común declaradas por los funcionarios públicos. </p>
 							</div>
 							<div class="topprofessions chart-full"></div>
 							<div class="label"></div>
@@ -1396,8 +1405,9 @@
 						<div class="chart_box" id="hosttype">
 							<h3>Derechos o Acciones<!--span class="info">info</span--></h3>
 							<div class="info_chart">
+								<span class="info">info</span>
+								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por nombre de derechos y acciones declarados</p>
 							</div>
-							
 							<!-- <div class="income"></div> -->
 							<div class="accionesval chart-full"></div>
 							<div class="legend">
@@ -1427,15 +1437,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title">FUNCIONARIOS PUBLICOS 
-					<!--
+				<h2 class="table_title" style="width: 100%;">FUNCIONARIOS PUBLICOS
 					<div class="info_chart">
 						<span class="info">info</span>
-						<p class="desc">Click on any meeting for additional information.
-						</p>
+						<p class="desc">Haga clic en cualquier declaracion para obtener información adicional.</p>
 					</div>
-					-->
-				</h2><div id="last_update">Last updated: <span id="updatedate"></span></div>
+				</h2>
 			</div>
 			
 			<div class="col-md-12 table-responsive">
