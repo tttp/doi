@@ -131,6 +131,12 @@
 			top: -40px;
 			right: 0;
 		}
+		.chart_box h3 {
+			text-transform: capitalize;
+		}
+		.topistitucion text {
+			text-transform: uppercase;
+		}
 	</style>
 </head>
 
@@ -404,9 +410,9 @@
 			});
 			var group   = dim.group().reduceSum(function(d) {   return 1; });
 			var hosttypecolor = {			
-				"Lobbyistas":"#5b9bd5",
+				"Lobbistas":"#5b9bd5",
 				"Gestores de intereses":"#ed7d31",
-				"Unknown":"#bbbbbb"
+				"Desconocido":"#bbbbbb"
 			};
 			var chart = dc.pieChart(".categoria")
 				.innerRadius(70).radius(100)
@@ -648,7 +654,7 @@
 				s += "<div class='col-md-12 l_data_container_main'>";
 				s += "<div class='l_name'><label>Materia</label><br />"+d.observacionesMateriaAudiencia+"</div>";
 				s += "<div class='l_name'><label>Fecha</label> "+thisdate+"</div>";
-				s += "<div class='l_name'><label>Duracion</label> "+d.duracionMinutoAudiencia+" min.</div>";
+				s += "<div class='l_name'><label>Duración</label> "+d.duracionMinutoAudiencia+" min.</div>";
 				s += "</div>";
 				s += "<div class='col-md-6 l_data_container_host'>";
 				s += "<div class='data_container_title' style='text-align:center;'>Pasivo</div>";
@@ -685,7 +691,7 @@
 				s += "<div class='data_container_title' style='text-align:center;'>Activo</div>";
 				s += "<div class='l_category'><label>Nombre</label> "+d.nombreActivoFull+"</div>";
 				s += "<div class='l_name'><label>Entidad or Persona</label> "+d.nombreEntidadActivo+"</div>";
-				s += "<div class='l_category'><label>Categoria</label> "+d.categoriaA+"</div>";
+				s += "<div class='l_category'><label>Categoría</label> "+d.categoriaA+"</div>";
 				s += "<div class='l_category'><label>Naturaleza</label> "+d.naturalezaActivo+"</div>";
 				s += "<div class='l_category'><label>Giro</label> "+d.giroActivo+"</div>";
 				s += "<div class='l_name'><label>Total audiencias</label> "+countmeetings(d.nombreActivoFull)+"</div>";
@@ -867,7 +873,7 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="about.html">¿Qué es integrity watch?</a></li>
+					<li><a href="about_chile.html">¿Qué es integrity watch?</a></li>
 					<li><a href="contact.html">Contacto</a></li>
 				</ul>
 			</div>
@@ -929,13 +935,13 @@
 						<img src="./img/C1.png" id="diputados_btn" /><img src="./img/S1.png" id="senado_btn" />
 					</div>
 					<div class="chart_box infofix">
-						<h3>Partidos politicos<!--span class="info">info</span--></h3>
+						<h3>Partidos Políticos<!--span class="info">info</span--></h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc">Los partidos políticos representados en el congreso nacional por el nombre de audiencias que han tenido.</p>
 						</div>
 						<div class="topistitucion chart-full"></div>
-						<div class="label">Contacts</div>
+						<div class="label">Audiencias</div>
 						<br class="clear" />
 					</div>
 				</div>
@@ -943,7 +949,7 @@
 				<div class="col-md-5">
 					<!-- CATEGORIA -->
 					<div class="chart_box" id="categoria">
-						<h3>Categoria<!--span class="info">info</span--></h3>
+						<h3>Categoría<!--span class="info">info</span--></h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc">La ley de lobby distingue dos sujetos activos: lobistas o gestores de interés. El primero es renumerado para la realización de la gestión y en el case del segundo, no existe una remuneración específica para ello. Las proporciones del gráfico circular refleja el nombre de audiencias por categoría de sujeto activo.</p>
@@ -1084,11 +1090,11 @@
 				}
 
 				d.date=dateFormat.parse(d.fechainicioAudienca);
-				d.categoriaA = 'Unknown';
+				d.categoriaA = 'Desconocido';
 				if(d.remuneradoActivo == '0'){
 					d.categoriaA = 'Gestores de intereses';
 				} else if(d.remuneradoActivo == '1'){
-					d.categoriaA = 'Lobbyistas';
+					d.categoriaA = 'Lobbistas';
 				}
 				
 				d.cargoNombrePasivoType = 'Otro';

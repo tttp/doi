@@ -179,6 +179,9 @@
 			top: -40px;
 			right: 0;
 		}
+		.chart_box h3 {
+			text-transform: capitalize;
+		}
 	</style>
 </head>
 
@@ -672,7 +675,7 @@
 			if (valor < 50000000 ) return "10M - 50M"; 
 			if (valor < 100000000 ) return "50M - 100M"; 
 			if (valor < 1000000000 ) return "100M - 1B"; 
-			return "> 1 Billion";
+			return "> 1 Billón";
 		}
 		
 		//accionesval
@@ -689,7 +692,7 @@
 				.height(300)
 				//.width(165)
 				.gap(18)
-				.x(d3.scale.ordinal().domain(["0", "1 - 10M", "10M - 50M", "50M - 100M", "100M - 1B", "> 1 Billion"])) // Need empty val to offset first value
+				.x(d3.scale.ordinal().domain(["0", "1 - 10M", "10M - 50M", "50M - 100M", "100M - 1B", "> 1 Billón"])) // Need empty val to offset first value
 				.xUnits(dc.units.ordinal)
 				.elasticY(true)
 				.colorCalculator(function(d, i) {
@@ -727,7 +730,7 @@
 				//.width(165)
 				.gap(18)
 				//.x(d3.scale.ordinal().domain(["", "<= MM$50", "MM$50 - MM$100", "MM$100 - MM$500", "MM$500 - MM$1000", "MM$1000 - MM$5000", "MM$5000 - MM$10000", "> MM$10000"]))
-				.x(d3.scale.ordinal().domain(["0", "1 - 10M", "10M - 50M", "50M - 100M", "100M - 1B", "> 1 Billion"])) // Need empty val to offset first value
+				.x(d3.scale.ordinal().domain(["0", "1 - 10M", "10M - 50M", "50M - 100M", "100M - 1B", "> 1 Billón"])) // Need empty val to offset first value
 				.xUnits(dc.units.ordinal)
 				.elasticY(true)
 				.colorCalculator(function(d, i) {
@@ -760,13 +763,15 @@
 				.height(370)
 				.dimension(dim)
 				.cap(9)
-				.group(group)	
+				.group(group)				
 				/*				
 				.colorCalculator(function(d, i) {
 					return typecolor[d.key];
 				});
 				*/
 				chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5).horizontal(true).itemWidth(290))
+				
+			
 		}
 
 		//Top 10 guests chart
@@ -1220,7 +1225,7 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="about.html">¿Qué es integrity watch?</a></li>
+					<li><a href="about_chile.html">¿Qué es integrity watch?</a></li>
 					<li><a href="contact.html">Contacto</a></li>
 				</ul>
 			</div>
@@ -1275,7 +1280,7 @@
 				<!-- COL1 -->
 				<div class="col-md-5">
 					<div class="chart_box">
-						<h3>Nombre institucion<!--span class="info">info</span--></h3>
+						<h3>Institución<!--span class="info">info</span--></h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc">Filtrar los declaraciones de declaraciones de Interés y Patrimonio por la institucion de la Republica de Chile.</p>
@@ -1321,7 +1326,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="chart_box">
-								<h3>Proporcion nombre de<br />actividades<!--span class="info">info</span--></h3>
+								<h3>Proporción nombre de<br />actividades<!--span class="info">info</span--></h3>
 								<div class="info_chart">
 									<span class="info">info</span>
 									<p class="desc">El gráfico circular refleja la proporcione de funcionarios por nombre de actividades profesionales cuando asumen su cargo.</p>
@@ -1333,7 +1338,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="chart_box" id="group_container">
-								<h3>PROPORCION NOMBRE DE ACTIVIDADES (ULTIMOS 12 MESES)</h3>
+								<h3>Proporción nombre de actividades (últimos 12 meses)</h3>
 								<div class="info_chart">
 									<span class="info">info</span>
 									<p class="desc">El gráfico circular refleja la proporcione de funcionarios por nombre de actividades profesionales en los 12 meses antes de asumir su cargo.</p>
@@ -1353,7 +1358,7 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="chart_box">
-							<h3>Nombre de<br />veiculos<!--span class="info">info</span--></h3>
+							<h3>Nombre de<br />vehículo<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
 								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por nombre de vehículos declarados</p>
@@ -1391,7 +1396,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="chart_box">
-							<h3>TOP 10 ACTIVIDADES PROFESSIONALES<!--span class="info">info</span--></h3>
+							<h3>Top 10 actividades profesionales<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
 								<p class="desc">Las proporciones del gráfico circular refleja las 10 actividades profesionales más común declaradas por los funcionarios públicos. </p>
@@ -1437,7 +1442,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title" style="width: 100%;">FUNCIONARIOS PUBLICOS
+				<h2 class="table_title" style="width: 100%;">Funcionarios Público
 					<div class="info_chart">
 						<span class="info">info</span>
 						<p class="desc">Haga clic en cualquier declaracion para obtener información adicional.</p>
@@ -1455,7 +1460,7 @@
 							<th class="header">Partido</th> 
 							<th class="header">Actividades</th> 
 							<th class="header">Propriedades</th> 
-							<th class="header">Vehiculos</th>
+							<th class="header">Vehículos</th>
 							<th class="header">Salario Bruto</th> 
 							<th class="header">Valor total activos</th> 
 							<th class="header">Activos adicionales</th> 
@@ -1893,6 +1898,7 @@
 			senadofilter = false;
 			gobiernofilter = false;
 			candidatofilter = false;
+			//jQuery( ".topprofessions g text:contains('Others')" ).text('Otros');
 		}); 
 		
 		$(".moregraphs").click(function() {
