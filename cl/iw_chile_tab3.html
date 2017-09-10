@@ -182,6 +182,13 @@
 		.chart_box h3 {
 			text-transform: capitalize;
 		}
+		.nav li#cm_tool_btn.active a {
+			background: #039aab none repeat scroll 0 0;
+			color: #fff;
+		}
+		#filter_wrap.filter_cm {
+			 background: #039aab none repeat scroll 0 0;
+		}
 	</style>
 </head>
 
@@ -383,6 +390,7 @@
 		}
 		
 		function activitiesRange(num){
+			/*
 			if(num >= 1 && num < 5){
 				return "1 - 4";
 			}
@@ -390,6 +398,11 @@
 				return "5 +";
 			}
 			return "0";
+			*/
+			if(num > 5){
+				return "5+";
+			}
+			return num;
 		}
 		
 		//Type
@@ -438,11 +451,13 @@
 				.dimension(dim)
 				.cy(110)
 				.cap(7)
-				.group(group)				
+				.group(group)	
+				/*
 				.colorCalculator(function(d, i) {
 					return typecolor[d.key];
 				});
-				chart.legend(dc.legend().x(30).y(200).itemHeight(13).gap(5))
+				*/
+				chart.legend(dc.legend().x(65).y(235).itemHeight(13).gap(5).horizontal(true).itemWidth(40))
 		}
 		
 		//Professional Activities
@@ -462,11 +477,13 @@
 				.dimension(dim)
 				.cy(110)
 				.cap(7)
-				.group(group)				
+				.group(group)	
+				/*
 				.colorCalculator(function(d, i) {
 					return typecolor[d.key];
 				});
-				chart.legend(dc.legend().x(30).y(200).itemHeight(13).gap(5))
+				*/
+				chart.legend(dc.legend().x(65).y(235).itemHeight(13).gap(5).horizontal(true).itemWidth(40))
 		}
 		
 		//Category Chart (Lobbyist or gestores de intereses)
@@ -868,17 +885,16 @@
 				  "defaultContent":"0",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.mueble.length; 
+					 return d.acciones.length; 
 					},
 				  },{
 				  "searchable": false,
 				  "orderable": true,
 				  "targets": 7,
-				  "defaultContent":"N/A",
+				  "defaultContent":"0",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 //return d.Grado; 
-					 return d.gradoNum;
+					 return d.mueble.length; 
 					},
 				  },{
 				  "searchable": false,
@@ -935,7 +951,16 @@
 				}
 				return "N/A";
 			}
-				
+			
+			function cleanDate(date){
+				var thisdate = date.split(" ");
+				return thisdate[0];
+			}
+			function cleanAmount(x){
+				var cleanamount = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+				return cleanamount + " CLP";
+			}
+			
 			function format (d) {				
 				if (!d) return "no data";
 				var monthNames = [
@@ -956,11 +981,11 @@
 				s += "<div class='l_name'><label>Nombre</label> "+d.fullName+"</div>";
 				s += "<div class='l_name'><label>Cargo</label> "+d.Cargo+"</div>";
 				s += "<div class='l_name'><label>Partido</label> "+d.party+"</div>";
-				s += "<div class='l_name'><label>Fecha assume el cargo</label> "+d.Datos_Entidad_Por_La_Que_Declara.Fecha_Asuncion_Cargo+"</div>";
+				s += "<div class='l_name'><label>Fecha assume el cargo</label> "+cleanDate(d.Datos_Entidad_Por_La_Que_Declara.Fecha_Asuncion_Cargo)+"</div>";
 				s += "</div><div class='col-md-6'><div class='row'><div class='col-md-6'>";
 				s += "<div class='salario-box-1'><strong>Salario Bruto</strong><br />"+d.gradoNum+"</div>";
 				s += "</div><div class='col-md-6'>";
-				s += "<div class='salario-box-2'><strong>Valor Total Activos</strong><br />"+d.activotot+"</div>";
+				s += "<div class='salario-box-2'><strong>Valor Total Activos</strong><br />"+cleanAmount(d.activotot)+"</div>";
 				s += "</div></div></div></div><div class='infobox-divider'></div>";
 				
 				s += "<div class='row'><div class='col-md-12'>";
@@ -971,7 +996,7 @@
 				}
 				_.each(d.activity, function (a) {
 					
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Tipo_Actividad.nombre+"</td><td>"+a.Rubro.nombre+"</td><td>"+a.Nombre_Razon_Social+"</td><td>"+a.Clasificacion.nombre+"</td><td>"+a.Fecha_Inicio+"</td></tr>";
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Tipo_Actividad.nombre+"</td><td>"+a.Rubro.nombre+"</td><td>"+a.Nombre_Razon_Social+"</td><td>"+a.Clasificacion.nombre+"</td><td>"+cleanDate(a.Fecha_Inicio)+"</td></tr>";
 				});
 				if(d.activity.length > 0){
 					s += "</tbody></table>";
@@ -982,7 +1007,7 @@
 					s += "<table style='width:100%;'><thead><tr><th>Titulo</th><th>Entidad</th><th>Cantidad</th><th>Fecha</th><th>Controlador</th></tr></thead><tbody>";
 				}
 				_.each(d.acciones, function (a) {
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Titulo_Derecho_Accion.nombre+"</td><td>"+a.Nombre_Razon_Social+"</td><td>"+a.Cantidad_Porcentaje+"</td><td>"+a.Fecha_Adquisicion+"</td><td>"+a.Tiene_Calidad_Controlador+"</tr>";
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Titulo_Derecho_Accion.nombre+"</td><td>"+a.Nombre_Razon_Social+"</td><td>"+a.Cantidad_Porcentaje+"</td><td>"+cleanDate(a.Fecha_Adquisicion)+"</td><td>"+a.Tiene_Calidad_Controlador+"</tr>";
 				});
 				if(d.acciones.length > 0){
 					s += "</tbody></table>";
@@ -993,7 +1018,7 @@
 					s += "<table style='width:100%;'><thead><tr><th>Region</th><th>Fecha de adquisición</th><th>Forma</th><th>Domicilio</th><th>Avalúo Fiscal</th></tr></thead><tbody>";
 				}
 				_.each(d.inmueble, function (a) {
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Region.nombre+"</td><td>"+a.Fecha_Adquisicion+"</td><td>"+a.Forma_Propiedad.nombre+"</td><td>"+a.Es_Su_Domicilio+"</td><td>"+a.Avaluo_Fiscal+"</td></tr>";
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Region.nombre+"</td><td>"+cleanDate(a.Fecha_Adquisicion)+"</td><td>"+a.Forma_Propiedad.nombre+"</td><td>"+a.Es_Su_Domicilio+"</td><td>"+a.Avaluo_Fiscal+"</td></tr>";
 				});
 				if(d.inmueble.length > 0){
 					s += "</tbody></table>";
@@ -1015,7 +1040,7 @@
 					s += "<table style='width:100%;'><thead><tr><th>Titulo</th><th>Emissor</th><th>Fecha de adquisición</th><th>Pais</th><th>Valor</th></tr></thead><tbody>";
 				}
 				_.each(d.valores, function (a) {
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Titulo_Documento.nombre+"</td><td>"+a.Nombre_Razon_SocialEmisor+"</td><td>"+a.Fecha_Adquisicion+"</td><td>"+a.Pais_Emision_Valores.nombre+"</td><td>"+a.Valor_Corriente_Plaza+"</td></tr>";
+					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Titulo_Documento.nombre+"</td><td>"+a.Nombre_Razon_SocialEmisor+"</td><td>"+cleanDate(a.Fecha_Adquisicion)+"</td><td>"+a.Pais_Emision_Valores.nombre+"</td><td>"+a.Valor_Corriente_Plaza+"</td></tr>";
 				});
 				if(d.valores.length > 0){
 					s += "</tbody></table>";
@@ -1219,8 +1244,9 @@
 					<li class="dropdown">
 						<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 120px;">Otras versiones<span class="caret"></span></a>
 						 <ul class="dropdown-menu">
-							<li><a href="http://www.integritywatch.eu">IW EU</a></li>
-						    <li><a href="http://www.integritywatch.fr">IW France</a></li>
+							<li><a href="http://www.integritywatch.eu">Unión Europea</a></li>
+						    <li><a href="http://www.integritywatch.fr">Francia</a></li>
+							<li><a href="">Reino Unido</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -1460,8 +1486,8 @@
 							<th class="header">Partido</th> 
 							<th class="header">Actividades</th> 
 							<th class="header">Propriedades</th> 
+							<th class="header">Empresas</th> 
 							<th class="header">Vehículos</th>
-							<th class="header">Salario Bruto</th> 
 							<th class="header">Valor total activos</th> 
 							<th class="header">Activos adicionales</th> 
 						</tr>
