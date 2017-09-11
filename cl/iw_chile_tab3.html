@@ -109,7 +109,7 @@
 			display: none !important;
 		}
 		.filter_btn_container {
-			padding: 40px 0 50px 0;
+			padding: 40px 0 20px 0;
 		}
 		.salario-box-1 {
 			border: 2px solid #5b9bd5 !important;
@@ -777,7 +777,7 @@
 				.innerRadius(0).radius(130)
 				//.margins({top: 0, right: 3, bottom: 20, left: 3})
 				.cy(130)
-				.height(370)
+				.height(460)
 				.dimension(dim)
 				.cap(9)
 				.group(group)				
@@ -786,7 +786,8 @@
 					return typecolor[d.key];
 				});
 				*/
-				chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5).horizontal(true).itemWidth(290))
+				chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5))
+				//chart.legend(dc.legend().x(30).y(280).itemHeight(13).gap(5).horizontal(true).itemWidth(290))
 				
 			
 		}
@@ -1321,8 +1322,19 @@
 						<br class="clear" />
 					</div>
 					<!-- TIPO -->
+					<div class="chart_box infofix">
+						<h3>Top 10 actividades profesionales<!--span class="info">info</span--></h3>
+						<div class="info_chart">
+							<span class="info">info</span>
+							<p class="desc">Las proporciones del gráfico circular refleja las 10 actividades profesionales más común declaradas por los funcionarios públicos. </p>
+						</div>
+						<div class="topprofessions chart-full"></div>
+						<div class="label"></div>
+						<br class="clear" />
+					</div>
+					<!--
 					<div class="chart_box infofix" id="dectype">
-						<h3>Tipo de declaraciones<!--span class="info">info</span--></h3>
+						<h3>Tipo de declaraciones</h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc">La ley de Probidad en la Función Pública y Prevención de los Conflictos de Intereses define tres momentos para declarar: cuando asumen el cargo, anualmente en marzo de cada año (actualización) y cuando concluí sus funciones. Las proporciones del gráfico circular refleja el nombre de declaraciones por tipo.</p>
@@ -1332,6 +1344,7 @@
 						</div>
 						<br class="clear" />
 					</div>
+					-->
 				</div>
 				<!-- COL2 -->
 				<div class="col-md-7">
@@ -1420,9 +1433,10 @@
 					</div>
 				</div>
 				<div class="row">
+					<!--
 					<div class="col-md-6">
 						<div class="chart_box">
-							<h3>Top 10 actividades profesionales<!--span class="info">info</span--></h3>
+							<h3>Top 10 actividades profesionales</h3>
 							<div class="info_chart">
 								<span class="info">info</span>
 								<p class="desc">Las proporciones del gráfico circular refleja las 10 actividades profesionales más común declaradas por los funcionarios públicos. </p>
@@ -1432,6 +1446,7 @@
 							<br class="clear" />
 						</div>
 					</div>
+					-->
 					<div class="col-md-6">
 						<div class="chart_box" id="hosttype">
 							<h3>Derechos o Acciones<!--span class="info">info</span--></h3>
