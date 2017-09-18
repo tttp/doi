@@ -1,0 +1,5 @@
+*.swp
+.~lock*
+_*/
+node_modules/
+bower_components/
