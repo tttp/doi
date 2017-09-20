@@ -806,13 +806,18 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		
 		var chart = dc.pieChart(".hosttype")
 			.innerRadius(50).radius(100)
-			.height(250)
+			.height(350)
+			.cy(100)
+			.cap(6)
+			//.width(250)
 			.dimension(dim)
-			.group(group)
+			.group(group);
 			//.legend(dc.legend().x(0).y(190).gap(10)) TODO: use dc.legend		
-			.colorCalculator(function(d, i) {
-				return hosttypecolor[d.key];
-			});
+			//.colorCalculator(function(d, i) {
+				//return hosttypecolor[d.key];
+			//});
+			
+		chart.legend(dc.legend().x(0).y(220).itemHeight(13).gap(5).horizontal(false).autoItemWidth(true))
 	
 	}
 
@@ -839,7 +844,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	
 	var graph = dc.rowChart (".host")   
 		.margins({top: 0, right: 5, bottom: 20, left: 5})
-		.height(520)
+		.height(600)
 		.gap(2)
 		.x(d3.scale.ordinal())
 		.elasticX(true)
@@ -854,6 +859,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 		.group(group);
 
 		graph.xAxis().ticks(5).tickFormat(d3.format("d"));
+		
 		//.xAxis().ticks(4);
 
 	}
@@ -1019,7 +1025,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "targets": 3,
               "data": function(d) {
                  if (!d) return "";
-                 if (!d.date) return "";
+                 if (!d.date) return d.date1;
                    return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
                    //return d.date.getFullYear()+"-"+(1+d.date.getMonth())+"-"+d.date.getDate();
                 },
@@ -1547,11 +1553,11 @@ function eventpopup (epid) {
 							</div>
 							
 							<div class="hosttype"></div>
-							<div class="legend">
+							<!-- <div class="legend">
 								<div class="directors">Minister of State</div>
 								<div class="commissioner">Secretary of State</div>								
 								<br class="clear" />
-							</div>
+							</div> -->
 							<br class="clear" />
 						</div>
 						
@@ -1578,7 +1584,7 @@ function eventpopup (epid) {
 					</div>
 				</div>
 				
-				<div class="col-md-6" id="lobbyist_chart_container">
+				<div class="col-md-6" id="lobbyist_chart_container" style="border:none;">
 					<h2>Lobbyist</h2>
 					<div class="row">
 						<div class="col-md-6 chart_box">
@@ -1593,7 +1599,7 @@ function eventpopup (epid) {
 							<br class="clear" />
 						</div>
 					
-						<div class="col-md-6 chart_box" id="group_container">
+						<div class="col-md-6 chart_box" id="group_container" style="border-left: 1px solid #ccc;">
 							<h3>Top 10 Organisations</h3>
 							<div class="info_chart">
 								<span class="info">info</span>
@@ -1680,7 +1686,7 @@ function eventpopup (epid) {
 						<tr class="header">
 							<th class="header">#</th> 
 							<th class="header">Department</th> 
-							<th class="header">Minister</th> 
+							<th class="header">Position</th> 
 							<th class="header">Date</th> 
 							<th class="header">Purpose</th> 
 							<th class="header">Portfolio</th> 
@@ -1722,10 +1728,15 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 			var dateFormat = d3.time.format("%m/%d/%Y");
 			var now = Date.now();
 			var a;
-						
+			var RecordId = 0;
+			
 			_.each (events, function (d) {
 				//d.date = d.date.replace(" ","T");
+				d.RecordId = RecordId;
+				d.date1 = d.date;
 				d.date=dateFormat.parse(d.date);
+				d.portfolio = d.portfolio.trim();
+				RecordId ++;
 			});
 			grid ("#ec",events);
 		});
