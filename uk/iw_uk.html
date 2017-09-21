@@ -197,6 +197,12 @@ div#ti_logo_container a#ti_logo {
     height: 60px;
     width: 56%;
 }
+.hosttype text.pie-slice {
+	display: none;
+}
+.main_category svg g g:nth-child(odd) rect {
+	fill: #65a7cf !important;
+}
 </style>
 
 
@@ -532,7 +538,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			.ordering(function(d){return -d.value})
 			.dimension(dim)
 			.group(group);
-			
+		
+		//chart.ordinalColors(['#9ecae1', '#fdae6b', '#6baed6','#fd8d3c', '#0f4c79', '#e6550d', '#3182bd']);	
 		chart.xAxis().ticks(5).tickFormat(d3.format("d"));
 	}
 
@@ -816,7 +823,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			//.colorCalculator(function(d, i) {
 				//return hosttypecolor[d.key];
 			//});
-			
+		chart.ordinalColors(['#9ecae1', '#fdae6b', '#6baed6','#fd8d3c', '#0f4c79', '#e6550d', '#3182bd']);	
 		chart.legend(dc.legend().x(0).y(220).itemHeight(13).gap(5).horizontal(false).autoItemWidth(true))
 	
 	}
