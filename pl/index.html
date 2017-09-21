@@ -11,7 +11,7 @@
 	<meta property="og:description" content="Who’s #lobbying the EU Commission and how much are they spending? Check Integrity Watch" />
 	<meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
 	<meta property="fb:app_id" content="1611680135716224" />
-	<title>Integrity Watch Chile</title>
+	<title>Integrity Watch Polska</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<link href="css/bower.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/dc.css"/>
@@ -57,12 +57,19 @@
 			color: #333;
 		}
 		.l_data_container_host {
-			border: 4px solid #0f4c79 !important;
-			border-right: 3px solid #0f4c79 !important;
+			//border: 4px solid #0f4c79 !important;
+			//border-right: 3px solid #0f4c79 !important;
+			border: 2px solid #0f4c79 !important;
 			margin-top: 0 !important;
 			//height: 230px;
-			padding: 10px 15px !important;
+			padding: 20px 35px !important;
 			background: #fff;
+		}
+		.l_data_container_host .hr {
+			background: #0f4c79;
+			width: 100%;
+			height: 1px;
+			margin: 10px 0;
 		}
 		.l_data_container_guest {
 			border: 4px solid #8e1556 !important;
@@ -112,9 +119,13 @@
 			text-transform: capitalize;
 		}
 		div#ti_logo_container a#ti_logo {
-			//background-image: url("./img/logo_TI-Chile-white.png");
+			background-image: url("./img/logo.png");
 			//height: 60px;
 			//width: 56%;
+			height: 75px;
+			position: relative;
+			top: -5px;
+			width: 100px;
 		}
 		.navbar .navbar-nav > li > a {
 			width: 130px;
@@ -123,6 +134,40 @@
 		}
 		.chart_box h3 {
 			text-transform: capitalize;
+		}
+		a#page_title {
+			border-left: 1px solid #fff;
+			color: #fff;
+			float: right;
+			font-size: 14px;
+			line-height: 1.2em;
+			margin: 15px 0;
+			margin-right: 15px;
+			margin-top: 7px;
+			padding-left: 15px;
+			padding-right: 20px;
+			text-transform: uppercase;
+			width: 40%;
+		}
+		div#ti_logo_container {
+			width: 230px;
+		}
+		.navbar-collapse ul.navbar-right li a {
+			line-height: 80px !important;
+		}
+		.dropdown-menu li{
+			margin: 1em 0;
+		}
+		.menu-link1 {
+			padding-top: 20px !important;
+		}
+		.menu-link2 {
+			padding-top: 30px !important;
+			width: 130px !important;
+		}
+		.menu-link2 .caret {
+			display: inline-block;
+			margin-left: 15px;
 		}
 	</style>
 </head>
@@ -265,6 +310,7 @@
 		drawTopCommittee();
 		drawEntities();
 		drawTopPeople();
+		drawTerm();
 		//drawOrgCounter();
 		
 		
@@ -518,7 +564,7 @@
 		})(group);
 		var graph = dc.rowChart(".topcommittee")   
 			.margins({top: 0, right: 3, bottom: 20, left: 3})
-			.height(370)
+			.height(160)
 			//.width(165)
 			.gap(3)
 			.x(d3.scale.ordinal())
@@ -527,6 +573,39 @@
 				return "#ecb005";
 			})
 			.ordering(function(d){return -d.value})
+			.dimension(dim)
+			.group(filteredGroup);
+
+			graph.xAxis().ticks(5).tickFormat(d3.format("d"));	
+		};
+		
+		
+		
+		function drawTerm () {
+			var dim = ndx.dimension (function(d) {
+				return d.term_office1;
+			});	
+			var group = dim.group().reduceSum(function(d) { return 1; });
+			var filteredGroup = (function(source_group) {
+				return {
+					all: function() {
+						return source_group.top(11).filter(function(d) {
+						return (d.key != "" && d.key != "Unknown" && d.key != "Not mentioned" && d.value != 0);
+					});
+				}
+			};
+		})(group);
+		var graph = dc.rowChart(".termoffice")   
+			.margins({top: 0, right: 3, bottom: 20, left: 3})
+			.height(120)
+			//.width(165)
+			.gap(3)
+			.x(d3.scale.ordinal())
+			.elasticX(true)
+			.colorCalculator(function(d, i) {
+				return "#ecb005";
+			})
+			//.ordering(function(d){return -d.value})
 			.dimension(dim)
 			.group(filteredGroup);
 
@@ -555,7 +634,8 @@
 				  "className":"capitalize",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.meeting_id; 
+					 //return d.meeting_id; 
+					 return d.committee; 
 					},
 				  },{
 				  "searchable": false,
@@ -564,7 +644,7 @@
 				  "defaultContent":"N/A",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.committee; 
+					 return d.term_office1; 
 					},
 				  },{
 				  "defaultContent":"N/A",
@@ -573,7 +653,8 @@
 				  "targets": 3,
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
-					 return d.person; 
+					 //return d.person; 
+					 return d.meeting_id;
 					}
 				  },{
 				  "defaultContent":"N/A",
@@ -595,17 +676,7 @@
 					 if (!d) return "";
 					 return d.entity; 
 					}
-				  }, 
-				  {
-				  "defaultContent":"N/A",
-				  "searchable": false,
-				  "orderable": true,
-				  "targets": 6,
-				  "data": function (d, type, val, meta) {
-					 if (!d) return "";
-					 return d.affiliation; 
-					}
-				  } 
+				  }
 				],
 				"iDisplayLength" : 100,
 				"bPaginate": true,
@@ -635,17 +706,21 @@
 				if (!d) return "no data";
 
 				s  = "<div class='l_data_container row'>";
-				s += "<div class='col-md-12 l_data_container_main'>";
-				s += "<div class='l_name'><label>Subject</label><br />"+d.subject+"</div>";
-				s += "</div>";
 				
 				s += "<div class='col-md-12 l_data_container_host'>";
-				s += "<div class='data_container_title' style='text-align:center;'>Details</div>";
-				s += "<div class='l_name'><label>Person</label> "+d.person+"</div>";
-				s += "<div class='l_name'><label>Committee</label> "+d.committee+"</div>";
-				s += "<div class='l_name'><label>Affiliation</label> "+d.affiliation+"</div>";
-				s += "<div class='l_name'><label>Entity</label> "+d.entity+"</div>";
-				s += "<div class='l_name'><label>Type</label> "+d.type+"</div>";
+				s += "<div class='l_name' style='text-align:center;margin-bottom:30px;'><label><strong>SPRAWA</strong></label><br />"+d.subject+"</div>";
+				s += "<div class='data_container_title' style='text-align:center;'></div>";
+				
+				s += "<div class='l_name'><label>Kadencja:</label> "+d.term_office1+"</div>";
+				s += "<div class='l_name'><label>Komisja:</label> "+d.committee+"</div>";
+				s += "<div class='l_name'><label>Posiedzenie:</label> "+d.meeting_id+"</div>";
+				s += "<div class='hr'></div>";
+				s += "<div class='l_name'><label>Osoby:</label> "+d.person+"</div>";
+				s += "<div class='l_name'><label>Afiliacje Osob:</label> "+d.affiliation+"</div>";
+				s += "<div class='l_name'><label>Nazwa podmiotu:</label> "+d.entity+"</div>";
+				s += "<div class='l_name'><label>Rodzaj:</label> "+d.type+"</div>";
+				
+				
 				s += "</div>";
 				s += "</div>";
 				return s;
@@ -801,15 +876,15 @@
 				</button>
 				<div class="navbar-brand" id="ti_logo_container">
 						<a id="ti_logo" href="http://www.chiletransparente.cl/">Transparency International</a>
-						<a id="page_title" href="/" target="_blank">Integrity<br />Watch <strong>Poland</strong></a>
+						<a id="page_title" href="/" target="_blank">Integrity<br />Watch <strong>Polska</strong></a>
 				</div>
 			</div>
 		
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active" id="cm_tool_btn"><a href="iw_chile.html"><strong>Posiedzenia<br />komisji</strong></a></li>
+					<li class="active" id="cm_tool_btn"><a href="iw_chile.html" class="menu-link1"><strong>Posiedzenia<br />komisji</strong></a></li>
 					<li class="dropdown">
-						<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 120px;">Inne wersje<span class="caret"></span></a>
+						<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle menu-link2" href="#" style="width: 120px;">Inne wersje<span class="caret"></span></a>
 						 <ul class="dropdown-menu">
 							<li><a href="http://www.integritywatch.eu">European Union</a></li>
 						    <li><a href="http://www.integritywatch.fr">France</a></li>
@@ -818,8 +893,8 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="about_chile.html">What is integrity watch?</a></li>
-					<li><a href="contact.html">Contacts</a></li>
+					<li><a href="about_chile.html">O firmie Integrity Watch</a></li>
+					<!-- <li><a href="contact.html">Contacts</a></li> -->
 				</ul>
 			</div>
 	 </div><!-- container -->
@@ -870,7 +945,18 @@
 				<div class="col-md-4">
 					<!-- TOP 10 ACTIVOS -->
 					<div class="chart_box" id="group_container">
-						<h3>Top committees</h3>
+						<h3>Kadencja</h3>
+						<div class="info_chart">
+							<span class="info">info</span>
+							<p class="desc"></p>
+						</div>
+						<div class="termoffice chart-full"></div>
+						<div class="label">Number of contacts</div>
+						<br class="clear" />
+					</div>
+					<!-- TOP 10 ACTIVOS -->
+					<div class="chart_box" id="group_container">
+						<h3>Komisja</h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc"></p>
@@ -896,7 +982,7 @@
 				<div class="col-md-4">
 					<!-- CATEGORIA -->
 					<div class="chart_box" id="categoria">
-						<h3>Top 10 Entities<!--span class="info">info</span--></h3>
+						<h3>Nazwa podmiotu<!--span class="info">info</span--></h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc"></p>
@@ -913,7 +999,7 @@
 				<div class="col-md-6">
 					<!-- TYPE -->
 					<div class="chart_box">
-						<h3>Type</h3>
+						<h3>Rodzaj</h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc"></p>
@@ -926,7 +1012,7 @@
 				<div class="col-md-6">
 					<!-- WORDCLOUD -->
 					<div class="chart_box">
-						<h3>Subjects</h3>
+						<h3>Sprawa</h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc"></p>
@@ -957,12 +1043,11 @@
 					<thead>
 						<tr class="header">
 							<th class="header">Nr</th> 
+							<th class="header">Komisja</th>
+							<th class="header">Kadencja</th>
 							<th class="header">Posiedzenie</th>
-							<th class="header">Komisja</th> 
-							<th class="header">Osoby</th> 
 							<th class="header">Sprawa</th> 
 							<th class="header">Nazwa Podmiotu</th> 
-							<th class="header">Afiliacje Osob</th> 
 						</tr>
 					</thead>
 				</table>
@@ -1004,6 +1089,7 @@
 			
 			//Loop through dataset and fix/adjust data
 			var thisid = 0;
+		
 			_.each (events, function (d) {
 				//alert(d.toSource());
 				d.type = "";
@@ -1039,6 +1125,8 @@
 					d.type = "Other";
 				}
 				//alert(d.type);
+				d.num = thisid;
+				thisid ++;
 				
 			});
 			//End loop through dataset
@@ -1049,12 +1137,12 @@
 		
 		//Load datasets
 		
-		d3.csv("data/poland.csv", function(rows) {
+		d3.csv("data/poland2.csv", function(rows) {
 			events = rows;
 			renderLoaded();
 		});   
 		
-		d3.csv("data/poland.csv", function (rows) {
+		d3.csv("data/poland2.csv", function (rows) {
 			events = rows;
 			renderLoaded();
 		}); 
