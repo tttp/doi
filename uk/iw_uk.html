@@ -203,6 +203,9 @@ div#ti_logo_container a#ti_logo {
 .main_category svg g g:nth-child(odd) rect {
 	fill: #65a7cf !important;
 }
+.main_category svg g g:nth-child(odd) rect.deselected {
+	fill: #e8e8e8 !important;
+}
 </style>
 
 
@@ -425,6 +428,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	});
 	
 	dateEvent = ndx.dimension(function(d) {
+		if(!d.date){
+			return "";
+		}
 		return d.date;
 	});
 
@@ -1745,6 +1751,7 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 		var renderLoaded  = _.after(2,  function () { 
 			//var dateFormat = d3.time.format("%d/%m/%Y");
 			var dateFormat = d3.time.format("%m/%d/%Y");
+
 			var now = Date.now();
 			var a;
 			var RecordId = 0;
@@ -1816,7 +1823,7 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 	$("#datefilter").click(function () {
 		//alert(inidate + ' ' + enddate);
 		dateEvent.filter(function (d) { 
-			return (d.getTime() >= inidate.getTime()) && (d.getTime() <= enddate.getTime());
+			return (d != "" && (d.getTime() >= inidate.getTime()) && (d.getTime() <= enddate.getTime()));
 		});
 			$(".resetall").attr("disabled",false);
 		throttle();
