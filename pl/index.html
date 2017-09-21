@@ -682,7 +682,7 @@
 				"bPaginate": true,
 				"bLengthChange": false,
 				"bFilter": false,
-				"order": [[ 3, "desc" ]],
+				"order": [[ 2, "asc" ],[3,"asc"]],
 				"bSort": true,
 				"bInfo": false,
 				"bAutoWidth": false,
@@ -1029,7 +1029,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="content" id="list_content">
-				<h2 class="table_title" style="width: 100%;">Meetings
+				<h2 class="table_title" style="width: 100%;">POSIEDZENIE
 					<div class="info_chart">
 						<span class="info">info</span>
 						<p class="desc"></p>
@@ -1096,33 +1096,33 @@
 				if(d.NGO == 1){
 					d.type = "NGO";
 				} else if(d.c_industry == 1){
-					d.type = "Industry organisations / chambers";
+					d.type = "Organizacje branżowe/ izby";
 				} else if(d.c_employers == 1){
-					d.type = "Employers organisation";
+					d.type = "Organizacja pracodawców";
 				} else if(d.c_trade == 1){
-					d.type = "Trade union";
+					d.type = "Związek zawodowy";
 				} else if(d.c_company == 1){
-					d.type = "Company";
+					d.type = "Firmy";
 				} else if(d.c_research == 1){
-					d.type = "University and research institutes";
+					d.type = "Przedstawiciele z uczelni i instytutów naukowych";
 				} else if(d.c_gov == 1){
-					d.type = "Ministry, government, president";
+					d.type = "Ministerstwo, rząd, prezydent";
 				} else if(d.c_parliament == 1){
-					d.type = "Parliament";
+					d.type = "Sejm";
 				} else if(d.c_public == 1){
-					d.type = "Public Institution";
+					d.type = "Instytucja publiczna (np.. NIK)";
 				} else if(d.c_autonomy == 1){
-					d.type = "Autonomy";
+					d.type = "Samorząd";
 				} else if(d.c_lobbyst == 1){
-					d.type = "Lobbyist";
+					d.type = "Lobbysta";
 				} else if(d.c_state == 1){
-					d.type = "State-owned companies and enterprises";
+					d.type = "Spółki skarbu państwa, przedsiębiorstwa państwowe";
 				} else if(d.c_parks == 1){
-					d.type = "Parks";
+					d.type = "Parki";
 				} else if(d.c_foreign == 1){
-					d.type = "Foreign countries";
+					d.type = "Przedstawiciele obcych państw";
 				} else if(d.c_other == 1){
-					d.type = "Other";
+					d.type = "Inne";
 				}
 				//alert(d.type);
 				d.num = thisid;
