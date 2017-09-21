@@ -837,6 +837,16 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	});
 
 	var group   = dim.group().reduceSum(function(d) {   return 1; });
+
+	var filteredGroup = (function(source_group) {
+		return {
+			all: function() {
+				return source_group.top(20).filter(function(d) {
+					return (d.key != "Not mentioned" && d.value != 0);
+				});
+			}
+		};
+	})(group);
 	
 	var portfolio_type = [
 		"Better Regulation",
@@ -863,8 +873,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 				return "#84c0e9";
 			}
 		})
+		.ordering(function(d){return -d.value})
 		.dimension(dim)
-		.group(group);
+		.group(filteredGroup);
 
 		graph.xAxis().ticks(5).tickFormat(d3.format("d"));
 		
@@ -1739,6 +1750,10 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 			var RecordId = 0;
 			
 			_.each (events, function (d) {
+				//alert(d.toSource());
+				if(!d.purpose){
+					d.purpose = "";
+				}
 				//d.date = d.date.replace(" ","T");
 				d.RecordId = RecordId;
 				d.date1 = d.date;
