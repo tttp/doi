@@ -169,6 +169,10 @@
 			display: inline-block;
 			margin-left: 15px;
 		}
+		#termselect {
+			width: 100%;
+			padding: 10px 0;
+		}
 	</style>
 </head>
 
@@ -300,18 +304,19 @@
 			.group(all);
 
 		nameEvent = ndx.dimension(function(d) {
-			return d.person.toLowerCase()+" "+d.subject.toLowerCase()+" "+d.affiliation.toLowerCase()+" "+d.entity.toLowerCase()+ " "+d.topic.toLowerCase()+ " ";
+			return d.person.toLowerCase()+" "+d.subject.toLowerCase()+" "+d.affiliation.toLowerCase()+" "+d.entity.toLowerCase()+ " "+d.topic.toLowerCase()+ " " + "termoffice:"+d.term_office1+" ";
 		});
 
 		//Draw graphs
 		drawTable();
-		drawCloud();
+		
+		//drawCloud();
 		drawHostType();
 		drawTopCommittee();
 		drawEntities();
-		drawTopPeople();
-		drawTerm();
-		//drawOrgCounter();
+		//drawTopPeople();
+		//drawTerm();
+
 		
 		
 		function drawOrgCounter (){
@@ -459,7 +464,11 @@
 						return d.entity;  
 					}					
 			});
-			var group   = dim.group().reduceSum(function(d) {   return 1; });
+			var group   = dim.group().reduceSum(function(d) {   
+				if(d.entity && d.entity != ""){
+					return 1;
+				}
+			});
 
 			var filteredGroup = (function(source_group) {
 				return {
@@ -632,6 +641,9 @@
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
 					 //return d.meeting_id; 
+					 if(d.committee_full != ""){
+						return d.committee_full;
+					 }
 					 return d.committee; 
 					},
 				  },{
@@ -944,13 +956,20 @@
 				<div class="col-md-4">
 					<!-- TOP 10 ACTIVOS -->
 					<div class="chart_box" id="group_container">
-						<h3>Kadencja</h3>
+						<h3>Kadencje Sejmu</h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc"></p>
 						</div>
-						<div class="termoffice chart-full"></div>
-						<div class="label">Number of contacts</div>
+						<select id="termselect">
+							<option disabled selected value=""></option>
+							<option value="V">V</option>
+							<option value="VI">VI</option>
+							<option value="VII">VII</option>
+							<option value="VIII">VIII</option>
+						</select>
+						</select>
+						
 						<br class="clear" />
 					</div>
 					<!-- TOP 10 ACTIVOS -->
@@ -1097,6 +1116,12 @@
 				} else if(d.c_other == 1){
 					d.type = "Inne";
 				}
+				
+				d.committee_full = "";
+				if(d.committee == "OSZ"){
+					d.committee_full = "Ochrony Środowiska, Zasobów Naturalnych i Leśnictwa";
+				}
+				
 				//alert(d.type);
 				d.num = thisid;
 				thisid ++;
@@ -1138,6 +1163,24 @@
 			}
 		});
 		
+		
+		$( "#termselect" ).change(function () {
+			var s = "termoffice:"+$( "select option:selected" ).text()+" ";
+			nameEvent.filter(function (d) { 
+				return d.indexOf (s) !== -1;} );
+			$(".resetall").attr("disabled",false);
+			throttle();
+			var throttleTimer;
+			function throttle() {
+				window.clearTimeout(throttleTimer);
+				throttleTimer = window.setTimeout(function() {
+					console.log ("redraw");
+						dc.redrawAll();
+				}, 250);
+			}
+		  });
+		 
+		
 		//Reset button
 		$(".resetall").click(function() {
 			nameEvent.filter(null);
@@ -1145,6 +1188,7 @@
 			dc.renderAll();
 			$("#search-input").val("");
 			$(".resetall").attr("disabled",true);
+			$( "#termselect" ).val("");
 		}); 
 	});      
 
