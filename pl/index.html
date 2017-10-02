@@ -411,22 +411,24 @@
 		//Host Type Chart
 		function drawHostType () {
 			var dim = ndx.dimension (function(d) {
+				if(d.type && d.type != ""){
 					return d.type;   
+				}
 			});
 			var group   = dim.group().reduceSum(function(d) {   return 1; });
 			var hosttypecolor = {			
 				"Other":"#bbbbbb"
 			};
 			var chart = dc.pieChart(".types")
-				.innerRadius(0).radius(140)
-				.cy(170)
-				.height(550)
+				.innerRadius(80).radius(140)
+				.cy(150)
+				.height(480)
 				.dimension(dim)
 				.cap(7)
 				.group(group)
 				.externalLabels(-40);				
 				//.colorCalculator(function(d, i) { return hosttypecolor[d.key]; });
-				chart.legend(dc.legend().x(30).y(340).itemHeight(13).gap(5));
+				chart.legend(dc.legend().x(30).y(300).itemHeight(13).gap(5));
 				
 			function rangeorder(d){
 				switch(d.key) {
@@ -453,14 +455,16 @@
 		//topentities
 		function drawEntities () {
 			var dim = ndx.dimension (function(d) {
-					return d.entity;   
+					if(d.entity && d.entity != ""){
+						return d.entity;  
+					}					
 			});
 			var group   = dim.group().reduceSum(function(d) {   return 1; });
 
 			var filteredGroup = (function(source_group) {
 				return {
 					all: function() {
-						return source_group.top(10).filter(function(d) {
+						return source_group.top(20).filter(function(d) {
 							return (d.key != "Not mentioned" && d.value != 0);
 						});
 					}
@@ -468,7 +472,7 @@
 			})(group);
 			var graph = dc.rowChart(".topentities")   
 				.margins({top: 0, right: 3, bottom: 20, left: 3})
-				.height(370)
+				.height(520)
 				//.width(165)
 				.gap(1)
 				.x(d3.scale.ordinal())
@@ -618,18 +622,11 @@
 			var count=0;
 
 			datatable = $(".table").dataTable({
-				"columnDefs": [ {
-				  "searchable": false,
-				  "orderable": false,
-				  "targets": 0,   
-				  data: function ( row, type, val, meta ) {
-					count++;
-					return count;
-				  }
-				  },{
+				"columnDefs": [ 
+				  {
 				  "searchable": false,
 				  "orderable": true,
-				  "targets": 1,
+				  "targets": 0,
 				  "defaultContent":"N/A",
 				  "className":"capitalize",
 				  "data": function (d, type, val, meta) {
@@ -640,7 +637,7 @@
 				  },{
 				  "searchable": false,
 				  "orderable": true,
-				  "targets": 2,
+				  "targets": 1,
 				  "defaultContent":"N/A",
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
@@ -650,7 +647,7 @@
 				  "defaultContent":"N/A",
 				  "searchable": false,
 				  "orderable": true,
-				  "targets": 3,
+				  "targets": 2,
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
 					 //return d.person; 
@@ -661,7 +658,7 @@
 				  "searchable": false,
 				  "orderable": true,
 				  "type":"date-eu",
-				  "targets": 4,
+				  "targets": 3,
 				  "data": function(d) {
 					 if (!d) return "";
 					 return d.subject;
@@ -671,7 +668,7 @@
 				  "defaultContent":"N/A",
 				  "searchable": false,
 				  "orderable": true,
-				  "targets": 5,
+				  "targets": 4,
 				  "data": function (d, type, val, meta) {
 					 if (!d) return "";
 					 return d.entity; 
@@ -682,7 +679,7 @@
 				"bPaginate": true,
 				"bLengthChange": false,
 				"bFilter": false,
-				"order": [[ 2, "asc" ],[3,"asc"]],
+				"order": [[ 1, "asc" ],[2,"asc"]],
 				"bSort": true,
 				"bInfo": false,
 				"bAutoWidth": false,
@@ -715,10 +712,10 @@
 				s += "<div class='l_name'><label>Komisja:</label> "+d.committee+"</div>";
 				s += "<div class='l_name'><label>Posiedzenie:</label> "+d.meeting_id+"</div>";
 				s += "<div class='hr'></div>";
-				s += "<div class='l_name'><label>Osoby:</label> "+d.person+"</div>";
-				s += "<div class='l_name'><label>Afiliacje Osob:</label> "+d.affiliation+"</div>";
+				s += "<div class='l_name'><label>Zewnętrzni uczestnicy:</label> "+d.person+"</div>";
+				s += "<div class='l_name'><label>Funkcja/ stanowisko:</label> "+d.affiliation+"</div>";
 				s += "<div class='l_name'><label>Nazwa podmiotu:</label> "+d.entity+"</div>";
-				s += "<div class='l_name'><label>Rodzaj:</label> "+d.type+"</div>";
+				s += "<div class='l_name'><label>Branża:</label> "+d.type+"</div>";
 				
 				
 				s += "</div>";
@@ -794,6 +791,7 @@
 			datatable.DataTable().on( 'order.dt search.dt page.dt draw.dt', function () {
 				var thispage = $('.paginate_button.current').html();			
 				var rowi = 0;
+				/*
 			  datatable.DataTable().column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
 				if(rowi >= 100){
 					rowi = 0;
@@ -805,6 +803,7 @@
 					cell.innerHTML = (rowi);
 				}
 			  });
+			  */
 
 			});
 		}
@@ -882,7 +881,7 @@
 		
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active" id="cm_tool_btn"><a href="iw_chile.html" class="menu-link1"><strong>Posiedzenia<br />komisji</strong></a></li>
+					<li class="active" id="cm_tool_btn"><a href="iw_chile.html" class="menu-link1" style="width: 160px;"><strong>Posiedzenia komisji sejmowych</strong></a></li>
 					<li class="dropdown">
 						<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle menu-link2" href="#" style="width: 120px;">Inne wersje<span class="caret"></span></a>
 						 <ul class="dropdown-menu">
@@ -893,7 +892,7 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="about_chile.html">O firmie Integrity Watch</a></li>
+					<li><a href="about_chile.html">O Integrity Watch</a></li>
 					<!-- <li><a href="contact.html">Contacts</a></li> -->
 				</ul>
 			</div>
@@ -956,7 +955,7 @@
 					</div>
 					<!-- TOP 10 ACTIVOS -->
 					<div class="chart_box" id="group_container">
-						<h3>Komisja</h3>
+						<h3>Komisje sejmowe</h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc"></p>
@@ -969,13 +968,13 @@
 				<div class="col-md-4">
 					<!-- TOP 10 PASIVOS -->
 					<div class="chart_box">
-						<h3>Top 10 people<!--span class="info">info</span--></h3>
+						<h3>Kto uczestniczy w posiedzeniach<br />komisji sejmowych?</h3>
 						<div class="info_chart">
 							<span class="info">info</span>
 							<p class="desc"></p>
 						</div>
-						<div class="toppeople chart-full"></div>
-						<div class="label">Number of contacts</div>
+						<div class="types chart-full"></div>
+						<div class="label">Contacts</div>
 						<br class="clear" />
 					</div>
 				</div>
@@ -995,32 +994,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<!-- TYPE -->
-					<div class="chart_box">
-						<h3>Rodzaj</h3>
-						<div class="info_chart">
-							<span class="info">info</span>
-							<p class="desc"></p>
-						</div>
-						<div class="types chart-full"></div>
-						<div class="label">Contacts</div>
-						<br class="clear" />
-					</div>
-				</div>
-				<div class="col-md-6">
-					<!-- WORDCLOUD -->
-					<div class="chart_box">
-						<h3>Sprawa</h3>
-						<div class="info_chart">
-							<span class="info">info</span>
-							<p class="desc"></p>
-						</div>
-						<div class="wordcloud"></div>
-					</div>
-				</div>
-			</div>
+
 		</div>
 	</div>	
 </div>
@@ -1042,7 +1016,6 @@
 				<table class="table table-hover dc-data-grid tablesorter-bootstrap">
 					<thead>
 						<tr class="header">
-							<th class="header">Nr</th> 
 							<th class="header">Komisja</th>
 							<th class="header">Kadencja</th>
 							<th class="header">Posiedzenie</th>
