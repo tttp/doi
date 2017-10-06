@@ -269,72 +269,22 @@
 		evt = ndx.dimension(function(d) {
 			return d.Id_Declaracion;		
 		})
-		var eventgroup   = evt.group().reduce(
-			function(p,d) {  
-				p.nb +=1;
-				if (!d.organisation)
-				  return p;
-				p.fte += d.fte;
-				p.accredited += d.accredited;
-				return p;
-			},
-			function(p,d) {  
-				p.nb -=1;
-				 if (!d.organisation)
-				   return p;
-				p.fte -= d.fte;
-				p.accredited -= d.accredited;
-				return p;
-			},
-			function(p,d) {  
-				return {nb:0,fte:0,accredited:0}; 
-			}
-		);
-		var count=dc.dataCount(".dc-data-count")
-			.dimension(eventgroup)
-			.group({value: function() {
-				return eventgroup.all().filter(function(kv) { return kv.value.nb>0; }).length;
-			}});
 
+		var count = dc.dataCount(".dc-data-count")
+			.dimension(ndx)
+			.group(all);
+			
 		count.on("renderlet.resetall", function(c) {
-				var total=c.dimension().size();
-				var filtered= c.group().value();
-				var disabled= (total == filtered);
-
-				//$(".resetall").attr("disabled",disabled);
-				ga && ga('send', 'event', 'filter', 'subset', filtered);
-
-				if (filtered >=0) {
-					var one2one=0;
-					eventgroup.all().forEach(function(d) { if(d.value ==1) one2one ++;});
-					var ratio=Math.round(100-one2one/filtered*100);
-					$(".one2one").html( ratio + "% collective meetings");
-				}
 		  RefreshTable();
 		});
 
-		dc.dataCount(".dc-data-count2")
-			.dimension(ndx)
-			.group(all);
-
 		nameEvent = ndx.dimension(function(d) {
-			/*
-			if (d.nombrePasivo) {
-					return d.nombrePasivo.toLowerCase()+" "+d.apellidosPasivo.toLowerCase()+" "+d.nombreInstitucion.toLowerCase()+" "+d.observacionesMateriaAudiencia.toLowerCase()+ " ";   
-			}
-			return d.nombrePasivo.toLowerCase()+" "+d.apellidosPasivo.toLowerCase()+" "+d.nombreInstitucion.toLowerCase()+" "+d.observacionesMateriaAudiencia.toLowerCase()+ " ";
-			*/
-			return d.fullName.toLowerCase() + " cargo:" + d.Cargo.toLowerCase();
+			return d.fullName.toLowerCase() + " cargo:" + d.Cargo.toLowerCase() + " id:" + d.Id_Declaracion;
 		});
 
 		//Draw graphs
 		drawTable();
-		//drawCloud();
 		drawDecType();
-		//drawCategoria();
-		//drawTopGuest();
-		//drawTopHost();
-		//drawTopIstitucion();
 		drawActivities();
 		drawActivitiesPro();
 		drawVehicles();
@@ -867,7 +817,7 @@
 				  "targets": 4,
 				  "defaultContent":"0",
 				  "data": function (d, type, val, meta) {
-					 if (!d) return "";
+					 if (!d.activity) return "";
 					 return d.activity.length; 
 					},
 				  },{
@@ -954,8 +904,11 @@
 			}
 			
 			function cleanDate(date){
-				var thisdate = date.split(" ");
-				return thisdate[0];
+				if(date){
+					var thisdate = date.split(" ");
+					return thisdate[0];
+				}
+				return "/";
 			}
 			function cleanAmount(x){
 				var cleanamount = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -1060,8 +1013,11 @@
 				if(d.agua.length > 0){
 					s += "</tbody></table>";
 				}
-
-				s += "<div class='l_name'><label>Pasivos</label> "+d.pasivos.length+"</div>";
+				if(d.pasivos.length == 0 && d.pasivostot != 0){
+					s += "<div class='l_name'><label>Pasivos</label> "+d.pasivostot+"</div>";
+				} else {
+					s += "<div class='l_name'><label>Pasivos</label> "+d.pasivos.length+"</div>";
+				}
 				if(d.pasivos.length > 0){
 					s += "<table style='width:100%;'><thead><tr><th>Tipo</th><th>Acreedor</th><th>Monto adeuado</th></tr></thead><tbody>";
 				}
@@ -1567,7 +1523,6 @@
 			var dateFormatJson = d3.time.format("%Y/%m/%d");
 			var now = Date.now();
 			var a;
-			
 			_.each (decl, function (d) {
 				//alert(d.Datos_del_Declarante.toSource());
 				d.date = d.Fecha_de_la_Declaracion.split(" ")[0];
@@ -1623,6 +1578,10 @@
 				d.acciones = [];
 				d.agua = [];
 				
+				//PASIVOS Total
+				d.pasivostot = 0;
+
+				
 				if(d.Actividades_Profesionales_A_La_Fecha){
 					d.activity = d.Actividades_Profesionales_A_La_Fecha;
 				}
@@ -1636,7 +1595,12 @@
 					d.inmueble = d.Bienes_Inmuebles_Situados_En_Chile;
 				}
 				if(d.Pasivos){
-					d.pasivos = d.Pasivos.Individualiza_Deudas;
+					if(d.Pasivos.Monto_Global_Pesos){
+						d.pasivostot = d.Pasivos.Monto_Global_Pesos;
+					}
+					if(d.Pasivos.Individualiza_Deudas){
+						d.pasivos = d.Pasivos.Individualiza_Deudas;
+					}
 				}
 				//d.Pasivos.Individualiza_Deudas;
 				if(d.Instrumentos_Valor_TransableChile){
@@ -1685,9 +1649,21 @@
 				
 				//CARGO
 				d.Cargo = "";
+				/*
+				if(d.Datos_Entidad_Por_La_Que_Declara.Servicio_Entidad.nombre){
+					d.Cargo = d.Datos_Entidad_Por_La_Que_Declara.Servicio_Entidad.nombre;
+					alert(d.Cargo);
+				} else 
+				*/
+				
 				if(d.Datos_Entidad_Por_La_Que_Declara.Cargo_Funcion.nombre){
 					d.Cargo = d.Datos_Entidad_Por_La_Que_Declara.Cargo_Funcion.nombre;
 				}
+				/*
+				if(d.Cargo.toLowerCase() != "gobernador" && d.Cargo.toLowerCase()  != "intendente" && d.Cargo.toLowerCase() != "ministro" && d.Cargo.toLowerCase()  != "subsecretario" && d.Cargo.toLowerCase()  != "diputado" && d.Cargo.toLowerCase() != "senador" && d.Cargo.toLowerCase()  != "candidato" && d.Cargo.toLowerCase() != "senador(a)" && d.Cargo.toLowerCase()  != "diputado/da" && d.Cargo != "CANDIDATO ELECCIONES PRIMARIAS 2017"){
+					alert(d.Cargo + ": " + d.Id_Declaracion);
+				}
+				*/
 				//PROFESSION
 				d.Profesion = "";
 				if(d.Datos_del_Declarante.Profesion_Oficio.nombre){
@@ -1700,16 +1676,14 @@
 				}
 				if(d.Tipo == "PRESENTACION A REQUERIMIENTO DE ORGANO FISCALIZADOR" || d.Tipo == "PRESENTACIÓN A REQUERIMIENTO  DE ORGANO FISCALIZADOR"){
 					d.Tipo = "PRESENTACIÓN A REQUERIMIENTO DE ORGANO FISCALIZADOR";
-				}
-				
-				
-				
+				}	
 
 			});
 			grid ("#ec",decl);
 			$('#detailCharts').hide();
 			
 			//Loop through dataset and fix/adjust data
+			/*
 			_.each (events, function (d) {
 
 				d.date = dateFormat.parse(d.FDeclaracion);
@@ -1787,6 +1761,7 @@
 				//alert(d.toSource());
 				
 			});
+			*/
 			//End loop through dataset
 			
 			//Call grid function to create and display charts
@@ -1822,7 +1797,7 @@
 		var gobiernofilter = false;
 		var candidatofilter = false;
 
-		//Diputados filter
+		//Gobierno filter
 		$("#gobierno_btn").click(function() {
 			if($("#senado_btn").attr("src") == "img/S2.png" && $("#diputados_btn").attr("src") == "img/C2.png" && $("#candidates_btn").attr("src") == "img/EL2.png"){
 				$(".resetall").click();
@@ -1834,7 +1809,7 @@
 			candidatofilter = false;
 			nameEvent.filter(function (d) { 
 				//alert(d);
-				return d.indexOf("cargo:gobernador") !== -1 || d.indexOf("cargo:intendente") !== -1 || d.indexOf("cargo:ministro") !== -1 || d.indexOf("cargo:subsecretario") !== -1;
+				return d.indexOf("cargo:gobernador") !== -1 || d.indexOf("cargo:intendente") !== -1 || d.indexOf("cargo:ministr") !== -1 || d.indexOf("cargo:subsecretari") !== -1 || d.indexOf("id:111739") !== -1 || d.indexOf("id:23461") !== -1 || d.indexOf("id:34594") !==- 1 || d.indexOf("id:45535") !== -1;
 			});
 			$("#gobierno_btn").attr("src", "img/G1.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
@@ -1855,7 +1830,7 @@
 			candidatofilter = false;
 			nameEvent.filter(function (d) { 
 				//alert(d);
-				return d.indexOf("cargo:diputado") !== -1;
+				return d.indexOf("cargo:diputado") !== -1 || d.indexOf("cargo:camara") !== -1;
 			});
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C1.png");
@@ -1875,7 +1850,7 @@
 			candidatofilter = false;
 			nameEvent.filter(function (d) { 
 				//alert(d);
-				return d.indexOf("cargo:senador") !== -1;
+				return d.indexOf("cargo:senado") !== -1 || d.indexOf("id:106924") !==- 1;
 			});
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
@@ -1895,7 +1870,7 @@
 			candidatofilter = true;
 			nameEvent.filter(function (d) { 
 				//alert(d);
-				return d.indexOf("cargo:candidato") !== -1;
+				return d.indexOf("cargo:candidat") !== -1;
 			});
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
