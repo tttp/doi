@@ -916,9 +916,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4" id="filter_field_container">
-				<p>Filter:</p>
+				<p>Filtrować się:</p>
 				<div class="input-group">
-						<input type="text" id="search-input" class="form-control input-lg" placeholder="Filter by name, subject, entity ...">
+						<input type="text" id="search-input" class="form-control input-lg" placeholder="Filtruj według nazwy, sprawa, podmiotu ...">
 				</div>
 			</div>
 			<div class="col-md-7" id="filter_numbers">
@@ -938,7 +938,7 @@
 				</div>
 			</div>
 			<div class="col-md-1" id="resetall_container">
-				<button class="btn resetall">RESET<br />FILTERS</button>
+				<button class="btn resetall">Zresetuj<br />filtry</button>
 			</div>
 		</div>
 	</div>
@@ -953,7 +953,7 @@
 	<div class="container_wrap" id="main_charts_wrap">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-4" style="margin-top:17px;">
 					<!-- TOP 10 ACTIVOS -->
 					<div class="chart_box" id="group_container">
 						<h3>Kadencje Sejmu</h3>
@@ -997,7 +997,7 @@
 						<br class="clear" />
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4" style="margin-top:17px;">
 					<!-- CATEGORIA -->
 					<div class="chart_box" id="categoria">
 						<h3>Nazwa podmiotu<!--span class="info">info</span--></h3>
@@ -1120,6 +1120,11 @@
 				d.committee_full = "";
 				if(d.committee == "OSZ"){
 					d.committee_full = "Ochrony Środowiska, Zasobów Naturalnych i Leśnictwa";
+				}
+				
+				//Type fix
+				if(d.type == "Instytucja publiczna (np.. NIK)"){
+					d.type = "Instytucja publiczna";
 				}
 				
 				//alert(d.type);
