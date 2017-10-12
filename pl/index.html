@@ -431,6 +431,7 @@
 				.dimension(dim)
 				.cap(7)
 				.group(group)
+				.colors(d3.scale.category20())
 				.externalLabels(-40);				
 				//.colorCalculator(function(d, i) { return hosttypecolor[d.key]; });
 				chart.legend(dc.legend().x(30).y(300).itemHeight(13).gap(5));
@@ -727,7 +728,7 @@
 				s += "<div class='l_name'><label>Zewnętrzni uczestnicy:</label> "+d.person+"</div>";
 				s += "<div class='l_name'><label>Funkcja/ stanowisko:</label> "+d.affiliation+"</div>";
 				s += "<div class='l_name'><label>Nazwa podmiotu:</label> "+d.entity+"</div>";
-				s += "<div class='l_name'><label>Branża:</label> "+d.type+"</div>";
+				s += "<div class='l_name'><label>Kategoria:</label> "+d.type+"</div>";
 				
 				
 				s += "</div>";
@@ -916,18 +917,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4" id="filter_field_container">
-				<p>Filtrować się:</p>
+				<p>Filtruj według:</p>
 				<div class="input-group">
-						<input type="text" id="search-input" class="form-control input-lg" placeholder="Filtruj według nazwy, sprawa, podmiotu ...">
+						<input type="text" id="search-input" class="form-control input-lg" placeholder="szukaj ...">
 				</div>
 			</div>
 			<div class="col-md-7" id="filter_numbers">
 				<div class="row">
-					<div class="col-md-5" id="currently_selected_text"><p>Selected:</p></div>
+					<div class="col-md-5" id="currently_selected_text"><p>Wybrany:</p></div>
 					
 					<div class="col-md-3 filter_number">
 						<div id="mep_number" class="dc-data-count">
-							<span id="abig_number" class="big_number filter-count"></span>of <strong class="total-count"></strong><br /> meetings
+							<span id="abig_number" class="big_number filter-count"></span>z <strong class="total-count"></strong><br /> posiedzenie
 						</div>
 					</div>
 					<div class="col-md-3 filter_number">
@@ -980,7 +981,7 @@
 							<p class="desc"></p>
 						</div>
 						<div class="topcommittee chart-full"></div>
-						<div class="label">Number of contacts</div>
+						<div class="label">Liczba uczestników</div>
 						<br class="clear" />
 					</div>
 				</div>
@@ -993,7 +994,7 @@
 							<p class="desc"></p>
 						</div>
 						<div class="types chart-full"></div>
-						<div class="label">Contacts</div>
+						<div class="label"></div>
 						<br class="clear" />
 					</div>
 				</div>
