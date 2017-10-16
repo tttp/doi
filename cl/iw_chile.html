@@ -124,6 +124,22 @@
 		.chart_box h3 {
 			text-transform: capitalize;
 		}
+		.datainfo-right {
+			position: absolute;
+			right: 50px;
+			top: 1px;
+			font-size: 12px;
+			font-weight: 200;
+		}
+		.datainfo-right a {
+			display: inline-block;
+			background: #3695d8;
+			color: #fff;
+			padding: 5px 15px;
+			border-radius: 2px;
+			text-decoration: none;
+			margin-left: 10px;
+		}
 	</style>
 </head>
 
@@ -928,7 +944,7 @@
 						<h3>Cargo</h3>
 						<div class="info_chart">
 							<span class="info">info</span>
-							<p class="desc">Las proporciónes del gráfico circular refleja el nombre de audiencias por nivel jerárquico.</p>
+							<p class="desc">Cantidad o número de audiencias por Ministros, Subsecretarios, Gobernadores e Intendentes.</p>
 						</div>
 						
 						<div class="hosttype"></div>
@@ -943,7 +959,7 @@
 						<h3>Top 10 pasivos<!--span class="info">info</span--></h3>
 						<div class="info_chart">
 							<span class="info">info</span>
-							<p class="desc">Individuos del Gobierno de Chile con la mayoría de audiencias con los lobistas y gestores de interés</p>
+							<p class="desc">Sujetos Pasivos (Autoridades) con mayoría de audiencias</p>
 						</div>
 						<div class="tophost chart-full"></div>
 						<div class="label">Número de contactos</div>
@@ -1014,6 +1030,10 @@
 		<div class="row">
 			<div class="content" id="list_content">
 				<h2 class="table_title" style="width: 100%;">Audiencias
+					<div class="datainfo-right">
+						Last update: 01/10/2017 
+						<a href="./data/cl-tab1.csv" download>Download CSV</a>
+					</div>
 					<div class="info_chart">
 						<span class="info">info</span>
 						<p class="desc">Haga clic en cualquier audiencia para obtener información adicional.</p>

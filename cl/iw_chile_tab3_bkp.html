@@ -146,7 +146,7 @@
 		#gobierno_btn, #diputados_btn, #senado_btn, #candidates_btn {
 			height: 80px;
 			vertical-align: middle;
-			margin-right: 20px;
+			margin-right: 10px;
 		}
 		.moregraphs {
 			border-bottom: 1px solid #0f69b4;
@@ -188,22 +188,6 @@
 		}
 		#filter_wrap.filter_cm {
 			 background: #039aab none repeat scroll 0 0;
-		}
-		.datainfo-right {
-			position: absolute;
-			right: 50px;
-			top: 1px;
-			font-size: 12px;
-			font-weight: 200;
-		}
-		.datainfo-right a {
-			display: inline-block;
-			background: #3695d8;
-			color: #fff;
-			padding: 5px 15px;
-			border-radius: 2px;
-			text-decoration: none;
-			margin-left: 10px;
 		}
 	</style>
 </head>
@@ -285,22 +269,72 @@
 		evt = ndx.dimension(function(d) {
 			return d.Id_Declaracion;		
 		})
+		var eventgroup   = evt.group().reduce(
+			function(p,d) {  
+				p.nb +=1;
+				if (!d.organisation)
+				  return p;
+				p.fte += d.fte;
+				p.accredited += d.accredited;
+				return p;
+			},
+			function(p,d) {  
+				p.nb -=1;
+				 if (!d.organisation)
+				   return p;
+				p.fte -= d.fte;
+				p.accredited -= d.accredited;
+				return p;
+			},
+			function(p,d) {  
+				return {nb:0,fte:0,accredited:0}; 
+			}
+		);
+		var count=dc.dataCount(".dc-data-count")
+			.dimension(eventgroup)
+			.group({value: function() {
+				return eventgroup.all().filter(function(kv) { return kv.value.nb>0; }).length;
+			}});
 
-		var count = dc.dataCount(".dc-data-count")
-			.dimension(ndx)
-			.group(all);
-			
 		count.on("renderlet.resetall", function(c) {
+				var total=c.dimension().size();
+				var filtered= c.group().value();
+				var disabled= (total == filtered);
+
+				//$(".resetall").attr("disabled",disabled);
+				ga && ga('send', 'event', 'filter', 'subset', filtered);
+
+				if (filtered >=0) {
+					var one2one=0;
+					eventgroup.all().forEach(function(d) { if(d.value ==1) one2one ++;});
+					var ratio=Math.round(100-one2one/filtered*100);
+					$(".one2one").html( ratio + "% collective meetings");
+				}
 		  RefreshTable();
 		});
 
+		dc.dataCount(".dc-data-count2")
+			.dimension(ndx)
+			.group(all);
+
 		nameEvent = ndx.dimension(function(d) {
-			return d.fullName.toLowerCase() + " cargo:" + d.Cargo.toLowerCase() + " id:" + d.Id_Declaracion;
+			/*
+			if (d.nombrePasivo) {
+					return d.nombrePasivo.toLowerCase()+" "+d.apellidosPasivo.toLowerCase()+" "+d.nombreInstitucion.toLowerCase()+" "+d.observacionesMateriaAudiencia.toLowerCase()+ " ";   
+			}
+			return d.nombrePasivo.toLowerCase()+" "+d.apellidosPasivo.toLowerCase()+" "+d.nombreInstitucion.toLowerCase()+" "+d.observacionesMateriaAudiencia.toLowerCase()+ " ";
+			*/
+			return d.fullName.toLowerCase() + " cargo:" + d.Cargo.toLowerCase();
 		});
 
 		//Draw graphs
 		drawTable();
+		//drawCloud();
 		drawDecType();
+		//drawCategoria();
+		//drawTopGuest();
+		//drawTopHost();
+		//drawTopIstitucion();
 		drawActivities();
 		drawActivitiesPro();
 		drawVehicles();
@@ -833,7 +867,7 @@
 				  "targets": 4,
 				  "defaultContent":"0",
 				  "data": function (d, type, val, meta) {
-					 if (!d.activity) return "";
+					 if (!d) return "";
 					 return d.activity.length; 
 					},
 				  },{
@@ -920,11 +954,8 @@
 			}
 			
 			function cleanDate(date){
-				if(date){
-					var thisdate = date.split(" ");
-					return thisdate[0];
-				}
-				return "/";
+				var thisdate = date.split(" ");
+				return thisdate[0];
 			}
 			function cleanAmount(x){
 				var cleanamount = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -1029,11 +1060,8 @@
 				if(d.agua.length > 0){
 					s += "</tbody></table>";
 				}
-				if(d.pasivos.length == 0 && d.pasivostot != 0){
-					s += "<div class='l_name'><label>Pasivos</label> "+d.pasivostot+"</div>";
-				} else {
-					s += "<div class='l_name'><label>Pasivos</label> "+d.pasivos.length+"</div>";
-				}
+
+				s += "<div class='l_name'><label>Pasivos</label> "+d.pasivos.length+"</div>";
 				if(d.pasivos.length > 0){
 					s += "<table style='width:100%;'><thead><tr><th>Tipo</th><th>Acreedor</th><th>Monto adeuado</th></tr></thead><tbody>";
 				}
@@ -1043,18 +1071,6 @@
 				if(d.pasivos.length > 0){
 					s += "</tbody></table>";
 				}
-				
-				s += "<div class='l_name'><label>Otros bienes</label> "+d.otrosbienes.length+"</div>";
-				if(d.otrosbienes.length > 0){
-					s += "<table style='width:100%;'><thead><tr><th>Tipo</th><th>Monto</th><th>Descripción</th></tr></thead><tbody>";
-				}
-				_.each(d.otrosbienes, function (a) {
-					s += "<tr style='border-bottom:1px solid #eee;'><td>"+a.Tipo_Bien.nombre+"</td><td>"+a.Monto+"</td><td>"+a.Descripcion+"</td></tr>";
-				});
-				if(d.otrosbienes.length > 0){
-					s += "</tbody></table>";
-				}
-				
 
 				
 				s += "<div class='l_name'><label>Otras Fuentes de conflicto de intereses</label> /</div>";
@@ -1349,10 +1365,10 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="chart_box">
-								<h3>Proporción número<br />de Actividade<!--span class="info">info</span--></h3>
+								<h3>Proporción nombre de<br />actividades<!--span class="info">info</span--></h3>
 								<div class="info_chart">
 									<span class="info">info</span>
-									<p class="desc">El gráfico circular refleja la proporcione de funcionarios por número de actividades profesionales cuando asumen su cargo.</p>
+									<p class="desc">El gráfico circular refleja la proporcione de funcionarios por nombre de actividades profesionales cuando asumen su cargo.</p>
 								</div>
 								<div class="nactividades chart-full"></div>
 								<div class="label"></div>
@@ -1361,10 +1377,10 @@
 						</div>
 						<div class="col-md-6">
 							<div class="chart_box" id="group_container">
-								<h3>Proporción número de Actividades (Últimos 12 Meses)</h3>
+								<h3>Proporción nombre de actividades (últimos 12 meses)</h3>
 								<div class="info_chart">
 									<span class="info">info</span>
-									<p class="desc">El gráfico circular refleja la proporcione de funcionarios por número de actividades profesionales en los 12 meses antes de asumir su cargo.</p>
+									<p class="desc">El gráfico circular refleja la proporcione de funcionarios por nombre de actividades profesionales en los 12 meses antes de asumir su cargo.</p>
 								</div>
 									<div class="nproactividades chart-full"></div>
 									<div class="label"></div>
@@ -1381,10 +1397,10 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="chart_box">
-							<h3>Número de<br />vehículo<!--span class="info">info</span--></h3>
+							<h3>Nombre de<br />vehículo<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
-								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por número de vehículos declarados</p>
+								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por nombre de vehículos declarados</p>
 							</div>
 							<div class="vehicles chart-full"></div>
 							<div class="label"></div>
@@ -1393,10 +1409,10 @@
 					</div>
 					<div class="col-md-4">
 						<div class="chart_box">
-							<h3>Número de<br />comunidades, sociedades, empresas<!--span class="info">info</span--></h3>
+							<h3>Nombre de<br />comunidades, sociedades, empresas<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
-								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por número de sociedades, comunidades y empresas declarados.</p>
+								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por nombre de sociedades, comunidades y empresas declarados.</p>
 							</div>
 							<div class="empresas chart-full"></div>
 							<div class="label"></div>
@@ -1405,10 +1421,10 @@
 					</div>
 					<div class="col-md-4">
 						<div class="chart_box">
-							<h3>Número de<br />bienes inmuebles<!--span class="info">info</span--></h3>
+							<h3>Nombre de<br />bienes inmuebles<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
-								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por número de bienes inmuebles declarados</p>
+								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por nombre de bienes inmuebles declarados</p>
 							</div>
 							<div class="inmuebles chart-full"></div>
 							<div class="label"></div>
@@ -1436,7 +1452,7 @@
 							<h3>Derechos o Acciones<!--span class="info">info</span--></h3>
 							<div class="info_chart">
 								<span class="info">info</span>
-								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por número de derechos y acciones declarados</p>
+								<p class="desc">El gráfico de barras refleja la proporcione de funcionarios por nombre de derechos y acciones declarados</p>
 							</div>
 							<!-- <div class="income"></div> -->
 							<div class="accionesval chart-full"></div>
@@ -1468,10 +1484,6 @@
 		<div class="row">
 			<div class="content" id="list_content">
 				<h2 class="table_title" style="width: 100%;">Funcionarios Público
-					<div class="datainfo-right">
-						Last update: 01/10/2017 
-						<a href="./data/declaraciones.json" download>Download JSON</a>
-					</div>
 					<div class="info_chart">
 						<span class="info">info</span>
 						<p class="desc">Haga clic en cualquier declaracion para obtener información adicional.</p>
@@ -1555,6 +1567,7 @@
 			var dateFormatJson = d3.time.format("%Y/%m/%d");
 			var now = Date.now();
 			var a;
+			
 			_.each (decl, function (d) {
 				//alert(d.Datos_del_Declarante.toSource());
 				d.date = d.Fecha_de_la_Declaracion.split(" ")[0];
@@ -1609,11 +1622,7 @@
 				d.valores = [];
 				d.acciones = [];
 				d.agua = [];
-				d.otrosbienes = [];
 				
-				//PASIVOS Total
-				d.pasivostot = 0;
-
 				if(d.Actividades_Profesionales_A_La_Fecha){
 					d.activity = d.Actividades_Profesionales_A_La_Fecha;
 				}
@@ -1627,12 +1636,7 @@
 					d.inmueble = d.Bienes_Inmuebles_Situados_En_Chile;
 				}
 				if(d.Pasivos){
-					if(d.Pasivos.Monto_Global_Pesos){
-						d.pasivostot = d.Pasivos.Monto_Global_Pesos;
-					}
-					if(d.Pasivos.Individualiza_Deudas){
-						d.pasivos = d.Pasivos.Individualiza_Deudas;
-					}
+					d.pasivos = d.Pasivos.Individualiza_Deudas;
 				}
 				//d.Pasivos.Individualiza_Deudas;
 				if(d.Instrumentos_Valor_TransableChile){
@@ -1643,9 +1647,6 @@
 				}
 				if(d.Derecho_Aprovechamiento_De_Aguas){
 					d.agua = d.Derecho_Aprovechamiento_De_Aguas;
-				}
-				if(d.Otros_Bienes){
-					d.otrosbienes = d.Otros_Bienes;
 				}
 				
 				
@@ -1684,21 +1685,9 @@
 				
 				//CARGO
 				d.Cargo = "";
-				/*
-				if(d.Datos_Entidad_Por_La_Que_Declara.Servicio_Entidad.nombre){
-					d.Cargo = d.Datos_Entidad_Por_La_Que_Declara.Servicio_Entidad.nombre;
-					alert(d.Cargo);
-				} else 
-				*/
-				
 				if(d.Datos_Entidad_Por_La_Que_Declara.Cargo_Funcion.nombre){
 					d.Cargo = d.Datos_Entidad_Por_La_Que_Declara.Cargo_Funcion.nombre;
 				}
-				/*
-				if(d.Cargo.toLowerCase() != "gobernador" && d.Cargo.toLowerCase()  != "intendente" && d.Cargo.toLowerCase() != "ministro" && d.Cargo.toLowerCase()  != "subsecretario" && d.Cargo.toLowerCase()  != "diputado" && d.Cargo.toLowerCase() != "senador" && d.Cargo.toLowerCase()  != "candidato" && d.Cargo.toLowerCase() != "senador(a)" && d.Cargo.toLowerCase()  != "diputado/da" && d.Cargo != "CANDIDATO ELECCIONES PRIMARIAS 2017"){
-					alert(d.Cargo + ": " + d.Id_Declaracion);
-				}
-				*/
 				//PROFESSION
 				d.Profesion = "";
 				if(d.Datos_del_Declarante.Profesion_Oficio.nombre){
@@ -1711,14 +1700,16 @@
 				}
 				if(d.Tipo == "PRESENTACION A REQUERIMIENTO DE ORGANO FISCALIZADOR" || d.Tipo == "PRESENTACIÓN A REQUERIMIENTO  DE ORGANO FISCALIZADOR"){
 					d.Tipo = "PRESENTACIÓN A REQUERIMIENTO DE ORGANO FISCALIZADOR";
-				}	
+				}
+				
+				
+				
 
 			});
 			grid ("#ec",decl);
 			$('#detailCharts').hide();
 			
 			//Loop through dataset and fix/adjust data
-			/*
 			_.each (events, function (d) {
 
 				d.date = dateFormat.parse(d.FDeclaracion);
@@ -1796,7 +1787,6 @@
 				//alert(d.toSource());
 				
 			});
-			*/
 			//End loop through dataset
 			
 			//Call grid function to create and display charts
@@ -1832,7 +1822,7 @@
 		var gobiernofilter = false;
 		var candidatofilter = false;
 
-		//Gobierno filter
+		//Diputados filter
 		$("#gobierno_btn").click(function() {
 			if($("#senado_btn").attr("src") == "img/S2.png" && $("#diputados_btn").attr("src") == "img/C2.png" && $("#candidates_btn").attr("src") == "img/EL2.png"){
 				$(".resetall").click();
@@ -1844,7 +1834,7 @@
 			candidatofilter = false;
 			nameEvent.filter(function (d) { 
 				//alert(d);
-				return d.indexOf("cargo:gobernador") !== -1 || d.indexOf("cargo:intendente") !== -1 || d.indexOf("cargo:ministr") !== -1 || d.indexOf("cargo:subsecretari") !== -1 || d.indexOf("id:111739") !== -1 || d.indexOf("id:23461") !== -1 || d.indexOf("id:34594") !==- 1 || d.indexOf("id:45535") !== -1 || d.indexOf("id:33981") !== -1;
+				return d.indexOf("cargo:gobernador") !== -1 || d.indexOf("cargo:intendente") !== -1 || d.indexOf("cargo:ministro") !== -1 || d.indexOf("cargo:subsecretario") !== -1;
 			});
 			$("#gobierno_btn").attr("src", "img/G1.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
@@ -1865,7 +1855,7 @@
 			candidatofilter = false;
 			nameEvent.filter(function (d) { 
 				//alert(d);
-				return d.indexOf("cargo:diputado") !== -1 || d.indexOf("cargo:camara") !== -1;
+				return d.indexOf("cargo:diputado") !== -1;
 			});
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C1.png");
@@ -1885,7 +1875,7 @@
 			candidatofilter = false;
 			nameEvent.filter(function (d) { 
 				//alert(d);
-				return d.indexOf("cargo:senado") !== -1 || d.indexOf("id:106924") !==- 1;
+				return d.indexOf("cargo:senador") !== -1;
 			});
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C2.png");
@@ -1905,7 +1895,7 @@
 			candidatofilter = true;
 			nameEvent.filter(function (d) { 
 				//alert(d);
-				return d.indexOf("cargo:candidat") !== -1;
+				return d.indexOf("cargo:candidato") !== -1;
 			});
 			$("#gobierno_btn").attr("src", "img/G2.png");
 			$("#diputados_btn").attr("src", "img/C2.png");

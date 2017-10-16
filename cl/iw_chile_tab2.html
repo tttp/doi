@@ -144,6 +144,22 @@
 		#filter_wrap.filter_cm {
 			 background: #8d1656 none repeat scroll 0 0;
 		}
+		.datainfo-right {
+			position: absolute;
+			right: 50px;
+			top: 1px;
+			font-size: 12px;
+			font-weight: 200;
+		}
+		.datainfo-right a {
+			display: inline-block;
+			background: #3695d8;
+			color: #fff;
+			padding: 5px 15px;
+			border-radius: 2px;
+			text-decoration: none;
+			margin-left: 10px;
+		}
 	</style>
 </head>
 
@@ -908,7 +924,7 @@
 								<h3>Top 10 pasivos<!--span class="info">info</span--></h3>
 								<div class="info_chart">
 									<span class="info">info</span>
-									<p class="desc">Diputados y Senadores del Congreso nacional con la mayoría de audiencias con los lobistas y gestores de interés</p>
+									<p class="desc">Sujetos Pasivos (Autoridades) con mayoría de audiencias</p>
 								</div>
 								<div class="tophost chart-full"></div>
 								<div class="label">Número de contactos</div>
@@ -932,7 +948,7 @@
 								<h3>Top 10 representados</h3>
 								<div class="info_chart">
 									<span class="info">info</span>
-									<p class="desc"></p>
+									<p class="desc">La ley de lobby distingue dos sujetos activos: lobistas o gestores de interés. El primero es renumerado para la realización de la gestión y en el case del segundo, no existe una remuneración específica para ello. Las proporciones del gráfico de barras reflejan la cantidad de audiencias por Entidad representada</p>
 								</div>
 									<div class="toprep chart-full"></div>
 									<div class="label">Número de contactos</div>
@@ -962,6 +978,10 @@
 		<div class="row">
 			<div class="content" id="list_content">
 				<h2 class="table_title" style="width: 100%;">Audiencias
+					<div class="datainfo-right">
+						Last update: 01/10/2017 
+						<a href="./data/cl-tab2.csv" download>Download CSV</a>
+					</div>
 					<div class="info_chart">
 						<span class="info">info</span>
 						<p class="desc">Haga clic en cualquier audiencia para obtener información adicional.</p>
