@@ -277,7 +277,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			})
 	  .on("renderlet.all", function(c) {
         $(".nbfte").html(fte);
-        $(".nbaccredited").html(accredited);
+        $(".nbaccredited").html(addcommas(accredited));
         $(".nbcost").html(cost);
         cost=0;
         fte=0;
@@ -1337,7 +1337,7 @@ function eventpopup (epid) {
 			d.minrange = 0;
 			if(!$.isNumeric(rangeval)){
 				d.minrange = 'N/A';
-			} else if(rangeval <= 10000){
+			} else if(rangeval < 10000){
 				d.minrange = '< 10K';
 			} else if(rangeval <= 50000){
 				d.minrange = '10-50K';
@@ -1370,7 +1370,7 @@ function eventpopup (epid) {
 			for (var i = 0; i < activecountries.length; i++) {
 				$('#countryselect').append('<option value="'+activecountries[i]+'">'+countriesISO[activecountries[i]][1]+'</option>');
 			}
-				$('.lobbyist-total-count').html(totalaccredited);
+				$('.lobbyist-total-count').html(addcommas(totalaccredited));
 				 renderLoaded();
 		});     
 
