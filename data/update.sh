@@ -13,7 +13,7 @@ eval "$(pyenv init -)"
 #csvcut -c id,code,name country-data.csv > country.csv
 
 #dealing with meeting_participants.csv
-q 'select meeting.id as id,"registered" as status ,"" as guest, meeting.ec_representative as host,meeting.ec_org as cabinet,meeting.date[0:10] as date,representative_id as guestid,meeting.subject as title,meeting.deregistered as unregistered, "0" as nb  from  meeting.csv meeting join meeting_participants.csv guest on (meeting.id = guest.meeting_id) where meeting.status="active"' -d, -H -O > meeting_flat.csv
+q 'select meeting.id as id,"registered" as status ,"" as guest, meeting.ec_representative as host,meeting.ec_org as cabinet,meeting.date as date,representative_id as guestid,meeting.subject as title,meeting.deregistered as unregistered, "0" as nb  from  meeting.csv meeting join meeting_participants.csv guest on (meeting.id = guest.meeting_id) where meeting.status="active"' -d, -H -O > meeting_flat.csv
 
 #q 'select `meetings.id` as id,"registered" as status ,representative as guest,`meetings.ec_representative` as host,`meetings.ec_org` as cabinet,`meetings.date` as date,representative_id as guestid,`meetings.subject` as title,`meetings.unregistered` as unregistered, "0" as nb from meeting_participants.csv where `meetings.status` = "active"' -d, -H   >> meeting_flat.csv
 
