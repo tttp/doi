@@ -1434,6 +1434,56 @@ $(function() {
 					//m.doi.mandate[0][1] = "5997,95 EUR (5333,33 GBP)";
 				}
 				
+				//Change entries with income number 5 into correct amount (closest 10k). If this happens often create script to detect these cases automatically
+				
+				//Antanas Guoga
+				if(m.epid == 124763){
+					_.each(m.doi.membership, function (d) {
+						if(d[1] == 5){
+							d[1] = '40000 EUR';
+						}
+					});
+					_.each(m.doi.occupation, function (d) {
+						if(d[1] == 5){
+							d[1] = '20000 EUR';
+						}
+					});
+				}
+				//Guy Verhofstad
+				if(m.epid == 97058){
+					_.each(m.doi.membership, function (d) {
+						if(d[1] == 5){
+							d[1] = '10000 EUR';
+						}
+					});
+					_.each(m.doi.occupation, function (d) {
+						if(d[1] == 5){
+							d[1] = '10000 EUR';
+						}
+					});
+				}
+				//Nigel Farage
+				if(m.epid == 4525){
+					_.each(m.doi.activity, function (d) {
+						if(d[1] == 5){
+							d[1] = '30000 EUR';
+						}
+					});
+				}
+				//Renato Soru
+				if(m.epid == 124860){
+					_.each(m.doi.membership, function (d) {
+						if(d[1] == 5){
+							d[1] = '30000 EUR';
+						}
+					});
+					_.each(m.doi.occupation, function (d) {
+						if(d[1] == 5){
+							d[1] = '30000 EUR';
+						}
+					});
+				}
+				
 				a = _.find(attendance,function (d) { return d.id == m.epid  });
 				if (a) {
 					m.attendance = {"total": parseInt(a.votes,10) , "attended": parseInt(a.voted,10), "score": parseFloat(a.percent)};
