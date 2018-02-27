@@ -1827,18 +1827,22 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 				d.guest = d.guest.replace("xf6","ö");
 				d.date = d.date.replace(" ","T");
 				d.date=dateFormat.parse(d.date);
-        if(d.host == "Claus Sørensen")
-          d.host="Director-General "+d.host;
-				if (!d.cabinet) 
-					return;
-        if (!d.guest && d.guestid){
-          if (representatives[d.guestid]) {
-            d.guest = representatives[d.guestid].name;
-          } else {
-          console.log (d);
-            d.guest ="Unknown";
-          }
-        }
+				if(d.host == "Claus Sørensen")
+				  d.host="Director-General "+d.host;
+						if (!d.cabinet) 
+							return;
+				if (!d.guest && d.guestid){
+				  if (representatives[d.guestid]) {
+					d.guest = representatives[d.guestid].name;
+				  } else {
+				  console.log (d);
+					d.guest ="Unknown";
+				  }
+				}
+				//Fix cabinet of Oettinger meetings after 1 Jan 2017
+				if(d.host == "Commissioner Günther Oettinger" && d.date > dateFormat.parse("2017-01-01T00:00:00")){
+					d.cabinet = "Budget";
+				}
 				if (d.cabinet.substr(19)=="Cabinet member of ")
 					d.cabinet = d.cabinet.substr(19);
 			});
