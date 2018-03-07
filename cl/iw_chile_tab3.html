@@ -205,6 +205,9 @@
 			text-decoration: none;
 			margin-left: 10px;
 		}
+		tr.header th.header {
+			font-size: 13px;
+		}
 	</style>
 </head>
 
@@ -884,6 +887,15 @@
 					 }
 					 return ""; 
 					},
+				  },{
+				  "searchable": false,
+				  "orderable": true,
+				  "targets": 10,
+				  "defaultContent":"N/A",
+				  "data": function (d, type, val, meta) {
+					 if (!d) return "";
+					 return d.decdate; 
+					},
 				  }
 				],
 				"iDisplayLength" : 100,
@@ -1469,8 +1481,8 @@
 			<div class="content" id="list_content">
 				<h2 class="table_title" style="width: 100%;">Funcionarios Público
 					<div class="datainfo-right">
-						Last update: 01/10/2017 
-						<a href="./data/declaraciones.json" download>Download JSON</a>
+						Actualizado el: 01/10/2017 
+						<a href="./data/declaraciones.json" download>descagar JSON</a>
 					</div>
 					<div class="info_chart">
 						<span class="info">info</span>
@@ -1493,6 +1505,7 @@
 							<th class="header">Vehículos</th>
 							<th class="header">Valor total activos</th> 
 							<th class="header">Activos adicionales</th> 
+							<th class="header">Fecha de declaración</th>
 						</tr>
 					</thead>
 				</table>
@@ -1559,6 +1572,7 @@
 				//alert(d.Datos_del_Declarante.toSource());
 				d.date = d.Fecha_de_la_Declaracion.split(" ")[0];
 				d.date = dateFormatJson.parse(d.date);
+				d.decdate = dateFormat(d.date);
 				d.fullName = getFullNameJson(d.Datos_del_Declarante);
 				d.fullName2 = getFullNameJson2(d.Datos_del_Declarante);
 				//alert(d.date + ' ' + d.fullName);
