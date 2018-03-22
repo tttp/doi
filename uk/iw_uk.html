@@ -421,9 +421,9 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	nameEvent = ndx.dimension(function(d) {
 		if (d.guest) {
-				return d.minister.toLowerCase()+" "+d.organisation.toLowerCase()+" "+d.purpose.toLowerCase()+ " ";   
+				return d.rep_new.toLowerCase()+" "+d.organisation.toLowerCase()+" "+d.purpose.toLowerCase()+ " ";   
 		}
-		return d.minister.toLowerCase()+" "+d.organisation.toLowerCase()+" "+d.purpose.toLowerCase()+ " ";
+		return d.rep_new.toLowerCase()+" "+d.organisation.toLowerCase()+" "+d.purpose.toLowerCase()+ " ";
 			//+representative.[d.guestid];
 	});
 	
@@ -890,7 +890,7 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	}
 	function drawTopHost () {
 		var dim = ndx.dimension (function(d) {
-			return d.minister;
+			return d.rep_new;
 		});
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
 
@@ -1029,31 +1029,25 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "orderable": true,
               "targets": 1,
               "defaultContent":"N/A",
-              "data":"department",
+              "data":"rep_new",
               },{
               "searchable": false,
               "orderable": true,
               "targets": 2,
-              "className": "number",
+              "className": "",
               "defaultContent":"N/A",
-			  "data":"minister",
+			  "data":"policy_level",
 			  /*
               data: function (row, type, val, meta) { 
                 if (!row) return "";
                 return getPortfolio(row)}
 				*/
               },{
-              "defaultContent":"N/A",
               "searchable": false,
               "orderable": true,
-              "type":"date-eu",
               "targets": 3,
-              "data": function(d) {
-                 if (!d) return "";
-                 if (!d.date) return d.date1;
-                   return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
-                   //return d.date.getFullYear()+"-"+(1+d.date.getMonth())+"-"+d.date.getDate();
-                },
+              "defaultContent":"N/A",
+              "data":"department",
               },
 			   {
               "defaultContent":"N/A",
@@ -1064,21 +1058,12 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
                  if (!d) return "";
                  return d.purpose; 
                 }
-              }, 
+              },
 			  {
               "defaultContent":"N/A",
               "searchable": false,
               "orderable": true,
               "targets": 5,
-              "data": function (d, type, val, meta) {
-                 if (!d) return "";
-                 return d.portfolio; 
-                }
-              },{
-              "defaultContent":"N/A",
-              "searchable": false,
-              "orderable": true,
-              "targets": 6,
 					"data": function(d) { 
 						if (!d) return "";
        					if (!d.organisation) {
@@ -1087,13 +1072,26 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 					    return d.organisation;
 
 					     }
-              } 
+              },
+			  {
+              "defaultContent":"N/A",
+              "searchable": false,
+              "orderable": true,
+              "type":"date-eu",
+              "targets": 6,
+              "data": function(d) {
+                 if (!d) return "";
+                 if (!d.date) return d.date1;
+                   return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
+                   //return d.date.getFullYear()+"-"+(1+d.date.getMonth())+"-"+d.date.getDate();
+                },
+              }, 
             ],
             "iDisplayLength" : 100,
             "bPaginate": true,
             "bLengthChange": false,
             "bFilter": false,
-            "order": [[ 3, "desc" ]],
+            "order": [[ 6, "desc" ]],
             "bSort": true,
             "bInfo": false,
             "bAutoWidth": false,
@@ -1710,12 +1708,12 @@ function eventpopup (epid) {
 					<thead>
 						<tr class="header">
 							<th class="header">#</th> 
+							<th class="header">Host</th>
+							<th class="header">Position</th>
 							<th class="header">Department</th> 
-							<th class="header">Position</th> 
-							<th class="header">Date</th> 
 							<th class="header">Purpose</th> 
-							<th class="header">Portfolio</th> 
 							<th class="header">Organisation</th> 
+							<th class="header">Date</th> 
 						</tr>
 					</thead>
 				</table>
@@ -1750,7 +1748,7 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 	$(function() {
 		var renderLoaded  = _.after(2,  function () { 
 			//var dateFormat = d3.time.format("%d/%m/%Y");
-			var dateFormat = d3.time.format("%m/%d/%Y");
+			var dateFormat = d3.time.format("%Y-%m-%dT00:00:00Z");
 
 			var now = Date.now();
 			var a;
@@ -1761,11 +1759,15 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 				if(!d.purpose){
 					d.purpose = "";
 				}
-				//d.date = d.date.replace(" ","T");
 				d.RecordId = RecordId;
 				d.date1 = d.date;
-				d.date=dateFormat.parse(d.date);
-				d.portfolio = d.portfolio.trim();
+				if(d.date != ""){
+					d.date=dateFormat.parse(d.date);
+				}
+				d.policy_level = d.policy_level.trim();
+				d.portfolio = '';
+				//d.portfolio = d.portfolio.trim();
+				//d.portfolio = d.policy_level;
 				RecordId ++;
 			});
 			grid ("#ec",events);
