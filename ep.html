@@ -83,6 +83,10 @@ min-height: 90px;
 </head>
 <body>
 
+<div id="loader-container">
+	<div id="loader"></div>
+</div>
+
 
 <script>
 $( document ).ready(function() {
@@ -1606,6 +1610,7 @@ $(function() {
 		d3.json("doi-pretty.json", function (rows) {
 				 doi = rows;
 				 renderLoaded();
+				 $('#loader-container').hide();
 //      grid ("#ep2014list",rows);
 		});     
 

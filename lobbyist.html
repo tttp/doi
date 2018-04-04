@@ -62,6 +62,10 @@
 </head>
 <body>
 
+<div id="loader-container">
+	<div id="loader"></div>
+</div>
+
 
 <script>
 
@@ -1262,6 +1266,7 @@ function eventpopup (epid) {
 			events = _.filter(events, function(d) {
 				return d.host != 'Commissioner';
 			});
+			
 			_.each (events, function (d) {
         if (!d.guestid)
           return;
@@ -1289,6 +1294,7 @@ function eventpopup (epid) {
 			,function(error, rows) {
 				 events = rows;
 				 renderLoaded();
+				 $('#loader-container').hide();
 			});      
 		//d3.json("data/representative-light.json", function (rows) {
 		//d3.csv("data/representative.csv", function (rows) {

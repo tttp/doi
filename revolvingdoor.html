@@ -223,6 +223,9 @@ min-height: 90px;
 </head>
 <body>
 
+<div id="loader-container">
+	<div id="loader"></div>
+</div>
 
 <script>
 $( document ).ready(function() {
@@ -1091,6 +1094,7 @@ $(function() {
 			tool_fullact = rows;	
 			fixdataset();	
 			grid("#ep2014list",tool_people);
+			$('#loader-container').hide();
 	}); 
 	d3.csv("data/tool_photos.csv", function(d) {return d;}
 		,function(error, rows) {

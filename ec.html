@@ -119,6 +119,10 @@ td.dc-table-column._6
 </head>
 <body>
 
+<div id="loader-container">
+	<div id="loader"></div>
+</div>
+
 
 <script>
 $( document ).ready(function() {
@@ -1853,6 +1857,7 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 			,function(error, rows) {
 				 events = rows;
 				 renderLoaded();
+				 $('#loader-container').hide();
 			});  
 		d3.csv("data/meetings_links.csv", function(d) {return d;}
 			,function(error, rows) {
