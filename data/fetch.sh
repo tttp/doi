@@ -1,6 +1,6 @@
-export PYENV_ROOT="/home/xavier/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+#export PYENV_ROOT="/home/xavier/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
 
 #curl http://stage.lobbyfacts.nestor.coop/transparency_csv > transparency.csv
 curl https://lobbyfacts.eu/transparency_csv > transparency.csv
