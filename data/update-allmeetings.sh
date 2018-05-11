@@ -64,7 +64,7 @@ q "select r.id,contact_country,sub_category,sub_category_title,acronym,name,main
 
 #curl -O http://api.lobbyfacts.eu/api/1/accreditation.csv > accreditation.csv
 #echo 'id,accredited' > representative_count.csv
-q "select representative_id id,count(*) accredited FROM accreditation.csv where status='active' group by representative_id"  -d, -H -O > representative_count.csv;
+q "select representative_id id,count(*) accredited FROM accreditation.csv group by representative_id"  -d, -H -O > representative_count.csv;
 
 #csvjoin --left -c id,id  representative-finance-light.csv representative_count.csv  > r.csv
 q "select r.*,c.id as country, accredited FROM representative-finance-light.csv r left join representative_count.csv a on (r.id=a.id) left join country.csv c on r.contact_country=c.code" -d, -H -O > r.csv
