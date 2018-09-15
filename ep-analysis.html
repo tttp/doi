@@ -1,0 +1,100 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EU Integrity Watch</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/dc.css"/>
+<!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"-->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/material.css" rel="stylesheet">
+<link href="css/theme.bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+<script type="text/javascript" src="js/bower.js"></script>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@TI_EU" />
+<meta name="twitter:creator" content="@eucampaign" />
+
+<meta property="og:url" content="http://www.integritywatch.eu" />
+<meta property="og:title" content="EU Integrity Watch: monitor potential conflicts of interests" />
+<meta property="og:description" content="Interactive database that provides a unique overview of the activities and outside income for the members of the European Parliament" />
+<meta property="og:image" content="http://www.integritywatch.eu/img/thumbnail.jpg" />
+<meta property="fb:app_id" content="1611680135716224" />
+
+<style>
+	.table-container {
+		margin-top: 20px;
+	}
+	.paidholdings {
+		width: 100%;
+	}
+</style>
+
+</head>
+<body>
+	<div>
+		Meps:
+		<span class="deccount">0</span>
+	</div>
+	<div>
+		Have holdings:
+		<span class="holdingscount">0</span>
+	</div>
+	<div class="table-container">
+		Paid holdings:
+		<table class="paidholdings">
+			<thead><tr><th>Name</th><th>Holding</th><th>Paid</th></tr></thead>
+		</table>
+	</div>
+	<div class="table-container">
+		Meps with holdings:
+		<table class="holdinglist"></table>
+	</div>
+<script>
+
+	$(function() {
+		var deccount = 0;
+		var holdingscount = 0;
+		var meps=[];
+		var doi=[];
+		var holdinglist = [];
+		var paidholdingslist = [];
+		d3.json("doi-pretty.json", function (rows) {
+			doi = rows;
+			d3.csv("mep.csv", function(rows) {
+				meps = rows;
+				_.each (meps, function (m) {
+					m.doi = _.find(doi,function (d) { return d.mep_id == m.epid  });
+					deccount ++;
+					console.log(deccount);
+					if(m.doi && m.doi.holding.length > 0){
+						holdingscount ++;
+						holdinglist.push(m);
+						_.each (m.doi.holding, function (h) {
+							if(h[1] > -1){
+								console.log(h);
+								paidholdingslist.push([m.first_name+' '+m.last_name, h[0], h[1]]);
+							}
+						});
+					}
+				});
+				$('.deccount').text(deccount);
+				$('.holdingscount').text(holdingscount);
+
+				_.each (holdinglist, function (d) {
+					$('.holdinglist').append('<tr><td>'+d.first_name+' '+d.last_name+'</td></tr>');
+				});
+
+				_.each (paidholdingslist, function (p) {
+					$('.paidholdings').append('<tr><td>'+p[0]+'</td><td>'+p[1]+'</td><td>'+p[2]+'</td></tr>');
+				});
+			}); 
+		});	
+	});
+
+</script>	
+</body>
+</html>
