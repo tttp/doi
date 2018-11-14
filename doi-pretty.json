@@ -1,32 +1,20 @@
 [
   {
-    "additional": "Omistan puolet maatilasta puolisoni kanssa, osoite: Kaunisharjuntie 493, 92400 Pielavesi",
-    "url": "http://www.europarl.europa.eu/mepdif/191693_DFI_LEG8_rev0_FI.pdf",
-    "support": "1. Taloudellinen tuki:\n(*)   Tuen myöntäjä:\n2. Työvoiman muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n3. Materiaalin muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n(*) Tukea myöntäneiden kolmansien osapuolten nimet.",
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/72754_DFI_LEG8_rev0_IT.pdf",
+    "support": "1. in denaro:\n(*)     conferito/i: da\n2. in personale:\n(*)     conferito/i: da\n3. in materiale:\n(*)     conferito/i: da\n(*) Identità dei terzi in questione.",
     "mandate": [],
     "occasional": [],
-    "mep_id": 191693,
+    "mep_id": 72754,
     "membership": [],
-    "other": "Taloudellinen sidonnaisuus:\n1.\n2.\n4/6                                           FI\n3.",
+    "other": "Interessi finanziari:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "27/03/2018",
+    "date": "09/10/2018",
     "occupation": [
       [
-        "Kansanedustaja          (28.2.2018  saakka)",
-        4
-      ],
-      [
-        "Maakuntahallituksen jäsen",
-        0
-      ],
-      [
-        "Kunnanvaltuuston jäsen",
-        0
-      ],
-      [
-        "Suomen Keskusta-naiset ry.,  puheenjohtaja",
-        0
+        "DIPENDENTE, IMPIEG.",
+        3
       ]
     ],
     "events": []
@@ -53,44 +41,7 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/191695_DFI_LEG8_rev0_LV.pdf",
-    "support": "1. finansiāls atbalsts:\n(*)    piešķīrējs\n2. personāla\nnodrošinājums:\n(*)    piešķīrējs\n3. materiālo līdzekļu\nnodrošinājums:\n(*)    piešķīrējs\n(*) Trešā(-ās) persona(-as), norādot to/tās.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 191695,
-    "membership": [
-      [
-        "“Latvijas krievu savienības” valdes  loceklis",
-        0
-      ],
-      [
-        "Latvijas krievu kultūras mantojuma  institūta valdes loceklis",
-        0
-      ]
-    ],
-    "other": "Finansiālās intereses:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "28/03/2018",
-    "occupation": [
-      [
-        "Eiropas Parlamenta deputātes  T.Ždanokas palīgs",
-        3
-      ],
-      [
-        "“Latvijas krievu savienības”  valdes loceklis",
-        0
-      ],
-      [
-        "Latvijas krievu kultūras  mantojuma institūta valdes l",
-        0
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/28244_DFI_LEG8_rev0_DE.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/28244_DFI_LEG8_rev1_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
     "occasional": [],
@@ -107,12 +58,16 @@
       [
         "Mitglied des Aufsichtsrats, AVECO  AG, Frankfurt",
         2
+      ],
+      [
+        "Union Asset Management Holding  AG, Frankfurt",
+        3
       ]
     ],
     "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
     "holding": [],
     "activity": [],
-    "date": "23/11/2017",
+    "date": "07/09/2018",
     "occupation": [
       [
         "Chairman, Financial Future",
@@ -123,8 +78,59 @@
         4
       ],
       [
+        "Mitglied des Beirats, Verband  der Sparda-Banken e.V., Frankfurt",
+        1
+      ],
+      [
         "MEP 01/2014-06/2014",
         4
+      ],
+      [
+        "Mitglied des Aufsichtsrats,  AVECO AG, Frankfurt",
+        2
+      ]
+    ],
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/28244_TRAV_LEG8_1002219_DE.pdf"
+    ]
+  },
+  {
+    "additional": "I am part owner and shareholder of M Computer Technologies Ltd and MCT Expert Software\n(partnership).",
+    "url": "http://www.europarl.europa.eu/mepdif/189391_DFI_LEG8_rev0_EN.pdf",
+    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 189391,
+    "membership": [
+      [
+        "PATRON OF EDINBURGH  DIRECT AID (CHARITY)",
+        0
+      ],
+      [
+        "CONVENOR    SCOTLAND  PAKISTAN NETWORK",
+        0
+      ]
+    ],
+    "other": "Financial interest:\n1.\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "03/10/2017",
+    "occupation": [
+      [
+        "Government Whip House of  Lords",
+        0
+      ],
+      [
+        "Governor Craigholme School",
+        0
+      ],
+      [
+        "Chairman Pakistan Britain Trade  & Investment Forum",
+        0
+      ],
+      [
+        "Director - Board of Glasgow  Film Theatre",
+        0
       ]
     ],
     "events": []
@@ -281,70 +287,6 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124857_DFI_LEG8_rev0_BG.pdf",
-    "support": "1. във вид на финансови\nсредства:\n(*)   предоставена от\n2. във вид на персонал:\n(*)   предоставена от\n3. във вид на материали:\n(*)   предоставена от\n(*) Самоличност на съответното(ите) трето(и) лице(а)",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 124857,
-    "membership": [],
-    "other": "Финансов интерес:\n1.\n5/7                            BG\n2.\n3.",
-    "holding": [
-      [
-        "1.КИД 2225",
-        -1
-      ],
-      [
-        "2.ДУЛО ПРОПЪРТИС ЛТД",
-        -1
-      ]
-    ],
-    "activity": [],
-    "date": "03/02/2017",
-    "occupation": [
-      [
-        "1.Народен представител 42-то  Народно събрание на Република България",
-        2
-      ],
-      [
-        "2. КИД 2226 ЕООД",
-        -1
-      ],
-      [
-        "3.Арексим Инжинеринг ЕАД",
-        2
-      ],
-      [
-        "4. Грийн Форест Проджект АД",
-        3
-      ],
-      [
-        "5. КИД 2228 ЕООД",
-        3
-      ],
-      [
-        "6. КОГЕН ЗАГОРЕ ООД",
-        2
-      ],
-      [
-        "7. ЗАВОДСКИ СТРОЕЖИ  КОЗЛОДУЙ АД",
-        2
-      ],
-      [
-        "8. СЪНРЕЙ ЕНЕРДЖИ ООД",
-        -1
-      ],
-      [
-        "9. КИД 2227",
-        0
-      ]
-    ],
-    "events": [
-      "http://www.europarl.europa.eu/mepdat/124857_TRAV_LEG8_1001651_EN.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124857_19-02-2017.pdf"
-    ]
-  },
-  {
-    "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/135540_DFI_LEG8_rev1_PL.pdf",
     "support": "1. finansowe:\n(*)    udzielone przez:\n2. w postaci udostępnienia\npersonelu:\n(*)    udzielone przez:\n3. w postaci udostępnienia\nsprzętu:\n(*)    udzielone przez:\n(*) Dane odpowiedniej osoby trzeciej lub osób trzecich.",
     "mandate": [],
@@ -396,6 +338,31 @@
     "occupation": [
       [
         "RVT Rott. Phil. Orkest",
+        0
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/124902_DFI_LEG8_rev1_PL.pdf",
+    "support": "1. finansowe:\n(*)    udzielone przez:\n2. w postaci udostępnienia\npersonelu:\n(*)    udzielone przez:\n3. w postaci udostępnienia\nsprzętu:\n(*)    udzielone przez:\n(*) Dane odpowiedniej osoby trzeciej lub osób trzecich.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 124902,
+    "membership": [
+      [
+        "Prezes Stowarzyszenia Na Rzecz  Wolnego Handlu",
+        0
+      ]
+    ],
+    "other": "Interesy finansowe:\n1.\n4/6                                    PL\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "30/06/2017",
+    "occupation": [
+      [
+        "Prezes Stowarzyszenia Na Rzecz  Wolnego Handlu",
         0
       ]
     ],
@@ -722,37 +689,39 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/188622_DFI_LEG8_rev0_EN.pdf",
-    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+    "url": "http://www.europarl.europa.eu/mepdif/193269_DFI_LEG8_rev0_FI.pdf",
+    "support": "1. Taloudellinen tuki:\n(*)   Tuen myöntäjä:\n2. Työvoiman muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n3. Materiaalin muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n(*) Tukea myöntäneiden kolmansien osapuolten nimet.",
     "mandate": [],
     "occasional": [],
-    "mep_id": 188622,
-    "membership": [
-      [
-        "COMPANY DIRECTOR",
-        0
-      ]
-    ],
-    "other": "Financial interest:\n1.\n2.\n3.",
+    "mep_id": 193269,
+    "membership": [],
+    "other": "Taloudellinen sidonnaisuus:\n1.\n2.\n5/7                                           FI\n3.",
     "holding": [],
-    "activity": [
-      [
-        "HISTORIAN",
-        2
-      ],
-      [
-        "COMPANY DIRECTOR",
-        1
-      ]
-    ],
-    "date": "06/09/2017",
+    "activity": [],
+    "date": "21/06/2018",
     "occupation": [
       [
-        "HISTORIAN",
-        3
+        "Kansanedustaja",
+        4
       ],
       [
-        "COMPANY DIRECTOR",
+        "Oulun      kaupunginvaltuuston  jäsen",
+        1
+      ],
+      [
+        "Joutsenmedia Oy  Hallituksen jäsen",
+        1
+      ],
+      [
+        "Vesaisten keskusliitto  Hallituksen puheenjohtaja",
+        0
+      ],
+      [
+        "Maa- ja kotitalousnaiset  Hallituksen jäsen",
+        0
+      ],
+      [
+        "Yleisradio Oy  Hallintoneuvoston",
         1
       ]
     ],
@@ -760,42 +729,36 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/193080_DFI_LEG8_rev0_FR.pdf",
-    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
-    "mandate": [
-      [
-        "Conseillère municipale de Couëtron au Perche (41) - (IN: 198,20 €)",
-        "229.14 EUR"
-      ],
-      [
-        "Vice Présidente de la Communauté de communes des Collines du Perche (41) - (IN: 83,07€)",
-        "95.99 EUR"
-      ]
-    ],
+    "url": "http://www.europarl.europa.eu/mepdif/191377_DFI_LEG8_rev0_RO.pdf",
+    "support": "1. susținere financiară:\n(*)     acordată de\n2. susținere sub formă de\npersonal:\n(*)     acordată de\n3. susținere sub formă de\nmateriale:\n(*)     acordată de\n(*) Identitatea terților părți în cauză.",
+    "mandate": [],
     "occasional": [],
-    "mep_id": 193080,
-    "membership": [
-      [
-        "Agence nouvelle des solidarités  actives - Paris - membre du CA",
-        0
-      ],
-      [
-        "Fonds de dotation du Perche-Bellème  (61) - co-fondatrice",
-        0
-      ],
-      [
-        "Conseil d'orientation du Domaine  national de CHAMBORD - membre",
-        0
-      ]
-    ],
-    "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
+    "mep_id": 191377,
+    "membership": [],
+    "other": "Interese financiare:\n1.\n2.\n4/6                                            RO\n3.",
     "holding": [],
     "activity": [],
-    "date": "17/06/2018",
+    "date": "19/02/2018",
     "occupation": [
       [
-        "Inspectrice générale des affaires  culturelles. Ministère de la Culture.",
-        4
+        "Dir. Gen. Adj Of. National al  Registrului Comerțului",
+        3
+      ],
+      [
+        "Lector universitar",
+        2
+      ],
+      [
+        "European Commerce Registers  Forum",
+        0
+      ],
+      [
+        "Corporate Register Forum",
+        0
+      ],
+      [
+        "Consilier Local Primaria Pitesti",
+        1
       ]
     ],
     "events": []
@@ -1408,10 +1371,15 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/96761_DFI_LEG8_rev1_DE.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/96761_DFI_LEG8_rev2_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
-    "occasional": [],
+    "occasional": [
+      [
+        "Datenschutzbeirat Deutsche Telekom 2018",
+        2
+      ]
+    ],
     "mep_id": 96761,
     "membership": [
       [
@@ -1470,7 +1438,7 @@
     "other": "Finanzielle Interessen:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "25/09/2017",
+    "date": "18/10/2018",
     "occupation": [
       [
         "Europaabgeordneter",
@@ -1591,72 +1559,6 @@
     "events": []
   },
   {
-    "additional": "Conseillère régionale de Normandie (1900€ brut par mois)",
-    "url": "http://www.europarl.europa.eu/mepdif/188718_DFI_LEG8_rev0_FR.pdf",
-    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 188718,
-    "membership": [],
-    "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "03/10/2017",
-    "occupation": [
-      [
-        "Conseillère régionale de  Normandie (1900€ brut par mo",
-        3
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "Heb inkomsten uit verhuur eigen appartementen en woningen in Den Haag.",
-    "url": "http://www.europarl.europa.eu/mepdif/188445_DFI_LEG8_rev0_NL.pdf",
-    "support": "1. financiële steun:\n(*)    verleend door\n2. personele steun:\n(*)    verleend door\n3. materiële steun:\n(*)    verleend door\n(*) Identiteit van de betrokken derden.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 188445,
-    "membership": [
-      [
-        "Bestuurdlid PVV Den Haag",
-        0
-      ],
-      [
-        "Lid VCTE",
-        0
-      ]
-    ],
-    "other": "Financiële belangen:\n1.\n2.\n4/6                                             NL\n3.",
-    "holding": [],
-    "activity": [
-      [
-        "Elissen Consultancy",
-        2
-      ]
-    ],
-    "date": "30/08/2017",
-    "occupation": [
-      [
-        "Nationale Politie (Regeling)",
-        3
-      ],
-      [
-        "Examinator Politieacademie",
-        1
-      ],
-      [
-        "Raadslid Gemeenteraad Den  Haag",
-        3
-      ],
-      [
-        "Ere-Voorzitter    Nationale  Netwerk Drugsexpertise (NND)",
-        0
-      ]
-    ],
-    "events": []
-  },
-  {
     "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/188945_DFI_LEG8_rev0_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
@@ -1688,25 +1590,144 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124902_DFI_LEG8_rev1_PL.pdf",
-    "support": "1. finansowe:\n(*)    udzielone przez:\n2. w postaci udostępnienia\npersonelu:\n(*)    udzielone przez:\n3. w postaci udostępnienia\nsprzętu:\n(*)    udzielone przez:\n(*) Dane odpowiedniej osoby trzeciej lub osób trzecich.",
+    "url": "http://www.europarl.europa.eu/mepdif/189507_DFI_LEG8_rev0_CS.pdf",
+    "support": "1. finanční:\n(*)    kterou poskytuje:\n2. personální:\n(*)    kterou poskytuje:\n3. materiální:\n(*)    kterou poskytuje:\n(*) Totožnost příslušné třetí strany / příslušných třetích stran.",
     "mandate": [],
     "occasional": [],
-    "mep_id": 124902,
+    "mep_id": 189507,
     "membership": [
       [
-        "Prezes Stowarzyszenia Na Rzecz  Wolnego Handlu",
+        "Euroastansis",
+        0
+      ],
+      [
+        "Vondračka",
         0
       ]
     ],
-    "other": "Interesy finansowe:\n1.\n4/6                                    PL\n2.\n3.",
+    "other": "Finanční zájem:\n1.\n2.\n3.",
     "holding": [],
-    "activity": [],
-    "date": "30/06/2017",
+    "activity": [
+      [
+        "Pronájem bytu (2014 - 16 - 17) - 600 EUR/  mès",
+        1
+      ]
+    ],
+    "date": "09/10/2017",
     "occupation": [
       [
-        "Prezes Stowarzyszenia Na Rzecz  Wolnego Handlu",
+        "2014 administrativa Ing. Pavel  Vlček",
+        2
+      ],
+      [
+        "2015 asistent poradce PETR  MACH",
+        2
+      ],
+      [
+        "2016 asistent poradce PETR  MACH",
+        3
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/190518_DFI_LEG8_rev0_DE.pdf",
+    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
+    "mandate": [
+      [
+        "Mitglied des Landtags Ba.-Wü., Zulage des Fraktionsvorsitzenden (17.496 EUR, letztmalig im November 2017)",
+        "17496 EUR"
+      ],
+      [
+        "Mitglied des Landtags Ba.-Wü. (0 EUR, bezüge eingestellt wegen Tätigkeit als MEP im Dezember 2017). Zum 31.12.2017 scheide ich aus dem Landtag aus; keine weiteren Einkünfte",
+        "0 EUR"
+      ]
+    ],
+    "occasional": [],
+    "mep_id": 190518,
+    "membership": [
+      [
+        "PARTEI   ALTERNATIVE  FÜR   DEUTSCHLAND      (AF BUNDESSPRECHER (SEIT 7/15)",
         0
+      ]
+    ],
+    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "12/12/2017",
+    "occupation": [
+      [
+        "Mitglied     Landtag      Ba.-Wü.                                                                   20000 (4/16–12/17)",
+        5
+      ],
+      [
+        "Mitglied LT-BW Dez. 2017",
+        0
+      ],
+      [
+        "Professor Hochschule Kehl bis  3/16",
+        4
+      ]
+    ],
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/190518_TRAV_LEG8_1002028_DE.pdf"
+    ]
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/188622_DFI_LEG8_rev0_EN.pdf",
+    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 188622,
+    "membership": [
+      [
+        "COMPANY DIRECTOR",
+        0
+      ]
+    ],
+    "other": "Financial interest:\n1.\n2.\n3.",
+    "holding": [],
+    "activity": [
+      [
+        "HISTORIAN",
+        2
+      ],
+      [
+        "COMPANY DIRECTOR",
+        1
+      ]
+    ],
+    "date": "06/09/2017",
+    "occupation": [
+      [
+        "HISTORIAN",
+        3
+      ],
+      [
+        "COMPANY DIRECTOR",
+        1
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/183338_DFI_LEG8_rev1_SV.pdf",
+    "support": "1. ekonomiskt bidrag:\n(*)    från\n2. i form av personal:\n(*)    från\n3. i form av materiel:\n(*)    från\n(*) Berörd tredje mans eller tredje parts identitet.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 183338,
+    "membership": [],
+    "other": "Ekonomiska intressen:\n1.\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "08/06/2017",
+    "occupation": [
+      [
+        "Riksdagsledamot",
+        3
       ]
     ],
     "events": []
@@ -1763,6 +1784,7 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/1928_TRAV_LEG8_1002287_DE.pdf",
       "http://www.europarl.europa.eu/ep-dat/1928_02-05-2015.pdf"
     ]
   },
@@ -1817,18 +1839,20 @@
         2
       ]
     ],
-    "events": []
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/4246_TRAV_LEG8_1002064_DE.pdf"
+    ]
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/28224_DFI_LEG8_rev1_DE.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/28224_DFI_LEG8_rev2_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
     "occasional": [],
     "mep_id": 28224,
     "membership": [
       [
-        "Stellvertretender Vorsitzender des  Deutschland- und Europapolitischen Bildungswerks       NRW       (DEPD), Tecklenburg",
+        "Stellvertretender Vorsitzender des  Deutschland- und Europapolitischen Bildungswerks       NRW       (DEPB), Tecklenburg",
         0
       ],
       [
@@ -1836,14 +1860,22 @@
         0
       ],
       [
-        "Lehrauftrag        Europäische  Regionalpolitik, Universität Münster",
-        1
+        "Lehrauftrag Europäische Politik,  Universität Münster",
+        3
+      ],
+      [
+        "Kuratorium Institut für Berg- und  Energierecht Ruhr-Universität Bochum",
+        0
+      ],
+      [
+        "Aufsichtsrat Sportfreunde Lotte",
+        0
       ]
     ],
     "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
     "holding": [],
     "activity": [],
-    "date": "25/03/2017",
+    "date": "29/08/2018",
     "occupation": [
       [
         "Europaabgeordneter",
@@ -2086,6 +2118,10 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/96876_TRAV_LEG8_1002207_FR.pdf",
+      "/mepdat/attach/96876_5ca15dd9-53ff-4c43-bde8-fdfe10d7445f_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/96876_TRAV_LEG8_1002083_EN.pdf",
+      "/mepdat/attach/96876_d5db9679-85e3-4ec2-bd4b-7c9a4170271d_1.pdf",
       "http://www.europarl.europa.eu/ep-dat/96876_03-05-2015.pdf"
     ]
   },
@@ -2207,6 +2243,8 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/28165_TRAV_LEG8_1002216_EN.pdf",
+      "/mepdat/attach/28165_7c59fda1-3c65-43d4-b5ad-8696d14e78f8_1.pdf",
       "http://www.europarl.europa.eu/mepdat/28165_TRAV_LEG8_1001243_EN.pdf",
       "/mepdat/attach/28165_b29938ad-312f-4d59-9516-c9ec8db4a0e0_1.pdf"
     ]
@@ -2724,6 +2762,8 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/96779_TRAV_LEG8_1002121_EN.pdf",
+      "/mepdat/attach/96779_ccf82aab-893f-462b-b1ad-20f43a57c4db_1.pdf",
       "http://www.europarl.europa.eu/mepdat/96779_TRAV_LEG8_1001907_EN.pdf",
       "http://www.europarl.europa.eu/mepdat/96779_TRAV_LEG8_1002006_EN.pdf",
       "/mepdat/attach/96779_379ea5a1-f2a9-4d3c-b50c-25eaab5b67fb_1.pdf",
@@ -3035,6 +3075,7 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/135491_TRAV_LEG8_1002265_EN.pdf",
       "http://www.europarl.europa.eu/mepdat/135491_TRAV_LEG8_1001661_ES.pdf",
       "/mepdat/attach/135491_be59aa7f-f2ca-45b7-a175-dbff13016445_1.pdf",
       "http://www.europarl.europa.eu/mepdat/135491_TRAV_LEG8_1001662_ES.pdf",
@@ -3121,7 +3162,7 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124840_DFI_LEG8_rev4_DE.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/124840_DFI_LEG8_rev5_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
     "occasional": [],
@@ -3150,12 +3191,16 @@
       [
         "Mitglied im Politischen Beirat des  Wirtschaftsforums der SPD e.V.",
         0
+      ],
+      [
+        "Mitglied im Politischen Beirat  des Bundesverbands mittelständisch Wirtschaft e.V.",
+        0
       ]
     ],
-    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "other": "Finanzielle Interessen:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "20/06/2018",
+    "date": "29/08/2018",
     "occupation": [
       [
         "Abteilungsleiter im Thüringer  Wirtschaftsministerium",
@@ -3167,6 +3212,9 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/124840_TRAV_LEG8_1002313_DE.pdf",
+      "http://www.europarl.europa.eu/mepdat/124840_TRAV_LEG8_1002305_DE.pdf",
+      "/mepdat/attach/124840_cb3a4762-c14a-4b31-b8c4-f8792550abbf_1.pdf",
       "http://www.europarl.europa.eu/mepdat/124840_TRAV_LEG8_1001156_DE.pdf",
       "/mepdat/attach/124840_dffbddbe-f2e0-408d-aa28-6784a5e44edb_1.pdf",
       "http://www.europarl.europa.eu/mepdat/124840_TRAV_LEG8_1000088_DE.pdf",
@@ -3303,34 +3351,6 @@
     ]
   },
   {
-    "additional": "Je suis directrice des Editions Arcane 17 (association 1901) et je suis bénévole. Donc sans salaire.",
-    "url": "http://www.europarl.europa.eu/mepdif/188721_DFI_LEG8_rev0_FR.pdf",
-    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 188721,
-    "membership": [],
-    "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "11/10/2017",
-    "occupation": [
-      [
-        "Permanent PCF jusqu'à juin 2017",
-        3
-      ],
-      [
-        "Depuis février 2017 jusqu'à  septembre 2017, délégation ESS 680 euros",
-        2
-      ],
-      [
-        "Jusqu'à décembre                2015,  conseillère régionale",
-        3
-      ]
-    ],
-    "events": []
-  },
-  {
     "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/185340_DFI_LEG8_rev1_HR.pdf",
     "support": "1. financijska sredstva:\n(*)    dodijelio\n2. sredstva u osoblju:\n(*)    dodijelio\n3. sredstva u stvarima:\n(*)    dodijelio\n(*) Identitet dotične treće osobe ili trećih osoba.",
@@ -3430,6 +3450,29 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002226_EN.pdf",
+      "/mepdat/attach/124963_af454693-719b-4951-b28f-fedd761b08c3_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002239_EN.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002232_EN.pdf",
+      "/mepdat/attach/124963_f79a4120-d1e8-4cfb-a133-f600a142c77d_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002243_EN.pdf",
+      "/mepdat/attach/124963_cf410b01-3dc4-44a7-8596-d4579bddb865_1.pdf",
+      "/mepdat/attach/124963_cf410b01-3dc4-44a7-8596-d4579bddb865_2.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002238_EN.pdf",
+      "/mepdat/attach/124963_7afc47f4-a37d-4ce2-8e22-564cacc3d35e_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002242_EN.pdf",
+      "/mepdat/attach/124963_fa1e3799-cee2-409c-90cb-1cd274491312_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002225_EN.pdf",
+      "/mepdat/attach/124963_68e64431-4f8e-4cd4-9e6a-34b03b9f14b3_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002162_EN.pdf",
+      "/mepdat/attach/124963_b4b94868-cf93-4807-a3f4-db0fb1effde3_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002161_EN.pdf",
+      "/mepdat/attach/124963_df6f6865-55d3-4f98-886d-473de74b33b1_1.pdf",
+      "/mepdat/attach/124963_df6f6865-55d3-4f98-886d-473de74b33b1_2.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002227_EN.pdf",
+      "/mepdat/attach/124963_3596b3da-8b76-4725-9645-cf7cfe130cbf_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1002160_EN.pdf",
+      "/mepdat/attach/124963_84deb7a1-ca53-4da4-bc8e-c1028a7f465d_1.pdf",
       "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1001896_EN.pdf",
       "http://www.europarl.europa.eu/mepdat/124963_TRAV_LEG8_1001274_EN.pdf",
       "/mepdat/attach/124963_8569d13f-314f-4891-a7e7-3672a93da993_1.pdf",
@@ -3488,47 +3531,6 @@
     ]
   },
   {
-    "additional": "I am part owner and shareholder of M Computer Technologies Ltd and MCT Expert Software\n(partnership).",
-    "url": "http://www.europarl.europa.eu/mepdif/189391_DFI_LEG8_rev0_EN.pdf",
-    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 189391,
-    "membership": [
-      [
-        "PATRON OF EDINBURGH  DIRECT AID (CHARITY)",
-        0
-      ],
-      [
-        "CONVENOR    SCOTLAND  PAKISTAN NETWORK",
-        0
-      ]
-    ],
-    "other": "Financial interest:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "03/10/2017",
-    "occupation": [
-      [
-        "Government Whip House of  Lords",
-        0
-      ],
-      [
-        "Governor Craigholme School",
-        0
-      ],
-      [
-        "Chairman Pakistan Britain Trade  & Investment Forum",
-        0
-      ],
-      [
-        "Director - Board of Glasgow  Film Theatre",
-        0
-      ]
-    ],
-    "events": []
-  },
-  {
     "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/117491_DFI_LEG8_rev2_NL.pdf",
     "support": "1. financiële steun:\n(*)    verleend door\n2. personele steun:\n(*)    verleend door\n3. materiële steun:\n(*)    verleend door\n(*) Identiteit van de betrokken derden.",
@@ -3556,30 +3558,6 @@
       ],
       [
         "1/03/2013 - 11/01/2015  Assistent EP (APA)",
-        3
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/190517_DFI_LEG8_rev0_DE.pdf",
-    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 190517,
-    "membership": [],
-    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "22/11/2017",
-    "occupation": [
-      [
-        "Büroleitung",
-        4
-      ],
-      [
-        "Wiss. MA",
         3
       ]
     ],
@@ -3715,117 +3693,203 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/189507_DFI_LEG8_rev0_CS.pdf",
-    "support": "1. finanční:\n(*)    kterou poskytuje:\n2. personální:\n(*)    kterou poskytuje:\n3. materiální:\n(*)    kterou poskytuje:\n(*) Totožnost příslušné třetí strany / příslušných třetích stran.",
+    "url": "http://www.europarl.europa.eu/mepdif/190517_DFI_LEG8_rev0_DE.pdf",
+    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
     "occasional": [],
-    "mep_id": 189507,
+    "mep_id": 190517,
+    "membership": [],
+    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "22/11/2017",
+    "occupation": [
+      [
+        "Büroleitung",
+        4
+      ],
+      [
+        "Wiss. MA",
+        3
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/193080_DFI_LEG8_rev0_FR.pdf",
+    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
+    "mandate": [
+      [
+        "Conseillère municipale de Couëtron au Perche (41) - (IN: 198,20 €)",
+        "229.14 EUR"
+      ],
+      [
+        "Vice Présidente de la Communauté de communes des Collines du Perche (41) - (IN: 83,07€)",
+        "95.99 EUR"
+      ]
+    ],
+    "occasional": [],
+    "mep_id": 193080,
     "membership": [
       [
-        "Euroastansis",
+        "Agence nouvelle des solidarités  actives - Paris - membre du CA",
         0
       ],
       [
-        "Vondračka",
+        "Fonds de dotation du Perche-Bellème  (61) - co-fondatrice",
+        0
+      ],
+      [
+        "Conseil d'orientation du Domaine  national de CHAMBORD - membre",
         0
       ]
     ],
-    "other": "Finanční zájem:\n1.\n2.\n3.",
+    "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
     "holding": [],
-    "activity": [
+    "activity": [],
+    "date": "17/06/2018",
+    "occupation": [
       [
-        "Pronájem bytu (2014 - 16 - 17) - 600 EUR/  mès",
+        "Inspectrice générale des affaires  culturelles. Ministère de la Culture.",
+        4
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/190799_DFI_LEG8_rev0_DE.pdf",
+    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 190799,
+    "membership": [],
+    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "holding": [
+      [
+        "Agentur für ArbeitX",
+        -1
+      ]
+    ],
+    "activity": [],
+    "date": "12/01/2018",
+    "occupation": [
+      [
+        "1. Bevollmächtigter IG Metall  Kaiserslautern",
+        4
+      ],
+      [
+        "Vorsitzender            DGB  Kaiserslautern",
+        3
+      ],
+      [
+        "Leitungsgremium            AOK  Rheinland-Pfalz",
         1
       ]
     ],
-    "date": "09/10/2017",
+    "events": []
+  },
+  {
+    "additional": "Omistan puolet maatilasta puolisoni kanssa, osoite: Kaunisharjuntie 493, 92400 Pielavesi",
+    "url": "http://www.europarl.europa.eu/mepdif/191693_DFI_LEG8_rev0_FI.pdf",
+    "support": "1. Taloudellinen tuki:\n(*)   Tuen myöntäjä:\n2. Työvoiman muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n3. Materiaalin muodossa\nannettu tuki:\n(*)   Tuen myöntäjä:\n(*) Tukea myöntäneiden kolmansien osapuolten nimet.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 191693,
+    "membership": [],
+    "other": "Taloudellinen sidonnaisuus:\n1.\n2.\n4/6                                           FI\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "27/03/2018",
     "occupation": [
       [
-        "2014 administrativa Ing. Pavel  Vlček",
-        2
+        "Kansanedustaja          (28.2.2018  saakka)",
+        4
       ],
       [
-        "2015 asistent poradce PETR  MACH",
-        2
+        "Maakuntahallituksen jäsen",
+        0
       ],
       [
-        "2016 asistent poradce PETR  MACH",
-        3
+        "Kunnanvaltuuston jäsen",
+        0
+      ],
+      [
+        "Suomen Keskusta-naiset ry.,  puheenjohtaja",
+        0
       ]
     ],
     "events": []
   },
   {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/192635_DFI_LEG8_rev0_IT.pdf",
-    "support": "1. in denaro:\n(*)     conferito/i: da\n2. in personale:\n(*)     conferito/i: da\n3. in materiale:\n(*)     conferito/i: da\n(*) Identità dei terzi in questione.",
+    "additional": "Member of the National Trust of England*\nMember of English Heritage*\nMember of the Royal Horticultural Society*\nMember of the National Landlords Association*\nMember of the Chartered Institute of Management*\n* activities not remunerated",
+    "url": "http://www.europarl.europa.eu/mepdif/188623_DFI_LEG8_rev0_EN.pdf",
+    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
     "occasional": [],
-    "mep_id": 192635,
+    "mep_id": 188623,
     "membership": [
       [
-        "VICESINDACO COMUNE DI  ADRO",
-        0
-      ],
-      [
-        "CONSIGLIERE              COMUNALE  COMUNE DI ADRO",
+        "CHAIR - Pebmarsh Community Pub  Ltd",
         0
       ]
     ],
-    "other": "Interessi finanziari:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "23/04/2018",
-    "occupation": [
+    "other": "Financial interest:\n1.\n2.\n4/6                                          EN\n3.",
+    "holding": [
       [
-        "VICESINDACO COMUNE DI  ADRO",
-        3
-      ],
-      [
-        "CONSIGLIERE COMUNALE  COMUNE DI ADRO",
-        0
+        "EastAnglia & London Properties Ltd - Majority shareholder",
+        1
       ]
     ],
-    "events": []
-  },
-  {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124697_DFI_LEG8_rev2_ET.pdf",
-    "support": "1. Rahaline toetus:\n(*)    Andja:\n2. Toetus personali kujul:\n(*)    Andja:\n3. Toetus ainelisel kujul:\n(*)    Andja:\n(*) Asjaomas(t)e kolmanda(te) isiku(te) andmed.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 124697,
-    "membership": [],
-    "other": "Majanduslik huvi:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "19/06/2017",
+    "activity": [
+      [
+        "Director - East Anglia & London",
+        1
+      ]
+    ],
+    "date": "05/07/2017",
     "occupation": [
       [
-        "Riigikogu liige",
+        "Company Director - East Anglia  & London Properties Ltd",
         3
       ],
       [
-        "Arengufondi nõukogu liige",
-        2
+        "Director - Pebmarsh Community  Pub Ltd",
+        0
       ]
     ],
     "events": [
-      "http://www.europarl.europa.eu/mepdat/124697_TRAV_LEG8_1000409_ET.pdf",
-      "/mepdat/attach/124697_9bc415b5-ce91-4b08-844a-bd85037872a0_1.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_26-01-2017.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_21-11-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_21-10-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_18-10-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_06-10-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_20-06-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_03-06-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_30-05-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_17-03-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_24-02-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_15-02-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/124697_25-01-2016.pdf"
+      "http://www.europarl.europa.eu/mepdat/188623_TRAV_LEG8_1001158_EN.pdf"
     ]
+  },
+  {
+    "additional": "REDDITI COME SINDACO DEL COMUNE DI ISCHIA\nANNO 2014 € 36.813,00 (3.067,75 MENSILI)\nANNO 2015 € 24.542,00 (2.045,17 MENSILI)\nANNO 2016 € 36.813,00 (3.067,75 MENSILI)",
+    "url": "http://www.europarl.europa.eu/mepdif/192634_DFI_LEG8_rev0_IT.pdf",
+    "support": "1. in denaro:\n(*)     conferito/i: da\n2. in personale:\n(*)     conferito/i: da\n3. in materiale:\n(*)     conferito/i: da\n(*) Identità dei terzi in questione.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 192634,
+    "membership": [],
+    "other": "Interessi finanziari:\n1.\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "03/05/2018",
+    "occupation": [
+      [
+        "INGEGNERE 2014",
+        1
+      ],
+      [
+        "INGEGNERE 2015",
+        3
+      ],
+      [
+        "INGEGNERE 2016",
+        1
+      ]
+    ],
+    "events": []
   },
   {
     "additional": "",
@@ -3993,6 +4057,7 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/2323_TRAV_LEG8_1002286_DE.pdf",
       "http://www.europarl.europa.eu/ep-dat/2323_27-08-2016.pdf",
       "http://www.europarl.europa.eu/ep-dat/2323_30-08-2014.pdf"
     ]
@@ -4261,7 +4326,10 @@
         4
       ]
     ],
-    "events": []
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/96762_TRAV_LEG8_1002254_DE.pdf",
+      "/mepdat/attach/96762_8a98185c-4742-4775-b1f7-0d01f6376fbf_1.pdf"
+    ]
   },
   {
     "additional": "",
@@ -4490,7 +4558,10 @@
         4
       ]
     ],
-    "events": []
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/111011_TRAV_LEG8_1002311_EN.pdf",
+      "/mepdat/attach/111011_66dcc78f-a8ef-4b68-939d-d0ce1ed67118_1.pdf"
+    ]
   },
   {
     "additional": "",
@@ -4606,6 +4677,13 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/96920_TRAV_LEG8_1002306_EN.pdf",
+      "/mepdat/attach/96920_45d3c6d5-3dfe-49d2-bfae-465b80bfc3e7_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/96920_TRAV_LEG8_1002307_EN.pdf",
+      "/mepdat/attach/96920_d93b923e-33c2-4782-a9a5-7f621e08cc1b_1.pdf",
+      "/mepdat/attach/96920_d93b923e-33c2-4782-a9a5-7f621e08cc1b_2.pdf",
+      "http://www.europarl.europa.eu/mepdat/96920_TRAV_LEG8_1002060_EN.pdf",
+      "/mepdat/attach/96920_8fd5f13d-22a3-4a09-ab61-6888c0c28a39_1.pdf",
       "http://www.europarl.europa.eu/mepdat/96920_TRAV_LEG8_1002026_EN.pdf",
       "/mepdat/attach/96920_42d04d4f-d4c0-479f-b0be-04169366eb8f_1.pdf",
       "http://www.europarl.europa.eu/mepdat/96920_TRAV_LEG8_1001890_EN.pdf",
@@ -4791,6 +4869,8 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/28288_TRAV_LEG8_1002246_EN.pdf",
+      "/mepdat/attach/28288_bfe3f30e-406d-4ad4-b00b-fb457fd9572c_1.pdf",
       "http://www.europarl.europa.eu/mepdat/28288_TRAV_LEG8_1001321_EN.pdf",
       "/mepdat/attach/28288_3318873b-eb14-4551-bf4e-dca83bff5074_1.pdf"
     ]
@@ -5632,7 +5712,7 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/1204_DFI_LEG8_rev2_FR.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/1204_DFI_LEG8_rev3_FR.pdf",
     "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
     "mandate": [],
     "occasional": [],
@@ -5649,12 +5729,16 @@
       [
         "Président de Pax Europa (association)",
         0
+      ],
+      [
+        "Président du Comité exécutif de la  fondation Robert Schuman",
+        0
       ]
     ],
     "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
     "holding": [],
     "activity": [],
-    "date": "28/05/2018",
+    "date": "24/09/2018",
     "occupation": [
       [
         "Député européen",
@@ -5920,6 +6004,8 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/96918_TRAV_LEG8_1002245_EN.pdf",
+      "/mepdat/attach/96918_20418022-7f1c-4cb7-a284-9fa6e5c06a0a_1.pdf",
       "http://www.europarl.europa.eu/mepdat/96918_TRAV_LEG8_1001389_EN.pdf",
       "/mepdat/attach/96918_6a65c39f-e4e6-4127-97ec-ecc593172f3e_1.pdf",
       "http://www.europarl.europa.eu/mepdat/96918_TRAV_LEG8_1001145_EN.pdf",
@@ -6600,8 +6686,8 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/96715_DFI_LEG8_rev1_CS.pdf",
-    "support": "1. finanční:\n(*)    kterou poskytuje:\n2. personální:\n(*)    kterou poskytuje:\n3. materiální:\n(*)    kterou poskytuje:\n(*) Totožnost příslušné třetí strany / příslušných třetích stran.",
+    "url": "http://www.europarl.europa.eu/mepdif/96715_DFI_LEG8_rev2_CS.pdf",
+    "support": "1. finanční:\n(*)    kterou poskytuje:\n2. personální:                        -\n(*)    kterou poskytuje:                     i) European Bureau for Conservation and Development\n(Despina Symons, Stella Reschke and Ilias Gramps)\npro \"The European Parliament Intergroup on Climate\nChange, Biodiversity and Sustainable Development\", které\npředsedám\nii) United European Gastroenterology (Jana Tenglerová)\npro Digestive Health Group - neformální skupinu poslanců,\nkteré předsedám\n3. materiální:\n(*)    kterou poskytuje:\n(*) Totožnost příslušné třetí strany / příslušných třetích stran.",
     "mandate": [],
     "occasional": [],
     "mep_id": 96715,
@@ -6614,7 +6700,7 @@
       ]
     ],
     "activity": [],
-    "date": "10/04/2017",
+    "date": "04/09/2018",
     "occupation": [
       [
         "Poslanec EP",
@@ -6644,30 +6730,43 @@
     "events": []
   },
   {
-    "additional": "Bilanț contabil negative D&C Sweets",
-    "url": "http://www.europarl.europa.eu/mepdif/33989_DFI_LEG8_rev2_RO.pdf",
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/33989_DFI_LEG8_rev3_RO.pdf",
     "support": "1. susținere financiară:\n(*)     acordată de\n2. susținere sub formă de\npersonal:\n(*)     acordată de\n3. susținere sub formă de\nmateriale:\n(*)     acordată de\n(*) Identitatea terților părți în cauză.",
     "mandate": [],
-    "occasional": [],
+    "occasional": [
+      [
+        "VANILLA            WORKS          UG       -  CONSULTANTA",
+        0
+      ]
+    ],
     "mep_id": 33989,
     "membership": [
       [
         "D&C SWEETS SRL",
+        1
+      ],
+      [
+        "MARAMURA SWEETS SRL",
         0
       ],
       [
-        "Asociația Școala pt Sănătate",
+        "ASOCIATIA SCOALA PENTRU  SANATATE",
         0
       ]
     ],
     "other": "Interese financiare:\n1.\n2.\n4/6                                            RO\n3.",
     "holding": [],
     "activity": [],
-    "date": "14/09/2017",
+    "date": "31/05/2018",
     "occupation": [
       [
-        "MEMBRU AL PARL. EUR.",
+        "MEMBRU       AL  PARLAMENTULUI EUROPEAN",
         4
+      ],
+      [
+        "ASOCIATIA   SCOALA  PENTRU SANATATE",
+        0
       ]
     ],
     "events": [
@@ -7065,7 +7164,9 @@
         4
       ]
     ],
-    "events": []
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/185974_TRAV_LEG8_1002241_EN.pdf"
+    ]
   },
   {
     "additional": "",
@@ -7165,26 +7266,6 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/183338_DFI_LEG8_rev1_SV.pdf",
-    "support": "1. ekonomiskt bidrag:\n(*)    från\n2. i form av personal:\n(*)    från\n3. i form av materiel:\n(*)    från\n(*) Berörd tredje mans eller tredje parts identitet.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 183338,
-    "membership": [],
-    "other": "Ekonomiska intressen:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "08/06/2017",
-    "occupation": [
-      [
-        "Riksdagsledamot",
-        3
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/133326_DFI_LEG8_rev1_EN.pdf",
     "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
@@ -7207,94 +7288,6 @@
     ],
     "events": [
       "http://www.europarl.europa.eu/mepdat/133326_TRAV_LEG8_1002023_IT.pdf"
-    ]
-  },
-  {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/190713_DFI_LEG8_rev0_DE.pdf",
-    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:                  a) Ein Teilzeit-Mitarbeiter in Österreich;\nb) Freiwillige und ehrenamtliche Aktivistinnen und\nAktivisten;\nc) Ein Mitarbeiter im Rahmen des Aus- und\nWeiterbildungsprogramms durch das Institut für Bildung\nund Innovation (IV)\n(*)    bereitgestellt von             a) und b) Verein Rot-Weiß-Rot in Europa;\nc) Institut für Bildung und Innovation (IV)\n3. materiell:                  Unterstützung               für             Studienreisen,\nVeranstaltungsorganisation, Bürgerkontakte u. dgl.\n(*)    bereitgestellt von             Verein Rot-Weiß-Rot in Europa\n(*) Identität dieses/dieser Dritten.",
-    "mandate": [
-      [
-        "Abgeordneter zum NÖ Landtag 2008 – 2017, Zurücklegung am 13.12.2017 (Stand 2017: brutto 6.367,80 Euro, 15 Mal jährlich; wird laut Rechtsauskunft des Bundeslandes Niederösterreich mit dem MEP-Bezug (ab 30.11.2017) eingerechnet)",
-        "6367.8 EUR"
-      ],
-      [
-        "Vizebürgermeister (und Mitglied des Gemeinde- und des Stadtrates) von Gerasdorf bei Wien, Zurücklegung am 04.12.2017 (Stand 2017: brutto 2.260,22 Euro monatlich, 12 Mal jährlich, wurde aufgrund der Rechtsauskunft des Bundeslandes Niederösterreich ab 30.11.2017 stillgelegt)",
-        "2260.22 EUR"
-      ]
-    ],
-    "occasional": [
-      [
-        "SELBSTSTÄNDIGE TÄTIGKEIT ALS  EINPERSONEN-UNTERNEHMEN (UNTERHALB                  DER UMSATZSTEUERPFLICHT): VORTRÄGE,            TRAININGS, MODERATIONEN, TEXTE",
-        3
-      ]
-    ],
-    "mep_id": 190713,
-    "membership": [
-      [
-        "GEMEINNÜTZIGE  WOHNBAUGENOSSENSCHAFT ALPENLAND: MITGLIED DES AUFSICHTSRATES",
-        1
-      ],
-      [
-        "ASSEMBLY OF EUROPEAN  REGIONS (VERSAMMLUNG DER REGIONEN         EUROPAS VIZEPRÄSIDENT",
-        0
-      ],
-      [
-        "INSTITUT DER REGIONEN  EUROPAS (IRE): MITGLIED D KURATORIUMS",
-        0
-      ],
-      [
-        "INSTITUT  FÜR    DEN  DONAURAUM             UND MITTELEUROPA        (IDM): KOOPTIERTES MITGLIED DES VORSTANDS",
-        0
-      ],
-      [
-        "ÖSTERREICHISCHE  GESELLSCHAFT            FÜR VÖLKERVERSTÄNDIGUNG: MITGLIED DES VORSTANDS",
-        0
-      ],
-      [
-        "BUNDESVORSTAND       DES  ARBEITNEHMER/INNEN-BUNDES (ÖAAB): KOOPTIERTES MITGLIED",
-        0
-      ],
-      [
-        "BEZIRKSPARTEIVORSTAND  DER            VOLKSPARTEI KORNEUBURG: MITGLIED KRAFT FUNKTION",
-        0
-      ],
-      [
-        "STADTPARTEIVORSTAND DER  VOLKSPARTEI      GERASDORF: MITGLIED KRAFT FUNKTION",
-        0
-      ],
-      [
-        "INITIATIVE FÜR POLITISCHE  QUALITÄT (VEREIN): OBMANN",
-        0
-      ]
-    ],
-    "other": "Finanzielle Interessen:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "25/12/2017",
-    "occupation": [
-      [
-        "SELBSTSTÄNDIGE  TÄTIGKEIT       ALS    EIN- PERSONEN-UNTERNEHMEN (UNTERHALB             DER UMSATZSTEUERPFLICHT): VORTRÄGE,        TRAININGS, MODERATIONEN,        TEXTE (SEIT 1998)",
-        3
-      ],
-      [
-        "EXTERNER  UNIVERSITÄTSLEKTOR AN DER WIRTSCHAFTSUNIVERSITÄT WIEN (2008 – 2016)",
-        1
-      ],
-      [
-        "BUNDESMINISTERIUM FÜR  JUSTIZ, WERKVERTRAG (2016 – 2017)",
-        1
-      ],
-      [
-        "FA.  SMARTASSISTANT,  WERKVERTRAG (2015 – 2015",
-        1
-      ]
-    ],
-    "events": [
-      "http://www.europarl.europa.eu/mepdat/190713_TRAV_LEG8_1002016_DE.pdf",
-      "/mepdat/attach/190713_53fe9f8d-fb0b-4ffc-982e-0d65fd74021b_1.pdf",
-      "http://www.europarl.europa.eu/mepdat/190713_TRAV_LEG8_1001687_DE.pdf",
-      "/mepdat/attach/190713_da21f9a4-4246-4777-b8bc-e29d320ee33f_1.pdf"
     ]
   },
   {
@@ -7350,6 +7343,256 @@
   },
   {
     "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/28141_DFI_LEG8_rev0_HU.pdf",
+    "support": "1. pénzbeli juttatás:\n(*)    tól/től\n2. személyzeti téren\nbiztosított juttatás:\n(*)    tól/től\n3. természetbeni juttatás:\n(*)    tól/től\n(*) A harmadik fél (felek) megnevezése.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 28141,
+    "membership": [],
+    "other": "Pénzügyi érdekeltség:\n1.\n4/6                                             HU\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "01/10/2017",
+    "occupation": [
+      [
+        "J.L.R. Consulting alapító tag",
+        1
+      ],
+      [
+        "Járóka Lívia Tehetségmentő  Egyesület",
+        1
+      ],
+      [
+        "Europai Parlamenti Képviselö",
+        4
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "Conseillère régionale de Normandie (1900€ brut par mois)",
+    "url": "http://www.europarl.europa.eu/mepdif/188718_DFI_LEG8_rev0_FR.pdf",
+    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 188718,
+    "membership": [],
+    "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "03/10/2017",
+    "occupation": [
+      [
+        "Conseillère régionale de  Normandie (1900€ brut par mo",
+        3
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/188636_DFI_LEG8_rev0_EN.pdf",
+    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:              ELECTION AND CAMPAINING PUBLICATIONS AND\nASSISTANCE\n(*)    granted by                            THE LABOUR PARTY\nSOUTHSIDE\nVICTORIA STREET\nLONDON\n(*) Identity of the third party or parties concerned.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 188636,
+    "membership": [
+      [
+        "DIRECTOR PUBLIC IMPACT  LIMITED",
+        0
+      ],
+      [
+        "DIRECTOR PUBLIC IMPACT  COMMUNICATIONS LTD",
+        0
+      ]
+    ],
+    "other": "Financial interest:\n1.\n2.\n4/6                                          EN\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "06/07/2017",
+    "occupation": [
+      [
+        "DIRECTOR PUBLIC IMPACT  LTD",
+        2
+      ],
+      [
+        "DIRECTOR PUBLIC IMPACT  COM LTD",
+        2
+      ],
+      [
+        "CONSULTANT INSTINCTIF  PARTNERS",
+        3
+      ]
+    ],
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/188636_TRAV_LEG8_1002052_EN.pdf"
+    ]
+  },
+  {
+    "additional": "Zugelassener Rechtsanwalt in der Rechtsanwaltskammer Oldenburg",
+    "url": "http://www.europarl.europa.eu/mepdif/185619_DFI_LEG8_rev2_DE.pdf",
+    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 185619,
+    "membership": [
+      [
+        "Sozialdemokratische        Partei  Deutschlands     -    Stellvertretender Unterbezirksvorsitzender Osnabruck- Stadt",
+        0
+      ],
+      [
+        "Sozialdemokratische        Partei  Deutschlands - Ortsvereinsvorsitzender OV AWI",
+        0
+      ],
+      [
+        "Sozialdemokratische      Partei  Deutschlands     -    Beisitzer    im Bezirksvorstand Weser-Ems",
+        0
+      ],
+      [
+        "Vorsitzender Europa-Union e.V. Stadt  und Landkreis Osnabrück",
+        0
+      ]
+    ],
+    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "25/09/2017",
+    "occupation": [
+      [
+        "Rechtsreferendar          Land  Niedersachsen",
+        3
+      ],
+      [
+        "Wissenschaftliche Hilfskraft Uni  Speyer",
+        2
+      ],
+      [
+        "Wissenschaftlicher Mitarbeiter  Uni Speyer",
+        3
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/124857_DFI_LEG8_rev0_BG.pdf",
+    "support": "1. във вид на финансови\nсредства:\n(*)   предоставена от\n2. във вид на персонал:\n(*)   предоставена от\n3. във вид на материали:\n(*)   предоставена от\n(*) Самоличност на съответното(ите) трето(и) лице(а)",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 124857,
+    "membership": [],
+    "other": "Финансов интерес:\n1.\n5/7                            BG\n2.\n3.",
+    "holding": [
+      [
+        "1.КИД 2225",
+        -1
+      ],
+      [
+        "2.ДУЛО ПРОПЪРТИС ЛТД",
+        -1
+      ]
+    ],
+    "activity": [],
+    "date": "03/02/2017",
+    "occupation": [
+      [
+        "1.Народен представител 42-то  Народно събрание на Република България",
+        2
+      ],
+      [
+        "2. КИД 2226 ЕООД",
+        -1
+      ],
+      [
+        "3.Арексим Инжинеринг ЕАД",
+        2
+      ],
+      [
+        "4. Грийн Форест Проджект АД",
+        3
+      ],
+      [
+        "5. КИД 2228 ЕООД",
+        3
+      ],
+      [
+        "6. КОГЕН ЗАГОРЕ ООД",
+        2
+      ],
+      [
+        "7. ЗАВОДСКИ СТРОЕЖИ  КОЗЛОДУЙ АД",
+        2
+      ],
+      [
+        "8. СЪНРЕЙ ЕНЕРДЖИ ООД",
+        -1
+      ],
+      [
+        "9. КИД 2227",
+        0
+      ]
+    ],
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/124857_TRAV_LEG8_1001651_EN.pdf",
+      "http://www.europarl.europa.eu/ep-dat/124857_19-02-2017.pdf"
+    ]
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/96872_DFI_LEG8_rev0_DE.pdf",
+    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 96872,
+    "membership": [
+      [
+        "IG     -INITIATIVGRUPPE,  MITGLIED DES KURATORIUMS",
+        0
+      ],
+      [
+        "FDP BFA MEDIEN UND  DIGITALES, STELLVERTRE",
+        0
+      ],
+      [
+        "LIONS CLUB HEIMATHAFEN  BREMEN, PR BEAUFTRAGTE",
+        0
+      ],
+      [
+        "THOMAS-DEHLER-STIFTUNG,  VORSTANDSMITGLIED",
+        0
+      ]
+    ],
+    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "holding": [],
+    "activity": [
+      [
+        "Geschäftsführerin und Gründerin Coachoo  GmbH",
+        2
+      ]
+    ],
+    "date": "20/11/2017",
+    "occupation": [
+      [
+        "MEP",
+        4
+      ],
+      [
+        "Stellv.    Geschäftsführerin  Handelsblatt Global Edition",
+        4
+      ],
+      [
+        "Head of Communication, Raisin  GmbH",
+        4
+      ],
+      [
+        "Managing Director Coachoo  GmbH",
+        2
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/24942_DFI_LEG8_rev0_ES.pdf",
     "support": "1. financiero:\n(*)    concedido por\n2. de personal:\n(*)    concedido por\n3. de material:\n(*)    concedido por\n(*) Identidad del/de los tercero(s) de que se trate.",
     "mandate": [],
@@ -7374,87 +7617,142 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/190518_DFI_LEG8_rev0_DE.pdf",
-    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
-    "mandate": [
-      [
-        "Mitglied des Landtags Ba.-Wü., Zulage des Fraktionsvorsitzenden (17.496 EUR, letztmalig im November 2017)",
-        "17496 EUR"
-      ],
-      [
-        "Mitglied des Landtags Ba.-Wü. (0 EUR, bezüge eingestellt wegen Tätigkeit als MEP im Dezember 2017). Zum 31.12.2017 scheide ich aus dem Landtag aus; keine weiteren Einkünfte",
-        "0 EUR"
-      ]
-    ],
-    "occasional": [],
-    "mep_id": 190518,
-    "membership": [
-      [
-        "PARTEI   ALTERNATIVE  FÜR   DEUTSCHLAND      (AF BUNDESSPRECHER (SEIT 7/15)",
-        0
-      ]
-    ],
-    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "12/12/2017",
-    "occupation": [
-      [
-        "Mitglied     Landtag      Ba.-Wü.                                                                   20000 (4/16–12/17)",
-        5
-      ],
-      [
-        "Mitglied LT-BW Dez. 2017",
-        0
-      ],
-      [
-        "Professor Hochschule Kehl bis  3/16",
-        4
-      ]
-    ],
-    "events": [
-      "http://www.europarl.europa.eu/mepdat/190518_TRAV_LEG8_1002028_DE.pdf"
-    ]
-  },
-  {
-    "additional": "Member of the National Trust of England*\nMember of English Heritage*\nMember of the Royal Horticultural Society*\nMember of the National Landlords Association*\nMember of the Chartered Institute of Management*\n* activities not remunerated",
-    "url": "http://www.europarl.europa.eu/mepdif/188623_DFI_LEG8_rev0_EN.pdf",
-    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+    "url": "http://www.europarl.europa.eu/mepdif/192635_DFI_LEG8_rev0_IT.pdf",
+    "support": "1. in denaro:\n(*)     conferito/i: da\n2. in personale:\n(*)     conferito/i: da\n3. in materiale:\n(*)     conferito/i: da\n(*) Identità dei terzi in questione.",
     "mandate": [],
     "occasional": [],
-    "mep_id": 188623,
+    "mep_id": 192635,
     "membership": [
       [
-        "CHAIR - Pebmarsh Community Pub  Ltd",
+        "VICESINDACO COMUNE DI  ADRO",
+        0
+      ],
+      [
+        "CONSIGLIERE              COMUNALE  COMUNE DI ADRO",
         0
       ]
     ],
-    "other": "Financial interest:\n1.\n2.\n4/6                                          EN\n3.",
-    "holding": [
-      [
-        "EastAnglia & London Properties Ltd - Majority shareholder",
-        1
-      ]
-    ],
-    "activity": [
-      [
-        "Director - East Anglia & London",
-        1
-      ]
-    ],
-    "date": "05/07/2017",
+    "other": "Interessi finanziari:\n1.\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "23/04/2018",
     "occupation": [
       [
-        "Company Director - East Anglia  & London Properties Ltd",
+        "VICESINDACO COMUNE DI  ADRO",
         3
       ],
       [
-        "Director - Pebmarsh Community  Pub Ltd",
+        "CONSIGLIERE COMUNALE  COMUNE DI ADRO",
         0
       ]
     ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/192298_DFI_LEG8_rev0_PL.pdf",
+    "support": "1. finansowe:\n(*)    udzielone przez:\n2. w postaci udostępnienia\npersonelu:\n(*)    udzielone przez:\n3. w postaci udostępnienia\nsprzętu:\n(*)    udzielone przez:\n(*) Dane odpowiedniej osoby trzeciej lub osób trzecich.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 192298,
+    "membership": [],
+    "other": "Interesy finansowe:\n1.\n4/6                                    PL\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "04/04/2018",
+    "occupation": [
+      [
+        "INDYWIDUALNA  DZIAŁALNOŚĆ GOSPODARCZA",
+        3
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/190713_DFI_LEG8_rev2_DE.pdf",
+    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:                  a) Freiwillige und ehrenamtliche Aktivistinnen und\nAktivisten;\nb) Ein Mitarbeiter im Rahmen des Aus- und\nWeiterbildungsprogramms durch das Institut für Bildung\nund Innovation (IV);\nc) Ein Mitarbeiter für Bürgeranliegen in Niederösterreich.\n(*)    bereitgestellt von             a) Verein VSM - Vorzugsstimmen für Mandl;\nb) Institut für Bildung und Innovation (IV);\nc) Volkspartei Niederösterreich.\n3. materiell:                  Unterstützung für Studienreisen,\nVeranstaltungsorganisation, Bürgerkontakte u. dgl.\n(*)    bereitgestellt von             Verein VSM - Vorzugsstimmen für Mandl\n(*) Identität dieses/dieser Dritten.",
+    "mandate": [
+      [
+        "Abgeordneter zum NÖ Landtag 2008 – 2017, Zurücklegung am 13.12.2017 (Stand 2017: brutto 6.367,80 Euro, 15 Mal jährlich; wird laut Rechtsauskunft des Bundeslandes Niederösterreich mit dem MEP-Bezug (ab 30.11.2017) eingerechnet)",
+        "6367.8 EUR"
+      ],
+      [
+        "Vizebürgermeister (und Mitglied des Gemeinde- und des Stadtrates) von Gerasdorf bei Wien, Zurücklegung am 04.12.2017 (Stand 2017: 2.260,22 Euro monatlich, 12 Mal jährlich, wurde aufgrund der Rechtsauskunft des Bundeslandes Niederösterreich ab 30.11.2017 stillgelegt)",
+        "2260.22 EUR"
+      ]
+    ],
+    "occasional": [],
+    "mep_id": 190713,
+    "membership": [
+      [
+        "GEMEINNÜTZIGE  WOHNBAUGENOSSENSCHAFT ALPENLAND: MITGLIED DES AUFSICHTSRATES",
+        1
+      ],
+      [
+        "ASSEMBLY OF EUROPEAN  REGIONS (VERSAMMLUNG DER REGIONEN         EUROPAS VIZEPRÄSIDENT",
+        0
+      ],
+      [
+        "INSTITUT DER REGIONEN  EUROPAS (IRE): KOOPTIERTE MITGLIED DES VORSTANDS",
+        0
+      ],
+      [
+        "INSTITUT  FÜR    DEN  DONAURAUM             UND MITTELEUROPA        (IDM): KOOPTIERTES MITGLIED DES VORSTANDS",
+        0
+      ],
+      [
+        "ÖSTERREICHISCHE  GESELLSCHAFT            FÜR VÖLKERVERSTÄNDIGUNG: MITGLIED DES VORSTANDS",
+        0
+      ],
+      [
+        "BUNDESVORSTAND       DES  ARBEITNEHMER/INNEN-BUNDES (ÖAAB): KOOPTIERTES MITGLIED",
+        0
+      ],
+      [
+        "SME CONNECT: MITGLIED DES  VORSTANDS",
+        0
+      ],
+      [
+        "BEZIRKSPARTEIVORSTAND  DER            VOLKSPARTEI KORNEUBURG: MITGLIED KRAFT FUNKTION",
+        0
+      ],
+      [
+        "STADTPARTEIVORSTAND DER  VOLKSPARTEI      GERASDORF: MITGLIED KRAFT FUNKTION",
+        0
+      ],
+      [
+        "INITIATIVE FÜR POLITISCHE  QUALITÄT (VEREIN): OBMANN",
+        0
+      ]
+    ],
+    "other": "Finanzielle Interessen:\n1.\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "17/09/2018",
+    "occupation": [
+      [
+        "SELBSTSTÄNDIGE  TÄTIGKEIT       ALS    EIN- PERSONEN-UNTERNEHMEN (UNTERHALB             DER UMSATZSTEUERPFLICHT): VORTRÄGE,        TRAININGS, MODERATIONEN,        TEXTE (SEIT 1998)",
+        3
+      ],
+      [
+        "EXTERNER  UNIVERSITÄTSLEKTOR AN DER WIRTSCHAFTSUNIVERSITÄT WIEN (2008 – 2016)",
+        1
+      ],
+      [
+        "BUNDESMINISTERIUM FÜR  JUSTIZ, WERKVERTRAG (2016 – 2017)",
+        1
+      ],
+      [
+        "FA.  SMARTASSISTANT,  WERKVERTRAG (2015 – 2015",
+        1
+      ]
+    ],
     "events": [
-      "http://www.europarl.europa.eu/mepdat/188623_TRAV_LEG8_1001158_EN.pdf"
+      "http://www.europarl.europa.eu/mepdat/190713_TRAV_LEG8_1002016_DE.pdf",
+      "/mepdat/attach/190713_53fe9f8d-fb0b-4ffc-982e-0d65fd74021b_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/190713_TRAV_LEG8_1001687_DE.pdf",
+      "/mepdat/attach/190713_da21f9a4-4246-4777-b8bc-e29d320ee33f_1.pdf"
     ]
   },
   {
@@ -7673,22 +7971,32 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/96892_TRAV_LEG8_1002244_EN.pdf",
+      "/mepdat/attach/96892_2208c9ca-95bd-4999-98a2-7927b9831c78_1.pdf",
+      "/mepdat/attach/96892_2208c9ca-95bd-4999-98a2-7927b9831c78_2.pdf",
+      "http://www.europarl.europa.eu/mepdat/96892_TRAV_LEG8_1002062_EN.pdf",
+      "/mepdat/attach/96892_ceb72b84-a64f-4206-94cd-48319d877bff_1.pdf",
       "http://www.europarl.europa.eu/ep-dat/96892_08-09-2016.pdf",
       "http://www.europarl.europa.eu/ep-dat/96892_21-04-2016.pdf"
     ]
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/125023_DFI_LEG8_rev1_EN.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/125023_DFI_LEG8_rev2_EN.pdf",
     "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
     "occasional": [],
     "mep_id": 125023,
-    "membership": [],
+    "membership": [
+      [
+        "Ambassadeur           Voedselbank  Groningen",
+        0
+      ]
+    ],
     "other": "Financial interest:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "07/06/2017",
+    "date": "11/10/2018",
     "occupation": [
       [
         "Senior policy advisor at Stichting  AAP (2012-June 2014)",
@@ -7902,6 +8210,10 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/124713_TRAV_LEG8_1002256_EN.pdf",
+      "/mepdat/attach/124713_d98bf5e7-9de1-41d9-9c48-a25e84c52220_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/124713_TRAV_LEG8_1002236_EN.pdf",
+      "/mepdat/attach/124713_5294dc38-87f8-41ae-b80b-bdfa038cbeee_1.pdf",
       "http://www.europarl.europa.eu/mepdat/124713_TRAV_LEG8_1001803_EN.pdf",
       "/mepdat/attach/124713_b7eb8cc2-f333-440f-ab89-d06d18e163a2_1.pdf",
       "http://www.europarl.europa.eu/mepdat/124713_TRAV_LEG8_1001600_EN.pdf",
@@ -7967,8 +8279,10 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/96739_TRAV_LEG8_1002085_DE.pdf",
       "http://www.europarl.europa.eu/mepdat/96739_TRAV_LEG8_1002054_DE.pdf",
       "http://www.europarl.europa.eu/mepdat/96739_TRAV_LEG8_1002055_DE.pdf",
+      "http://www.europarl.europa.eu/mepdat/96739_TRAV_LEG8_1002081_DE.pdf",
       "http://www.europarl.europa.eu/mepdat/96739_TRAV_LEG8_1001779_DE.pdf",
       "/mepdat/attach/96739_6255312a-a0b7-477a-8972-1e6c832bb04d_1.pdf",
       "http://www.europarl.europa.eu/mepdat/96739_TRAV_LEG8_1001239_DE.pdf",
@@ -8162,16 +8476,21 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124826_DFI_LEG8_rev1_DE.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/124826_DFI_LEG8_rev2_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
     "occasional": [],
     "mep_id": 124826,
-    "membership": [],
+    "membership": [
+      [
+        "AUFSICHTSRATSVORSITZENDE,  ENERGIEGENOSSENSCHAFT REINHARDSWALD            EG GREBENSTEIN",
+        0
+      ]
+    ],
     "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
     "holding": [],
     "activity": [],
-    "date": "07/06/2017",
+    "date": "28/08/2018",
     "occupation": [
       [
         "Angestellte im öffentlichen  Dienst",
@@ -8273,6 +8592,9 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/96656_TRAV_LEG8_1002284_EN.pdf",
+      "http://www.europarl.europa.eu/mepdat/96656_TRAV_LEG8_1002094_EN.pdf",
+      "http://www.europarl.europa.eu/mepdat/96656_TRAV_LEG8_1002063_EN.pdf",
       "http://www.europarl.europa.eu/mepdat/96656_TRAV_LEG8_1001913_EN.pdf"
     ]
   },
@@ -9362,7 +9684,10 @@
         4
       ]
     ],
-    "events": []
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/112753_TRAV_LEG8_1002296_EN.pdf",
+      "/mepdat/attach/112753_fca82f91-ffe3-4e82-a506-c70e7f98840a_1.pdf"
+    ]
   },
   {
     "additional": "",
@@ -9969,7 +10294,16 @@
         3
       ]
     ],
-    "events": []
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/124965_TRAV_LEG8_1002263_EN.pdf",
+      "/mepdat/attach/124965_1242d397-d718-4971-a116-8b04969f7040_1.pdf",
+      "/mepdat/attach/124965_1242d397-d718-4971-a116-8b04969f7040_2.pdf",
+      "/mepdat/attach/124965_1242d397-d718-4971-a116-8b04969f7040_4.pdf",
+      "http://www.europarl.europa.eu/mepdat/124965_TRAV_LEG8_1002264_EN.pdf",
+      "/mepdat/attach/124965_84076bcc-3868-4aba-86d7-17c2bc5fe5c9_1.pdf",
+      "/mepdat/attach/124965_84076bcc-3868-4aba-86d7-17c2bc5fe5c9_2.pdf",
+      "/mepdat/attach/124965_84076bcc-3868-4aba-86d7-17c2bc5fe5c9_3.pdf"
+    ]
   },
   {
     "additional": "",
@@ -10360,6 +10694,9 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/23693_TRAV_LEG8_1002255_SL.pdf",
+      "http://www.europarl.europa.eu/mepdat/23693_TRAV_LEG8_1002217_SL.pdf",
+      "http://www.europarl.europa.eu/mepdat/23693_TRAV_LEG8_1002078_EN.pdf",
       "http://www.europarl.europa.eu/mepdat/23693_TRAV_LEG8_1001905_SL.pdf",
       "http://www.europarl.europa.eu/mepdat/23693_TRAV_LEG8_1001904_SL.pdf",
       "http://www.europarl.europa.eu/mepdat/23693_TRAV_LEG8_1001775_SL.pdf",
@@ -10702,96 +11039,6 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/96997_DFI_LEG8_rev5_DE.pdf",
-    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 96997,
-    "membership": [
-      [
-        "Aufsichtsrat der Apaton Capital AG,  Hannover",
-        0
-      ],
-      [
-        "Vertrauensmann der Bausparkasse  Schwäbisch Hall AG, Schwäbisch Hall",
-        2
-      ],
-      [
-        "Beirat des Verbands der Sparda-  Banken e.V., Frankfurt a.M.",
-        1
-      ],
-      [
-        "Beirat der ARAG SE, Düsseldorf",
-        2
-      ],
-      [
-        "Beirat der MVI PROPLANT Nord  GmbH, Wolfsburg",
-        3
-      ],
-      [
-        "Kuratorium der Baden-Badener  Unternehmer Gespräche e.V., Bade Baden; in ehrenamtlicher Funktio",
-        0
-      ],
-      [
-        "Aufsichtsrat der Volksbank          in  Schaumburg eG, Rinteln",
-        1
-      ],
-      [
-        "Aufsichtsrat der Union Investment  Institutional GmbH, Frankfurt a.M.",
-        3
-      ],
-      [
-        "Vorsitzender     des       Steering  Committees         des          European Parliamentary    Financial       Services Forum, Brüssel",
-        0
-      ],
-      [
-        "Convenor der Hong Kong  Friendship Group im Europäi Parlament, Brüssel/Straßbur",
-        0
-      ],
-      [
-        "Mitglied des Vorstands der  Intergroup Long Term Investment im Europäischen Parlament, Brüs Straßburg",
-        0
-      ]
-    ],
-    "other": "Finanzielle Interessen:\n1. Gesellschafter der \"Domizil\" Verwaltungs- und Verlagsgesellschaft Niederdeutsche Stimmen mbH,\nHannover; in treuhänderischer Funktion als Landesschatzmeister der CDU in Niedersachsen\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "19/06/2017",
-    "occupation": [
-      [
-        "Mitglied des Europäischen  Parlaments seit Juni 2009",
-        4
-      ]
-    ],
-    "events": [
-      "http://www.europarl.europa.eu/mepdat/96997_TRAV_LEG8_1002003_DE.pdf",
-      "http://www.europarl.europa.eu/mepdat/96997_TRAV_LEG8_1002004_DE.pdf",
-      "http://www.europarl.europa.eu/mepdat/96997_TRAV_LEG8_1001606_DE.pdf",
-      "http://www.europarl.europa.eu/mepdat/96997_TRAV_LEG8_1001434_DE.pdf",
-      "http://www.europarl.europa.eu/mepdat/96997_TRAV_LEG8_1000469_DE.pdf",
-      "http://www.europarl.europa.eu/mepdat/96997_TRAV_LEG8_1000470_DE.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_20-02-2017.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_10-11-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_07-09-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_24-05-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_04-05-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_20-04-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_29-02-2016.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_03-12-2015.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_01-10-2015.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_26-06-2015.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_18-06-2015.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_27-05-2015.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_22-04-2015.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_02-12-2014.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_13-11-2014.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_04-11-2014.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_13-10-2014.pdf",
-      "http://www.europarl.europa.eu/ep-dat/96997_11-09-2014.pdf"
-    ]
-  },
-  {
-    "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/124720_DFI_LEG8_rev1_EN.pdf",
     "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
@@ -11012,6 +11259,8 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/2341_TRAV_LEG8_1002251_DE.pdf",
+      "/mepdat/attach/2341_09667d1a-93dd-4b8b-9da1-a569454c5cdc_1.pdf",
       "http://www.europarl.europa.eu/mepdat/2341_TRAV_LEG8_1000545_DE.pdf",
       "/mepdat/attach/2341_172b1746-2fe6-4dd4-abbe-29cf04feefa5_1.pdf"
     ]
@@ -11109,7 +11358,7 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/2278_DFI_LEG8_rev4_DE.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/2278_DFI_LEG8_rev5_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:                      Ausbildungsprogramme\n(*)    bereitgestellt von                 Institut für Bildung und Innovation, WKÖ Trainee-\nProgramm\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
     "occasional": [],
@@ -11136,7 +11385,7 @@
         0
       ]
     ],
-    "other": "Finanzielle Interessen:\n1. Dr. Paul RÜBIG Gesellschafter: Rübig GmbH 25%, RKG 11%, FR&S 1%, RWG 11%, RTG 32%\n2.\n4/6                                          DE\n3.",
+    "other": "Finanzielle Interessen:\n1. Dr. Paul RÜBIG Gesellschafter: Rübig GmbH 25%, RKG 11%, FR&S 1%, RWG 11%, RTG 32%,\nUNIHA GmbH 46,65%, 24% PRO GmbH, Stifter PRO\n4/6                                          DE\n2.\n3.",
     "holding": [],
     "activity": [
       [
@@ -11144,7 +11393,7 @@
         3
       ]
     ],
-    "date": "25/04/2017",
+    "date": "03/09/2018",
     "occupation": [
       [
         "Abgeordneter zum Europäischen  Parlament",
@@ -11462,7 +11711,7 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124950_DFI_LEG8_rev4_EN.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/124950_DFI_LEG8_rev5_EN.pdf",
     "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
     "occasional": [],
@@ -11470,17 +11719,17 @@
     "membership": [
       [
         "Director",
-        1
+        0
       ],
       [
         "Director",
         0
       ]
     ],
-    "other": "Financial interest:\n1. Complimentary Membership of British Chamber of Commerce\n2. Complimentary Parking at Birmingham Airport\n3.",
+    "other": "Financial interest:\n1. Birmingham Airport Car Park Pass\n2. Complimentary Membership of British Chamber of Commerce\n3.",
     "holding": [],
     "activity": [],
-    "date": "22/03/2017",
+    "date": "21/06/2018",
     "occupation": [
       [
         "Company Secretary",
@@ -11774,8 +12023,8 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/96705_DFI_LEG8_rev5_EN.pdf",
-    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+    "url": "http://www.europarl.europa.eu/mepdif/96705_DFI_LEG8_rev6_DA.pdf",
+    "support": "1. penge:\n(*)    fra\n2. personale:\n(*)    fra\n3. materiale:\n(*)    fra\n(*) De(n) pågældende tredjepart(er)s identitet.",
     "mandate": [],
     "occasional": [],
     "mep_id": 96705,
@@ -11785,14 +12034,18 @@
         3
       ],
       [
-        "JJO FT Holding Aps",
+        "JJO FT Holding ApS",
         3
+      ],
+      [
+        "Nordhavn A/S",
+        2
       ]
     ],
-    "other": "Financial interest:\n1.\n2.\n3.",
+    "other": "Økonomisk interesse:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "20/03/2018",
+    "date": "17/10/2018",
     "occupation": [
       [
         "MEP i perioden 09-14",
@@ -11807,7 +12060,7 @@
         1
       ],
       [
-        "medlem af Realkredit Danmark  lokalråd Odense",
+        "Medlem af Realkredit Danmark  lokalråd Odense",
         1
       ],
       [
@@ -12148,21 +12401,16 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124794_DFI_LEG8_rev1_IT.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/124794_DFI_LEG8_rev2_IT.pdf",
     "support": "1. in denaro:\n(*)     conferito/i: da\n2. in personale:\n(*)     conferito/i: da\n3. in materiale:\n(*)     conferito/i: da\n(*) Identità dei terzi in questione.",
-    "mandate": [
-      [
-        "Assessore della Regione Veneto",
-        "8500 EUR"
-      ]
-    ],
+    "mandate": [],
     "occasional": [],
     "mep_id": 124794,
     "membership": [],
     "other": "Interessi finanziari:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "03/07/2017",
+    "date": "12/07/2018",
     "occupation": [
       [
         "Assessore della Regione Veneto",
@@ -12608,7 +12856,10 @@
         0
       ]
     ],
-    "events": []
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/96787_TRAV_LEG8_1002112_EN.pdf",
+      "/mepdat/attach/96787_fbd9062c-93ea-41a1-9321-903a19ea5b86_1.pdf"
+    ]
   },
   {
     "additional": "",
@@ -13039,34 +13290,6 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/190099_DFI_LEG8_rev0_EN.pdf",
-    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 190099,
-    "membership": [],
-    "other": "Financial interest:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "12/10/2017",
-    "occupation": [
-      [
-        "Deputy City Mayor",
-        3
-      ],
-      [
-        "City Councillor",
-        3
-      ],
-      [
-        "Local Government Association  Member Peer",
-        1
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/135541_DFI_LEG8_rev1_PL.pdf",
     "support": "1. finansowe:\n(*)    udzielone przez:\n2. w postaci udostępnienia\npersonelu:\n(*)    udzielone przez:\n3. w postaci udostępnienia\nsprzętu:\n(*)    udzielone przez:\n(*) Dane odpowiedniej osoby trzeciej lub osób trzecich.",
     "mandate": [],
@@ -13128,64 +13351,6 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/4338_DFI_LEG8_rev0_FR.pdf",
-    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 4338,
-    "membership": [
-      [
-        "Association Internationale         des  Régions Francophones",
-        0
-      ]
-    ],
-    "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
-    "holding": [],
-    "activity": [
-      [
-        "HELIOS AVOCATS (jusqu'au 1er juillet  2017)",
-        3
-      ]
-    ],
-    "date": "07/06/2017",
-    "occupation": [
-      [
-        "HELIOS AVOCATS",
-        3
-      ],
-      [
-        "Association Internationale des  Régions Francophones",
-        0
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/189490_DFI_LEG8_rev0_RO.pdf",
-    "support": "1. susținere financiară:\n(*)     acordată de\n2. susținere sub formă de\npersonal:\n(*)     acordată de\n3. susținere sub formă de\nmateriale:\n(*)     acordată de\n(*) Identitatea terților părți în cauză.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 189490,
-    "membership": [],
-    "other": "Interese financiare:\n1.\n2.\n4/6                                            RO\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "09/10/2017",
-    "occupation": [
-      [
-        "MEMBRU CA SC IAR SA  BRASOV",
-        1
-      ],
-      [
-        "CONSILIER    LOCAL  MUNICIPIUL BRASOV",
-        1
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/96996_DFI_LEG8_rev0_IT.pdf",
     "support": "1. in denaro:\n(*)     conferito/i: da\n2. in personale:\n(*)     conferito/i: da\n3. in materiale:\n(*)     conferito/i: da\n(*) Identità dei terzi in questione.",
     "mandate": [],
@@ -13209,157 +13374,6 @@
       [
         "PRESIDENTE FONDAZIONE  FENDERL",
         0
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/96872_DFI_LEG8_rev0_DE.pdf",
-    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 96872,
-    "membership": [
-      [
-        "IG     -INITIATIVGRUPPE,  MITGLIED DES KURATORIUMS",
-        0
-      ],
-      [
-        "FDP BFA MEDIEN UND  DIGITALES, STELLVERTRE",
-        0
-      ],
-      [
-        "LIONS CLUB HEIMATHAFEN  BREMEN, PR BEAUFTRAGTE",
-        0
-      ],
-      [
-        "THOMAS-DEHLER-STIFTUNG,  VORSTANDSMITGLIED",
-        0
-      ]
-    ],
-    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
-    "holding": [],
-    "activity": [
-      [
-        "Geschäftsführerin und Gründerin Coachoo  GmbH",
-        2
-      ]
-    ],
-    "date": "20/11/2017",
-    "occupation": [
-      [
-        "MEP",
-        4
-      ],
-      [
-        "Stellv.    Geschäftsführerin  Handelsblatt Global Edition",
-        4
-      ],
-      [
-        "Head of Communication, Raisin  GmbH",
-        4
-      ],
-      [
-        "Managing Director Coachoo  GmbH",
-        2
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/190799_DFI_LEG8_rev0_DE.pdf",
-    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 190799,
-    "membership": [],
-    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
-    "holding": [
-      [
-        "Agentur für ArbeitX",
-        -1
-      ]
-    ],
-    "activity": [],
-    "date": "12/01/2018",
-    "occupation": [
-      [
-        "1. Bevollmächtigter IG Metall  Kaiserslautern",
-        4
-      ],
-      [
-        "Vorsitzender            DGB  Kaiserslautern",
-        3
-      ],
-      [
-        "Leitungsgremium            AOK  Rheinland-Pfalz",
-        1
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/191377_DFI_LEG8_rev0_RO.pdf",
-    "support": "1. susținere financiară:\n(*)     acordată de\n2. susținere sub formă de\npersonal:\n(*)     acordată de\n3. susținere sub formă de\nmateriale:\n(*)     acordată de\n(*) Identitatea terților părți în cauză.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 191377,
-    "membership": [],
-    "other": "Interese financiare:\n1.\n2.\n4/6                                            RO\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "19/02/2018",
-    "occupation": [
-      [
-        "Dir. Gen. Adj Of. National al  Registrului Comerțului",
-        3
-      ],
-      [
-        "Lector universitar",
-        2
-      ],
-      [
-        "European Commerce Registers  Forum",
-        0
-      ],
-      [
-        "Corporate Register Forum",
-        0
-      ],
-      [
-        "Consilier Local Primaria Pitesti",
-        1
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "REDDITI COME SINDACO DEL COMUNE DI ISCHIA\nANNO 2014 € 36.813,00 (3.067,75 MENSILI)\nANNO 2015 € 24.542,00 (2.045,17 MENSILI)\nANNO 2016 € 36.813,00 (3.067,75 MENSILI)",
-    "url": "http://www.europarl.europa.eu/mepdif/192634_DFI_LEG8_rev0_IT.pdf",
-    "support": "1. in denaro:\n(*)     conferito/i: da\n2. in personale:\n(*)     conferito/i: da\n3. in materiale:\n(*)     conferito/i: da\n(*) Identità dei terzi in questione.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 192634,
-    "membership": [],
-    "other": "Interessi finanziari:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "03/05/2018",
-    "occupation": [
-      [
-        "INGEGNERE 2014",
-        1
-      ],
-      [
-        "INGEGNERE 2015",
-        3
-      ],
-      [
-        "INGEGNERE 2016",
-        1
       ]
     ],
     "events": []
@@ -13403,20 +13417,205 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/192298_DFI_LEG8_rev0_PL.pdf",
-    "support": "1. finansowe:\n(*)    udzielone przez:\n2. w postaci udostępnienia\npersonelu:\n(*)    udzielone przez:\n3. w postaci udostępnienia\nsprzętu:\n(*)    udzielone przez:\n(*) Dane odpowiedniej osoby trzeciej lub osób trzecich.",
+    "url": "http://www.europarl.europa.eu/mepdif/191695_DFI_LEG8_rev0_LV.pdf",
+    "support": "1. finansiāls atbalsts:\n(*)    piešķīrējs\n2. personāla\nnodrošinājums:\n(*)    piešķīrējs\n3. materiālo līdzekļu\nnodrošinājums:\n(*)    piešķīrējs\n(*) Trešā(-ās) persona(-as), norādot to/tās.",
     "mandate": [],
     "occasional": [],
-    "mep_id": 192298,
-    "membership": [],
-    "other": "Interesy finansowe:\n1.\n4/6                                    PL\n2.\n3.",
+    "mep_id": 191695,
+    "membership": [
+      [
+        "“Latvijas krievu savienības” valdes  loceklis",
+        0
+      ],
+      [
+        "Latvijas krievu kultūras mantojuma  institūta valdes loceklis",
+        0
+      ]
+    ],
+    "other": "Finansiālās intereses:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "04/04/2018",
+    "date": "28/03/2018",
     "occupation": [
       [
-        "INDYWIDUALNA  DZIAŁALNOŚĆ GOSPODARCZA",
+        "Eiropas Parlamenta deputātes  T.Ždanokas palīgs",
         3
+      ],
+      [
+        "“Latvijas krievu savienības”  valdes loceklis",
+        0
+      ],
+      [
+        "Latvijas krievu kultūras  mantojuma institūta valdes l",
+        0
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "MEPs are occasionally invited to take part in opinion surveys for which small payments are made: I ask\nfor the fees to be paid on my behalf direct to charities and good causes which I nominate.\nI have received the following sums for taking part in opinion surveys, the amounts have been donated\nto the named charities on my behalf:\n€100 from ComRes donated to the Royal National Lifeboats Institution on my behalf\n€50 from Dods Research donated to the Royal British Legion on my behalf",
+    "url": "http://www.europarl.europa.eu/mepdif/190099_DFI_LEG8_rev1_EN.pdf",
+    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 190099,
+    "membership": [],
+    "other": "Financial interest:\n1.\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "27/08/2018",
+    "occupation": [
+      [
+        "Deputy City Mayor",
+        3
+      ],
+      [
+        "City Councillor",
+        3
+      ],
+      [
+        "Local Government Association  Member Peer",
+        1
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/193273_DFI_LEG8_rev0_DE.pdf",
+    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 193273,
+    "membership": [
+      [
+        "Mitglied: Rat für die Angelegenheiten  der Sinti und Roma in Baden- Württemberg",
+        0
+      ],
+      [
+        "Vorstand Landesrat der Roma und  Sinti Berlin",
+        0
+      ]
+    ],
+    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "30/08/2018",
+    "occupation": [
+      [
+        "Geschäftsführer",
+        3
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/4338_DFI_LEG8_rev0_FR.pdf",
+    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 4338,
+    "membership": [
+      [
+        "Association Internationale         des  Régions Francophones",
+        0
+      ]
+    ],
+    "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
+    "holding": [],
+    "activity": [
+      [
+        "HELIOS AVOCATS (jusqu'au 1er juillet  2017)",
+        3
+      ]
+    ],
+    "date": "07/06/2017",
+    "occupation": [
+      [
+        "HELIOS AVOCATS",
+        3
+      ],
+      [
+        "Association Internationale des  Régions Francophones",
+        0
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "Je suis directrice des Editions Arcane 17 (association 1901) et je suis bénévole. Donc sans salaire.",
+    "url": "http://www.europarl.europa.eu/mepdif/188721_DFI_LEG8_rev0_FR.pdf",
+    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 188721,
+    "membership": [],
+    "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "11/10/2017",
+    "occupation": [
+      [
+        "Permanent PCF jusqu'à juin 2017",
+        3
+      ],
+      [
+        "Depuis février 2017 jusqu'à  septembre 2017, délégation ESS 680 euros",
+        2
+      ],
+      [
+        "Jusqu'à décembre                2015,  conseillère régionale",
+        3
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/193292_DFI_LEG8_rev0_FR.pdf",
+    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 193292,
+    "membership": [
+      [
+        "Présidente de \"Multiple Sclérose  Lëtzebuerg\"",
+        0
+      ],
+      [
+        "Membre du Conseil National de  \"Info-Handicap\"",
+        0
+      ]
+    ],
+    "other": "Intérêt financier:\n1.\n2.\n5/7                                           FR\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "17/07/2018",
+    "occupation": [
+      [
+        "Attaché à la direction du LTPES                                                                          10000",
+        5
+      ],
+      [
+        "Directrice adjointe du LTPES                                                                             10000",
+        5
+      ],
+      [
+        "Présidente de \"Multiple Sclérose  Lëtzebuerg\"",
+        0
+      ],
+      [
+        "Membre du Conseil National de  \"Info-Handicap\"",
+        0
+      ],
+      [
+        "Vice-Présidente du Conseil  Supérieur     des     Personne Handicapées (CSPH) (jusqu'à 50 EUR/an)",
+        1
+      ],
+      [
+        "Membre       du      Conseil  d'Administration               du \"Rehazenter\" (jusqu'à 500 EUR/an)",
+        1
       ]
     ],
     "events": []
@@ -13982,6 +14181,7 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/129073_TRAV_LEG8_1002297_ET.pdf",
       "http://www.europarl.europa.eu/ep-dat/129073_11-05-2015.pdf"
     ]
   },
@@ -14074,58 +14274,45 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/96903_DFI_LEG8_rev1_EN.pdf",
-    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+    "url": "http://www.europarl.europa.eu/mepdif/96903_DFI_LEG8_rev2_PT.pdf",
+    "support": "1. Financeiros:\n(*)    concedidos por\n2. De pessoal:\n(*)    concedidos por\n3. De material:\n(*)    concedidos por\n(*) Identidade dos terceiros em causa.",
     "mandate": [],
-    "occasional": [
-      [
-        "LEGAL EXPERT",
-        2
-      ]
-    ],
+    "occasional": [],
     "mep_id": 96903,
     "membership": [
       [
-        "MEMBER OF THE BOARD  OF ASSOCIAÇÃO COMERCIAL PORTO",
+        "Membro da Direcção da Associação  Comercial do Porto",
         0
       ],
       [
-        "CHAIR OF GENERAL ASSEMBLY  OF GRUPO RAR, SGPS",
+        "Presidente da Assembleia Geral de  RAR, SGPS",
         0
       ]
     ],
-    "other": "Financial interest:\n1.\n2.\n3.",
+    "other": "Interesse financeiro:\n1.\n2.\n3.",
     "holding": [],
     "activity": [
       [
-        "TEACHER                      (UNIVERSITY  PROFESSOR)",
-        2
+        "Docente universitário",
+        1
       ],
       [
-        "LEGAL EXPERT",
-        2
-      ],
-      [
-        "T.V. COMMENTATOR",
+        "Comentador na TV e na rádio",
         3
       ]
     ],
-    "date": "16/11/2017",
+    "date": "29/08/2018",
     "occupation": [
       [
-        "MEMBER OF E.P.",
+        "Deputado         ao     Parlamento  europeu",
         4
       ],
       [
-        "LAWYER (PARTNER                  OF                                                                    10000 SOCIETY LAW)",
-        5
+        "Docente universitário (UCP-  Porto e Porto Business School)",
+        1
       ],
       [
-        "TEACHER           (UNIVERSITY  PROFESSOR)",
-        2
-      ],
-      [
-        "T.V. COMMENTATOR",
+        "Comentador na TV (TVI) e rádio  (RR)",
         3
       ]
     ],
@@ -14416,7 +14603,7 @@
     "activity": [
       [
         "Avocat (16 000 euros brut mensuel)                                                                       20000",
-        "20000 EUR"
+        5
       ]
     ],
     "date": "05/04/2018",
@@ -14601,7 +14788,7 @@
   },
   {
     "additional": "I wish to signal that my father-in-law is Mr Karmenu Vella, the Commissioner for Environment, Fisheries\nand Maritime Affairs.",
-    "url": "http://www.europarl.europa.eu/mepdif/124970_DFI_LEG8_rev2_MT.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/124970_DFI_LEG8_rev3_MT.pdf",
     "support": "1. finanzjarja:\n(*)    mogħtija minn\n2. fil-forma ta' riżorsi\numani:\n(*)    mogħtija minn\n3. fil-forma ta' riżorsi\nmaterjali:\n(*)    mogħtija minn\n(*) Identità tat-terza/i persuna/i kkonċernata/i.",
     "mandate": [],
     "occasional": [],
@@ -14610,12 +14797,16 @@
       [
         "Examiner at the University of Malta  (2015)",
         0
+      ],
+      [
+        "Honorary Chair of the EDU Advisory  Council",
+        2
       ]
     ],
     "other": "Interess finanzjarju:\n1.\n2.\n4/6                                          MT\n3.",
     "holding": [],
     "activity": [],
-    "date": "31/05/2017",
+    "date": "18/07/2018",
     "occupation": [
       [
         "Advisor to the Ministry of  Energy and Conservation of Wat",
@@ -14682,14 +14873,14 @@
     "events": []
   },
   {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124823_DFI_LEG8_rev3_DE.pdf",
+    "additional": "Kredit an die Partei AfD ueber 1 Million €. Zurueckgezahlt: 2015",
+    "url": "http://www.europarl.europa.eu/mepdif/124823_DFI_LEG8_rev4_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
     "occasional": [
       [
         "Autor",
-        3
+        0
       ]
     ],
     "mep_id": 124823,
@@ -14699,14 +14890,46 @@
         3
       ]
     ],
-    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "other": "Finanzielle Interessen:\n1.\n2.\n5/7                                          DE\n3.",
     "holding": [],
     "activity": [],
-    "date": "26/06/2017",
+    "date": "11/07/2018",
     "occupation": [
       [
-        "Aufsichtsrat                                                                                        60000",
+        "Aufsichtsrat, Conti AG                                                                              10000",
         5
+      ],
+      [
+        "Aufsichtsrat, Bayer AG                                                                              10000",
+        5
+      ],
+      [
+        "Verwaltungsrat, Ringier AG                                                                          10000",
+        5
+      ],
+      [
+        "Berater, Bank of America                                                                            20000",
+        5
+      ],
+      [
+        "Aufsichtsrat, DLRH",
+        3
+      ],
+      [
+        "Beirat, Allianz AG",
+        2
+      ],
+      [
+        "Aufsichtsrat, Heliad",
+        2
+      ],
+      [
+        "Aufsichtsrat, SMS",
+        2
+      ],
+      [
+        "Verschiedene Honorartaetigkeit",
+        4
       ]
     ],
     "events": []
@@ -15259,7 +15482,7 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/96945_DFI_LEG8_rev4_NL.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/96945_DFI_LEG8_rev5_NL.pdf",
     "support": "1. financiële steun:\n(*)    verleend door\n2. personele steun:\n(*)    verleend door\n3. materiële steun:\n(*)    verleend door\n(*) Identiteit van de betrokken derden.",
     "mandate": [],
     "occasional": [],
@@ -15302,22 +15525,22 @@
         0
       ],
       [
-        "MEMBER ADVISORY BOARD  HUMANITY IN ACTION",
-        0
-      ],
-      [
-        "MEMBER FUTURE COUNCIL  ON DIGITAL ECONOMY AND SOCIETY WORLD ECONOMIC FORUM",
+        "MEMBER GLOBAL FUTURE  COUNCIL      ON    AGILE GOVERNANCE,       WORLD ECONOMIC FORUM",
         0
       ],
       [
         "YOUNG GLOBAL LEADER  WORLD ECONOMIC FORUM",
+        0
+      ],
+      [
+        "CHAIR OF THE BOARD OF  ADVISORS, KNVI",
         0
       ]
     ],
     "other": "Financiële belangen:\n1.\n2.\n5/7                                             NL\n3.",
     "holding": [],
     "activity": [],
-    "date": "10/07/2017",
+    "date": "19/07/2018",
     "occupation": [
       [
         "Independent consultant",
@@ -15451,7 +15674,7 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/38511_DFI_LEG8_rev1_DE.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/38511_DFI_LEG8_rev2_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
     "occasional": [],
@@ -15463,9 +15686,14 @@
       ]
     ],
     "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
-    "holding": [],
+    "holding": [
+      [
+        "1.MAGE GmbH                   X",
+        -1
+      ]
+    ],
     "activity": [],
-    "date": "28/03/2017",
+    "date": "30/08/2018",
     "occupation": [
       [
         "Landtag Steiermark                                                                                  10000",
@@ -15968,6 +16196,8 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/28220_TRAV_LEG8_1002136_DE.pdf",
+      "/mepdat/attach/28220_e1f70d0d-7bef-4243-937a-bbd91b8b09a9_1.pdf",
       "http://www.europarl.europa.eu/ep-dat/28220_07-04-2015.pdf"
     ]
   },
@@ -16780,9 +17010,9 @@
     "events": []
   },
   {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124793_DFI_LEG8_rev3_EN.pdf",
-    "support": "1. financial:\n(*)   granted by\n2. in terms of staff:          Event: High level conference \"Connecting Europe through\nInnovation\"\nMEPs role: Co-organiser\nDate/Location: 24 March 2017 Madrid, Spain\nGrant awarded: Material support for technician,\nphotographer, interpreter services\n(*)   granted by                     UNWTO, Amadeus\n3.1 in terms of material:      Event: High level conference \"Connecting Europe through\nInnovation\"\nMEPs role: Co-organiser\nDate/Location: 24 March 2017 Madrid, Spain\nGrant awarded: Material support for catering services and\nlunch for participants\n(*)   granted by                     UNWTO, Amadeus\n3.1 in terms of material:      Event: Conference \"Aligning Tourism and Aviation Policy\nAgendas\"\nMEPs role: Co-organiser\nDate/Location: 11 April 2017 Brussels, European\nParliament\nGrant awarded: Material support for catering services and\nlunch\n(*)   granted by                     UNWTO, Amadeus\n3.1 in terms of material:      Event: Conference \"Aligning Tourism and Aviation Policy\nAgendas\"\nMEPs role: Co-organiser\nDate/Location: 11 April 2017 Brussels, European\nParliament\nGrant awarded: Material support for catering services and\nlunch\n(*)   granted by                     Ryanair\n3.1 in terms of material:      High Level Reception \"Investing in a Sustainable and\nCompetitive European Tourism\"\nMEPs role: Co-organiser with EP President Antonio\nTAJANI\nDate/Location: 27 September 2017 Brussels, European\nParliament\nGrant awarded: Material support for catering services\n(*)   granted by                     NescTOUR; HOTREC; ETC\n3.1 in terms of material:\n6/8\nHigh Level Conference \"Future of the Cohesion Policy\nEN\n(*) Identity of the third party or parties concerned.",
+    "additional": "I was Associated Teaching Staff, A.S.E. (Oct 3 2016 - June 2017); category of income: 1",
+    "url": "http://www.europarl.europa.eu/mepdif/124793_DFI_LEG8_rev4_EN.pdf",
+    "support": "1. financial:\n(*)   granted by\n2. in terms of staff:          Event: High level conference \"Connecting Europe through\nInnovation\"; MEPs role: Co-organiser; Date/Location: 24\nMarch 2017 Madrid, Spain; Grant awarded: Material\nsupport for technician, photographer, interpreter services\n(*)   granted by                     UNWTO, Amadeus\n3.1 in terms of material:      Event: High level conference \"Connecting Europe through\nInnovation\"; MEPs role: Co-organiser; Date/Location: 24\nMarch 2017 Madrid, Spain; Grant awarded: Material\nsupport for catering services and lunch for participants\n(*)   granted by                     UNWTO, Amadeus\n3.1 in terms of material:      Event: Conference \"Aligning Tourism and Aviation Policy\nAgendas\"; MEPs role: Co-organiser; Date/Location: 11\nApril 2017 Brussels, European Parliament; Grant awarded:\nMaterial support for catering services and lunch\n(*)   granted by                     UNWTO, Amadeus\n3.1 in terms of material:      Event: Conference \"Aligning Tourism and Aviation Policy\nAgendas\"; MEPs role: Co-organiser; Date/Location: 11\n4/7                                               EN\nApril 2017 Brussels, European Parliament; Grant awarded:\nMaterial support for catering services and lunch\n(*)    granted by                            Ryanair\n3.1 in terms of material:             High Level Reception \"Investing in a Sustainable and\nCompetitive European Tourism\"; MEPs role: Co-organiser\nwith EP President Antonio TAJANI; Date/Location: 27\nSeptember 2017 Brussels, European Parliament; Grant\nawarded: Material support for catering services\n(*)    granted by                            NescTOUR; HOTREC; ETC\n3.1 in terms of material:             High Level Conference \"Future of the Cohesion Policy\npost-2020: The role of local administrations in Central\nand Eastern European countries in increasing the level of\neconomic and social cohesion at regional level\"; MEPs role:\nCo-organiser; Date/Location: 17 October 2017 Brussels,\nEuropean Parliament; Grant awarded: Material support for\ncatering services (coffee break; lunch)\n(*)    granted by                            ADRBI\n3.1 in terms of material:             Event: High Level Conference: Danube Transport Day\n2017: Green, efficient & innovative Danube Transport;\nMEPs role: Co-organiser; Date/Location: 23 November\n2017 Brussels, European Parliament; Grant awarded:\nMaterial support for catering services (coffee break)\n(*)    granted by                            Pro Danube International\n3.1 in terms of material:             Event: High Level Event. Romania Unites Europe\nthrough Culture; MEPs role: Organiser; Date/Location:\n26 September 2018 Brussels, European Parliament; Grant\nawarded: Material support for catering services (business\ncocktail)\n(*)    granted by                            HORTEC; ETTSA\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
     "occasional": [],
     "mep_id": 124793,
@@ -16790,7 +17020,7 @@
     "other": "Financial interest:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "04/12/2017",
+    "date": "10/10/2018",
     "occupation": [
       [
         "General Counsellor in the  General Council of Bucharest  (July 2008-June 2013)",
@@ -16811,10 +17041,6 @@
       [
         "Human Resources Director (22  Nov 2013-15 Jan 2014) - Social assistance and child protection Directorate District 3, Buchares",
         2
-      ],
-      [
-        "Associated Teaching Staff,  A.S.E. (Oct 3 2016- June 2017)",
-        1
       ]
     ],
     "events": [
@@ -17047,8 +17273,8 @@
     "events": []
   },
   {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124740_DFI_LEG8_rev2_FR.pdf",
+    "additional": "L'étude de commissaire-priseur dans laquelle j'exerçais a été cédée à Maître Tiphaine Le Grignou ainsi\nque la SARL Hotel des Ventes de Bretagne Atlantique dont j'étais gérante. Je n'ai plus d'activité autre\nque le mandat de député européen.",
+    "url": "http://www.europarl.europa.eu/mepdif/124740_DFI_LEG8_rev3_FR.pdf",
     "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
     "mandate": [],
     "occasional": [],
@@ -17056,17 +17282,8 @@
     "membership": [],
     "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
     "holding": [],
-    "activity": [
-      [
-        "Commissaire-Priseur",
-        4
-      ],
-      [
-        "Gérante de société (cette activité cessera le  14 juillet 2017). Cause: vente de l'entreprise",
-        3
-      ]
-    ],
-    "date": "20/06/2017",
+    "activity": [],
+    "date": "10/08/2018",
     "occupation": [
       [
         "Commissaire-Priseur",
@@ -17393,6 +17610,8 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/28178_TRAV_LEG8_1002213_EN.pdf",
+      "/mepdat/attach/28178_2bc6b521-af52-439c-8ab6-c6a4d429f143_1.pdf",
       "http://www.europarl.europa.eu/mepdat/28178_TRAV_LEG8_1001910_SK.pdf",
       "/mepdat/attach/28178_1bc88f8b-1cbc-4eda-a909-b581a6eabac0_1.pdf",
       "http://www.europarl.europa.eu/mepdat/28178_TRAV_LEG8_1001909_SK.pdf"
@@ -17509,8 +17728,8 @@
     "events": []
   },
   {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124903_DFI_LEG8_rev2_PL.pdf",
+    "additional": "Przed objęciem mandatu posła do PE rozwiązany kontrakt z Klubem Sportowym Vive skutkował\nwypłatą odszkodowania za zerwanie kontraktu w 2014 roku.",
+    "url": "http://www.europarl.europa.eu/mepdif/124903_DFI_LEG8_rev3_PL.pdf",
     "support": "1. finansowe:\n(*)    udzielone przez:\n2. w postaci udostępnienia\npersonelu:\n(*)    udzielone przez:\n3. w postaci udostępnienia\nsprzętu:\n(*)    udzielone przez:\n(*) Dane odpowiedniej osoby trzeciej lub osób trzecich.",
     "mandate": [],
     "occasional": [],
@@ -17519,21 +17738,24 @@
       [
         "STOWARZYSZENIE             PROJEKT  ŚWIĘTOKRZYSKIE",
         0
-      ]
-    ],
-    "other": "Interesy finansowe:\n1.\n4/6                                    PL\n2.\n3.",
-    "holding": [],
-    "activity": [
-      [
-        "Renta sportowa za zdobycie medalu  olimpijskiego (1000,00)",
-        2
       ],
       [
-        "Umowa o pracę i umowy zlecenia  (5000,00)",
-        3
+        "ZWIĄZEK PIŁKI RĘCZNEJ W  POLSCE",
+        0
+      ],
+      [
+        "POLSKI KOMITET OLIMPIJSKI",
+        0
+      ],
+      [
+        "BILANS WENTA Sp. z o.o.",
+        0
       ]
     ],
-    "date": "12/07/2017",
+    "other": "Interesy finansowe:\n1. Renta sportowa za zdobycie medalu olimpijskiego\n4/6                                    PL\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "19/07/2018",
     "occupation": [
       [
         "Indywidualna         działalność                                                                     10000 gospodarcza",
@@ -17599,6 +17821,7 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/1917_TRAV_LEG8_1002285_DE.pdf",
       "http://www.europarl.europa.eu/mepdat/1917_TRAV_LEG8_1001891_DE.pdf",
       "http://www.europarl.europa.eu/mepdat/1917_TRAV_LEG8_1001144_DE.pdf",
       "/mepdat/attach/1917_7e63cc0b-a053-4455-a1ad-c61521b3611b_1.pdf",
@@ -17715,36 +17938,6 @@
     "events": []
   },
   {
-    "additional": "Ich bin Mitglied der folgenden NGOs:\nArbeiterwohlfahrt (AWO)\nArbeitskreis Naturschutz Stolberg e.V.\nBund fuer Umwelt und Naturschutz (BUND) e.V.\nDeutsch-Niederländische Gesellschaft e.V.\nDeutsche Steuergewerkschaft (DSTG)\nEuropa-Union Deutschland e.V.\nFoerderverein Kita St. Barbara Breinig e.V.\nFoerderverein Nationalpark Eifel e.V.\nFoerderverein Pfarre Vicht e.V.\nInteressengemeinschaft Büsbach e.V.\nInteressengemeinschaft Schoenes Vicht e.V.\nKarnevalsgesellschaft 1935 Vicht e.V.\nPartnerschaftskomitee Stolberg-Valognes e.V.\nSozialverband VdK Deutschland\nVerein der Ehemaligen und Freunde des Goethe-Gymnasiums Stolberg e.V.\nVerein Dorfladen & Café Vicht e.V.",
-    "url": "http://www.europarl.europa.eu/mepdif/186884_DFI_LEG8_rev2_DE.pdf",
-    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
-    "mandate": [
-      [
-        "Ratsmitglied Kupferstadt Stolberg",
-        "300 EUR"
-      ]
-    ],
-    "occasional": [],
-    "mep_id": 186884,
-    "membership": [
-      [
-        "Abfallwirtschaftsbeirat  Entsorgungszweckverband Regioentsorgung",
-        1
-      ]
-    ],
-    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "24/04/2018",
-    "occupation": [
-      [
-        "Finanzverwaltung NRW",
-        3
-      ]
-    ],
-    "events": []
-  },
-  {
     "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/97025_DFI_LEG8_rev0_ET.pdf",
     "support": "1. Rahaline toetus:\n(*)    Andja:\n2. Toetus personali kujul:\n(*)    Andja:\n3. Toetus ainelisel kujul:\n(*)    Andja:\n(*) Asjaomas(t)e kolmanda(te) isiku(te) andmed.",
@@ -17783,71 +17976,194 @@
     "events": []
   },
   {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/28141_DFI_LEG8_rev0_HU.pdf",
-    "support": "1. pénzbeli juttatás:\n(*)    tól/től\n2. személyzeti téren\nbiztosított juttatás:\n(*)    tól/től\n3. természetbeni juttatás:\n(*)    tól/től\n(*) A harmadik fél (felek) megnevezése.",
-    "mandate": [],
+    "additional": "Ich bin Mitglied der folgenden NGOs:\nArbeiterwohlfahrt (AWO)\nArbeitskreis Naturschutz Stolberg e.V.\nBund fuer Umwelt und Naturschutz (BUND) e.V.\nDeutsch-Niederländische Gesellschaft e.V.\nDeutsche Steuergewerkschaft (DSTG)\nEuropa-Union Deutschland e.V.\nFoerderverein Kita St. Barbara Breinig e.V.\nFoerderverein Nationalpark Eifel e.V.\nFoerderverein Pfarre Vicht e.V.\nInteressengemeinschaft Büsbach e.V.\nInteressengemeinschaft Schoenes Vicht e.V.\nKarnevalsgesellschaft 1935 Vicht e.V.\nPartnerschaftskomitee Stolberg-Valognes e.V.\nSozialverband VdK Deutschland\nVerein der Ehemaligen und Freunde des Goethe-Gymnasiums Stolberg e.V.\nVerein Dorfladen & Café Vicht e.V.",
+    "url": "http://www.europarl.europa.eu/mepdif/186884_DFI_LEG8_rev2_DE.pdf",
+    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
+    "mandate": [
+      [
+        "Ratsmitglied Kupferstadt Stolberg",
+        "300 EUR"
+      ]
+    ],
     "occasional": [],
-    "mep_id": 28141,
-    "membership": [],
-    "other": "Pénzügyi érdekeltség:\n1.\n4/6                                             HU\n2.\n3.",
+    "mep_id": 186884,
+    "membership": [
+      [
+        "Abfallwirtschaftsbeirat  Entsorgungszweckverband Regioentsorgung",
+        1
+      ]
+    ],
+    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
     "holding": [],
     "activity": [],
-    "date": "01/10/2017",
+    "date": "24/04/2018",
     "occupation": [
       [
-        "J.L.R. Consulting alapító tag",
+        "Finanzverwaltung NRW",
+        3
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "Heb inkomsten uit verhuur eigen appartementen en woningen in Den Haag.",
+    "url": "http://www.europarl.europa.eu/mepdif/188445_DFI_LEG8_rev0_NL.pdf",
+    "support": "1. financiële steun:\n(*)    verleend door\n2. personele steun:\n(*)    verleend door\n3. materiële steun:\n(*)    verleend door\n(*) Identiteit van de betrokken derden.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 188445,
+    "membership": [
+      [
+        "Bestuurdlid PVV Den Haag",
+        0
+      ],
+      [
+        "Lid VCTE",
+        0
+      ]
+    ],
+    "other": "Financiële belangen:\n1.\n2.\n4/6                                             NL\n3.",
+    "holding": [],
+    "activity": [
+      [
+        "Elissen Consultancy",
+        2
+      ]
+    ],
+    "date": "30/08/2017",
+    "occupation": [
+      [
+        "Nationale Politie (Regeling)",
+        3
+      ],
+      [
+        "Examinator Politieacademie",
         1
       ],
       [
-        "Járóka Lívia Tehetségmentő  Egyesület",
-        1
+        "Raadslid Gemeenteraad Den  Haag",
+        3
       ],
       [
-        "Europai Parlamenti Képviselö",
-        4
+        "Ere-Voorzitter    Nationale  Netwerk Drugsexpertise (NND)",
+        0
       ]
     ],
     "events": []
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/188636_DFI_LEG8_rev0_EN.pdf",
-    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:              ELECTION AND CAMPAINING PUBLICATIONS AND\nASSISTANCE\n(*)    granted by                            THE LABOUR PARTY\nSOUTHSIDE\nVICTORIA STREET\nLONDON\n(*) Identity of the third party or parties concerned.",
+    "url": "http://www.europarl.europa.eu/mepdif/193419_DFI_LEG8_rev0_FR.pdf",
+    "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
     "mandate": [],
     "occasional": [],
-    "mep_id": 188636,
+    "mep_id": 193419,
     "membership": [
       [
-        "DIRECTOR PUBLIC IMPACT  LIMITED",
+        "Syndicat d'initiative Winseler",
         0
       ],
       [
-        "DIRECTOR PUBLIC IMPACT  COMMUNICATIONS LTD",
+        "Cooperations.lu",
+        0
+      ],
+      [
+        "bcbl",
         0
       ]
     ],
-    "other": "Financial interest:\n1.\n2.\n4/6                                          EN\n3.",
+    "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
     "holding": [],
     "activity": [],
-    "date": "06/07/2017",
+    "date": "02/09/2018",
     "occupation": [
       [
-        "DIRECTOR PUBLIC IMPACT  LTD",
-        2
+        "Attaché environnement RPLU",
+        4
       ],
       [
-        "DIRECTOR PUBLIC IMPACT  COM LTD",
-        2
+        "Conseiller affaires européennes,  Chambre de Commerce LU",
+        4
       ],
       [
-        "CONSULTANT INSTINCTIF  PARTNERS",
-        3
+        "Président de l'USAL",
+        1
+      ],
+      [
+        "Conseiller communal Winseler",
+        1
       ]
     ],
-    "events": [
-      "http://www.europarl.europa.eu/mepdat/188636_TRAV_LEG8_1002052_EN.pdf"
-    ]
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/194391_DFI_LEG8_rev0_DE.pdf",
+    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 194391,
+    "membership": [
+      [
+        "Fachkommission Europa der Dt.  Bischofskonferenz",
+        0
+      ],
+      [
+        "Fachkommission Europa des BACDJ",
+        0
+      ],
+      [
+        "Landesvorstand CDU Oldenburg",
+        0
+      ],
+      [
+        "Kreisvorstand CDU Vechta",
+        0
+      ],
+      [
+        "Kreisvorstand CDA Vechta",
+        0
+      ]
+    ],
+    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "25/09/2018",
+    "occupation": [
+      [
+        "Konrad-Adenauer-Stiftung e. V.,  St. Augustin",
+        3
+      ],
+      [
+        "Anwaltskanzlei  Berding&Partner",
+        0
+      ]
+    ],
+    "events": []
+  },
+  {
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/193879_DFI_LEG8_rev0_ET.pdf",
+    "support": "1. Rahaline toetus:\n(*)    Andja:\n2. Toetus personali kujul:\n(*)    Andja:\n3. Toetus ainelisel kujul:\n(*)    Andja:\n(*) Asjaomas(t)e kolmanda(te) isiku(te) andmed.",
+    "mandate": [],
+    "occasional": [],
+    "mep_id": 193879,
+    "membership": [],
+    "other": "Majanduslik huvi:\n1. All my interest are purely spiritual.\n2.\n3.",
+    "holding": [],
+    "activity": [],
+    "date": "11/09/2018",
+    "occupation": [
+      [
+        "Member of national Parliament",
+        3
+      ],
+      [
+        "Visiting Professor",
+        2
+      ]
+    ],
+    "events": []
   },
   {
     "additional": "",
@@ -18724,15 +19040,10 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124891_DFI_LEG8_rev2_PL.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/124891_DFI_LEG8_rev3_PL.pdf",
     "support": "1. finansowe:\n(*)    udzielone przez:\n2. w postaci udostępnienia\npersonelu:\n(*)    udzielone przez:\n3. w postaci udostępnienia\nsprzętu:\n(*)    udzielone przez:\n(*) Dane odpowiedniej osoby trzeciej lub osób trzecich.",
     "mandate": [],
-    "occasional": [
-      [
-        "Publicystyka",
-        0
-      ]
-    ],
+    "occasional": [],
     "mep_id": 124891,
     "membership": [
       [
@@ -18754,13 +19065,9 @@
       [
         "Profesura Uniwersytet Bremeński",
         3
-      ],
-      [
-        "Profesura Akademia Ignatianum",
-        3
       ]
     ],
-    "date": "03/10/2017",
+    "date": "13/07/2018",
     "occupation": [
       [
         "Profesura Uni Bremen",
@@ -18772,6 +19079,19 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/124891_TRAV_LEG8_1002290_EN.pdf",
+      "/mepdat/attach/124891_a6e63ba0-35bb-4b32-8cbc-50851b468809_1.pdf",
+      "/mepdat/attach/124891_a6e63ba0-35bb-4b32-8cbc-50851b468809_2.pdf",
+      "/mepdat/attach/124891_a6e63ba0-35bb-4b32-8cbc-50851b468809_3.pdf",
+      "http://www.europarl.europa.eu/mepdat/124891_TRAV_LEG8_1002289_EN.pdf",
+      "/mepdat/attach/124891_bb7efd5c-6c87-4d9e-835d-c30a6df34138_1.pdf",
+      "/mepdat/attach/124891_bb7efd5c-6c87-4d9e-835d-c30a6df34138_2.pdf",
+      "http://www.europarl.europa.eu/mepdat/124891_TRAV_LEG8_1002221_EN.pdf",
+      "/mepdat/attach/124891_07dbc6ac-14b0-461b-894a-87708597247e_1.pdf",
+      "/mepdat/attach/124891_07dbc6ac-14b0-461b-894a-87708597247e_2.pdf",
+      "/mepdat/attach/124891_07dbc6ac-14b0-461b-894a-87708597247e_3.pdf",
+      "/mepdat/attach/124891_07dbc6ac-14b0-461b-894a-87708597247e_4.pdf",
+      "/mepdat/attach/124891_07dbc6ac-14b0-461b-894a-87708597247e_5.pdf",
       "http://www.europarl.europa.eu/mepdat/124891_TRAV_LEG8_1001116_EN.pdf",
       "http://www.europarl.europa.eu/ep-dat/124891_03-03-2017.pdf",
       "http://www.europarl.europa.eu/ep-dat/124891_08-07-2016.pdf",
@@ -19336,11 +19656,16 @@
     "events": []
   },
   {
-    "additional": "- Kompanijos SKILL GAMES LIMITED, SKILL GAMES NETWORK ir SG HOLDINGS LIMITED\nniekada nemokėjo man dividendų, iš jų neturėjau pajamų. Kompanijos veiklą nutraukė 2011 m., įmonių\nvertė nulinė. Mane informavo, kad įmonių išregistravimas procese.\n- Vykdau konsultacinę veiklą kripto valiutų bei kripto valiutų prekybos klausimais.\n- Nuo 2018 m. kovo mėn. tapau ‘‘Kredito unijos“ Lietuvoje dalininku.",
-    "url": "http://www.europarl.europa.eu/mepdif/124763_DFI_LEG8_rev7_LT.pdf",
+    "additional": "- Kompanijos SKILL GAMES LIMITED, SKILL GAMES NETWORK ir SG HOLDINGS LIMITED\nniekada nemokėjo man dividendų, iš jų neturėjau pajamų. Kompanijos veiklą nutraukė 2011 m., įmonių\nvertė nulinė. Mane informavo, kad įmonių išregistravimas procese.\n- Vykdau konsultacinę veiklą kripto valiutų bei kripto valiutų prekybos klausimais.\n- Nuo 2018 m. kovo mėn. tapau ‘‘Kredito unijos“ Lietuvoje dalininku.\n- Dalyvauju pokerio turnyruose.",
+    "url": "http://www.europarl.europa.eu/mepdif/124763_DFI_LEG8_rev10_LT.pdf",
     "support": "1. Finansinė parama:\n(*)    Skyrė:\n2. Personalas:\n(*)    Skyrė:\n3. Materialiniai ištekliai:\n(*)    Skyrė:\n(*) Nurodyti trečiojo (-ųjų) asmens (-ų) tapatybę.",
     "mandate": [],
-    "occasional": [],
+    "occasional": [
+      [
+        "DALYVAUJU                   POKERIO                                                30000 TURNYRUOSE",
+        5
+      ]
+    ],
     "mep_id": 124763,
     "membership": [
       [
@@ -19409,17 +19734,17 @@
       ],
       [
         "ICO projektai                                                                       200000",
-        "200000 EUR"
+        5
       ]
     ],
-    "date": "03/04/2018",
+    "date": "19/09/2018",
     "occupation": [
       [
-        "1. UAB „TR Holding“ -  akcininkas",
+        "UAB „TR Holding“ - akcininkas",
         0
       ],
       [
-        "2. UAB „Anupriškių parkas“ -  akcininkas",
+        "UAB „Anupriškių parkas“ -  akcininkas",
         0
       ],
       [
@@ -20150,7 +20475,10 @@
         3
       ]
     ],
-    "events": []
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/124723_TRAV_LEG8_1002220_EN.pdf",
+      "/mepdat/attach/124723_42829169-0ca7-4d98-9df1-54782630d15b_1.pdf"
+    ]
   },
   {
     "additional": "A.1. 22.6.2011 - 17.10.2013\nA.3. maaliskuu 2014 -\nHeidi Hautala Consulting (ei aktiivinen)",
@@ -20893,6 +21221,10 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/1985_TRAV_LEG8_1002292_FR.pdf",
+      "/mepdat/attach/1985_084b3d67-ca2f-4764-8688-452d61d3aa8b_1.pdf",
+      "http://www.europarl.europa.eu/mepdat/1985_TRAV_LEG8_1002237_FR.pdf",
+      "/mepdat/attach/1985_6790af4e-ffc4-4642-90ab-210476c72e4d_1.pdf",
       "http://www.europarl.europa.eu/mepdat/1985_TRAV_LEG8_1001889_FR.pdf",
       "/mepdat/attach/1985_a1d36972-c0e9-44da-acf3-a3c94c9563ee_1.pdf",
       "http://www.europarl.europa.eu/mepdat/1985_TRAV_LEG8_1001157_FR.pdf",
@@ -21034,25 +21366,29 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/96677_DFI_LEG8_rev2_EN.pdf",
-    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
+    "url": "http://www.europarl.europa.eu/mepdif/96677_DFI_LEG8_rev3_SV.pdf",
+    "support": "1. ekonomiskt bidrag:\n(*)    från\n2. i form av personal:\n(*)    från\n3. i form av materiel:\n(*)    från\n(*) Berörd tredje mans eller tredje parts identitet.",
     "mandate": [],
     "occasional": [],
     "mep_id": 96677,
     "membership": [
       [
-        "Board member in Beijer Alma since  2018-03-22",
+        "Styrelseledamot Beijer Alma AB  (sedan 2018-03-22)",
         3
+      ],
+      [
+        "Styrelseledamot Elekta AB (sedan  2018-08-30)",
+        4
       ]
     ],
-    "other": "Financial interest:\n1.\n2.\n3.",
+    "other": "Ekonomiska intressen:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "19/04/2018",
+    "date": "03/09/2018",
     "occupation": [
       [
-        "No occupation held during the  three years preceding the curr mandate",
-        0
+        "Europaparlamentariker",
+        4
       ]
     ],
     "events": []
@@ -21639,8 +21975,8 @@
     "events": []
   },
   {
-    "additional": "2016 December bottle of wine from Indian Embassy (consumed by staff)\n2017 January Google Cardboard Given by Google\n2017 January Framed Lace Doily given by Croatian Artisans\n2017 February Bottle of Olive Oil given by Georgian Parliamentarians (used on Staff Salads)\n2017 February Bottle of Vodka from Russian Embassy (Probably consumed by Staff)\n2017 June Picture of Palm Tree and Book given by Malaysian Minister Datuk Seri Mah Siew Keong,\nMinister of Plantation, Industries and Commodities\n2017 June Prickly Pear Liquor given by Maltese Government (Consumed by staff on vanilla ice cream)\n2017 August Model Boat given by a Kashmir delegation (Lovingly placed in my Office)\n2017 August Chocolates given by the Indian Embassy (Consumed by Staff)\n2018 March Wine given by Indian Embassy (Consumed by staff)\n2018 March Wine given by Bulgarians (Consumed by staff)\n2018 March Compass, Plaque and Model Building given by UAE",
-    "url": "http://www.europarl.europa.eu/mepdif/33569_DFI_LEG8_rev3_EN.pdf",
+    "additional": "2016 December Bottle of wine from Indian Embassy (consumed by staff)\n2017 January Google Cardboard given by Google\n2017 January Framed Lace Doily given by Croatian Artisans\n2017 February Bottle of Olive Oil given by Georgian Parliamentarians (used on Staff Salads)\n2017 February Bottle of Vodka from Russian Embassy (soon to be consumed by Staff)\n2017 February Various gifts for my 50th birthday including a yoga mat given by Gunnar Hokmark MEP,\nAmazon Echo given by Chris Heaton-Harris MP (probably to eavesdrop on me), electric bass given by\nAlexander Temerko and books and gift vouchers given by other guests\n2017 June Picture of Palm Tree and Book given by Malaysian Minister Datuk Seri Mah Siew Keong,\nMinister of Plantation, Industries and Commodities\n2017 June Prickly Pear Liquor given by Maltese Government (thoroughly enjoyed by staff on vanilla\nice cream)\n2017 August Model Boat given by a Kashmir delegation (lovingly placed in my Office)\n2017 August Chocolates given by the Indian Embassy (consumed by Staff)\n2018 March Wine given by Indian Embassy\n2018 March Wine given by Bulgarians\n2018 March Compass, Plaque and Model Building given by UAE\n2018 May 4kg of dates given by the Saudi Embassy",
+    "url": "http://www.europarl.europa.eu/mepdif/33569_DFI_LEG8_rev4_EN.pdf",
     "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
     "occasional": [],
@@ -21667,7 +22003,7 @@
         0
       ],
       [
-        "Member of Board of Advisors  of Istanbul Network for Liberty (unremunerated)",
+        "Member of Board of Advisors  of Islam & Liberty Network (unremunerated)",
         0
       ],
       [
@@ -21678,7 +22014,7 @@
     "other": "Financial interest:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "03/04/2018",
+    "date": "04/09/2018",
     "occupation": [
       [
         "MEP from 2005 till present",
@@ -21730,6 +22066,7 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/4533_TRAV_LEG8_1002282_EN.pdf",
       "http://www.europarl.europa.eu/mepdat/4533_TRAV_LEG8_1000069_EN.pdf",
       "/mepdat/attach/4533_7e9b0f79-2234-49f0-95d0-5e80fec34a91_1.pdf",
       "http://www.europarl.europa.eu/ep-dat/4533_13-10-2016.pdf",
@@ -21950,7 +22287,7 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/96957_DFI_LEG8_rev1_EN.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/96957_DFI_LEG8_rev2_EN.pdf",
     "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:              Car Parking permit and use of lounge\n(*)    granted by                            Bristol Airport\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
     "occasional": [],
@@ -21975,12 +22312,16 @@
       [
         "Leadership Nomination Committee  of the Royal Institution of Charter Surveyors",
         1
+      ],
+      [
+        "Director of Ashley Fox Consulting  Ltd",
+        0
       ]
     ],
     "other": "Financial interest:\n1.\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "20/06/2017",
+    "date": "18/10/2018",
     "occupation": [
       [
         "MEP",
@@ -21988,6 +22329,7 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/96957_TRAV_LEG8_1002303_EN.pdf",
       "http://www.europarl.europa.eu/mepdat/96957_TRAV_LEG8_1001937_EN.pdf",
       "http://www.europarl.europa.eu/mepdat/96957_TRAV_LEG8_1000406_EN.pdf",
       "/mepdat/attach/96957_02d34801-865e-49dc-a5cd-9f312a85c504_1.pdf"
@@ -22325,40 +22667,6 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124853_DFI_LEG8_rev1_IT.pdf",
-    "support": "1. in denaro:\n(*)     conferito/i: da\n2. in personale:\n(*)     conferito/i: da\n3. in materiale:\n(*)     conferito/i: da\n(*) Identità dei terzi in questione.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 124853,
-    "membership": [
-      [
-        "Dottore commercialista, associazione  professionale (dato determinato sulla base della previsione dell'importo del reddito del 2017)",
-        4
-      ]
-    ],
-    "other": "Interessi finanziari:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [
-      [
-        "Dottore commercialista (dato determinato  sulla base della media del biennio 2015/2016",
-        4
-      ]
-    ],
-    "date": "14/07/2017",
-    "occupation": [
-      [
-        "Parlamentare Regione Sicilia                                                                               10000",
-        5
-      ],
-      [
-        "Dottore      commercialista  associato Ass. Prof.Le",
-        4
-      ]
-    ],
-    "events": []
-  },
-  {
-    "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/118858_DFI_LEG8_rev3_EN.pdf",
     "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
@@ -22392,7 +22700,7 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/125001_DFI_LEG8_rev3_DE.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/125001_DFI_LEG8_rev4_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:                      Finanzielle, materielle und personelle Unterstützung: ich\nverweise auf meine Rolle als FPÖ-Generalsekretär. Sonst\nkeinerlei Zuwendungen\n(*)    bereitgestellt von                 FPÖ\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
     "mandate": [],
     "occasional": [],
@@ -22400,13 +22708,13 @@
     "membership": [
       [
         "FPÖ - Generalsekretär",
-        3
+        4
       ]
     ],
     "other": "Finanzielle Interessen:\n1.\n4/6                                             DE\n2.\n3.",
     "holding": [],
     "activity": [],
-    "date": "15/09/2017",
+    "date": "16/07/2018",
     "occupation": [
       [
         "FPÖ - Generalsekretär",
@@ -22648,26 +22956,16 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/24505_DFI_LEG8_rev1_FR.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/24505_DFI_LEG8_rev2_FR.pdf",
     "support": "1. financier:\n(*)    alloué par\n2. en personnel:\n(*)    alloué par\n3. en matériel:\n(*)    alloué par\n(*) Indiquer l'identité du tiers ou des tiers concernés.",
-    "mandate": [
-      [
-        "Vice-président du Conseil régional",
-        "2700 EUR"
-      ]
-    ],
+    "mandate": [],
     "occasional": [],
     "mep_id": 24505,
     "membership": [],
     "other": "Intérêt financier:\n1.\n2.\n4/6                                           FR\n3.",
     "holding": [],
-    "activity": [
-      [
-        "Enseignant vacataire",
-        1
-      ]
-    ],
-    "date": "04/07/2017",
+    "activity": [],
+    "date": "06/07/2018",
     "occupation": [
       [
         "Vice-président du            Conseil  régional Île-de-France",
@@ -22944,50 +23242,39 @@
     "events": []
   },
   {
-    "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/125061_DFI_rev0_EL.pdf",
-    "support": "1. οικονομική υποστήριξη:\n(*)   που χορηγήθηκε από\n2.    υποστήριξη            σε\nπροσωπικό:\n(*)   που χορηγήθηκε από\n3. υποστήριξη σε υλικούς\nπόρους:\n(*)   που χορηγήθηκε από\n(*) Ταυτότητα του(των) εμπλεκομένου(ων) τρίτου(ων).",
+    "additional": "On 3.6.2014 I submitted to the competent authority of the European Parliament a statement of income,\nthrough which I declared my income prior of my election as a MEP on May 2014. On 13.7.2017 I\nsubmitted a revised statement of income concerning the period after the beginning of my term. In this\nstatement I have declared income from “legal services” (category 3 of 1,001 – 5,000 EUR per month)\nand “writing activity” (also category 3 of 1,001 – 5,000 EUR per month).\nIn view of this, I would like to clarify that my declaration of 13.7.2017 had the meaning that my total\nmonthly income from «legal services» and from «writing activity» is between 1.000 and 5.000 EUR.\nThis is because my «writing activity» consists of intellectual rights from my publications as Professor\nof Law, which is a form of «legal services» itself. As a result, the aforementioned activities reflect the\nsame source of income and should not be regarded as separate sources of income.\nTo sum up, my income statement on 13.7.2017 refers to a total monthly income of the two\naforementioned activities. This is evidenced also by the tax declarations (from 2014 to 2017) that I have\nsubmitted to the competent tax authorities in Greece, where the income sources originating from legal\nservices and my writing activity are declared as a total amount and not separately.\nTo be more specific: According to my tax declarations between 2014-2017 the amount of my annual net\nincome originating from my activities from legal services and as author on legal issues is the following:\nfinancial year 2014: 12.865,00 €\nfinancial year 2015: 17.638,27 €\nfinancial year 2016: 19.772,49 €\nfinancial year 2017: 9.497,28 €",
+    "url": "http://www.europarl.europa.eu/mepdif/125061_DFI_LEG8_rev2_EN.pdf",
+    "support": "1. financial:\n(*)    granted by\n2. in terms of staff:\n(*)    granted by\n3. in terms of material:\n(*)    granted by\n(*) Identity of the third party or parties concerned.",
     "mandate": [],
     "occasional": [
       [
-        "Δικηγόρος",
+        "WRITING ACTIVITY",
         3
-      ],
-      [
-        "Συγγραφέας",
-        2
       ]
     ],
     "mep_id": 125061,
     "membership": [],
-    "other": "Οικονομικό συμφέρον:\n1.\n5/7                                  EL\n2.\n3.",
+    "other": "Financial interest:\n1.\n2.\n3.",
     "holding": [],
-    "activity": [],
-    "date": "03/06/2014",
+    "activity": [
+      [
+        "LEGAL SERVICES",
+        3
+      ]
+    ],
+    "date": "20/07/2018",
     "occupation": [
       [
-        "Δικηγόρος",
+        "WRITING ACTIVITY",
         3
       ],
       [
-        "Συγγραφέας",
-        2
+        "LEGAL SERVICES",
+        4
       ],
       [
-        "Καθηγητής Πανεπιστημίου",
-        2
-      ],
-      [
-        "Συμμετοχή στο Δ.Σ. του Ιδρύματος Θεμιστοκλή και Δημήτρη Τσάτσου (άμισθη συμμετοχή)",
-        -1
-      ],
-      [
-        "Συμμετοχή στο Δ.Σ. του Ιδρύματος Καλλιόπης Κούφα (άμισθη συμμετοχή)",
-        -1
-      ],
-      [
-        "Συμμετοχή στο Δ.Σ. του Ευρωπαϊκού Κέντρου Δημοσίου Δικαίου (άμισθη συμμετοχή)",
-        -1
+        "EMPLOYED ACTIVITY",
+        3
       ]
     ],
     "events": []
@@ -23570,6 +23857,8 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/97019_TRAV_LEG8_1002260_EN.pdf",
+      "/mepdat/attach/97019_efd35510-bfda-4bea-b61a-67f35432cf08_1.pdf",
       "http://www.europarl.europa.eu/ep-dat/97019_04-04-2016.pdf",
       "http://www.europarl.europa.eu/ep-dat/97019_11-09-2015.pdf",
       "http://www.europarl.europa.eu/ep-dat/97019_02-10-2014.pdf"
@@ -23703,46 +23992,25 @@
     "events": []
   },
   {
-    "additional": "Zugelassener Rechtsanwalt in der Rechtsanwaltskammer Oldenburg",
-    "url": "http://www.europarl.europa.eu/mepdif/185619_DFI_LEG8_rev2_DE.pdf",
-    "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/189490_DFI_LEG8_rev0_RO.pdf",
+    "support": "1. susținere financiară:\n(*)     acordată de\n2. susținere sub formă de\npersonal:\n(*)     acordată de\n3. susținere sub formă de\nmateriale:\n(*)     acordată de\n(*) Identitatea terților părți în cauză.",
     "mandate": [],
     "occasional": [],
-    "mep_id": 185619,
-    "membership": [
-      [
-        "Sozialdemokratische        Partei  Deutschlands     -    Stellvertretender Unterbezirksvorsitzender Osnabruck- Stadt",
-        0
-      ],
-      [
-        "Sozialdemokratische        Partei  Deutschlands - Ortsvereinsvorsitzender OV AWI",
-        0
-      ],
-      [
-        "Sozialdemokratische      Partei  Deutschlands     -    Beisitzer    im Bezirksvorstand Weser-Ems",
-        0
-      ],
-      [
-        "Vorsitzender Europa-Union e.V. Stadt  und Landkreis Osnabrück",
-        0
-      ]
-    ],
-    "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
+    "mep_id": 189490,
+    "membership": [],
+    "other": "Interese financiare:\n1.\n2.\n4/6                                            RO\n3.",
     "holding": [],
     "activity": [],
-    "date": "25/09/2017",
+    "date": "09/10/2017",
     "occupation": [
       [
-        "Rechtsreferendar          Land  Niedersachsen",
-        3
+        "MEMBRU CA SC IAR SA  BRASOV",
+        1
       ],
       [
-        "Wissenschaftliche Hilfskraft Uni  Speyer",
-        2
-      ],
-      [
-        "Wissenschaftlicher Mitarbeiter  Uni Speyer",
-        3
+        "CONSILIER    LOCAL  MUNICIPIUL BRASOV",
+        1
       ]
     ],
     "events": []
@@ -23883,17 +24151,12 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124754_DFI_LEG8_rev2_HR.pdf",
+    "url": "http://www.europarl.europa.eu/mepdif/124754_DFI_LEG8_rev3_HR.pdf",
     "support": "1. financijska sredstva:\n(*)    dodijelio\n2. sredstva u osoblju:\n(*)    dodijelio\n3. sredstva u stvarima:\n(*)    dodijelio\n(*) Identitet dotične treće osobe ili trećih osoba.",
     "mandate": [],
     "occasional": [],
     "mep_id": 124754,
-    "membership": [
-      [
-        "Član board-a Afarak Group",
-        3
-      ]
-    ],
+    "membership": [],
     "other": "Financijski interes:\n1.\n2.\n3.",
     "holding": [
       [
@@ -23902,7 +24165,7 @@
       ]
     ],
     "activity": [],
-    "date": "19/09/2017",
+    "date": "04/09/2018",
     "occupation": [
       [
         "Župan Istarske županije (2011)",
@@ -23972,22 +24235,17 @@
     "events": []
   },
   {
-    "additional": "Mitglied im wissenschaftlichen Beirat der AOK Bayern (vorübergehend).\nPro Sitzung erhalte ich eine Aufwandsentschädigung von 185,- €.",
-    "url": "http://www.europarl.europa.eu/mepdif/96842_DFI_LEG8_rev1_DE.pdf",
+    "additional": "",
+    "url": "http://www.europarl.europa.eu/mepdif/96842_DFI_LEG8_rev2_DE.pdf",
     "support": "1. finanziell:\n(*)    bereitgestellt von\n2. personell:\n(*)    bereitgestellt von\n3. materiell:\n(*)    bereitgestellt von\n(*) Identität dieses/dieser Dritten.",
-    "mandate": [
-      [
-        "Mitglied      des       Stadtrats Amberg      (durchschnittliche     mtl. Aufwandsentschädigung)",
-        "240 EUR"
-      ]
-    ],
+    "mandate": [],
     "occasional": [],
     "mep_id": 96842,
     "membership": [],
     "other": "Finanzielle Interessen:\n1.\n2.\n4/6                                          DE\n3.",
     "holding": [],
     "activity": [],
-    "date": "14/06/2017",
+    "date": "01/08/2018",
     "occupation": [
       [
         "Mitglied     des    Europäischen  Parlaments",
@@ -24623,38 +24881,6 @@
   },
   {
     "additional": "",
-    "url": "http://www.europarl.europa.eu/mepdif/124990_DFI_LEG8_rev1_SV.pdf",
-    "support": "1. ekonomiskt bidrag:\n(*)    från\n2. i form av personal:\n(*)    från\n3. i form av materiel:\n(*)    från\n(*) Berörd tredje mans eller tredje parts identitet.",
-    "mandate": [],
-    "occasional": [],
-    "mep_id": 124990,
-    "membership": [
-      [
-        "Ordf. Vänskapsförbundet Sverige-  Israel",
-        0
-      ]
-    ],
-    "other": "Ekonomiska intressen:\n1.\n2.\n3.",
-    "holding": [],
-    "activity": [],
-    "date": "12/07/2017",
-    "occupation": [
-      [
-        "Kreab Gavin Anderson                                                                                10000 Communications, Public Affairs",
-        5
-      ],
-      [
-        "Adaktusson Media AB (own                                                                            10000 business)",
-        5
-      ]
-    ],
-    "events": [
-      "http://www.europarl.europa.eu/mepdat/124990_TRAV_LEG8_1002018_EN.pdf",
-      "/mepdat/attach/124990_63c45f23-8aef-43c3-b74b-3527bb328d11_1.pdf"
-    ]
-  },
-  {
-    "additional": "",
     "url": "http://www.europarl.europa.eu/mepdif/124787_DFI_LEG8_rev1_IT.pdf",
     "support": "1. in denaro:\n(*)     conferito/i: da\n2. in personale:\n(*)     conferito/i: da\n3. in materiale:\n(*)     conferito/i: da\n(*) Identità dei terzi in questione.",
     "mandate": [],
@@ -25086,6 +25312,8 @@
       ]
     ],
     "events": [
+      "http://www.europarl.europa.eu/mepdat/125997_TRAV_LEG8_1002235_ES.pdf",
+      "/mepdat/attach/125997_4b22ed0b-feb5-4ef2-9f82-2b14a048d2ef_1.pdf",
       "http://www.europarl.europa.eu/mepdat/125997_TRAV_LEG8_1000680_ES.pdf",
       "http://www.europarl.europa.eu/ep-dat/125997_09-07-2016.pdf"
     ]
@@ -25212,7 +25440,10 @@
         0
       ]
     ],
-    "events": []
+    "events": [
+      "http://www.europarl.europa.eu/mepdat/38420_TRAV_LEG8_1002224_EN.pdf",
+      "http://www.europarl.europa.eu/mepdat/38420_TRAV_LEG8_1002223_EN.pdf"
+    ]
   },
   {
     "additional": "",
